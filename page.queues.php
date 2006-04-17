@@ -183,14 +183,27 @@ if ($action == 'delete') {
 				echo '<option value="None">'._("None").'</option>';
 				if (isset($tresults[0])) {
 					foreach ($tresults as $tresult) {
-						echo '<option value="'.$tresult[0].'"'.($tresult[0] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
+						echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
 					}
 				}
 			?>		
 			</select>		
 		</td>
 	</tr>
-<?php } if(function_exists('music_list')) { //only include if music module is enabled?>
+
+<?php } else { ?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Agent Announcement:")?><span><?php echo _("Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+		<td>
+			<?php
+				$default = (isset($agentannounce) ? $agentannounce : '');
+			?>
+			<input type="hidden" name="agentannounce" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : 'None'); ?>
+		</td>
+	</tr>
+<?php } ?>
+
+<?php if(function_exists('music_list')) { //only include if music module is enabled?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Hold Music Category:")?><span><?php echo _("Music (or Commercial) played to the caller while they wait in line for an available agent.<br><br>  This music is defined in the \"On Hold Music\" Menu to the left.")?></span></a></td>
 		<td>
@@ -425,15 +438,24 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 				echo '<option value="None">'._("None");
 				if (isset($tresults[0])) {
 					foreach ($tresults as $tresult) {
-						echo '<option value="'.$tresult[0].'" '.($tresult[0] == $default ? 'SELECTED' : '').'>'.$tresult[1]."</option>\n";;
+						echo '<option value="'.$tresult[2].'" '.($tresult[2] == $default ? 'SELECTED' : '').'>'.$tresult[1]."</option>\n";;
 					}
 				}
 			?>		
 			</select>		
 		</td>
 	</tr>
+<?php } else { ?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Join Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+		<td>
+			<?php
+				$default = (isset($joinannounce) ? $joinannounce : '');
+			?>
+			<input type="hidden" name="joinannounce" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : 'None'); ?>
+		</td>
+	</tr>
 <?php } ?>
-
 	<tr><td colspan="2"><br><h5><?php echo _("Fail Over Destination")?><hr></h5></td></tr>
 
 	<?php 

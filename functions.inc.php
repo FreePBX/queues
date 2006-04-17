@@ -37,15 +37,12 @@ function queues_get_config($engine) {
 					$ext->add('ext-queues', $exten, '', new ext_answer(''));
 					$ext->add('ext-queues', $exten, '', new ext_setcidname($q['prefix'].'${CALLERIDNAME}'));
 					$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_FILENAME','/var/spool/asterisk/monitor/q${EXTEN}-${TIMESTAMP}-${UNIQUEID}'));
-					if(function_exists('recordings_list') && isset($q['joinannounce']) && $q['joinannounce'] != "") {
-						$filename = recordings_get($q['joinannounce']);
-						$ext->add('ext-queues', $exten, '', new ext_playback($filename['filename']));
-					} else {
-						$filename['filename'] = null;
+					$joinannounce = (isset($q['joinannounce'])?$q['joinannounce']:'');
+					if($joinannounce != "") {
+						$ext->add('ext-queues', $exten, '', new ext_playback($joinannounce));
 					}
-					if(function_exists('recordings_list'))
-						$filename = recordings_get($q['agentannounce']);
-					$ext->add('ext-queues', $exten, '', new ext_queue($exten,'t','',$filename['filename'],$q['maxwait']));
+					$agentannounce = (isset($q['agentannounce'])?$q['agentannounce']:'');
+					$ext->add('ext-queues', $exten, '', new ext_queue($exten,'t','',$agentannounce,$q['maxwait']));
 	
 					// destination field in 'incoming' database is backwards from what ext_goto expects
 					$goto_context = strtok($q['goto'],',');
@@ -128,9 +125,9 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		$qthanku = 'queue-thankyou';
 		$context = '';
 	} else {
-		$arr = ivr_get_details($_REQUEST['announcemenu']);
-		if(function_exists('recordings_list')) {
-			$rec = recordings_get($arr['announcement']);
+		$arr = (ivr_get_details($_REQUEST['announcemenu']));
+		if( (isset($arr['announcement'])?$arr['announcement']:'') != '' ) {
+			$rec = $arr['announcement'];
 			$qthanku = $rec['filename'];
 		} else {
 			$rec = null;
