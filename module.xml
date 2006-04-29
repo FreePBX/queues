@@ -8,6 +8,6 @@
 		<queues>Queues</queues>
 	</menuitems>
 	<location>release/queues-1.0.1.tgz</location>
-	<info>http://freepbx.org/wiki/Queues</info>
+	<info>http://aussievoip.com.au/wiki/freePBX-Queues</info>
 	<md5sum>cc1ac931d85128ab9424cf580c2980a1</md5sum>
 </module>
