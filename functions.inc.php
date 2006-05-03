@@ -126,12 +126,10 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		$context = '';
 	} else {
 		$arr = (ivr_get_details($_REQUEST['announcemenu']));
-		if( (isset($arr['announcement'])?$arr['announcement']:'') != '' ) {
-			$rec = $arr['announcement'];
-			$qthanku = $rec['filename'];
+		if( isset($arr['announcement']) && !empty($arr['announcement']) ) {
+			$qthanku = $arr['announcement'];
 		} else {
-			$rec = null;
-			$qthanku = null;
+			$qthanku = '';
 		}
 		$context = "ivr-".$_REQUEST['announcemenu'];
 	}
