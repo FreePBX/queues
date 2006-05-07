@@ -35,7 +35,9 @@ function queues_get_config($engine) {
 					$q = queues_get($exten);
 					
 					$ext->add('ext-queues', $exten, '', new ext_answer(''));
-					$ext->add('ext-queues', $exten, '', new ext_setcidname($q['prefix'].'${CALLERIDNAME}'));
+					$ext->add('ext-queues', $exten, '', new ext_gotoif('$["${CONTEXT}"="from-internal"]','USERCID','SETCID'));
+					$ext->add('ext-queues', $exten, 'USERCID', new ext_macro('user-callerid'));
+					$ext->add('ext-queues', $exten, 'SETCID', new ext_setcidname($q['prefix'].'${CALLERIDNAME}'));
 					$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_FILENAME','/var/spool/asterisk/monitor/q${EXTEN}-${TIMESTAMP}-${UNIQUEID}'));
 					$joinannounce = (isset($q['joinannounce'])?$q['joinannounce']:'');
 					if($joinannounce != "") {
