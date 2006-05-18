@@ -129,7 +129,7 @@ if ($action == 'delete') {
 				</form>";
 ?>
 
-<?php if ($extdisplay) { ?>
+<?php if ($extdisplay != '') { ?>
 	<h2><?php echo _("Queue:")." ". $extdisplay; ?></h2>
 <?php } else { ?>
 	<h2><?php echo _("Add Queue"); ?></h2>
