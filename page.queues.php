@@ -41,8 +41,17 @@ if (isset($_REQUEST["members"])) {
 		//trim it
 		$members[$key] = trim($members[$key]);
 
-		// remove invalid chars
-		$members[$key] = preg_replace("/[^0-9#\,*]/", "", $members[$key]);
+		// check if an agent (starts with a or A)
+
+		if (strtoupper(substr($members[$key],0,1)) == "A") {
+			// remove invalid chars
+			$members[$key] = "A".preg_replace("/[^0-9#\,*]/", "", $members[$key]);
+			$agent = 1;
+		} else {
+			// remove invalid chars
+			$members[$key] = preg_replace("/[^0-9#\,*]/", "", $members[$key]);
+			$agent = 0;
+		}
 
 		$penalty_pos = strrpos($members[$key], ",");
 		if ( $penalty_pos === false ) {
@@ -58,8 +67,11 @@ if (isset($_REQUEST["members"])) {
 		// remove blanks // prefix with the channel
 		if (empty($members[$key]))  
 			unset($members[$key]);
-		else
+		elseif ($agent) {
+			$members[$key] = "Agent/".ltrim($members[$key],"aA").",".$penalty_val;
+		} else {
 			$members[$key] = "Local/".$members[$key]."@from-internal,".$penalty_val;
+		}
 	}
 	
 	// check for duplicates, and re-sequence
@@ -164,9 +176,9 @@ if ($action == 'delete') {
 		<td><input size="4" type="text" name="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>"></td>
 	</tr>
 	<tr>
-		<td valign="top"><a href="#" class="info"><?php echo _("static agents") ?>:<span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers)") ?><br><br></span></a></td>
+		<td valign="top"><a href="#" class="info"><?php echo _("static agents") ?>:<span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers).<br><br>You can also list agents defined in agents.conf by preceding the agent number with A, so agent 4002 would be listed as A4002.<br><br>In all cases, you can put a \",\" after the agent followed by a penalty value.") ?><br><br></span></a></td>
 		<td valign="top">&nbsp;
-			<textarea id="members" cols="15" rows="<?php  $rows = count($member)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members"><?php foreach ($member as $mem) { $mem = rtrim(ltrim(strstr($mem,"/"),"/"),"@from-internal");echo substr($mem,0,strpos($mem, "@")).substr($mem,strrpos($mem, ","))."\n"; }?></textarea><br>
+			<textarea id="members" cols="15" rows="<?php  $rows = count($member)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members"><?php foreach ($member as $mem) { $premem = ""; if (substr($mem,0,5) == "Agent") {$premem = "A";}; $mem = $premem.rtrim(ltrim(strstr($mem,"/"),"/"),"@from-internal");echo substr($mem,0,(strpos($mem,"@")!==false?strpos($mem,"@"):strpos($mem,","))).substr($mem,strrpos($mem, ","))."\n"; }?></textarea><br>
 			<input type="submit" style="font-size:10px;" value="<?php echo _("Clean & Remove duplicates") ?>" />
 		</td>
 	</tr>
