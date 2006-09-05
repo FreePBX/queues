@@ -139,34 +139,36 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 	
 	// now add to queues table
 	$fields = array(
-		array($account,'account',$account),
-		array($account,'maxlen',($_REQUEST['maxlen'])?$_REQUEST['maxlen']:'0'),
-		array($account,'joinempty',($_REQUEST['joinempty'])?$_REQUEST['joinempty']:'yes'),
-		array($account,'leavewhenempty',($_REQUEST['leavewhenempty'])?$_REQUEST['leavewhenempty']:'no'),
-		array($account,'strategy',($_REQUEST['strategy'])?$_REQUEST['strategy']:'ringall'),
-		array($account,'timeout',($_REQUEST['timeout'])?$_REQUEST['timeout']:'15'),
-		array($account,'retry',($_REQUEST['retry'])?$_REQUEST['retry']:'5'),
-		array($account,'wrapuptime',($_REQUEST['wrapuptime'])?$_REQUEST['wrapuptime']:'0'),
+		array($account,'account',$account,0),
+		array($account,'maxlen',($_REQUEST['maxlen'])?$_REQUEST['maxlen']:'0',0),
+		array($account,'joinempty',($_REQUEST['joinempty'])?$_REQUEST['joinempty']:'yes',0),
+		array($account,'leavewhenempty',($_REQUEST['leavewhenempty'])?$_REQUEST['leavewhenempty']:'no',0),
+		array($account,'strategy',($_REQUEST['strategy'])?$_REQUEST['strategy']:'ringall',0),
+		array($account,'timeout',($_REQUEST['timeout'])?$_REQUEST['timeout']:'15',0),
+		array($account,'retry',($_REQUEST['retry'])?$_REQUEST['retry']:'5',0),
+		array($account,'wrapuptime',($_REQUEST['wrapuptime'])?$_REQUEST['wrapuptime']:'0',0),
 		//array($account,'agentannounce',($_REQUEST['agentannounce'])?$_REQUEST['agentannounce']:'None'),
-		array($account,'announce-frequency',($_REQUEST['announcefreq'])?$_REQUEST['announcefreq']:'0'),
-		array($account,'announce-holdtime',($_REQUEST['announceholdtime'])?$_REQUEST['announceholdtime']:'no'),
-		array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'':'queue-youarenext'),  //if no, play no sound
-		array($account,'queue-thereare',($_REQUEST['announceposition']=='no')?'':'queue-thereare'),  //if no, play no sound
-		array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'':'queue-callswaiting'),  //if no, play no sound
-		array($account,'queue-thankyou',$qthanku),
-		array($account,'context',$context), 
-		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:''),
-		array($account,'monitor-join','yes'),
-		array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default'));
+		array($account,'announce-frequency',($_REQUEST['announcefreq'])?$_REQUEST['announcefreq']:'0',0),
+		array($account,'announce-holdtime',($_REQUEST['announceholdtime'])?$_REQUEST['announceholdtime']:'no',0),
+		array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'':'queue-youarenext',0),  //if no, play no sound
+		array($account,'queue-thereare',($_REQUEST['announceposition']=='no')?'':'queue-thereare',0),  //if no, play no sound
+		array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'':'queue-callswaiting',0),  //if no, play no sound
+		array($account,'queue-thankyou',$qthanku,0),
+		array($account,'context',$context,0), 
+		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
+		array($account,'monitor-join','yes',0),
+		array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0));
 
 	//there can be multiple members
 	if (isset($members)) {
+		$count = 0;
 		foreach ($members as $member) {
-			$fields[] = array($account,'member',$member);
+			$fields[] = array($account,'member',$member,$count);
+			$count++;
 		}
 	}
 
-    $compiled = $db->prepare('INSERT INTO queues (id, keyword, data) values (?,?,?)');
+    $compiled = $db->prepare('INSERT INTO queues (id, keyword, data, flags) values (?,?,?,?)');
 	$result = $db->executeMultiple($compiled,$fields);
     if(DB::IsError($result)) {
         die($result->getMessage()."<br><br>error adding to queues table");	
@@ -222,7 +224,7 @@ function queues_get($account) {
 	$results = $db->getAssoc($sql);
 
 	//okay, but there can be multiple member variables ... do another select for them
-	$sql = "SELECT data FROM queues WHERE id = '$account' AND keyword = 'member'";
+	$sql = "SELECT data FROM queues WHERE id = '$account' AND keyword = 'member' order by flags";
 	$results['member'] = $db->getCol($sql);
 	
 	//queues.php looks for 'announcemenu', which is the same a context

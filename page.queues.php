@@ -75,7 +75,7 @@ if (isset($_REQUEST["members"])) {
 	}
 	
 	// check for duplicates, and re-sequence
-	$members = array_values(array_unique($members));
+	// $members = array_values(array_unique($members));
 }
 
 // do if we are submitting a form
