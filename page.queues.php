@@ -236,6 +236,12 @@ if ($action == 'delete') {
 	</tr>
 <?php } ?>
 	<tr>
+		<td><a href="#" class="info"><?php echo _("Ringing tone instead of MOH:")?><span><?php echo _("Enabling this option make callers hear a ringing tone instead of Music on Hold.<br/>If this option is enabled, settings of the previous drop down are ignored.")?></span></a></td>
+		<td>
+			<input name="rtone" type="checkbox" value="1" <?php echo (isset($rtone) && $rtone == 1 ? 'checked' : ''); ?> />
+		</td>
+	</tr>
+	<tr>
 		<td><a href="#" class="info"><?php echo _("max wait time:")?><span><?php echo _("The maximum number of seconds a caller can wait in a queue before being pulled out.  (0 for unlimited).")?></span></a></td>
 		<td>
 			<select name="maxwait"/>

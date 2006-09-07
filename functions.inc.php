@@ -43,8 +43,11 @@ function queues_get_config($engine) {
 					if($joinannounce != "") {
 						$ext->add('ext-queues', $exten, '', new ext_playback($joinannounce));
 					}
+					$options = 't';
+					if ($q['rtone'] == 1)
+						$options .= 'r';
 					$agentannounce = (isset($q['agentannounce'])?$q['agentannounce']:'');
-					$ext->add('ext-queues', $exten, '', new ext_queue($exten,'t','',$agentannounce,$q['maxwait']));
+					$ext->add('ext-queues', $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
 	
 					// destination field in 'incoming' database is backwards from what ext_goto expects
 					$goto_context = strtok($q['goto'],',');
@@ -157,7 +160,10 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		array($account,'context',$context,0), 
 		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
 		array($account,'monitor-join','yes',0),
-		array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0));
+		array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0),
+		array($account,'rtone',($_REQUEST['rtone'])?$_REQUEST['rtone']:0),0);
+
+
 
 	//there can be multiple members
 	if (isset($members)) {
