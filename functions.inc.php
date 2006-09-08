@@ -161,7 +161,7 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
 		array($account,'monitor-join','yes',0),
 		array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0),
-		array($account,'rtone',($_REQUEST['rtone'])?$_REQUEST['rtone']:0),0);
+		array($account,'rtone',($_REQUEST['rtone'])?$_REQUEST['rtone']:0,0));
 
 
 
