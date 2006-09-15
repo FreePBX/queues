@@ -223,7 +223,6 @@ if ($action == 'delete') {
 			<?php
 				$tresults = music_list("/var/lib/asterisk/mohmp3");
 				$default = (isset($music) ? $music : 'default');
-				echo '<option value="default">'._("Default");
 				if (isset($tresults)) {
 					foreach ($tresults as $tresult) {
 						$searchvalue="$tresult";	
