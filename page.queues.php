@@ -70,7 +70,7 @@ if (isset($_REQUEST["members"])) {
 		elseif ($agent) {
 			$members[$key] = "Agent/".ltrim($members[$key],"aA").",".$penalty_val;
 		} else {
-			$members[$key] = "Local/".$members[$key]."@from-internal,".$penalty_val;
+			$members[$key] = "Local/".$members[$key]."@from-internal/n,".$penalty_val;
 		}
 	}
 	
