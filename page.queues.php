@@ -375,6 +375,34 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("event when called:")?><span><?php echo _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete.")?></span></a></td>
+		<td>
+			<select name="eventwhencalled"/>
+			<?php
+				$default = (isset($eventwhencalled) ? $eventwhencalled : 'no');
+				$items = array('yes'=>_("Yes"),'no'=>_("No"));
+				foreach ($items as $item=>$val) {
+					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
+				}
+			?>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("member status off:")?><span><?php echo _("When if this is option is set to NO, the following manager event will be generated: QueueMemberStatus")?></span></a></td>
+		<td>
+			<select name="eventmemberstatusoff"/>
+			<?php
+				$default = (isset($eventmemberstatusoff) ? $eventmemberstatusoff : 'yes');
+				$items = array('yes'=>_("Yes"),'no'=>_("No"));
+				foreach ($items as $item) {
+					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$item;
+				}
+			?>
+			</select>
+		</td>
+	</tr>
 	<tr><td colspan="2"><br><h5><?php echo _("Caller Announcements")?><hr></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Frequency:")?><span><?php echo _("How often to announce queue position, estimated holdtime, and/or voice menu to the caller (0 to Disable Announcements).")?></span></a></td>
