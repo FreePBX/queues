@@ -1,13 +1,13 @@
 <module>
 	<rawname>queues</rawname>
 	<name>Queues</name>
-	<version>2.1.4</version>
+	<version>2.1.5</version>
 	<type>setup</type>
 	<category>Module</category>
 	<menuitems>
 		<queues>Queues</queues>
 	</menuitems>
-	<location>release/2.2/queues-2.1.4.tgz</location>
+	<location>release/2.2/queues-2.1.5.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Queues</info>
-	<md5sum>eafc11d39d654b6fdc976c7ef159c50e</md5sum>
+	<md5sum>67e07e5555a14856ead08afe5db212ed</md5sum>
 </module>
