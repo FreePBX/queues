@@ -3,7 +3,11 @@
 	<name>Queues</name>
 	<version>2.1.5</version>
 	<type>setup</type>
-	<category>Module</category>
+	<category>Inbound Call Control</category>
+	<description>
+		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
+	</description>
+	<menuitems>
 	<menuitems>
 		<queues>Queues</queues>
 	</menuitems>
