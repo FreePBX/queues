@@ -110,7 +110,7 @@ $queues = queues_list();
 ?>
 </div>
 
-<div class="rnav">
+<div class="rnav"><ul>
     <li><a id="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Queue")?></a></li>
 <?php
 if (isset($queues)) {
@@ -119,6 +119,7 @@ if (isset($queues)) {
 	}
 }
 ?>
+</ul>
 </div>
 
 <div class="content">
