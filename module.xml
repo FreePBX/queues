@@ -7,7 +7,9 @@
 	<description>
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
 	</description>
-	<changelog>*2.2* First release for FreePBX 2.2 - Fixed compatibility issue with new UI</changelog>
+	<changelog>
+		*2.2.1* Add NODEST to tell children NOT to go to destinations (like voicemail or other) - helps with followme in a queue
+		*2.2* First release for FreePBX 2.2 - Fixed compatibility issue with new UI</changelog>
 	<menuitems>
 		<queues>Queues</queues>
 	</menuitems>
