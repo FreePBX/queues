@@ -101,7 +101,7 @@ if(isset($_POST['action'])){
 				queues_del($account);
 				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait);
 				needreload();
-				redirect_standard();
+				redirect_standard('extdisplay');
 			break;
 		}
 	}
