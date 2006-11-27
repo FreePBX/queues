@@ -90,15 +90,18 @@ if(isset($_POST['action'])){
 			case "add":
 				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait);
 				needreload();
+				redirect_standard();
 			break;
 			case "delete":
 				queues_del($account);
 				needreload();
+				redirect_standard();
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
 				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait);
 				needreload();
+				redirect_standard();
 			break;
 		}
 	}
