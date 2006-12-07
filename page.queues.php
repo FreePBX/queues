@@ -550,6 +550,10 @@ function checkQ(theForm) {
                 <?php echo "alert('"._("Queue Number must not be blank")."')"?>;
                 bad="true";
         }
+	else if ($account == "0") {
+                <?php echo "alert('"._("Queue Number can not be 0")."')"?>;
+                bad="true";
+        }
         else if (($account.indexOf('0') == 0) && ($account.length > 1)) {
                 <?php echo "alert('"._("Queue numbers with more than one digit cannot begin with 0")."')"?>;
                 bad="true";
