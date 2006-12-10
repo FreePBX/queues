@@ -38,7 +38,7 @@ function queues_get_config($engine) {
 
 					// Inform all the children NOT to send calls to destinations or voicemail
 					//
-					$ext->add('ext-queues', $exten, '', new ext_setvar('_NODEST', '${EXTEN}'));
+					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', '${EXTEN}'));
 
 					$ext->add('ext-queues', $exten, '', new ext_gotoif('$["${CONTEXT}"="from-internal"]','USERCID','SETCID'));
 					$ext->add('ext-queues', $exten, 'USERCID', new ext_macro('user-callerid'));
@@ -56,7 +56,7 @@ function queues_get_config($engine) {
  
  					// If we are here, disable the NODEST as we want things to resume as normal
  					//
- 					$ext->add('ext-queues', $exten, '', new ext_setvar('_NODEST', ''));
+ 					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', ''));
 	
 					// destination field in 'incoming' database is backwards from what ext_goto expects
 					$goto_context = strtok($q['goto'],',');
