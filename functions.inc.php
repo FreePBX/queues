@@ -36,6 +36,14 @@ function queues_get_config($engine) {
 					
 					$ext->add('ext-queues', $exten, '', new ext_answer(''));
 
+					// block voicemail until phone is answered at which point a macro should be called on the answering
+					// line to clear this flag so that subsequent transfers can occur.
+					//
+					$ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_OVERRIDE', 'BLKVM/${EXTEN}/${CHANNEL}'));
+					$ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_BASE', '${EXTEN}'));
+					$ext->add('ext-queues', $exten, '', new ext_setvar('DB(${BLKVM_OVERRIDE})', 'TRUE'));
+					$ext->add('ext-queues', $exten, '', new ext_setvar('_DIAL_OPTIONS', '${DIAL_OPTIONS}M(auto-blkvm)'));
+
 					// Inform all the children NOT to send calls to destinations or voicemail
 					//
 					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', '${EXTEN}'));
@@ -54,6 +62,7 @@ function queues_get_config($engine) {
 					$agentannounce = (isset($q['agentannounce'])?$q['agentannounce']:'');
 					$ext->add('ext-queues', $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
  
+					$ext->add('ext-queues', $exten, '', new ext_dbdel('${BLKVM_OVERRIDE}'));
  					// If we are here, disable the NODEST as we want things to resume as normal
  					//
  					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', ''));
