@@ -1,0 +1,426 @@
+# Hebrew version for Queues FreePBX Module.
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Shimi <shimi@shimi.net>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-17 17:20+0300\n"
+"PO-Revision-Date: 2006-10-17 17:30+0300\n"
+"Last-Translator: Shimi <shimi@shimi.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: page.queues.php:85
+msgid "Warning! Extension"
+msgstr "אזהרה! שלוחה"
+
+#: page.queues.php:85
+msgid "is not allowed for your account."
+msgstr "אינה מורשית עבור חשבונך."
+
+#: page.queues.php:114 page.queues.php:147 page.queues.php:157
+msgid "Add Queue"
+msgstr "הוסף תור"
+
+#: page.queues.php:127
+msgid "Queue"
+msgstr "תור"
+
+#: page.queues.php:127
+msgid "deleted"
+msgstr "נמחק"
+
+#: page.queues.php:140
+msgid "Delete Queue"
+msgstr "מחק תור"
+
+#: page.queues.php:145
+msgid "Queue:"
+msgstr "תור:"
+
+#: page.queues.php:157
+msgid "Edit Queue"
+msgstr "ערוך תור"
+
+#: page.queues.php:162
+msgid "queue number:"
+msgstr "מספר תור:"
+
+#: page.queues.php:162
+msgid ""
+"Use this number to dial into the queue, or transfer callers to this number "
+"to put them into the queue.<br><br>Agents will dial this queue number plus * "
+"to log onto the queue, and this queue number plus ** to log out of the queue."
+"<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
+"in<br>123** = log out</b>"
+msgstr "השתמש במספר זה כדי לחייג לתוך תור זה, או העבר מתקשרים למספר זה כדי להכניסם אל התור.<br /><br />נציגי שירות יחייגו למספר תור זה ולאחריו כוכבית כדי להיכנס לרשימת הנציגים אשר יכולים לקבל שיחות, ואת מספר התור עם שתי כוכביות אחריו כדי לצאת מהתור.<br /><br />לדוגמא, אם מספר התור הוא 123:<br /><br /><b>123* = כניסה לשירות בתור<br />123** = יציאה מהשירות בתור</b>"
+
+#: page.queues.php:167
+msgid "queue name:"
+msgstr "שם התור:"
+
+#: page.queues.php:167
+msgid "Give this queue a brief name to help you identify it."
+msgstr "תן לתור זה שם קצר כדי לעזור לך לזהות אותו."
+
+#: page.queues.php:171
+msgid "queue password:"
+msgstr "סיסמא לתור:"
+
+#: page.queues.php:171
+msgid ""
+"You can require agents to enter a password before they can log in to this "
+"queue.<br><br>This setting is optional."
+msgstr "אתה יכול לדרוש שנציגי שירות יכניסו סיסמא לפני שהם יכולים להתחיל לתת שירות לתור.<br /><br />הגדרה זו היא רשות."
+
+#: page.queues.php:175
+msgid "CID name prefix:"
+msgstr "קידומת לשם בזיהוי שיחות:"
+
+#: page.queues.php:175
+msgid ""
+"You can optionally prefix the Caller ID name of callers to the queue. ie: If "
+"you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
+"John Doe\" on the extensions that ring."
+msgstr "אתה יכול (אך אינך חייב) להקדים את השם בזיהוי השיחה של המתקשרים לתור. לדוגמא: אם תקדים ב-\"Sales:\", אזי שיחה ממישהו ששמו John Doe תוצג בטלפון כך: \"Sales: John Doe\" בשלוחות שתצלצלנה."
+
+#: page.queues.php:179
+msgid "static agents"
+msgstr "נציגי שירות שתמיד נמצאים"
+
+#: page.queues.php:179
+msgid ""
+"Static agents are extensions that are assumed to always be on the queue.  "
+"Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
+"the queue.<br><br>List extensions to ring, one per line.<br><br>You can "
+"include an extension on a remote system, or an external number (Outbound "
+"Routing must contain a valid route for external numbers).<br><br>You can "
+"also list agents defined in agents.conf by preceding the agent number with "
+"A, so agent 4002 would be listed as A4002.<br><br>In all cases, you can put "
+"a \",\" after the agent followed by a penalty value."
+msgstr "'נציגי שירות שתמיד נמצאים' הינן שלוחות שמניחים שהן תמיד בתור. הם אינם צריכים 'להיכנס' לתוך התור, ואינם יכולים 'לצאת' מתוך התור.<br /><br />רשימת שלוחות שאליהן יש לצלצל, אחת בכל שורה.<br /><br />אתה יכול לציין שלוחה במערכת מרוחקת, או מספר חיצוני (ניתוב החוצה חייב להכיל ניתוב חוקי עבור מספרים חיצוניים).<br /><br />אתה יכול גם לציין נציגים המוגדרים בקובץ agents.conf על ידי הקדמת מספר הנציג באות A, כך שנציג 4002 יירשם בתור A4002.<br /><br />בכל המקרים, אתה יכול לשים סימן \",\" לאחר הנציג, ואחריו זמן עונשין"
+
+#: page.queues.php:186
+msgid "Queue Options"
+msgstr "אפשרויות תור"
+
+#: page.queues.php:189 page.queues.php:208
+msgid "Agent Announcement:"
+msgstr "הכרזה לנציג:"
+
+#: page.queues.php:189
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>To add additional recordings "
+"please use the \"System Recordings\" MENU to the left"
+msgstr "הכרזה המושמעת לנציג השירות לפני קישורו אל המתקשר<br /><br />לדוגמא: \"השיחה הבאה מגיעה מתור המכירות\" או \"שיחה זו מגיעה מתור התמיכה הטכנית\".<br /><br />כדי להוסיף הקלטות נוספות, אנא השתמש <em>בתפריט</em> \"הקלטות מערכת\" אשר בצד שמאל"
+
+#: page.queues.php:195 page.queues.php:453 page.queues.php:483
+msgid "None"
+msgstr "אין"
+
+#: page.queues.php:208
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>You must install and enable the "
+"\"Systems Recordings\" Module to edit this option"
+msgstr "הכרזה המושמעת לנציג השירות לפני קישורו אל המתקשר<br /><br />לדוגמא: \"השיחה הבאה מגיעה מתור המכירות\" או\"שיחה זו מגיעה מתור התמיכה הטכנית\".<br /><br />אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
+
+#: page.queues.php:220
+msgid "Hold Music Category:"
+msgstr "קטגוריית מוסיקת המתנה:"
+
+#: page.queues.php:220
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for an "
+"available agent.<br><br>  This music is defined in the \"On Hold Music\" "
+"Menu to the left."
+msgstr "מוסיקה (או פרסומת) שיש לנגן למתקשר בזמן שהם ממתינים בתור לנציג השירות הבא.<br /><br />המוסיקה מוגדרת בתפריט \"מוסיקת המתנה\" אשר בצד שמאל."
+
+#: page.queues.php:238
+msgid "Ringing tone instead of MOH:"
+msgstr "קול צלצול במקום מוסיקת המתנה:"
+
+#: page.queues.php:238
+msgid ""
+"Enabling this option make callers hear a ringing tone instead of Music on "
+"Hold.<br/>If this option is enabled, settings of the previous drop down are "
+"ignored."
+msgstr "הפעלת אפשרות זו גורמת למתקשרים לשמוע צליל של צלצול רגיל במקום מוסיקת המתנה.<br />אם אפשרות זו מופעלת, ההגדרות של תיבת הגלילה הקודמת אינן משפיעות."
+
+#: page.queues.php:244
+msgid "max wait time:"
+msgstr "זמן המתנה מקסימלי:"
+
+#: page.queues.php:244
+msgid ""
+"The maximum number of seconds a caller can wait in a queue before being "
+"pulled out.  (0 for unlimited)."
+msgstr "הזמן המקסימלי בשניות שהמשתמש יכול להמתין בתור לפני שהוא יוצא משם על ידי המערכת. (0 עבור ללא הגבלה)"
+
+#: page.queues.php:251
+msgid "Unlimited"
+msgstr "ללא הגבלה"
+
+#: page.queues.php:260
+msgid "max callers:"
+msgstr "מקסימום מתקשרים:"
+
+#: page.queues.php:260
+msgid "Maximum number of people waiting in the queue (0 for unlimited)"
+msgstr "מספר אנשים מקסימלי שיכולים להמתין בתור (0 ללא הגבלה)"
+
+#: page.queues.php:273
+msgid "join empty:"
+msgstr "הצטרף כשריק:"
+
+#: page.queues.php:273
+msgid ""
+"If you wish to allow callers to join queues that currently have no agents, "
+"set this to yes"
+msgstr "אם אתה רוצה לאפשר למתקשרים להמתין בתור למרות שאין אף נציג שירות זמין, הגדר אפשרות זו כ-כן"
+
+#: page.queues.php:278 page.queues.php:292 page.queues.php:384
+#: page.queues.php:398 page.queues.php:426 page.queues.php:438
+msgid "Yes"
+msgstr "כן"
+
+#: page.queues.php:278 page.queues.php:292 page.queues.php:373
+#: page.queues.php:384 page.queues.php:398 page.queues.php:427
+#: page.queues.php:439
+msgid "No"
+msgstr "לא"
+
+#: page.queues.php:287
+msgid "leave when empty:"
+msgstr "הוצא מהתור כשריק:"
+
+#: page.queues.php:287
+msgid ""
+"If you wish to remove callers from the queue if there are no agents present, "
+"set this to yes"
+msgstr "אם ברצונך להוציא את כל המתקשרים מהתור אם אין אף נציג שירות זמין, הגדר אפשרות זו כ-כן"
+
+#: page.queues.php:302
+msgid "ring strategy:"
+msgstr "אסטרטגיית צלצול:"
+
+#: page.queues.php:304
+msgid "ringall"
+msgstr "צלצל לכולם"
+
+#: page.queues.php:304
+msgid "ring all available agents until one answers (default)"
+msgstr "צלצל לכל נציגי השירות הזמינים עד שאחד מהם יענה (ברירת המחדל)"
+
+#: page.queues.php:305
+msgid "roundrobin"
+msgstr "סיבובי"
+
+#: page.queues.php:305
+msgid "take turns ringing each available agent"
+msgstr "עובר בצורה סיבובית בין כל הנציגים הזמינים"
+
+#: page.queues.php:306
+msgid "leastrecent"
+msgstr "הכי פחות אחרון"
+
+#: page.queues.php:306
+msgid "ring agent which was least recently called by this queue"
+msgstr "צלצל לנציג שאליו צלצלו בפעם האחרונה הכי מוקדם מבין כולם"
+
+#: page.queues.php:307
+msgid "fewestcalls"
+msgstr "הכי מעט שיחות"
+
+#: page.queues.php:307
+msgid "ring the agent with fewest completed calls from this queue"
+msgstr "צלצל לנציג שהשלים הכי מעט שיחות בתור זה"
+
+#: page.queues.php:308
+msgid "random"
+msgstr "אקראי"
+
+#: page.queues.php:308
+msgid "ring random agent"
+msgstr "צלצל לנציג אקראי"
+
+#: page.queues.php:309
+msgid "rrmemory"
+msgstr "סיבובי עם זיכרון"
+
+#: page.queues.php:309
+msgid "round robin with memory, remember where we left off last ring pass"
+msgstr "כמו סיבובי, אבל עם זיכרון - זוכר היכן הופסק בפעם האחרונה וממשיך משם"
+
+#: page.queues.php:326
+msgid "agent timeout:"
+msgstr "זמן מקסימלי לנציג:"
+
+#: page.queues.php:326
+msgid ""
+"The number of seconds an agents phone can ring before we consider it a "
+"timeout."
+msgstr "מספר השניות שהטלפון של נציג שירות יצלצל לפני שנחליט שהוא כבר לא יענה."
+
+#: page.queues.php:339
+msgid "retry:"
+msgstr "נסיון חוזר:"
+
+#: page.queues.php:339
+msgid "The number of seconds we wait before trying all the phones again"
+msgstr "מספר השניות שיש להמתין לפני שמנסים שוב את כל הטלפונים"
+
+#: page.queues.php:352
+msgid "wrap-up-time:"
+msgstr "זמן-השלמה:"
+
+#: page.queues.php:352
+msgid ""
+"After a successful call, how many seconds to wait before sending a "
+"potentially free agent another call (default is 0, or no delay)"
+msgstr "אחרי שיחה מוצלחת, כמה שניות להמתין לפני ששולחים נציג פנוי באופן פוטנציאלי אל השיחה הבאה (ברירת המחדל היא 0, או ללא המתנה)"
+
+#: page.queues.php:365
+msgid "call recording:"
+msgstr "הקלטת שיחות:"
+
+#: page.queues.php:365
+msgid ""
+"Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
+"monitor)"
+msgstr "שיחות נכנסות לנציגים יכולות להיות מוקלטות. (נשמר ל /var/spool/asterisk/monitor)"
+
+#: page.queues.php:370
+msgid "wav49"
+msgstr ""
+
+#: page.queues.php:371
+msgid "wav"
+msgstr ""
+
+#: page.queues.php:372
+msgid "gsm"
+msgstr ""
+
+#: page.queues.php:379
+msgid "event when called:"
+msgstr "אירוע כשיש שיחה:"
+
+#: page.queues.php:379
+msgid ""
+"When this option is set to YES, the following manager events will be "
+"generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
+msgstr "אם אפשרות זאת מוגדרת ל'כן', אירועי המנהל הבאים יווצרו: AgentCalled, AgentDump, AgentConnect ו-AgentComplete."
+
+#: page.queues.php:393
+msgid "member status off:"
+msgstr "סטטוס משתמשים כבוי:"
+
+#: page.queues.php:393
+msgid ""
+"When if this is option is set to NO, the following manager event will be "
+"generated: QueueMemberStatus"
+msgstr "כשאפשרות זאת מוגדרת ל'לא', אירוע המנהל הבא ייוצר: QueueMemberStatus"
+
+#: page.queues.php:406
+msgid "Caller Announcements"
+msgstr "הכרזות למתקשר"
+
+#: page.queues.php:408
+msgid "Frequency:"
+msgstr "תדירות:"
+
+#: page.queues.php:408
+msgid ""
+"How often to announce queue position, estimated holdtime, and/or voice menu "
+"to the caller (0 to Disable Announcements)."
+msgstr "באיזו תדירות יש להכריז על המיקום בתור, זמן המתנה משוער, ו/או תפריט קולי למתקשר (0 כדי לבטל הכרזות)"
+
+#: page.queues.php:421
+msgid "Announce Position:"
+msgstr "הכרז מיקום:"
+
+#: page.queues.php:421
+msgid "Announce position of caller in the queue?"
+msgstr "הכרז למתקשר את מיקומו בתור?"
+
+#: page.queues.php:433
+msgid "Announce Hold Time:"
+msgstr "הכרז זמן המתנה:"
+
+#: page.queues.php:433
+msgid ""
+"Should we include estimated hold time in position announcements?  Either "
+"yes, no, or only once; hold time will not be announced if <1 minute"
+msgstr "האם אנו אמורים לכלול את זמן ההמתנה המשוער בהכרזות? האפשרויות הן כן, לא, או פעם אחת; זמן ההמתנה לא יוכרז אם הוא קטן מדקה אחת"
+
+#: page.queues.php:440
+msgid "Once"
+msgstr "פעם אחת"
+
+#: page.queues.php:447
+msgid "Voice Menu:"
+msgstr "תפריט קולי:"
+
+#: page.queues.php:447
+msgid ""
+"After announcing Position and/or Hold Time, you can optionally present an "
+"existing Digital Receptionist Voice Menu.<br><br>This voicemenu must only "
+"contain single-digit 'dialed options'."
+msgstr "אחרי שמכריזים את המיקום ו/או את זמן ההמתנה, אתה יכול להציג תפריט מענה קולי כלשהוא.<br /><br />תפריט קולי זה חייב להכיל אפשרויות חיוג בנות ספרה אחת בלבד."
+
+#: page.queues.php:462
+msgid "Menu ID "
+msgstr "מזהה התפריט"
+
+#: page.queues.php:477 page.queues.php:495
+msgid "Join Announcement:"
+msgstr "הכרזת הצטרפות:"
+
+#: page.queues.php:477
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU to the "
+"left"
+msgstr "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />כדי להוסיף הקלטות נוספות, אנא השתמש <em>בתפריט</em> \"הקלטות מערכת\" שבצד שמאל"
+
+#: page.queues.php:495
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
+
+#: page.queues.php:504
+msgid "Fail Over Destination"
+msgstr "יעד שיש להיכשל אליו"
+
+#: page.queues.php:540
+msgid ""
+"Custom Goto contexts must contain the string \"custom\".  ie: custom-app,s,1"
+msgstr "הקשרי קפיצה (Goto contexts) מותאמים אישית חייבים להכיל את המחרוזת \"custom\". לדוגמא: custom-app,s,1"
+
+#: page.queues.php:546
+msgid "Queue Number must not be blank"
+msgstr "מספר התור אינו יכול להיות ריק"
+
+#: page.queues.php:550
+msgid "Queue numbers with more than one digit cannot begin with 0"
+msgstr "מספרי תור עם יותר מספרה אחת אינם יכולים להתחיל באפס"
+
+#: page.queues.php:555
+msgid "Queue name must not be blank"
+msgstr "שם התור לא יכול להיות ריק"
+
+#: page.queues.php:558
+msgid ""
+"Queue name cannot start with a number, and can only contain letters and "
+"numbers"
+msgstr "שם התור לא יכול להתחיל במספר, ויכול להכיל רק אותיות ומספרים"
