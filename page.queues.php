@@ -529,9 +529,9 @@ function checkQ(theForm) {
         var bad = "false";
 
         var whichitem = 0;
-        while (whichitem < theForm.goto_indicate0.length) {
-                if (theForm.goto_indicate0[whichitem].checked) {
-                        theForm.goto0.value=theForm.goto_indicate0[whichitem].value;
+        while (whichitem < theForm.goto0.length) {
+                if (theForm.goto0[whichitem].checked) {
+                        theForm.goto0.value=theForm.goto0[whichitem].value;
                 }
                 whichitem++;
         }
