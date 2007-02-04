@@ -181,7 +181,7 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0),
 		array($account,'rtone',($_REQUEST['rtone'])?$_REQUEST['rtone']:0,0),
 		array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:'no',0),
-		array($account,'eventmemberstatusoff',($_REQUEST['eventmemberstatusoff'])?$_REQUEST['eventmemberstatusoff']:'yes',0));
+		array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0));
 
 
 	//there can be multiple members
@@ -261,6 +261,17 @@ function queues_get($account) {
 	else
 		$results['announce-position'] = 'no';
 	
+	//if 'eventmemberstatusoff=Yes', then assume we want to 'eventmemberstatus=no'
+	if(isset($results['eventmemberstatusoff'])) {
+		if (strtolower($results['eventmemberstatusoff']) == 'yes' {
+			$results['eventmemberstatus'] = 'no';
+		} else {
+			$results['eventmemberstatus'] = 'yes';
+		}
+	} else {
+		$results['eventmemberstatus'] = 'no';
+	}
+
 	//get CID Prefix
 	$sql = "SELECT args FROM extensions WHERE extension = '$account' AND context = 'ext-queues' AND application = 'SetCIDName'";
 	list($args) = $db->getRow($sql);

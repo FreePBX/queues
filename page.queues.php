@@ -394,14 +394,14 @@ if ($action == 'delete') {
 		</td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("member status off:")?><span><?php echo _("When if this is option is set to NO, the following manager event will be generated: QueueMemberStatus")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("member status:")?><span><?php echo _("When if this is option is set to YES, the following manager event will be generated: QueueMemberStatus")?></span></a></td>
 		<td>
-			<select name="eventmemberstatusoff"/>
+			<select name="eventmemberstatus"/>
 			<?php
-				$default = (isset($eventmemberstatusoff) ? $eventmemberstatusoff : 'yes');
+				$default = (isset($eventmemberstatus) ? $eventmemberstatus : 'no');
 				$items = array('yes'=>_("Yes"),'no'=>_("No"));
-				foreach ($items as $item) {
-					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$item;
+				foreach ($items as $item=>$val) {
+					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
 			?>
 			</select>
