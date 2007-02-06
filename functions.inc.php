@@ -263,7 +263,7 @@ function queues_get($account) {
 	
 	//if 'eventmemberstatusoff=Yes', then assume we want to 'eventmemberstatus=no'
 	if(isset($results['eventmemberstatusoff'])) {
-		if (strtolower($results['eventmemberstatusoff']) == 'yes' {
+		if (strtolower($results['eventmemberstatusoff']) == 'yes') {
 			$results['eventmemberstatus'] = 'no';
 		} else {
 			$results['eventmemberstatus'] = 'yes';
