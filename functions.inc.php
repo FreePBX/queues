@@ -50,8 +50,8 @@ function queues_get_config($engine) {
 
 					$ext->add('ext-queues', $exten, '', new ext_gotoif('$["${CONTEXT}"="from-internal"]','USERCID','SETCID'));
 					$ext->add('ext-queues', $exten, 'USERCID', new ext_macro('user-callerid'));
-					$ext->add('ext-queues', $exten, 'SETCID', new ext_setcidname($q['prefix'].'${CALLERIDNAME}'));
-					$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_FILENAME','/var/spool/asterisk/monitor/q${EXTEN}-${TIMESTAMP}-${UNIQUEID}'));
+					$ext->add('ext-queues', $exten, 'SETCID', new ext_setcidname($q['prefix'].'${CALLERID(name)}'));
+					$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_FILENAME','/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}'));
 					$joinannounce = (isset($q['joinannounce'])?$q['joinannounce']:'');
 					if($joinannounce != "") {
 						$ext->add('ext-queues', $exten, '', new ext_playback($joinannounce));
@@ -124,9 +124,9 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 
 	$addarray = array('ext-queues',$account,'1','Answer',''.'','','0');
 	legacy_extensions_add($addarray);
-	$addarray = array('ext-queues',$account,'2','SetCIDName',$prefix.'${CALLERIDNAME}','','0');
+	$addarray = array('ext-queues',$account,'2','SetCIDName',$prefix.'${CALLERID(name)}','','0');
 	legacy_extensions_add($addarray);
-	$addarray = array('ext-queues',$account,'3','SetVar','MONITOR_FILENAME=/var/spool/asterisk/monitor/q${EXTEN}-${TIMESTAMP}-${UNIQUEID}','','0');
+	$addarray = array('ext-queues',$account,'3','SetVar','MONITOR_FILENAME=/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}','','0');
 	legacy_extensions_add($addarray);
 	if ($joinannounce != 'None') {
 		$addarray = array('ext-queues',$account,'4','Playback',$joinannounce,'','0');
@@ -275,7 +275,7 @@ function queues_get($account) {
 	//get CID Prefix
 	$sql = "SELECT args FROM extensions WHERE extension = '$account' AND context = 'ext-queues' AND application = 'SetCIDName'";
 	list($args) = $db->getRow($sql);
-	$prefix = explode('$',$args); //in table like prefix${CALLERIDNAME}
+	$prefix = explode('$',$args); //in table like prefix${CALLERID(name)}
 	$results['prefix'] = $prefix[0];	
 	
 	//get max wait time from Queue command
