@@ -33,7 +33,10 @@ function queues_get_config($engine) {
 					
 					$exten = $item[0];
 					$q = queues_get($exten);
+
+					$grppre = (isset($q['prefix'])?$q['prefix']:'');
 					
+					$ext->add('ext-queues', $exten, '', new ext_macro('user-callerid'));
 					$ext->add('ext-queues', $exten, '', new ext_answer(''));
 
 					// block voicemail until phone is answered at which point a macro should be called on the answering
@@ -48,9 +51,21 @@ function queues_get_config($engine) {
 					//
 					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', '${EXTEN}'));
 
-					$ext->add('ext-queues', $exten, '', new ext_gotoif('$["${CONTEXT}"="from-internal"]','USERCID','SETCID'));
-					$ext->add('ext-queues', $exten, 'USERCID', new ext_macro('user-callerid'));
-					$ext->add('ext-queues', $exten, 'SETCID', new ext_setcidname($q['prefix'].'${CALLERID(name)}'));
+					// deal with group CID prefix
+					// Use the same variable as ringgroups/followme so that we can manage chaines of calls
+					//
+					$ext->add('ext-queues', $exten, '', new ext_gotoif('$["foo${RGPREFIX}" = "foo"]', 'REPCID'));
+					$ext->add('ext-queues', $exten, '', new ext_gotoif('$["${RGPREFIX}" != "${CALLERID(name):0:${LEN(${RGPREFIX})}}"]', 'REPCID'));
+					$ext->add('ext-queues', $exten, '', new ext_noop('Current RGPREFIX is ${RGPREFIX}....stripping from Caller ID'));
+					$ext->add('ext-queues', $exten, '', new ext_setvar('CALLERID(name)', '${CALLERID(name):${LEN(${RGPREFIX})}}'));
+					$ext->add('ext-queues', $exten, '', new ext_setvar('_RGPREFIX', ''));
+					$ext->add('ext-queues', $exten, 'REPCID', new ext_noop('CALLERID(name) is ${CALLERID(name)}'));
+					if ($grppre != '') {
+						$ext->add('ext-queues', $exten, '', new ext_setvar('_RGPREFIX', $grppre));
+						$ext->add('ext-queues', $exten, '', new ext_setvar('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
+					}
+
+
 					$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_FILENAME','/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}'));
 					$joinannounce = (isset($q['joinannounce'])?$q['joinannounce']:'');
 					if($joinannounce != "") {
