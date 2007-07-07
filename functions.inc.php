@@ -53,14 +53,15 @@ function queues_get_config($engine) {
 
 					// deal with group CID prefix
 					// Use the same variable as ringgroups/followme so that we can manage chaines of calls
+					// but strip only if you plan on setting a new one
 					//
-					$ext->add('ext-queues', $exten, '', new ext_gotoif('$["foo${RGPREFIX}" = "foo"]', 'REPCID'));
-					$ext->add('ext-queues', $exten, '', new ext_gotoif('$["${RGPREFIX}" != "${CALLERID(name):0:${LEN(${RGPREFIX})}}"]', 'REPCID'));
-					$ext->add('ext-queues', $exten, '', new ext_noop('Current RGPREFIX is ${RGPREFIX}....stripping from Caller ID'));
-					$ext->add('ext-queues', $exten, '', new ext_setvar('CALLERID(name)', '${CALLERID(name):${LEN(${RGPREFIX})}}'));
-					$ext->add('ext-queues', $exten, '', new ext_setvar('_RGPREFIX', ''));
-					$ext->add('ext-queues', $exten, 'REPCID', new ext_noop('CALLERID(name) is ${CALLERID(name)}'));
 					if ($grppre != '') {
+						$ext->add('ext-queues', $exten, '', new ext_gotoif('$["foo${RGPREFIX}" = "foo"]', 'REPCID'));
+						$ext->add('ext-queues', $exten, '', new ext_gotoif('$["${RGPREFIX}" != "${CALLERID(name):0:${LEN(${RGPREFIX})}}"]', 'REPCID'));
+						$ext->add('ext-queues', $exten, '', new ext_noop('Current RGPREFIX is ${RGPREFIX}....stripping from Caller ID'));
+						$ext->add('ext-queues', $exten, '', new ext_setvar('CALLERID(name)', '${CALLERID(name):${LEN(${RGPREFIX})}}'));
+						$ext->add('ext-queues', $exten, '', new ext_setvar('_RGPREFIX', ''));
+						$ext->add('ext-queues', $exten, 'REPCID', new ext_noop('CALLERID(name) is ${CALLERID(name)}'));
 						$ext->add('ext-queues', $exten, '', new ext_setvar('_RGPREFIX', $grppre));
 						$ext->add('ext-queues', $exten, '', new ext_setvar('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
 					}
