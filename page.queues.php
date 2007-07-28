@@ -280,8 +280,8 @@ if ($action == 'delete') {
 			<?php
 				$default = (isset($joinempty) ? $joinempty : 'yes');
 				$items = array('yes'=>_("Yes"),'no'=>_("No"));
-				foreach ($items as $item) {
-					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$item;
+				foreach ($items as $item=>$val) {
+					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
 			?>		
 			</select>		
