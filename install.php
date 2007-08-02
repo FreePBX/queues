@@ -3,7 +3,6 @@
 global $db;
 global $amp_conf;
 
-
 $results = array();
 $sql = "SELECT args, extension, priority FROM extensions WHERE context = 'ext-queues' AND descr = 'jump'";
 $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -22,6 +21,14 @@ if (!DB::IsError($results)) { // error - table must not be there
 			}
 		}
 	}
+}
+
+// Version 2.2.11 change (#1659)
+//
+$results = $db->query("ALTER TABLE `queues` CHANGE `id` `id` VARCHAR( 45 ) NOT NULL DEFAULT '-1'");
+if(DB::IsError($results)) {
+	echo $results->getMessage();
+	return false;
 }
 
 ?>

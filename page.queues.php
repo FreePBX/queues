@@ -151,16 +151,17 @@ if ($action == 'delete') {
 	<h2><?php echo _("Add Queue"); ?></h2>
 <?php } ?>
 
-<?php		if ($extdisplay){ ?>
+<?php		if ($extdisplay != ''){ ?>
+
 	<p><?php echo $delButton ?></p>
 <?php		} ?>
 	<form autocomplete="off" name="editQ" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
-	<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add') ?>">
+	<input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
 	<table>
 	<tr><td colspan="2"><h5><?php echo ($extdisplay ? _("Edit Queue") : _("Add Queue")) ?><hr></h5></td></tr>
 	<tr>
-<?php		if ($extdisplay){ ?>
+<?php		if ($extdisplay != ''){ ?>
 		<input type="hidden" name="account" value="<?php echo $extdisplay; ?>">
 <?php		} else { ?>
 		<td><a href="#" class="info"><?php echo _("queue number:")?><span><?php echo _("Use this number to dial into the queue, or transfer callers to this number to put them into the queue.<br><br>Agents will dial this queue number plus * to log onto the queue, and this queue number plus ** to log out of the queue.<br><br>For example, if the queue number is 123:<br><br><b>123* = log in<br>123** = log out</b>")?></span></a></td>
@@ -221,12 +222,13 @@ if ($action == 'delete') {
 
 <?php if(function_exists('music_list')) { //only include if music module is enabled?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Hold Music Category:")?><span><?php echo _("Music (or Commercial) played to the caller while they wait in line for an available agent.<br><br>  This music is defined in the \"On Hold Music\" Menu to the left.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Music on Hold Class:")?><span><?php echo _("Music (or Commercial) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" Menu to the left.")?></span></a></td>
 		<td>
 			<select name="music"/>
 			<?php
 				$tresults = music_list("/var/lib/asterisk/mohmp3");
-				$default = (isset($music) ? $music : 'default');
+				array_unshift($tresults,'inherit');
+				$default = (isset($music) ? $music : 'inherit');
 				if (isset($tresults)) {
 					foreach ($tresults as $tresult) {
 						$searchvalue="$tresult";	
@@ -536,26 +538,9 @@ function checkQ(theForm) {
                 whichitem++;
         }
 
-        var gotoType = theForm.elements[ "goto0" ].value;
-        if (gotoType == 'custom') {
-                var gotoVal = theForm.elements[ "custom0"].value;
-                if (gotoVal.indexOf('custom') == -1) {
-                        bad = "true";
-						<?php echo "alert('"._("Custom Goto contexts must contain the string \"custom\".  ie: custom-app,s,1")."')"?>;
-                }
-        }
-
         $account = theForm.account.value;
         if ($account == "") {
                 <?php echo "alert('"._("Queue Number must not be blank")."')"?>;
-                bad="true";
-        }
-	else if ($account == "0") {
-                <?php echo "alert('"._("Queue Number can not be 0")."')"?>;
-                bad="true";
-        }
-        else if (($account.indexOf('0') == 0) && ($account.length > 1)) {
-                <?php echo "alert('"._("Queue numbers with more than one digit cannot begin with 0")."')"?>;
                 bad="true";
         }
 
