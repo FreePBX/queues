@@ -171,7 +171,7 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		if( isset($arr['announcement']) && !empty($arr['announcement']) ) {
 			$qthanku = $arr['announcement'];
 		} else {
-			$qthanku = '';
+			$qthanku = 'silence/1';
 		}
 		$context = "ivr-".$_REQUEST['announcemenu'];
 	}
@@ -190,9 +190,9 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		//array($account,'agentannounce',($_REQUEST['agentannounce'])?$_REQUEST['agentannounce']:'None'),
 		array($account,'announce-frequency',($_REQUEST['announcefreq'])?$_REQUEST['announcefreq']:'0',0),
 		array($account,'announce-holdtime',($_REQUEST['announceholdtime'])?$_REQUEST['announceholdtime']:'no',0),
-		array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'':'queue-youarenext',0),  //if no, play no sound
-		array($account,'queue-thereare',($_REQUEST['announceposition']=='no')?'':'queue-thereare',0),  //if no, play no sound
-		array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'':'queue-callswaiting',0),  //if no, play no sound
+		array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'silence/1':'queue-youarenext',0),  //if no, play no sound
+		array($account,'queue-thereare',($_REQUEST['announceposition']=='no')?'silence/1':'queue-thereare',0),  //if no, play no sound
+		array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'silence/1':'queue-callswaiting',0),  //if no, play no sound
 		array($account,'queue-thankyou',$qthanku,0),
 		array($account,'context',$context,0), 
 		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
@@ -274,10 +274,10 @@ function queues_get($account) {
 	$results['member'] = $db->getCol($sql);
 	
 	//queues.php looks for 'announcemenu', which is the same a context
-	$results['announcemenu'] = 	$results['context'];
+	$results['announcemenu'] = 	isset($results['context']) ? $results['context'];
 	
 	//if 'queue-youarenext=queue-youarenext', then assume we want to announce position
-	if($results['queue-youarenext'] == 'queue-youarenext') 
+	if(isset($results['queue-youarenext']) && $results['queue-youarenext'] == 'queue-youarenext') 
 		$results['announce-position'] = 'yes';
 	else
 		$results['announce-position'] = 'no';
