@@ -274,7 +274,7 @@ function queues_get($account) {
 	$results['member'] = $db->getCol($sql);
 	
 	//queues.php looks for 'announcemenu', which is the same a context
-	$results['announcemenu'] = 	isset($results['context']) ? $results['context'];
+	$results['announcemenu'] = 	isset($results['context']) ? $results['context']:'';
 	
 	//if 'queue-youarenext=queue-youarenext', then assume we want to announce position
 	if(isset($results['queue-youarenext']) && $results['queue-youarenext'] == 'queue-youarenext') 
