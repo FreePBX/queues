@@ -29,7 +29,7 @@
 	<menuitems>
 		<queues>Queues</queues>
 	</menuitems>
-	<location>release/2.3/queues-2.2.12.tgz</location>
+	<location>release/2.3/queues-2.2.12.1.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Queues</info>
-	<md5sum>ab3af1dd08a1bfce462d6b9e2bfd5ce3</md5sum>
+	<md5sum>826be197aae1f7fa4d216ad1dd00dd93</md5sum>
 </module>
