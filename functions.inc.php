@@ -217,7 +217,7 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
     $compiled = $db->prepare('INSERT INTO queues (id, keyword, data, flags) values (?,?,?,?)');
 	$result = $db->executeMultiple($compiled,$fields);
     if(DB::IsError($result)) {
-        die($result->getMessage()."<br><br>error adding to queues table");	
+        die_freepbx($result->getMessage()."<br><br>error adding to queues table");	
     }
 }
 
@@ -231,7 +231,7 @@ function queues_del($account) {
 	$sql = "DELETE FROM queues WHERE id = '$account'";
     $result = $db->query($sql);
     if(DB::IsError($result)) {
-        die($result->getMessage().$sql);
+        die_freepbx($result->getMessage().$sql);
     }
 
 }
