@@ -151,7 +151,7 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		$addarray = array('ext-queues',$account,'4','Playback',$joinannounce,'','0');
 		legacy_extensions_add($addarray);
 	}
-	$addarray = array('ext-queues',$account,'5','Queue',$account.'|t||'.$agentannounce.'|'.$maxwait,$name,'0');
+	$addarray = array('ext-queues',$account,'5','Queue',$account.',t,,'.$agentannounce.','.$maxwait,$name,'0');
 	legacy_extensions_add($addarray);
 	$addarray = array('ext-queues',$account.'*','1','Macro','agent-add,'.$account.','.$password,'','0');
 	legacy_extensions_add($addarray);
