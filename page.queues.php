@@ -409,9 +409,9 @@ if ($action == 'delete') {
 			</select>
 		</td>
 	</tr>
-	<tr><td colspan="2"><br><h5><?php echo _("Caller Announcements")?><hr></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("Caller Position Announcements")?><hr></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Frequency:")?><span><?php echo _("How often to announce queue position, estimated holdtime, and/or voice menu to the caller (0 to Disable Announcements).")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Frequency:")?><span><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")?></span></a></td>
 		<td>
 			<select name="announcefreq"/>
 			<?php
@@ -423,7 +423,7 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
-	<tr>
+<tr>
 		<td><a href="#" class="info"><?php echo _("Announce Position:")?><span><?php echo _("Announce position of caller in the queue?")?></span></a></td>
 		<td>
 			<select name="announceposition"/>
@@ -448,12 +448,16 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
+<tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?><hr></h5></td></tr>
+
+	
 <?php if(function_exists('ivr_list')) { //only include if IVR module is enabled ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Voice Menu:")?><span> <?php echo _("After announcing Position and/or Hold Time, you can optionally present an existing Digital Receptionist Voice Menu.<br><br>This voicemenu must only contain single-digit 'dialed options'.")?> </span></a></td>
+		<td><a href="#" class="info"><?php echo _("IVR Break Out Menu:")?><span> <?php echo _("You can optionally present an existing IVR as a 'break out' menu.<br><br>This IVR must only contain single-digit 'dialed options'. The Recording set for the IVR will be played at intervals specified in 'Repeat Frequency', below.")?></span></a></td>
 		<td>
 			<select name="announcemenu">
-			<?php // setting this will override the sound file queue-thankyou, and set the context= option
+			<?php // setting this will set the context= option
 			$default = (isset($announcemenu) ? $announcemenu : "none");
 			
 			echo '<option value=none '.($default == "none" ? 'SELECTED' : '').'>'._("None").'</option>';
@@ -474,6 +478,20 @@ if ($action == 'delete') {
 		</td>
 	</tr>
 	
+<tr>
+		<td><a href="#" class="info"><?php echo _("Repeat Frequency:")?><span><?php echo _("How often to announce a voice menu to the caller (0 to Disable Announcements).")?></span></a></td>
+		<td>
+			<select name="pannouncefreq"/>
+			<?php
+				$default = (isset($thisQ['periodic-announce-frequency']) ? $thisQ['periodic-announce-frequency'] : 0);
+				for ($i=0; $i <= 1200; $i+=15) {
+					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+				}
+			?>		
+			</select>		
+		</td>
+	</tr>
+
 <?php } else {
 	echo "<input type=\"hidden\" name=\"announcemenu\" value=\"none\">";
 }

@@ -31,4 +31,12 @@ if(DB::IsError($results)) {
 	return false;
 }
 
+// Version 2.2.13 change (#2277)
+//
+$results = $db->query("ALTER TABLE `queues` CHANGE `keyword` `keyword` VARCHAR( 30 ) NOT NULL");
+if(DB::IsError($results)) {
+	echo $results->getMessage();
+	return false;
+}
+
 ?>

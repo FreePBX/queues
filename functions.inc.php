@@ -164,12 +164,12 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 	//setGoto($account,'ext-queues','6',$goto,0);
 	// Announce Menu?
 	if ($_REQUEST['announcemenu']=='none') {
-		$qthanku = 'queue-thankyou';
+		$qpannounce = '';
 		$context = '';
 	} else {
 		$arr = (ivr_get_details($_REQUEST['announcemenu']));
 		if( isset($arr['announcement']) && !empty($arr['announcement']) ) {
-			$qthanku = $arr['announcement'];
+			$qpannounce = $arr['announcement'];
 		} else {
 			$qthanku = 'silence/1';
 		}
@@ -193,7 +193,9 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'silence/1':'queue-youarenext',0),  //if no, play no sound
 		array($account,'queue-thereare',($_REQUEST['announceposition']=='no')?'silence/1':'queue-thereare',0),  //if no, play no sound
 		array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'silence/1':'queue-callswaiting',0),  //if no, play no sound
-		array($account,'queue-thankyou',$qthanku,0),
+		array($account,'queue-thankyou',($_REQUEST['announceposition']=='no')?'':'queue-thankyou',0),  //if no, play no sound
+		array($account,'periodic-announce',$qpannounce,0), //periodic breakout IVR recording to play back
+		array($account,'periodic-announce-frequency',($_REQUEST['pannouncefreq'])?$_REQUEST['pannouncefreq']:'0',0),
 		array($account,'context',$context,0), 
 		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
 		array($account,'monitor-join','yes',0),
