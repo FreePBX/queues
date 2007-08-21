@@ -226,7 +226,7 @@ if ($action == 'delete') {
 		<td>
 			<select name="music"/>
 			<?php
-				$tresults = music_list("/var/lib/asterisk/mohmp3");
+				$tresults = music_list($amp_conf['ASTVARLIBDIR']."/mohmp3");
 				array_unshift($tresults,'inherit');
 				$default = (isset($music) ? $music : 'inherit');
 				if (isset($tresults)) {
