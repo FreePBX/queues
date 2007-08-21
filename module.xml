@@ -32,6 +32,6 @@
 	<menuitems>
 		<queues>Queues</queues>
 	</menuitems>
-	<location>release/2.3/queues-2.2.13.tgz</location>
-	<md5sum>4062b24ef797b843113b42320b01eb82</md5sum>
+	<location>release/2.3/queues-2.2.13.1.tgz</location>
+	<md5sum>a2aac32810aea7b600e68e90a9fcd085</md5sum>
 </module>
