@@ -134,12 +134,11 @@ This module needs to be updated to use it's own database table and not the exten
 
 function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait) {
 	global $db;
-	
+
 	//add to extensions table
-	if (!empty($agentannounce) && $agentannounce != 'None')
-		$agentannounce="$agentannounce";
-	else
+	if (empty($agentannounce) || $agentannounce == 'None') {
 		$agentannounce="";
+	}
 
 	$addarray = array('ext-queues',$account,'1','Answer',''.'','','0');
 	legacy_extensions_add($addarray);
@@ -304,7 +303,7 @@ function queues_get($account) {
 	//get max wait time from Queue command
 	$sql = "SELECT args,descr FROM extensions WHERE extension = '$account' AND context = 'ext-queues' AND application = 'Queue'";
 	list($args, $descr) = $db->getRow($sql);
-	$maxwait = explode('|',$args);  //in table like queuenum|t|||maxwait
+	$maxwait = explode(',',$args);  //in table like queuenum,t,,,maxwait
 	$results['agentannounce'] = $maxwait[3];
 	$results['maxwait'] = $maxwait[4];
 	$results['name'] = $descr;
