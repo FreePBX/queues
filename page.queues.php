@@ -329,12 +329,13 @@ if ($action == 'delete') {
 		</td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("agent timeout:")?><span><?php echo _("The number of seconds an agents phone can ring before we consider it a timeout.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("agent timeout:")?><span><?php echo _("The number of seconds an agent's phone can ring before we consider it a timeout. Unlimited or other timeout values may still be limited by system ringtime or individual extension defaults.")?></span></a></td>
 		<td>
 			<select name="timeout"/>
 			<?php
 				$default = (isset($timeout) ? $timeout : 15);
-				for ($i=0; $i <= 60; $i++) {
+				echo '<option value="0" '.(0 == $default ? 'SELECTED' : '').'>'."Unlimited".'</option>';
+				for ($i=1; $i <= 60; $i++) {
 					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
 			?>		

@@ -183,7 +183,7 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		array($account,'joinempty',($_REQUEST['joinempty'])?$_REQUEST['joinempty']:'yes',0),
 		array($account,'leavewhenempty',($_REQUEST['leavewhenempty'])?$_REQUEST['leavewhenempty']:'no',0),
 		array($account,'strategy',($_REQUEST['strategy'])?$_REQUEST['strategy']:'ringall',0),
-		array($account,'timeout',($_REQUEST['timeout'])?$_REQUEST['timeout']:'15',0),
+		array($account,'timeout',(isset($_REQUEST['timeout']))?$_REQUEST['timeout']:'15',0),
 		array($account,'retry',($_REQUEST['retry'])?$_REQUEST['retry']:'5',0),
 		array($account,'wrapuptime',($_REQUEST['wrapuptime'])?$_REQUEST['wrapuptime']:'0',0),
 		//array($account,'agentannounce',($_REQUEST['agentannounce'])?$_REQUEST['agentannounce']:'None'),
