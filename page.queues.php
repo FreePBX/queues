@@ -22,6 +22,7 @@ isset($_REQUEST['name'])?$name = $_REQUEST['name']:$name='';
 isset($_REQUEST['password'])?$password = $_REQUEST['password']:$password='';
 isset($_REQUEST['agentannounce'])?$agentannounce = $_REQUEST['agentannounce']:$agentannounce='';
 isset($_REQUEST['prefix'])?$prefix = $_REQUEST['prefix']:$prefix='';
+isset($_REQUEST['alertinfo'])?$alertinfo = $_REQUEST['alertinfo']:$alertinfo='';
 isset($_REQUEST['joinannounce'])?$joinannounce = $_REQUEST['joinannounce']:$joinannounce='';
 $maxwait = isset($_REQUEST['maxwait'])?$_REQUEST['maxwait']:'';
 
@@ -88,7 +89,7 @@ if(isset($_POST['action'])){
 		//if submitting form, update database
 		switch ($action) {
 			case "add":
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo);
 				needreload();
 				redirect_standard();
 			break;
@@ -99,7 +100,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -180,6 +181,11 @@ if ($action == 'delete') {
 		<td><a href="#" class="info"><?php echo _("CID name prefix:")?><span><?php echo _("You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring.")?></span></a></td>
 		<td><input size="4" type="text" name="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>"></td>
 	</tr>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a>:</td>
+		<td><input type="text" name="alertinfo" size="30" value="<?php echo (isset($alertinfo)?$alertinfo:'') ?>"></td>
+	</tr>
+	<tr>
 	<tr>
 		<td valign="top"><a href="#" class="info"><?php echo _("static agents") ?>:<span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers).<br><br>You can list agents defined in agents.conf by preceding the agent number with A, so agent 4002 would be listed as A4002. This is experimental and not supported. There are known issues, such as the inability for an agents.conf agent to do subsequent transfers to voicemail<br><br>In all cases, you can put a \",\" after the agent followed by a penalty value. Use penalties at your own risk, they are very broken in asterisk.") ?><br><br></span></a></td>
 		<td valign="top">&nbsp;
@@ -529,10 +535,10 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 	<tr><td colspan="2"><br><h5><?php echo _("Fail Over Destination")?><hr></h5></td></tr>
 
 	<?php 
-	//get goto for this group - note priority 6
-	// ***FIXME*** If you change this to use it's own DB, fix IVR upgrades, it manually updates
-	// pri6 in extensions/ext-queues.
-	$goto = legacy_args_get($extdisplay,6,'ext-queues');
+	//get goto for this group - note priority 7
+	// TODO: When you change this to use it's own DB, fix IVR upgrades, it manually updates
+	// pri7 in extensions/ext-queues.
+	$goto = legacy_args_get($extdisplay,7,'ext-queues');
 	echo drawselects($goto,0);
 	
 	?>

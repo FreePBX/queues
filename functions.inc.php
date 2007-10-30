@@ -35,6 +35,7 @@ function queues_get_config($engine) {
 					$q = queues_get($exten);
 
 					$grppre = (isset($q['prefix'])?$q['prefix']:'');
+					$alertinfo = (isset($q['alertinfo'])?$q['alertinfo']:'');
 					
 					$ext->add('ext-queues', $exten, '', new ext_macro('user-callerid'));
 					$ext->add('ext-queues', $exten, '', new ext_answer(''));
@@ -66,6 +67,10 @@ function queues_get_config($engine) {
 						$ext->add('ext-queues', $exten, '', new ext_setvar('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
 					}
 
+					// Set Alert_Info
+					if ($alertinfo != '') {
+						$ext->add('ext-queues', $exten, '', new ext_setvar('__ALERT_INFO', str_replace(';', '\;', $alertinfo)));
+					}
 
 					$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_FILENAME','/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}'));
 					$joinannounce = (isset($q['joinannounce'])?$q['joinannounce']:'');
@@ -132,7 +137,7 @@ function queues_timeString($seconds, $full = false) {
 This module needs to be updated to use it's own database table and not the extensions table
 */
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait) {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo='') {
 	global $db;
 
 	//add to extensions table
@@ -144,13 +149,15 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 	legacy_extensions_add($addarray);
 	$addarray = array('ext-queues',$account,'2','SetCIDName',$prefix.'${CALLERID(name)}','','0');
 	legacy_extensions_add($addarray);
-	$addarray = array('ext-queues',$account,'3','SetVar','MONITOR_FILENAME=/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}','','0');
+	$addarray = array('ext-queues',$account,'3','SetVar','__ALERT_INFO='.$alertinfo,'','0');
+	legacy_extensions_add($addarray);
+	$addarray = array('ext-queues',$account,'4','SetVar','MONITOR_FILENAME=/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}','','0');
 	legacy_extensions_add($addarray);
 	if ($joinannounce != 'None') {
-		$addarray = array('ext-queues',$account,'4','Playback',$joinannounce,'','0');
+		$addarray = array('ext-queues',$account,'5','Playback',$joinannounce,'','0');
 		legacy_extensions_add($addarray);
 	}
-	$addarray = array('ext-queues',$account,'5','Queue',$account.',t,,'.$agentannounce.','.$maxwait,$name,'0');
+	$addarray = array('ext-queues',$account,'6','Queue',$account.',t,,'.$agentannounce.','.$maxwait,$name,'0');
 	legacy_extensions_add($addarray);
 	$addarray = array('ext-queues',$account.'*','1','Macro','agent-add,'.$account.','.$password,'','0');
 	legacy_extensions_add($addarray);
@@ -158,7 +165,7 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 	legacy_extensions_add($addarray);
 	
 	//failover goto
-	$addarray = array('ext-queues',$account,'6','Goto',$goto,'jump','0');
+	$addarray = array('ext-queues',$account,'7','Goto',$goto,'jump','0');
 	legacy_extensions_add($addarray);
 	//setGoto($account,'ext-queues','6',$goto,0);
 	// Announce Menu?
@@ -299,6 +306,11 @@ function queues_get($account) {
 	list($args) = $db->getRow($sql);
 	$prefix = explode('$',$args); //in table like prefix${CALLERID(name)}
 	$results['prefix'] = $prefix[0];	
+
+	//get ALERT_INFO
+	$sql = "SELECT args FROM extensions WHERE extension = '$account' AND context = 'ext-queues' AND application = 'SetVar' AND args LIKE '__ALERT_INFO=%'";
+	list($args) = $db->getRow($sql);
+	$results['alertinfo'] = substr($args,strlen("__ALERT_INFO="));
 	
 	//get max wait time from Queue command
 	$sql = "SELECT args,descr FROM extensions WHERE extension = '$account' AND context = 'ext-queues' AND application = 'Queue'";

@@ -39,4 +39,13 @@ if(DB::IsError($results)) {
 	return false;
 }
 
+// Version 2.2.14 change - bump up priority on Goto because of inserted alert-info
+//
+
+$results = $db->query("UPDATE extensions SET priority = '7' WHERE context = 'ext-queues' AND priority = '6' AND application = 'Goto' AND descr = 'jump'");
+if(DB::IsError($results)) {
+	echo $results->getMessage();
+	return false;
+}
+
 ?>
