@@ -169,8 +169,8 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 	legacy_extensions_add($addarray);
 	//setGoto($account,'ext-queues','6',$goto,0);
 	// Announce Menu?
+	$qpannounce = '';
 	if ($_REQUEST['announcemenu']=='none') {
-		$qpannounce = '';
 		$context = '';
 	} else {
 		$arr = (ivr_get_details($_REQUEST['announcemenu']));
