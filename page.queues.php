@@ -89,9 +89,15 @@ if(isset($_POST['action'])){
 		//if submitting form, update database
 		switch ($action) {
 			case "add":
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo);
-				needreload();
-				redirect_standard();
+				$conflict_url = array();
+				$usage_arr = framework_check_extension_usage($account);
+				if (!empty($usage_arr)) {
+					$conflict_url = framework_display_extension_usage_alert($usage_arr);
+				} else {
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo);
+					needreload();
+					redirect_standard();
+				}
 			break;
 			case "delete":
 				queues_del($account);
@@ -146,6 +152,11 @@ if ($action == 'delete') {
 				</form>";
 ?>
 
+<?php if (!empty($conflict_url)) {
+      	echo "<h5>"._("Conflicting Extensions")."</h5>";
+      	echo implode('<br .>',$conflict_url);
+      }
+?>
 <?php if ($extdisplay != '') { ?>
 	<h2><?php echo _("Queue:")." ". $extdisplay; ?></h2>
 <?php } else { ?>

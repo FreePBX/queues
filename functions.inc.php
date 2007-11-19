@@ -264,6 +264,68 @@ function queues_list() {
 	}
 }
 
+function queues_check_extensions($exten=true) {
+	global $active_modules;
+
+	$extenlist = array();
+	if (is_array($exten) && empty($exten)) {
+		return $extenlist;
+	}
+	$sql = "SELECT extension, descr FROM extensions WHERE application = 'Queue' ";
+	if (is_array($exten)) {
+		$sql .= "AND extension in ('".implode("','",$exten)."')";
+	}
+	$sql .= " ORDER BY extension";
+	$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+
+	//$type = isset($active_modules['queues']['type'])?$active_modules['queues']['type']:'setup';
+	foreach ($results as $result) {
+		$thisexten = $result['extension'];
+		$extenlist[$thisexten]['description'] = _("Queue: ").$result['descr'];
+		$extenlist[$thisexten]['status'] = 'INUSE';
+		$extenlist[$thisexten]['edit_url'] = 'config.php?display=queues&extdisplay='.urlencode($thisexten);
+	}
+	return $extenlist;
+}
+
+function queues_check_destinations($dest=true) {
+	global $active_modules;
+
+	$destlist = array();
+	if (is_array($dest) && empty($dest)) {
+		return $destlist;
+	}
+	$sql = "
+		SELECT s1.extension extension, s1.descr descr, s2.args args
+		FROM extensions s1
+		INNER JOIN (
+
+			SELECT extension, args
+			FROM extensions
+			WHERE descr = 'jump'
+		)s2 ON s1.extension = s2.extension
+		WHERE s1.application = 'Queue'
+		";
+	if ($dest !== true) {
+		$sql .= " AND s2.args in ('".implode("','",$dest)."')";
+	}
+	$sql .= " ORDER BY extension";
+	$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+
+	//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
+
+	foreach ($results as $result) {
+		$thisdest = $result['args'];
+		$thisid   = $result['extension'];
+		$destlist[] = array(
+			'dest' => $thisdest,
+			'description' => 'Queue: '.$result['descr'].'('.$thisid.')',
+			'edit_url' => 'config.php?display=queues&extdisplay='.urlencode($thisid),
+		);
+	}
+	return $destlist;
+}
+
 
 function queues_get($account) {
 	global $db;
