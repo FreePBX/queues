@@ -18,6 +18,30 @@ function queues_destinations() {
 		return null;
 }
 
+function queues_getdest($exten) {
+	return array('ext-queues,'.$exten.',1');
+}
+
+function queues_getdestinfo($dest) {
+	global $active_modules;
+
+	if (substr(trim($dest),0,11) == 'ext-queues,') {
+		$exten = explode(',',$dest);
+		$exten = $exten[1];
+		$thisexten = queues_get($exten);
+		if (empty($thisexten)) {
+			return array();
+		} else {
+			//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
+			return array('description' => 'Queue '.$exten.' : '.$thisexten['name'],
+			             'edit_url' => 'config.php?display=queues&extdisplay='.urlencode($exten),
+								  );
+		}
+	} else {
+		return false;
+	}
+}
+
 /* 	Generates dialplan for "queues" components (extensions & inbound routing)
 	We call this with retrieve_conf
 */
@@ -338,6 +362,9 @@ function queues_get($account) {
 	//get all the variables for the queue
 	$sql = "SELECT keyword,data FROM queues WHERE id = '$account'";
 	$results = $db->getAssoc($sql);
+	if (empty($results)) {
+		return array();
+	}
 
 	//okay, but there can be multiple member variables ... do another select for them
 	$sql = "SELECT data FROM queues WHERE id = '$account' AND keyword = 'member' order by flags";

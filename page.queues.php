@@ -163,10 +163,16 @@ if ($action == 'delete') {
 	<h2><?php echo _("Add Queue"); ?></h2>
 <?php } ?>
 
-<?php		if ($extdisplay != ''){ ?>
-
-	<p><?php echo $delButton ?></p>
-<?php		} ?>
+<?php		if ($extdisplay != '') { 
+					echo $delButton;
+					$usage_list = framework_display_destination_usage(queues_getdest($extdisplay));
+					if (!empty($usage_list)) {
+?>
+						<a href="#" class="info"><?php echo $usage_list['text']?>:<span><?php echo $usage_list['tooltip']?></span></a>
+<?php
+					}
+				} 
+?>
 	<form autocomplete="off" name="editQ" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
