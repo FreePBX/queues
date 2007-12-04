@@ -25,6 +25,7 @@ isset($_REQUEST['prefix'])?$prefix = $_REQUEST['prefix']:$prefix='';
 isset($_REQUEST['alertinfo'])?$alertinfo = $_REQUEST['alertinfo']:$alertinfo='';
 isset($_REQUEST['joinannounce'])?$joinannounce = $_REQUEST['joinannounce']:$joinannounce='';
 $maxwait = isset($_REQUEST['maxwait'])?$_REQUEST['maxwait']:'';
+$cwignore = isset($_REQUEST['cwignore'])?$_REQUEST['cwignore']:'0';
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
@@ -94,7 +95,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo,$cwignore);
 					needreload();
 					redirect_standard();
 				}
@@ -106,7 +107,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo,$cwignore);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -182,32 +183,56 @@ if ($action == 'delete') {
 <?php		if ($extdisplay != ''){ ?>
 		<input type="hidden" name="account" value="<?php echo $extdisplay; ?>">
 <?php		} else { ?>
-		<td><a href="#" class="info"><?php echo _("queue number:")?><span><?php echo _("Use this number to dial into the queue, or transfer callers to this number to put them into the queue.<br><br>Agents will dial this queue number plus * to log onto the queue, and this queue number plus ** to log out of the queue.<br><br>For example, if the queue number is 123:<br><br><b>123* = log in<br>123** = log out</b>")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Queue Number:")?><span><?php echo _("Use this number to dial into the queue, or transfer callers to this number to put them into the queue.<br><br>Agents will dial this queue number plus * to log onto the queue, and this queue number plus ** to log out of the queue.<br><br>For example, if the queue number is 123:<br><br><b>123* = log in<br>123** = log out</b>")?></span></a></td>
 		<td><input type="text" name="account" value=""></td>
 <?php		} ?>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("queue name:")?><span><?php echo _("Give this queue a brief name to help you identify it.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Queue Name:")?><span><?php echo _("Give this queue a brief name to help you identify it.")?></span></a></td>
 		<td><input type="text" name="name" value="<?php echo (isset($name) ? $name : ''); ?>"></td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("queue password:")?><span><?php echo _("You can require agents to enter a password before they can log in to this queue.<br><br>This setting is optional.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Queue Password:")?><span><?php echo _("You can require agents to enter a password before they can log in to this queue.<br><br>This setting is optional.")?></span></a></td>
 		<td><input type="text" name="password" value="<?php echo (isset($password) ? $password : ''); ?>"></td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("CID name prefix:")?><span><?php echo _("You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("CID Name Prefix:")?><span><?php echo _("You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring.")?></span></a></td>
 		<td><input size="4" type="text" name="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>"></td>
 	</tr>
+
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a>:</td>
 		<td><input type="text" name="alertinfo" size="30" value="<?php echo (isset($alertinfo)?$alertinfo:'') ?>"></td>
 	</tr>
+
 	<tr>
+		<td valign="top"><a href="#" class="info"><?php echo _("Static Agents") ?>:<span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers).<br><br>You can list agents defined in agents.conf by preceding the agent number with A, so agent 4002 would be listed as A4002. This is experimental and not supported. There are known issues, such as the inability for an agents.conf agent to do subsequent transfers to voicemail<br><br>In all cases, you can put a \",\" after the agent followed by a penalty value. Use penalties at your own risk, they are very broken in asterisk.") ?><br><br></span></a></td>
+		<td valign="top">
+			<textarea id="members" cols="15" rows="<?php  $rows = count($member)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members"><?php foreach ($member as $mem) { $premem = ""; if (substr($mem,0,5) == "Agent") {$premem = "A";}; $mem = $premem.rtrim(ltrim(strstr($mem,"/"),"/"),"@from-internal");echo substr($mem,0,(strpos($mem,"@")!==false?strpos($mem,"@"):strpos($mem,","))).substr($mem,strrpos($mem, ","))."\n"; }?></textarea>
+		</td>
+	</tr>
+
 	<tr>
-		<td valign="top"><a href="#" class="info"><?php echo _("static agents") ?>:<span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers).<br><br>You can list agents defined in agents.conf by preceding the agent number with A, so agent 4002 would be listed as A4002. This is experimental and not supported. There are known issues, such as the inability for an agents.conf agent to do subsequent transfers to voicemail<br><br>In all cases, you can put a \",\" after the agent followed by a penalty value. Use penalties at your own risk, they are very broken in asterisk.") ?><br><br></span></a></td>
-		<td valign="top">&nbsp;
-			<textarea id="members" cols="15" rows="<?php  $rows = count($member)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members"><?php foreach ($member as $mem) { $premem = ""; if (substr($mem,0,5) == "Agent") {$premem = "A";}; $mem = $premem.rtrim(ltrim(strstr($mem,"/"),"/"),"@from-internal");echo substr($mem,0,(strpos($mem,"@")!==false?strpos($mem,"@"):strpos($mem,","))).substr($mem,strrpos($mem, ","))."\n"; }?></textarea><br>
-			<input type="submit" style="font-size:10px;" value="<?php echo _("Clean & Remove duplicates") ?>" />
+		<td>
+		<a href=# class="info"><?php echo _("Extension Quick Pick")?>
+			<span>
+				<?php echo _("Choose an extension to append to the end of the static agents list above.")?>
+			</span>
+		</a>
+		</td>
+		<td>
+			<select onChange="insertExten();" id="insexten">
+				<option value=""><?php echo _("(pick extension)")?></option>
+	<?php
+				$results = core_users_list();
+				foreach ($results as $result) {
+					echo "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
+				}
+	?>
+			</select>
 		</td>
 	</tr>
 
@@ -263,14 +288,16 @@ if ($action == 'delete') {
 		</td>
 	</tr>
 <?php } ?>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Ringing tone instead of MOH:")?><span><?php echo _("Enabling this option make callers hear a ringing tone instead of Music on Hold.<br/>If this option is enabled, settings of the previous drop down are ignored.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Ringing Instead of MoH:")?><span><?php echo _("Enabling this option make callers hear a ringing tone instead of Music on Hold.<br/>If this option is enabled, settings of the previous drop down are ignored.")?></span></a></td>
 		<td>
 			<input name="rtone" type="checkbox" value="1" <?php echo (isset($rtone) && $rtone == 1 ? 'checked' : ''); ?> />
 		</td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("max wait time:")?><span><?php echo _("The maximum number of seconds a caller can wait in a queue before being pulled out.  (0 for unlimited).")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Max Wait Time:")?><span><?php echo _("The maximum number of seconds a caller can wait in a queue before being pulled out.  (0 for unlimited).")?></span></a></td>
 		<td>
 			<select name="maxwait"/>
 			<?php
@@ -285,8 +312,9 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("max callers:")?><span><?php echo _("Maximum number of people waiting in the queue (0 for unlimited)")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Max Callers:")?><span><?php echo _("Maximum number of people waiting in the queue (0 for unlimited)")?></span></a></td>
 		<td>
 			<select name="maxlen"/>
 			<?php 
@@ -298,8 +326,9 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("join empty:")?><span><?php echo _("If you wish to allow callers to join queues that currently have no agents, set this to yes")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Join Empty:")?><span><?php echo _("If you wish to allow callers to join queues that currently have no agents, set this to yes")?></span></a></td>
 		<td>
 			<select name="joinempty"/>
 			<?php
@@ -312,8 +341,9 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("leave when empty:")?><span><?php echo _("If you wish to remove callers from the queue if there are no agents present, set this to yes")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Leave When Empty:")?><span><?php echo _("If you wish to remove callers from the queue if there are no agents present, set this to yes")?></span></a></td>
 		<td>
 			<select name="leavewhenempty"/>
 			<?php
@@ -326,9 +356,10 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
 	<tr>
 		<td>
-			<a href="#" class="info"><?php echo _("ring strategy:")?>
+			<a href="#" class="info"><?php echo _("Ring Strategy:")?>
 				<span>
 					<b><?php echo _("ringall")?></b>:  <?php echo _("ring all available agents until one answers (default)")?><br>
 					<b><?php echo _("roundrobin")?></b>: <?php echo _("take turns ringing each available agent")?><br>
@@ -351,8 +382,9 @@ if ($action == 'delete') {
 			</select>
 		</td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("agent timeout:")?><span><?php echo _("The number of seconds an agent's phone can ring before we consider it a timeout. Unlimited or other timeout values may still be limited by system ringtime or individual extension defaults.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Agent Timeout:")?><span><?php echo _("The number of seconds an agent's phone can ring before we consider it a timeout. Unlimited or other timeout values may still be limited by system ringtime or individual extension defaults.")?></span></a></td>
 		<td>
 			<select name="timeout"/>
 			<?php
@@ -365,6 +397,7 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
 	<tr>
 		<td><a href="#" class="info"><?php echo _("retry:")?><span><?php echo _("The number of seconds we wait before trying all the phones again")?></span></a></td>
 		<td>
@@ -378,8 +411,9 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("wrap-up-time:")?><span><?php echo _("After a successful call, how many seconds to wait before sending a potentially free agent another call (default is 0, or no delay)")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Wrap-Up-Time:")?><span><?php echo _("After a successful call, how many seconds to wait before sending a potentially free agent another call (default is 0, or no delay)")?></span></a></td>
 		<td>
 			<select name="wrapuptime"/>
 			<?php
@@ -391,8 +425,9 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("call recording:")?><span><?php echo _("Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Call Recording:")?><span><?php echo _("Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)")?></span></a></td>
 		<td>
 			<select name="monitor-format"/>
 			<?php
@@ -405,8 +440,9 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("event when called:")?><span><?php echo _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Event When Called:")?><span><?php echo _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete.")?></span></a></td>
 		<td>
 			<select name="eventwhencalled"/>
 			<?php
@@ -419,8 +455,9 @@ if ($action == 'delete') {
 			</select>
 		</td>
 	</tr>
+
 	<tr>
-		<td><a href="#" class="info"><?php echo _("member status:")?><span><?php echo _("When if this is option is set to YES, the following manager event will be generated: QueueMemberStatus")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Member Status:")?><span><?php echo _("When if this is option is set to YES, the following manager event will be generated: QueueMemberStatus")?></span></a></td>
 		<td>
 			<select name="eventmemberstatus"/>
 			<?php
@@ -433,6 +470,22 @@ if ($action == 'delete') {
 			</select>
 		</td>
 	</tr>
+
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Skip Busy Agents:")?><span><?php echo _("When set to Yes, agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted.")?></span></a></td>
+		<td>
+			<select name="cwignore"/>
+			<?php
+				$default = (isset($cwignore) ? $cwignore : 'no');
+				$items = array('1'=>_("Yes"),'0'=>_("No"));
+				foreach ($items as $item=>$val) {
+					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
+				}
+			?>
+			</select>
+		</td>
+	</tr>
+
 	<tr><td colspan="2"><br><h5><?php echo _("Caller Position Announcements")?><hr></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Frequency:")?><span><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")?></span></a></td>
@@ -447,7 +500,8 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
-<tr>
+
+	<tr>
 		<td><a href="#" class="info"><?php echo _("Announce Position:")?><span><?php echo _("Announce position of caller in the queue?")?></span></a></td>
 		<td>
 			<select name="announceposition"/>
@@ -459,6 +513,7 @@ if ($action == 'delete') {
 			</select>		
 		</td>
 	</tr>
+
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Announce Hold Time:")?><span><?php echo _("Should we include estimated hold time in position announcements?  Either yes, no, or only once; hold time will not be announced if <1 minute")?> </span></a></td>
 		<td>
@@ -473,7 +528,7 @@ if ($action == 'delete') {
 		</td>
 	</tr>
 
-<tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?><hr></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?><hr></h5></td></tr>
 
 	
 <?php if(function_exists('ivr_list')) { //only include if IVR module is enabled ?>
@@ -493,7 +548,7 @@ if ($action == 'delete') {
 				foreach ($unique_aas as $unique_aa) {
 					$menu_id = $unique_aa['ivr_id'];
 					$menu_name = $unique_aa['displayname'];
-					echo '<option value="'.$menu_id.'" '.(strpos($default,$menu_id) === false ? '' : 'SELECTED').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id);
+					echo '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id);
 				}
 			}
 		
@@ -502,7 +557,7 @@ if ($action == 'delete') {
 		</td>
 	</tr>
 	
-<tr>
+	<tr>
 		<td><a href="#" class="info"><?php echo _("Repeat Frequency:")?><span><?php echo _("How often to announce a voice menu to the caller (0 to Disable Announcements).")?></span></a></td>
 		<td>
 			<select name="pannouncefreq"/>
@@ -549,15 +604,10 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 		</td>
 	</tr>
 <?php } ?>
-	<tr><td colspan="2"><br><h5><?php echo _("Fail Over Destination")?><hr></h5></td></tr>
 
+	<tr><td colspan="2"><br><h5><?php echo _("Fail Over Destination")?><hr></h5></td></tr>
 	<?php 
-	//get goto for this group - note priority 7
-	// TODO: When you change this to use it's own DB, fix IVR upgrades, it manually updates
-	// pri7 in extensions/ext-queues.
-	$goto = legacy_args_get($extdisplay,7,'ext-queues');
 	echo drawselects($goto,0);
-	
 	?>
 	
 	<tr>
@@ -567,6 +617,20 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 
 <script language="javascript">
 <!--
+
+function insertExten() {
+	exten = document.getElementById('insexten').value;
+
+	grpList=document.getElementById('members');
+	if (grpList.value[ grpList.value.length - 1 ] == "\n") {
+		grpList.value = grpList.value + exten + ',0';
+	} else {
+		grpList.value = grpList.value + '\n' + exten + ',0';
+	}
+
+	// reset element
+	document.getElementById('insexten').value = '';
+}
 
 function checkQ(theForm) {
         $queuename = theForm.name.value;
@@ -580,8 +644,7 @@ function checkQ(theForm) {
                 whichitem++;
         }
 
-        $account = theForm.account.value;
-        if ($account == "") {
+				if (!isInteger(theForm.account.value)) {
                 <?php echo "alert('"._("Queue Number must not be blank")."')"?>;
                 bad="true";
         }
@@ -606,8 +669,3 @@ function checkQ(theForm) {
 <?php		
 } //end if action == delGRP
 ?>
-
-
-
-
-

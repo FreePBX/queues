@@ -1,4 +1,71 @@
 <?php /* $id:$ */
+
+class queues_conf {
+	// return an array of filenames to write
+	// files named like pinset_N
+	function get_filename() {
+		return "queues_additional.conf";
+	}
+	
+	// return the output that goes in each of the files
+	function generateConf($file) {
+
+		global $db;
+		global $version;
+
+		$additional = "";
+		$output = "";
+		// Asterisk 1.4 does not like blank assignments so just don't put them there
+		//
+		$no_blanks = version_compare($version, "1.4", "ge");
+
+		// legacy but in case someone was using this we will leave it
+		//
+		$sql = "SELECT keyword,data FROM queues_details WHERE id='-1' AND keyword <> 'account'";
+		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+		if(DB::IsError($results)) {
+   		die($results->getMessage());
+		}
+		foreach ($results as $result) {
+			if ($no_blanks && trim($result['data']) == '') {
+				continue;
+			}
+			$additional .= $result['keyword']."=".$result['data']."\n";
+		}
+
+		$results = queues_list();
+		foreach ($results as $result) {
+			$output .= "[".$result[0]."]\n";
+
+			// passing 2nd param 'true' tells queues_get to send back only queue_conf required params
+			// and nothing else
+			//
+			$results2 = queues_get($result[0], true);
+
+			// memebers is an array of members so we set it asside and remove it
+			// and then generate each later
+			//
+			$members = $results2['member'];
+			unset($results2['member']);
+
+			foreach ($results2 as $keyword => $data) {
+				if ($no_blanks && trim($data) == '') {
+					continue;
+				}
+				$output .= $keyword."=".$data."\n";
+			}
+
+			// Now pull out all the memebers, one line for each
+			//
+			foreach ($members as $member) {
+				$output .= "member=".$member."\n";
+			}
+			$output .= $additional."\n";
+		}
+		return $output;
+	}
+}
+
 // The destinations this module provides
 // returns a associative arrays with keys 'destination' and 'description'
 function queues_destinations() {
@@ -107,6 +174,11 @@ function queues_get_config($engine) {
 					if (isset($q['music'])) {
  						$ext->add('ext-queues', $exten, '', new ext_setvar('__MOHCLASS', $q['music']));
 					}
+					// Set CWIGNORE  if enabled so that busy agents don't have another line key ringing and
+					// stalling the ACD.
+					if ($q['cwignore']) {
+ 						$ext->add('ext-queues', $exten, '', new ext_setvar('_CWIGNORE', 'TRUE'));
+					}
 					$agentannounce = (isset($q['agentannounce'])?$q['agentannounce']:'');
 					$ext->add('ext-queues', $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
  
@@ -132,110 +204,67 @@ function queues_get_config($engine) {
 }
 
 function queues_timeString($seconds, $full = false) {
-        if ($seconds == 0) {
-                return "0 ".($full ? "seconds" : "s");
-        }
+	if ($seconds == 0) {
+		return "0 ".($full ? "seconds" : "s");
+	}
 
-        $minutes = floor($seconds / 60);
-        $seconds = $seconds % 60;
+	$minutes = floor($seconds / 60);
+	$seconds = $seconds % 60;
 
-        $hours = floor($minutes / 60);
-        $minutes = $minutes % 60;
+	$hours = floor($minutes / 60);
+	$minutes = $minutes % 60;
 
-        $days = floor($hours / 24);
-        $hours = $hours % 24;
+	$days = floor($hours / 24);
+	$hours = $hours % 24;
 
-        if ($full) {
-                return substr(
-                                ($days ? $days." day".(($days == 1) ? "" : "s").", " : "").
-                                ($hours ? $hours." hour".(($hours == 1) ? "" : "s").", " : "").
-                                ($minutes ? $minutes." minute".(($minutes == 1) ? "" : "s").", " : "").
-                                ($seconds ? $seconds." second".(($seconds == 1) ? "" : "s").", " : ""),
-                               0, -2);
-        } else {
-                return substr(($days ? $days."d, " : "").($hours ? $hours."h, " : "").($minutes ? $minutes."m, " : "").($seconds ? $seconds."s, " : ""), 0, -2);
-        }
+	if ($full) {
+ 		return substr(
+		              ($days ? $days." day".(($days == 1) ? "" : "s").", " : "").
+		              ($hours ? $hours." hour".(($hours == 1) ? "" : "s").", " : "").
+		              ($minutes ? $minutes." minute".(($minutes == 1) ? "" : "s").", " : "").
+		              ($seconds ? $seconds." second".(($seconds == 1) ? "" : "s").", " : ""),
+		              0, -2);
+	} else {
+		return substr(($days ? $days."d, " : "").($hours ? $hours."h, " : "").($minutes ? $minutes."m, " : "").($seconds ? $seconds."s, " : ""), 0, -2);
+	}
 }
 
-/*
-This module needs to be updated to use it's own database table and not the extensions table
-*/
-
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo='') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo='',$cwignore='no') {
 	global $db;
+
+	if (trim($account) == '') {
+		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
+		return false;
+	}
 
 	//add to extensions table
 	if (empty($agentannounce) || $agentannounce == 'None') {
 		$agentannounce="";
 	}
 
-	$addarray = array('ext-queues',$account,'1','Answer',''.'','','0');
-	legacy_extensions_add($addarray);
-	$addarray = array('ext-queues',$account,'2','SetCIDName',$prefix.'${CALLERID(name)}','','0');
-	legacy_extensions_add($addarray);
-	$addarray = array('ext-queues',$account,'3','SetVar','__ALERT_INFO='.$alertinfo,'','0');
-	legacy_extensions_add($addarray);
-	$addarray = array('ext-queues',$account,'4','SetVar','MONITOR_FILENAME=/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}','','0');
-	legacy_extensions_add($addarray);
-	if ($joinannounce != 'None') {
-		$addarray = array('ext-queues',$account,'5','Playback',$joinannounce,'','0');
-		legacy_extensions_add($addarray);
-	}
-	$addarray = array('ext-queues',$account,'6','Queue',$account.',t,,'.$agentannounce.','.$maxwait,$name,'0');
-	legacy_extensions_add($addarray);
-	$addarray = array('ext-queues',$account.'*','1','Macro','agent-add,'.$account.','.$password,'','0');
-	legacy_extensions_add($addarray);
-	$addarray = array('ext-queues',$account.'**','1','Macro','agent-del,'.$account,'','0');
-	legacy_extensions_add($addarray);
-	
-	//failover goto
-	$addarray = array('ext-queues',$account,'7','Goto',$goto,'jump','0');
-	legacy_extensions_add($addarray);
-	//setGoto($account,'ext-queues','6',$goto,0);
-	// Announce Menu?
-	$qpannounce = '';
-	if ($_REQUEST['announcemenu']=='none') {
-		$context = '';
-	} else {
-		$arr = (ivr_get_details($_REQUEST['announcemenu']));
-		if( isset($arr['announcement']) && !empty($arr['announcement']) ) {
-			$qpannounce = $arr['announcement'];
-		} else {
-			$qthanku = 'silence/1';
-		}
-		$context = "ivr-".$_REQUEST['announcemenu'];
-	}
-	
-	
-	// now add to queues table
-	$fields = array(
-		array($account,'account',$account,0),
-		array($account,'maxlen',($_REQUEST['maxlen'])?$_REQUEST['maxlen']:'0',0),
-		array($account,'joinempty',($_REQUEST['joinempty'])?$_REQUEST['joinempty']:'yes',0),
-		array($account,'leavewhenempty',($_REQUEST['leavewhenempty'])?$_REQUEST['leavewhenempty']:'no',0),
-		array($account,'strategy',($_REQUEST['strategy'])?$_REQUEST['strategy']:'ringall',0),
-		array($account,'timeout',(isset($_REQUEST['timeout']))?$_REQUEST['timeout']:'15',0),
-		array($account,'retry',($_REQUEST['retry'])?$_REQUEST['retry']:'5',0),
-		array($account,'wrapuptime',($_REQUEST['wrapuptime'])?$_REQUEST['wrapuptime']:'0',0),
-		//array($account,'agentannounce',($_REQUEST['agentannounce'])?$_REQUEST['agentannounce']:'None'),
-		array($account,'announce-frequency',($_REQUEST['announcefreq'])?$_REQUEST['announcefreq']:'0',0),
-		array($account,'announce-holdtime',($_REQUEST['announceholdtime'])?$_REQUEST['announceholdtime']:'no',0),
-		array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'silence/1':'queue-youarenext',0),  //if no, play no sound
-		array($account,'queue-thereare',($_REQUEST['announceposition']=='no')?'silence/1':'queue-thereare',0),  //if no, play no sound
-		array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'silence/1':'queue-callswaiting',0),  //if no, play no sound
-		array($account,'queue-thankyou',($_REQUEST['announceposition']=='no')?'':'queue-thankyou',0),  //if no, play no sound
-		array($account,'periodic-announce',$qpannounce,0), //periodic breakout IVR recording to play back
-		array($account,'periodic-announce-frequency',($_REQUEST['pannouncefreq'])?$_REQUEST['pannouncefreq']:'0',0),
-		array($account,'context',$context,0), 
-		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
-		array($account,'monitor-join','yes',0),
-		array($account,'rtone',($_REQUEST['rtone'])?$_REQUEST['rtone']:0,0),
-		array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:'no',0),
-		array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0));
+$fields = array(
+	array($account,'maxlen',($_REQUEST['maxlen'])?$_REQUEST['maxlen']:'0',0),
+	array($account,'joinempty',($_REQUEST['joinempty'])?$_REQUEST['joinempty']:'yes',0),
+	array($account,'leavewhenempty',($_REQUEST['leavewhenempty'])?$_REQUEST['leavewhenempty']:'no',0),
+	array($account,'strategy',($_REQUEST['strategy'])?$_REQUEST['strategy']:'ringall',0),
+	array($account,'timeout',(isset($_REQUEST['timeout']))?$_REQUEST['timeout']:'15',0),
+	array($account,'retry',($_REQUEST['retry'])?$_REQUEST['retry']:'5',0),
+	array($account,'wrapuptime',($_REQUEST['wrapuptime'])?$_REQUEST['wrapuptime']:'0',0),
+	array($account,'announce-frequency',($_REQUEST['announcefreq'])?$_REQUEST['announcefreq']:'0',0),
+	array($account,'announce-holdtime',($_REQUEST['announceholdtime'])?$_REQUEST['announceholdtime']:'no',0),
+	array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'silence/1':'queue-youarenext',0),  //if no, play no sound
+	array($account,'queue-thereare',($_REQUEST['announceposition']=='no')?'silence/1':'queue-thereare',0),  //if no, play no sound
+	array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'silence/1':'queue-callswaiting',0),  //if no, play no sound
+	array($account,'queue-thankyou',($_REQUEST['announceposition']=='no')?'':'queue-thankyou',0),  //if no, play no sound
+	array($account,'periodic-announce-frequency',($_REQUEST['pannouncefreq'])?$_REQUEST['pannouncefreq']:'0',0),
+	array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
+	array($account,'monitor-join','yes',0),
+	array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:'no',0),
+	array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0));
 
-		if ($_REQUEST['music'] != 'inherit') {
-			$fields[] = array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0);
-		}
+	if ($_REQUEST['music'] != 'inherit') {
+		$fields[] = array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0);
+	}
 
 	//there can be multiple members
 	if (isset($members)) {
@@ -246,21 +275,40 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 		}
 	}
 
-    $compiled = $db->prepare('INSERT INTO queues (id, keyword, data, flags) values (?,?,?,?)');
+	$compiled = $db->prepare('INSERT INTO queues_details (id, keyword, data, flags) values (?,?,?,?)');
 	$result = $db->executeMultiple($compiled,$fields);
-    if(DB::IsError($result)) {
-        die_freepbx($result->getMessage()."<br><br>error adding to queues table");	
-    }
+	if(DB::IsError($result)) {
+		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");	
+	}
+	$extension   	 = $account;
+	$descr         = isset($name) ? $name:'';
+	$grppre        = isset($prefix) ? $prefix:'';
+	$alertinfo     = isset($alertinfo) ? $alertinfo:'';
+	$joinannounce  = strtolower($joinannounce) != 'none' ? $joinannounce:'';
+	$ringing       = isset($rtone) ? $rtone:'';
+	$agentannounce = strtolower($agentannounce) != 'none' ? $agentannounce:'';
+	$maxwait       = isset($maxwait) ? $maxwait:'';
+	$password      = isset($password) ? $password:'';
+	$ivr_id        = isset($_REQUEST['announcemenu']) ? $_REQUEST['announcemenu']:'none';
+	$dest          = isset($goto) ? $goto:'';
+	$cwignore      = isset($cwignore) ? $cwignore:'0';
+
+	// Assumes it has just been deleted
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce, ringing, agentannounce, maxwait, password, ivr_id, dest, cwignore)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce', '$ringing', '$agentannounce', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore')	";
+	$results = sql($sql);
+	return true;
 }
 
 function queues_del($account) {
 	global $db;
-	//delete from extensions table
-	legacy_extensions_del('ext-queues',$account);
-	legacy_extensions_del('ext-queues',$account.'*');
-	legacy_extensions_del('ext-queues',$account.'**');
 	
-	$sql = "DELETE FROM queues WHERE id = '$account'";
+	$sql = "DELETE FROM queues_details WHERE id = '$account'";
+    $result = $db->query($sql);
+    if(DB::IsError($result)) {
+        die_freepbx($result->getMessage().$sql);
+    }
+	$sql = "DELETE FROM queues_config WHERE extension = '$account'";
     $result = $db->query($sql);
     if(DB::IsError($result)) {
         die_freepbx($result->getMessage().$sql);
@@ -271,11 +319,12 @@ function queues_del($account) {
 //get the existing queue extensions
 function queues_list() {
 	global $db;
-	$sql = "SELECT extension,descr FROM extensions WHERE application = 'Queue' ORDER BY extension";
+	$sql = "SELECT extension, descr FROM queues_config ORDER BY extension";
 	$results = $db->getAll($sql);
 	if(DB::IsError($results)) {
 		$results = null;
 	}
+
 	foreach($results as $result){
 		if (checkRange($result[0])){
 			$extens[] = array($result[0],$result[1]);
@@ -295,9 +344,9 @@ function queues_check_extensions($exten=true) {
 	if (is_array($exten) && empty($exten)) {
 		return $extenlist;
 	}
-	$sql = "SELECT extension, descr FROM extensions WHERE application = 'Queue' ";
+	$sql = "SELECT extension, descr FROM queues_config ";
 	if (is_array($exten)) {
-		$sql .= "AND extension in ('".implode("','",$exten)."')";
+		$sql .= "WHERE extension in ('".implode("','",$exten)."')";
 	}
 	$sql .= " ORDER BY extension";
 	$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
@@ -319,27 +368,18 @@ function queues_check_destinations($dest=true) {
 	if (is_array($dest) && empty($dest)) {
 		return $destlist;
 	}
-	$sql = "
-		SELECT s1.extension extension, s1.descr descr, s2.args args
-		FROM extensions s1
-		INNER JOIN (
-
-			SELECT extension, args
-			FROM extensions
-			WHERE descr = 'jump'
-		)s2 ON s1.extension = s2.extension
-		WHERE s1.application = 'Queue'
-		";
+	$sql = "SELECT extension, descr, dest FROM queues_config";
 	if ($dest !== true) {
-		$sql .= " AND s2.args in ('".implode("','",$dest)."')";
+		$sql .= " WHERE dest in ('".implode("','",$dest)."')";
 	}
 	$sql .= " ORDER BY extension";
+
 	$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 
 	//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
 
 	foreach ($results as $result) {
-		$thisdest = $result['args'];
+		$thisdest = $result['dest'];
 		$thisid   = $result['extension'];
 		$destlist[] = array(
 			'dest' => $thisdest,
@@ -351,33 +391,34 @@ function queues_check_destinations($dest=true) {
 }
 
 
-function queues_get($account) {
+function queues_get($account, $queues_conf_only=false) {
 	global $db;
 	
     if ($account == "")
     {
 	    return array();
     }
-    
+
+	$account = q($account);
 	//get all the variables for the queue
-	$sql = "SELECT keyword,data FROM queues WHERE id = '$account'";
+	$sql = "SELECT keyword,data FROM queues_details WHERE id = $account";
 	$results = $db->getAssoc($sql);
 	if (empty($results)) {
 		return array();
 	}
 
 	//okay, but there can be multiple member variables ... do another select for them
-	$sql = "SELECT data FROM queues WHERE id = '$account' AND keyword = 'member' order by flags";
+	$sql = "SELECT data FROM queues_details WHERE id = $account AND keyword = 'member' order by flags";
 	$results['member'] = $db->getCol($sql);
 	
-	//queues.php looks for 'announcemenu', which is the same a context
-	$results['announcemenu'] = 	isset($results['context']) ? $results['context']:'';
-	
 	//if 'queue-youarenext=queue-youarenext', then assume we want to announce position
-	if(isset($results['queue-youarenext']) && $results['queue-youarenext'] == 'queue-youarenext') 
-		$results['announce-position'] = 'yes';
-	else
-		$results['announce-position'] = 'no';
+	if (!$queues_conf_only) {
+		if(isset($results['queue-youarenext']) && $results['queue-youarenext'] == 'queue-youarenext') {
+			$results['announce-position'] = 'yes';
+		} else {
+			$results['announce-position'] = 'no';
+		}
+	}
 	
 	//if 'eventmemberstatusoff=Yes', then assume we want to 'eventmemberstatus=no'
 	if(isset($results['eventmemberstatusoff'])) {
@@ -390,39 +431,38 @@ function queues_get($account) {
 		$results['eventmemberstatus'] = 'no';
 	}
 
-	//get CID Prefix
-	$sql = "SELECT args FROM extensions WHERE extension = '$account' AND context = 'ext-queues' AND application = 'SetCIDName'";
-	list($args) = $db->getRow($sql);
-	$prefix = explode('$',$args); //in table like prefix${CALLERID(name)}
-	$results['prefix'] = $prefix[0];	
+	if ($queues_conf_only) {
+		$sql = "SELECT ivr_id FROM queues_config WHERE extension = $account";
+		$config = sql($sql, "getRow",DB_FETCHMODE_ASSOC);
+	} else {
+		$sql = "SELECT * FROM queues_config WHERE extension = $account";
+		$config = sql($sql, "getRow",DB_FETCHMODE_ASSOC);
 
-	//get ALERT_INFO
-	$sql = "SELECT args FROM extensions WHERE extension = '$account' AND context = 'ext-queues' AND application = 'SetVar' AND args LIKE '__ALERT_INFO=%'";
-	list($args) = $db->getRow($sql);
-	$results['alertinfo'] = substr($args,strlen("__ALERT_INFO="));
-	
-	//get max wait time from Queue command
-	$sql = "SELECT args,descr FROM extensions WHERE extension = '$account' AND context = 'ext-queues' AND application = 'Queue'";
-	list($args, $descr) = $db->getRow($sql);
-	$maxwait = explode(',',$args);  //in table like queuenum,t,,,maxwait
-	$results['agentannounce'] = $maxwait[3];
-	$results['maxwait'] = $maxwait[4];
-	$results['name'] = $descr;
-	
-	$sql = "SELECT args FROM extensions WHERE extension = '$account' AND context = 'ext-queues' and application = 'Playback'";
-	list($args) = $db->getRow($sql);
-	$results['joinannounce'] = $args; 
-	
-	//get password from AddQueueMember command
-	$sql = "SELECT args FROM extensions WHERE extension = '$account*' AND context = 'ext-queues'";
-	list($args) = $db->getRow($sql);
-	$password = explode(',',$args); //in table like agent-add,account,password
-	$results['password'] = $password[2];
-	
-	//get the failover destination (desc=jump)
-	$sql = "SELECT args FROM extensions WHERE extension = '".$account."' AND descr = 'jump'";
-	list($args) = $db->getRow($sql);
-	$results['goto'] = $args; 
+		$results['prefix']        = $config['grppre'];
+		$results['alertinfo']     = $config['alertinfo'];
+		$results['agentannounce'] = $config['agentannounce'];
+		$results['maxwait']       = $config['maxwait'];
+		$results['name']          = $config['descr'];
+		$results['joinannounce']  = $config['joinannounce'];
+		$results['password']      = $config['password'];
+		$results['goto']          = $config['dest'];
+		$results['announcemenu']  = $config['ivr_id'];
+		$results['rtone']         = $config['ringing'];
+		$results['cwignore']      = $config['cwignore'];
+	}
+
+	$results['context'] = '';
+	$results['periodic-announce'] = '';
+
+	if ($config['ivr_id'] != 'none' && $config['ivr_id'] != '') {
+		if (function_exists('ivr_get_details')) {
+			$results['context'] = "ivr-".$config['ivr_id'];
+			$arr = ivr_get_details($config['ivr_id']);
+			if( isset($arr['announcement']) && $arr['announcement'] != '') {
+				$results['periodic-announce'] = $arr['announcement'];
+			}
+		}
+	}
 
 	return $results;
 }
