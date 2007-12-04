@@ -302,11 +302,20 @@ if ($action == 'delete') {
 			<select name="maxwait"/>
 			<?php
 				$default = (isset($maxwait) ? $maxwait : 0);
-				for ($i=0; $i <= 1200; $i+=30) {
+				for ($i=0; $i < 60; $i+=10) {
 					if ($i == 0)
 						echo '<option value="">'._("Unlimited").'</option>';
 					else
 						echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+				}
+				for ($i=60; $i < 300; $i+=30) {
+					echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+				}
+				for ($i=300; $i < 1200; $i+=60) {
+					echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+				}
+				for ($i=1200; $i <= 3600; $i+=300) {
+					echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
 			?>		
 			</select>		
