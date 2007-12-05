@@ -62,6 +62,23 @@ class queues_conf {
 			}
 			$output .= $additional."\n";
 		}
+
+		// Before returning the results, do an integrity check to see
+		// if there are any truncated compound recrodings and if so
+		// crate a noticication.
+		//
+		$nt = notifications::create($db);
+
+		$compound_recordings = queues_check_compoundrecordings();
+		if (empty($compound_recordings)) {
+			$nt->delete('queues', 'COMPOUNDREC');
+		} else {
+			$str = _("Warning, there are compound recordings configured in one or more Queue configurations. Queues can not play these so they have been truncated to the first sound file. You should correct this problem.<br />Details:<br /><br />");
+			foreach ($compound_recordings as $item) {
+				$str .= sprintf(_("Queue - %s (%s): %s<br />"), $item['extension'], $item['descr'], $item['error']);
+			}
+			$nt->add_error('queues', 'COMPOUNDREC', _("Compound Recordings in Queues Detected"), $str);
+		}
 		return $output;
 	}
 }
@@ -390,6 +407,44 @@ function queues_check_destinations($dest=true) {
 	return $destlist;
 }
 
+function queues_check_compoundrecordings() {
+	global $db;
+
+	$compound_recordings = array();
+	$sql = "SELECT extension, descr, agentannounce, ivr_id FROM queues_config WHERE (ivr_id != 'none' AND ivr_id != '') OR agentannounce != ''";
+	$results = sql($sql, "getAll",DB_FETCHMODE_ASSOC);
+
+	if (function_exists('ivr_list')) {
+		$ivr_details = ivr_list();
+		foreach ($ivr_details as $item) {
+			$ivr_hash[$item['ivr_id']] = $item;
+		}
+		$check_ivr = true;
+	} else {
+		$check_ivr = false;
+	}
+
+	foreach ($results as $result) {
+		if (strpos($result['agentannounce'],"&") !== false) {
+			$compound_recordings[] = array(
+				                       	'extension' => $result['extension'],
+															 	'descr' => $result['descr'],
+															 	'error' => _("Agent Announce Msg"),
+														 	);
+		}
+		if ($result['ivr_id'] != 'none' && $result['ivr_id'] != '' && $check_ivr) {
+			if (strpos($ivr_hash[$result['ivr_id']]['announcement'],"&") !== false) {
+				$compound_recordings[] = array(
+				                       		'extension' => $result['extension'],
+															 		'descr' => $result['descr'],
+															 		'error' => sprintf(_("IVR Announce: %s"),$ivr_hash[$result['ivr_id']]['displayname']),
+														 		);
+			}
+		}
+	}
+	return $compound_recordings;
+}
+
 
 function queues_get($account, $queues_conf_only=false) {
 	global $db;
@@ -434,6 +489,11 @@ function queues_get($account, $queues_conf_only=false) {
 	if ($queues_conf_only) {
 		$sql = "SELECT ivr_id FROM queues_config WHERE extension = $account";
 		$config = sql($sql, "getRow",DB_FETCHMODE_ASSOC);
+
+		// We need to strip off all but the first sound file of any compound sound files
+		//
+		$agentannounce_arr        = explode("&", $config['agentannounce']);
+		$results['agentannounce'] = $agentannounce_arr[0];
 	} else {
 		$sql = "SELECT * FROM queues_config WHERE extension = $account";
 		$config = sql($sql, "getRow",DB_FETCHMODE_ASSOC);
@@ -459,7 +519,11 @@ function queues_get($account, $queues_conf_only=false) {
 			$results['context'] = "ivr-".$config['ivr_id'];
 			$arr = ivr_get_details($config['ivr_id']);
 			if( isset($arr['announcement']) && $arr['announcement'] != '') {
-				$results['periodic-announce'] = $arr['announcement'];
+
+				// We need to strip off all but the first sound file of any compound sound files
+				//
+				$periodic_arr = explode("&", $arr['announcement']);
+				$results['periodic-announce'] = $periodic_arr[0];
 			}
 		}
 	}

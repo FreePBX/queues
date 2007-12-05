@@ -245,14 +245,43 @@ if ($action == 'delete') {
 			<?php
 				$tresults = recordings_list();
 				$default = (isset($agentannounce) ? $agentannounce : 'None');
+
+				$compound_recordings = false;
+				$is_error = false;
+
 				echo '<option value="None">'._("None").'</option>';
 				if (isset($tresults[0])) {
 					foreach ($tresults as $tresult) {
-						echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
+						if (strpos($tresult[2],"&") === false) {
+							echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
+						} else {
+							$compound_recordings = true;
+							echo '<option style="color:red" value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]." (**)</option>\n";
+							if ($tresult[2] == $default) {
+								$is_error = true;
+							}
+						}
 					}
 				}
 			?>		
 			</select>		
+			<?php
+			if ($compound_recordings) {
+			?>
+				<small><a style="color:red"  href="#" class="info"><?php echo ($is_error ? _("(**) ERRORS") : _("(**) Warning Potential Errors"))?>
+					<span> 
+						<?php 
+							if ($is_error) {
+								echo _("ERROR: You have configured a compound annoucement in your selection. These are annoucements composed of multiple concatenated sound files. The Queue system is not able to play such sound files. Your announcement file will be concatentated and only the first sound file will be played.");
+							} else {
+								echo _("There are compound annoucements in your selection. These are annoucements composed of multiple concatenated sound files. The Queue system is not able to play such sound files. If you choose one of these annoucements your announcement will be concatentated and only the first sound file will be played.");
+							}
+						?>
+					</span></small>
+				</a>
+			<?php
+			}
+			?>
 		</td>
 	</tr>
 
@@ -553,16 +582,43 @@ if ($action == 'delete') {
 			//query for exisiting aa_N contexts
 			$unique_aas = ivr_list();		
 			
+			$compound_recordings = false;
+			$is_error = false;
 			if (isset($unique_aas)) {
 				foreach ($unique_aas as $unique_aa) {
 					$menu_id = $unique_aa['ivr_id'];
 					$menu_name = $unique_aa['displayname'];
-					echo '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id);
+					if (strpos($unique_aa['announcement'],"&") === false) {
+						echo '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)."</option>\n";
+					} else {
+						$compound_recordings = true;
+						echo '<option style="color:red" value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)." (**)</option>\n";
+						if ($menu_id == $default) {
+							$is_error = true;
+						}
+					}
 				}
 			}
-		
 			?>
 			</select>
+			<?php
+			if ($compound_recordings) {
+			?>
+				<small><a style="color:red"  href="#" class="info"><?php echo ($is_error ? _("(**) ERRORS") : _("(**) Warning Potential Errors"))?>
+					<span> 
+						<?php 
+							if ($is_error) {
+								echo _("ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different annoucement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not");
+							} else {
+								echo _("You have IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. If you choose one of these the recording used with be truncated to use only the first sound file. You can choose this IVR now and then correct the problem by selecting a different annoucement for your IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not");
+							}
+						?>
+					</span></small>
+				</a>
+			<?php
+			}
+			?>
+
 		</td>
 	</tr>
 	
