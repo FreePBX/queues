@@ -8,7 +8,7 @@ class queues_conf {
 	}
 	
 	// return the output that goes in each of the files
-	function generateConf($file) {
+	function generateConf() {
 
 		global $db;
 		global $version;
