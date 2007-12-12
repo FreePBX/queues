@@ -1,6 +1,17 @@
 <?php
-
 global $db;
+
+if (! function_exists("out")) {
+	function out($text) {
+		echo $text."\n";
+	}
+}
+
+if (! function_exists("outn")) {
+	function outn($text) {
+		echo $text;
+	}
+}
 
 $results = array();
 $sql = "SELECT args, extension, priority FROM extensions WHERE context = 'ext-queues' AND descr = 'jump'";
@@ -288,17 +299,5 @@ if(DB::IsError($results)) {
 	} else {
 		return $return_code;
 	}
-
-if (! function_exists("out")) {
-	function out($text) {
-		echo $text."\n";
-	}
-}
-
-if (! function_exists("outn")) {
-	function outn($text) {
-		echo $text;
-	}
-}
 
 ?>
