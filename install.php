@@ -3,7 +3,7 @@ global $db;
 
 if (! function_exists("out")) {
 	function out($text) {
-		echo $text."\n";
+		echo $text."<br />";
 	}
 }
 
