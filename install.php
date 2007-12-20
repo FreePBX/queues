@@ -244,7 +244,7 @@ if(DB::IsError($results)) {
 
 					// get the failover destination (desc=jump)
 					//
-					$sql = "SELECT args FROM extensions WHERE extension = '".$account."' AND descr = 'jump'";
+					$sql = "SELECT args FROM extensions WHERE extension = '".$account."' AND descr = 'jump' AND context = 'ext-queues'";
 					list($args) = $db->getRow($sql);
 					$dest = isset($args) ? addslashes($args) : '';
 
