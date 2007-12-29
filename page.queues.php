@@ -366,12 +366,12 @@ if ($action == 'delete') {
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Join Empty:")?><span><?php echo _("If you wish to allow callers to join queues that currently have no agents, set this to yes")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Join Empty:")?><span><?php echo _("If you wish to allow callers to join queues that currently have no agents, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members")?></span></a></td>
 		<td>
 			<select name="joinempty"/>
 			<?php
 				$default = (isset($joinempty) ? $joinempty : 'yes');
-				$items = array('yes'=>_("Yes"),'no'=>_("No"));
+				$items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
@@ -381,12 +381,12 @@ if ($action == 'delete') {
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Leave When Empty:")?><span><?php echo _("If you wish to remove callers from the queue if there are no agents present, set this to yes")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Leave When Empty:")?><span><?php echo _("If you wish to remove callers from the queue if there are no agents present, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members")?></span></a></td>
 		<td>
 			<select name="leavewhenempty"/>
 			<?php
 				$default = (isset($leavewhenempty) ? $leavewhenempty : 'no');
-				$items = array('yes'=>_("Yes"),'no'=>_("No"));
+				$items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
