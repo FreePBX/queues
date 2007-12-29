@@ -8,6 +8,7 @@
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
 	</description>
 	<changelog>
+		*2.4.0.3* #2579 added strict to joinempty and leavewhenempy
 		*2.4.0.2* #2528 add context = 'ext-queues' when getting destination statement
 		*2.4.0.1* added out() and outn() to install script
 		*2.4.0* Migration from legacy tables, added queues_conf class, Extension/dest registry, #2282, #2487, it translations
