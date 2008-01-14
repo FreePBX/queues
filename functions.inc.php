@@ -302,7 +302,7 @@ $fields = array(
 	$grppre        = isset($prefix) ? $prefix:'';
 	$alertinfo     = isset($alertinfo) ? $alertinfo:'';
 	$joinannounce  = strtolower($joinannounce) != 'none' ? $joinannounce:'';
-	$ringing       = isset($rtone) ? $rtone:'';
+	$ringing       = isset($_REQUEST['rtone']) ? $_REQUEST['rtone']:'';
 	$agentannounce = strtolower($agentannounce) != 'none' ? $agentannounce:'';
 	$maxwait       = isset($maxwait) ? $maxwait:'';
 	$password      = isset($password) ? $password:'';

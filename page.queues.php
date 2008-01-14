@@ -26,6 +26,7 @@ isset($_REQUEST['alertinfo'])?$alertinfo = $_REQUEST['alertinfo']:$alertinfo='';
 isset($_REQUEST['joinannounce'])?$joinannounce = $_REQUEST['joinannounce']:$joinannounce='';
 $maxwait = isset($_REQUEST['maxwait'])?$_REQUEST['maxwait']:'';
 $cwignore = isset($_REQUEST['cwignore'])?$_REQUEST['cwignore']:'0';
+$rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
