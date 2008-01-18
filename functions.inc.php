@@ -482,7 +482,7 @@ function queues_get($account, $queues_conf_only=false) {
 		} else {
 			$results['eventmemberstatus'] = 'yes';
 		}
-	} else {
+	} elseif (!isset($results['eventmemberstatus'])){
 		$results['eventmemberstatus'] = 'no';
 	}
 
