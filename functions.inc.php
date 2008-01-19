@@ -17,8 +17,8 @@ class queues_conf {
 		$output = "";
 		// Asterisk 1.4 does not like blank assignments so just don't put them there
 		//
-		$no_blanks = version_compare($version, "1.4", "ge");
-
+		$ver12 = version_compare($version, '1.4', 'lt');
+		
 		// legacy but in case someone was using this we will leave it
 		//
 		$sql = "SELECT keyword,data FROM queues_details WHERE id='-1' AND keyword <> 'account'";
@@ -27,7 +27,7 @@ class queues_conf {
    		die($results->getMessage());
 		}
 		foreach ($results as $result) {
-			if ($no_blanks && trim($result['data']) == '') {
+			if (!$ver12 && trim($result['data']) == '') {
 				continue;
 			}
 			$additional .= $result['keyword']."=".$result['data']."\n";
@@ -49,10 +49,24 @@ class queues_conf {
 			unset($results2['member']);
 
 			foreach ($results2 as $keyword => $data) {
-				if ($no_blanks && trim($data) == '') {
-					continue;
+				if ($ver12){
+					$output .= $keyword."=".$data."\n";
+				}else{
+					switch($keyword){
+						case (trim($data) == ''):
+						case 'monitor-join': 
+							break;
+						case 'monitor-format':
+							if (strtolower($data) != 'no'){
+								$output .= "monitor-type=mixmonitor\n";
+								$output .= $keyword."=".$data."\n";
+							}
+							break;
+						default:
+							$output .= $keyword."=".$data."\n";
+							break;
+					}
 				}
-				$output .= $keyword."=".$data."\n";
 			}
 
 			// Now pull out all the memebers, one line for each
