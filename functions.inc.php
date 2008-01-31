@@ -353,7 +353,7 @@ function queues_list() {
 	$sql = "SELECT extension, descr FROM queues_config ORDER BY extension";
 	$results = $db->getAll($sql);
 	if(DB::IsError($results)) {
-		$results = null;
+		$results = array();
 	}
 
 	foreach($results as $result){
@@ -364,7 +364,7 @@ function queues_list() {
 	if (isset($extens)) {
 		return $extens;
 	} else {
-		return null;
+		return array();
 	}
 }
 
