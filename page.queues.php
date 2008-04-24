@@ -670,6 +670,11 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 		</td>
 	</tr>
 <?php } ?>
+<?php
+	// implementation of module hook
+	// object was initialized in config.php
+	echo $module_hook->hookHtml;
+?>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Fail Over Destination")?><hr></h5></td></tr>
 	<?php 
