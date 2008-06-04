@@ -242,7 +242,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Agent Announcement:")?><span><?php echo _("Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
 		<td>
-			<select name="agentannounce"/>
+			<select name="agentannounce">
 			<?php
 				$tresults = recordings_list();
 				$default = (isset($agentannounce) ? $agentannounce : 'None');
@@ -302,7 +302,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Music on Hold Class:")?><span><?php echo _("Music (or Commercial) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" Menu to the left.")?></span></a></td>
 		<td>
-			<select name="music"/>
+			<select name="music">
 			<?php
 				$tresults = music_list($amp_conf['ASTVARLIBDIR']."/mohmp3");
 				array_unshift($tresults,'inherit');
@@ -329,7 +329,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Max Wait Time:")?><span><?php echo _("The maximum number of seconds a caller can wait in a queue before being pulled out.  (0 for unlimited).")?></span></a></td>
 		<td>
-			<select name="maxwait"/>
+			<select name="maxwait">
 			<?php
 				$default = (isset($maxwait) ? $maxwait : 0);
 				for ($i=0; $i < 60; $i+=10) {
@@ -355,7 +355,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Max Callers:")?><span><?php echo _("Maximum number of people waiting in the queue (0 for unlimited)")?></span></a></td>
 		<td>
-			<select name="maxlen"/>
+			<select name="maxlen">
 			<?php 
 				$default = (isset($maxlen) ? $maxlen : 0);
 				for ($i=0; $i <= 50; $i++) {
@@ -369,7 +369,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Join Empty:")?><span><?php echo _("If you wish to allow callers to join queues that currently have no agents, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members")?></span></a></td>
 		<td>
-			<select name="joinempty"/>
+			<select name="joinempty">
 			<?php
 				$default = (isset($joinempty) ? $joinempty : 'yes');
 				$items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
@@ -384,7 +384,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Leave When Empty:")?><span><?php echo _("If you wish to remove callers from the queue if there are no agents present, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members")?></span></a></td>
 		<td>
-			<select name="leavewhenempty"/>
+			<select name="leavewhenempty">
 			<?php
 				$default = (isset($leavewhenempty) ? $leavewhenempty : 'no');
 				$items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
@@ -410,7 +410,7 @@ if ($action == 'delete') {
 			</a>
 		</td>
 		<td>
-			<select name="strategy"/>
+			<select name="strategy">
 			<?php
 				$default = (isset($strategy) ? $strategy : 'ringall');
 				$items = array('ringall','roundrobin','leastrecent','fewestcalls','random','rrmemory');
@@ -425,7 +425,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Agent Timeout:")?><span><?php echo _("The number of seconds an agent's phone can ring before we consider it a timeout. Unlimited or other timeout values may still be limited by system ringtime or individual extension defaults.")?></span></a></td>
 		<td>
-			<select name="timeout"/>
+			<select name="timeout">
 			<?php
 				$default = (isset($timeout) ? $timeout : 15);
 				echo '<option value="0" '.(0 == $default ? 'SELECTED' : '').'>'."Unlimited".'</option>';
@@ -440,7 +440,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("retry:")?><span><?php echo _("The number of seconds we wait before trying all the phones again")?></span></a></td>
 		<td>
-			<select name="retry"/>
+			<select name="retry">
 			<?php
 				$default = (isset($retry) ? $retry : 5);
 				for ($i=0; $i <= 20; $i++) {
@@ -454,7 +454,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Wrap-Up-Time:")?><span><?php echo _("After a successful call, how many seconds to wait before sending a potentially free agent another call (default is 0, or no delay)")?></span></a></td>
 		<td>
-			<select name="wrapuptime"/>
+			<select name="wrapuptime">
 			<?php
 				$default = (isset($wrapuptime) ? $wrapuptime : 0);
 				for ($i=0; $i <= 60; $i++) {
@@ -468,7 +468,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Call Recording:")?><span><?php echo _("Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)")?></span></a></td>
 		<td>
-			<select name="monitor-format"/>
+			<select name="monitor-format">
 			<?php
 				$default = (empty($thisQ['monitor-format']) ? "no" : $thisQ['monitor-format']);  
 				echo '<option value="wav49" '.($default == "wav49" ? 'SELECTED' : '').'>'._("wav49").'</option>';
@@ -483,7 +483,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Event When Called:")?><span><?php echo _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete.")?></span></a></td>
 		<td>
-			<select name="eventwhencalled"/>
+			<select name="eventwhencalled">
 			<?php
 				$default = (isset($eventwhencalled) ? $eventwhencalled : 'no');
 				$items = array('yes'=>_("Yes"),'no'=>_("No"));
@@ -498,7 +498,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Member Status:")?><span><?php echo _("When if this is option is set to YES, the following manager event will be generated: QueueMemberStatus")?></span></a></td>
 		<td>
-			<select name="eventmemberstatus"/>
+			<select name="eventmemberstatus">
 			<?php
 				$default = (isset($eventmemberstatus) ? $eventmemberstatus : 'no');
 				$items = array('yes'=>_("Yes"),'no'=>_("No"));
@@ -513,7 +513,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Skip Busy Agents:")?><span><?php echo _("When set to Yes, agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted.")?></span></a></td>
 		<td>
-			<select name="cwignore"/>
+			<select name="cwignore">
 			<?php
 				$default = (isset($cwignore) ? $cwignore : 'no');
 				$items = array('1'=>_("Yes"),'0'=>_("No"));
@@ -529,7 +529,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Frequency:")?><span><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")?></span></a></td>
 		<td>
-			<select name="announcefreq"/>
+			<select name="announcefreq">
 			<?php
 				$default = (isset($thisQ['announce-frequency']) ? $thisQ['announce-frequency'] : 0);
 				for ($i=0; $i <= 1200; $i+=15) {
@@ -543,7 +543,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Announce Position:")?><span><?php echo _("Announce position of caller in the queue?")?></span></a></td>
 		<td>
-			<select name="announceposition"/>
+			<select name="announceposition">
 			<?php //setting to "no" will override sounds queue-youarenext, queue-thereare, queue-callswaitingÊ 
 				$default = (isset($thisQ['announce-position']) ? $thisQ['announce-position'] : "no");  
 					echo '<option value=yes '.($default == "yes" ? 'SELECTED' : '').'>'._("Yes").'</option>';
@@ -626,7 +626,7 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Repeat Frequency:")?><span><?php echo _("How often to announce a voice menu to the caller (0 to Disable Announcements).")?></span></a></td>
 		<td>
-			<select name="pannouncefreq"/>
+			<select name="pannouncefreq">
 			<?php
 				$default = (isset($thisQ['periodic-announce-frequency']) ? $thisQ['periodic-announce-frequency'] : 0);
 				for ($i=0; $i <= 1200; $i+=15) {
@@ -645,7 +645,7 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Join Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
 		<td>
-			<select name="joinannounce"/>
+			<select name="joinannounce">
 			<?php
 				$tresults = recordings_list();
 				$default = (isset($joinannounce) ? $joinannounce : 'None');
