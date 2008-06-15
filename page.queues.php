@@ -438,7 +438,7 @@ if ($action == 'delete') {
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("retry:")?><span><?php echo _("The number of seconds we wait before trying all the phones again")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Retry:")?><span><?php echo _("The number of seconds we wait before trying all the phones again")?></span></a></td>
 		<td>
 			<select name="retry">
 			<?php
