@@ -704,7 +704,6 @@ function insertExten() {
 }
 
 function checkQ(theForm) {
-        $queuename = theForm.name.value;
         var bad = "false";
 
         var whichitem = 0;
@@ -720,11 +719,9 @@ function checkQ(theForm) {
                 bad="true";
         }
 
-        if ($queuename == "") {
-                <?php echo "alert('"._("Queue name must not be blank")."')"?>;
-                bad="true";
-        } else if (!$queuename.match('^[a-zA-Z][a-zA-Z0-9]+$')) {
-                <?php echo "alert('"._("Queue name cannot start with a number, and can only contain letters and numbers")."')"?>;
+				defaultEmptyOK = false;	
+				if (!isAlphanumeric(theForm.name.value)) {
+                <?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numberic characters")."')"?>;
                 bad="true";
         }
 

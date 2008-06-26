@@ -312,9 +312,9 @@ $fields = array(
 		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");	
 	}
 	$extension   	 = $account;
-	$descr         = isset($name) ? $name:'';
-	$grppre        = isset($prefix) ? $prefix:'';
-	$alertinfo     = isset($alertinfo) ? $alertinfo:'';
+	$descr         = isset($name) ? addslashes($name):'';
+	$grppre        = isset($prefix) ? addslashes($prefix):'';
+	$alertinfo     = isset($alertinfo) ? addslashes($alertinfo):'';
 	$joinannounce  = strtolower($joinannounce) != 'none' ? $joinannounce:'';
 	$ringing       = isset($_REQUEST['rtone']) ? $_REQUEST['rtone']:'';
 	$agentannounce = strtolower($agentannounce) != 'none' ? $agentannounce:'';
