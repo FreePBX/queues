@@ -300,4 +300,23 @@ if(DB::IsError($results)) {
 		return $return_code;
 	}
 
+
+
+
+	// Version 2.5 upgrade
+	outn(_("checking for qregex field.."));
+	$sql = "SELECT `qregex` FROM queues_config";
+	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+	if(DB::IsError($check)) {
+		// add new field
+		$sql = "ALTER TABLE queues_config ADD `qregex` VARCHAR( 255 ) NULL ;";
+		$result = $db->query($sql);
+		if(DB::IsError($result)) {
+			die_freepbx($result->getDebugInfo());
+		}
+		out(_("OK"));
+	} else {
+		out(_("already exists"));
+	}
+
 ?>

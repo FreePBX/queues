@@ -158,6 +158,12 @@ function queues_get_config($engine) {
 
 					$grppre = (isset($q['prefix'])?$q['prefix']:'');
 					$alertinfo = (isset($q['alertinfo'])?$q['alertinfo']:'');
+
+					// Not sure why someone would ever have a ; in the regex, but since Asterisk has problems with them
+					// it would need to be escaped
+					//
+					$qregex = (isset($q['qregex'])?$q['qregex']:'');
+					str_replace(';','\;',$qregex);
 					
 					$ext->add('ext-queues', $exten, '', new ext_macro('user-callerid'));
 					$ext->add('ext-queues', $exten, '', new ext_answer(''));
@@ -226,6 +232,9 @@ function queues_get_config($engine) {
 					$ext->add('ext-queues', $exten, '', new ext_goto($goto_pri,$goto_exten,$goto_context));
 					
 					//dynamic agent login/logout
+					if (trim($qregex) != '') {
+ 						$ext->add('ext-queues', $exten."*", '', new ext_setvar('QREGEX', $qregex));
+					}
 					$ext->add('ext-queues', $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
 					$ext->add('ext-queues', $exten."**", '', new ext_macro('agent-del',$exten.",".$exten));
 				}
@@ -260,7 +269,7 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo='',$cwignore='no') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo='',$cwignore='no',$qregex='') {
 	global $db;
 
 	if (trim($account) == '') {
@@ -323,10 +332,11 @@ $fields = array(
 	$ivr_id        = isset($_REQUEST['announcemenu']) ? $_REQUEST['announcemenu']:'none';
 	$dest          = isset($goto) ? $goto:'';
 	$cwignore      = isset($cwignore) ? $cwignore:'0';
+	$qregex        = isset($qregex) ? addslashes($qregex):'';
 
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce, ringing, agentannounce, maxwait, password, ivr_id, dest, cwignore)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce', '$ringing', '$agentannounce', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce, ringing, agentannounce, maxwait, password, ivr_id, dest, cwignore, qregex)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce', '$ringing', '$agentannounce', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex')	";
 	$results = sql($sql);
 	return true;
 }
@@ -523,6 +533,7 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['announcemenu']  = $config['ivr_id'];
 		$results['rtone']         = $config['ringing'];
 		$results['cwignore']      = $config['cwignore'];
+		$results['qregex']        = $config['qregex'];
 	}
 
 	$results['context'] = '';

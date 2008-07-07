@@ -27,6 +27,7 @@ isset($_REQUEST['joinannounce'])?$joinannounce = $_REQUEST['joinannounce']:$join
 $maxwait = isset($_REQUEST['maxwait'])?$_REQUEST['maxwait']:'';
 $cwignore = isset($_REQUEST['cwignore'])?$_REQUEST['cwignore']:'0';
 $rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
+$qregex = isset($_REQUEST['qregex'])?$_REQUEST['qregex']:'';
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
@@ -96,7 +97,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo,$cwignore);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo,$cwignore,$qregex);
 					needreload();
 					redirect_standard();
 				}
@@ -108,7 +109,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo,$cwignore);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo,$cwignore,$qregex);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -525,6 +526,11 @@ if ($action == 'delete') {
 		</td>
 	</tr>
 
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Agent Regex Filter")?><span><?php echo _("Provides an optional regex expression that will be applied against the agent callback number. If the callback number does not pass the regex filter then it will be treated as invalid. This can be used to restrict agents to extensions within a range, not allow callbacks to include keys like *, or any other use that may be appropriate. An examle input might be:<br />^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * key.<br />WARNING: make sure you undertand what you are doing or otherwise leave this blank!")?></span></a></td>
+		<td><input type="text" name="qregex" value="<?php echo (isset($qregex) ? $qregex : ''); ?>"></td>
+	</tr>
+
 	<tr><td colspan="2"><br><h5><?php echo _("Caller Position Announcements")?><hr></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Frequency:")?><span><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")?></span></a></td>
@@ -704,30 +710,36 @@ function insertExten() {
 }
 
 function checkQ(theForm) {
-        var bad = "false";
+	var bad = "false";
+	var msgWarnRegex = "<?php echo _("Using a Regex filter is fairly advanced, please confirm you know what you are doing or leave this blank"); ?>";
 
-        var whichitem = 0;
-        while (whichitem < theForm.goto0.length) {
-                if (theForm.goto0[whichitem].checked) {
-                        theForm.goto0.value=theForm.goto0[whichitem].value;
-                }
-                whichitem++;
-        }
+	var whichitem = 0;
+	while (whichitem < theForm.goto0.length) {
+		if (theForm.goto0[whichitem].checked) {
+			theForm.goto0.value=theForm.goto0[whichitem].value;
+		}
+		whichitem++;
+	}
 
-				if (!isInteger(theForm.account.value)) {
-                <?php echo "alert('"._("Queue Number must not be blank")."')"?>;
-                bad="true";
-        }
+	if (!isInteger(theForm.account.value)) {
+		<?php echo "alert('"._("Queue Number must not be blank")."')"?>;
+		bad="true";
+	}
 
-				defaultEmptyOK = false;	
-				if (!isAlphanumeric(theForm.name.value)) {
-                <?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numberic characters")."')"?>;
-                bad="true";
-        }
+	defaultEmptyOK = false;	
+	if (!isAlphanumeric(theForm.name.value)) {
+		<?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numberic characters")."')"?>;
+		bad="true";
+	}
+	if (!isEmpty(theForm.qregex.value)) {
+		if (!confirm(msgWarnRegex)) {
+			bad="true";
+		}
+	}
 
-        if (bad == "false") {
-                theForm.submit();
-        }
+	if (bad == "false") {
+		theForm.submit();
+	}
 }
 
 //-->
