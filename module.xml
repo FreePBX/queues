@@ -45,7 +45,7 @@
 		*2.2* First release for FreePBX 2.2 - Fixed compatibility issue with new UI
 	</changelog>
 	<depends>
-		<version>2.4.0</version>
+		<version>2.5.0</version>
 	</depends>
 	<menuitems>
 		<queues>Queues</queues>
