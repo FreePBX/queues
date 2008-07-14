@@ -33,7 +33,7 @@ class queues_conf {
 			$additional .= $result['keyword']."=".$result['data']."\n";
 		}
 
-		$results = queues_list();
+		$results = queues_list(true);
 		foreach ($results as $result) {
 			$output .= "[".$result[0]."]\n";
 
@@ -50,7 +50,13 @@ class queues_conf {
 
 			foreach ($results2 as $keyword => $data) {
 				if ($ver12){
-					$output .= $keyword."=".$data."\n";
+					switch($keyword){
+						case 'ringinuse': 
+							break;
+						default:
+							$output .= $keyword."=".$data."\n";
+							break;
+					}
 				}else{
 					switch($keyword){
 						case (trim($data) == ''):
@@ -101,7 +107,7 @@ class queues_conf {
 // returns a associative arrays with keys 'destination' and 'description'
 function queues_destinations() {
 	//get the list of all exisiting
-	$results = queues_list();
+	$results = queues_list(true);
 	
 	//return an associative array with destination and description
 	if (isset($results)) {
@@ -149,7 +155,7 @@ function queues_get_config($engine) {
 		case "asterisk":
 			/* queue extensions */
 			$ext->addInclude('from-internal-additional','ext-queues');
-			$qlist = queues_list();
+			$qlist = queues_list(true);
 			if (is_array($qlist)) {
 				foreach($qlist as $item) {
 					
@@ -174,7 +180,7 @@ function queues_get_config($engine) {
 					$ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_OVERRIDE', 'BLKVM/${EXTEN}/${CHANNEL}'));
 					$ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_BASE', '${EXTEN}'));
 					$ext->add('ext-queues', $exten, '', new ext_setvar('DB(${BLKVM_OVERRIDE})', 'TRUE'));
-					$ext->add('ext-queues', $exten, '', new ext_setvar('_DIAL_OPTIONS', '${DIAL_OPTIONS}M(auto-blkvm)'));
+					$ext->add('ext-queues', $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)'));
 
 					// Inform all the children NOT to send calls to destinations or voicemail
 					//
@@ -300,7 +306,9 @@ $fields = array(
 	array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
 	array($account,'monitor-join','yes',0),
 	array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:'no',0),
-	array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0));
+	array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0),
+	array($account,'ringinuse',($cwignore)?'no':'yes',0),
+);
 
 	if ($_REQUEST['music'] != 'inherit') {
 		$fields[] = array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0);
@@ -358,7 +366,8 @@ function queues_del($account) {
 }
 
 //get the existing queue extensions
-function queues_list() {
+//
+function queues_list($listall=false) {
 	global $db;
 	$sql = "SELECT extension, descr FROM queues_config ORDER BY extension";
 	$results = $db->getAll($sql);
@@ -367,7 +376,7 @@ function queues_list() {
 	}
 
 	foreach($results as $result){
-		if (checkRange($result[0])){
+		if ($listall || checkRange($result[0])){
 			$extens[] = array($result[0],$result[1]);
 		}
 	}
