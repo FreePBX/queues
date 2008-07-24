@@ -241,52 +241,23 @@ if ($action == 'delete') {
 	<tr><td colspan="2"><br><h5><?php echo _("Queue Options")?><hr></h5></td></tr>
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Agent Announcement:")?><span><?php echo _("Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Agent Announcement:")?><span><?php echo _("Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left. Compound recordings composed of 2 or more sound files are not displayed as options since this feature can not accept such recordings.")?></span></a></td>
 		<td>
 			<select name="agentannounce" tabindex="<?php echo ++$tabindex;?>">
 			<?php
-				$tresults = recordings_list();
+				$tresults = recordings_list(false);
 				$default = (isset($agentannounce) ? $agentannounce : 'None');
-
-				$compound_recordings = false;
-				$is_error = false;
 
 				echo '<option value="None">'._("None").'</option>';
 				if (isset($tresults[0])) {
 					foreach ($tresults as $tresult) {
-						if (strpos($tresult[2],"&") === false) {
-							echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
-						} else {
-							$compound_recordings = true;
-							echo '<option style="color:red" value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]." (**)</option>\n";
-							if ($tresult[2] == $default) {
-								$is_error = true;
-							}
-						}
+						echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
 					}
 				}
 			?>		
 			</select>		
-			<?php
-			if ($compound_recordings) {
-			?>
-				<small><a style="color:red"  href="#" class="info"><?php echo ($is_error ? _("(**) ERRORS") : _("(**) Warning Potential Errors"))?>
-					<span> 
-						<?php 
-							if ($is_error) {
-								echo _("ERROR: You have configured a compound annoucement in your selection. These are annoucements composed of multiple concatenated sound files. The Queue system is not able to play such sound files. Your announcement file will be concatentated and only the first sound file will be played.");
-							} else {
-								echo _("There are compound annoucements in your selection. These are annoucements composed of multiple concatenated sound files. The Queue system is not able to play such sound files. If you choose one of these annoucements your announcement will be concatentated and only the first sound file will be played.");
-							}
-						?>
-					</span></small>
-				</a>
-			<?php
-			}
-			?>
 		</td>
 	</tr>
-
 <?php } else { ?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Agent Announcement:")?><span><?php echo _("Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
@@ -595,6 +566,8 @@ if ($action == 'delete') {
 				foreach ($unique_aas as $unique_aa) {
 					$menu_id = $unique_aa['ivr_id'];
 					$menu_name = $unique_aa['displayname'];
+
+					$unique_aa['announcement'] = recordings_get_file($unique_aa['announcement_id']);
 					if (strpos($unique_aa['announcement'],"&") === false) {
 						echo '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)."</option>\n";
 					} else {
