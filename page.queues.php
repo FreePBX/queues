@@ -251,7 +251,7 @@ if ($action == 'delete') {
 				echo '<option value="None">'._("None").'</option>';
 				if (isset($tresults[0])) {
 					foreach ($tresults as $tresult) {
-						echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
+						echo '<option value="'.$tresult[2].'" '.($tresult[2] == $default ? 'SELECTED' : '').'>'.$tresult[1]."</option>\n";;
 					}
 				}
 			?>		
