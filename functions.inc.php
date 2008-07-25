@@ -146,6 +146,41 @@ function queues_getdestinfo($dest) {
 	}
 }
 
+function queues_recordings_usage($recording_id) {
+	global $active_modules;
+
+	$results = sql("SELECT `extension`, `descr` FROM `queues_config` WHERE `agentannounce_id` = '$recording_id' OR `joinannounce_id` = '$recording_id'","getAll",DB_FETCHMODE_ASSOC);
+	if (empty($results)) {
+		return array();
+	} else {
+		//$type = isset($active_modules['queues']['type'])?$active_modules['queues']['type']:'setup';
+		foreach ($results as $result) {
+			$usage_arr[] = array(
+			  'url_query' => 'config.php?display=queues&extdisplay='.urlencode($result['extension']),
+				'description' => "Queue: ".$result['descr'],
+			);
+		}
+		return $usage_arr;
+	}
+}
+
+function queues_ivr_usage($ivr_id) {
+	global $active_modules;
+
+	$results = sql("SELECT `extension`, `descr` FROM `queues_config` WHERE `ivr_id` = '$ivr_id'","getAll",DB_FETCHMODE_ASSOC);
+	if (empty($results)) {
+		return array();
+	} else {
+		foreach ($results as $result) {
+			$usage_arr[] = array(
+			  'url_query' => 'config.php?display=queues&extdisplay='.urlencode($result['extension']),
+				'description' => "Queue: ".$result['descr'],
+			);
+		}
+		return $usage_arr;
+	}
+}
+
 /* 	Generates dialplan for "queues" components (extensions & inbound routing)
 	We call this with retrieve_conf
 */
@@ -207,8 +242,9 @@ function queues_get_config($engine) {
 					}
 
 					$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_FILENAME','/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}'));
-					$joinannounce = (isset($q['joinannounce'])?$q['joinannounce']:'');
-					if($joinannounce != "") {
+					$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
+					if($joinannounce_id) {
+						$joinannounce = recordings_get_file($joinannounce_id);
 						$ext->add('ext-queues', $exten, '', new ext_playback($joinannounce));
 					}
 					$options = 't';
@@ -222,7 +258,12 @@ function queues_get_config($engine) {
 					if ($q['cwignore']) {
  						$ext->add('ext-queues', $exten, '', new ext_setvar('_CWIGNORE', 'TRUE'));
 					}
-					$agentannounce = (isset($q['agentannounce'])?$q['agentannounce']:'');
+					$agentannounce_id = (isset($q['agentannounce_id'])?$q['agentannounce_id']:'');
+					if ($agentannounce_id) {
+						$agentannounce = recordings_get_file($agentannounce_id);
+					} else {
+						$agentannounce = '';
+					}
 					$ext->add('ext-queues', $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
  
 					$ext->add('ext-queues', $exten, '', new ext_dbdel('${BLKVM_OVERRIDE}'));
@@ -275,7 +316,7 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo='',$cwignore='no',$qregex='') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='no',$qregex='') {
 	global $db;
 
 	if (trim($account) == '') {
@@ -284,8 +325,8 @@ function queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$membe
 	}
 
 	//add to extensions table
-	if (empty($agentannounce) || $agentannounce == 'None') {
-		$agentannounce="";
+	if (empty($agentannounce_id)) {
+		$agentannounce_id="";
 	}
 
 $fields = array(
@@ -332,9 +373,9 @@ $fields = array(
 	$descr         = isset($name) ? addslashes($name):'';
 	$grppre        = isset($prefix) ? addslashes($prefix):'';
 	$alertinfo     = isset($alertinfo) ? addslashes($alertinfo):'';
-	$joinannounce  = strtolower($joinannounce) != 'none' ? $joinannounce:'';
+	//$joinannounce_id  = $joinannounce_id;
 	$ringing       = isset($_REQUEST['rtone']) ? $_REQUEST['rtone']:'';
-	$agentannounce = strtolower($agentannounce) != 'none' ? $agentannounce:'';
+	//$agentannounce_id = $agentannounce_id;
 	$maxwait       = isset($maxwait) ? $maxwait:'';
 	$password      = isset($password) ? $password:'';
 	$ivr_id        = isset($_REQUEST['announcemenu']) ? $_REQUEST['announcemenu']:'none';
@@ -343,8 +384,8 @@ $fields = array(
 	$qregex        = isset($qregex) ? addslashes($qregex):'';
 
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce, ringing, agentannounce, maxwait, password, ivr_id, dest, cwignore, qregex)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce', '$ringing', '$agentannounce', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex')	";
 	$results = sql($sql);
 	return true;
 }
@@ -444,7 +485,7 @@ function queues_check_compoundrecordings() {
 	global $db;
 
 	$compound_recordings = array();
-	$sql = "SELECT extension, descr, agentannounce, ivr_id FROM queues_config WHERE (ivr_id != 'none' AND ivr_id != '') OR agentannounce != ''";
+	$sql = "SELECT extension, descr, agentannounce_id, ivr_id FROM queues_config WHERE (ivr_id != 'none' AND ivr_id != '') OR agentannounce_id != ''";
 	$results = sql($sql, "getAll",DB_FETCHMODE_ASSOC);
 
 	if (function_exists('ivr_list')) {
@@ -458,7 +499,8 @@ function queues_check_compoundrecordings() {
 	}
 
 	foreach ($results as $result) {
-		if (strpos($result['agentannounce'],"&") !== false) {
+		$agentannounce = $result['agentannounce_id'] ? recordings_get_file($result['agentannounce_id']):'';
+		if (strpos($agentannounce,"&") !== false) {
 			$compound_recordings[] = array(
 				                       	'extension' => $result['extension'],
 															 	'descr' => $result['descr'],
@@ -466,7 +508,9 @@ function queues_check_compoundrecordings() {
 														 	);
 		}
 		if ($result['ivr_id'] != 'none' && $result['ivr_id'] != '' && $check_ivr) {
-			if (strpos($ivr_hash[$result['ivr_id']]['announcement'],"&") !== false) {
+			$id = $ivr_hash[$result['ivr_id']]['announcement_id'];
+			$announce = $id ? recordings_get_file($id) : '';
+			if (strpos($announce,"&") !== false) {
 				$compound_recordings[] = array(
 				                       		'extension' => $result['extension'],
 															 		'descr' => $result['descr'],
@@ -525,18 +569,18 @@ function queues_get($account, $queues_conf_only=false) {
 
 		// We need to strip off all but the first sound file of any compound sound files
 		//
-		$agentannounce_arr        = explode("&", $config['agentannounce']);
-		$results['agentannounce'] = $agentannounce_arr[0];
+		$agentannounce_id_arr        = explode("&", $config['agentannounce_id']);
+		$results['agentannounce_id'] = $agentannounce_id_arr[0];
 	} else {
 		$sql = "SELECT * FROM queues_config WHERE extension = $account";
 		$config = sql($sql, "getRow",DB_FETCHMODE_ASSOC);
 
 		$results['prefix']        = $config['grppre'];
 		$results['alertinfo']     = $config['alertinfo'];
-		$results['agentannounce'] = $config['agentannounce'];
+		$results['agentannounce_id'] = $config['agentannounce_id'];
 		$results['maxwait']       = $config['maxwait'];
 		$results['name']          = $config['descr'];
-		$results['joinannounce']  = $config['joinannounce'];
+		$results['joinannounce_id']  = $config['joinannounce_id'];
 		$results['password']      = $config['password'];
 		$results['goto']          = $config['dest'];
 		$results['announcemenu']  = $config['ivr_id'];

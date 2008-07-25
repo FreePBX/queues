@@ -20,10 +20,10 @@ isset($_REQUEST['extdisplay'])?$extdisplay=$_REQUEST['extdisplay']:$extdisplay='
 isset($_REQUEST['account'])?$account = $_REQUEST['account']:$account='';
 isset($_REQUEST['name'])?$name = $_REQUEST['name']:$name='';
 isset($_REQUEST['password'])?$password = $_REQUEST['password']:$password='';
-isset($_REQUEST['agentannounce'])?$agentannounce = $_REQUEST['agentannounce']:$agentannounce='';
+isset($_REQUEST['agentannounce_id'])?$agentannounce_id = $_REQUEST['agentannounce_id']:$agentannounce_id='';
 isset($_REQUEST['prefix'])?$prefix = $_REQUEST['prefix']:$prefix='';
 isset($_REQUEST['alertinfo'])?$alertinfo = $_REQUEST['alertinfo']:$alertinfo='';
-isset($_REQUEST['joinannounce'])?$joinannounce = $_REQUEST['joinannounce']:$joinannounce='';
+isset($_REQUEST['joinannounce_id'])?$joinannounce_id = $_REQUEST['joinannounce_id']:$joinannounce_id='';
 $maxwait = isset($_REQUEST['maxwait'])?$_REQUEST['maxwait']:'';
 $cwignore = isset($_REQUEST['cwignore'])?$_REQUEST['cwignore']:'0';
 $rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
@@ -97,7 +97,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo,$cwignore,$qregex);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex);
 					needreload();
 					redirect_standard();
 				}
@@ -109,7 +109,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce,$members,$joinannounce,$maxwait,$alertinfo,$cwignore,$qregex);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -243,15 +243,15 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Agent Announcement:")?><span><?php echo _("Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left. Compound recordings composed of 2 or more sound files are not displayed as options since this feature can not accept such recordings.")?></span></a></td>
 		<td>
-			<select name="agentannounce" tabindex="<?php echo ++$tabindex;?>">
+			<select name="agentannounce_id" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 				$tresults = recordings_list(false);
-				$default = (isset($agentannounce) ? $agentannounce : 'None');
+				$default = (isset($agentannounce_id) ? $agentannounce_id : '');
 
-				echo '<option value="None">'._("None").'</option>';
+				echo '<option value="">'._("None").'</option>';
 				if (isset($tresults[0])) {
 					foreach ($tresults as $tresult) {
-						echo '<option value="'.$tresult[2].'" '.($tresult[2] == $default ? 'SELECTED' : '').'>'.$tresult[1]."</option>\n";;
+						echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
 					}
 				}
 			?>		
@@ -263,14 +263,45 @@ if ($action == 'delete') {
 		<td><a href="#" class="info"><?php echo _("Agent Announcement:")?><span><?php echo _("Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
 		<td>
 			<?php
-				$default = (isset($agentannounce) ? $agentannounce : '');
+				$default = (isset($agentannounce_id) ? $agentannounce_id : '');
 			?>
-			<input type="hidden" name="agentannounce" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : 'None'); ?>
+			<input type="hidden" name="agentannounce_id" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : ''); ?>
 		</td>
 	</tr>
-<?php } ?>
+<?php 
+	}
+if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Join Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
+		<td>
+			<select name="joinannounce_id" tabindex="<?php echo ++$tabindex;?>">
+			<?php
+				$tresults = recordings_list();
+				$default = (isset($joinannounce_id) ? $joinannounce_id : '');
+				echo '<option value="None">'._("None");
+				if (isset($tresults[0])) {
+					foreach ($tresults as $tresult) {
+						echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
+					}
+				}
+			?>		
+			</select>		
+		</td>
+	</tr>
+<?php } else { ?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Join Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+		<td>
+			<?php
+				$default = (isset($joinannounce_id) ? $joinannounce_id : '');
+			?>
+			<input type="hidden" name="joinannounce_id" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : ''); ?>
+		</td>
+	</tr>
+<?php 
+}
 
-<?php if(function_exists('music_list')) { //only include if music module is enabled?>
+if(function_exists('music_list')) { //only include if music module is enabled?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Music on Hold Class:")?><span><?php echo _("Music (or Commercial) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" Menu to the left.")?></span></a></td>
 		<td>
@@ -558,6 +589,8 @@ if ($action == 'delete') {
 			echo '<option value=none '.($default == "none" ? 'SELECTED' : '').'>'._("None").'</option>';
 			
 			//query for exisiting aa_N contexts
+			//
+			// If a previous bogus IVR was listed, we will leave it in with an error but will no longer show such IVRs as valid options.
 			$unique_aas = ivr_list();		
 			
 			$compound_recordings = false;
@@ -570,10 +603,11 @@ if ($action == 'delete') {
 					$unique_aa['announcement'] = recordings_get_file($unique_aa['announcement_id']);
 					if (strpos($unique_aa['announcement'],"&") === false) {
 						echo '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)."</option>\n";
-					} else {
+					} 
+					else {
 						$compound_recordings = true;
-						echo '<option style="color:red" value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)." (**)</option>\n";
 						if ($menu_id == $default) {
+							echo '<option style="color:red" value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)." (**)</option>\n";
 							$is_error = true;
 						}
 					}
@@ -582,15 +616,13 @@ if ($action == 'delete') {
 			?>
 			</select>
 			<?php
-			if ($compound_recordings) {
+			if ($is_error) {
 			?>
 				<small><a style="color:red"  href="#" class="info"><?php echo ($is_error ? _("(**) ERRORS") : _("(**) Warning Potential Errors"))?>
 					<span> 
 						<?php 
 							if ($is_error) {
-								echo _("ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different annoucement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not");
-							} else {
-								echo _("You have IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. If you choose one of these the recording used with be truncated to use only the first sound file. You can choose this IVR now and then correct the problem by selecting a different annoucement for your IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not");
+								echo _("ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different annoucement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not").'<br />'._("Earlier versions of this module allowed such queues to be chosen, once changing this setting, it will no longer appear as an option");
 							}
 						?>
 					</span></small>
@@ -618,38 +650,7 @@ if ($action == 'delete') {
 
 <?php } else {
 	echo "<input type=\"hidden\" name=\"announcemenu\" value=\"none\">";
-}
-
-if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
-	<tr>
-		<td><a href="#" class="info"><?php echo _("Join Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
-		<td>
-			<select name="joinannounce" tabindex="<?php echo ++$tabindex;?>">
-			<?php
-				$tresults = recordings_list();
-				$default = (isset($joinannounce) ? $joinannounce : 'None');
-				echo '<option value="None">'._("None");
-				if (isset($tresults[0])) {
-					foreach ($tresults as $tresult) {
-						echo '<option value="'.$tresult[2].'" '.($tresult[2] == $default ? 'SELECTED' : '').'>'.$tresult[1]."</option>\n";;
-					}
-				}
-			?>		
-			</select>		
-		</td>
-	</tr>
-<?php } else { ?>
-	<tr>
-		<td><a href="#" class="info"><?php echo _("Join Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
-		<td>
-			<?php
-				$default = (isset($joinannounce) ? $joinannounce : '');
-			?>
-			<input type="hidden" name="joinannounce" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : 'None'); ?>
-		</td>
-	</tr>
-<?php } ?>
-<?php
+	}
 	// implementation of module hook
 	// object was initialized in config.php
 	echo $module_hook->hookHtml;

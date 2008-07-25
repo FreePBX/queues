@@ -300,9 +300,6 @@ if(DB::IsError($results)) {
 		return $return_code;
 	}
 
-
-
-
 	// Version 2.5 upgrade
 	outn(_("checking for qregex field.."));
 	$sql = "SELECT `qregex` FROM queues_config";
@@ -318,5 +315,113 @@ if(DB::IsError($results)) {
 	} else {
 		out(_("already exists"));
 	}
+
+// Version 2.5 migrate to recording ids
+// Note: we purposely did not chnage the inital creation of the
+//       recording ids as it is safer with all the complex
+//       migration code to simply stick with what works and
+//       then convert it here even if new.
+//
+outn(_("Checking if recordings need migration.."));
+$sql = "SELECT agentannounce_id FROM queues_config";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+	//  Add recording_id field
+	//
+	out("migrating");
+	outn(_("adding agentannounce_id field.."));
+  $sql = "ALTER TABLE queues_config ADD agentannounce_id INTEGER";
+  $result = $db->query($sql);
+  if(DB::IsError($result)) {
+		out(_("fatal error"));
+		die_freepbx($result->getDebugInfo()); 
+	} else {
+		out(_("ok"));
+	}
+	outn(_("adding joinannounce_id field.."));
+  $sql = "ALTER TABLE queues_config ADD joinannounce_id INTEGER";
+  $result = $db->query($sql);
+  if(DB::IsError($result)) {
+		out(_("fatal error"));
+		die_freepbx($result->getDebugInfo()); 
+	} else {
+		out(_("ok"));
+	}
+
+	// Get all the valudes and replace them with recording_id
+	//
+	outn(_("migrate agentannounce to ids.."));
+  $sql = "SELECT `extension`, `agentannounce` FROM `queues_config`";
+	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+	if(DB::IsError($results)) {
+		out(_("fatal error"));
+		die_freepbx($results->getDebugInfo());	
+	}
+	$migrate_arr = array();
+	$count = 0;
+	foreach ($results as $row) {
+		if (trim($row['agentannounce']) != '') {
+			$rec_id = recordings_get_or_create_id($row['agentannounce'], 'queues');
+			$migrate_arr[] = array($rec_id, $row['extension']);
+			$count++;
+		}
+	}
+	if ($count) {
+		$compiled = $db->prepare('UPDATE `queues_config` SET `agentannounce_id` = ? WHERE `extension` = ?');
+		$result = $db->executeMultiple($compiled,$migrate_arr);
+		if(DB::IsError($result)) {
+			out(_("fatal error"));
+			die_freepbx($result->getDebugInfo());	
+		}
+	}
+	out(sprintf(_("migrated %s entries"),$count));
+
+	outn(_("migrate joinannounce to ids.."));
+  $sql = "SELECT `extension`, `joinannounce` FROM `queues_config`";
+	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+	if(DB::IsError($results)) {
+		out(_("fatal error"));
+		die_freepbx($results->getDebugInfo());	
+	}
+	$migrate_arr = array();
+	$count = 0;
+	foreach ($results as $row) {
+		if (trim($row['joinannounce']) != '') {
+			$rec_id = recordings_get_or_create_id($row['joinannounce'], 'queues');
+			$migrate_arr[] = array($rec_id, $row['extension']);
+			$count++;
+		}
+	}
+	if ($count) {
+		$compiled = $db->prepare('UPDATE `queues_config` SET `joinannounce_id` = ? WHERE `extension` = ?');
+		$result = $db->executeMultiple($compiled,$migrate_arr);
+		if(DB::IsError($result)) {
+			out(_("fatal error"));
+			die_freepbx($result->getDebugInfo());	
+		}
+	}
+	out(sprintf(_("migrated %s entries"),$count));
+
+	// Now remove the old recording field replaced by new id field
+	//
+	outn(_("dropping agentannounce field.."));
+  $sql = "ALTER TABLE `queues_config` DROP `agentannounce`";
+  $result = $db->query($sql);
+  if(DB::IsError($result)) { 
+		out(_("no agentannounce field???"));
+	} else {
+		out(_("ok"));
+	}
+	outn(_("dropping joinannounce field.."));
+  $sql = "ALTER TABLE `queues_config` DROP `joinannounce`";
+  $result = $db->query($sql);
+  if(DB::IsError($result)) { 
+		out(_("no joinannounce field???"));
+	} else {
+		out(_("ok"));
+	}
+} else {
+	out("already migrated");
+}
 
 ?>
