@@ -212,6 +212,9 @@ function queues_get_config($engine) {
 					// block voicemail until phone is answered at which point a macro should be called on the answering
 					// line to clear this flag so that subsequent transfers can occur.
 					//
+					if ($q['queuewait']) {
+						$ext->add('ext-queues', $exten, '', new ext_execif('$["${QUEUEWAIT}" = ""]', 'Set', '__QUEUEWAIT=${EPOCH}'));
+					}
 					$ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_OVERRIDE', 'BLKVM/${EXTEN}/${CHANNEL}'));
 					$ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_BASE', '${EXTEN}'));
 					$ext->add('ext-queues', $exten, '', new ext_setvar('DB(${BLKVM_OVERRIDE})', 'TRUE'));
@@ -316,7 +319,7 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='no',$qregex='') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='no',$qregex='',$queuewait='no') {
 	global $db;
 
 	if (trim($account) == '') {
@@ -381,11 +384,12 @@ $fields = array(
 	$ivr_id        = isset($_REQUEST['announcemenu']) ? $_REQUEST['announcemenu']:'none';
 	$dest          = isset($goto) ? $goto:'';
 	$cwignore      = isset($cwignore) ? $cwignore:'0';
+	$queuewait     = isset($queuewait) ? $queuewait:'0';
 	$qregex        = isset($qregex) ? addslashes($qregex):'';
 
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait')	";
 	$results = sql($sql);
 	return true;
 }
@@ -587,6 +591,7 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['rtone']         = $config['ringing'];
 		$results['cwignore']      = $config['cwignore'];
 		$results['qregex']        = $config['qregex'];
+		$results['queuewait']     = $config['queuewait'];
 	}
 
 	$results['context'] = '';

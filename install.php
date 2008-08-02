@@ -424,4 +424,19 @@ if(DB::IsError($check)) {
 	out("already migrated");
 }
 
+outn(_("checking for queuewait field.."));
+$sql = "SELECT `queuewait` FROM queues_config";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+	// add new field
+	$sql = "ALTER TABLE queues_config ADD `queuewait` TINYINT( 1 ) DEFAULT 0";
+	$result = $db->query($sql);
+	if(DB::IsError($result)) {
+		die_freepbx($result->getDebugInfo());
+	}
+	out(_("OK"));
+} else {
+	out(_("already exists"));
+}
+
 ?>

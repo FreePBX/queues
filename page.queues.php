@@ -26,6 +26,7 @@ isset($_REQUEST['alertinfo'])?$alertinfo = $_REQUEST['alertinfo']:$alertinfo='';
 isset($_REQUEST['joinannounce_id'])?$joinannounce_id = $_REQUEST['joinannounce_id']:$joinannounce_id='';
 $maxwait = isset($_REQUEST['maxwait'])?$_REQUEST['maxwait']:'';
 $cwignore = isset($_REQUEST['cwignore'])?$_REQUEST['cwignore']:'0';
+$queuewait = isset($_REQUEST['queuewait'])?$_REQUEST['queuewait']:'0';
 $rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
 $qregex = isset($_REQUEST['qregex'])?$_REQUEST['qregex']:'';
 
@@ -97,7 +98,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait);
 					needreload();
 					redirect_standard();
 				}
@@ -109,7 +110,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -203,6 +204,21 @@ if ($action == 'delete') {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("CID Name Prefix:")?><span><?php echo _("You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring.")?></span></a></td>
 		<td><input size="4" type="text" name="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+	</tr>
+
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Wait Time Prefix:")?><span><?php echo _("When set to Yes, the CID Name will be prefixed with the total wait time in the queue so the answering agent is aware how long they have waited. It will be rounded to the nearest minute, in the form of Mnn: where nn is the number of minutes")?></span></a></td>
+		<td>
+			<select name="queuewait" tabindex="<?php echo ++$tabindex;?>">
+			<?php
+				$default = (isset($queuewait) ? $queuewait : 'no');
+				$items = array('1'=>_("Yes"),'0'=>_("No"));
+				foreach ($items as $item=>$val) {
+					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
+				}
+			?>
+			</select>
+		</td>
 	</tr>
 
 	<tr>
