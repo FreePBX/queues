@@ -573,7 +573,6 @@ function queues_get($account, $queues_conf_only=false) {
 
 		// We need to strip off all but the first sound file of any compound sound files
 		//
-		$agentannounce_id_arr        = explode("&", $config['agentannounce_id']);
 		$results['agentannounce_id'] = $agentannounce_id_arr[0];
 	} else {
 		$sql = "SELECT * FROM queues_config WHERE extension = $account";
@@ -601,11 +600,11 @@ function queues_get($account, $queues_conf_only=false) {
 		if (function_exists('ivr_get_details')) {
 			$results['context'] = "ivr-".$config['ivr_id'];
 			$arr = ivr_get_details($config['ivr_id']);
-			if( isset($arr['announcement']) && $arr['announcement'] != '') {
-
+			if( isset($arr['announcement_id']) && $arr['announcement_id'] != '') {
+				$periodic = recordings_get_file($arr['announcement_id']);
 				// We need to strip off all but the first sound file of any compound sound files
 				//
-				$periodic_arr = explode("&", $arr['announcement']);
+				$periodic_arr = explode("&", $periodic);
 				$results['periodic-announce'] = $periodic_arr[0];
 			}
 		}
