@@ -1,6 +1,6 @@
 <?php
 global $db;
-
+global $amp_conf;
 if (! function_exists("out")) {
 	function out($text) {
 		echo $text."<br />";
@@ -111,22 +111,47 @@ if(DB::IsError($results)) {
 	// Create the queues_config table, don't put IF NOT EXISTS so we
 	// can get the status in the error
 	//
-	$sql = "
-	CREATE TABLE queues_config (
-	  extension varchar(20) NOT NULL default '',
-	  descr varchar(35) NOT NULL default '',
-	  grppre varchar(100) NOT NULL default '',
-	  alertinfo varchar(254) NOT NULL default '',
-	  joinannounce varchar(254) NOT NULL default '',
-	  ringing tinyint(1) NOT NULL default '0',
-	  agentannounce varchar(254) NOT NULL default '',
-	  maxwait varchar(8) NOT NULL default '',
-	  `password` varchar(20) NOT NULL default '',
-	  ivr_id varchar(8) NOT NULL default '0',
-	  dest varchar(50) NOT NULL default '',
-	  cwignore tinyint(1) NOT NULL default '0',
-	PRIMARY KEY  (extension)
-	)";
+	// for sqlite3, create the final table template since sqlite3 
+	// support officially begins at 2.5 release.
+	if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
+
+		$sql = "
+		CREATE TABLE IF NOT EXISTS queues_config (
+		  extension varchar(20) NOT NULL default '',
+		  descr varchar(35) NOT NULL default '',
+		  grppre varchar(100) NOT NULL default '',
+		  alertinfo varchar(254) NOT NULL default '',
+		  ringing tinyint(1) NOT NULL default '0',
+		  maxwait varchar(8) NOT NULL default '',
+		  `password` varchar(20) NOT NULL default '',
+		  ivr_id varchar(8) NOT NULL default '0',
+		  dest varchar(50) NOT NULL default '',
+		  cwignore tinyint(1) NOT NULL default '0',
+		  `qregex` VARCHAR( 255 ) NULL,
+		PRIMARY KEY  (extension)
+		)
+		";
+	}
+	else  {
+		$sql = "
+		CREATE TABLE queues_config (
+		  extension varchar(20) NOT NULL default '',
+		  descr varchar(35) NOT NULL default '',
+		  grppre varchar(100) NOT NULL default '',
+		  alertinfo varchar(254) NOT NULL default '',
+		  joinannounce varchar(254) NOT NULL default '',
+		  ringing tinyint(1) NOT NULL default '0',
+		  agentannounce varchar(254) NOT NULL default '',
+		  maxwait varchar(8) NOT NULL default '',
+		  `password` varchar(20) NOT NULL default '',
+		  ivr_id varchar(8) NOT NULL default '0',
+		  dest varchar(50) NOT NULL default '',
+		  cwignore tinyint(1) NOT NULL default '0',
+		PRIMARY KEY  (extension)
+		)
+		";
+
+	}
 
 	outn(_("Creating queues_config.."));
 	$results = $db->query($sql);
@@ -405,24 +430,27 @@ if(DB::IsError($check)) {
 	// Now remove the old recording field replaced by new id field
 	//
 	outn(_("dropping agentannounce field.."));
-  $sql = "ALTER TABLE `queues_config` DROP `agentannounce`";
-  $result = $db->query($sql);
-  if(DB::IsError($result)) { 
-		out(_("no agentannounce field???"));
+  // sqlite doesn't support drop syntax, but since we already CREATE'd the table properly, these don't need to be executed anyway
+  if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+	  $sql = "ALTER TABLE `queues_config` DROP `agentannounce`";
+ 	 $result = $db->query($sql);
+	  if(DB::IsError($result)) { 
+			out(_("no agentannounce field???"));
+		} else {
+			out(_("ok"));
+		}
+		outn(_("dropping joinannounce field.."));
+	  $sql = "ALTER TABLE `queues_config` DROP `joinannounce`";
+	  $result = $db->query($sql);
+	  if(DB::IsError($result)) { 
+			out(_("no joinannounce field???"));
+		} else {
+			out(_("ok"));
+		}
 	} else {
-		out(_("ok"));
+		out("already migrated");
 	}
-	outn(_("dropping joinannounce field.."));
-  $sql = "ALTER TABLE `queues_config` DROP `joinannounce`";
-  $result = $db->query($sql);
-  if(DB::IsError($result)) { 
-		out(_("no joinannounce field???"));
-	} else {
-		out(_("ok"));
-	}
-} else {
-	out("already migrated");
-}
+  }
 
 outn(_("checking for queuewait field.."));
 $sql = "SELECT `queuewait` FROM queues_config";
