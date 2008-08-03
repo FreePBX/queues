@@ -8,7 +8,7 @@
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
 	</description>
 	<changelog>
-		*2.5.2.1* #2070 periodic-announce message not being configured (re #2068 change)
+		*2.5.2.1* #2970 periodic-announce message not being configured (re #2068 change)
 		*2.5.2* #2073 add a Queue hold time CID prepend to report how long the caller has been holding
 		*2.5.1* #2068 recordings_id, don't list IVRs with compound messages
 		*2.5.0.1* #2875, #2768
@@ -56,5 +56,5 @@
 		<queues>Queues</queues>
 	</menuitems>
 	<location>release/2.5/queues-2.5.2.1.tgz</location>
-	<md5sum>42f6c60e521655afdda103afce5337a2</md5sum>
+	<md5sum>504a2693b24953338e7fe7eaceffbc74</md5sum>
 </module>
