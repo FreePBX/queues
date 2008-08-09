@@ -545,7 +545,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Agent Regex Filter")?><span><?php echo _("Provides an optional regex expression that will be applied against the agent callback number. If the callback number does not pass the regex filter then it will be treated as invalid. This can be used to restrict agents to extensions within a range, not allow callbacks to include keys like *, or any other use that may be appropriate. An examle input might be:<br />^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * key.<br />WARNING: make sure you undertand what you are doing or otherwise leave this blank!")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Agent Regex Filter")?><span><?php echo _("Provides an optional regex expression that will be applied against the agent callback number. If the callback number does not pass the regex filter then it will be treated as invalid. This can be used to restrict agents to extensions within a range, not allow callbacks to include keys like *, or any other use that may be appropriate. An example input might be:<br />^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * key.<br />WARNING: make sure you undertand what you are doing or otherwise leave this blank!")?></span></a></td>
 		<td><input type="text" name="qregex" value="<?php echo (isset($qregex) ? $qregex : ''); ?>"></td>
 	</tr>
 
@@ -638,7 +638,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 					<span> 
 						<?php 
 							if ($is_error) {
-								echo _("ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different annoucement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not").'<br />'._("Earlier versions of this module allowed such queues to be chosen, once changing this setting, it will no longer appear as an option");
+								echo _("ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not").'<br />'._("Earlier versions of this module allowed such queues to be chosen, once changing this setting, it will no longer appear as an option");
 							}
 						?>
 					</span></small>
@@ -718,7 +718,7 @@ function checkQ(theForm) {
 
 	defaultEmptyOK = false;	
 	if (!isAlphanumeric(theForm.name.value)) {
-		<?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numberic characters")."')"?>;
+		<?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numeric characters")."')"?>;
 		bad="true";
 	}
 	if (!isEmpty(theForm.qregex.value)) {
