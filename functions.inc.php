@@ -68,6 +68,8 @@ class queues_conf {
 								$output .= $keyword."=".$data."\n";
 							}
 							break;
+						case 'ringinuse': 
+							break;
 						default:
 							$output .= $keyword."=".$data."\n";
 							break;
@@ -351,7 +353,6 @@ $fields = array(
 	array($account,'monitor-join','yes',0),
 	array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:'no',0),
 	array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0),
-	array($account,'ringinuse',($cwignore)?'no':'yes',0),
 );
 
 	if ($_REQUEST['music'] != 'inherit') {
