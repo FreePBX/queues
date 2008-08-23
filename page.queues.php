@@ -29,6 +29,7 @@ $cwignore = isset($_REQUEST['cwignore'])?$_REQUEST['cwignore']:'0';
 $queuewait = isset($_REQUEST['queuewait'])?$_REQUEST['queuewait']:'0';
 $rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
 $qregex = isset($_REQUEST['qregex'])?$_REQUEST['qregex']:'';
+$weight = isset($_REQUEST['weight'])?$_REQUEST['weight']:'0';
 
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
@@ -202,20 +203,6 @@ if ($action == 'delete') {
 		<td><input type="text" name="password" value="<?php echo (isset($password) ? $password : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	
-
-	<tr>
-		<td><a href="#" class="info"><?php echo _("Queue weight")?>:<span><?php echo _("Gives queues a 'weight' option, to ensure calls waiting in a higher priority queue will deliver its calls first.")?></span></a></td>
-		<td>
-			<select name="weight" tabindex="<?php echo ++$tabindex;?>">
-			<?php 
-				$default = (isset($weight) ? $weight : 0);
-				for ($i=0; $i <= 20; $i++) {
-					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.'</option>';
-				}
-			?>		
-			</select>		
-		</td>
-		
 	<tr>
 		<td><a href="#" class="info"><?php echo _("CID Name Prefix:")?><span><?php echo _("You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring.")?></span></a></td>
 		<td><input size="4" type="text" name="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -559,6 +546,20 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 		</td>
 	</tr>
 
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Queue Weight")?>:<span><?php echo _("Gives queues a 'weight' option, to ensure calls waiting in a higher priority queue will deliver its calls first if there are agents common to both queues.")?></span></a></td>
+		<td>
+			<select name="weight" tabindex="<?php echo ++$tabindex;?>">
+			<?php 
+				$default = (isset($weight) ? $weight : 0);
+				for ($i=0; $i <= 10; $i++) {
+					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.'</option>';
+				}
+			?>		
+			</select>		
+		</td>
+	</tr>
+		
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Agent Regex Filter")?><span><?php echo _("Provides an optional regex expression that will be applied against the agent callback number. If the callback number does not pass the regex filter then it will be treated as invalid. This can be used to restrict agents to extensions within a range, not allow callbacks to include keys like *, or any other use that may be appropriate. An example input might be:<br />^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * key.<br />WARNING: make sure you undertand what you are doing or otherwise leave this blank!")?></span></a></td>
 		<td><input type="text" name="qregex" value="<?php echo (isset($qregex) ? $qregex : ''); ?>"></td>
