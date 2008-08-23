@@ -30,6 +30,7 @@ $queuewait = isset($_REQUEST['queuewait'])?$_REQUEST['queuewait']:'0';
 $rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
 $qregex = isset($_REQUEST['qregex'])?$_REQUEST['qregex']:'';
 
+
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
 } else {
@@ -200,7 +201,21 @@ if ($action == 'delete') {
 		<td><a href="#" class="info"><?php echo _("Queue Password:")?><span><?php echo _("You can require agents to enter a password before they can log in to this queue.<br><br>This setting is optional.")?></span></a></td>
 		<td><input type="text" name="password" value="<?php echo (isset($password) ? $password : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
+	
 
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Queue weight")?>:<span><?php echo _("Gives queues a 'weight' option, to ensure calls waiting in a higher priority queue will deliver its calls first.")?></span></a></td>
+		<td>
+			<select name="weight" tabindex="<?php echo ++$tabindex;?>">
+			<?php 
+				$default = (isset($weight) ? $weight : 0);
+				for ($i=0; $i <= 20; $i++) {
+					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.'</option>';
+				}
+			?>		
+			</select>		
+		</td>
+		
 	<tr>
 		<td><a href="#" class="info"><?php echo _("CID Name Prefix:")?><span><?php echo _("You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring.")?></span></a></td>
 		<td><input size="4" type="text" name="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>

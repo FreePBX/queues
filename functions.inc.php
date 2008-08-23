@@ -353,6 +353,7 @@ $fields = array(
 	array($account,'monitor-join','yes',0),
 	array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:'no',0),
 	array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0),
+	array($account,'weight',(isset($_REQUEST['weight']))?$_REQUEST['weight']:'0',0),
 );
 
 	if ($_REQUEST['music'] != 'inherit') {
