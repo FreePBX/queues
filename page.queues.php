@@ -30,6 +30,7 @@ $queuewait = isset($_REQUEST['queuewait'])?$_REQUEST['queuewait']:'0';
 $rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
 $qregex = isset($_REQUEST['qregex'])?$_REQUEST['qregex']:'';
 $weight = isset($_REQUEST['weight'])?$_REQUEST['weight']:'0';
+$autofill = isset($_REQUEST['autofill'])?$_REQUEST['autofill']:'no';
 
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
@@ -557,6 +558,13 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 				}
 			?>		
 			</select>		
+		</td>
+	</tr>
+
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Autofill:")?><span><?php echo _("Starting with Asterisk 1.4, if this is checked, and multiple agents are available, Asterisk will send one call to each waiting agent (depending on the ring strategy). Otherwise, it will hold all calls while it tries to find an agent for the top call in the queue making other calls wait. This was the behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk documentation for more details of this feature.")?></span></a></td>
+		<td>
+			<input name="autofill" type="checkbox" value="1" <?php echo (isset($autofill) && $autofill == 'yes' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
 		</td>
 	</tr>
 		

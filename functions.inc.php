@@ -1,23 +1,46 @@
 <?php /* $id:$ */
 
 class queues_conf {
+
+	var $_queues_general    = array();
+
 	// return an array of filenames to write
 	// files named like pinset_N
 	function get_filename() {
-		return "queues_additional.conf";
+		$files = array(
+			'queues_additional.conf',
+			'queues_general_additional.conf',
+			);
+		return $files;
 	}
 	
 	// return the output that goes in each of the files
-	function generateConf() {
+	function generateConf($file) {
+		global $version;
+
+		switch ($file) {
+			case 'queues_additional.conf':
+				return $this->generate_queues_additional($version);
+				break;
+			case 'queues_general_additional.conf':
+				return $this->generate_queues_general_additional($version);
+				break;
+		}
+	}
+
+	function addQueuesGeneral($key, $value) {
+		$this->_queues_general[] = array('key' => $key, 'value' => $value);
+	}
+
+	function generate_queues_additional($ast_version) {
 
 		global $db;
-		global $version;
 
 		$additional = "";
 		$output = "";
 		// Asterisk 1.4 does not like blank assignments so just don't put them there
 		//
-		$ver12 = version_compare($version, '1.4', 'lt');
+		$ver12 = version_compare($ast_version, '1.4', 'lt');
 		
 		// legacy but in case someone was using this we will leave it
 		//
@@ -52,6 +75,7 @@ class queues_conf {
 				if ($ver12){
 					switch($keyword){
 						case 'ringinuse': 
+						case 'autofill': 
 							break;
 						default:
 							$output .= $keyword."=".$data."\n";
@@ -103,6 +127,20 @@ class queues_conf {
 		}
 		return $output;
 	}
+
+	function generate_queues_general_additional($ast_version) {
+		$output = '';
+
+		if (isset($this->_queues_general) && is_array($this->_queues_general)) {
+			foreach ($this->_queues_general as $values) {
+				$output .= $values['key']."=".$values['value']."\n";
+			}
+		}
+		return $output;
+	}
+
+
+
 }
 
 // The destinations this module provides
@@ -188,8 +226,15 @@ function queues_ivr_usage($ivr_id) {
 */
 function queues_get_config($engine) {
 	global $ext;  // is this the best way to pass this?
+	global $queues_conf;
+
 	switch($engine) {
 		case "asterisk":
+
+			if (isset($queues_conf) && is_a($queues_conf, "queues_conf")) {
+				$queues_conf->addQueuesGeneral('persistentmembers','yes');
+			}
+
 			/* queue extensions */
 			$ext->addInclude('from-internal-additional','ext-queues');
 			$qlist = queues_list(true);
@@ -354,6 +399,7 @@ $fields = array(
 	array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:'no',0),
 	array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0),
 	array($account,'weight',(isset($_REQUEST['weight']))?$_REQUEST['weight']:'0',0),
+	array($account,'autofill',(isset($_REQUEST['autofill']))?'yes':'no',0),
 );
 
 	if ($_REQUEST['music'] != 'inherit') {
