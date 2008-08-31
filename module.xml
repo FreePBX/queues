@@ -26,31 +26,7 @@
 		*2.4.0.2* #2528 add context = 'ext-queues' when getting destination statement
 		*2.4.0.1* added out() and outn() to install script
 		*2.4.0* Migration from legacy tables, added queues_conf class, Extension/dest registry, #2282, #2487, it translations
-		*2.2.14.1* initialize qpannounce, may cause queue db errors with IVR breakouts that have no sound file
-		*2.2.14* Add Alert-Info setting to queues
-		*2.2.13.3* Agent Timeout 0 makes results in default, but should be Unlimited fixed
-		*2.2.13.2* #2313 fix error introduced by #2172, Agent Announce not being saved
-		*2.2.13.1* #2172 deprecated use of |, #2193 hard coded moh path
-		*2.2.13* #2277 fix periodic announce message and hold time
-		*2.2.12.2* bump for rc1
-		*2.2.12.1* #2222 fixed syntax error
-		*2.2.12* #2222 replace defaults announcements with silence to prevent Asterisk 1.4 from crashing
-		*2.2.11* #2185 provide inherit option for MoH, to use what ever is in the channel and add MOHCLASS channel variable, #1659 allow queue 0
-		*2.2.10.3* #2156 fix select box to deal with language translation properly
-		*2.2.10.2* #2057 don't strip CID prefix if no prefix is being added
-		*2.2.10.1* merge findmefollow/core extension destinations if any
-		*2.2.10* Changed chained CID prefixes to be handled the same as ringgroup and followme, also fixed #1965
-		*2.2.9* Replaced deprecated CALLERIDNAME and TIMSTAMP variables with the current and future supported versions
-		*2.2.8.1* Updated tootip to warn about agents.conf (unsupported and know issues) and warn about penalties (broken in asterisk)
-		*2.2.8* Fixed typo in 2.2.7
-		*2.2.7* Fixed eventmemberstatus #1635
-		*2.2.6* Add he_IL translation
-		*2.2.5* Change goto_indicateN to gotoN
-		*2.2.4* Added BLKVM DB tree to fix inability to transfer a received call to another user, and make NODEST stuff work overall
-		*2.2.3* Change _NODEST to __NODEST for some scenarios that require infinite inheritance
-		*2.2.2* Disallow Queue 0 (#1487)
-		*2.2.1* Add NODEST to tell children NOT to go to destinations (like voicemail or other) - helps with followme in a queue
-		*2.2* First release for FreePBX 2.2 - Fixed compatibility issue with new UI
+		*2.4.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
 	<depends>
 		<version>2.5.0alpha1</version>
