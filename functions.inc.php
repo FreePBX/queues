@@ -421,9 +421,9 @@ $fields = array(
 		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");	
 	}
 	$extension   	 = $account;
-	$descr         = isset($name) ? addslashes($name):'';
-	$grppre        = isset($prefix) ? addslashes($prefix):'';
-	$alertinfo     = isset($alertinfo) ? addslashes($alertinfo):'';
+	$descr         = isset($name) ? $db->escapeSimple($name):'';
+	$grppre        = isset($prefix) ? $db->escapeSimple($prefix):'';
+	$alertinfo     = isset($alertinfo) ? $db->escapeSimple($alertinfo):'';
 	//$joinannounce_id  = $joinannounce_id;
 	$ringing       = isset($_REQUEST['rtone']) ? $_REQUEST['rtone']:'';
 	//$agentannounce_id = $agentannounce_id;
@@ -433,7 +433,7 @@ $fields = array(
 	$dest          = isset($goto) ? $goto:'';
 	$cwignore      = isset($cwignore) ? $cwignore:'0';
 	$queuewait     = isset($queuewait) ? $queuewait:'0';
-	$qregex        = isset($qregex) ? addslashes($qregex):'';
+	$qregex        = isset($qregex) ? $db->escapeSimple($qregex):'';
 
 	// Assumes it has just been deleted
 	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait)
