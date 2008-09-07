@@ -450,7 +450,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 			<select name="timeout" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 				$default = (isset($timeout) ? $timeout : 15);
-				echo '<option value="0" '.(0 == $default ? 'SELECTED' : '').'>'."Unlimited".'</option>';
+				echo '<option value="0" '.(0 == $default ? 'SELECTED' : '').'>'._("Unlimited").'</option>';
 				for ($i=1; $i <= 60; $i++) {
 					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
@@ -460,12 +460,13 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Retry:")?><span><?php echo _("The number of seconds we wait before trying all the phones again")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Retry:")?><span><?php echo _("The number of seconds we wait before trying all the phones again. Select none to dissable retying and to go straight to the fail over destination")?></span></a></td>
 		<td>
 			<select name="retry" tabindex="<?php echo ++$tabindex;?>">
-			<?php
+      <?php
 				$default = (isset($retry) ? $retry : 5);
-				for ($i=0; $i <= 20; $i++) {
+				echo '<option value="none" '.($default == "none" ? 'SELECTED' : '').'>'._("None").'</option>';
+				for ($i=1; $i <= 20; $i++) {
 					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
 			?>		

@@ -300,6 +300,9 @@ function queues_get_config($engine) {
 					$options = 't';
 					if ($q['rtone'] == 1)
 						$options .= 'r';
+					if ($q['retry'] == none){
+					   $options .= 'n';
+					   }
 					if (isset($q['music'])) {
  						$ext->add('ext-queues', $exten, '', new ext_setvar('__MOHCLASS', $q['music']));
 					}
