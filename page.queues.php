@@ -460,14 +460,14 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Retry:")?><span><?php echo _("The number of seconds we wait before trying all the phones again. Select none to dissable retying and to go straight to the fail over destination")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Retry:")?><span><?php echo _("The number of seconds we wait before trying all the phones again. Choosing \"No Retry\" will exit the Queue and go to the fail-over destination as soon as the first attempted agent times-out, additional agents will not be attempted.")?></span></a></td>
 		<td>
 			<select name="retry" tabindex="<?php echo ++$tabindex;?>">
       <?php
 				$default = (isset($retry) ? $retry : 5);
-				echo '<option value="none" '.($default == "none" ? 'SELECTED' : '').'>'._("None").'</option>';
-				for ($i=1; $i <= 20; $i++) {
-					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+				echo '<option value="none" '.($default == "none" ? 'SELECTED' : '').'>'._("No Retry").'</option>';
+				for ($i=0; $i <= 20; $i++) {
+					echo '<option value="'.$i.'" '.($i === $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
 			?>		
 			</select>		

@@ -77,6 +77,11 @@ class queues_conf {
 						case 'ringinuse': 
 						case 'autofill': 
 							break;
+						case 'retry': 
+							if ($data == 'none') {
+								$data = 0;
+							}
+							// no break, fallthrough to default
 						default:
 							$output .= $keyword."=".$data."\n";
 							break;
@@ -94,6 +99,11 @@ class queues_conf {
 							break;
 						case 'ringinuse': 
 							break;
+						case 'retry': 
+							if ($data == 'none') {
+								$data = 0;
+							}
+							// no break, fallthrough to default
 						default:
 							$output .= $keyword."=".$data."\n";
 							break;
@@ -298,11 +308,12 @@ function queues_get_config($engine) {
 						$ext->add('ext-queues', $exten, '', new ext_playback($joinannounce));
 					}
 					$options = 't';
-					if ($q['rtone'] == 1)
+					if ($q['rtone'] == 1) {
 						$options .= 'r';
-					if ($q['retry'] == none){
-					   $options .= 'n';
-					   }
+					}
+					if ($q['retry'] == 'none'){
+						$options .= 'n';
+					}
 					if (isset($q['music'])) {
  						$ext->add('ext-queues', $exten, '', new ext_setvar('__MOHCLASS', $q['music']));
 					}
