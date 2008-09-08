@@ -358,7 +358,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 					if ($i == 0)
 						echo '<option value="">'._("Unlimited").'</option>';
 					else
-						echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+						echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 				}
 				for ($i=60; $i < 300; $i+=30) {
 					echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
@@ -452,7 +452,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 				$default = (isset($timeout) ? $timeout : 15);
 				echo '<option value="0" '.(0 == $default ? 'SELECTED' : '').'>'._("Unlimited").'</option>';
 				for ($i=1; $i <= 60; $i++) {
-					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 				}
 			?>		
 			</select>		
@@ -465,9 +465,9 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 			<select name="retry" tabindex="<?php echo ++$tabindex;?>">
       <?php
 				$default = (isset($retry) ? $retry : 5);
-				echo '<option value="none" '.($default == "none" ? 'SELECTED' : '').'>'._("No Retry").'</option>';
+				echo '<option value="none" '.(($default == "none") ? 'SELECTED' : '').'>'._("No Retry").'</option>';
 				for ($i=0; $i <= 20; $i++) {
-					echo '<option value="'.$i.'" '.($i === $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+					echo '<option value="'.$i.'" '.(("$i" == "$default") ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 				}
 			?>		
 			</select>		
@@ -481,7 +481,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 			<?php
 				$default = (isset($wrapuptime) ? $wrapuptime : 0);
 				for ($i=0; $i <= 60; $i++) {
-					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 				}
 			?>		
 			</select>		

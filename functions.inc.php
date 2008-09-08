@@ -356,7 +356,7 @@ function queues_get_config($engine) {
 
 function queues_timeString($seconds, $full = false) {
 	if ($seconds == 0) {
-		return "0 ".($full ? "seconds" : "s");
+		return "0 ".($full ? _("seconds") : "s");
 	}
 
 	$minutes = floor($seconds / 60);
@@ -370,10 +370,10 @@ function queues_timeString($seconds, $full = false) {
 
 	if ($full) {
  		return substr(
-		              ($days ? $days." day".(($days == 1) ? "" : "s").", " : "").
-		              ($hours ? $hours." hour".(($hours == 1) ? "" : "s").", " : "").
-		              ($minutes ? $minutes." minute".(($minutes == 1) ? "" : "s").", " : "").
-		              ($seconds ? $seconds." second".(($seconds == 1) ? "" : "s").", " : ""),
+		              ($days ? $days." "._("day").(($days == 1) ? "" : "s").", " : "").
+		              ($hours ? $hours." "._("hour").(($hours == 1) ? "" : "s").", " : "").
+		              ($minutes ? $minutes." "._("minute").(($minutes == 1) ? "" : "s").", " : "").
+		              ($seconds ? $seconds." "._("second").(($seconds == 1) ? "" : "s").", " : ""),
 		              0, -2);
 	} else {
 		return substr(($days ? $days."d, " : "").($hours ? $hours."h, " : "").($minutes ? $minutes."m, " : "").($seconds ? $seconds."s, " : ""), 0, -2);
