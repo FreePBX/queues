@@ -353,7 +353,7 @@ $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	//  Add recording_id field
 	//
-	out("migrating");
+	out(_("migrating"));
 	outn(_("adding agentannounce_id field.."));
   $sql = "ALTER TABLE queues_config ADD agentannounce_id INTEGER";
   $result = $db->query($sql);
@@ -448,7 +448,7 @@ if(DB::IsError($check)) {
 			out(_("ok"));
 		}
 	} else {
-		out("already migrated");
+		out(_("already migrated"));
 	}
   }
 
