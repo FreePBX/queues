@@ -320,7 +320,7 @@ function queues_get_config($engine) {
 					// Set CWIGNORE  if enabled so that busy agents don't have another line key ringing and
 					// stalling the ACD.
 					if ($q['cwignore']) {
- 						$ext->add('ext-queues', $exten, '', new ext_setvar('_CWIGNORE', 'TRUE'));
+ 						$ext->add('ext-queues', $exten, '', new ext_setvar('__CWIGNORE', 'TRUE'));
 					}
 					$agentannounce_id = (isset($q['agentannounce_id'])?$q['agentannounce_id']:'');
 					if ($agentannounce_id) {
