@@ -65,7 +65,7 @@ if(DB::IsError($results)) {
 	// can get the status in the error
 	//
 	$sql = "
-	CREATE TABLE `queues_details` (
+	CREATE TABLE IF NOT EXISTS `queues_details` (
 		`id` varchar( 45 ) NOT NULL default '-1',
 		`keyword` varchar( 30 ) NOT NULL default '',
 		`data` varchar( 150 ) NOT NULL default '',
@@ -121,7 +121,9 @@ if(DB::IsError($results)) {
 		  descr varchar(35) NOT NULL default '',
 		  grppre varchar(100) NOT NULL default '',
 		  alertinfo varchar(254) NOT NULL default '',
+		  joinannounce_id int,
 		  ringing tinyint(1) NOT NULL default '0',
+		  agentannounce_id int,
 		  maxwait varchar(8) NOT NULL default '',
 		  `password` varchar(20) NOT NULL default '',
 		  ivr_id varchar(8) NOT NULL default '0',
@@ -134,7 +136,7 @@ if(DB::IsError($results)) {
 	}
 	else  {
 		$sql = "
-		CREATE TABLE queues_config (
+		CREATE TABLE IF NOT EXISTS queues_config (
 		  extension varchar(20) NOT NULL default '',
 		  descr varchar(35) NOT NULL default '',
 		  grppre varchar(100) NOT NULL default '',
