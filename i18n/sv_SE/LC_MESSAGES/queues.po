@@ -3,18 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: FreePBX queues\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-26 20:34+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2008-09-26 21:32+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
 
 #: functions.inc.php:132
 msgid ""
@@ -22,243 +23,253 @@ msgid ""
 "configurations. Queues can not play these so they have been truncated to the "
 "first sound file. You should correct this problem.<br />Details:<br /><br />"
 msgstr ""
+"Varning, det finns hopslagna inspelningar i en eller flera "
+"kökonfigurationer. Köer kan inte spela upp sammanslagna inspelningar så dom "
+"har rundats av till att bara innefatta den första ljudfilen. Du måste rätta "
+"till detta.<br>Detaljer:<br><br>"
 
 #: functions.inc.php:134
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
-msgstr ""
+msgstr "Kö - %s (%s): %s<br>"
 
 #: functions.inc.php:136
 msgid "Compound Recordings in Queues Detected"
-msgstr ""
+msgstr "Upptäckte sammanslagen inspelning i kö "
 
 #: functions.inc.php:359 functions.inc.php:376 page.queues.php:361
 #: page.queues.php:455 page.queues.php:470 page.queues.php:484
 msgid "seconds"
-msgstr ""
+msgstr "sekunder"
 
 #: functions.inc.php:373
 msgid "day"
-msgstr ""
+msgstr "dag"
 
 #: functions.inc.php:374
 msgid "hour"
-msgstr ""
+msgstr "timme"
 
 #: functions.inc.php:374
 msgid "hours"
-msgstr ""
+msgstr "timmar"
 
 #: functions.inc.php:375
 msgid "minute"
-msgstr ""
+msgstr "minut"
 
 #: functions.inc.php:375
 msgid "minutes"
-msgstr ""
+msgstr "minuter"
 
 #: functions.inc.php:376
 msgid "second"
-msgstr ""
+msgstr "sekund"
 
 #: functions.inc.php:387
 msgid "Bad Queue Number, can not be blank"
-msgstr ""
+msgstr "Felaktigt könummer, detta fält kan inte vara tomt"
 
 #: functions.inc.php:514
 msgid "Queue: "
-msgstr ""
+msgstr "Kö:"
 
 #: functions.inc.php:573
 msgid "Agent Announce Msg"
-msgstr ""
+msgstr "Meddelande för agent"
 
 #: functions.inc.php:583
 #, php-format
 msgid "IVR Announce: %s"
-msgstr ""
+msgstr "Meddelande för IVR: %s"
 
 #: install.php:50
 msgid "Checking for legacy queues table.."
-msgstr ""
+msgstr "Kontrollerar ärvda kötabeller.."
 
 #: install.php:54
 msgid "NO table found, no migration to do just create tables"
-msgstr ""
+msgstr "Hittade ingen tabell, ingen migrering, skapar bara tabeller"
 
 #: install.php:59 install.php:87 install.php:104 install.php:107
 #: install.php:169 install.php:296 install.php:302 install.php:315
 #: install.php:324 install.php:341 install.php:467
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: install.php:76
 msgid "Creating queues_details.."
-msgstr ""
+msgstr "Skapar queues_details.."
 
 #: install.php:81 install.php:163 install.php:343 install.php:469
 msgid "already exists"
-msgstr ""
+msgstr "finns redan"
 
 #: install.php:83 install.php:165
 msgid "ERROR: could not create table"
-msgstr ""
+msgstr "FEL: Kunde inte skapa tabell"
 
 #: install.php:98
 msgid "Migrating to queues_details.."
-msgstr ""
+msgstr "Migrerar till queues_details.."
 
 #: install.php:101
 msgid "ERROR: could not migrate to queues_details"
-msgstr ""
+msgstr "FEL: kunde inte migrera till queues_details"
 
 #: install.php:158
 msgid "Creating queues_config.."
-msgstr ""
+msgstr "Skapar queues_config.."
 
 #: install.php:173
 msgid "Migrating data to queues_config.."
-msgstr ""
+msgstr "Migrerar data till queues_config.."
 
 #: install.php:177
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
+"FEL: kunde inte få åtkomst till kötabellen för att få tag på context info, "
+"avbryter"
 
 #: install.php:184
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr ""
+"FEL: kunde inte få åtkomst till kötabellen för att få tag på rtone info, "
+"avbryter"
 
 #: install.php:202
 msgid "ERROR: accessing queues table obtaining id list, aborting"
 msgstr ""
+"FEL: kunde inte få åtkomst till kötabellen för att få tag på id list, "
+"avbryter"
 
 #: install.php:290
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
-msgstr ""
+msgstr "FEL: lägger till data för rad %s: %s.."
 
 #: install.php:298
 msgid "ERROR were encountered"
-msgstr ""
+msgstr "FEL upptäcktes"
 
 #: install.php:309
 msgid "Dropping old queues table.."
-msgstr ""
+msgstr "Kastar den gamla tabellen queues"
 
 #: install.php:313 install.php:322
 #, php-format
 msgid "WARNING FAILED %s"
-msgstr ""
+msgstr "VARNING MISSLYCKADES %s"
 
 #: install.php:318
 msgid "removing queues data extensions table.."
-msgstr ""
+msgstr "tar bort tabellen extension från queues"
 
 #: install.php:331
 msgid "checking for qregex field.."
-msgstr ""
+msgstr "kontrollerar fältet qregex.."
 
 #: install.php:352
 msgid "Checking if recordings need migration.."
-msgstr ""
+msgstr "Kontrollerar om inspelningar behöver migreras.."
 
 #: install.php:358
 msgid "migrating"
-msgstr ""
+msgstr "migrerar"
 
 #: install.php:359
 msgid "adding agentannounce_id field.."
-msgstr ""
+msgstr "lägger till fältet agentannounce_id.."
 
 #: install.php:363 install.php:372 install.php:384 install.php:400
 #: install.php:410 install.php:426
 msgid "fatal error"
-msgstr ""
+msgstr "allvarligt fel"
 
 #: install.php:366 install.php:375 install.php:442 install.php:450
 msgid "ok"
-msgstr ""
+msgstr "ok"
 
 #: install.php:368
 msgid "adding joinannounce_id field.."
-msgstr ""
+msgstr "lägger till fältet joinannounce_id.."
 
 #: install.php:380
 msgid "migrate agentannounce to ids.."
-msgstr ""
+msgstr "migrerar agentannounce till ids.."
 
 #: install.php:404 install.php:430
 #, php-format
 msgid "migrated %s entries"
-msgstr ""
+msgstr "migrerade %s poster"
 
 #: install.php:406
 msgid "migrate joinannounce to ids.."
-msgstr ""
+msgstr "migrerar joinannounce till ids.."
 
 #: install.php:434
 msgid "dropping agentannounce field.."
-msgstr ""
+msgstr "kastar fältet agentannounce.."
 
 #: install.php:440
 msgid "no agentannounce field???"
-msgstr ""
+msgstr "inget fält som heteragentannounce???"
 
 #: install.php:444
 msgid "dropping joinannounce field.."
-msgstr ""
+msgstr "kastar fältet joinannounce.."
 
 #: install.php:448
 msgid "no joinannounce field???"
-msgstr ""
+msgstr "inget fält som heter joinannounce???"
 
 #: install.php:453
 msgid "already migrated"
-msgstr ""
+msgstr "redan migrerad"
 
 #: install.php:457
 msgid "checking for queuewait field.."
-msgstr ""
+msgstr "kontrollerar fältet joinannounce.."
 
 #: page.queues.php:93
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Varning! Anknytning"
 
 #: page.queues.php:93
 msgid "is not allowed for your account."
-msgstr ""
+msgstr "är inte tillåtet för ditt konto."
 
 #: page.queues.php:131 page.queues.php:170 page.queues.php:187
 msgid "Add Queue"
-msgstr ""
+msgstr "Lägg till kö"
 
 #: page.queues.php:145
 msgid "Queue"
-msgstr ""
+msgstr "Kö"
 
 #: page.queues.php:145
 msgid "deleted"
-msgstr ""
+msgstr "borttagen"
 
 #: page.queues.php:158
 msgid "Delete Queue"
-msgstr ""
+msgstr "Ta bort kö"
 
 #: page.queues.php:163
 msgid "Conflicting Extensions"
-msgstr ""
+msgstr "Konfliktande anknytningar"
 
 #: page.queues.php:168
 msgid "Queue:"
-msgstr ""
+msgstr "Kö:"
 
 #: page.queues.php:187
 msgid "Edit Queue"
-msgstr ""
+msgstr "Redigera kö"
 
 #: page.queues.php:192
 msgid "Queue Number:"
-msgstr ""
+msgstr "Könummer"
 
 #: page.queues.php:192
 msgid ""
@@ -268,28 +279,35 @@ msgid ""
 "<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
 "in<br>123** = log out</b>"
 msgstr ""
+"Använd detta nummer för att ringa till kön, eller genom att koppla vidare en "
+"uppringare till detta nummer, placera denna uppringare i kön.<br><br>Agenter "
+"ringer detta nummer plus en * för att logga in i kön, och detta nummer plus "
+"** för att logga ut.<br><br>T.ex. om numret till kön är 123:<br><br>123* = "
+"logga in<br><br>123** = logga ut<br>"
 
 #: page.queues.php:198
 msgid "Queue Name:"
-msgstr ""
+msgstr "Könamn:"
 
 #: page.queues.php:198
 msgid "Give this queue a brief name to help you identify it."
-msgstr ""
+msgstr "Ge denna kö ett kortfattat namn."
 
 #: page.queues.php:203
 msgid "Queue Password:"
-msgstr ""
+msgstr "Lösenord för kö"
 
 #: page.queues.php:203
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
 msgstr ""
+"Du kan kräva att agenter måste ange ett lösenord innan dom kan logga in i "
+"kön.<br><br>Denna inställning är valfri."
 
 #: page.queues.php:208
 msgid "CID Name Prefix:"
-msgstr ""
+msgstr "Namnprefix för nummerpresentation:"
 
 #: page.queues.php:208
 msgid ""
@@ -297,10 +315,13 @@ msgid ""
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
+"Du kan valfritt lägga till ett prefix till nummerpresentationen för "
+"uppringaren. Ex: Om du sätter prefix till \"Support\" kommer ett samtal från "
+"040123456 visas som \"Support:040123456\" på telefonens display."
 
 #: page.queues.php:213
 msgid "Wait Time Prefix:"
-msgstr ""
+msgstr "Väntetid som prefix:"
 
 #: page.queues.php:213
 msgid ""
@@ -309,30 +330,35 @@ msgid ""
 "be rounded to the nearest minute, in the form of Mnn: where nn is the number "
 "of minutes"
 msgstr ""
+"När detta sätts till Ja, kommer ett prefix att sättas på "
+"nummerpresentationen med den totala väntetiden i kön så att agenten kan se "
+"hu länge samtalet väntat i kön. Detta värde är avrundat till närmsta minut, "
+"formatet är Mnn: där nn är antalet minuter"
 
 #: page.queues.php:218 page.queues.php:397 page.queues.php:412
 #: page.queues.php:512 page.queues.php:527 page.queues.php:542
 #: page.queues.php:598 page.queues.php:611
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: page.queues.php:218 page.queues.php:397 page.queues.php:412
 #: page.queues.php:500 page.queues.php:512 page.queues.php:527
 #: page.queues.php:542 page.queues.php:599 page.queues.php:612
 msgid "No"
-msgstr ""
+msgstr "Nej"
 
 #: page.queues.php:228
 msgid "Alert Info"
-msgstr ""
+msgstr "Alert Info"
 
 #: page.queues.php:228
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
+"Alert Info kan användas för att få en speciell ringsignal på SIP enheter."
 
 #: page.queues.php:233
 msgid "Static Agents"
-msgstr ""
+msgstr "Statiska agenter"
 
 #: page.queues.php:233
 msgid ""
@@ -348,27 +374,33 @@ msgid ""
 "after the agent followed by a penalty value. Use penalties at your own risk, "
 "they are very broken in asterisk."
 msgstr ""
+"Statiska agenter är anknytningar som alltid ska vara anslutna till kön. "
+"Statiska agenter behöver inte logga in i kön, de kan inte heller logga ut ur "
+"kön.<br><br>Skriv in anknytningar som ska tillhöra kön, en anknytning per "
+"rad.<br><br>Du kan ange en anknytning som tillhör ett fjärrsystem eller ett "
+"externt nummer (Utgående vägar måste innehålla en giltig väg för externa "
+"nummer)."
 
 #: page.queues.php:241
 msgid "Extension Quick Pick"
-msgstr ""
+msgstr "Snabbvalslista för anknytningar"
 
 #: page.queues.php:243
 msgid ""
 "Choose an extension to append to the end of the static agents list above."
-msgstr ""
+msgstr "Välj en anknytning att lägga till i listan över statiska agenter."
 
 #: page.queues.php:249
 msgid "(pick extension)"
-msgstr ""
+msgstr "(välj anknytning)"
 
 #: page.queues.php:260
 msgid "Queue Options"
-msgstr ""
+msgstr "Köval"
 
 #: page.queues.php:263 page.queues.php:282
 msgid "Agent Announcement:"
-msgstr ""
+msgstr "Meddela agent:"
 
 #: page.queues.php:263
 msgid ""
@@ -379,10 +411,15 @@ msgid ""
 "composed of 2 or more sound files are not displayed as options since this "
 "feature can not accept such recordings."
 msgstr ""
+"Meddelande att spela upp för agenten innan uppringaren kopplas fram."
+"<br><br>T.ex. \"Samtalet kommer från Säljkön\" eller \"Samtalet kommer från "
+"supportkön\".<br><br>För att lägga till fler meddelanden, använd "
+"\"Systeminspelningar\" i menyn till vänster. Sammanslagna inspelningar visas "
+"inte då detta inte stöds."
 
 #: page.queues.php:270 page.queues.php:300 page.queues.php:630
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: page.queues.php:282
 msgid ""
@@ -391,10 +428,14 @@ msgid ""
 "from the Technical Support Queue\".<br><br>You must install and enable the "
 "\"Systems Recordings\" Module to edit this option"
 msgstr ""
+"Meddelande att spela upp för agenten innan uppringaren kopplas fram."
+"<br><br>T.ex. \"Samtalet kommer från Säljkön\" eller \"Samtalet kommer från "
+"supportkön\".<br><br>Du måste ha installerat och aktiverat modulen "
+"\"Systeminspelningar\" för att kunna redigera detta val"
 
 #: page.queues.php:294 page.queues.php:312
 msgid "Join Announcement:"
-msgstr ""
+msgstr "Anslutningsmeddelande:"
 
 #: page.queues.php:294
 msgid ""
@@ -402,16 +443,22 @@ msgid ""
 "add additional recordings please use the \"System Recordings\" MENU to the "
 "left"
 msgstr ""
+"Meddelande att spela upp för uppringaren innan den ansluts till kön."
+"<br><br>För att lägga till fler meddelanden, använd \"Systeminspelningar\" i "
+"menyn till vänster."
 
 #: page.queues.php:312
 msgid ""
 "Announcement played to callers once prior to joining the queue.<br><br>You "
 "must install and enable the \"Systems Recordings\" Module to edit this option"
 msgstr ""
+"Meddelande att spela upp för uppringaren innan den ansluts till kön."
+"<br><br>Du måste ha installerat och aktiverat modulen \"Systeminspelningar\" "
+"för att kunna redigera detta val"
 
 #: page.queues.php:325
 msgid "Music on Hold Class:"
-msgstr ""
+msgstr "Klass för pausmusik:"
 
 #: page.queues.php:325
 msgid ""
@@ -420,10 +467,14 @@ msgid ""
 "currently selected, such as by the inbound route.<br><br>  This music is "
 "defined in the \"Music on Hold\" Menu to the left."
 msgstr ""
+"Musik (eller reklam) som ska spelas för uppringarna när dom väntar i kön. "
+"Välj \"inherit\" om du vill ha den klass som satts på systemnivå eller "
+"inkommande väg.<br><br>Musiken definieras i \"Pausmusik\" i menyn till "
+"vänster."
 
 #: page.queues.php:345
 msgid "Ringing Instead of MoH:"
-msgstr ""
+msgstr "Ringsignal i stället för Pausmusik:"
 
 #: page.queues.php:345
 msgid ""
@@ -431,32 +482,37 @@ msgid ""
 "Hold.<br/>If this option is enabled, settings of the previous drop down are "
 "ignored."
 msgstr ""
+"Aktivering av detta val medför att uppringarna kommer att höra ringsignaler "
+"i stället för pausmusik.<br>Om detta aktiveras, kommer inställningarna för "
+"ovanstående att ignoreras."
 
 #: page.queues.php:352
 msgid "Max Wait Time:"
-msgstr ""
+msgstr "Max väntetid:"
 
 #: page.queues.php:352
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr ""
+"Det antal sekunder en uppringare kan vänta i kön innan dom kopplas vidare i "
+"systemet, om detta är definierat. (0 betyder obegränsat)."
 
 #: page.queues.php:359 page.queues.php:453
 msgid "Unlimited"
-msgstr ""
+msgstr "Obegränsat"
 
 #: page.queues.php:378
 msgid "Max Callers:"
-msgstr ""
+msgstr "Antal i kö:"
 
 #: page.queues.php:378
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
-msgstr ""
+msgstr "Maximalt antal uppringare som kan vänta i kön (0 för obegränsat)"
 
 #: page.queues.php:392
 msgid "Join Empty:"
-msgstr ""
+msgstr "Anslut tom kö:"
 
 #: page.queues.php:392
 msgid ""
@@ -464,14 +520,17 @@ msgid ""
 "set this to yes. Set to strict if callers cannot join a queue with no "
 "members or only unavailable members"
 msgstr ""
+"Om du vill tillåta att uppringare ansluter till en kö som inte har några "
+"agenter, sätt detta till Ja. Sätt till strict om uppringare inte kan ansluta "
+"till en tom kö eller endast otillgängliga. "
 
 #: page.queues.php:397 page.queues.php:412
 msgid "Strict"
-msgstr ""
+msgstr "Strikt"
 
 #: page.queues.php:407
 msgid "Leave When Empty:"
-msgstr ""
+msgstr "Töm kö utan agenter:"
 
 #: page.queues.php:407
 msgid ""
@@ -479,62 +538,65 @@ msgid ""
 "set this to yes. Set to strict if callers cannot join a queue with no "
 "members or only unavailable members"
 msgstr ""
+"Om du vill ta bort uppringare från kön om det inte finns någon agent "
+"inloggad, sätt detta till Ja. Sätt det till strict om uppringare inte kan "
+"ansluta till kön utan medlemmar eller otillgängliga medlemmar."
 
 #: page.queues.php:423
 msgid "Ring Strategy:"
-msgstr ""
+msgstr "Ringstrategi:"
 
 #: page.queues.php:425
 msgid "ringall"
-msgstr ""
+msgstr "ringall"
 
 #: page.queues.php:425
 msgid "ring all available agents until one answers (default)"
-msgstr ""
+msgstr "Ring på alla anknytningar tills någon svarar (standard)"
 
 #: page.queues.php:426
 msgid "roundrobin"
-msgstr ""
+msgstr "roundrobin"
 
 #: page.queues.php:426
 msgid "take turns ringing each available agent"
-msgstr ""
+msgstr "Ring runt på respektive anknytning"
 
 #: page.queues.php:427
 msgid "leastrecent"
-msgstr ""
+msgstr "leastrecent"
 
 #: page.queues.php:427
 msgid "ring agent which was least recently called by this queue"
-msgstr ""
+msgstr "ring på agenter som tagit minst samtal nyligen"
 
 #: page.queues.php:428
 msgid "fewestcalls"
-msgstr ""
+msgstr "fewestcalls"
 
 #: page.queues.php:428
 msgid "ring the agent with fewest completed calls from this queue"
-msgstr ""
+msgstr "ring på agenten med minsta antalet genomförda samtal i denna kö"
 
 #: page.queues.php:429
 msgid "random"
-msgstr ""
+msgstr "random"
 
 #: page.queues.php:429
 msgid "ring random agent"
-msgstr ""
+msgstr "ring anknytningarna slumpmässigt "
 
 #: page.queues.php:430
 msgid "rrmemory"
-msgstr ""
+msgstr "rrmemory"
 
 #: page.queues.php:430
 msgid "round robin with memory, remember where we left off last ring pass"
-msgstr ""
+msgstr "rundringning med minne, kom ihåg var det sista samtalet svarades"
 
 #: page.queues.php:448
 msgid "Agent Timeout:"
-msgstr ""
+msgstr "Väntetid för agent:"
 
 #: page.queues.php:448
 msgid ""
@@ -542,10 +604,14 @@ msgid ""
 "timeout. Unlimited or other timeout values may still be limited by system "
 "ringtime or individual extension defaults."
 msgstr ""
+"Det antal sekunder en agents telefon kan ringa innan vi förmodar att "
+"väntetiden gått ut. Obegränsat eller andra värden på väntetiden kan vara "
+"begränsade av systemets ringtid eller av individuella inställningar på "
+"anknytningarna."
 
 #: page.queues.php:463
 msgid "Retry:"
-msgstr ""
+msgstr "Försök igen:"
 
 #: page.queues.php:463
 msgid ""
@@ -554,66 +620,77 @@ msgid ""
 "as the first attempted agent times-out, additional agents will not be "
 "attempted."
 msgstr ""
+"Det antal sekunder vi väntar före vi försöker ringa alla telefoner igen. "
+"Väljs \"Inget återförsök\" kommer samtalet att avslutas från kön och nästa "
+"destination kommer att väljas så fort det första försöket kommer till "
+"väntetidens slut, andra agenter kommer inte att försöka nås."
 
 #: page.queues.php:468
 msgid "No Retry"
-msgstr ""
+msgstr "Återförsök:"
 
 #: page.queues.php:478
 msgid "Wrap-Up-Time:"
-msgstr ""
+msgstr "Tid att avsluta:"
 
 #: page.queues.php:478
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay)"
 msgstr ""
+"Efter ett avslutat samtal, hur många sekunder ska systemet vänta innan nästa "
+"samtal kopplas fram (standard är 0, ingen väntetid)"
 
 #: page.queues.php:492
 msgid "Call Recording:"
-msgstr ""
+msgstr "Spela in samtal:"
 
 #: page.queues.php:492
 msgid ""
 "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
 "monitor)"
 msgstr ""
+"Inkommande samtal kan spelas in. (Sparas i /var/spool/asterisk/monitor)"
 
 #: page.queues.php:497
 msgid "wav49"
-msgstr ""
+msgstr "wav49"
 
 #: page.queues.php:498
 msgid "wav"
-msgstr ""
+msgstr "wav"
 
 #: page.queues.php:499
 msgid "gsm"
-msgstr ""
+msgstr "gsm"
 
 #: page.queues.php:507
 msgid "Event When Called:"
-msgstr ""
+msgstr "Händelse vid samtal:"
 
 #: page.queues.php:507
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
+"När detta sätts till Ja, kommer följande händelser att genereras: "
+"AgentCalled, AgentDump, AgentConnect och AgentComplete."
 
 #: page.queues.php:522
 msgid "Member Status:"
-msgstr ""
+msgstr "Agentstatus:"
 
 #: page.queues.php:522
 msgid ""
 "When if this is option is set to YES, the following manager event will be "
 "generated: QueueMemberStatus"
 msgstr ""
+"När detta sätts till Ja, kommer följande händelser att genereras: "
+"QueueMemberStatus"
 
 #: page.queues.php:537
 msgid "Skip Busy Agents:"
-msgstr ""
+msgstr "Hoppa över upptagna agenter:"
 
 #: page.queues.php:537
 msgid ""
@@ -622,20 +699,26 @@ msgid ""
 "phones will not be presented with the call and in the various hunt style "
 "ring strategies, the next agent will be attempted."
 msgstr ""
+"När detta sätts till Ja, kommer agenter som vars telefoner är upptagna att "
+"hoppas över. Detta innebär att Samtal väntar eller fler-linjerstelefoner "
+"inte kommer att anropas i dom olika ringstrategierna."
 
 #: page.queues.php:552
 msgid "Queue Weight"
-msgstr ""
+msgstr "Kövikt"
 
 #: page.queues.php:552
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
+"Ger kön en vikt, detta för att garantera att samtal som väntar i en kö med "
+"högre prioritet kommer att få sina samtal  levererade först om det finns "
+"agenter som är anslutna till flera köer."
 
 #: page.queues.php:566
 msgid "Autofill:"
-msgstr ""
+msgstr "Autofyll:"
 
 #: page.queues.php:566
 msgid ""
@@ -646,10 +729,15 @@ msgid ""
 "behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk "
 "documentation for more details of this feature."
 msgstr ""
+"Med Asterisk 1.4, om detta är valt, och flera agenter är tillgängliga, "
+"kommer Asterisk att skicka ett samtal till varje agent (beroende på "
+"ringstrategi). Annars kommer alla samtal att vänta i kön under tiden en "
+"ledig agent rings upp. Detta var standard i Asterisk 1.2, detta val kommer "
+"att ignoreras om du använder Asterisk 1.2. "
 
 #: page.queues.php:573
 msgid "Agent Regex Filter"
-msgstr ""
+msgstr "Regexfilter för agent:"
 
 #: page.queues.php:573
 msgid ""
@@ -663,50 +751,65 @@ msgid ""
 "key.<br />WARNING: make sure you undertand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
+"Denna text är luddig och översätts senare till Svenska.<br><br>Provides an "
+"optional regex expression that will be applied against the agent callback "
+"number. If the callback number does not pass the regex filter then it will "
+"be treated as invalid. This can be used to restrict agents to extensions "
+"within a range, not allow callbacks to include keys like *, or any other use "
+"that may be appropriate. An example input might be:<br />^([2-4][0-9]{3})"
+"$<br />This would restrict agents to extensions 2000-4999. Or <br />^([0-9]+)"
+"$ would allow any number of any length, but restrict the * key.<br /"
+">WARNING: make sure you undertand what you are doing or otherwise leave this "
+"blank!"
 
 #: page.queues.php:577
 msgid "Caller Position Announcements"
-msgstr ""
+msgstr "Meddela plats i kön"
 
 #: page.queues.php:579
 msgid "Frequency:"
-msgstr ""
+msgstr "Frekvens:"
 
 #: page.queues.php:579
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 msgstr ""
+"Hur ofta meddelandet om köposition och förväntad väntetid ska sägas (0 för "
+"att stänga av meddelanden)"
 
 #: page.queues.php:593
 msgid "Announce Position:"
-msgstr ""
+msgstr "Meddela plats i kön:"
 
 #: page.queues.php:593
 msgid "Announce position of caller in the queue?"
-msgstr ""
+msgstr "Meddela position i kön för dom som väntar?"
 
 #: page.queues.php:606
 msgid "Announce Hold Time:"
-msgstr ""
+msgstr "Meddela väntetid:"
 
 #: page.queues.php:606
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
 msgstr ""
+"Ska den uppskattade väntetiden meddelas när positionen meddelas? Antingen "
+"ja, nej eller endast en gång, väntetiden kommer inte att meddelas om det är "
+"mindre än en minut kvar."
 
 #: page.queues.php:613
 msgid "Once"
-msgstr ""
+msgstr "En gång"
 
 #: page.queues.php:619
 msgid "Periodic Announcements"
-msgstr ""
+msgstr "Periodiska meddelanden"
 
 #: page.queues.php:624
 msgid "IVR Break Out Menu:"
-msgstr ""
+msgstr "Bryt ut ur IVR:"
 
 #: page.queues.php:624
 msgid ""
@@ -715,18 +818,21 @@ msgid ""
 "Recording set for the IVR will be played at intervals specified in 'Repeat "
 "Frequency', below."
 msgstr ""
+"Du kan valfritt ange en IVR som an utbrytningspunkt.<br><br>Denna IVR kan "
+"bara innehålla ensiffriga val. Meddelandet för denna IVR kommer att spelas "
+"upp periodiskt enligt tiden som anges nedan."
 
 #: page.queues.php:646 page.queues.php:651
 msgid "Menu ID "
-msgstr ""
+msgstr "MenyID"
 
 #: page.queues.php:662
 msgid "(**) ERRORS"
-msgstr ""
+msgstr "(**)FEL"
 
 #: page.queues.php:662
 msgid "(**) Warning Potential Errors"
-msgstr ""
+msgstr "(**)Varning, möjligt fel"
 
 #: page.queues.php:666
 msgid ""
@@ -737,46 +843,57 @@ msgid ""
 "that is not from a compound sound file. The IVR itself can play such files, "
 "but the Queue subsystem can not"
 msgstr ""
+"FEL: Du har valt en IVR med ett meddelande som innefattar flera ljudfiler. "
+"Kön kan inte spela upp detta meddelande. Meddelandet för denna IVR kommer "
+"bara att vara den första ljudfilen. Du kan rätta till detta genom att välja "
+"ett annat meddelande för denna IVR som inte innehåller sammanslagna "
+"ljudfiler. IVR kan spela upp sådana filer, men inte köer."
 
 #: page.queues.php:666
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
+"Tidigare versioner av denna modul tillät att sådana köer valdes, så for du "
+"ändrar inställning kommer dessa val inte att visas mer."
 
 #: page.queues.php:679
 msgid "Repeat Frequency:"
-msgstr ""
+msgstr "Upprepning:"
 
 #: page.queues.php:679
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
+"Hur ofta ska menymeddelandet spelas upp för uppringaren (0 för att stänga av "
+"meddelanden)"
 
 #: page.queues.php:700
 msgid "Fail Over Destination"
-msgstr ""
+msgstr "Destination vid fel"
 
 #: page.queues.php:706
 msgid "Submit Changes"
-msgstr ""
+msgstr "Spara ändringar"
 
 #: page.queues.php:729
 msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
 msgstr ""
+"Att använda Regexfilter är ganska avancerat, du måste veta vad du gör innan "
+"du skriver in värde här, annars lämna detta fält tomt"
 
 #: page.queues.php:740
 msgid "Queue Number must not be blank"
-msgstr ""
+msgstr "Könummer får inte vara tomt"
 
 #: page.queues.php:746
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
-msgstr ""
+msgstr "Könamnet kan inte vara tomt och får bara innehålla a-z, A-Z och 0-9"
 
 #: module.xml
 msgid "Queues"
-msgstr ""
+msgstr "Köer"
