@@ -187,7 +187,7 @@ function queues_getdestinfo($dest) {
 			return array();
 		} else {
 			//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
-			return array('description' => 'Queue '.$exten.' : '.$thisexten['name'],
+			return array('description' => sprintf(_("Queue %s : %s"),$exten,$thisexten['name']),
 			             'edit_url' => 'config.php?display=queues&extdisplay='.urlencode($exten),
 								  );
 		}
@@ -207,7 +207,7 @@ function queues_recordings_usage($recording_id) {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
 			  'url_query' => 'config.php?display=queues&extdisplay='.urlencode($result['extension']),
-				'description' => "Queue: ".$result['descr'],
+				'description' => sprintf(_("Queue: %s"),$result['descr']),
 			);
 		}
 		return $usage_arr;
@@ -224,7 +224,7 @@ function queues_ivr_usage($ivr_id) {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
 			  'url_query' => 'config.php?display=queues&extdisplay='.urlencode($result['extension']),
-				'description' => "Queue: ".$result['descr'],
+				'description' => sprintf(_("Queue: %s"),$result['descr']),
 			);
 		}
 		return $usage_arr;
@@ -511,8 +511,8 @@ function queues_check_extensions($exten=true) {
 	//$type = isset($active_modules['queues']['type'])?$active_modules['queues']['type']:'setup';
 	foreach ($results as $result) {
 		$thisexten = $result['extension'];
-		$extenlist[$thisexten]['description'] = _("Queue: ").$result['descr'];
-		$extenlist[$thisexten]['status'] = 'INUSE';
+		$extenlist[$thisexten]['description'] = sprintf(_("Queue: %s"),$result['descr']);
+		$extenlist[$thisexten]['status'] = _('INUSE');
 		$extenlist[$thisexten]['edit_url'] = 'config.php?display=queues&extdisplay='.urlencode($thisexten);
 	}
 	return $extenlist;
@@ -540,7 +540,7 @@ function queues_check_destinations($dest=true) {
 		$thisid   = $result['extension'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => 'Queue: '.$result['descr'].'('.$thisid.')',
+			'description' => sprintf(_("Queue: %s (%s)"),$result['descr'],$thisid),
 			'edit_url' => 'config.php?display=queues&extdisplay='.urlencode($thisid),
 		);
 	}
