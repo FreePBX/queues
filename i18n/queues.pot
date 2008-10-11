@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-27 14:52+0200\n"
+"POT-Creation-Date: 2008-10-06 00:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,16 @@ msgstr ""
 
 #: functions.inc.php:136
 msgid "Compound Recordings in Queues Detected"
+msgstr ""
+
+#: functions.inc.php:190
+#, php-format
+msgid "Queue %s : %s"
+msgstr ""
+
+#: functions.inc.php:210 functions.inc.php:227 functions.inc.php:514
+#, php-format
+msgid "Queue: %s"
 msgstr ""
 
 #: functions.inc.php:359 functions.inc.php:376 page.queues.php:361
@@ -65,8 +75,13 @@ msgstr ""
 msgid "Bad Queue Number, can not be blank"
 msgstr ""
 
-#: functions.inc.php:514
-msgid "Queue: "
+#: functions.inc.php:515
+msgid "INUSE"
+msgstr ""
+
+#: functions.inc.php:543
+#, php-format
+msgid "Queue: %s (%s)"
 msgstr ""
 
 #: functions.inc.php:573

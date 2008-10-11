@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX queues\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-27 14:52+0200\n"
-"PO-Revision-Date: 2008-09-27 15:06+0100\n"
+"POT-Creation-Date: 2008-10-06 00:04+0200\n"
+"PO-Revision-Date: 2008-10-11 18:43+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,18 @@ msgstr "Kö - %s (%s): %s<br>"
 #: functions.inc.php:136
 msgid "Compound Recordings in Queues Detected"
 msgstr "Upptäckte sammanslagen inspelning i kö "
+
+#: functions.inc.php:190
+#, php-format
+msgid "Queue %s : %s"
+msgstr "Kö %s : %s"
+
+#: functions.inc.php:210
+#: functions.inc.php:227
+#: functions.inc.php:514
+#, php-format
+msgid "Queue: %s"
+msgstr "Kö: %s"
 
 #: functions.inc.php:359
 #: functions.inc.php:376
@@ -67,9 +79,14 @@ msgstr "sekund"
 msgid "Bad Queue Number, can not be blank"
 msgstr "Felaktigt könummer, detta fält kan inte vara tomt"
 
-#: functions.inc.php:514
-msgid "Queue: "
-msgstr "Kö:"
+#: functions.inc.php:515
+msgid "INUSE"
+msgstr "ANVÄNDS"
+
+#: functions.inc.php:543
+#, php-format
+msgid "Queue: %s (%s)"
+msgstr "Kö: %s (%s)"
 
 #: functions.inc.php:573
 msgid "Agent Announce Msg"
