@@ -101,6 +101,30 @@ msgstr ""
 "\"Sales:\", то, установив такой префикс для этой группы, можно видеть, если звонит John Doe, то "
 "мы увидим на дисплее Sales:John Doe."
 
+#: page.queues.php:213
+msgid "Wait Time Prefix:"
+msgstr "Префикс индикации времени ожидания:"
+
+#: page.queues.php:213
+msgid ""
+"When set to Yes, the CID Name will be prefixed with the total wait time in "
+"the queue so the answering agent is aware how long they have waited. It will "
+"be rounded to the nearest minute, in the form of Mnn: where nn is the number "
+"of minutes."
+msgstr ""
+"Если установлено в Да, имя абонента (CID name) будет передано вместе с суммарным временем ожидания в "
+"очереди, чтобы оператор очереди был предупрежден заранее - как долго ожидал абонент. "
+"Сумма округляется до целых минут в форме Mnn: где nn - количество минут."  
+
+#: page.queues.php:213
+msgid ""
+"If the call is subsequently transfered, the wait time will reflect the time "
+"since it first entered the queue or reset if the call is transfered to "
+"another queue with this feature set."
+msgstr ""
+"Если звонок был перенаправлен, время ожидания будет отражать только время ожидания в "
+"этой очереди, и значение обнулится, если звонок будет перенаправлен в другую очередь."
+
 msgid "Alert Info"
 msgstr "Дополнительная информация"
 
@@ -165,6 +189,20 @@ msgid "None"
 msgstr "Нет"
 
 #: page.queues.php:212
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>To add additional recordings "
+"please use the \"System Recordings\" MENU to the left. Compound recordings "
+"composed of 2 or more sound files are not displayed as options since this "
+"feature can not accept such recordings."
+msgstr ""
+"Приветствие, которое воспроизводится агенту (оператору), прежде чем тот соединится с позвонившим в очереди"
+"<br><br>Пример: \"Звонок из очереди Sales\" или \"Звонок из очереди к Службе поддержки\".<br><br>"
+"Для создания такого приветствия воспользуйтесь секцией Запись сообщение в меню слева. Соединение двух "
+"или более записей не отображается в этих опциях, следовательно такая возможность не поддерживается."
+
+#: page.queues.php:282
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -340,6 +378,26 @@ msgid "The number of seconds we wait before trying all the phones again"
 msgstr "Время в секундах, через которое будет предпринята очередная попытка дозвона из очереди на все указанные "
 "телефоны операторов."
 
+#: page.queues.php:463
+msgid "Retry:"
+msgstr "Повторить:"
+
+#: page.queues.php:463
+msgid ""
+"The number of seconds we wait before trying all the phones again. Choosing "
+"\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
+"as the first attempted agent times-out, additional agents will not be "
+"attempted."
+msgstr ""
+"Через сколько секунд будет повторена попытка позвонить снова на все телефоны. Выбирая "
+"вариант \"Без повторений\" звонок будет направлен из очереди по назначению при неответе. "
+"Звонок перенаправится туда после тайм-аута у первого оператора, переход на второго оператора "
+"не произойдёт."
+
+#: page.queues.php:468
+msgid "No Retry"
+msgstr ""
+
 #: page.queues.php:356
 msgid "Wrap-Up-Time:"
 msgstr "передышка:"
@@ -411,6 +469,63 @@ msgstr ""
 "возвращает статус 'Занято'. Имеется ввиду, что использование методов Ожидания звонка и многоканальных "
 "телефонов затрудняет использование различных сценариев серийного поиска свободных операторов в стратегиях "
 "звонков, будет предпринята попытка поиска другого оператора."
+
+#: page.queues.php:552
+msgid "Queue Weight"
+msgstr "Вес очереди"
+
+#: page.queues.php:552
+msgid ""
+"Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
+"queue will deliver its calls first if there are agents common to both queues."
+msgstr ""
+"Позволяет добавлять 'вес' очереди обеспечивая ожидание в очереди с большим приоритетом. "
+"Оператору будет подан звонок большим приоритетом очереди, если оператор обслуживаетс две и более очереди."
+
+#: page.queues.php:566
+msgid "Autofill:"
+msgstr "Автозаполнение:"
+
+#: page.queues.php:566
+msgid ""
+"Starting with Asterisk 1.4, if this is checked, and multiple agents are "
+"available, Asterisk will send one call to each waiting agent (depending on "
+"the ring strategy). Otherwise, it will hold all calls while it tries to find "
+"an agent for the top call in the queue making other calls wait. This was the "
+"behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk "
+"documentation for more details of this feature."
+msgstr ""
+"Опция версии 1.4. Если отмечено, и работают несколько операторов, Астериск направит звонок всем ожидающим операторам "
+"(в зависимости от стратегии звоков). В противном случае звонок попадает в очередь с общим статусом "
+"ожидания на общих основаниях. Это стандартное поведение для версии Астериск 1.2, поэтому задействовать "
+"эту возможность не удастся, если у вас 1.2. Смотрите документацию для более детального понимания "
+"этой опции."
+
+#: page.queues.php:573
+msgid "Agent Regex Filter"
+msgstr "Фильтр регулярных выражений для операторов"
+
+#: page.queues.php:573
+msgid ""
+"Provides an optional regex expression that will be applied against the agent "
+"callback number. If the callback number does not pass the regex filter then "
+"it will be treated as invalid. This can be used to restrict agents to "
+"extensions within a range, not allow callbacks to include keys like *, or "
+"any other use that may be appropriate. An example input might be:<br />^([2-"
+"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
+"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"key.<br />WARNING: make sure you undertand what you are doing or otherwise "
+"leave this blank!"
+msgstr ""
+"Даёт возможность создавать фильтр регулярных выражений для ограничения обратных "
+"звонков операторами. Если номер обратного звонка не попадает в описаный фильтр он будет обработан как "
+"неверный. Это может использоваться для ограничения операторов к доступу групп номеров, "
+"или ограничить использование наборов сервисных кодов через звёздочку (*), или ещё "
+"какое нибудь полезное применение. Например:<br />^([2-4][0-9]{3})$<br />Этот фильтр "
+"ограничивает доступ операторов на внутренние номера 2000-4999. Или <br />^([0-9]+)$ "
+"разрешит доступ на все номера любой длины, но запретит использование звездочки (*). "
+"ВНИМАНИЕ: будьте уверены в том, что понимаете то, что делаете, в противном случае оставьте "
+"это поле пустым." 
 
 #: page.queues.php:410
 msgid "Caller Announcements"
