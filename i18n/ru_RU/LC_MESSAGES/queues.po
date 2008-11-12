@@ -280,13 +280,13 @@ msgstr ""
 #: page.queues.php:282 page.queues.php:296 page.queues.php:388
 #: page.queues.php:402 page.queues.php:430 page.queues.php:442
 msgid "Yes"
-msgstr "Да :)"
+msgstr "Да"
 
 #: page.queues.php:282 page.queues.php:296 page.queues.php:377
 #: page.queues.php:388 page.queues.php:402 page.queues.php:431
 #: page.queues.php:443
 msgid "No"
-msgstr "Нет :("
+msgstr "Нет"
 
 #: page.queues.php:291
 msgid "Leave When Empty:"
