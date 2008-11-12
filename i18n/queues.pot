@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-06 00:04+0200\n"
+"POT-Creation-Date: 2008-11-12 22:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,8 +42,8 @@ msgstr ""
 msgid "Queue: %s"
 msgstr ""
 
-#: functions.inc.php:359 functions.inc.php:376 page.queues.php:361
-#: page.queues.php:455 page.queues.php:470 page.queues.php:484
+#: functions.inc.php:359 functions.inc.php:376 page.queues.php:364
+#: page.queues.php:458 page.queues.php:473 page.queues.php:487
 msgid "seconds"
 msgstr ""
 
@@ -332,15 +332,15 @@ msgid ""
 "another queue with this feature set."
 msgstr ""
 
-#: page.queues.php:218 page.queues.php:397 page.queues.php:412
-#: page.queues.php:512 page.queues.php:527 page.queues.php:542
-#: page.queues.php:598 page.queues.php:611
+#: page.queues.php:218 page.queues.php:400 page.queues.php:415
+#: page.queues.php:515 page.queues.php:530 page.queues.php:545
+#: page.queues.php:601 page.queues.php:614
 msgid "Yes"
 msgstr ""
 
-#: page.queues.php:218 page.queues.php:397 page.queues.php:412
-#: page.queues.php:500 page.queues.php:512 page.queues.php:527
-#: page.queues.php:542 page.queues.php:599 page.queues.php:612
+#: page.queues.php:218 page.queues.php:400 page.queues.php:415
+#: page.queues.php:503 page.queues.php:515 page.queues.php:530
+#: page.queues.php:545 page.queues.php:602 page.queues.php:615
 msgid "No"
 msgstr ""
 
@@ -402,7 +402,7 @@ msgid ""
 "feature can not accept such recordings."
 msgstr ""
 
-#: page.queues.php:270 page.queues.php:300 page.queues.php:630
+#: page.queues.php:270 page.queues.php:300 page.queues.php:633
 msgid "None"
 msgstr ""
 
@@ -443,133 +443,145 @@ msgid ""
 "defined in the \"Music on Hold\" Menu to the left."
 msgstr ""
 
-#: page.queues.php:345
+#: page.queues.php:335
+msgid "inherit"
+msgstr ""
+
+#: page.queues.php:336
+msgid "none"
+msgstr ""
+
+#: page.queues.php:337
+msgid "default"
+msgstr ""
+
+#: page.queues.php:348
 msgid "Ringing Instead of MoH:"
 msgstr ""
 
-#: page.queues.php:345
+#: page.queues.php:348
 msgid ""
 "Enabling this option make callers hear a ringing tone instead of Music on "
 "Hold.<br/>If this option is enabled, settings of the previous drop down are "
 "ignored."
 msgstr ""
 
-#: page.queues.php:352
+#: page.queues.php:355
 msgid "Max Wait Time:"
 msgstr ""
 
-#: page.queues.php:352
+#: page.queues.php:355
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr ""
 
-#: page.queues.php:359 page.queues.php:453
+#: page.queues.php:362 page.queues.php:456
 msgid "Unlimited"
 msgstr ""
 
-#: page.queues.php:378
+#: page.queues.php:381
 msgid "Max Callers:"
 msgstr ""
 
-#: page.queues.php:378
+#: page.queues.php:381
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr ""
 
-#: page.queues.php:392
+#: page.queues.php:395
 msgid "Join Empty:"
 msgstr ""
 
-#: page.queues.php:392
+#: page.queues.php:395
 msgid ""
 "If you wish to allow callers to join queues that currently have no agents, "
 "set this to yes. Set to strict if callers cannot join a queue with no "
 "members or only unavailable members"
 msgstr ""
 
-#: page.queues.php:397 page.queues.php:412
+#: page.queues.php:400 page.queues.php:415
 msgid "Strict"
 msgstr ""
 
-#: page.queues.php:407
+#: page.queues.php:410
 msgid "Leave When Empty:"
 msgstr ""
 
-#: page.queues.php:407
+#: page.queues.php:410
 msgid ""
 "If you wish to remove callers from the queue if there are no agents present, "
 "set this to yes. Set to strict if callers cannot join a queue with no "
 "members or only unavailable members"
 msgstr ""
 
-#: page.queues.php:423
+#: page.queues.php:426
 msgid "Ring Strategy:"
 msgstr ""
 
-#: page.queues.php:425
+#: page.queues.php:428
 msgid "ringall"
 msgstr ""
 
-#: page.queues.php:425
+#: page.queues.php:428
 msgid "ring all available agents until one answers (default)"
 msgstr ""
 
-#: page.queues.php:426
+#: page.queues.php:429
 msgid "roundrobin"
 msgstr ""
 
-#: page.queues.php:426
+#: page.queues.php:429
 msgid "take turns ringing each available agent"
 msgstr ""
 
-#: page.queues.php:427
+#: page.queues.php:430
 msgid "leastrecent"
 msgstr ""
 
-#: page.queues.php:427
+#: page.queues.php:430
 msgid "ring agent which was least recently called by this queue"
 msgstr ""
 
-#: page.queues.php:428
+#: page.queues.php:431
 msgid "fewestcalls"
 msgstr ""
 
-#: page.queues.php:428
+#: page.queues.php:431
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr ""
 
-#: page.queues.php:429
+#: page.queues.php:432
 msgid "random"
 msgstr ""
 
-#: page.queues.php:429
+#: page.queues.php:432
 msgid "ring random agent"
 msgstr ""
 
-#: page.queues.php:430
+#: page.queues.php:433
 msgid "rrmemory"
 msgstr ""
 
-#: page.queues.php:430
+#: page.queues.php:433
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr ""
 
-#: page.queues.php:448
+#: page.queues.php:451
 msgid "Agent Timeout:"
 msgstr ""
 
-#: page.queues.php:448
+#: page.queues.php:451
 msgid ""
 "The number of seconds an agent's phone can ring before we consider it a "
 "timeout. Unlimited or other timeout values may still be limited by system "
 "ringtime or individual extension defaults."
 msgstr ""
 
-#: page.queues.php:463
+#: page.queues.php:466
 msgid "Retry:"
 msgstr ""
 
-#: page.queues.php:463
+#: page.queues.php:466
 msgid ""
 "The number of seconds we wait before trying all the phones again. Choosing "
 "\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
@@ -577,67 +589,67 @@ msgid ""
 "attempted."
 msgstr ""
 
-#: page.queues.php:468
+#: page.queues.php:471
 msgid "No Retry"
 msgstr ""
 
-#: page.queues.php:478
+#: page.queues.php:481
 msgid "Wrap-Up-Time:"
 msgstr ""
 
-#: page.queues.php:478
+#: page.queues.php:481
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay)"
 msgstr ""
 
-#: page.queues.php:492
+#: page.queues.php:495
 msgid "Call Recording:"
 msgstr ""
 
-#: page.queues.php:492
+#: page.queues.php:495
 msgid ""
 "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
 "monitor)"
 msgstr ""
 
-#: page.queues.php:497
+#: page.queues.php:500
 msgid "wav49"
 msgstr ""
 
-#: page.queues.php:498
+#: page.queues.php:501
 msgid "wav"
 msgstr ""
 
-#: page.queues.php:499
+#: page.queues.php:502
 msgid "gsm"
 msgstr ""
 
-#: page.queues.php:507
+#: page.queues.php:510
 msgid "Event When Called:"
 msgstr ""
 
-#: page.queues.php:507
+#: page.queues.php:510
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
 
-#: page.queues.php:522
+#: page.queues.php:525
 msgid "Member Status:"
 msgstr ""
 
-#: page.queues.php:522
+#: page.queues.php:525
 msgid ""
 "When if this is option is set to YES, the following manager event will be "
 "generated: QueueMemberStatus"
 msgstr ""
 
-#: page.queues.php:537
+#: page.queues.php:540
 msgid "Skip Busy Agents:"
 msgstr ""
 
-#: page.queues.php:537
+#: page.queues.php:540
 msgid ""
 "When set to Yes, agents who are on an occupied phone will be skipped as if "
 "the line were returning busy. This means that Call Waiting or multi-line "
@@ -645,21 +657,21 @@ msgid ""
 "ring strategies, the next agent will be attempted."
 msgstr ""
 
-#: page.queues.php:552
+#: page.queues.php:555
 msgid "Queue Weight"
 msgstr ""
 
-#: page.queues.php:552
+#: page.queues.php:555
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
 
-#: page.queues.php:566
+#: page.queues.php:569
 msgid "Autofill:"
 msgstr ""
 
-#: page.queues.php:566
+#: page.queues.php:569
 msgid ""
 "Starting with Asterisk 1.4, if this is checked, and multiple agents are "
 "available, Asterisk will send one call to each waiting agent (depending on "
@@ -669,11 +681,11 @@ msgid ""
 "documentation for more details of this feature."
 msgstr ""
 
-#: page.queues.php:573
+#: page.queues.php:576
 msgid "Agent Regex Filter"
 msgstr ""
 
-#: page.queues.php:573
+#: page.queues.php:576
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
 "callback number. If the callback number does not pass the regex filter then "
@@ -686,51 +698,51 @@ msgid ""
 "leave this blank!"
 msgstr ""
 
-#: page.queues.php:577
+#: page.queues.php:580
 msgid "Caller Position Announcements"
 msgstr ""
 
-#: page.queues.php:579
+#: page.queues.php:582
 msgid "Frequency:"
 msgstr ""
 
-#: page.queues.php:579
+#: page.queues.php:582
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 msgstr ""
 
-#: page.queues.php:593
+#: page.queues.php:596
 msgid "Announce Position:"
 msgstr ""
 
-#: page.queues.php:593
+#: page.queues.php:596
 msgid "Announce position of caller in the queue?"
 msgstr ""
 
-#: page.queues.php:606
+#: page.queues.php:609
 msgid "Announce Hold Time:"
 msgstr ""
 
-#: page.queues.php:606
+#: page.queues.php:609
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
 msgstr ""
 
-#: page.queues.php:613
+#: page.queues.php:616
 msgid "Once"
 msgstr ""
 
-#: page.queues.php:619
+#: page.queues.php:622
 msgid "Periodic Announcements"
 msgstr ""
 
-#: page.queues.php:624
+#: page.queues.php:627
 msgid "IVR Break Out Menu:"
 msgstr ""
 
-#: page.queues.php:624
+#: page.queues.php:627
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
 "<br><br>This IVR must only contain single-digit 'dialed options'. The "
@@ -738,19 +750,19 @@ msgid ""
 "Frequency', below."
 msgstr ""
 
-#: page.queues.php:646 page.queues.php:651
+#: page.queues.php:649 page.queues.php:654
 msgid "Menu ID "
 msgstr ""
 
-#: page.queues.php:662
+#: page.queues.php:665
 msgid "(**) ERRORS"
 msgstr ""
 
-#: page.queues.php:662
+#: page.queues.php:665
 msgid "(**) Warning Potential Errors"
 msgstr ""
 
-#: page.queues.php:666
+#: page.queues.php:669
 msgid ""
 "ERROR: You have selected an IVR's that use Announcements created from "
 "compound sound files. The Queue is not able to play these announcements. "
@@ -760,45 +772,45 @@ msgid ""
 "but the Queue subsystem can not"
 msgstr ""
 
-#: page.queues.php:666
+#: page.queues.php:669
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
 
-#: page.queues.php:679
+#: page.queues.php:682
 msgid "Repeat Frequency:"
 msgstr ""
 
-#: page.queues.php:679
+#: page.queues.php:682
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
 
-#: page.queues.php:700
+#: page.queues.php:703
 msgid "Fail Over Destination"
 msgstr ""
 
-#: page.queues.php:706
+#: page.queues.php:709
 msgid "Submit Changes"
 msgstr ""
 
-#: page.queues.php:729
+#: page.queues.php:732
 msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
 msgstr ""
 
-#: page.queues.php:740
+#: page.queues.php:743
 msgid "Queue Number must not be blank"
 msgstr ""
 
-#: page.queues.php:746
+#: page.queues.php:749
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr ""
 
-#: module.xml
+#: modules.xml
 msgid "Queues"
 msgstr ""

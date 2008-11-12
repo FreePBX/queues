@@ -331,8 +331,11 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 				$default = (isset($music) ? $music : 'inherit');
 				if (isset($tresults)) {
 					foreach ($tresults as $tresult) {
-						$searchvalue="$tresult";	
-						echo '<option value="'.$tresult.'" '.($searchvalue == $default ? 'SELECTED' : '').'>'.$tresult;
+						$searchvalue="$tresult";
+						( $tresult == 'inherit' ? $ttext = _("inherit") : $ttext = $tresult );
+						( $tresult == 'none' ? $ttext = _("none") : $ttext = $tresult );
+						( $tresult == 'default' ? $ttext = _("default") : $ttext = $tresult );						
+						echo '<option value="'.$tresult.'" '.($searchvalue == $default ? 'SELECTED' : '').'>'.$ttext;
 					}
 				}
 			?>		
