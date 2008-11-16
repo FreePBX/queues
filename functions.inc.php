@@ -423,6 +423,7 @@ $fields = array(
 	//there can be multiple members
 	if (isset($members)) {
 		$count = 0;
+		$members = array_unique($members);
 		foreach ($members as $member) {
 			$fields[] = array($account,'member',$member,$count);
 			$count++;
