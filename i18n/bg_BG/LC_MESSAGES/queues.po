@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-27 14:52+0200\n"
-"PO-Revision-Date: 2008-11-09 13:23+0200\n"
+"PO-Revision-Date: 2009-01-16 14:21+0200\n"
 "Last-Translator: \n"
 "Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
 "MIME-Version: 1.0\n"
@@ -45,10 +45,10 @@ msgstr "Опашка: %s"
 
 #: functions.inc.php:359
 #: functions.inc.php:376
-#: page.queues.php:361
-#: page.queues.php:455
-#: page.queues.php:470
-#: page.queues.php:484
+#: page.queues.php:364
+#: page.queues.php:458
+#: page.queues.php:473
+#: page.queues.php:487
 msgid "seconds"
 msgstr "секунди"
 
@@ -344,25 +344,25 @@ msgid "If the call is subsequently transfered, the wait time will reflect the ti
 msgstr "Ако обаждането е прехвърлено впоследствие, изчаканото време ще се вземе от първоначалното влизане в опашката или ще се изчисти ако обаждането е прехвърлено към друга опашка с установена такава функция."
 
 #: page.queues.php:218
-#: page.queues.php:397
-#: page.queues.php:412
-#: page.queues.php:512
-#: page.queues.php:527
-#: page.queues.php:542
-#: page.queues.php:598
-#: page.queues.php:611
+#: page.queues.php:400
+#: page.queues.php:415
+#: page.queues.php:515
+#: page.queues.php:530
+#: page.queues.php:545
+#: page.queues.php:601
+#: page.queues.php:614
 msgid "Yes"
 msgstr "Да"
 
 #: page.queues.php:218
-#: page.queues.php:397
-#: page.queues.php:412
-#: page.queues.php:500
-#: page.queues.php:512
-#: page.queues.php:527
-#: page.queues.php:542
-#: page.queues.php:599
-#: page.queues.php:612
+#: page.queues.php:400
+#: page.queues.php:415
+#: page.queues.php:503
+#: page.queues.php:515
+#: page.queues.php:530
+#: page.queues.php:545
+#: page.queues.php:602
+#: page.queues.php:615
 msgid "No"
 msgstr "Не"
 
@@ -409,7 +409,7 @@ msgstr "Съобщение възпроизвеждано на Агента пр
 
 #: page.queues.php:270
 #: page.queues.php:300
-#: page.queues.php:630
+#: page.queues.php:633
 msgid "None"
 msgstr "Няма"
 
@@ -438,298 +438,310 @@ msgstr "Категория на Музика при Задържане:"
 msgid "Music (or Commercial) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" Menu to the left."
 msgstr "Музика (или Реклами) възпроизвеждани на обаждащия се докато чака на линия да се освободи агент. Изберете \"наследи\" ако искате категорията на Музиката при Задържане да бъде същата, каквато е избрана във входящия маршрути.<br><br>  Тази музика е определена в меню \"Музика при Задържане\" отляво."
 
-#: page.queues.php:345
+#: page.queues.php:335
+msgid "inherit"
+msgstr "наследи"
+
+#: page.queues.php:336
+msgid "none"
+msgstr "няма"
+
+#: page.queues.php:337
+msgid "default"
+msgstr "по-подразбиране"
+
+#: page.queues.php:348
 msgid "Ringing Instead of MoH:"
 msgstr "Звънене вместо MoH:"
 
-#: page.queues.php:345
+#: page.queues.php:348
 msgid "Enabling this option make callers hear a ringing tone instead of Music on Hold.<br/>If this option is enabled, settings of the previous drop down are ignored."
 msgstr "При маркиране на тази опция ще чуват звънене вместо Музика при Задържане.<br/>Ако е разрешена, настройките от предишната опция ще се игнорират."
 
-#: page.queues.php:352
+#: page.queues.php:355
 msgid "Max Wait Time:"
 msgstr "Максимално Време на Изчакване:"
 
-#: page.queues.php:352
+#: page.queues.php:355
 msgid "The maximum number of seconds a caller can wait in a queue before being pulled out.  (0 for unlimited)."
 msgstr "Максималното време в секунди за което обаждащия се може да изчаква в опашката преди да бъде изключен."
 
-#: page.queues.php:359
-#: page.queues.php:453
+#: page.queues.php:362
+#: page.queues.php:456
 msgid "Unlimited"
 msgstr "Неограничено"
 
-#: page.queues.php:378
+#: page.queues.php:381
 msgid "Max Callers:"
 msgstr "Максимално Обаждащи се:"
 
-#: page.queues.php:378
+#: page.queues.php:381
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "Максмималният брой от хора чакащи в опашката (0 за неограничен)."
 
-#: page.queues.php:392
+#: page.queues.php:395
 msgid "Join Empty:"
 msgstr "Влизане aко Няма Агенти:"
 
-#: page.queues.php:392
+#: page.queues.php:395
 msgid "If you wish to allow callers to join queues that currently have no agents, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members"
 msgstr "Установете на 'Да' ако желаете да позволите на обаждащите се да се включват в опашка, която в момента няма агенти. Установете на 'Без Изключения' ако искате обаждащите се да не могат да се включват в опашка без участници или има само недостъпни участници."
 
-#: page.queues.php:397
-#: page.queues.php:412
+#: page.queues.php:400
+#: page.queues.php:415
 msgid "Strict"
 msgstr "Без Изключения"
 
-#: page.queues.php:407
+#: page.queues.php:410
 msgid "Leave When Empty:"
 msgstr "Излизане aко Няма Агенти:"
 
-#: page.queues.php:407
+#: page.queues.php:410
 msgid "If you wish to remove callers from the queue if there are no agents present, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members"
 msgstr "Установете на 'Да' ако желаете да премахвате обаждащи се в опашката, която в момента няма агенти. Установете на 'Без Изключения' ако искате обаждащите се да не могат да се включват в опашка без участници или има само недостъпни участници."
 
-#: page.queues.php:423
+#: page.queues.php:426
 msgid "Ring Strategy:"
 msgstr "Стратегия на Звънене:"
 
-#: page.queues.php:425
+#: page.queues.php:428
 msgid "ringall"
 msgstr "звъни на всички"
 
-#: page.queues.php:425
+#: page.queues.php:428
 msgid "ring all available agents until one answers (default)"
 msgstr "Звъни на всички достъпни агенти докато отговорят (по-подразбиране)"
 
-#: page.queues.php:426
+#: page.queues.php:429
 msgid "roundrobin"
 msgstr "цикъл"
 
-#: page.queues.php:426
+#: page.queues.php:429
 msgid "take turns ringing each available agent"
 msgstr "Върти звъненето по всички достъпни агенти"
 
-#: page.queues.php:427
+#: page.queues.php:430
 msgid "leastrecent"
 msgstr "последно търсен"
 
-#: page.queues.php:427
+#: page.queues.php:430
 msgid "ring agent which was least recently called by this queue"
 msgstr "Звъни на агент последно търсен в опашката"
 
-#: page.queues.php:428
+#: page.queues.php:431
 msgid "fewestcalls"
 msgstr "малко разговори"
 
-#: page.queues.php:428
+#: page.queues.php:431
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr "Звъни на агент с най-малко приключени разговори в опашката"
 
-#: page.queues.php:429
+#: page.queues.php:432
 msgid "random"
 msgstr "случаен"
 
-#: page.queues.php:429
+#: page.queues.php:432
 msgid "ring random agent"
 msgstr "Звъни на случаен агент"
 
-#: page.queues.php:430
+#: page.queues.php:433
 msgid "rrmemory"
 msgstr "цикъл с памет"
 
-#: page.queues.php:430
+#: page.queues.php:433
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr "Запомня къде сме доставили последното звънене"
 
-#: page.queues.php:448
+#: page.queues.php:451
 msgid "Agent Timeout:"
 msgstr "Време на Изчакване за Агент:"
 
-#: page.queues.php:448
+#: page.queues.php:451
 msgid "The number of seconds an agent's phone can ring before we consider it a timeout. Unlimited or other timeout values may still be limited by system ringtime or individual extension defaults."
 msgstr "Колко време в секунди да звъни телефона на агента преди да се отбележи като недостъпен. Неограничено или други стойности все още могат да са ограничени от системното време на звънене или от индивидуална вътрешна линия въведени по-подразбиране."
 
-#: page.queues.php:463
+#: page.queues.php:466
 msgid "Retry:"
 msgstr "Опитай Отново:"
 
-#: page.queues.php:463
+#: page.queues.php:466
 msgid "The number of seconds we wait before trying all the phones again. Choosing \"No Retry\" will exit the Queue and go to the fail-over destination as soon as the first attempted agent times-out, additional agents will not be attempted."
 msgstr "Колко време в секунди да изчакаме преди да опитаме с телефоните отново. Избирането на \"Не опитвай отново\" ще излезе от опашката и ще се насочи към направлението при проваляне веднага след като изтече времето на изчакване на първия опитан агент, другите няма да се пробват."
 
-#: page.queues.php:468
+#: page.queues.php:471
 msgid "No Retry"
 msgstr "Не oпитвай oтново"
 
-#: page.queues.php:478
+#: page.queues.php:481
 msgid "Wrap-Up-Time:"
 msgstr "Скрий-Ме Време:"
 
-#: page.queues.php:478
+#: page.queues.php:481
 msgid "After a successful call, how many seconds to wait before sending a potentially free agent another call (default is 0, or no delay)"
 msgstr "След успешен разговор, колко секунди да изчака преди да изпрати на евентуално свободен агент друг разговор (по-подразбиране е 0 или без изчакване)."
 
-#: page.queues.php:492
+#: page.queues.php:495
 msgid "Call Recording:"
 msgstr "Запис на Разговор:"
 
-#: page.queues.php:492
+#: page.queues.php:495
 msgid "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)"
 msgstr "Да се записват ли входящите обаждания към агентите. (Записват се в /var/spool/asterisk/monitor)"
 
-#: page.queues.php:497
+#: page.queues.php:500
 msgid "wav49"
 msgstr "wav49"
 
-#: page.queues.php:498
+#: page.queues.php:501
 msgid "wav"
 msgstr "wav"
 
-#: page.queues.php:499
+#: page.queues.php:502
 msgid "gsm"
 msgstr "gsm"
 
-#: page.queues.php:507
+#: page.queues.php:510
 msgid "Event When Called:"
 msgstr "Резултат oт Обаждане:"
 
-#: page.queues.php:507
+#: page.queues.php:510
 msgid "When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr "Установете на 'Да' ако желаете да се генерират следните резултати: AgentCalled, AgentDump, AgentConnect и AgentComplete."
 
-#: page.queues.php:522
+#: page.queues.php:525
 msgid "Member Status:"
 msgstr "Статус на Участник:"
 
-#: page.queues.php:522
+#: page.queues.php:525
 msgid "When if this is option is set to YES, the following manager event will be generated: QueueMemberStatus"
 msgstr "Установете на 'Да' ако желаете да се генерират следните резултати: QueueMemberStatus"
 
-#: page.queues.php:537
+#: page.queues.php:540
 msgid "Skip Busy Agents:"
 msgstr "Пропусни Заети Агенти:"
 
-#: page.queues.php:537
+#: page.queues.php:540
 msgid "When set to Yes, agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted."
 msgstr "Установете на 'Да' ако желаете агентите които говорят да се пропускат като линия връщаща заето. Това означава че Чакащо Повикване или телефони с няколко линии няма да се включват към обаждането и различните търсещи стилове на стратегии за звънене, следващия агент ще бъде потърсен."
 
-#: page.queues.php:552
+#: page.queues.php:555
 msgid "Queue Weight"
 msgstr "Приоритет на Опашка"
 
-#: page.queues.php:552
+#: page.queues.php:555
 msgid "Gives queues a 'weight' option, to ensure calls waiting in a higher priority queue will deliver its calls first if there are agents common to both queues."
 msgstr "Дава на опашката опция 'натоварена', за да осигури на чакащи обаждания в опашка с най-висок приоритет, че ще достави първо нейните обаждания ако има общи агенти в опашките."
 
-#: page.queues.php:566
+#: page.queues.php:569
 msgid "Autofill:"
 msgstr "Автоматично Назначаване:"
 
-#: page.queues.php:566
+#: page.queues.php:569
 msgid "Starting with Asterisk 1.4, if this is checked, and multiple agents are available, Asterisk will send one call to each waiting agent (depending on the ring strategy). Otherwise, it will hold all calls while it tries to find an agent for the top call in the queue making other calls wait. This was the behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk documentation for more details of this feature."
 msgstr "Достъпно от Астериск 1.4, ако това е маркирано и наколко агенти са свободни, Астериск ще изпраща по едно обаждане на всеки чакащ агент (в зависимост от стратегията на звънене). В противен случай, ще задържи всички обаждания докато се опитва да намери агент за обаждането с най-висока позиция в опашката, карайки другите обаждания да чакат. Няма ефект при Астериск 1.2. Вижте Астериск документацията за повече подробности."
 
-#: page.queues.php:573
+#: page.queues.php:576
 msgid "Agent Regex Filter"
 msgstr "Филтриране на Агенти"
 
-#: page.queues.php:573
+#: page.queues.php:576
 msgid "Provides an optional regex expression that will be applied against the agent callback number. If the callback number does not pass the regex filter then it will be treated as invalid. This can be used to restrict agents to extensions within a range, not allow callbacks to include keys like *, or any other use that may be appropriate. An example input might be:<br />^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * key.<br />WARNING: make sure you undertand what you are doing or otherwise leave this blank!"
 msgstr "Предоставя допълнителен филтър, който ще бъде приложен срещу номера за обратно обаждане на агента. Ако номера за обратно обаждане не премине през филтъра, тогава ще се третира като неправилен. Може да се използва за ограничава агентите на вътрешни линии без отдел, не позволява обратните обаждания да включват * или всякаква друга възможност, която би била подходяща. Пример за въвеждане:<br />^([2-4][0-9]{3})$<br />Това ще ограничи агентите от вътрешни линии 2000-4999. Или <br />^([0-9]+)$ <br />ще позволи всеки номер с всякаква дължина, но ще забрани * бутона.<br />ВНИМАНИЕ: Убедете се че знаете какво правите или оставете празно!"
 
-#: page.queues.php:577
+#: page.queues.php:580
 msgid "Caller Position Announcements"
 msgstr "Известяване за Позицията на Обаждащият Се"
 
-#: page.queues.php:579
+#: page.queues.php:582
 msgid "Frequency:"
 msgstr "Цикъл:"
 
-#: page.queues.php:579
+#: page.queues.php:582
 msgid "How often to announce queue position and estimated holdtime (0 to Disable Announcements)."
 msgstr "Колко често да известява позицията в опашката и изминалото време на задържане (0 за Забрана на Известяване)."
 
-#: page.queues.php:593
+#: page.queues.php:596
 msgid "Announce Position:"
 msgstr "Известяване за Позиция:"
 
-#: page.queues.php:593
+#: page.queues.php:596
 msgid "Announce position of caller in the queue?"
 msgstr "Дали да извести позицията в опашката на обаждащия се."
 
-#: page.queues.php:606
+#: page.queues.php:609
 msgid "Announce Hold Time:"
 msgstr "Извастяване за Време на Задържане:"
 
-#: page.queues.php:606
+#: page.queues.php:609
 msgid "Should we include estimated hold time in position announcements?  Either yes, no, or only once; hold time will not be announced if <1 minute"
 msgstr "Да се включи ли изминалото време на задържане в известяването за позицията? Независимо от избора, времето на задържане няма да се извести ако е <1 минута"
 
-#: page.queues.php:613
+#: page.queues.php:616
 msgid "Once"
 msgstr "Еднократно"
 
-#: page.queues.php:619
+#: page.queues.php:622
 msgid "Periodic Announcements"
 msgstr "Периодични Съобщения"
 
-#: page.queues.php:624
+#: page.queues.php:627
 msgid "IVR Break Out Menu:"
 msgstr "IVR Меню Избягай:"
 
-#: page.queues.php:624
+#: page.queues.php:627
 msgid "You can optionally present an existing IVR as a 'break out' menu.<br><br>This IVR must only contain single-digit 'dialed options'. The Recording set for the IVR will be played at intervals specified in 'Repeat Frequency', below."
 msgstr "Допълнително можете да представите IVR меню 'избягай'.<br><br>Този IVR може да съдържа само едноцифрени 'опции за избиране'. Записът установен в IVR ще се възпроизвежда през определения интервал в 'Цикъл на Повтаряне' по-долу."
 
-#: page.queues.php:646
-#: page.queues.php:651
+#: page.queues.php:649
+#: page.queues.php:654
 msgid "Menu ID "
 msgstr "ID на Менюто"
 
-#: page.queues.php:662
+#: page.queues.php:665
 msgid "(**) ERRORS"
 msgstr "(**) ГРЕШКИ"
 
-#: page.queues.php:662
+#: page.queues.php:665
 msgid "(**) Warning Potential Errors"
 msgstr "(**) Внимание потенциални грешки"
 
-#: page.queues.php:666
+#: page.queues.php:669
 msgid "ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not"
 msgstr "ГРЕШКА: Избрали сте  IVR който използва Съобщения направени от съединени звукови файлове. Опашката не може да възпроизвежда такива файлове. Този IVR запис ще бъде съкратен да използва само първия звуков файл. Можете да оправите проблема като изберете друго съобщение за този IVR, което не е от съединени файлове. IVR може да възпроизвежда такива файлове, но не и опашките."
 
-#: page.queues.php:666
+#: page.queues.php:669
 msgid "Earlier versions of this module allowed such queues to be chosen, once changing this setting, it will no longer appear as an option"
 msgstr "Предишните версии на този модул позволяваха да се избере такава опашка, веднъж променени тези настройки повече няма да се предлагат като опция"
 
-#: page.queues.php:679
+#: page.queues.php:682
 msgid "Repeat Frequency:"
 msgstr "Цикъл на Повтаряне:"
 
-#: page.queues.php:679
+#: page.queues.php:682
 msgid "How often to announce a voice menu to the caller (0 to Disable Announcements)."
 msgstr "Колко често да възпроизвежда гласово меню на обаждащия се (0 за Забрана на Гласово Меню)."
 
-#: page.queues.php:700
+#: page.queues.php:703
 msgid "Fail Over Destination"
 msgstr "Направление При Проваляне"
 
-#: page.queues.php:706
+#: page.queues.php:709
 msgid "Submit Changes"
 msgstr "Приеми Промените"
 
-#: page.queues.php:729
+#: page.queues.php:732
 msgid "Using a Regex filter is fairly advanced, please confirm you know what you are doing or leave this blank"
 msgstr "Използването на Филтър по Израз е за напреднали, моля потвърдете че знаете какво правите или оставете празно "
 
-#: page.queues.php:740
+#: page.queues.php:743
 msgid "Queue Number must not be blank"
 msgstr "Неправилен Номер на Опашка, полето не може да е празно"
 
-#: page.queues.php:746
+#: page.queues.php:749
 msgid "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr "Името на Опашка не може да е празно и трябва да съдържа само буквено-цифрени символи"
 
-#: module.xml
+#: modules.xml
 msgid "Queues"
 msgstr "Опашки"
 
