@@ -8,6 +8,8 @@
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
 	</description>
 	<changelog>
+		*2.5.4.7* #3618
+		*2.5.4.6* localization updates
 		*2.5.4.5* #3400, #3380, various translations
 		*2.5.4.4* #3242, #3230, localization fixes
 		*2.5.4.3* #3222 sqlite3

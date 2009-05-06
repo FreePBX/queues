@@ -41,6 +41,7 @@ class queues_conf {
 		// Asterisk 1.4 does not like blank assignments so just don't put them there
 		//
 		$ver12 = version_compare($ast_version, '1.4', 'lt');
+		$ver16 = version_compare($ast_version, '1.6', 'ge');
 		
 		// legacy but in case someone was using this we will leave it
 		//
@@ -98,6 +99,11 @@ class queues_conf {
 							}
 							break;
 						case 'ringinuse': 
+							break;
+						case 'announce-position':
+							if ($ver16) {
+								$output .= $keyword."=".$data."\n";
+							}
 							break;
 						case 'retry': 
 							if ($data == 'none') {
@@ -403,6 +409,7 @@ $fields = array(
 	array($account,'wrapuptime',($_REQUEST['wrapuptime'])?$_REQUEST['wrapuptime']:'0',0),
 	array($account,'announce-frequency',($_REQUEST['announcefreq'])?$_REQUEST['announcefreq']:'0',0),
 	array($account,'announce-holdtime',($_REQUEST['announceholdtime'])?$_REQUEST['announceholdtime']:'no',0),
+	array($account,'announce-position',($_REQUEST['announceposition'])?$_REQUEST['announceposition']:'no',0),
 	array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'silence/1':'queue-youarenext',0),  //if no, play no sound
 	array($account,'queue-thereare',($_REQUEST['announceposition']=='no')?'silence/1':'queue-thereare',0),  //if no, play no sound
 	array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'silence/1':'queue-callswaiting',0),  //if no, play no sound
