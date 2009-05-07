@@ -340,6 +340,9 @@ function queues_get_config($engine) {
  					// If we are here, disable the NODEST as we want things to resume as normal
  					//
  					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', ''));
+					if ($q['cwignore']) {
+						$ext->add('ext-queues', $exten, '', new ext_setvar('__CWIGNORE', '')); 
+					}
 	
 					// destination field in 'incoming' database is backwards from what ext_goto expects
 					$goto_context = strtok($q['goto'],',');
