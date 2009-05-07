@@ -1,7 +1,7 @@
 <module>
 	<rawname>queues</rawname>
 	<name>Queues</name>
-	<version>2.5.4.5</version>
+	<version>2.5.4.7</version>
 	<type>setup</type>
 	<category>Inbound Call Control</category>
 	<description>
@@ -43,6 +43,6 @@
 	<menuitems>
 		<queues>Queues</queues>
 	</menuitems>
-	<location>release/2.6/queues-2.5.4.5.tgz</location>
-	<md5sum>40ed9a84ad0f117e0bcfb05ac5a306b9</md5sum>
+	<location>release/2.6/queues-2.5.4.7.tgz</location>
+	<md5sum>cb84a71340dad0fabfc78632fe9c29db</md5sum>
 </module>
