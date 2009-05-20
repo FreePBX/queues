@@ -98,8 +98,6 @@ class queues_conf {
 								$output .= $keyword."=".$data."\n";
 							}
 							break;
-						case 'ringinuse': 
-							break;
 						case 'announce-position':
 							if ($ver16) {
 								$output .= $keyword."=".$data."\n";
@@ -254,6 +252,10 @@ function queues_get_config($engine) {
 			/* queue extensions */
 			$ext->addInclude('from-internal-additional','ext-queues');
 			$qlist = queues_list(true);
+
+			$from_queue_exten_only = 'from-queue-exten-only';
+			$from_queue_exten_internal = 'from-queue-exten-internal';
+
 			if (is_array($qlist)) {
 				foreach($qlist as $item) {
 					
@@ -325,8 +327,12 @@ function queues_get_config($engine) {
 					}
 					// Set CWIGNORE  if enabled so that busy agents don't have another line key ringing and
 					// stalling the ACD.
-					if ($q['cwignore']) {
+					if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
  						$ext->add('ext-queues', $exten, '', new ext_setvar('__CWIGNORE', 'TRUE'));
+					}
+					if ($q['use_queue_context']) {
+ 						$ext->add('ext-queues', $exten, '', new ext_setvar('__CFIGNORE', 'TRUE'));
+ 						$ext->add('ext-queues', $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'block-cf'));
 					}
 					$agentannounce_id = (isset($q['agentannounce_id'])?$q['agentannounce_id']:'');
 					if ($agentannounce_id) {
@@ -340,8 +346,12 @@ function queues_get_config($engine) {
  					// If we are here, disable the NODEST as we want things to resume as normal
  					//
  					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', ''));
-					if ($q['cwignore']) {
+					if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
 						$ext->add('ext-queues', $exten, '', new ext_setvar('__CWIGNORE', '')); 
+					}
+					if ($q['use_queue_context']) {
+ 						$ext->add('ext-queues', $exten, '', new ext_setvar('__CFIGNORE', ''));
+ 						$ext->add('ext-queues', $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'from-internal'));
 					}
 	
 					// destination field in 'incoming' database is backwards from what ext_goto expects
@@ -356,9 +366,101 @@ function queues_get_config($engine) {
  						$ext->add('ext-queues', $exten."*", '', new ext_setvar('QREGEX', $qregex));
 					}
 					$ext->add('ext-queues', $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
-					$ext->add('ext-queues', $exten."**", '', new ext_macro('agent-del',$exten.",".$exten));
+					$ext->add('ext-queues', $exten."**", '', new ext_macro('agent-del',"$exten"));
+
+					// Add routing vector to direct which context call should go
+					//
+					$agent_context = $q['use_queue_context'] ? $queue_context : 'from-internal';
+					switch ($q['use_queue_context']) {
+						case 1:
+							$agent_context = $from_queue_exten_internal;
+							break;
+						case 2:
+							$agent_context = $from_queue_exten_only;
+							break;
+						case 0:
+						default:
+							$agent_context = 'from-internal';
+							break;
+					}
+					$ext->add('from-queue', $exten, '', new ext_goto('1','${QAGENT}',$agent_context));
 				}
 			}
+			// NODEST will be the queue that this came from, so we will vector though an entry to determine the context the
+			// agent should be delivered to. All queue calls come here, this decides if the should go direct to from-internal
+			// or indirectly through from-queue-exten-only to trap extension calls and avoid their follow-me, etc.
+			//
+			$ext->add('from-queue', '_.', '', new ext_setvar('QAGENT','${EXTEN}'));
+			$ext->add('from-queue', '_.', '', new ext_goto('1','${NODEST}'));
+
+			$ext->addInclude($from_queue_exten_internal,$from_queue_exten_only);
+			$ext->addInclude($from_queue_exten_internal,'from-internal');
+			$ext->add($from_queue_exten_internal, 'foo', '', new ext_noop('bar'));
+
+			/* create a context, from-queue-exten-only, that can be used for queues that want behavir similar to
+			 * ringgroup where only the agent's phone will be rung, no follow-me will be pursued.
+			 */
+			$userlist = core_users_list();
+			freepbx_debug($userlist);
+			if (is_array($userlist)) {
+				foreach($userlist as $item) {
+ 					$ext->add($from_queue_exten_only, $item[0], '', new ext_setvar('RingGroupMethod', 'none'));
+					$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('record-enable',$item[0].",IN"));
+					$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial',',${DIAL_OPTIONS},'.$item[0]));
+ 					$ext->add($from_queue_exten_only, $item[0], '', new ext_hangup());
+				}
+			}
+
+			/*
+			 * Adds a dynamic agent/member to a Queue
+			 * Prompts for call-back number - in not entered, uses CIDNum
+			 */
+
+			$context = 'macro-agent-add';
+			$exten = 's';
+			
+			$ext->add($context, $exten, '', new ext_wait(1));
+			$ext->add($context, $exten, '', new ext_macro('user-callerid', 'SKIPTTL'));
+			$ext->add($context, $exten, 'a3', new ext_read('CALLBACKNUM', 'agent-login'));  // get callback number from user
+			$ext->add($context, $exten, '', new ext_gotoif('$["${CALLBACKNUM}" != ""]', 'a7'));  // if user just pressed # or timed out, use cidnum
+			$ext->add($context, $exten, 'a5', new ext_set('CALLBACKNUM', '${AMPUSER}'));
+			$ext->add($context, $exten, '', new ext_execif('$["${CALLBACKNUM}" = ""]', 'Set', 'CALLBACKNUM=${CALLERID(number)}'));
+			$ext->add($context, $exten, '', new ext_gotoif('$["${CALLBACKNUM}" = ""]', 'a3'));  // if still no number, start over
+			$ext->add($context, $exten, 'a7', new ext_gotoif('$["${CALLBACKNUM}" = "${ARG1}"]', 'invalid'));  // Error, they put in the queue number
+			$ext->add($context, $exten, '', new ext_execif('$["${QREGEX}" != ""]', 'GotoIf', '$["${REGEX("${QREGEX}" ${CALLBACKNUM})}" = "0"]?invalid'));
+			$ext->add($context, $exten, '', new ext_execif('$["${ARG2}" != ""]', 'Authenticate', '${ARG2}'));
+			$ext->add($context, $exten, 'a9', new ext_addqueuemember('${ARG1}', 'Local/${CALLBACKNUM}@from-queue/n'));
+			$ext->add($context, $exten, '', new ext_userevent('Agentlogin', 'Agent: ${CALLBACKNUM}'));
+			$ext->add($context, $exten, '', new ext_wait(1));
+			$ext->add($context, $exten, '', new ext_playback('agent-loginok&with&extension'));
+			$ext->add($context, $exten, '', new ext_saydigits('${CALLBACKNUM}'));
+			$ext->add($context, $exten, '', new ext_hangup());
+			$ext->add($context, $exten, '', new ext_macroexit());
+			$ext->add($context, $exten, 'invalid', new ext_playback('pbx-invalid'));
+			$ext->add($context, $exten, '', new ext_goto('a3'));
+
+			/*
+			 * Removes a dynamic agent/member from a Queue
+			 * Prompts for call-back number - in not entered, uses CIDNum 
+			 */
+
+			$context = 'macro-agent-del';
+			
+			$ext->add($context, $exten, '', new ext_wait(1));
+			$ext->add($context, $exten, '', new ext_macro('user-callerid', 'SKIPTTL'));
+			$ext->add($context, $exten, 'a3', new ext_read('CALLBACKNUM', 'agent-logoff'));  // get callback number from user
+			$ext->add($context, $exten, '', new ext_gotoif('$["${CALLBACKNUM}" = ""]', 'a5', 'a7'));  // if user just pressed # or timed out, use cidnum
+			$ext->add($context, $exten, 'a5', new ext_set('CALLBACKNUM', '${AMPUSER}'));
+			$ext->add($context, $exten, '', new ext_execif('$["${CALLBACKNUM}" = ""]', 'Set', 'CALLBACKNUM=${CALLERID(number)}'));
+			$ext->add($context, $exten, '', new ext_gotoif('$["${CALLBACKNUM}" = ""]', 'a3'));  // if still no number, start over
+
+			// remove from both contexts in case left over dynamic agents after an upgrade
+			$ext->add($context, $exten, 'a7', new ext_removequeuemember('${ARG1}', 'Local/${CALLBACKNUM}@from-queue/n'));
+			$ext->add($context, $exten, '', new ext_removequeuemember('${ARG1}', 'Local/${CALLBACKNUM}@from-internal/n'));
+			$ext->add($context, $exten, '', new ext_userevent('RefreshQueue'));
+			$ext->add($context, $exten, '', new ext_wait(1));
+			$ext->add($context, $exten, '', new ext_playback('agent-loggedoff'));
+			$ext->add($context, $exten, '', new ext_hangup());
 		break;
 	}
 }
@@ -389,7 +491,7 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='no',$qregex='',$queuewait='no') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0') {
 	global $db;
 
 	if (trim($account) == '') {
@@ -424,6 +526,7 @@ $fields = array(
 	array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0),
 	array($account,'weight',(isset($_REQUEST['weight']))?$_REQUEST['weight']:'0',0),
 	array($account,'autofill',(isset($_REQUEST['autofill']))?'yes':'no',0),
+	array($account,'ringinuse',($cwignore == 2 || $cwignore == 3)?'no':'yes',0),
 );
 
 	if ($_REQUEST['music'] != 'inherit') {
@@ -459,10 +562,11 @@ $fields = array(
 	$cwignore      = isset($cwignore) ? $cwignore:'0';
 	$queuewait     = isset($queuewait) ? $queuewait:'0';
 	$qregex        = isset($qregex) ? $db->escapeSimple($qregex):'';
+	$use_queue_context = isset($use_queue_context) ? $use_queue_context:'0';
 
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context')	";
 	$results = sql($sql);
 	return true;
 }
@@ -664,6 +768,7 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['cwignore']      = $config['cwignore'];
 		$results['qregex']        = $config['qregex'];
 		$results['queuewait']     = $config['queuewait'];
+		$results['use_queue_context'] = $config['use_queue_context'];
 	}
 
 	$results['context'] = '';

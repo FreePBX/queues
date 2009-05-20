@@ -32,6 +32,8 @@ $qregex = isset($_REQUEST['qregex'])?$_REQUEST['qregex']:'';
 $weight = isset($_REQUEST['weight'])?$_REQUEST['weight']:'0';
 $autofill = isset($_REQUEST['autofill'])?$_REQUEST['autofill']:'no';
 
+$use_queue_context = isset($_REQUEST['use_queue_context'])?$_REQUEST['use_queue_context']:'0';
+$exten_context = "from-queue";
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
@@ -78,7 +80,7 @@ if (isset($_REQUEST["members"])) {
 		elseif ($agent) {
 			$members[$key] = "Agent/".ltrim($members[$key],"aA").",".$penalty_val;
 		} else {
-			$members[$key] = "Local/".$members[$key]."@from-internal/n,".$penalty_val;
+			$members[$key] = "Local/".$members[$key]."@$exten_context/n,".$penalty_val;
 		}
 	}
 	
@@ -101,7 +103,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context);
 					needreload();
 					redirect_standard();
 				}
@@ -113,7 +115,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -214,7 +216,7 @@ if ($action == 'delete') {
 		<td>
 			<select name="queuewait" tabindex="<?php echo ++$tabindex;?>">
 			<?php
-				$default = (isset($queuewait) ? $queuewait : 'no');
+				$default = (isset($queuewait) ? $queuewait : '0');
 				$items = array('1'=>_("Yes"),'0'=>_("No"));
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
@@ -232,7 +234,7 @@ if ($action == 'delete') {
 	<tr>
 		<td valign="top"><a href="#" class="info"><?php echo _("Static Agents") ?>:<span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers).<br><br>You can list agents defined in agents.conf by preceding the agent number with A, so agent 4002 would be listed as A4002. This is experimental and not supported. There are known issues, such as the inability for an agents.conf agent to do subsequent transfers to voicemail<br><br>In all cases, you can put a \",\" after the agent followed by a penalty value. Use penalties at your own risk, they are very broken in asterisk.") ?><br><br></span></a></td>
 		<td valign="top">
-			<textarea id="members" cols="15" rows="<?php  $rows = count($member)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" tabindex="<?php echo ++$tabindex;?>"><?php foreach ($member as $mem) { $premem = ""; if (substr($mem,0,5) == "Agent") {$premem = "A";}; $mem = $premem.rtrim(ltrim(strstr($mem,"/"),"/"),"@from-internal");echo substr($mem,0,(strpos($mem,"@")!==false?strpos($mem,"@"):strpos($mem,","))).substr($mem,strrpos($mem, ","))."\n"; }?></textarea>
+			<textarea id="members" cols="15" rows="<?php  $rows = count($member)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" tabindex="<?php echo ++$tabindex;?>"><?php foreach ($member as $mem) { $premem = ""; if (substr($mem,0,5) == "Agent") {$premem = "A";}; $mem = $premem.rtrim(ltrim(strstr($mem,"/"),"/"),"@$exten_context");echo substr($mem,0,(strpos($mem,"@")!==false?strpos($mem,"@"):strpos($mem,","))).substr($mem,strrpos($mem, ","))."\n"; }?></textarea>
 		</td>
 	</tr>
 
@@ -253,6 +255,20 @@ if ($action == 'delete') {
 					echo "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
 				}
 	?>
+			</select>
+		</td>
+	</tr>
+
+	<tr>
+	<td><a href="#" class="info"><?php echo _("Agent Restrictions")?><span><?php echo _("When set to 'Call as Dialed' the queue will call an extension just as if the queue were another user. Any Follow-Me or Call Forward states active on the extension will result in the queue call following these call paths. This behavior has been the standard queue behavior on past FreePBX versions. <br />When set to 'No Follow-Me or Call Forward', all agents that are extensions on the system will be limitted to ringing their extensions only. Follow-Me and Call Forward settings will be ignored. Any other agent will be called as dialed. This behavior is similar to how extensions are dialed in ringgroups. <br />When set to 'Extensions Only' the queue will dial Extensions as described for 'No Follow-Me or Call Forward'. Any other number entered for an agent that is NOT a valid extension will be ignored. No error checking is provided when entering a static agent or when logging on as a dynamic agent, the call will simply be blocked when the queue tries to call it. For dynamic agents, see the 'Agent Regex Filter' to provide some validation.")?></span></a></td>
+		<td>
+			<select name="use_queue_context" tabindex="<?php echo ++$tabindex;?>">
+			<?php
+				$default = (isset($use_queue_context) ? $use_queue_context : '0');
+				echo '<option value="0"'. ($default == '0' ? ' SELECTED' : '').'>'._("Call as Dialed")."\n";
+				echo '<option value="1"'. ($default == '1' ? ' SELECTED' : '').'>'._("No Follow-Me or Call Forward")."\n";
+				echo '<option value="2"'. ($default == '2' ? ' SELECTED' : '').'>'._("Extensions Only")."\n";
+			?>
 			</select>
 		</td>
 	</tr>
@@ -537,12 +553,16 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Skip Busy Agents:")?><span><?php echo _("When set to Yes, agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted.")?></span></a></td>
+	<td><a href="#" class="info"><?php echo _("Skip Busy Agents:")?><span><?php echo _("When set to 'Yes' agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted. <br />When set to 'Yes + (ringinuse=no)' the queue configuration flag 'ringinuse=no' is set for this queue in addition to the phone's device status being monitored. This results in the queue tracking remote agents (agents who are a remote PSTN phone, called through Follow-Me, and other means) as well as PBX connected agents, so the queue will not attempt to send another call if they are already on a call from any queue. <br />When set to 'Queue calls only (ringinuse=no)' the queue configuration flag 'ringinuse=no' is set for this queue also but the device status of locally connected agents is not monitored. The behavior is to limit an agent belonging to one ore more queues to a single queue call. If they are occupied from other calls, such as outbound calls they initiated, the queue will consider them available and ring them since the device state is not monitored with this option. <br /><br />WARNING: When using the settings that set the 'ringinuse=no' flag, there is a NEGATIVE side effect. An agent who transfers a queue call will remain unavailable by any queue until that call is terminated as the call still appears as 'inuse' to the queue.")?></span></a></td>
 		<td>
 			<select name="cwignore" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 				$default = (isset($cwignore) ? $cwignore : 'no');
-				$items = array('1'=>_("Yes"),'0'=>_("No"));
+				$items = array('0' => _("No"), 
+				               '1'=>_("Yes"),
+											 '2'=>_("Yes + (ringinuse=no)"),
+											 '3'=>_("Queue calls only (ringinuse=no)"),
+										 );
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
