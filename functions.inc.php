@@ -401,7 +401,6 @@ function queues_get_config($engine) {
 			 * ringgroup where only the agent's phone will be rung, no follow-me will be pursued.
 			 */
 			$userlist = core_users_list();
-			freepbx_debug($userlist);
 			if (is_array($userlist)) {
 				foreach($userlist as $item) {
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_setvar('RingGroupMethod', 'none'));
