@@ -1,6 +1,14 @@
 <?php
 global $db;
 global $amp_conf;
+
+// Add Feature Codes for Toggle Queues - Using *45
+$fcc = new featurecode('queues', 'que_toggle');
+$fcc->setDescription('Queue Toggle');
+$fcc->setDefault('*45');
+$fcc->update();
+unset($fcc);
+
 if (! function_exists("out")) {
 	function out($text) {
 		echo $text."<br />";
