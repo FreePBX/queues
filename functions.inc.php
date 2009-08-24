@@ -35,6 +35,7 @@ class queues_conf {
 	function generate_queues_additional($ast_version) {
 
 		global $db;
+		global $amp_conf;
 
 		$additional = "";
 		$output = "";
@@ -57,6 +58,16 @@ class queues_conf {
 			$additional .= $result['keyword']."=".$result['data']."\n";
 		}
 
+    if ($amp_conf['USEQUEUESTATE']) {
+		  $users = array();
+		  $user_results = core_users_list();
+		  if (is_array($user_results)) {
+			  foreach ($user_results as $user) {
+				  $users[$user[0]] = $user[1];
+			  }
+			  unset($user_results);
+		  }
+    }
 		$results = queues_list(true);
 		foreach ($results as $result) {
 			$output .= "[".$result[0]."]\n";
@@ -117,9 +128,22 @@ class queues_conf {
 
 			// Now pull out all the memebers, one line for each
 			//
-			foreach ($members as $member) {
-				$output .= "member=".$member."\n";
-			}
+      if ($amp_conf['USEQUEUESTATE']) {
+			  foreach ($members as $member) {
+				  preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
+				  if (isset($matches[1]) && isset($users[$matches[1]])) {
+					  $name = $users[$matches[1]];
+					  str_replace(',','\,',$name);
+					  $output .= "member=$member,$name,HINT:".$matches[1]."@ext-local\n";
+				  } else {
+					  $output .= "member=".$member."\n";
+				  }
+			  }
+      } else {
+        foreach ($members as $member) {
+          $output .= "member=".$member."\n";
+        }
+      }
 			$output .= $additional."\n";
 		}
 
@@ -454,15 +478,22 @@ function queues_get_config($engine) {
 			$ext->add($context, $exten, 'a7', new ext_gotoif('$["${CALLBACKNUM}" = "${ARG1}"]', 'invalid'));  // Error, they put in the queue number
 			$ext->add($context, $exten, '', new ext_execif('$["${QREGEX}" != ""]', 'GotoIf', '$["${REGEX("${QREGEX}" ${CALLBACKNUM})}" = "0"]?invalid'));
 			$ext->add($context, $exten, '', new ext_execif('$["${ARG2}" != ""]', 'Authenticate', '${ARG2}'));
-			$ext->add($context, $exten, 'a9', new ext_addqueuemember('${ARG1}', 'Local/${CALLBACKNUM}@from-queue/n'));
-			$ext->add($context, $exten, '', new ext_userevent('Agentlogin', 'Agent: ${CALLBACKNUM}'));
-			$ext->add($context, $exten, '', new ext_wait(1));
-			$ext->add($context, $exten, '', new ext_playback('agent-loginok&with&extension'));
-			$ext->add($context, $exten, '', new ext_saydigits('${CALLBACKNUM}'));
-			$ext->add($context, $exten, '', new ext_hangup());
-			$ext->add($context, $exten, '', new ext_macroexit());
-			$ext->add($context, $exten, 'invalid', new ext_playback('pbx-invalid'));
-			$ext->add($context, $exten, '', new ext_goto('a3'));
+
+
+      if ($amp_conf['USEQUEUESTATE']) {
+			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,0,,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
+			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n'));
+      } else {
+        $ext->add($context, $exten, 'a9', new ext_addqueuemember('${ARG1}', 'Local/${CALLBACKNUM}@from-queue/n'));
+      }
+		  $ext->add($context, $exten, '', new ext_userevent('Agentlogin', 'Agent: ${CALLBACKNUM}'));
+		  $ext->add($context, $exten, '', new ext_wait(1));
+		  $ext->add($context, $exten, '', new ext_playback('agent-loginok&with&extension'));
+		  $ext->add($context, $exten, '', new ext_saydigits('${CALLBACKNUM}'));
+		  $ext->add($context, $exten, '', new ext_hangup());
+		  $ext->add($context, $exten, '', new ext_macroexit());
+		  $ext->add($context, $exten, 'invalid', new ext_playback('pbx-invalid'));
+		  $ext->add($context, $exten, '', new ext_goto('a3'));
 
 			/*
 			 * Removes a dynamic agent/member from a Queue
@@ -885,7 +916,16 @@ function queue_agent_add_toggle() {
 	$ext->add($id, $c, '', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSUER}'));
-	$ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n'));
+
+  // I think that when using this it will always be a user, but just in case...
+  //
+  if ($amp_conf['USEQUEUESTATE']) {
+    $ext->add($id, $c, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,0,,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
+    $ext->add($id, $c, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n'));
+  } else {
+	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n'));
+  }
+
 	$ext->add($id, $c, '', new ext_userevent('AgentLogin','Agent: ${CALLBACKNUM}'));
 	$ext->add($id, $c, '', new ext_macroexit());
 }
