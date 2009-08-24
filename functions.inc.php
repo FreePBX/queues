@@ -404,7 +404,11 @@ function queues_get_config($engine) {
 					if (trim($qregex) != '') {
  						$ext->add('ext-queues', $exten."*", '', new ext_setvar('QREGEX', $qregex));
 					}
-					$ext->add('ext-queues', $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
+          if($q['use_queue_context'] == '2') {
+					  $ext->add('ext-queues', $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password'].",EXTEN"));
+          } else {
+					  $ext->add('ext-queues', $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
+          }
 					$ext->add('ext-queues', $exten."**", '', new ext_macro('agent-del',"$exten"));
 					/* Trial Devstate */
 					// Create Hints for Devices and Add Astentries for Users
@@ -476,6 +480,11 @@ function queues_get_config($engine) {
 			$ext->add($context, $exten, '', new ext_execif('$["${CALLBACKNUM}" = ""]', 'Set', 'CALLBACKNUM=${CALLERID(number)}'));
 			$ext->add($context, $exten, '', new ext_gotoif('$["${CALLBACKNUM}" = ""]', 'a3'));  // if still no number, start over
 			$ext->add($context, $exten, 'a7', new ext_gotoif('$["${CALLBACKNUM}" = "${ARG1}"]', 'invalid'));  // Error, they put in the queue number
+
+      // If this is an extension only queue then EXTEN is passed as ARG3 and we make sure this is a valid extension being entered
+      //
+			$ext->add($context, $exten, '', new ext_gotoif('$["${ARG3}" = "EXTEN" & ${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'invalid'));
+
 			$ext->add($context, $exten, '', new ext_execif('$["${QREGEX}" != ""]', 'GotoIf', '$["${REGEX("${QREGEX}" ${CALLBACKNUM})}" = "0"]?invalid'));
 			$ext->add($context, $exten, '', new ext_execif('$["${ARG2}" != ""]', 'Authenticate', '${ARG2}'));
 

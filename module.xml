@@ -10,7 +10,7 @@
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
 	</description>
 	<changelog>
-		*2.6.0.2* #3496, #3562 (with use of USEQUEUESTATE=yes and Asterisk patch: 15168
+		*2.6.0.2* #3794,#3496, #3562 (with use of USEQUEUESTATE=yes and Asterisk patch: 15168
 		*2.6.0.1* #3044 (add per device queue login/blf enabled toggle feature code)
 		*2.6.0.0* #3546, #2768, #3685, #3686
 		*2.5.4.8* #3664
