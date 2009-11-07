@@ -924,7 +924,7 @@ function queue_agent_add_toggle() {
 
 	$ext->add($id, $c, '', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
-	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSUER}'));
+	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSER}'));
 
   // I think that when using this it will always be a user, but just in case...
   //
