@@ -949,7 +949,7 @@ function queue_agent_del_toggle() {
 
 	$ext->add($id, $c, '', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
-	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSUER}'));
+	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-internal/n'));
 	$ext->add($id, $c, '', new ext_userevent('RefreshQueue'));
