@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-20 23:54+0200\n"
+"POT-Creation-Date: 2010-01-02 22:11+0100\n"
 "PO-Revision-Date: 2009-01-16 14:21+0200\n"
 "Last-Translator: \n"
 "Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: functions.inc.php:136
+#: functions.inc.php:160
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -29,222 +29,223 @@ msgstr ""
 "първия звуков файл. Трябва да оправите този проблем.<br />Детайли:<br /><br /"
 ">"
 
-#: functions.inc.php:138
+#: functions.inc.php:162
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Опашка - %s (%s): %s<br />"
 
-#: functions.inc.php:140
+#: functions.inc.php:164
 msgid "Compound Recordings in Queues Detected"
 msgstr "Намерени са Съединени Записи в Опашките"
 
-#: functions.inc.php:194
+#: functions.inc.php:218
 #, php-format
 msgid "Queue %s : %s"
 msgstr "Опашка %s : %s"
 
-#: functions.inc.php:214 functions.inc.php:231 functions.inc.php:629
+#: functions.inc.php:238 functions.inc.php:255 functions.inc.php:696
 #, php-format
 msgid "Queue: %s"
 msgstr "Опашка: %s"
 
-#: functions.inc.php:470 functions.inc.php:487 page.queues.php:380
+#: functions.inc.php:535 functions.inc.php:552 page.queues.php:380
 #: page.queues.php:474 page.queues.php:489 page.queues.php:503
+#: page.queues.php:622
 msgid "seconds"
 msgstr "секунди"
 
-#: functions.inc.php:484
+#: functions.inc.php:549
 msgid "day"
 msgstr "ден"
 
-#: functions.inc.php:485
+#: functions.inc.php:550
 msgid "hour"
 msgstr "час"
 
-#: functions.inc.php:485
+#: functions.inc.php:550
 msgid "hours"
 msgstr "часа"
 
-#: functions.inc.php:486
+#: functions.inc.php:551
 msgid "minute"
 msgstr "минута"
 
-#: functions.inc.php:486
+#: functions.inc.php:551
 msgid "minutes"
 msgstr "минути"
 
-#: functions.inc.php:487
+#: functions.inc.php:552
 msgid "second"
 msgstr "секунда"
 
-#: functions.inc.php:498
+#: functions.inc.php:563
 msgid "Bad Queue Number, can not be blank"
 msgstr "Неправилен Номер на Опашка, не може да е празен"
 
-#: functions.inc.php:630
+#: functions.inc.php:697
 msgid "INUSE"
 msgstr "ИЗПОЛЗВА СЕ"
 
-#: functions.inc.php:658
+#: functions.inc.php:725
 #, php-format
 msgid "Queue: %s (%s)"
 msgstr "Опашка: %s (%s)"
 
-#: functions.inc.php:688
+#: functions.inc.php:755
 msgid "Agent Announce Msg"
 msgstr "Съобщение на Агент"
 
-#: functions.inc.php:698
+#: functions.inc.php:765
 #, php-format
 msgid "IVR Announce: %s"
 msgstr "IVR Съобщение: %s"
 
-#: install.php:50
+#: install.php:58
 msgid "Checking for legacy queues table.."
 msgstr "Проверка за останали таблици на опашки .."
 
-#: install.php:54
+#: install.php:62
 msgid "NO table found, no migration to do just create tables"
 msgstr "Не са намерени таблици, създаване на таблиците"
 
-#: install.php:59 install.php:87 install.php:104 install.php:107
-#: install.php:169 install.php:296 install.php:302 install.php:315
-#: install.php:324 install.php:341 install.php:467 install.php:482
+#: install.php:67 install.php:95 install.php:112 install.php:115
+#: install.php:177 install.php:304 install.php:310 install.php:323
+#: install.php:332 install.php:349 install.php:475 install.php:490
 msgid "OK"
 msgstr "OK"
 
-#: install.php:76
+#: install.php:84
 msgid "Creating queues_details.."
 msgstr "Създаване на queues_details.."
 
-#: install.php:81 install.php:163 install.php:343 install.php:469
-#: install.php:484
+#: install.php:89 install.php:171 install.php:351 install.php:477
+#: install.php:492
 msgid "already exists"
 msgstr "вече съществуват"
 
-#: install.php:83 install.php:165
+#: install.php:91 install.php:173
 msgid "ERROR: could not create table"
 msgstr "ГРЕШКА: не мога да създам таблица"
 
-#: install.php:98
+#: install.php:106
 msgid "Migrating to queues_details.."
 msgstr "Преместване към queues_details.."
 
-#: install.php:101
+#: install.php:109
 msgid "ERROR: could not migrate to queues_details"
 msgstr "ГРЕШКА: не мога да преместя към queues_details"
 
-#: install.php:158
+#: install.php:166
 msgid "Creating queues_config.."
 msgstr "Създаване на ueues_config.."
 
-#: install.php:173
+#: install.php:181
 msgid "Migrating data to queues_config.."
 msgstr "Преместване на данните към queues_config.."
 
-#: install.php:177
+#: install.php:185
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
 "ГРЕШКА: при достъп до таблицата с опашки получих context info, прекратявам"
 
-#: install.php:184
+#: install.php:192
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr ""
 "ГРЕШКА: при достъп до таблицата с опашки получих rtone info, прекратявам"
 
-#: install.php:202
+#: install.php:210
 msgid "ERROR: accessing queues table obtaining id list, aborting"
 msgstr "ГРЕШКА: при достъп до таблицата с опашки получих id list, прекратявам"
 
-#: install.php:290
+#: install.php:298
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
 msgstr "ГРЕШКА: въвеждане на данни за ред %s: %s.."
 
-#: install.php:298
+#: install.php:306
 msgid "ERROR were encountered"
 msgstr "Натъкнах се на грешки"
 
-#: install.php:309
+#: install.php:317
 msgid "Dropping old queues table.."
 msgstr "Премахване на стари таблица с опашки.."
 
-#: install.php:313 install.php:322
+#: install.php:321 install.php:330
 #, php-format
 msgid "WARNING FAILED %s"
 msgstr "ГРЕШКА НЕУСПЕХ %s"
 
-#: install.php:318
+#: install.php:326
 msgid "removing queues data extensions table.."
 msgstr "премахване на таблица на опашки с данни за вътрешни линии.."
 
-#: install.php:331
+#: install.php:339
 msgid "checking for qregex field.."
 msgstr "проверка за qregex поле .."
 
-#: install.php:352
+#: install.php:360
 msgid "Checking if recordings need migration.."
 msgstr "Проверка дали записите имат нужда от преместване.."
 
-#: install.php:358
+#: install.php:366
 msgid "migrating"
 msgstr "преместване"
 
-#: install.php:359
+#: install.php:367
 msgid "adding agentannounce_id field.."
 msgstr "добаване на agentannounce_id поле.."
 
-#: install.php:363 install.php:372 install.php:384 install.php:400
-#: install.php:410 install.php:426
+#: install.php:371 install.php:380 install.php:392 install.php:408
+#: install.php:418 install.php:434
 msgid "fatal error"
 msgstr "фатална грешка"
 
-#: install.php:366 install.php:375 install.php:442 install.php:450
+#: install.php:374 install.php:383 install.php:450 install.php:458
 msgid "ok"
 msgstr "ok"
 
-#: install.php:368
+#: install.php:376
 msgid "adding joinannounce_id field.."
 msgstr "добаване на joinannounce_id поле.."
 
-#: install.php:380
+#: install.php:388
 msgid "migrate agentannounce to ids.."
 msgstr "преместване към id на agentannounce.."
 
-#: install.php:404 install.php:430
+#: install.php:412 install.php:438
 #, php-format
 msgid "migrated %s entries"
 msgstr "преместени %s въвеждания"
 
-#: install.php:406
+#: install.php:414
 msgid "migrate joinannounce to ids.."
 msgstr "преместване към joinannounce.."
 
-#: install.php:434
+#: install.php:442
 msgid "dropping agentannounce field.."
 msgstr "премахване на поле agentannounce.."
 
-#: install.php:440
+#: install.php:448
 msgid "no agentannounce field???"
 msgstr "няма agentannounce поле???"
 
-#: install.php:444
+#: install.php:452
 msgid "dropping joinannounce field.."
 msgstr "премахване на поле joinannounce.."
 
-#: install.php:448
+#: install.php:456
 msgid "no joinannounce field???"
 msgstr "няма joinannounce поле???"
 
-#: install.php:453
+#: install.php:461
 msgid "already migrated"
 msgstr "вече са преместени"
 
-#: install.php:457
+#: install.php:465
 msgid "checking for queuewait field.."
 msgstr "проверка за queuewait поле .."
 
-#: install.php:472
+#: install.php:480
 msgid "checking for use_queue_context field.."
 msgstr ""
 
@@ -366,13 +367,14 @@ msgstr ""
 
 #: page.queues.php:220 page.queues.php:416 page.queues.php:431
 #: page.queues.php:531 page.queues.php:546 page.queues.php:562
-#: page.queues.php:621 page.queues.php:634
+#: page.queues.php:606 page.queues.php:650 page.queues.php:663
 msgid "Yes"
 msgstr "Да"
 
 #: page.queues.php:220 page.queues.php:416 page.queues.php:431
 #: page.queues.php:519 page.queues.php:531 page.queues.php:546
-#: page.queues.php:561 page.queues.php:622 page.queues.php:635
+#: page.queues.php:561 page.queues.php:606 page.queues.php:651
+#: page.queues.php:664
 msgid "No"
 msgstr "Не"
 
@@ -489,7 +491,7 @@ msgstr ""
 "записи съставени от 2 или повече звукови записа не се показват като опция, "
 "тъй като тази функция не може да приема такива записи."
 
-#: page.queues.php:286 page.queues.php:316 page.queues.php:653
+#: page.queues.php:286 page.queues.php:316 page.queues.php:682
 msgid "None"
 msgstr "Няма"
 
@@ -871,15 +873,35 @@ msgstr ""
 "всеки номер с всякаква дължина, но ще забрани * бутона.<br />ВНИМАНИЕ: "
 "Убедете се че знаете какво правите или оставете празно!"
 
-#: page.queues.php:600
+#: page.queues.php:601
+msgid "Report Hold Time:"
+msgstr ""
+
+#: page.queues.php:601
+msgid ""
+"If you wish to report the caller's hold time to the member before they are "
+"connected to the caller, set this to yes."
+msgstr ""
+
+#: page.queues.php:616
+msgid "Service Level:"
+msgstr ""
+
+#: page.queues.php:616
+msgid ""
+"Used for service level statistics (calls answered within service level time "
+"frame)"
+msgstr ""
+
+#: page.queues.php:629
 msgid "Caller Position Announcements"
 msgstr "Известяване за Позицията на Обаждащият Се"
 
-#: page.queues.php:602
+#: page.queues.php:631
 msgid "Frequency:"
 msgstr "Цикъл:"
 
-#: page.queues.php:602
+#: page.queues.php:631
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
@@ -887,19 +909,19 @@ msgstr ""
 "Колко често да известява позицията в опашката и изминалото време на "
 "задържане (0 за Забрана на Известяване)."
 
-#: page.queues.php:616
+#: page.queues.php:645
 msgid "Announce Position:"
 msgstr "Известяване за Позиция:"
 
-#: page.queues.php:616
+#: page.queues.php:645
 msgid "Announce position of caller in the queue?"
 msgstr "Дали да извести позицията в опашката на обаждащия се."
 
-#: page.queues.php:629
+#: page.queues.php:658
 msgid "Announce Hold Time:"
 msgstr "Извастяване за Време на Задържане:"
 
-#: page.queues.php:629
+#: page.queues.php:658
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
@@ -907,19 +929,19 @@ msgstr ""
 "Да се включи ли изминалото време на задържане в известяването за позицията? "
 "Независимо от избора, времето на задържане няма да се извести ако е <1 минута"
 
-#: page.queues.php:636
+#: page.queues.php:665
 msgid "Once"
 msgstr "Еднократно"
 
-#: page.queues.php:642
+#: page.queues.php:671
 msgid "Periodic Announcements"
 msgstr "Периодични Съобщения"
 
-#: page.queues.php:647
+#: page.queues.php:676
 msgid "IVR Break Out Menu:"
 msgstr "IVR Меню Избягай:"
 
-#: page.queues.php:647
+#: page.queues.php:676
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
 "<br><br>This IVR must only contain single-digit 'dialed options'. The "
@@ -930,19 +952,19 @@ msgstr ""
 "да съдържа само едноцифрени 'опции за избиране'. Записът установен в IVR ще "
 "се възпроизвежда през определения интервал в 'Цикъл на Повтаряне' по-долу."
 
-#: page.queues.php:669 page.queues.php:674
+#: page.queues.php:698 page.queues.php:703
 msgid "Menu ID "
 msgstr "ID на Менюто"
 
-#: page.queues.php:685
+#: page.queues.php:714
 msgid "(**) ERRORS"
 msgstr "(**) ГРЕШКИ"
 
-#: page.queues.php:685
+#: page.queues.php:714
 msgid "(**) Warning Potential Errors"
 msgstr "(**) Внимание потенциални грешки"
 
-#: page.queues.php:689
+#: page.queues.php:718
 msgid ""
 "ERROR: You have selected an IVR's that use Announcements created from "
 "compound sound files. The Queue is not able to play these announcements. "
@@ -958,7 +980,7 @@ msgstr ""
 "съединени файлове. IVR може да възпроизвежда такива файлове, но не и "
 "опашките."
 
-#: page.queues.php:689
+#: page.queues.php:718
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
@@ -966,11 +988,11 @@ msgstr ""
 "Предишните версии на този модул позволяваха да се избере такава опашка, "
 "веднъж променени тези настройки повече няма да се предлагат като опция"
 
-#: page.queues.php:702
+#: page.queues.php:731
 msgid "Repeat Frequency:"
 msgstr "Цикъл на Повтаряне:"
 
-#: page.queues.php:702
+#: page.queues.php:731
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
@@ -978,15 +1000,15 @@ msgstr ""
 "Колко често да възпроизвежда гласово меню на обаждащия се (0 за Забрана на "
 "Гласово Меню)."
 
-#: page.queues.php:723
+#: page.queues.php:752
 msgid "Fail Over Destination"
 msgstr "Направление При Проваляне"
 
-#: page.queues.php:729
+#: page.queues.php:758
 msgid "Submit Changes"
 msgstr "Приеми Промените"
 
-#: page.queues.php:752
+#: page.queues.php:781
 msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
@@ -994,11 +1016,11 @@ msgstr ""
 "Използването на Филтър по Израз е за напреднали, моля потвърдете че знаете "
 "какво правите или оставете празно "
 
-#: page.queues.php:763
+#: page.queues.php:792
 msgid "Queue Number must not be blank"
 msgstr "Неправилен Номер на Опашка, полето не може да е празно"
 
-#: page.queues.php:769
+#: page.queues.php:798
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr ""
@@ -1008,4 +1030,3 @@ msgstr ""
 #: module.xml
 msgid "Queues"
 msgstr "Опашки"
-
