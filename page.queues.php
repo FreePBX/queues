@@ -596,7 +596,36 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 		<td><a href="#" class="info"><?php echo _("Agent Regex Filter")?><span><?php echo _("Provides an optional regex expression that will be applied against the agent callback number. If the callback number does not pass the regex filter then it will be treated as invalid. This can be used to restrict agents to extensions within a range, not allow callbacks to include keys like *, or any other use that may be appropriate. An example input might be:<br />^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * key.<br />WARNING: make sure you undertand what you are doing or otherwise leave this blank!")?></span></a></td>
 		<td><input type="text" name="qregex" value="<?php echo (isset($qregex) ? $qregex : ''); ?>"></td>
 	</tr>
-
+	
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Report Hold Time:")?><span><?php echo _("If you wish to report the caller's hold time to the member before they are connected to the caller, set this to yes.")?></span></a></td>
+		<td>
+			<select name="reportholdtime" tabindex="<?php echo ++$tabindex;?>">
+			<?php
+				$default = (isset($reportholdtime) ? $reportholdtime : 'no');
+				$items = array('yes'=>_("Yes"),'no'=>_("No"));
+				foreach ($items as $item=>$val) {
+					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
+				}
+			?>		
+			</select>		
+		</td>
+	</tr>
+	
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Service Level:")?><span><?php echo _("Used for service level statistics (calls answered within service level time frame)")?></span></a></td>
+		<td>
+			<select name="servicelevel" tabindex="<?php echo ++$tabindex;?>">
+			<?php
+				$default = (isset($servicelevel) ? $servicelevel : 60);
+				for ($i=15; $i <= 300; $i+=15) {
+					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
+				}
+			?>		
+			</select>		
+		</td>
+	</tr>
+	
 	<tr><td colspan="2"><br><h5><?php echo _("Caller Position Announcements")?><hr></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Frequency:")?><span><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")?></span></a></td>

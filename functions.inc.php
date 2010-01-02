@@ -592,6 +592,8 @@ $fields = array(
 	array($account,'weight',(isset($_REQUEST['weight']))?$_REQUEST['weight']:'0',0),
 	array($account,'autofill',(isset($_REQUEST['autofill']))?'yes':'no',0),
 	array($account,'ringinuse',($cwignore == 2 || $cwignore == 3)?'no':'yes',0),
+	array($account,'reportholdtime',(isset($_REQUEST['reportholdtime']))?$_REQUEST['reportholdtime']:'no',0),
+	array($account,'servicelevel',(isset($_REQUEST['servicelevel']))?$_REQUEST['servicelevel']:60,0),
 );
 
 	if ($_REQUEST['music'] != 'inherit') {
