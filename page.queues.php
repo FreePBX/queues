@@ -255,7 +255,7 @@ if ($action == 'delete') {
 		</a>
 		</td>
 		<td>
-			<select onChange="insertExten();" id="insexten" tabindex="<?php echo ++$tabindex;?>">
+			<select onChange="insertExten('');" id="insexten" tabindex="<?php echo ++$tabindex;?>">
 				<option value=""><?php echo _("(pick extension)")?></option>
 	<?php
 				$results = core_users_list();
@@ -268,7 +268,7 @@ if ($action == 'delete') {
 	</tr>
 
 	<tr>
-		<td valign="top"><a href="#" class="info"><?php echo _('Dynamic Member Penalty') ?>:<span><br><?php echo _("Dynamic Members are extensions that can log in and out of the queue. When a member logges in to a queue, their penalty in the queue will be as specified here. Extensions included here will NOT be automaticlay logged in to the queue.") ?><br><br></span></a></td>
+		<td valign="top"><a href="#" class="info"><?php echo _('Dynamic Members') ?>:<span><br><?php echo _("Dynamic Members are extensions or callback numbers that can log in and out of the queue. When a member logs in to a queue, their penalty in the queue will be as specified here. Extensions included here will NOT automatically be logged in to the queue.") ?><br><br></span></a></td>
 		<td valign="top">
 			<textarea id="dynmembers" cols="15" rows="<?php  $rows = count($dynmembers)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" tabindex="<?php echo ++$tabindex;?>"><?php echo $dynmembers; ?></textarea>
 		</td>
@@ -278,7 +278,7 @@ if ($action == 'delete') {
 		<td>
 		<a href=# class="info"><?php echo _("Extension Quick Pick")?>
 			<span>
-				<?php echo _("Choose an extension to append to the end of the dynamic memebers list above.")?>
+				<?php echo _("Choose an extension to append to the end of the dynamic memeber list above.")?>
 			</span>
 		</a>
 		</td>
@@ -296,8 +296,8 @@ if ($action == 'delete') {
 	</tr>
 
 	<tr>
-	  <td><a href="#" class="info"><?php echo _("Allow only these?")?><span><?php echo _('Restrict dynamic queue memeber logins to only thoes listed in previous option. When set to yes, members not listed will be DENIED ACCESS to the queue.')?></span></a></td>
-    <td><input type="radio" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly=='yes'?'checked':'');?>><?php echo _('Yes')?><input type="radio" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly!='yes'?'checked':'');?> ><?php echo _('No')?>
+	  <td><a href="#" class="info"><?php echo _("Restrict Dynamic Agents")?><span><?php echo _('Restrict dynamic queue member logins to only thoes listed in the Dynamic Members list above. When set to Yes, members not listed will be DENIED ACCESS to the queue.')?></span></a></td>
+    <td><input type="radio" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly=='yes'?'checked':'');?>><?php echo _('Yes')?><input type="radio" name="dynmemberonly" value="no" <?php echo ($dynmemberonly!='yes'?'checked':'');?> ><?php echo _('No')?>
 		</td>
 	</tr>
 

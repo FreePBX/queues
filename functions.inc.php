@@ -560,7 +560,7 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = '') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no') {
   global $db,$astman,$amp_conf;
 
 	if (trim($account) == '') {
@@ -642,9 +642,13 @@ $fields = array(
 
   // store dynamic member data in astDB
 	if ($astman) {
+    $dynmembers = array_unique($dynmembers);
 	  foreach($dynmembers as $member){
   	  $mem=explode(',',$member);
-  	  $astman->database_put('QPENALTY/'.$account.'/agents',$mem[0],$mem[1]);
+      if (isset($mem[0]) && trim($mem[0]) != '') {
+        $penalty = isset($mem[1]) && ctype_digit(trim($mem[1])) ? $mem[1] : 0;
+  	    $astman->database_put('QPENALTY/'.$account.'/agents',trim($mem[0]),trim($penalty));
+      }
     }
  	  $astman->database_put('QPENALTY/'.$account,'dynmemberonly',$dynmemberonly);
 	} else {
@@ -885,14 +889,16 @@ function queues_get($account, $queues_conf_only=false) {
 	  if($get){
 		  foreach($get as $key => $value){
 			  $key=explode('/',$key);
-			  $mem[$key[3]]=$value;
+			  $mem[$key[4]]=$value;
 		  }
 		  foreach($mem as $mem => $pnlty){
 			  $dynmem[]=$mem.','.$pnlty;
 		  }
-	  }
-	  $results['dynmembers']=implode("\n",$dynmem);
-	  $results['dynmeberonly'] = $astman->database_get('QPENALTY/'.$account,'dynmemberonly');
+	    $results['dynmembers']=implode("\n",$dynmem);
+	  } else {
+	    $results['dynmembers']='';
+     }
+	  $results['dynmemberonly'] = $astman->database_get('QPENALTY/'.$account,'dynmemberonly');
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
