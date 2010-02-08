@@ -485,15 +485,19 @@ function queues_get_config($engine) {
       //
 			$ext->add($context, $exten, '', new ext_gotoif('$["${ARG3}" = "EXTEN" & ${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'invalid'));
 
+      // If this is a restricted dynamic agent queue then check to make sure they are allowed
+      //
+      $ext->add($context, $exten, '', new ext_gotoif('$["${DB(QPENALTY/${ARG1}/dynmemberonly)}" = "yes" & ${DB_EXISTS(QPENALTY/${ARG1}/agents/${CALLBACKNUM})} != 1]', 'invalid'));
+
 			$ext->add($context, $exten, '', new ext_execif('$["${QREGEX}" != ""]', 'GotoIf', '$["${REGEX("${QREGEX}" ${CALLBACKNUM})}" = "0"]?invalid'));
 			$ext->add($context, $exten, '', new ext_execif('$["${ARG2}" != ""]', 'Authenticate', '${ARG2}'));
 
 
       if ($amp_conf['USEQUEUESTATE']) {
-			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,0,,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
-			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n'));
+			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
+			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})}'));
       } else {
-        $ext->add($context, $exten, 'a9', new ext_addqueuemember('${ARG1}', 'Local/${CALLBACKNUM}@from-queue/n'));
+        $ext->add($context, $exten, 'a9', new ext_addqueuemember('${ARG1}', 'Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})}'));
       }
 		  $ext->add($context, $exten, '', new ext_userevent('Agentlogin', 'Agent: ${CALLBACKNUM}'));
 		  $ext->add($context, $exten, '', new ext_wait(1));
@@ -556,8 +560,8 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0') {
-	global $db;
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = '') {
+  global $db,$astman,$amp_conf;
 
 	if (trim($account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
@@ -635,11 +639,23 @@ $fields = array(
 	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context)
          	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context')	";
 	$results = sql($sql);
+
+  // store dynamic member data in astDB
+	if ($astman) {
+	  foreach($dynmembers as $member){
+  	  $mem=explode(',',$member);
+  	  $astman->database_put('QPENALTY/'.$account.'/agents',$mem[0],$mem[1]);
+    }
+ 	  $astman->database_put('QPENALTY/'.$account,'dynmemberonly',$dynmemberonly);
+	} else {
+		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+	}
+
 	return true;
 }
 
 function queues_del($account) {
-	global $db;
+	global $db,$astman,$amp_conf;
 	
 	$sql = "DELETE FROM queues_details WHERE id = '$account'";
     $result = $db->query($sql);
@@ -651,7 +667,13 @@ function queues_del($account) {
     if(DB::IsError($result)) {
         die_freepbx($result->getMessage().$sql);
     }
-
+	
+	//remove dynamic memebers from astDB
+	if ($astman) {
+	  $astman->database_deltree('QPENALTY/'.$account);
+	} else {
+		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+	}
 }
 
 //get the existing queue extensions
@@ -772,7 +794,7 @@ function queues_check_compoundrecordings() {
 
 
 function queues_get($account, $queues_conf_only=false) {
-	global $db;
+	global $db,$astman,$amp_conf;
 	
     if ($account == "")
     {
@@ -854,7 +876,26 @@ function queues_get($account, $queues_conf_only=false) {
 			}
 		}
 	}
-
+  // TODO: why the str_replace?
+  //
+	if ($astman) {
+	  $account=str_replace("'",'',$account);
+	  //get dynamic members priority from astDB
+	  $get=$astman->database_show('QPENALTY/'.$account.'/agents');
+	  if($get){
+		  foreach($get as $key => $value){
+			  $key=explode('/',$key);
+			  $mem[$key[3]]=$value;
+		  }
+		  foreach($mem as $mem => $pnlty){
+			  $dynmem[]=$mem.','.$pnlty;
+		  }
+	  }
+	  $results['dynmembers']=implode("\n",$dynmem);
+	  $results['dynmeberonly'] = $astman->database_get('QPENALTY/'.$account,'dynmemberonly');
+	} else {
+		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+	}
 	return $results;
 }
 /* Trial DEVSTATE */
@@ -928,16 +969,19 @@ function queue_agent_add_toggle() {
 	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSER}'));
 
+  $ext->add($id, $c, '', new ext_gotoif('$["${DB(QPENALTY/${QUEUENO}/dynmemberonly)}" = "yes" & ${DB_EXISTS(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})} != 1]', 'invalid'));
   // I think that when using this it will always be a user, but just in case...
   //
   if ($amp_conf['USEQUEUESTATE']) {
-    $ext->add($id, $c, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,0,,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
-    $ext->add($id, $c, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n'));
+    $ext->add($id, $c, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
+    $ext->add($id, $c, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})}'));
   } else {
-	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n'));
+	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})}'));
   }
 
 	$ext->add($id, $c, '', new ext_userevent('AgentLogin','Agent: ${CALLBACKNUM}'));
+	$ext->add($id, $c, '', new ext_macroexit());
+  $ext->add($id, $c, 'invalid', new ext_playback('pbx-invalid'));
 	$ext->add($id, $c, '', new ext_macroexit());
 }
 

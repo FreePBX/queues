@@ -31,7 +31,7 @@ $rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
 $qregex = isset($_REQUEST['qregex'])?$_REQUEST['qregex']:'';
 $weight = isset($_REQUEST['weight'])?$_REQUEST['weight']:'0';
 $autofill = isset($_REQUEST['autofill'])?$_REQUEST['autofill']:'no';
-
+$dynmemberonly = isset($_REQUEST['dynmemberonly'])?$_REQUEST['dynmemberonly']:'no';
 $use_queue_context = isset($_REQUEST['use_queue_context'])?$_REQUEST['use_queue_context']:'0';
 $exten_context = "from-queue";
 
@@ -88,6 +88,14 @@ if (isset($_REQUEST["members"])) {
 	// $members = array_values(array_unique($members));
 }
 
+if (isset($_REQUEST["dynmembers"])) {
+	$dynmembers=explode("\n",$_REQUEST["dynmembers"]);
+	if (!$dynmembers) {
+		$dynmembers = null;
+	}
+}
+
+
 // do if we are submitting a form
 if(isset($_POST['action'])){
 	//check if the extension is within range for this user
@@ -103,7 +111,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly);
 					needreload();
 					redirect_standard();
 				}
@@ -115,7 +123,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -256,6 +264,40 @@ if ($action == 'delete') {
 				}
 	?>
 			</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td valign="top"><a href="#" class="info"><?php echo _('Dynamic Member Penalty') ?>:<span><br><?php echo _("Dynamic Members are extensions that can log in and out of the queue. When a member logges in to a queue, their penalty in the queue will be as specified here. Extensions included here will NOT be automaticlay logged in to the queue.") ?><br><br></span></a></td>
+		<td valign="top">
+			<textarea id="dynmembers" cols="15" rows="<?php  $rows = count($dynmembers)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" tabindex="<?php echo ++$tabindex;?>"><?php echo $dynmembers; ?></textarea>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<a href=# class="info"><?php echo _("Extension Quick Pick")?>
+			<span>
+				<?php echo _("Choose an extension to append to the end of the dynamic memebers list above.")?>
+			</span>
+		</a>
+		</td>
+		<td>
+			<select onChange="insertExten('dyn');" id="dyninsexten" tabindex="<?php echo ++$tabindex;?>">
+				<option value=""><?php echo _("(pick extension)")?></option>
+	<?php
+				$results = core_users_list();
+				foreach ($results as $result) {
+					echo "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
+				}
+	?>
+			</select>
+		</td>
+	</tr>
+
+	<tr>
+	  <td><a href="#" class="info"><?php echo _("Allow only these?")?><span><?php echo _('Restrict dynamic queue memeber logins to only thoes listed in previous option. When set to yes, members not listed will be DENIED ACCESS to the queue.')?></span></a></td>
+    <td><input type="radio" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly=='yes'?'checked':'');?>><?php echo _('Yes')?><input type="radio" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly!='yes'?'checked':'');?> ><?php echo _('No')?>
 		</td>
 	</tr>
 
