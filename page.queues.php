@@ -804,10 +804,10 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 <script language="javascript">
 <!--
 
-function insertExten() {
-	exten = document.getElementById('insexten').value;
+function insertExten(type) {
+	exten = document.getElementById(type+'insexten').value;
 
-	grpList=document.getElementById('members');
+	grpList=document.getElementById(type+'members');
 	if (grpList.value[ grpList.value.length - 1 ] == "\n") {
 		grpList.value = grpList.value + exten + ',0';
 	} else {
@@ -815,7 +815,7 @@ function insertExten() {
 	}
 
 	// reset element
-	document.getElementById('insexten').value = '';
+	document.getElementById(type+'insexten').value = '';
 }
 
 function checkQ(theForm) {
