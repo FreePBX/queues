@@ -35,6 +35,10 @@ $dynmemberonly = isset($_REQUEST['dynmemberonly'])?$_REQUEST['dynmemberonly']:'n
 $use_queue_context = isset($_REQUEST['use_queue_context'])?$_REQUEST['use_queue_context']:'0';
 $exten_context = "from-queue";
 
+$engineinfo = engine_getinfo();
+$astver =  $engineinfo['version'];
+$ast_ge_16 = version_compare($astver, '1.6', 'ge');
+
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
 } else {
@@ -489,6 +493,14 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 					<b><?php echo _("fewestcalls")?></b>: <?php echo _("ring the agent with fewest completed calls from this queue")?><br>
 					<b><?php echo _("random")?></b>: <?php echo _("ring random agent")?><br>
 					<b><?php echo _("rrmemory")?></b>: <?php echo _("round robin with memory, remember where we left off last ring pass")?><br>
+<?php
+        if ($ast_ge_16) {
+?>
+					<b><?php echo _("linear")?></b>: <?php echo _("rings agents in the order specified, for dynamic agents in the order they logged in")?><br>
+					<b><?php echo _("wrandom")?></b>: <?php echo _("random using the member's penalty as a weighting factor, see asterisk documentation for specifics")?><br>
+<?php
+        }
+?>
 				</span>
 			</a>
 		</td>
@@ -497,6 +509,10 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 			<?php
 				$default = (isset($strategy) ? $strategy : 'ringall');
 				$items = array('ringall','roundrobin','leastrecent','fewestcalls','random','rrmemory');
+        if ($ast_ge_16) {
+				  $items[] = 'linear';
+				  $items[] = 'wrandom';
+        }
 				foreach ($items as $item) {
 					echo '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item);
 				}
