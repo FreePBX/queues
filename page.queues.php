@@ -488,7 +488,14 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 			<a href="#" class="info"><?php echo _("Ring Strategy:")?>
 				<span>
 					<b><?php echo _("ringall")?></b>:  <?php echo _("ring all available agents until one answers (default)")?><br>
+<?php
+  $ast_ge_16=true;
+        if (!$ast_ge_16) {
+?>
 					<b><?php echo _("roundrobin")?></b>: <?php echo _("take turns ringing each available agent")?><br>
+<?php
+        }
+?>
 					<b><?php echo _("leastrecent")?></b>: <?php echo _("ring agent which was least recently called by this queue")?><br>
 					<b><?php echo _("fewestcalls")?></b>: <?php echo _("ring the agent with fewest completed calls from this queue")?><br>
 					<b><?php echo _("random")?></b>: <?php echo _("ring random agent")?><br>
@@ -512,6 +519,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
         if ($ast_ge_16) {
 				  $items[] = 'linear';
 				  $items[] = 'wrandom';
+          unset($items[array_search('roundrobin',$items)]);
         }
 				foreach ($items as $item) {
 					echo '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item);
