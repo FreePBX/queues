@@ -282,7 +282,7 @@ if ($action == 'delete') {
 		<td>
 		<a href=# class="info"><?php echo _("Extension Quick Pick")?>
 			<span>
-				<?php echo _("Choose an extension to append to the end of the dynamic memeber list above.")?>
+				<?php echo _("Choose an extension to append to the end of the dynamic member list above.")?>
 			</span>
 		</a>
 		</td>
@@ -300,7 +300,7 @@ if ($action == 'delete') {
 	</tr>
 
 	<tr>
-	  <td><a href="#" class="info"><?php echo _("Restrict Dynamic Agents")?><span><?php echo _('Restrict dynamic queue member logins to only thoes listed in the Dynamic Members list above. When set to Yes, members not listed will be DENIED ACCESS to the queue.')?></span></a></td>
+	  <td><a href="#" class="info"><?php echo _("Restrict Dynamic Agents")?><span><?php echo _('Restrict dynamic queue member logins to only those listed in the Dynamic Members list above. When set to Yes, members not listed will be DENIED ACCESS to the queue.')?></span></a></td>
     <td><input type="radio" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly=='yes'?'checked':'');?>><?php echo _('Yes')?><input type="radio" name="dynmemberonly" value="no" <?php echo ($dynmemberonly!='yes'?'checked':'');?> ><?php echo _('No')?>
 		</td>
 	</tr>
