@@ -57,37 +57,56 @@ if (isset($_REQUEST["members"])) {
 
 		// check if an agent (starts with a or A)
 
-		if (strtoupper(substr($members[$key],0,1)) == "A") {
-			// remove invalid chars
-			$members[$key] = "A".preg_replace("/[^0-9#\,*]/", "", $members[$key]);
-			$agent = 1;
-		} else {
-			// remove invalid chars
-			$members[$key] = preg_replace("/[^0-9#\,*]/", "", $members[$key]);
-			$agent = 0;
-		}
+    $exten_prefix = strtoupper(substr($members[$key],0,1));
+		$this_member = preg_replace("/[^0-9#\,*]/", "", $members[$key]);
+    switch ($exten_prefix) {
+    case 'A':
+      $exten_type = 'Agent';
+      break;
+    case 'S':
+      $exten_type = 'SIP';
+      break;
+    case 'X':
+      $exten_type = 'IAX2';
+      break;
+    case 'Z':
+      $exten_type = 'ZAP';
+      break;
+    case 'D':
+      $exten_type = 'DAHDI';
+      break;
+    default;
+      $exten_type = 'Local';
+    }
 
-		$penalty_pos = strrpos($members[$key], ",");
+		$penalty_pos = strrpos($this_member, ",");
 		if ( $penalty_pos === false ) {
 				$penalty_val = 0;
 		} else {
-				$penalty_val = substr($members[$key], $penalty_pos+1); // get penalty
-				$members[$key] = substr($members[$key],0,$penalty_pos); // clean up ext
-				$members[$key] = preg_replace("/[^0-9#*]/", "", $members[$key]); //clean out other ,'s
+				$penalty_val = substr($this_member, $penalty_pos+1); // get penalty
+				$this_member = substr($this_member,0,$penalty_pos); // clean up ext
+				$this_member = preg_replace("/[^0-9#*]/", "", $this_member); //clean out other ,'s
 				$penalty_val = preg_replace("/[^0-9*]/", "", $penalty_val); // get rid of #'s if there
 				$penalty_val = ($penalty_val == "") ? 0 : $penalty_val;
 		}
 
 		// remove blanks // prefix with the channel
-		if (empty($members[$key]))  
+		if (empty($this_member))  
 			unset($members[$key]);
-		elseif ($agent) {
-			$members[$key] = "Agent/".ltrim($members[$key],"aA").",".$penalty_val;
-		} else {
-			$members[$key] = "Local/".$members[$key]."@$exten_context/n,".$penalty_val;
+		else {
+      switch($exten_type) {
+        case 'Agent':
+        case 'SIP':
+        case 'IAX2':
+        case 'ZAP':
+        case 'DAHDI':
+			    $members[$key] = "$exten_type/$this_member,$penalty_val";
+          break;
+        case 'Local':
+			    $members[$key] = "$exten_type/$this_member@$exten_context/n,$penalty_val";
+      }
 		}
 	}
-	
 	// check for duplicates, and re-sequence
 	// $members = array_values(array_unique($members));
 }
@@ -163,6 +182,33 @@ if ($action == 'delete') {
 	$thisQ = queues_get($extdisplay);
 	//create variables
 	extract($thisQ);
+
+  $mem_array = array();
+  foreach ($member as $mem) {
+    if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
+      switch ($matches[1]) {
+        case 'Agent':
+          $prefix = 'A';
+          break;
+        case 'SIP':
+          $prefix = 'S';
+          break;
+        case 'IAX2':
+          $prefix = 'X';
+          break;
+        case 'ZAP':
+          $prefix = 'Z';
+          break;
+        case 'DAHDI':
+          $prefix = 'D';
+          break;
+        case 'Local':
+          $prefix = '';
+          break;
+      }
+      $mem_array[] = $prefix.$matches[2].','.$matches[3];
+    }
+  }
 	
 	$delButton = "
 				<form name=delete action=\"{$_SERVER['PHP_SELF']}\" method=POST>
@@ -244,9 +290,9 @@ if ($action == 'delete') {
 	</tr>
 
 	<tr>
-		<td valign="top"><a href="#" class="info"><?php echo _("Static Agents") ?>:<span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers).<br><br>You can list agents defined in agents.conf by preceding the agent number with A, so agent 4002 would be listed as A4002. This is experimental and not supported. There are known issues, such as the inability for an agents.conf agent to do subsequent transfers to voicemail<br><br>In all cases, you can put a \",\" after the agent followed by a penalty value. Use penalties at your own risk, they are very broken in asterisk.") ?><br><br></span></a></td>
+    <td valign="top"><a href="#" class="info"><?php echo _("Static Agents") ?>:<span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers). You can put a \",\" after the agent followed by a penalty value, see Asterisk documentation concerning penalties.<br /><br /> An advanced mode has been added which allows you to proceed an agent number with S, X, Z, D or A. This will force the agent number to be dialed as an Asterisk device of type SIP, IAX2, ZAP, DAHDI or Agent respectively. This mode is for advanced users and can cause known issues in FreePBX as you are by-passing the normal dialplan. If your 'Agent Restrictions' are not set to 'Extension Only' you will have problems with subsequent transfers to voicemail and other issues may also exist. (Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)") ?><br><br></span></a></td>
 		<td valign="top">
-			<textarea id="members" cols="15" rows="<?php  $rows = count($member)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" tabindex="<?php echo ++$tabindex;?>"><?php foreach ($member as $mem) { $premem = ""; if (substr($mem,0,5) == "Agent") {$premem = "A";}; $mem = $premem.rtrim(ltrim(strstr($mem,"/"),"/"),"@$exten_context");echo substr($mem,0,(strpos($mem,"@")!==false?strpos($mem,"@"):strpos($mem,","))).substr($mem,strrpos($mem, ","))."\n"; }?></textarea>
+			<textarea id="members" cols="15" rows="<?php  $rows = count($mem_array)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$mem_array) ?></textarea>
 		</td>
 	</tr>
 

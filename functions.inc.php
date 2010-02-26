@@ -266,10 +266,22 @@ function queues_get_config($engine) {
 	global $ext;  // is this the best way to pass this?
 	global $queues_conf;
 	global $amp_conf;
+	global $version;
 
 	switch($engine) {
 		case "asterisk":
 			global $astman;
+
+      $ast_ge_14 = version_compare($version,'1.4','ge');
+      $ast_ge_16 = version_compare($version,'1.6','ge');
+
+      $has_extension_state = $ast_ge_16;
+			if ($ast_ge_14 && !$ast_ge_16) {
+				$response = $astman->send_request('Command', array('Command' => 'module show like func_extstate'));
+				if (preg_match('/1 modules loaded/', $response['data'])) {
+          $has_extension_state = true;
+        }
+			}
 
 			if (isset($queues_conf) && is_a($queues_conf, "queues_conf")) {
 				$queues_conf->addQueuesGeneral('persistentmembers','yes');
@@ -319,10 +331,13 @@ function queues_get_config($engine) {
 					if ($q['queuewait']) {
 						$ext->add('ext-queues', $exten, '', new ext_execif('$["${QUEUEWAIT}" = ""]', 'Set', '__QUEUEWAIT=${EPOCH}'));
 					}
-					$ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_OVERRIDE', 'BLKVM/${EXTEN}/${CHANNEL}'));
-					$ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_BASE', '${EXTEN}'));
-					$ext->add('ext-queues', $exten, '', new ext_setvar('DB(${BLKVM_OVERRIDE})', 'TRUE'));
-					$ext->add('ext-queues', $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)'));
+          // If extension_only don't do this and CFIGNORE
+          if($q['use_queue_context'] != '2') {
+					  $ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_OVERRIDE', 'BLKVM/${EXTEN}/${CHANNEL}'));
+					  $ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_BASE', '${EXTEN}'));
+					  $ext->add('ext-queues', $exten, '', new ext_setvar('DB(${BLKVM_OVERRIDE})', 'TRUE'));
+					  $ext->add('ext-queues', $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)'));
+          }
 
 					// Inform all the children NOT to send calls to destinations or voicemail
 					//
@@ -381,7 +396,9 @@ function queues_get_config($engine) {
 					}
 					$ext->add('ext-queues', $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
  
-					$ext->add('ext-queues', $exten, '', new ext_dbdel('${BLKVM_OVERRIDE}'));
+          if($q['use_queue_context'] != '2') {
+					  $ext->add('ext-queues', $exten, '', new ext_dbdel('${BLKVM_OVERRIDE}'));
+          }
  					// If we are here, disable the NODEST as we want things to resume as normal
  					//
  					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', ''));
@@ -459,7 +476,11 @@ function queues_get_config($engine) {
 				foreach($userlist as $item) {
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_setvar('RingGroupMethod', 'none'));
 					$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('record-enable',$item[0].",IN"));
-					$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial',',${DIAL_OPTIONS},'.$item[0]));
+          if ($amp_conf['USEDIALONE'] && $has_extension_state) {
+					  $ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS},'.$item[0]));
+          } else {
+					  $ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial',',${DIAL_OPTIONS},'.$item[0]));
+          }
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_hangup());
 				}
 			}
