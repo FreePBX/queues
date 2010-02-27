@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-27 13:45+0100\n"
+"POT-Creation-Date: 2010-02-27 17:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,277 +28,203 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: queues/functions.inc.php:160
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
 "first sound file. You should correct this problem.<br />Details:<br /><br />"
 msgstr ""
 
-#: queues/functions.inc.php:162
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr ""
 
-#: queues/functions.inc.php:164
 msgid "Compound Recordings in Queues Detected"
 msgstr ""
 
-#: queues/functions.inc.php:218
 #, php-format
 msgid "Queue %s : %s"
 msgstr ""
 
-#: queues/functions.inc.php:238 queues/functions.inc.php:255
-#: queues/functions.inc.php:743
 #, php-format
 msgid "Queue: %s"
 msgstr ""
 
-#: queues/functions.inc.php:560 queues/functions.inc.php:577
-#: queues/page.queues.php:472 queues/page.queues.php:586
-#: queues/page.queues.php:601 queues/page.queues.php:615
-#: queues/page.queues.php:734
 msgid "seconds"
 msgstr ""
 
-#: queues/functions.inc.php:574
 msgid "day"
 msgstr ""
 
-#: queues/functions.inc.php:575
 msgid "hour"
 msgstr ""
 
-#: queues/functions.inc.php:575
 msgid "hours"
 msgstr ""
 
-#: queues/functions.inc.php:576
 msgid "minute"
 msgstr ""
 
-#: queues/functions.inc.php:576
 msgid "minutes"
 msgstr ""
 
-#: queues/functions.inc.php:577
 msgid "second"
 msgstr ""
 
-#: queues/functions.inc.php:588
 msgid "Bad Queue Number, can not be blank"
 msgstr ""
 
-#: queues/functions.inc.php:744
 msgid "INUSE"
 msgstr ""
 
-#: queues/functions.inc.php:772
 #, php-format
 msgid "Queue: %s (%s)"
 msgstr ""
 
-#: queues/functions.inc.php:802
 msgid "Agent Announce Msg"
 msgstr ""
 
-#: queues/functions.inc.php:812
 #, php-format
 msgid "IVR Announce: %s"
 msgstr ""
 
-#: queues/install.php:58
 msgid "Checking for legacy queues table.."
 msgstr ""
 
-#: queues/install.php:62
 msgid "NO table found, no migration to do just create tables"
 msgstr ""
 
-#: queues/install.php:67 queues/install.php:95 queues/install.php:112
-#: queues/install.php:115 queues/install.php:177 queues/install.php:304
-#: queues/install.php:310 queues/install.php:323 queues/install.php:332
-#: queues/install.php:349 queues/install.php:475 queues/install.php:490
 msgid "OK"
 msgstr ""
 
-#: queues/install.php:84
 msgid "Creating queues_details.."
 msgstr ""
 
-#: queues/install.php:89 queues/install.php:171 queues/install.php:351
-#: queues/install.php:477 queues/install.php:492
 msgid "already exists"
 msgstr ""
 
-#: queues/install.php:91 queues/install.php:173
 msgid "ERROR: could not create table"
 msgstr ""
 
-#: queues/install.php:106
 msgid "Migrating to queues_details.."
 msgstr ""
 
-#: queues/install.php:109
 msgid "ERROR: could not migrate to queues_details"
 msgstr ""
 
-#: queues/install.php:166
 msgid "Creating queues_config.."
 msgstr ""
 
-#: queues/install.php:181
 msgid "Migrating data to queues_config.."
 msgstr ""
 
-#: queues/install.php:185
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
 
-#: queues/install.php:192
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr ""
 
-#: queues/install.php:210
 msgid "ERROR: accessing queues table obtaining id list, aborting"
 msgstr ""
 
-#: queues/install.php:298
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
 msgstr ""
 
-#: queues/install.php:306
 msgid "ERROR were encountered"
 msgstr ""
 
-#: queues/install.php:317
 msgid "Dropping old queues table.."
 msgstr ""
 
-#: queues/install.php:321 queues/install.php:330
 #, php-format
 msgid "WARNING FAILED %s"
 msgstr ""
 
-#: queues/install.php:326
 msgid "removing queues data extensions table.."
 msgstr ""
 
-#: queues/install.php:339
 msgid "checking for qregex field.."
 msgstr ""
 
-#: queues/install.php:360
 msgid "Checking if recordings need migration.."
 msgstr ""
 
-#: queues/install.php:366
 msgid "migrating"
 msgstr ""
 
-#: queues/install.php:367
 msgid "adding agentannounce_id field.."
 msgstr ""
 
-#: queues/install.php:371 queues/install.php:380 queues/install.php:392
-#: queues/install.php:408 queues/install.php:418 queues/install.php:434
 msgid "fatal error"
 msgstr ""
 
-#: queues/install.php:374 queues/install.php:383 queues/install.php:450
-#: queues/install.php:458
 msgid "ok"
 msgstr ""
 
-#: queues/install.php:376
 msgid "adding joinannounce_id field.."
 msgstr ""
 
-#: queues/install.php:388
 msgid "migrate agentannounce to ids.."
 msgstr ""
 
-#: queues/install.php:412 queues/install.php:438
 #, php-format
 msgid "migrated %s entries"
 msgstr ""
 
-#: queues/install.php:414
 msgid "migrate joinannounce to ids.."
 msgstr ""
 
-#: queues/install.php:442
 msgid "dropping agentannounce field.."
 msgstr ""
 
-#: queues/install.php:448
 msgid "no agentannounce field???"
 msgstr ""
 
-#: queues/install.php:452
 msgid "dropping joinannounce field.."
 msgstr ""
 
-#: queues/install.php:456
 msgid "no joinannounce field???"
 msgstr ""
 
-#: queues/install.php:461
 msgid "already migrated"
 msgstr ""
 
-#: queues/install.php:465
 msgid "checking for queuewait field.."
 msgstr ""
 
-#: queues/install.php:480
 msgid "checking for use_queue_context field.."
 msgstr ""
 
-#: queues/page.queues.php:126
 msgid "Warning! Extension"
 msgstr ""
 
-#: queues/page.queues.php:126
 msgid "is not allowed for your account."
 msgstr ""
 
-#: queues/page.queues.php:164 queues/page.queues.php:230
-#: queues/page.queues.php:247
 msgid "Add Queue"
 msgstr ""
 
-#: queues/page.queues.php:178
 msgid "Queue"
 msgstr ""
 
-#: queues/page.queues.php:178
 msgid "deleted"
 msgstr ""
 
-#: queues/page.queues.php:218
 msgid "Delete Queue"
 msgstr ""
 
-#: queues/page.queues.php:223
 msgid "Conflicting Extensions"
 msgstr ""
 
-#: queues/page.queues.php:228
 msgid "Queue:"
 msgstr ""
 
-#: queues/page.queues.php:247
 msgid "Edit Queue"
 msgstr ""
 
-#: queues/page.queues.php:252
 msgid "Queue Number:"
 msgstr ""
 
-#: queues/page.queues.php:252
 msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
 "to put them into the queue.<br><br>Agents will dial this queue number plus * "
@@ -307,40 +233,32 @@ msgid ""
 "in<br>123** = log out</b>"
 msgstr ""
 
-#: queues/page.queues.php:258
 msgid "Queue Name:"
 msgstr ""
 
-#: queues/page.queues.php:258
 msgid "Give this queue a brief name to help you identify it."
 msgstr ""
 
-#: queues/page.queues.php:263
 msgid "Queue Password:"
 msgstr ""
 
-#: queues/page.queues.php:263
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
 msgstr ""
 
-#: queues/page.queues.php:268
 msgid "CID Name Prefix:"
 msgstr ""
 
-#: queues/page.queues.php:268
 msgid ""
 "You can optionally prefix the Caller ID name of callers to the queue. ie: If "
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
 
-#: queues/page.queues.php:273
 msgid "Wait Time Prefix:"
 msgstr ""
 
-#: queues/page.queues.php:273
 msgid ""
 "When set to Yes, the CID Name will be prefixed with the total wait time in "
 "the queue so the answering agent is aware how long they have waited. It will "
@@ -348,43 +266,27 @@ msgid ""
 "of minutes."
 msgstr ""
 
-#: queues/page.queues.php:273
 msgid ""
 "If the call is subsequently transfered, the wait time will reflect the time "
 "since it first entered the queue or reset if the call is transfered to "
 "another queue with this feature set."
 msgstr ""
 
-#: queues/page.queues.php:278 queues/page.queues.php:350
-#: queues/page.queues.php:508 queues/page.queues.php:523
-#: queues/page.queues.php:643 queues/page.queues.php:658
-#: queues/page.queues.php:674 queues/page.queues.php:718
-#: queues/page.queues.php:762 queues/page.queues.php:775
 msgid "Yes"
 msgstr ""
 
-#: queues/page.queues.php:278 queues/page.queues.php:350
-#: queues/page.queues.php:508 queues/page.queues.php:523
-#: queues/page.queues.php:631 queues/page.queues.php:643
-#: queues/page.queues.php:658 queues/page.queues.php:673
-#: queues/page.queues.php:718 queues/page.queues.php:763
-#: queues/page.queues.php:776
 msgid "No"
 msgstr ""
 
-#: queues/page.queues.php:288
 msgid "Alert Info"
 msgstr ""
 
-#: queues/page.queues.php:288
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
 
-#: queues/page.queues.php:293
 msgid "Static Agents"
 msgstr ""
 
-#: queues/page.queues.php:293
 msgid ""
 "Static agents are extensions that are assumed to always be on the queue.  "
 "Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
@@ -402,24 +304,19 @@ msgid ""
 "(Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)"
 msgstr ""
 
-#: queues/page.queues.php:301 queues/page.queues.php:329
 msgid "Extension Quick Pick"
 msgstr ""
 
-#: queues/page.queues.php:303
 msgid ""
 "Choose an extension to append to the end of the static agents list above."
 msgstr ""
 
-#: queues/page.queues.php:309 queues/page.queues.php:337
 msgid "(pick extension)"
 msgstr ""
 
-#: queues/page.queues.php:321
 msgid "Dynamic Members"
 msgstr ""
 
-#: queues/page.queues.php:321
 msgid ""
 "Dynamic Members are extensions or callback numbers that can log in and out "
 "of the queue. When a member logs in to a queue, their penalty in the queue "
@@ -427,27 +324,22 @@ msgid ""
 "be logged in to the queue."
 msgstr ""
 
-#: queues/page.queues.php:331
 msgid ""
 "Choose an extension to append to the end of the dynamic member list above."
 msgstr ""
 
-#: queues/page.queues.php:349
 msgid "Restrict Dynamic Agents"
 msgstr ""
 
-#: queues/page.queues.php:349
 msgid ""
 "Restrict dynamic queue member logins to only those listed in the Dynamic "
 "Members list above. When set to Yes, members not listed will be DENIED "
 "ACCESS to the queue."
 msgstr ""
 
-#: queues/page.queues.php:355
 msgid "Agent Restrictions"
 msgstr ""
 
-#: queues/page.queues.php:355
 msgid ""
 "When set to 'Call as Dialed' the queue will call an extension just as if the "
 "queue were another user. Any Follow-Me or Call Forward states active on the "
@@ -465,27 +357,21 @@ msgid ""
 "agents, see the 'Agent Regex Filter' to provide some validation."
 msgstr ""
 
-#: queues/page.queues.php:360
 msgid "Call as Dialed"
 msgstr ""
 
-#: queues/page.queues.php:361
 msgid "No Follow-Me or Call Forward"
 msgstr ""
 
-#: queues/page.queues.php:362
 msgid "Extensions Only"
 msgstr ""
 
-#: queues/page.queues.php:368
 msgid "Queue Options"
 msgstr ""
 
-#: queues/page.queues.php:371 queues/page.queues.php:390
 msgid "Agent Announcement:"
 msgstr ""
 
-#: queues/page.queues.php:371
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -495,12 +381,9 @@ msgid ""
 "feature can not accept such recordings."
 msgstr ""
 
-#: queues/page.queues.php:378 queues/page.queues.php:408
-#: queues/page.queues.php:794
 msgid "None"
 msgstr ""
 
-#: queues/page.queues.php:390
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -508,28 +391,23 @@ msgid ""
 "\"Systems Recordings\" Module to edit this option"
 msgstr ""
 
-#: queues/page.queues.php:402 queues/page.queues.php:420
 msgid "Join Announcement:"
 msgstr ""
 
-#: queues/page.queues.php:402
 msgid ""
 "Announcement played to callers once prior to joining the queue.<br><br>To "
 "add additional recordings please use the \"System Recordings\" MENU to the "
 "left"
 msgstr ""
 
-#: queues/page.queues.php:420
 msgid ""
 "Announcement played to callers once prior to joining the queue.<br><br>You "
 "must install and enable the \"Systems Recordings\" Module to edit this option"
 msgstr ""
 
-#: queues/page.queues.php:433
 msgid "Music on Hold Class:"
 msgstr ""
 
-#: queues/page.queues.php:433
 msgid ""
 "Music (or Commercial) played to the caller while they wait in line for an "
 "available agent. Choose \"inherit\" if you want the MoH class to be what is "
@@ -537,165 +415,129 @@ msgid ""
 "defined in the \"Music on Hold\" Menu to the left."
 msgstr ""
 
-#: queues/page.queues.php:443
 msgid "inherit"
 msgstr ""
 
-#: queues/page.queues.php:444
 msgid "none"
 msgstr ""
 
-#: queues/page.queues.php:445
 msgid "default"
 msgstr ""
 
-#: queues/page.queues.php:456
 msgid "Ringing Instead of MoH:"
 msgstr ""
 
-#: queues/page.queues.php:456
 msgid ""
 "Enabling this option make callers hear a ringing tone instead of Music on "
 "Hold.<br/>If this option is enabled, settings of the previous drop down are "
 "ignored."
 msgstr ""
 
-#: queues/page.queues.php:463
 msgid "Max Wait Time:"
 msgstr ""
 
-#: queues/page.queues.php:463
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr ""
 
-#: queues/page.queues.php:470 queues/page.queues.php:584
 msgid "Unlimited"
 msgstr ""
 
-#: queues/page.queues.php:489
 msgid "Max Callers:"
 msgstr ""
 
-#: queues/page.queues.php:489
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr ""
 
-#: queues/page.queues.php:503
 msgid "Join Empty:"
 msgstr ""
 
-#: queues/page.queues.php:503
 msgid ""
 "If you wish to allow callers to join queues that currently have no agents, "
 "set this to yes. Set to strict if callers cannot join a queue with no "
 "members or only unavailable members"
 msgstr ""
 
-#: queues/page.queues.php:508 queues/page.queues.php:523
 msgid "Strict"
 msgstr ""
 
-#: queues/page.queues.php:518
 msgid "Leave When Empty:"
 msgstr ""
 
-#: queues/page.queues.php:518
 msgid ""
 "If you wish to remove callers from the queue if there are no agents present, "
 "set this to yes. Set to strict if callers cannot join a queue with no "
 "members or only unavailable members"
 msgstr ""
 
-#: queues/page.queues.php:534
 msgid "Ring Strategy:"
 msgstr ""
 
-#: queues/page.queues.php:536
 msgid "ringall"
 msgstr ""
 
-#: queues/page.queues.php:536
 msgid "ring all available agents until one answers (default)"
 msgstr ""
 
-#: queues/page.queues.php:541
 msgid "roundrobin"
 msgstr ""
 
-#: queues/page.queues.php:541
 msgid "take turns ringing each available agent"
 msgstr ""
 
-#: queues/page.queues.php:545
 msgid "leastrecent"
 msgstr ""
 
-#: queues/page.queues.php:545
 msgid "ring agent which was least recently called by this queue"
 msgstr ""
 
-#: queues/page.queues.php:546
 msgid "fewestcalls"
 msgstr ""
 
-#: queues/page.queues.php:546
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr ""
 
-#: queues/page.queues.php:547
 msgid "random"
 msgstr ""
 
-#: queues/page.queues.php:547
 msgid "ring random agent"
 msgstr ""
 
-#: queues/page.queues.php:548
 msgid "rrmemory"
 msgstr ""
 
-#: queues/page.queues.php:548
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr ""
 
-#: queues/page.queues.php:552
 msgid "linear"
 msgstr ""
 
-#: queues/page.queues.php:552
 msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
 msgstr ""
 
-#: queues/page.queues.php:553
 msgid "wrandom"
 msgstr ""
 
-#: queues/page.queues.php:553
 msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
 
-#: queues/page.queues.php:579
 msgid "Agent Timeout:"
 msgstr ""
 
-#: queues/page.queues.php:579
 msgid ""
 "The number of seconds an agent's phone can ring before we consider it a "
 "timeout. Unlimited or other timeout values may still be limited by system "
 "ringtime or individual extension defaults."
 msgstr ""
 
-#: queues/page.queues.php:594
 msgid "Retry:"
 msgstr ""
 
-#: queues/page.queues.php:594
 msgid ""
 "The number of seconds we wait before trying all the phones again. Choosing "
 "\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
@@ -703,67 +545,53 @@ msgid ""
 "attempted."
 msgstr ""
 
-#: queues/page.queues.php:599
 msgid "No Retry"
 msgstr ""
 
-#: queues/page.queues.php:609
 msgid "Wrap-Up-Time:"
 msgstr ""
 
-#: queues/page.queues.php:609
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay)"
 msgstr ""
 
-#: queues/page.queues.php:623
 msgid "Call Recording:"
 msgstr ""
 
-#: queues/page.queues.php:623
 msgid ""
 "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
 "monitor)"
 msgstr ""
 
-#: queues/page.queues.php:628
 msgid "wav49"
 msgstr ""
 
-#: queues/page.queues.php:629
 msgid "wav"
 msgstr ""
 
-#: queues/page.queues.php:630
 msgid "gsm"
 msgstr ""
 
-#: queues/page.queues.php:638
 msgid "Event When Called:"
 msgstr ""
 
-#: queues/page.queues.php:638
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
 
-#: queues/page.queues.php:653
 msgid "Member Status:"
 msgstr ""
 
-#: queues/page.queues.php:653
 msgid ""
 "When if this is option is set to YES, the following manager event will be "
 "generated: QueueMemberStatus"
 msgstr ""
 
-#: queues/page.queues.php:668
 msgid "Skip Busy Agents:"
 msgstr ""
 
-#: queues/page.queues.php:668
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
 "the line were returning busy. This means that Call Waiting or multi-line "
@@ -787,29 +615,23 @@ msgid ""
 "to the queue."
 msgstr ""
 
-#: queues/page.queues.php:675
 msgid "Yes + (ringinuse=no)"
 msgstr ""
 
-#: queues/page.queues.php:676
 msgid "Queue calls only (ringinuse=no)"
 msgstr ""
 
-#: queues/page.queues.php:687
 msgid "Queue Weight"
 msgstr ""
 
-#: queues/page.queues.php:687
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
 
-#: queues/page.queues.php:701
 msgid "Autofill:"
 msgstr ""
 
-#: queues/page.queues.php:701
 msgid ""
 "Starting with Asterisk 1.4, if this is checked, and multiple agents are "
 "available, Asterisk will send one call to each waiting agent (depending on "
@@ -819,11 +641,9 @@ msgid ""
 "documentation for more details of this feature."
 msgstr ""
 
-#: queues/page.queues.php:708
 msgid "Agent Regex Filter"
 msgstr ""
 
-#: queues/page.queues.php:708
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
 "callback number. If the callback number does not pass the regex filter then "
@@ -836,71 +656,56 @@ msgid ""
 "leave this blank!"
 msgstr ""
 
-#: queues/page.queues.php:713
 msgid "Report Hold Time:"
 msgstr ""
 
-#: queues/page.queues.php:713
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
 "connected to the caller, set this to yes."
 msgstr ""
 
-#: queues/page.queues.php:728
 msgid "Service Level:"
 msgstr ""
 
-#: queues/page.queues.php:728
 msgid ""
 "Used for service level statistics (calls answered within service level time "
 "frame)"
 msgstr ""
 
-#: queues/page.queues.php:741
 msgid "Caller Position Announcements"
 msgstr ""
 
-#: queues/page.queues.php:743
 msgid "Frequency:"
 msgstr ""
 
-#: queues/page.queues.php:743
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 msgstr ""
 
-#: queues/page.queues.php:757
 msgid "Announce Position:"
 msgstr ""
 
-#: queues/page.queues.php:757
 msgid "Announce position of caller in the queue?"
 msgstr ""
 
-#: queues/page.queues.php:770
 msgid "Announce Hold Time:"
 msgstr ""
 
-#: queues/page.queues.php:770
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
 msgstr ""
 
-#: queues/page.queues.php:777
 msgid "Once"
 msgstr ""
 
-#: queues/page.queues.php:783
 msgid "Periodic Announcements"
 msgstr ""
 
-#: queues/page.queues.php:788
 msgid "IVR Break Out Menu:"
 msgstr ""
 
-#: queues/page.queues.php:788
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
 "<br><br>This IVR must only contain single-digit 'dialed options'. The "
@@ -908,19 +713,15 @@ msgid ""
 "Frequency', below."
 msgstr ""
 
-#: queues/page.queues.php:810 queues/page.queues.php:815
 msgid "Menu ID "
 msgstr ""
 
-#: queues/page.queues.php:826
 msgid "(**) ERRORS"
 msgstr ""
 
-#: queues/page.queues.php:826
 msgid "(**) Warning Potential Errors"
 msgstr ""
 
-#: queues/page.queues.php:830
 msgid ""
 "ERROR: You have selected an IVR's that use Announcements created from "
 "compound sound files. The Queue is not able to play these announcements. "
@@ -930,54 +731,43 @@ msgid ""
 "but the Queue subsystem can not"
 msgstr ""
 
-#: queues/page.queues.php:830
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
 
-#: queues/page.queues.php:843
 msgid "Repeat Frequency:"
 msgstr ""
 
-#: queues/page.queues.php:843
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
 
-#: queues/page.queues.php:864
 msgid "Fail Over Destination"
 msgstr ""
 
-#: queues/page.queues.php:870
 msgid "Submit Changes"
 msgstr ""
 
-#: queues/page.queues.php:893
 msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
 msgstr ""
 
-#: queues/page.queues.php:904
 msgid "Queue Number must not be blank"
 msgstr ""
 
-#: queues/page.queues.php:910
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr ""
 
-#: queues/queues.i18n.php:5 queues/queues.i18n.php:11
 msgid "Queues"
 msgstr ""
 
-#: queues/queues.i18n.php:7
 msgid "Inbound Call Control"
 msgstr ""
 
-#: queues/queues.i18n.php:9
 msgid ""
 "Creates a queue where calls are placed on hold and answered on a first-in, "
 "first-out basis. Many options are available, including ring strategy for "
