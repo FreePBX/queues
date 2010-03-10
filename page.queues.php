@@ -188,25 +188,25 @@ if ($action == 'delete') {
     if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
       switch ($matches[1]) {
         case 'Agent':
-          $prefix = 'A';
+          $exten_prefix = 'A';
           break;
         case 'SIP':
-          $prefix = 'S';
+          $exten_prefix = 'S';
           break;
         case 'IAX2':
-          $prefix = 'X';
+          $exten_prefix = 'X';
           break;
         case 'ZAP':
-          $prefix = 'Z';
+          $exten_prefix = 'Z';
           break;
         case 'DAHDI':
-          $prefix = 'D';
+          $exten_prefix = 'D';
           break;
         case 'Local':
-          $prefix = '';
+          $exten_prefix = '';
           break;
       }
-      $mem_array[] = $prefix.$matches[2].','.$matches[3];
+      $mem_array[] = $_exten_prefix.$matches[2].','.$matches[3];
     }
   }
 	
