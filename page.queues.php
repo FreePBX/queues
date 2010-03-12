@@ -206,7 +206,7 @@ if ($action == 'delete') {
           $exten_prefix = '';
           break;
       }
-      $mem_array[] = $_exten_prefix.$matches[2].','.$matches[3];
+      $mem_array[] = $exten_prefix.$matches[2].','.$matches[3];
     }
   }
 	
