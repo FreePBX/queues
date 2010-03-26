@@ -929,6 +929,9 @@ function queues_get($account, $queues_conf_only=false) {
 function queue_app_toggle($c) {
 	global $ext;
 	global $amp_conf;
+	global $version;
+
+  $DEVSTATE = version_compare($version, "1.6", "ge") ? "DEVICE_STATE" : "DEVSTATE";
 
 	$id = "app-queue-toggle"; // The context to be included
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
@@ -978,7 +981,7 @@ function queue_app_toggle($c) {
 		$ext->add($id, $c, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'return'));
 		$ext->add($id, $c, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '1'));
-		$ext->add($id, $c, 'begin', new ext_setvar('DEVSTATE(Custom:QUEUE${CUT(DEVICES,&,${ITER})}*${QUEUENO})','${STATE}'));
+		$ext->add($id, $c, 'begin', new ext_setvar($DEVSTATE.'(Custom:QUEUE${CUT(DEVICES,&,${ITER})}*${QUEUENO})','${STATE}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
