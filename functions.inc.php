@@ -883,6 +883,29 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['qregex']        = $config['qregex'];
 		$results['queuewait']     = $config['queuewait'];
 		$results['use_queue_context'] = $config['use_queue_context'];
+
+    // TODO: why the str_replace?
+    //
+	  if ($astman) {
+	    $account=str_replace("'",'',$account);
+	    //get dynamic members priority from astDB
+	    $get=$astman->database_show('QPENALTY/'.$account.'/agents');
+	    if($get){
+		    foreach($get as $key => $value){
+			    $key=explode('/',$key);
+			    $mem[$key[4]]=$value;
+		    }
+		    foreach($mem as $mem => $pnlty){
+			    $dynmem[]=$mem.','.$pnlty;
+		    }
+	      $results['dynmembers']=implode("\n",$dynmem);
+	    } else {
+	      $results['dynmembers']='';
+      }
+	    $results['dynmemberonly'] = $astman->database_get('QPENALTY/'.$account,'dynmemberonly');
+	  } else {
+		  fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+	  }
 	}
 
 	$results['context'] = '';
@@ -900,28 +923,6 @@ function queues_get($account, $queues_conf_only=false) {
 				$results['periodic-announce'] = $periodic_arr[0];
 			}
 		}
-	}
-  // TODO: why the str_replace?
-  //
-	if ($astman) {
-	  $account=str_replace("'",'',$account);
-	  //get dynamic members priority from astDB
-	  $get=$astman->database_show('QPENALTY/'.$account.'/agents');
-	  if($get){
-		  foreach($get as $key => $value){
-			  $key=explode('/',$key);
-			  $mem[$key[4]]=$value;
-		  }
-		  foreach($mem as $mem => $pnlty){
-			  $dynmem[]=$mem.','.$pnlty;
-		  }
-	    $results['dynmembers']=implode("\n",$dynmem);
-	  } else {
-	    $results['dynmembers']='';
-     }
-	  $results['dynmemberonly'] = $astman->database_get('QPENALTY/'.$account,'dynmemberonly');
-	} else {
-		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
 	return $results;
 }
