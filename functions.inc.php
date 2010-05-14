@@ -483,6 +483,7 @@ function queues_get_config($engine) {
           }
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_hangup());
 				}
+ 				$ext->add($from_queue_exten_only, 'h', '', new ext_macro('hangupcall'));
 			}
 
 			/*

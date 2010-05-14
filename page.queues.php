@@ -136,7 +136,8 @@ if(isset($_POST['action'])){
 				} else {
 					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly);
 					needreload();
-					redirect_standard();
+          $_REQUEST['extdisplay'] = $account;
+					redirect_standard('extdisplay');
 				}
 			break;
 			case "delete":
@@ -535,7 +536,6 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 				<span>
 					<b><?php echo _("ringall")?></b>:  <?php echo _("ring all available agents until one answers (default)")?><br>
 <?php
-  $ast_ge_16=true;
         if (!$ast_ge_16) {
 ?>
 					<b><?php echo _("roundrobin")?></b>: <?php echo _("take turns ringing each available agent")?><br>
