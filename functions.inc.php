@@ -427,6 +427,10 @@ function queues_get_config($engine) {
 					  $ext->add('ext-queues', $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
           }
 					$ext->add('ext-queues', $exten."**", '', new ext_macro('agent-del',"$exten"));
+					if ($que_code != '') {
+            $ext->add('ext-queues', $que_code.$exten, '', new ext_setvar('QUEUENO',$exten));
+            $ext->add('ext-queues', $que_code.$exten, '', new ext_goto('start','s','app-queue-toggle'));
+          }
 					/* Trial Devstate */
 					// Create Hints for Devices and Add Astentries for Users
 					// Clean up the Members array
@@ -434,7 +438,7 @@ function queues_get_config($engine) {
 						$device_list = core_devices_list("all", false, true);
 						foreach ($device_list as $device) {
 							$ext->add('ext-queues', $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUENO',$exten));
-							$ext->add('ext-queues', $que_code.$device['id'].'*'.$exten, '', new ext_goto("1",$que_code,"app-queue-toggle"));
+							$ext->add('ext-queues', $que_code.$device['id'].'*'.$exten, '', new ext_goto('start','s','app-queue-toggle'));
 							$ext->addHint('ext-queues', $que_code.$device['id'].'*'.$exten, "Custom:QUEUE".$device['id'].'*'.$exten);
 						}
 					}
@@ -938,43 +942,42 @@ function queue_app_toggle($c) {
 	$id = "app-queue-toggle"; // The context to be included
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
-	$ext->add($id, $c, '', new ext_goto('start','s',$id));
 	$c = 's';
 
 	$ext->add($id, $c, 'start', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_macro('user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUESTAT', 'LOGGEDOUT'));
-	$ext->add($id, $c, '', new ext_deadagi('queue_devstate.agi,getqueues,${AMPUSER}'));
+	$ext->add($id, $c, '', new ext_agi('queue_devstate.agi,getqueues,${AMPUSER}'));
 
 	$ext->add($id, $c, '', new ext_gotoif('$["${QUEUESTAT}" = "LOGGEDOUT"]', 'activate'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${QUEUESTAT}" = "LOGGEDIN"]', 'deactivate'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${QUEUESTAT}" = "STATIC"]', 'static','end'));
 	$ext->add($id, $c, 'deactivate', new ext_noop('Agent Logged out'));
+	$ext->add($id, $c, '', new ext_macro('toggle-del-agent'));
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
-		$ext->add($id, $c, '', new ext_macro('toggle-del-agent'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
-		$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
 		}
+	$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	$ext->add($id, $c, 'activate', new ext_noop('Agent Logged In'));
+	$ext->add($id, $c, '', new ext_macro('toggle-add-agent'));
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'INUSE'));
-		$ext->add($id, $c, '', new ext_macro('toggle-add-agent'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
-		$ext->add($id, $c, '', new ext_playback('agent-loginok'));
-		$ext->add($id, $c, '', new ext_saydigits('${CALLBACKNUM}'));
 	}
+	$ext->add($id, $c, '', new ext_playback('agent-loginok'));
+	$ext->add($id, $c, '', new ext_saydigits('${CALLBACKNUM}'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	$ext->add($id, $c, 'static', new ext_noop('User is a Static Agent'));
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
-		$ext->add($id, $c, '', new ext_playback('agent-loginok'));
 	}
+	$ext->add($id, $c, '', new ext_playback('agent-loginok'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	if ($amp_conf['USEDEVSTATE']) {
