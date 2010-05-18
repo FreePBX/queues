@@ -43,7 +43,7 @@
 	switch ($action) {
 		case 'getqueues':
 			$new_user = get_login_user();
-			$queueno=get_var(QUEUENO);
+			$queueno=get_var('QUEUENO');
 			sortqueues();
 			debug("Getting Queue Status for user $new_user in queue $queueno");
 			$loggedvar=(array_search(trim($new_user),$logged_agents_array[$queueno]))?'LOGGEDIN':'LOGGEDOUT';
@@ -78,6 +78,7 @@
 		foreach ($response1 as $item) {
 			$item1=trim($item);
 			if ($inqueue == 'false') {
+        //TODO: deprecated ereg
 				if (ereg('(\\d+)',$item1)) {
 					preg_match_all ("/(\\d+)/is", $item1,$matches);
 					if ($matches[1][0] != '') {
@@ -89,6 +90,7 @@
 				}
 			} else {
 				// We should test to see if the item is an Agent description
+        //TODO: deprecated ereg
 				if (ereg('Local',$item1)) {
 					preg_match_all ("/(Local).*?(\\d+)/is", $item1, $matches);
 					$loggedagent=$matches[2][0];
@@ -102,7 +104,7 @@
 					break;
 				
 				case 'No Members':
-					debug("Queue $inqueue has noone logged in");
+					debug("Queue $inqueue has no one logged in");
 					$inqueue='false';
 					break;
 
@@ -113,6 +115,7 @@
 					break;
 				case 'ADD':
 					$logged_agents_array[$inqueue][]=$loggedagent;
+            //TODO: deprecated ereg
 						if (ereg('(dynamic)',$item)) {
 							debug("Agent $loggedagent is dynamic");
 						}else{
