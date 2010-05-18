@@ -43,6 +43,7 @@ class queues_conf {
 		//
 		$ver12 = version_compare($ast_version, '1.4', 'lt');
 		$ver16 = version_compare($ast_version, '1.6', 'ge');
+    $ast_ge_14_25 = version_compare($ast_version,'1.4.25','ge');
 		
 		// legacy but in case someone was using this we will leave it
 		//
@@ -58,7 +59,7 @@ class queues_conf {
 			$additional .= $result['keyword']."=".$result['data']."\n";
 		}
 
-    if ($amp_conf['USEQUEUEDEVICE']) {
+    if ($ast_ge_14_25) {
 		  $devices = array();
 		  $device_results = core_devices_list('all','full',true);
 		  if (is_array($device_results)) {
@@ -70,7 +71,7 @@ class queues_conf {
 			  unset($device_results);
 		  }
     }
-    if ($amp_conf['USEQUEUESTATE'] || $amp_conf['USEQUEUEDEVICE']) {
+    if ($amp_conf['USEQUEUESTATE'] || $ast_ge_14_25) {
 		  $users = array();
 		  $user_results = core_users_list();
 		  if (is_array($user_results)) {
@@ -151,7 +152,7 @@ class queues_conf {
 					  $output .= "member=".$member."\n";
 				  }
 			  }
-      } else if ($amp_conf['USEQUEUEDEVICE']) {
+      } else if ($ast_ge_14_25) {
 			  foreach ($members as $member) {
 				  preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
 				  if (isset($matches[1]) && isset($devices[$matches[1]])) {
@@ -199,9 +200,6 @@ class queues_conf {
 		}
 		return $output;
 	}
-
-
-
 }
 
 // The destinations this module provides
@@ -297,6 +295,7 @@ function queues_get_config($engine) {
 
       $ast_ge_14 = version_compare($version,'1.4','ge');
       $ast_ge_16 = version_compare($version,'1.6','ge');
+      $ast_ge_14_25 = version_compare($version,'1.4.25','ge');
 
       $has_extension_state = $ast_ge_16;
 			if ($ast_ge_14 && !$ast_ge_16) {
@@ -521,7 +520,7 @@ function queues_get_config($engine) {
 				foreach($userlist as $item) {
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_setvar('RingGroupMethod', 'none'));
 					$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('record-enable',$item[0].",IN"));
-          if ($amp_conf['USEDIALONE'] && $has_extension_state) {
+          if ($has_extension_state) {
 					  $ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS},'.$item[0]));
           } else {
 					  $ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial',',${DIAL_OPTIONS},'.$item[0]));
@@ -545,7 +544,7 @@ function queues_get_config($engine) {
 			$ext->add($context, $exten, '', new ext_gotoif('$[${LEN(${CALLBACKNUM})}=0]','a5','a7'));  // if user just pressed # or timed out, use cidnum
 			$ext->add($context, $exten, 'a5', new ext_set('CALLBACKNUM', '${IF($[${LEN(${AMPUSER})}=0]?${CALLERID(number)}:${AMPUSER})}'));
 
-      if ($amp_conf['USEQUEUEDEVICE']) {
+      if ($ast_ge_14_25) {
 			  $ext->add($context, $exten, '', new ext_set('THISDEVICE', '${DB(DEVICE/${REALCALLERIDNUM}/dial)}'));
       }
 			$ext->add($context, $exten, '', new ext_gotoif('$["${CALLBACKNUM}" = ""]', 'a3'));  // if still no number, start over
@@ -566,7 +565,7 @@ function queues_get_config($engine) {
       if ($amp_conf['USEQUEUESTATE']) {
 			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
 			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})}'));
-      } else if ($amp_conf['USEQUEUEDEVICE']) {
+      } else if ($ast_ge_14_25) {
 			  $ext->add($context, $exten, '', new ext_set('THISDEVICE', '${IF($[${LEN(${THISDEVICE})}=0]?${DB(DEVICE/${CUT(DB(AMPUSER/${CALLBACKNUM}/device),&,1)}/dial)}:${THISDEVICE})}'));
 			  $ext->add($context, $exten, '', new ext_execif('$[${LEN(${THISDEVICE})}!=0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},${THISDEVICE}'));
 			  $ext->add($context, $exten, '', new ext_execif('$[${LEN(${THISDEVICE})}=0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})}'));
@@ -1042,7 +1041,9 @@ function queue_app_toggle($c) {
 function queue_agent_add_toggle() {
 	global $ext;
 	global $amp_conf;
+	global $version;
 
+  $ast_ge_14_25 = version_compare($version,'1.4.25','ge');
 	$id = "macro-toggle-add-agent"; // The context to be included
 
 	$c = 's';
@@ -1054,7 +1055,7 @@ function queue_agent_add_toggle() {
   $ext->add($id, $c, '', new ext_gotoif('$["${DB(QPENALTY/${QUEUENO}/dynmemberonly)}" = "yes" & ${DB_EXISTS(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})} != 1]', 'invalid'));
   if ($amp_conf['USEQUEUESTATE']) {
 	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
-  } else if ($amp_conf['USEQUEUEDEVICE']) {
+  } else if ($ast_ge_14_25) {
 	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},${DB(DEVICE/${REALCALLERIDNUM}/dial)}'));
   } else {
 	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})}'));
