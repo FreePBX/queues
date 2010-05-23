@@ -454,7 +454,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 <?php } ?>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Ringing Instead of MoH:")?><span><?php echo _("Enabling this option make callers hear a ringing tone instead of Music on Hold.<br/>If this option is enabled, settings of the previous drop down are ignored.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Ringing Instead of MoH:")?><span><?php echo _("Enabling this option make callers hear a ringing tone instead of Music on Hold.<br/>Enabling this ignores any Music on Hold Class selected as well as ignoring any configured periodic announcements configured.")?></span></a></td>
 		<td>
 			<input name="rtone" type="checkbox" value="1" <?php echo (isset($rtone) && $rtone == 1 ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
 		</td>
