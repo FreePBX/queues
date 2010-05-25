@@ -475,7 +475,7 @@ function queues_get_config($engine) {
               fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
             }
 						foreach ($device_list as $device) {
-              if (!$dynmemberonly || $device['devicetype'] == 'adhoc' || isset($mem[$device['user']])) {
+              if ((!$dynmemberonly||$device['devicetype']=='adhoc'||isset($mem[$device['user']]))&&($device['tech']=='sip'||$device['tech']=='iax2')) {
 							  $ext->add('ext-queues', $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUENO',$exten));
 							  $ext->add('ext-queues', $que_code.$device['id'].'*'.$exten, '', new ext_goto('start','s','app-queue-toggle'));
 							  $ext->addHint('ext-queues', $que_code.$device['id'].'*'.$exten, "Custom:QUEUE".$device['id'].'*'.$exten);
