@@ -456,7 +456,7 @@ function queues_get_config($engine) {
 					/* Trial Devstate */
 					// Create Hints for Devices and Add Astentries for Users
 					// Clean up the Members array
-					if ($amp_conf['USEDEVSTATE'] && $que_code != '') {
+					if ($q['togglehint'] && $amp_conf['USEDEVSTATE'] && $que_code != '') {
             if (!isset($device_list)) {
 						  $device_list = core_devices_list("all", 'full', true);
             }
@@ -632,7 +632,7 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0') {
   global $db,$astman,$amp_conf;
 
 	if (trim($account) == '') {
@@ -706,10 +706,11 @@ $fields = array(
 	$queuewait     = isset($queuewait) ? $queuewait:'0';
 	$qregex        = isset($qregex) ? $db->escapeSimple($qregex):'';
 	$use_queue_context = isset($use_queue_context) ? $use_queue_context:'0';
+	$togglehint    = isset($togglehint) ? $togglehint:'0';
 
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint')	";
 	$results = sql($sql);
 
   // store dynamic member data in astDB
@@ -934,6 +935,7 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['qregex']        = $config['qregex'];
 		$results['queuewait']     = $config['queuewait'];
 		$results['use_queue_context'] = $config['use_queue_context'];
+		$results['togglehint']    = $config['togglehint'];
 
     // TODO: why the str_replace?
     //

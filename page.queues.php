@@ -31,6 +31,7 @@ $rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
 $qregex = isset($_REQUEST['qregex'])?$_REQUEST['qregex']:'';
 $weight = isset($_REQUEST['weight'])?$_REQUEST['weight']:'0';
 $autofill = isset($_REQUEST['autofill'])?$_REQUEST['autofill']:'no';
+$togglehint = isset($_REQUEST['togglehint'])?$_REQUEST['togglehint']:'0';
 $dynmemberonly = isset($_REQUEST['dynmemberonly'])?$_REQUEST['dynmemberonly']:'no';
 $use_queue_context = isset($_REQUEST['use_queue_context'])?$_REQUEST['use_queue_context']:'0';
 $exten_context = "from-queue";
@@ -134,7 +135,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint);
 					needreload();
           $_REQUEST['extdisplay'] = $account;
 					redirect_standard('extdisplay');
@@ -147,7 +148,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -264,6 +265,15 @@ if ($action == 'delete') {
 		<td><a href="#" class="info"><?php echo _("Queue Password:")?><span><?php echo _("You can require agents to enter a password before they can log in to this queue.<br><br>This setting is optional.")?></span></a></td>
 		<td><input type="text" name="password" value="<?php echo (isset($password) ? $password : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
+
+<?php if ($amp_conf['USEDEVSTATE']) { ?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Generate Device Hints:")?><span><?php echo _("If checked, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state..")?></span></a></td>
+		<td>
+			<input name="togglehint" type="checkbox" value="1" <?php echo (isset($togglehint) && $togglehint == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
+		</td>
+	</tr>
+<?php } ?>
 	
 	<tr>
 		<td><a href="#" class="info"><?php echo _("CID Name Prefix:")?><span><?php echo _("You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring.")?></span></a></td>

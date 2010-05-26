@@ -138,6 +138,9 @@ if(DB::IsError($results)) {
 		  dest varchar(50) NOT NULL default '',
 		  cwignore tinyint(1) NOT NULL default '0',
 		  `qregex` VARCHAR( 255 ) NULL,
+			`queuewait` TINYINT( 1 ) DEFAULT 0,
+			`use_queue_context` TINYINT( 1 ) DEFAULT 0,
+			`togglehint` TINYINT( 1 ) DEFAULT 0,
 		PRIMARY KEY  (extension)
 		)
 		";
@@ -157,6 +160,9 @@ if(DB::IsError($results)) {
 		  ivr_id varchar(8) NOT NULL default '0',
 		  dest varchar(50) NOT NULL default '',
 		  cwignore tinyint(1) NOT NULL default '0',
+			`queuewait` TINYINT( 1 ) DEFAULT 0,
+			`use_queue_context` TINYINT( 1 ) DEFAULT 0,
+			`togglehint` TINYINT( 1 ) DEFAULT 0,
 		PRIMARY KEY  (extension)
 		)
 		";
@@ -483,6 +489,21 @@ $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	// add new field
 	$sql = "ALTER TABLE queues_config ADD `use_queue_context` TINYINT( 1 ) DEFAULT 0";
+	$result = $db->query($sql);
+	if(DB::IsError($result)) {
+		die_freepbx($result->getDebugInfo());
+	}
+	out(_("OK"));
+} else {
+	out(_("already exists"));
+}
+
+outn(_("checking for togglehint field.."));
+$sql = "SELECT `togglehint` FROM queues_config";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+	// add new field
+	$sql = "ALTER TABLE queues_config ADD `togglehint` TINYINT( 1 ) DEFAULT 0";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
 		die_freepbx($result->getDebugInfo());
