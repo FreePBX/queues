@@ -268,7 +268,7 @@ if ($action == 'delete') {
 
 <?php if ($amp_conf['USEDEVSTATE']) { ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Generate Device Hints:")?><span><?php echo _("If checked, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state..")?></span></a></td>
+  <td><a href="#" class="info"><?php echo _("Generate Device Hints:")?><span><?php echo _("If checked, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number.")?></span></a></td>
 		<td>
 			<input name="togglehint" type="checkbox" value="1" <?php echo (isset($togglehint) && $togglehint == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
 		</td>
