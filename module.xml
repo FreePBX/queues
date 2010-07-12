@@ -1,7 +1,7 @@
 <module>
 	<rawname>queues</rawname>
 	<name>Queues</name>
-	<version>2.8.0.2</version>
+	<version>2.8.0.3</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<type>setup</type>
@@ -10,6 +10,7 @@
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
 	</description>
 	<changelog>
+		*2.8.0.3* localization updates
 		*2.8.0.2* #4327
 		*2.8.0.1* #4297
 		*2.8.0.0* #4165, #4187, #4279, #4280, #2203
@@ -63,6 +64,6 @@
 	<menuitems>
 		<queues needsenginedb="yes">Queues</queues>
 	</menuitems>
-	<location>release/2.8/queues-2.8.0.2.tgz</location>
-	<md5sum>9bd44e2aeecc6046fccda144f6ee071b</md5sum>
+	<location>release/2.8/queues-2.8.0.3.tgz</location>
+	<md5sum>28f889b3a8cc68050509038dc5190d31</md5sum>
 </module>
