@@ -2,9 +2,7 @@
 
 global $db;
 
-$fcc = new featurecode('queues', 'que_toggle');
-$fcc->delete();
-unset($fcc);
+// Don't bother uninstalling feature codes, now module_uninstall does it
 
 sql('DROP TABLE IF EXISTS queues_details');
 sql('DROP TABLE IF EXISTS queues_config');
