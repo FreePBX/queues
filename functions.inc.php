@@ -147,7 +147,7 @@ class queues_conf {
 				  if (isset($matches[1]) && isset($users[$matches[1]])) {
 					  $name = $users[$matches[1]];
 					  str_replace(',','\,',$name);
-					  $output .= "member=$member,$name,HINT:".$matches[1]."@ext-local\n";
+					  $output .= "member=$member,$name,hint:".$matches[1]."@ext-local\n";
 				  } else {
 					  $output .= "member=".$member."\n";
 				  }
@@ -563,7 +563,7 @@ function queues_get_config($engine) {
 
 
       if ($amp_conf['USEQUEUESTATE']) {
-			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
+			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},hint:${CALLBACKNUM}@ext-local'));
 			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})}'));
       } else if ($ast_ge_14_25) {
 			  $ext->add($context, $exten, '', new ext_set('THISDEVICE', '${IF($[${LEN(${THISDEVICE})}=0]?${DB(DEVICE/${CUT(DB(AMPUSER/${CALLBACKNUM}/device),&,1)}/dial)}:${THISDEVICE})}'));
@@ -1056,7 +1056,7 @@ function queue_agent_add_toggle() {
   //TODO: check if it's not a user for some reason and abort?
   $ext->add($id, $c, '', new ext_gotoif('$["${DB(QPENALTY/${QUEUENO}/dynmemberonly)}" = "yes" & ${DB_EXISTS(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})} != 1]', 'invalid'));
   if ($amp_conf['USEQUEUESTATE']) {
-	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},HINT:${CALLBACKNUM}@ext-local'));
+	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},hint:${CALLBACKNUM}@ext-local'));
   } else if ($ast_ge_14_25) {
 	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},${DB(DEVICE/${REALCALLERIDNUM}/dial)}'));
   } else {

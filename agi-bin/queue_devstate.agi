@@ -81,7 +81,7 @@
         //TODO: deprecated ereg
 				if (ereg('(\\d+)',$item1)) {
 					preg_match_all ("/(\\d+)/is", $item1,$matches);
-					if ($matches[1][0] != '') {
+					if (isset($matches[1][0]) && $matches[1][0] != '') {
 						$queues[]=$matches[1][0];
 						$inqueue=$matches[1][0];
 						$logged_agents_array[$inqueue][]='';
