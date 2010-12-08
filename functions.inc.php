@@ -501,6 +501,9 @@ function queues_get_config($engine) {
 					$ext->add('from-queue', $exten, '', new ext_goto('1','${QAGENT}',$agent_context));
 				}
 			}
+			// We need to have a hangup here, if call is ended by the caller during Playback it will end in the
+			// h context and do a proper hangup and clean the BLKVM, see #4671
+			$ext->add('ext-queues', 'h', '', new ext_macro('hangupcall'));			
 			// NODEST will be the queue that this came from, so we will vector though an entry to determine the context the
 			// agent should be delivered to. All queue calls come here, this decides if the should go direct to from-internal
 			// or indirectly through from-queue-exten-only to trap extension calls and avoid their follow-me, etc.
