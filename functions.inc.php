@@ -831,6 +831,11 @@ function queues_check_destinations($dest=true) {
 	return $destlist;
 }
 
+function queue_change_destination($old_dest, $new_dest) {
+	$sql = 'UPDATE queues_config SET dest = "' . $new_dest . '" WHERE dest = "' . $old_dest . '"';
+	sql($sql, "query");
+}
+
 function queues_check_compoundrecordings() {
 	global $db;
 
