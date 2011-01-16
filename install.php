@@ -513,6 +513,8 @@ if(DB::IsError($check)) {
 	out(_("already exists"));
 }
 
+$freepbx_conf =& freepbx_conf::create();
+
   // USEQUEUESTATE
   //
   $set['value'] = false;
