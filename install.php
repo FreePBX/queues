@@ -525,6 +525,7 @@ $freepbx_conf =& freepbx_conf::create();
   $set['module'] = 'queues';
   $set['category'] = 'System Setup';
   $set['emptyok'] = 0;
+  $set['name'] = 'Asterisk Queues Patch 15168 Installed';
   $set['description'] = 'Setting this flag will generate the required dialplan to integrate with the following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state is now standard and always used. This asterisk patch is only available on Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some queue behavior and should be avoided';
   $set['type'] = CONF_TYPE_BOOL;
   $freepbx_conf->define_conf_setting('USEQUEUESTATE',$set,true);
