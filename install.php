@@ -9,18 +9,6 @@ $fcc->setDefault('*45');
 $fcc->update();
 unset($fcc);
 
-if (! function_exists("out")) {
-	function out($text) {
-		echo $text."<br />";
-	}
-}
-
-if (! function_exists("outn")) {
-	function outn($text) {
-		echo $text;
-	}
-}
-
 $results = array();
 $sql = "SELECT args, extension, priority FROM extensions WHERE context = 'ext-queues' AND descr = 'jump'";
 $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
