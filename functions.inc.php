@@ -345,7 +345,10 @@ function queues_get_config($engine) {
 					str_replace(';','\;',$qregex);
 					
 					$ext->add('ext-queues', $exten, '', new ext_macro('user-callerid'));
-					$ext->add('ext-queues', $exten, '', new ext_answer(''));
+					
+					if (isset($q['qnoanswer']) && $q['qnoanswer'] == FALSE) {
+						$ext->add('ext-queues', $exten, '', new ext_answer(''));
+					}
 
 					// block voicemail until phone is answered at which point a macro should be called on the answering
 					// line to clear this flag so that subsequent transfers can occur.
@@ -389,6 +392,11 @@ function queues_get_config($engine) {
 					$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
 					if($joinannounce_id) {
 						$joinannounce = recordings_get_file($joinannounce_id);
+					
+						if (isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE) {
+							$joinannounce = $joinannounce.', noanswer';
+						}
+
 						$ext->add('ext-queues', $exten, '', new ext_playback($joinannounce));
 					}
 					$options = 't';
@@ -635,7 +643,7 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0', $qnoanswer = '0') {
   global $db,$astman,$amp_conf;
 
 	if (trim($account) == '') {
@@ -710,10 +718,11 @@ $fields = array(
 	$qregex        = isset($qregex) ? $db->escapeSimple($qregex):'';
 	$use_queue_context = isset($use_queue_context) ? $use_queue_context:'0';
 	$togglehint    = isset($togglehint) ? $togglehint:'0';
+	$qnoanswer     = isset($qnoanswer) ? $qnoanswer:'0';
 
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint, qnoanswer)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint', '$qnoanswer')	";
 	$results = sql($sql);
 
   // store dynamic member data in astDB
@@ -944,6 +953,7 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['queuewait']     = $config['queuewait'];
 		$results['use_queue_context'] = $config['use_queue_context'];
 		$results['togglehint']    = $config['togglehint'];
+		$results['qnoanswer']     = $config['qnoanswer'];
 
     // TODO: why the str_replace?
     //

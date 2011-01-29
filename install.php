@@ -129,6 +129,7 @@ if(DB::IsError($results)) {
 			`queuewait` TINYINT( 1 ) DEFAULT 0,
 			`use_queue_context` TINYINT( 1 ) DEFAULT 0,
 			`togglehint` TINYINT( 1 ) DEFAULT 0,
+			`qnoanswer` TINYINT( 1 ) DEFAULT 0,
 		PRIMARY KEY  (extension)
 		)
 		";
@@ -151,6 +152,7 @@ if(DB::IsError($results)) {
 			`queuewait` TINYINT( 1 ) DEFAULT 0,
 			`use_queue_context` TINYINT( 1 ) DEFAULT 0,
 			`togglehint` TINYINT( 1 ) DEFAULT 0,
+			`qnoanswer` TINYINT( 1 ) DEFAULT 0,
 		PRIMARY KEY  (extension)
 		)
 		";
@@ -499,6 +501,21 @@ if(DB::IsError($check)) {
 	out(_("OK"));
 } else {
 	out(_("already exists"));
+}
+
+outn(_("checking for qnoanswer field.."));
+$sql = "SELECT `qnoanswer` FROM queues_config";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+        // add new field
+	$sql = "ALTER TABLE queues_config ADD `qnoanswer` TINYINT( 1 ) DEFAULT 0";
+        $result = $db->query($sql);
+        if(DB::IsError($result)) {
+                die_freepbx($result->getDebugInfo());
+        }
+        out(_("OK"));
+} else {
+        out(_("already exists"));
 }
 
 $freepbx_conf =& freepbx_conf::create();

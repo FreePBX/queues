@@ -35,6 +35,7 @@ $togglehint = isset($_REQUEST['togglehint'])?$_REQUEST['togglehint']:'0';
 $dynmemberonly = isset($_REQUEST['dynmemberonly'])?$_REQUEST['dynmemberonly']:'no';
 $use_queue_context = isset($_REQUEST['use_queue_context'])?$_REQUEST['use_queue_context']:'0';
 $exten_context = "from-queue";
+$qnoanswer = isset($_REQUEST['qnoanswer'])?$_REQUEST['qnoanswer']:'0';
 
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
@@ -135,7 +136,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer);
 					needreload();
           $_REQUEST['extdisplay'] = $account;
 					redirect_standard('extdisplay');
@@ -148,7 +149,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -265,6 +266,13 @@ if ($action == 'delete') {
 		<td><a href="#" class="info"><?php echo _("Queue Password:")?><span><?php echo _("You can require agents to enter a password before they can log in to this queue.<br><br>This setting is optional.")?></span></a></td>
 		<td><input type="text" name="password" value="<?php echo (isset($password) ? $password : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
+
+	<tr>
+  <td><a href="#" class="info"><?php echo _("Queue No Answer:")?><span><?php echo _("If checked, the queue will not answer the call.")?></span></a></td>
+                <td>
+                        <input name="qnoanswer" type="checkbox" value="1" <?php echo (isset($qnoanswer) && $qnoanswer == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
+                </td>
+        </tr>
 
 <?php if ($amp_conf['USEDEVSTATE']) { ?>
 	<tr>
