@@ -358,9 +358,7 @@ function queues_get_config($engine) {
 					}
           // If extension_only don't do this and CFIGNORE
           if($q['use_queue_context'] != '2') {
-					  $ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_OVERRIDE', 'BLKVM/${EXTEN}/${CHANNEL}'));
-					  $ext->add('ext-queues', $exten, '', new ext_setvar('__BLKVM_BASE', '${EXTEN}'));
-					  $ext->add('ext-queues', $exten, '', new ext_setvar('DB(${BLKVM_OVERRIDE})', 'TRUE'));
+					  $ext->add('ext-queues', $exten, '', new ext_macro('blkvm-set', 'reset'));
 					  $ext->add('ext-queues', $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)'));
           }
 
@@ -427,7 +425,7 @@ function queues_get_config($engine) {
 					$ext->add('ext-queues', $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
  
           if($q['use_queue_context'] != '2') {
-					  $ext->add('ext-queues', $exten, '', new ext_dbdel('${BLKVM_OVERRIDE}'));
+					  $ext->add('ext-queues', $exten, '', new ext_macro('blkvm-clr'));
           }
  					// If we are here, disable the NODEST as we want things to resume as normal
  					//
@@ -510,7 +508,7 @@ function queues_get_config($engine) {
 				}
 			}
 			// We need to have a hangup here, if call is ended by the caller during Playback it will end in the
-			// h context and do a proper hangup and clean the BLKVM, see #4671
+			// h context and do a proper hangup and clean the blkvm if set, see #4671
 			$ext->add('ext-queues', 'h', '', new ext_macro('hangupcall'));			
 			// NODEST will be the queue that this came from, so we will vector though an entry to determine the context the
 			// agent should be delivered to. All queue calls come here, this decides if the should go direct to from-internal
