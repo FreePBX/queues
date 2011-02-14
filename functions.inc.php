@@ -370,7 +370,10 @@ function queues_get_config($engine) {
 					
 					if (isset($q['qnoanswer']) && $q['qnoanswer'] == FALSE) {
 						$ext->add('ext-queues', $exten, '', new ext_answer(''));
-					}
+					} else {
+            // TODO: should this only be set if noanswer + (!ringtones || joinannounce)???
+					  $ext->add('ext-queues', $exten, '', new ext_progress());
+          }
 
 					// block voicemail until phone is answered at which point a macro should be called on the answering
 					// line to clear this flag so that subsequent transfers can occur.
