@@ -44,6 +44,7 @@ class queues_conf {
 		$ver12 = version_compare($ast_version, '1.4', 'lt');
 		$ver16 = version_compare($ast_version, '1.6', 'ge');
     $ast_ge_14_25 = version_compare($ast_version,'1.4.25','ge');
+    $ast_ge_18 = version_compare($ast_version,'1.8','ge');
 		
 		// legacy but in case someone was using this we will leave it
 		//
@@ -141,13 +142,20 @@ class queues_conf {
 
 			// Now pull out all the memebers, one line for each
 			//
-      if ($amp_conf['USEQUEUESTATE']) {
+      if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
 			  foreach ($members as $member) {
 				  preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
 				  if (isset($matches[1]) && isset($users[$matches[1]])) {
 					  $name = $users[$matches[1]];
 					  str_replace(',','\,',$name);
-					  $output .= "member=$member,$name,hint:".$matches[1]."@ext-local\n";
+            
+            $qnostate = queues_get_qnostate($matches[1]);
+            if ($qnostate == 'ignorestate') {
+              freepbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
+					    $output .= "member=$member,$name\n";
+            } else {
+					    $output .= "member=$member,$name,hint:".$matches[1]."@ext-local\n";
+            }
 				  } else {
 					  $output .= "member=".$member."\n";
 				  }
@@ -158,7 +166,13 @@ class queues_conf {
 				  if (isset($matches[1]) && isset($devices[$matches[1]])) {
 					  $name = $users[$matches[1]];
 					  str_replace(',','\,',$name);
-					  $output .= "member=$member,$name,".$devices[$matches[1]]."\n";
+            $qnostate = queues_get_qnostate($matchecs[1]);
+            if ($qnostate == 'ignorestate') {
+              freepbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
+					    $output .= "member=$member,$name\n";
+            } else {
+					    $output .= "member=$member,$name,".$devices[$matches[1]]."\n";
+            }
 				  } else {
 					  $output .= "member=".$member."\n";
 				  }
@@ -296,6 +310,7 @@ function queues_get_config($engine) {
       $ast_ge_14 = version_compare($version,'1.4','ge');
       $ast_ge_16 = version_compare($version,'1.6','ge');
       $ast_ge_14_25 = version_compare($version,'1.4.25','ge');
+      $ast_ge_18 = version_compare($version,'1.8','ge');
 
       $has_extension_state = $ast_ge_16;
 			if ($ast_ge_14 && !$ast_ge_16) {
@@ -571,12 +586,14 @@ function queues_get_config($engine) {
 			$ext->add($context, $exten, '', new ext_execif('$["${ARG2}" != ""]', 'Authenticate', '${ARG2}'));
 
 
-      if ($amp_conf['USEQUEUESTATE']) {
-			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},hint:${CALLBACKNUM}@ext-local'));
+      if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
+			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1 & "${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},hint:${CALLBACKNUM}@ext-local'));
+			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 1 & "${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)}'));
 			  $ext->add($context, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})}'));
       } else if ($ast_ge_14_25) {
 			  $ext->add($context, $exten, '', new ext_set('THISDEVICE', '${IF($[${LEN(${THISDEVICE})}=0]?${DB(DEVICE/${CUT(DB(AMPUSER/${CALLBACKNUM}/device),&,1)}/dial)}:${THISDEVICE})}'));
-			  $ext->add($context, $exten, '', new ext_execif('$[${LEN(${THISDEVICE})}!=0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},${THISDEVICE}'));
+			  $ext->add($context, $exten, '', new ext_execif('$[${LEN(${THISDEVICE})}!=0 & "${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},${THISDEVICE}'));
+			  $ext->add($context, $exten, '', new ext_execif('$[${LEN(${THISDEVICE})}!=0 & "${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)}'));
 			  $ext->add($context, $exten, '', new ext_execif('$[${LEN(${THISDEVICE})}=0]', 'AddQueueMember', '${ARG1},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})}'));
       } else {
         $ext->add($context, $exten, 'a9', new ext_addqueuemember('${ARG1}', 'Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${ARG1}/agents/${CALLBACKNUM})}'));
@@ -1060,6 +1077,7 @@ function queue_agent_add_toggle() {
 	global $version;
 
   $ast_ge_14_25 = version_compare($version,'1.4.25','ge');
+  $ast_ge_18 = version_compare($version,'1.8','ge');
 	$id = "macro-toggle-add-agent"; // The context to be included
 
 	$c = 's';
@@ -1069,10 +1087,13 @@ function queue_agent_add_toggle() {
 	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSER}'));
   //TODO: check if it's not a user for some reason and abort?
   $ext->add($id, $c, '', new ext_gotoif('$["${DB(QPENALTY/${QUEUENO}/dynmemberonly)}" = "yes" & ${DB_EXISTS(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})} != 1]', 'invalid'));
-  if ($amp_conf['USEQUEUESTATE']) {
-	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},hint:${CALLBACKNUM}@ext-local'));
+  if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
+	  $ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},hint:${CALLBACKNUM}@ext-local'));
+	  $ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)}'));
+
   } else if ($ast_ge_14_25) {
-	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},${DB(DEVICE/${REALCALLERIDNUM}/dial)}'));
+	  $ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},${DB(DEVICE/${REALCALLERIDNUM}/dial)}'));
+	  $ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)}'));
   } else {
 	  $ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})}'));
   }
@@ -1098,5 +1119,109 @@ function queue_agent_del_toggle() {
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-internal/n'));
 	$ext->add($id, $c, '', new ext_userevent('RefreshQueue'));
 	$ext->add($id, $c, '', new ext_macroexit());
+}
+
+/************************************************************************************************************
+ * Hook Exentions/Users to allow an extension to indicate if the Queue should ignore it's state information
+ * when it is acting as a Queue Member (Agent).
+ */
+function queues_get_qnostate($exten) {
+	global $astman;
+
+	// Retrieve the qnostate configuraiton from this user from ASTDB
+	if ($astman) {
+    $qnostate = $astman->database_get("AMPUSER",$exten."/queues/qnostate");
+	} else {
+		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+	}
+	// If it's blank, set it to 'usestate'
+  //
+	return ($qnostate == 'ignorestate' ? $qnostate : 'usestate');
+}
+
+function queues_set_qnostate($exten,$qnostate) {
+	global $astman;
+	
+	// Update the settings in ASTDB
+  if ($astman) {
+	  $astman->database_put("AMPUSER",$exten."/queues/qnostate",$qnostate);
+  } else {
+	  fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+  }
+}
+
+function queues_applyhooks() {
+	global $currentcomponent;
+
+	$currentcomponent->addoptlistitem('qnostate', 'usestate', _('Use State'));
+	$currentcomponent->addoptlistitem('qnostate', 'ignorestate',_('Ignore State'));
+	$currentcomponent->setoptlistopts('qnostate', 'sort', false);
+
+	// Add the 'process' function - this gets called when the page is loaded, to hook into 
+	// displaying stuff on the page.
+	$currentcomponent->addguifunc('queues_configpageload');
+
+}
+
+function queues_configpageinit($pagename) {
+	global $currentcomponent;
+
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
+	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
+
+	// We only want to hook 'users' or 'extensions' pages.
+	if ($pagename != 'users' && $pagename != 'extensions') 
+		return true;
+	// On a 'new' user, 'tech_hardware' is set, and there's no extension. Hook into the page.
+	if ($tech_hardware != null || $pagename == 'users') {
+		queues_applyhooks();
+		$currentcomponent->addprocessfunc('queues_configprocess', 8);
+	} elseif ($action=="add") {
+		// We don't need to display anything on an 'add', but we do need to handle returned data.
+		$currentcomponent->addprocessfunc('queues_configprocess', 8);
+	} elseif ($extdisplay != '') {
+		// We're now viewing an extension, so we need to display _and_ process.
+		queues_applyhooks();
+		$currentcomponent->addprocessfunc('queues_configprocess', 8);
+	}
+}
+
+// This is called before the page is actually displayed, so we can use addguielem().
+function queues_configpageload() {
+	global $currentcomponent;
+
+	// Init vars from $_REQUEST[]
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	
+	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
+	if ($action != 'del') {
+
+		$qnostate = queues_get_qnostate($extdisplay);
+
+		$section = _('Extension Options');
+		$currentcomponent->addguielem($section, new gui_selectbox('qnostate', $currentcomponent->getoptlist('qnostate'), $qnostate, _('Queue State Detection'), _("If this extension is part of a Queue then the Queue will attempt to use the user's extension state or device state information when determining if this queue member should be called. In some uncommon situations such as a Follow-Me with no physical device, or some virtual extension scenarios, the state information will indicate that this member is not available when they are. Setting this to 'Ignore State' will make the Queue ignore all state information thus always trying to contact this member. Certain side affects can occur when this route is taken due to the nature of how Queues handle Local channels, such as subseqeuent transfers will continue to show the member as busy until the original call is terminated. In most cases, this SHOULD BE set to 'Use State'."), false));
+	}
+}
+
+function queues_configprocess() {
+	//create vars from the request
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
+	$qnostate = isset($_REQUEST['qnostate'])?$_REQUEST['qnostate']:null;
+
+	if ($ext==='') { 
+		$extdisplay = $extn; 
+	} else {
+		$extdisplay = $ext;
+	} 
+	if ($action == "add" || $action == "edit") {
+		if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+      queues_set_qnostate($extdisplay, $qnostate);
+		}
+	} // if 'del' then core will remove the entire tree
 }
 ?>
