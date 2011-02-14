@@ -520,17 +520,98 @@ if(DB::IsError($check)) {
 
 $freepbx_conf =& freepbx_conf::create();
 
-  // USEQUEUESTATE
-  //
-  $set['value'] = false;
-  $set['defaultval'] =& $set['value'];
-  $set['readonly'] = 0;
-  $set['hidden'] = 0;
-  $set['level'] = 3;
-  $set['module'] = 'queues';
-  $set['category'] = 'System Setup';
-  $set['emptyok'] = 0;
-  $set['name'] = 'Asterisk Queues Patch 15168 Installed';
-  $set['description'] = 'Setting this flag will generate the required dialplan to integrate with the following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state is now standard and always used. This asterisk patch is only available on Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some queue behavior and should be avoided';
-  $set['type'] = CONF_TYPE_BOOL;
-  $freepbx_conf->define_conf_setting('USEQUEUESTATE',$set,true);
+// QUEUES_PESISTENTMEMBERS
+//
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 1;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 10;
+$set['name'] = 'Persistent Members';
+$set['description'] = 'Queues: persistentmembers. Store each dynamic member in each queue in the astdb so that when asterisk is restarted, each member will be automatically read into their recorded queues.';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('QUEUES_PESISTENTMEMBERS',$set);
+
+// QUEUES_SHARED_LASTCALL
+//
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 1;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 20;
+$set['name'] = 'Honor Wrapup Time Across Queues';
+$set['description'] = 'Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the lastcall and calls received be the same in members logged in more than one queue. This is useful to make the queue respect the wrapuptime of another queue for a shared member.';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('QUEUES_SHARED_LASTCALL',$set);
+
+// QUEUES_UPDATECDR
+//
+$set['value'] = false;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 30;
+$set['name'] = 'Honor Wrapup Time Across Queues';
+$set['description'] = 'Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented to mimic chan_agents behavior of populating CDR dstchannel field of a call with an agent name, which is set if available at the login time with AddQueueMember membername parameter, or with static members.';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('QUEUES_UPDATECDR',$set);
+
+// QUEUES_MIX_MONITOR
+//
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 40;
+$set['name'] = 'Use MixMonitor for Recordings';
+$set['description'] = "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor application instead of Monitor so the concept of 'joining/mixing' the in/out files now goes away when this is enabled.";
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('QUEUES_MIX_MONITOR',$set);
+
+// QUEUES_HIDE_NOANSWER
+//
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 50;
+$set['name'] = 'Hide Queue No Answer Option';
+$set['description'] = 'It is possible for a queue to NOT Answer a call and still enter callers to the queue. The normal behavior is that all  allers are answered before entering the queue. If the call is not answered, it is possible that some early media delivery would still allow callers to hear recordings, MoH, etc. but this can be inconsistent and vary. Because of the volatility of this option, it is not displayed by default. If a queue is set to not answer, the setting will be displayed for that queue regardless of this setting.';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('QUEUES_HIDE_NOANSWER',$set);
+
+// USEQUEUESTATE
+//
+$set['value'] = false;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 100;
+$set['name'] = 'Asterisk Queues Patch 15168 Installed';
+$set['description'] = 'Setting this flag will generate the required dialplan to integrate with the following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state is now standard and always used. This asterisk patch is only available on Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some queue behavior and should be avoided';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('USEQUEUESTATE',$set,true);

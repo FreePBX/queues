@@ -40,6 +40,7 @@ $qnoanswer = isset($_REQUEST['qnoanswer'])?$_REQUEST['qnoanswer']:'0';
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
 $ast_ge_16 = version_compare($astver, '1.6', 'ge');
+$ast_ge_18 = version_compare($astver, '1.8', 'ge');
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
@@ -267,14 +268,22 @@ if ($action == 'delete') {
 		<td><input type="text" name="password" value="<?php echo (isset($password) ? $password : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 
+<?php
+  // show it if checked so they know:
+  //
+  if ($qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER']) {
+?>
 	<tr>
-  <td><a href="#" class="info"><?php echo _("Queue No Answer:")?><span><?php echo _("If checked, the queue will not answer the call.")?></span></a></td>
-                <td>
-                        <input name="qnoanswer" type="checkbox" value="1" <?php echo (isset($qnoanswer) && $qnoanswer == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
-                </td>
-        </tr>
+    <td><a href="#" class="info"><?php echo _("Queue No Answer:")?><span><?php echo _("If checked, the queue will not answer the call. Under most circumstance you should always have the queue answering calls. If not, then it's possible that recordings and MoH will not be heard by the waiting callers since early media capabilities vary and are inconsistent. Some cases where it may be desired to not answer a call is when using Strict Join Empty queue policies where the caller will not be admitted to the queue unless there is a queue member immediately availalbe to take the call.")?></span></a></td>
+    <td>
+      <input name="qnoanswer" type="checkbox" value="1" <?php echo (isset($qnoanswer) && $qnoanswer == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
+    </td>
+  </tr>
+<?php
+  }
+?>
 
-<?php if ($amp_conf['USEDEVSTATE']) { ?>
+<?php if ($ast_ge_18 || $amp_conf['USEDEVSTATE']) { ?>
 	<tr>
   <td><a href="#" class="info"><?php echo _("Generate Device Hints:")?><span><?php echo _("If checked, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number.")?></span></a></td>
 		<td>
@@ -519,13 +528,29 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 		</td>
 	</tr>
 
+<?php
+        $tt = _("Deterines if new callers will be admitted to the Queue, if not, the failover destination will be immediately pursued. The options include:");
+        $tt .= '<ul>';
+        $tt .= '<li><b>'._("Yes").'</b>'._("Always allows the caller to join the Queue.").'</li>';
+        $tt .= '<li><b>'._("Strict").'</b>'._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone 'now' then don't admit them.").'</li>';
+        $tt .= '<li><b>'._("No").'</b>'._("Callers will not be admited if all agents are paused, show an invalid state for their device, or have penalty values less then QUEUE_MAX_PENALTY (not currenlty set in FreePBX dialpaln).").'</li>';
+        if ($ast_ge_16) {
+          $tt .= '<li><b>'._("Loose").'</b>'._("Same as No except Callers will be admitted if their are paused agents who could become available.").'</li>';
+        }
+        $tt .= '</ul>';
+?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Join Empty:")?><span><?php echo _("If you wish to allow callers to join queues that currently have no agents, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Join Empty:")?><span><?php echo $tt?></span></a></td>
 		<td>
 			<select name="joinempty" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 				$default = (isset($joinempty) ? $joinempty : 'yes');
 				$items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
+        if ($ast_ge_16) {
+				  $items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"), 'loose'=>_("Loose"));
+        } else {
+				  $items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
+        }
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
@@ -534,6 +559,17 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 		</td>
 	</tr>
 
+<?php
+        $tt = _("Deterines if callers should be exited prematurely from the queue in situations where it appears no one is currenlty available to take the call. The options include:");
+        $tt .= '<ul>';
+        $tt .= '<li><b>'._("Yes").'</b>'._("Callers will exit if all agents are paused, show an invalid state for their device or have penalty values less then QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan)..").'</li>';
+        $tt .= '<li><b>'._("Strict").'</b>'._("Same as Yes but more strict.  Simply speaking, if no agent can answer the phone 'now' then have them leave the Queue.").'</li>';
+        if ($ast_ge_16) {
+          $tt .= '<li><b>'._("Loose").'</b>'._("Same as Yes except Callers will remain in the Queue if their are paused agents who could become availalbe.").'</li>';
+        }
+        $tt .= '<li><b>'._("No").'</b>'._("Never have a caller leave the Queue until the Max Wait Time has expired.").'</li>';
+        $tt .= '</ul>';
+?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Leave When Empty:")?><span><?php echo _("If you wish to remove callers from the queue if there are no agents present, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members")?></span></a></td>
 		<td>
@@ -541,6 +577,14 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 			<?php
 				$default = (isset($leavewhenempty) ? $leavewhenempty : 'no');
 				$items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
+        if ($ast_ge_16) {
+          $items['loose'] = _("Loose");
+        }
+        if ($ast_ge_16) {
+				  $items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'loose'=>_("Loose"),'no'=>_("No"));
+        } else {
+				  $items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
+        }
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
@@ -565,6 +609,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 					<b><?php echo _("fewestcalls")?></b>: <?php echo _("ring the agent with fewest completed calls from this queue")?><br>
 					<b><?php echo _("random")?></b>: <?php echo _("ring random agent")?><br>
 					<b><?php echo _("rrmemory")?></b>: <?php echo _("round robin with memory, remember where we left off last ring pass")?><br>
+					<b><?php echo _("rrordered")?></b>: <?php echo _("same as rrmemory, except the queue member order from config file is preserved")?><br>
 <?php
         if ($ast_ge_16) {
 ?>
@@ -580,7 +625,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 			<select name="strategy" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 				$default = (isset($strategy) ? $strategy : 'ringall');
-				$items = array('ringall','roundrobin','leastrecent','fewestcalls','random','rrmemory');
+				$items = array('ringall','roundrobin','leastrecent','fewestcalls','random','rrmemory','rrordered');
         if ($ast_ge_16) {
 				  $items[] = 'linear';
 				  $items[] = 'wrandom';

@@ -321,7 +321,14 @@ function queues_get_config($engine) {
 			}
 
 			if (isset($queues_conf) && is_a($queues_conf, "queues_conf")) {
-				$queues_conf->addQueuesGeneral('persistentmembers','yes');
+				$queues_conf->addQueuesGeneral('persistentmembers',$amp_conf['QUEUES_PESISTENTMEMBERS'] ? 'yes' : 'no');
+        if ($ast_ge_16) {
+				  $queues_conf->addQueuesGeneral('shared_lastcall',$amp_conf['QUEUES_SHARED_LASTCALL'] ? 'yes' : 'no');
+				  $queues_conf->addQueuesGeneral('updatecdr',$amp_conf['QUEUES_UPDATECDR'] ? 'yes' : 'no');
+        }
+        if ($amp_conf['QUEUES_MIX_MONITOR']) {
+				  $queues_conf->addQueuesGeneral('monitor-type', 'MixMonitor');
+        }
 			}
 
 			/* queue extensions */
