@@ -671,6 +671,8 @@ function queues_timeString($seconds, $full = false) {
 function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0', $qnoanswer = '0') {
   global $db,$astman,$amp_conf;
 
+	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
+	
 	if (trim($account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
 		return false;
@@ -706,7 +708,14 @@ $fields = array(
 	array($account,'ringinuse',($cwignore == 2 || $cwignore == 3)?'no':'yes',0),
 	array($account,'reportholdtime',(isset($_REQUEST['reportholdtime']))?$_REQUEST['reportholdtime']:'no',0),
 	array($account,'servicelevel',(isset($_REQUEST['servicelevel']))?$_REQUEST['servicelevel']:60,0),
+	array($account,'memberdelay',(isset($_REQUEST['memberdelay']))?$_REQUEST['memberdelay']:'0',0),
+	array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
 );
+
+	if($ast_ge_16) {
+		$fields[] = array($account, 'timeoutpriority',(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',0);
+		$fields[] = array($account, 'penaltymemberslimit',(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',0);
+	}
 
 	if ($_REQUEST['music'] != 'inherit') {
 		$fields[] = array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0);

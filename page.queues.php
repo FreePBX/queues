@@ -801,7 +801,65 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 			</select>		
 		</td>
 	</tr>
-	
+<?php
+if ($ast_ge_16) {
+?>
+	<tr>
+                <td><a href="#" class="info"><?php echo _("Penalty Members Limit:")?><span><?php echo _("A limit can be set to disregard penalty settings when the queue has too few members.  No penalty will be weighed in if there are only X or fewer queue members. (default 0)")?></span></a></td>
+                <td>
+                        <select name="penaltymemberslimit" tabindex="<?php echo ++$tabindex;?>">
+                        <?php
+                                $default = (isset($penaltymemberslimit) ? $penaltymemberslimit : 0);
+                                for ($i=0; $i <= 20; $i++) {
+                                        echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
+                                }
+                        ?>
+                        </select>
+                </td>
+        </tr>
+
+	<tr>
+                <td><a href="#" class="info"><?php echo _("Timeout Priority:")?><span><?php echo _("In timeoutpriority=conf mode however timeout specified in config file will take higher priority than timeout in application arguments, so if config file has timeout 0, each queue member will be called indefineately and application timeout will be checked only after this call attempt. This is useful for having queue members with custom timeouts specified within Dial application of Local channel, and allows handling NO ANSWER which would otherwise be interrupted by queue destroying child channel on timeout. The default value for timeoutpriority is \"app\" since this was how previous versions of Asterisk behaved.")?></span></a></td>
+                <td>
+                        <select name="timeoutpriority" tabindex="<?php echo ++$tabindex;?>">
+                        <?php
+                                $default = (isset($timeoutpriority) ? $timeoutpriority : "app");
+                        	echo '<option value=app '.($default == "app" ? 'SELECTED' : '').'>'._("App").'</option>';
+                                echo '<option value=conf '.($default == "conf" ? 'SELECTED' : '').'>'._("Conf").'</option>';
+			?>
+                        </select>
+                </td>
+        </tr>
+<?php
+}
+?>
+	<tr>
+                <td><a href="#" class="info"><?php echo _("Member Delay:")?><span><?php echo _("If you wish to have a delay before the member is connected to the caller (or before the member hears any announcement messages), set this to the number of seconds to delay.")?></span></a></td>
+                <td>
+                        <select name="memberdelay" tabindex="<?php echo ++$tabindex;?>">
+                        <?php
+                                $default = (isset($memberdelay) ? $memberdelay : 0);
+                                for ($i=0; $i <= 60; $i++) {
+                                        echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
+                                }
+                        ?>
+                        </select>
+                </td>
+        </tr>
+
+	<tr>
+                <td><a href="#" class="info"><?php echo _("Timeout Restart:")?><span><?php echo _("If timeoutrestart is set to yes, then the time out for an agent to answer is reset if a BUSY or CONGESTION is received. This can be useful if agents are able to cancel a call with reject or similar.")?></span></a></td>
+                <td>
+                        <select name="timeoutrestart" tabindex="<?php echo ++$tabindex;?>">
+                        <?php
+                                $default = (isset($timeoutrestart) ? $timeoutrestart : "no");
+                        	echo '<option value=yes '.($default == "yes" ? 'SELECTED' : '').'>'._("Yes").'</option>';
+                                echo '<option value=no '.($default == "no" ? 'SELECTED' : '').'>'._("No").'</option>';
+			?>
+                        </select>
+                </td>
+        </tr>
+
 	<tr><td colspan="2"><br><h5><?php echo _("Caller Position Announcements")?><hr></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Frequency:")?><span><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")?></span></a></td>
