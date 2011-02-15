@@ -563,7 +563,7 @@ $set['module'] = 'queues';
 $set['category'] = 'Queues Module';
 $set['emptyok'] = 0;
 $set['sortorder'] = 30;
-$set['name'] = 'Honor Wrapup Time Across Queues';
+$set['name'] = 'Set Agent Name in CDR dstchannel';
 $set['description'] = 'Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented to mimic chan_agents behavior of populating CDR dstchannel field of a call with an agent name, which is set if available at the login time with AddQueueMember membername parameter, or with static members.';
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('QUEUES_UPDATECDR',$set);
