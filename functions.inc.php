@@ -1178,7 +1178,7 @@ function queues_applyhooks() {
 
 	// Add the 'process' function - this gets called when the page is loaded, to hook into 
 	// displaying stuff on the page.
-	$currentcomponent->addguifunc('queues_configpageload');
+	$currentcomponent->addguifunc('queues_configpageload',9);
 
 }
 
