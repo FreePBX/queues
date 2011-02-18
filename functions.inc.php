@@ -447,6 +447,22 @@ function queues_get_config($engine) {
 					} else {
 						$agentannounce = '';
 					}
+					
+					if ($q['callconfirm'] == 1) {
+						$ext->add('ext-queues', $exten, '', new ext_setvar('__FORCE_CONFIRM', '${CHANNEL}'));
+						if ($amp_conf['AST_FUNC_SHARED']) {
+        						$ext->add('ext-queues', $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)','NOANSWER'));
+      						}
+						$ext->add('ext-queues', $exten, '', new ext_setvar('__CALLCONFIRMCID', '${CALLERID(number)}'));
+						$callconfirm_id = (isset($q['callconfirm_id']))?$q['callconfirm_id']:'';
+						if ($callconfirm_id) {	
+							$callconfirm = recordings_get_file($callconfirm_id);
+						} else {
+							$callconfirm = '';
+						}
+						$ext->add('ext-queues', $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', $callconfirm));					
+					}
+
 					$ext->add('ext-queues', $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
  
           if($q['use_queue_context'] != '2') {
@@ -455,6 +471,14 @@ function queues_get_config($engine) {
  					// If we are here, disable the NODEST as we want things to resume as normal
  					//
  					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', ''));
+					
+					if ($q['callconfirm'] == 1) {
+						if ($amp_conf['AST_FUNC_SHARED']) {
+							$ext->add('ext-queues', $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)', ''));
+						}
+						$ext->add('ext-queues', $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', ''));				
+					}
+
 					if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
 						$ext->add('ext-queues', $exten, '', new ext_setvar('__CWIGNORE', '')); 
 					}
@@ -668,7 +692,7 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0', $qnoanswer = '0') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0', $qnoanswer = '0', $callconfirm = '0', $callconfirm_id) {
   global $db,$astman,$amp_conf;
 
 	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
@@ -753,10 +777,11 @@ $fields = array(
 	$use_queue_context = isset($use_queue_context) ? $use_queue_context:'0';
 	$togglehint    = isset($togglehint) ? $togglehint:'0';
 	$qnoanswer     = isset($qnoanswer) ? $qnoanswer:'0';
+	$callconfirm   = isset($callconfirm) ? $callconfirm:'0';
 
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint, qnoanswer)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint', '$qnoanswer')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint, qnoanswer, callconfirm, callconfirm_id)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint', '$qnoanswer', '$callconfirm', '$callconfirm_id')	";
 	$results = sql($sql);
 
   // store dynamic member data in astDB
@@ -988,6 +1013,8 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['use_queue_context'] = $config['use_queue_context'];
 		$results['togglehint']    = $config['togglehint'];
 		$results['qnoanswer']     = $config['qnoanswer'];
+		$results['callconfirm']    = $config['callconfirm'];
+		$results['callconfirm_id'] = $config['callconfirm_id'];
 
     // TODO: why the str_replace?
     //

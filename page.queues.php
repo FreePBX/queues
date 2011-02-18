@@ -36,6 +36,8 @@ $dynmemberonly = isset($_REQUEST['dynmemberonly'])?$_REQUEST['dynmemberonly']:'n
 $use_queue_context = isset($_REQUEST['use_queue_context'])?$_REQUEST['use_queue_context']:'0';
 $exten_context = "from-queue";
 $qnoanswer = isset($_REQUEST['qnoanswer'])?$_REQUEST['qnoanswer']:'0';
+$callconfirm = isset($_REQUEST['callconfirm'])?$_REQUEST['callconfirm']:'0';
+$callconfirm_id = isset($_REQUEST['callconfirm_id'])?$_REQUEST['callconfirm_id']:$callconfirm_id='';
 
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
@@ -137,7 +139,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id);
 					needreload();
           $_REQUEST['extdisplay'] = $account;
 					redirect_standard('extdisplay');
@@ -150,7 +152,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -291,7 +293,46 @@ if ($action == 'delete') {
 		</td>
 	</tr>
 <?php } ?>
-	
+
+	<tr>
+    		<td><a href="#" class="info"><?php echo _("Call Confirm:")?><span><?php echo _("If checked, the queue will not answer the call. Under most circumstance you should always have the queue answering calls. If not, then it's possible that recordings and MoH will not be heard by the waiting callers since early media capabilities vary and are inconsistent. Some cases where it may be desired to not answer a call is when using Strict Join Empty queue policies where the caller will not be admitted to the queue unless there is a queue member immediately availalbe to take the call.")?></span></a></td>
+    		<td>
+      			<input name="callconfirm" type="checkbox" value="1" <?php echo (isset($callconfirm) && $callconfirm == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
+    		</td>
+  	</tr>
+<?php
+	if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
+        <tr>
+                <td><a href="#" class="info"><?php echo _("Call Confirm Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
+                <td>
+                        <select name="callconfirm_id" tabindex="<?php echo ++$tabindex;?>">
+                        <?php
+                                $tresults = recordings_list();
+                                $default = (isset($callconfirm_id) ? $callconfirm_id : '');
+                                echo '<option value="None">'._("None");
+                                if (isset($tresults[0])) {
+                                        foreach ($tresults as $tresult) {
+                                                echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
+                                        }
+                                }
+                        ?>
+                        </select>
+                </td>
+        </tr>
+<?php } else { ?>
+        <tr>
+                <td><a href="#" class="info"><?php echo _("Call Confirm Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+                <td>
+                        <?php
+                                $default = (isset($callconfirm_id) ? $callconfirm_id : '');
+                        ?>
+                        <input type="hidden" name="callconfirm_id" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : ''); ?>
+                </td>
+        </tr>
+<?php
+} 
+?>
+
 	<tr>
 		<td><a href="#" class="info"><?php echo _("CID Name Prefix:")?><span><?php echo _("You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring.")?></span></a></td>
 		<td><input size="4" type="text" name="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
