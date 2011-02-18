@@ -295,7 +295,7 @@ if ($action == 'delete') {
 <?php } ?>
 
 	<tr>
-    		<td><a href="#" class="info"><?php echo _("Call Confirm:")?><span><?php echo _("If checked, the queue will not answer the call. Under most circumstance you should always have the queue answering calls. If not, then it's possible that recordings and MoH will not be heard by the waiting callers since early media capabilities vary and are inconsistent. Some cases where it may be desired to not answer a call is when using Strict Join Empty queue policies where the caller will not be admitted to the queue unless there is a queue member immediately availalbe to take the call.")?></span></a></td>
+    		<td><a href="#" class="info"><?php echo _("Call Confirm:")?><span><?php echo _("If checked, the queue would force call confirmation on any follow-me that is pursued.")?></span></a></td>
     		<td>
       			<input name="callconfirm" type="checkbox" value="1" <?php echo (isset($callconfirm) && $callconfirm == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
     		</td>
@@ -303,7 +303,7 @@ if ($action == 'delete') {
 <?php
 	if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
         <tr>
-                <td><a href="#" class="info"><?php echo _("Call Confirm Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Call Confirm Announcement:")?><span><?php echo _("Announcement played to anyone using an external follow-me to receive the queue call.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
                 <td>
                         <select name="callconfirm_id" tabindex="<?php echo ++$tabindex;?>">
                         <?php
@@ -321,7 +321,7 @@ if ($action == 'delete') {
         </tr>
 <?php } else { ?>
         <tr>
-                <td><a href="#" class="info"><?php echo _("Call Confirm Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Call Confirm Announcement:")?><span><?php echo _("Announcement played to anyone using an external follow-me to receive the queue call.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
                 <td>
                         <?php
                                 $default = (isset($callconfirm_id) ? $callconfirm_id : '');
