@@ -166,7 +166,7 @@ class queues_conf {
 				  if (isset($matches[1]) && isset($devices[$matches[1]])) {
 					  $name = $users[$matches[1]];
 					  str_replace(',','\,',$name);
-            $qnostate = queues_get_qnostate($matchecs[1]);
+            $qnostate = queues_get_qnostate($matches[1]);
             if ($qnostate == 'ignorestate') {
               freepbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
 					    $output .= "member=$member,$name\n";
