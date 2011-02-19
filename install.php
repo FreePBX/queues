@@ -549,7 +549,7 @@ if(DB::IsError($check)) {
         }
         out(_("OK"));
 } else {
-        out(_("already exists"));}
+        out(_("already exists"));
 }
 
 $freepbx_conf =& freepbx_conf::create();
