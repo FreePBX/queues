@@ -39,8 +39,8 @@ $qnoanswer = isset($_REQUEST['qnoanswer'])?$_REQUEST['qnoanswer']:'0';
 $callconfirm = isset($_REQUEST['callconfirm'])?$_REQUEST['callconfirm']:'0';
 $callconfirm_id = isset($_REQUEST['callconfirm_id'])?$_REQUEST['callconfirm_id']:'';
 $monitor_type = isset($_REQUEST['monitor_type'])?$_REQUEST['monitor_type']:'';
-$monitor_heard = isset($_REQUEST['monitor_heard'])?$_REQUEST['monitor_heard']:0;
-$monitor_spoken = isset($_REQUEST['monitor_spoken'])?$_REQUEST['monitor_spoken']:0;
+$monitor_heard = isset($_REQUEST['monitor_heard'])?$_REQUEST['monitor_heard']:'0';
+$monitor_spoken = isset($_REQUEST['monitor_spoken'])?$_REQUEST['monitor_spoken']:'0';
 
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
@@ -605,43 +605,50 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 	</tr>
 
 	<tr>
-                <td><a href="#" class="info"><?php echo _("Call Recording Type:")?><span><?php echo _("Choose to record the entire call or only the call after it has been bridged.")?></span></a></td>
-                <td>
-                        <select name="monitor_type" tabindex="<?php echo ++$tabindex;?>">
-                        <?php
-                                $default = (empty($monitor_type) ? "no" : $monitor_type);
-                                echo '<option value="" '.($default == "" ? 'SELECTED' : '').'>'._("All Calls").'</option>';
-                        	echo '<option value="b" '.($default == "b" ? 'SELECTED' : '').'>'._("Bridged Calls").'</option>';
-			?>
-                        </select>
-                </td>
-        </tr>
+  <td><a href="#" class="info"><?php echo _("Recording Mode:")?><span><?php echo _("Choose to 'Include Hold Time' in the recording so it starts as soon as they enter the queue, or to defer recording until 'After Answered' and the call is bridged with a queue member.")?></span></a></td>
+  <td>
+    <select name="monitor_type" tabindex="<?php echo ++$tabindex;?>">
+    <?php
+    echo '<option value="" '.($monitor_type == "" ? 'SELECTED' : '').'>'._("Include Hold Time").'</option>';
+    echo '<option value="b" '.($monitor_type == "b" ? 'SELECTED' : '').'>'._("After Answered").'</option>';
+    ?>
+    </select>
+  </td>
+  </tr>
+
 	<tr>
-                <td><a href="#" class="info"><?php echo _("Adjust Volume Heard:")?><span><?php echo _("Adjust the recording volume from the far end of the call (volume heard).")?></span></a></td>
-                <td>
-                        <select name="monitor_heard" tabindex="<?php echo ++$tabindex;?>">
-                        <?php
-                                $default = (empty($monitor_heard) ? "0" : $monitor_heard);
-                                for($i=-4;$i<=4;$i++) {
-					echo '<option value="'.$i.'" '.($default == "$i" ? 'SELECTED' : '').'>'._("$i").'</option>';
-                        	}
-			?>
-                        </select>
-                </td>
-        </tr>
+  <td><a href="#" class="info"><?php echo _("Caller Volume Adjustment:")?><span><?php echo _("Adjust the recording volume of the caller.")?></span></a></td>
+  <td>
+    <select name="monitor_heard" tabindex="<?php echo ++$tabindex;?>">
+    <?php
+    for($i=-4;$i<=-1;$i++) {
+      echo '<option value="'.$i.'" '.($moniotr_heard == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
+    }
+    echo '<option value="0" '.(!$moniotr_heard ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
+    for($i=1;$i<=4;$i++) {
+      echo '<option value="'.$i.'" '.($moniotr_heard == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
+    }
+    ?>
+    </select>
+  </td>
+  </tr>
+
 	<tr>
-                <td><a href="#" class="info"><?php echo _("Adjust Volume Spoken:")?><span><?php echo _("Adjust the recording volume for the new end of the call (volume spoken).")?></span></a></td>
-                <td>
-                        <select name="monitor_spoken" tabindex="<?php echo ++$tabindex;?>">
-                        <?php
-                                $default = (empty($monitor_spoken) ? "0" : $monitor_spoken);
-                                for($i=-4;$i<=4;$i++) {
-                                        echo '<option value="'.$i.'" '.($default == "$i" ? 'SELECTED' : '').'>'._("$i").'</option>';
-                                }
-                        ?>
-                        </select>
-                </td>
-        </tr>
+  <td><a href="#" class="info"><?php echo _("Agent Volume Adjustment:")?><span><?php echo _("Adjust the recording volume of the queue member (Agent).")?></span></a></td>
+  <td>
+    <select name="monitor_spoken" tabindex="<?php echo ++$tabindex;?>">
+    <?php
+    for($i=-4;$i<=-1;$i++) {
+      echo '<option value="'.$i.'" '.($moniotr_spoken == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
+    }
+    echo '<option value="0" '.(!$moniotr_spoken ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
+    for($i=1;$i<=4;$i++) {
+      echo '<option value="'.$i.'" '.($moniotr_spoken == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
+    }
+    ?>
+    </select>
+  </td>
+  </tr>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Timing & Agent Options")?><hr></h5></td></tr>
 
