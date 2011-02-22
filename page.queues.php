@@ -832,11 +832,11 @@ if ($ast_ge_16) {
 <?php
         $tt = _("Deterines if new callers will be admitted to the Queue, if not, the failover destination will be immediately pursued. The options include:");
         $tt .= '<ul>';
-        $tt .= '<li><b>'._("Yes").'</b>'._("Always allows the caller to join the Queue.").'</li>';
-        $tt .= '<li><b>'._("Strict").'</b>'._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone 'now' then don't admit them.").'</li>';
-        $tt .= '<li><b>'._("No").'</b>'._("Callers will not be admited if all agents are paused, show an invalid state for their device, or have penalty values less then QUEUE_MAX_PENALTY (not currenlty set in FreePBX dialpaln).").'</li>';
+        $tt .= '<li><b>'._("Yes").'</b> '._("Always allows the caller to join the Queue.").'</li>';
+        $tt .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone 'now' then don't admit them.").'</li>';
+        $tt .= '<li><b>'._("No").'</b> '._("Callers will not be admited if all agents are paused, show an invalid state for their device, or have penalty values less then QUEUE_MAX_PENALTY (not currenlty set in FreePBX dialpaln).").'</li>';
         if ($ast_ge_16) {
-          $tt .= '<li><b>'._("Loose").'</b>'._("Same as No except Callers will be admitted if their are paused agents who could become available.").'</li>';
+          $tt .= '<li><b>'._("Loose").'</b> '._("Same as No except Callers will be admitted if their are paused agents who could become available.").'</li>';
         }
         $tt .= '</ul>';
 ?>
@@ -863,12 +863,12 @@ if ($ast_ge_16) {
 <?php
         $tt = _("Deterines if callers should be exited prematurely from the queue in situations where it appears no one is currenlty available to take the call. The options include:");
         $tt .= '<ul>';
-        $tt .= '<li><b>'._("Yes").'</b>'._("Callers will exit if all agents are paused, show an invalid state for their device or have penalty values less then QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan)..").'</li>';
-        $tt .= '<li><b>'._("Strict").'</b>'._("Same as Yes but more strict.  Simply speaking, if no agent can answer the phone 'now' then have them leave the Queue.").'</li>';
+        $tt .= '<li><b>'._("Yes").'</b> '._("Callers will exit if all agents are paused, show an invalid state for their device or have penalty values less then QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan)..").'</li>';
+        $tt .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent can answer the phone 'now' then have them leave the Queue.").'</li>';
         if ($ast_ge_16) {
-          $tt .= '<li><b>'._("Loose").'</b>'._("Same as Yes except Callers will remain in the Queue if their are paused agents who could become availalbe.").'</li>';
+          $tt .= '<li><b>'._("Loose").'</b> '._("Same as Yes except Callers will remain in the Queue if their are paused agents who could become availalbe.").'</li>';
         }
-        $tt .= '<li><b>'._("No").'</b>'._("Never have a caller leave the Queue until the Max Wait Time has expired.").'</li>';
+        $tt .= '<li><b>'._("No").'</b> '._("Never have a caller leave the Queue until the Max Wait Time has expired.").'</li>';
         $tt .= '</ul>';
 ?>
 	<tr>
