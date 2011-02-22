@@ -37,7 +37,10 @@ $use_queue_context = isset($_REQUEST['use_queue_context'])?$_REQUEST['use_queue_
 $exten_context = "from-queue";
 $qnoanswer = isset($_REQUEST['qnoanswer'])?$_REQUEST['qnoanswer']:'0';
 $callconfirm = isset($_REQUEST['callconfirm'])?$_REQUEST['callconfirm']:'0';
-$callconfirm_id = isset($_REQUEST['callconfirm_id'])?$_REQUEST['callconfirm_id']:$callconfirm_id='';
+$callconfirm_id = isset($_REQUEST['callconfirm_id'])?$_REQUEST['callconfirm_id']:'';
+$monitor_type = isset($_REQUEST['monitor_type'])?$_REQUEST['monitor_type']:'';
+$monitor_heard = isset($_REQUEST['monitor_heard'])?$_REQUEST['monitor_heard']:0;
+$monitor_spoken = isset($_REQUEST['monitor_spoken'])?$_REQUEST['monitor_spoken']:0;
 
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
@@ -139,7 +142,7 @@ if(isset($_POST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken);
 					needreload();
           $_REQUEST['extdisplay'] = $account;
 					redirect_standard('extdisplay');
@@ -152,7 +155,7 @@ if(isset($_POST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -600,6 +603,45 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 			</select>		
 		</td>
 	</tr>
+
+	<tr>
+                <td><a href="#" class="info"><?php echo _("Call Recording Type:")?><span><?php echo _("Choose to record the entire call or only the call after it has been bridged.")?></span></a></td>
+                <td>
+                        <select name="monitor_type" tabindex="<?php echo ++$tabindex;?>">
+                        <?php
+                                $default = (empty($monitor_type) ? "no" : $monitor_type);
+                                echo '<option value="" '.($default == "" ? 'SELECTED' : '').'>'._("All Calls").'</option>';
+                        	echo '<option value="b" '.($default == "b" ? 'SELECTED' : '').'>'._("Bridged Calls").'</option>';
+			?>
+                        </select>
+                </td>
+        </tr>
+	<tr>
+                <td><a href="#" class="info"><?php echo _("Adjust Volume Heard:")?><span><?php echo _("Adjust the recording volume from the far end of the call (volume heard).")?></span></a></td>
+                <td>
+                        <select name="monitor_heard" tabindex="<?php echo ++$tabindex;?>">
+                        <?php
+                                $default = (empty($monitor_heard) ? "0" : $monitor_heard);
+                                for($i=-4;$i<=4;$i++) {
+					echo '<option value="'.$i.'" '.($default == "$i" ? 'SELECTED' : '').'>'._("$i").'</option>';
+                        	}
+			?>
+                        </select>
+                </td>
+        </tr>
+	<tr>
+                <td><a href="#" class="info"><?php echo _("Adjust Volume Spoken:")?><span><?php echo _("Adjust the recording volume for the new end of the call (volume spoken).")?></span></a></td>
+                <td>
+                        <select name="monitor_spoken" tabindex="<?php echo ++$tabindex;?>">
+                        <?php
+                                $default = (empty($monitor_spoken) ? "0" : $monitor_spoken);
+                                for($i=-4;$i<=4;$i++) {
+                                        echo '<option value="'.$i.'" '.($default == "$i" ? 'SELECTED' : '').'>'._("$i").'</option>';
+                                }
+                        ?>
+                        </select>
+                </td>
+        </tr>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Timing & Agent Options")?><hr></h5></td></tr>
 

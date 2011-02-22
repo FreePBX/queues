@@ -552,6 +552,51 @@ if(DB::IsError($check)) {
         out(_("already exists"));
 }
 
+outn(_("checking for monitor_type field.."));
+$sql = "SELECT `monitor_type` FROM queues_config";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+        // add new field
+        $sql = "ALTER TABLE queues_config ADD `monitor_type` VARCHAR(5) DEFAULT NULL";
+        $result = $db->query($sql);
+        if(DB::IsError($result)) {
+                die_freepbx($result->getDebugInfo());
+        }
+        out(_("OK"));
+} else {
+        out(_("already exists"));
+}
+
+outn(_("checking for monitor_heard field.."));
+$sql = "SELECT `monitor_heard` FROM queues_config";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+        // add new field
+        $sql = "ALTER TABLE queues_config ADD `monitor_heard` INT";
+        $result = $db->query($sql);
+        if(DB::IsError($result)) {
+                die_freepbx($result->getDebugInfo());
+        }
+        out(_("OK"));
+} else {
+        out(_("already exists"));
+}
+
+outn(_("checking for monitor_spoken field.."));
+$sql = "SELECT `monitor_spoken` FROM queues_config";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+        // add new field
+        $sql = "ALTER TABLE queues_config ADD `monitor_spoken` INT";
+        $result = $db->query($sql);
+        if(DB::IsError($result)) {
+                die_freepbx($result->getDebugInfo());
+        }
+        out(_("OK"));
+} else {
+        out(_("already exists"));
+}
+
 $freepbx_conf =& freepbx_conf::create();
 
 // QUEUES_PESISTENTMEMBERS

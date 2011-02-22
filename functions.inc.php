@@ -412,6 +412,21 @@ function queues_get_config($engine) {
 					}
 
 					$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_FILENAME','/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}'));
+					if ($amp_conf['QUEUES_MIX_MONITOR']) {
+						$monitor_options = '';
+						if (isset($q['monitor_type']) && $q['monitor_type'] != '') {
+							$monitor_options .= 'b';
+						}
+						if (isset($q['monitor_spoken']) && $q['monitor_spoken'] != 0) {
+                                                        $monitor_options .= 'V('.$q['monitor_spoken'].')';
+                                                }
+						if (isset($q['monitor_heard']) && $q['monitor_heard'] != 0) {
+                                                        $monitor_options .= 'v('.$q['monitor_heard'].')';
+                                                }
+						if ($monitor_options != '') {
+							$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_OPTIONS', $monitor_options ));
+						}
+					}
 					$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
 					if($joinannounce_id) {
 						$joinannounce = recordings_get_file($joinannounce_id);
@@ -479,6 +494,9 @@ function queues_get_config($engine) {
 						$ext->add('ext-queues', $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', ''));				
 					}
 
+					if($monitor_options != '') {
+						$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_OPTIONS', ''));
+					}
 					if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
 						$ext->add('ext-queues', $exten, '', new ext_setvar('__CWIGNORE', '')); 
 					}
@@ -692,7 +710,7 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0', $qnoanswer = '0', $callconfirm = '0', $callconfirm_id) {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0', $qnoanswer = '0', $callconfirm = '0', $callconfirm_id, $monitor_type = '', $monitor_heard = '0', $monitor_spoken = '0') {
   global $db,$astman,$amp_conf;
 
 	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
@@ -778,10 +796,13 @@ $fields = array(
 	$togglehint    = isset($togglehint) ? $togglehint:'0';
 	$qnoanswer     = isset($qnoanswer) ? $qnoanswer:'0';
 	$callconfirm   = isset($callconfirm) ? $callconfirm:'0';
+	$monitor_type  = isset($monitor_type) ? $monitor_type:'';
+	$monitor_heard = isset($monitor_heard) ? $monitor_heard:'0';
+	$monitor_spoken = isset($monitor_spoken) ? $monitor_spoken:'0';
 
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint, qnoanswer, callconfirm, callconfirm_id)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint', '$qnoanswer', '$callconfirm', '$callconfirm_id')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint, qnoanswer, callconfirm, callconfirm_id, monitor_type, monitor_heard, monitor_spoken)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint', '$qnoanswer', '$callconfirm', '$callconfirm_id', '$monitor_type', '$monitor_heard', '$monitor_spoken')	";
 	$results = sql($sql);
 
   // store dynamic member data in astDB
@@ -1015,6 +1036,9 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['qnoanswer']     = $config['qnoanswer'];
 		$results['callconfirm']    = $config['callconfirm'];
 		$results['callconfirm_id'] = $config['callconfirm_id'];
+		$results['monitor_type']   = $config['monitor_type'];
+		$results['monitor_heard']   = $config['monitor_heard'];
+		$results['monitor_spoken']   = $config['monitor_spoken'];
 
     // TODO: why the str_replace?
     //
