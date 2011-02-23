@@ -45,6 +45,7 @@ $monitor_spoken = isset($_REQUEST['monitor_spoken'])?$_REQUEST['monitor_spoken']
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
 $ast_ge_16 = version_compare($astver, '1.6', 'ge');
+$ast_ge_162 = version_compare($astver, '1.6.2', 'ge');
 $ast_ge_18 = version_compare($astver, '1.8', 'ge');
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
@@ -833,7 +834,10 @@ if ($ast_ge_16) {
         $tt = _("Deterines if new callers will be admitted to the Queue, if not, the failover destination will be immediately pursued. The options include:");
         $tt .= '<ul>';
         $tt .= '<li><b>'._("Yes").'</b> '._("Always allows the caller to join the Queue.").'</li>';
-        $tt .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone 'now' then don't admit them.").'</li>';
+        $tt .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone then don't admit them. If agents are inuse or ringing someone else, caller will still be admited.").'</li>';
+        if ($ast_ge_162) {
+          $tt .= '<li><b>'._("Ultra Strict").'</b> '._("Same as Strict plus a queue member must be able to answer the phone 'now' to let them in. Simply speaking, any 'available' agents that could answer but are currenlty on the phone or ringing on behalf of another caller will be considered unavailable.").'</li>';
+        }
         $tt .= '<li><b>'._("No").'</b> '._("Callers will not be admited if all agents are paused, show an invalid state for their device, or have penalty values less then QUEUE_MAX_PENALTY (not currenlty set in FreePBX dialpaln).").'</li>';
         if ($ast_ge_16) {
           $tt .= '<li><b>'._("Loose").'</b> '._("Same as No except Callers will be admitted if their are paused agents who could become available.").'</li>';
@@ -846,12 +850,17 @@ if ($ast_ge_16) {
 			<select name="joinempty" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 				$default = (isset($joinempty) ? $joinempty : 'yes');
-				$items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
-        if ($ast_ge_16) {
-				  $items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"), 'loose'=>_("Loose"));
-        } else {
-				  $items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
+
+        $items['yes'] = _("Yes");
+        $items['strict'] = _("Strict");
+        if ($ast_ge_162) {
+          $items['penalty,paused,invalid,unavailable,inuse,ringing'] = _("Ultra Strict");
         }
+        $items['no'] = _("No");
+        if ($ast_ge_16) {
+          $items['loose'] = _("Loose");
+        }
+
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
@@ -864,7 +873,10 @@ if ($ast_ge_16) {
         $tt = _("Deterines if callers should be exited prematurely from the queue in situations where it appears no one is currenlty available to take the call. The options include:");
         $tt .= '<ul>';
         $tt .= '<li><b>'._("Yes").'</b> '._("Callers will exit if all agents are paused, show an invalid state for their device or have penalty values less then QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan)..").'</li>';
-        $tt .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent can answer the phone 'now' then have them leave the Queue.").'</li>';
+        $tt .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone then have them leave the queue. If agents are inuse or ringing someone else, caller will still be held.").'</li>';
+        if ($ast_ge_162) {
+          $tt .= '<li><b>'._("Ultra Strict").'</b> '._("Same as Strict plus a queue member must be able to answer the phone 'now' to let them remain. Simply speaking, any 'available' agents that could answer but are currenlty on the phone or ringing on behalf of another caller will be considered unavailable.").'</li>';
+        }
         if ($ast_ge_16) {
           $tt .= '<li><b>'._("Loose").'</b> '._("Same as Yes except Callers will remain in the Queue if their are paused agents who could become availalbe.").'</li>';
         }
@@ -872,20 +884,22 @@ if ($ast_ge_16) {
         $tt .= '</ul>';
 ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Leave Empty:")?><span><?php echo _("If you wish to remove callers from the queue if there are no agents present, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Leave Empty:")?><span><?php echo $tt?></span></a></td>
 		<td>
 			<select name="leavewhenempty" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 				$default = (isset($leavewhenempty) ? $leavewhenempty : 'no');
-				$items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
+
+        $items['yes'] = _("Yes");
+        $items['strict'] = _("Strict");
+        if ($ast_ge_162) {
+          $items['penalty,paused,invalid,unavailable,inuse,ringing'] = _("Ultra Strict");
+        }
         if ($ast_ge_16) {
           $items['loose'] = _("Loose");
         }
-        if ($ast_ge_16) {
-				  $items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'loose'=>_("Loose"),'no'=>_("No"));
-        } else {
-				  $items = array('yes'=>_("Yes"),'strict'=>_("Strict"),'no'=>_("No"));
-        }
+        $items['no'] = _("No");
+
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
