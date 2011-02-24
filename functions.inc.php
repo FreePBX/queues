@@ -491,6 +491,7 @@ function queues_get_config($engine) {
 						if ($amp_conf['AST_FUNC_SHARED']) {
 							$ext->add('ext-queues', $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)', ''));
 						}
+						$ext->add('ext-queues', $exten, '', new ext_setvar('__FORCE_CONFIRM', ''));
 						$ext->add('ext-queues', $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', ''));				
 					}
 
