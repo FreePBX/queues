@@ -74,6 +74,6 @@
 	<menuitems>
 		<queues needsenginedb="yes">Queues</queues>
 	</menuitems>
-	<location>release/2.9/queues-2.9.0.6.tgz</location>
-	<md5sum>07072c5a300e4a184fd3465f35740b6b</md5sum>
+	<location>release/2.9/queues-2.9.0.7.tgz</location>
+	<md5sum>1619a6eb176a6d4c3f0d1d3fe34166de</md5sum>
 </module>
