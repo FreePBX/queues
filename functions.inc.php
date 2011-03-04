@@ -1011,10 +1011,6 @@ function queues_get($account, $queues_conf_only=false) {
 	if ($queues_conf_only) {
 		$sql = "SELECT ivr_id FROM queues_config WHERE extension = $account";
 		$config = sql($sql, "getRow",DB_FETCHMODE_ASSOC);
-
-		// We need to strip off all but the first sound file of any compound sound files
-		//
-		$results['agentannounce_id'] = $agentannounce_id_arr[0];
 	} else {
 		$sql = "SELECT * FROM queues_config WHERE extension = $account";
 		$config = sql($sql, "getRow",DB_FETCHMODE_ASSOC);
