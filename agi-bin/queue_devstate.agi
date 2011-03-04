@@ -78,8 +78,7 @@
 		foreach ($response1 as $item) {
 			$item1=trim($item);
 			if ($inqueue == 'false') {
-        //TODO: deprecated ereg
-				if (ereg('(\\d+)',$item1)) {
+        if (preg_match('/^(\d+)/',$item1)) {
 					preg_match_all ("/(\\d+)/is", $item1,$matches);
 					if (isset($matches[1][0]) && $matches[1][0] != '') {
 						$queues[]=$matches[1][0];
@@ -90,8 +89,7 @@
 				}
 			} else {
 				// We should test to see if the item is an Agent description
-        //TODO: deprecated ereg
-				if (ereg('Local',$item1)) {
+        if (strstr($item1,'Local/') !== false) {
 					preg_match_all ("/(Local).*?(\\d+)/is", $item1, $matches);
 					$loggedagent=$matches[2][0];
 					$item1='ADD';
@@ -115,8 +113,7 @@
 					break;
 				case 'ADD':
 					$logged_agents_array[$inqueue][]=$loggedagent;
-            //TODO: deprecated ereg
-						if (ereg('(dynamic)',$item)) {
+            if (strstr($item1,'(dynamic)') !== false) {
 							debug("Agent $loggedagent is dynamic");
 						}else{
 							debug("Agent $loggedagent is static");
