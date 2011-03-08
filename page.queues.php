@@ -623,11 +623,11 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
     <select name="monitor_heard" tabindex="<?php echo ++$tabindex;?>">
     <?php
     for($i=-4;$i<=-1;$i++) {
-      echo '<option value="'.$i.'" '.($moniotr_heard == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
+      echo '<option value="'.$i.'" '.($monitor_heard == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
     }
-    echo '<option value="0" '.(!$moniotr_heard ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
+    echo '<option value="0" '.(!$monitor_heard ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
     for($i=1;$i<=4;$i++) {
-      echo '<option value="'.$i.'" '.($moniotr_heard == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
+      echo '<option value="'.$i.'" '.($monitor_heard == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
     }
     ?>
     </select>
@@ -640,11 +640,11 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
     <select name="monitor_spoken" tabindex="<?php echo ++$tabindex;?>">
     <?php
     for($i=-4;$i<=-1;$i++) {
-      echo '<option value="'.$i.'" '.($moniotr_spoken == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
+      echo '<option value="'.$i.'" '.($monitor_spoken == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
     }
-    echo '<option value="0" '.(!$moniotr_spoken ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
+    echo '<option value="0" '.(!$monitor_spoken ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
     for($i=1;$i<=4;$i++) {
-      echo '<option value="'.$i.'" '.($moniotr_spoken == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
+      echo '<option value="'.$i.'" '.($monitor_spoken == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
     }
     ?>
     </select>
