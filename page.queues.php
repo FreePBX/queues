@@ -307,7 +307,7 @@ if ($action == 'delete') {
 <?php
 	if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
         <tr>
-                <td><a href="#" class="info"><?php echo _("Call Confirm Announce:")?><span><?php echo _("Announcement played to the Queue Memeber annoucing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default m essage will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU.")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Call Confirm Announce:")?><span><?php echo _("Announcement played to the Queue Memeber announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU.")?></span></a></td>
                 <td>
                         <select name="callconfirm_id" tabindex="<?php echo ++$tabindex;?>">
                         <?php
@@ -343,7 +343,7 @@ if ($action == 'delete') {
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Wait Time Prefix:")?><span><?php echo _("When set to Yes, the CID Name will be prefixed with the total wait time in the queue so the answering agent is aware how long they have waited. It will be rounded to the nearest minute, in the form of Mnn: where nn is the number of minutes.").'<br />'._("If the call is subsequently transfered, the wait time will reflect the time since it first entered the queue or reset if the call is transfered to another queue with this feature set.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Wait Time Prefix:")?><span><?php echo _("When set to Yes, the CID Name will be prefixed with the total wait time in the queue so the answering agent is aware how long they have waited. It will be rounded to the nearest minute, in the form of Mnn: where nn is the number of minutes.").'<br />'._("If the call is subsequently transferred, the wait time will reflect the time since it first entered the queue or reset if the call is transferred to another queue with this feature set.")?></span></a></td>
 		<td>
 			<select name="queuewait" tabindex="<?php echo ++$tabindex;?>">
 			<?php
@@ -682,7 +682,7 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 if ($ast_ge_16) {
 ?>
   <tr>
-    <td><a href="#" class="info"><?php echo _("Max Wait Time Mode:")?><span><?php echo _("Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a caller is hit, they will be pulled out of the queue immediately. In 'Loose' mode, if a queue member is currently ringing with this call, then we will wait until the queue stops ringing this queue memeber or otherwise the calll is rejected by the queue member before taking the caller out of the queue. This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + 'Agent Timeout' combined.")?></span></a></td>
+    <td><a href="#" class="info"><?php echo _("Max Wait Time Mode:")?><span><?php echo _("Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a caller is hit, they will be pulled out of the queue immediately. In 'Loose' mode, if a queue member is currently ringing with this call, then we will wait until the queue stops ringing this queue member or otherwise the call is rejected by the queue member before taking the caller out of the queue. This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + 'Agent Timeout' combined.")?></span></a></td>
     <td>
       <select name="timeoutpriority" tabindex="<?php echo ++$tabindex;?>">
 <?php
@@ -831,14 +831,14 @@ if ($ast_ge_16) {
 	</tr>
 
 <?php
-        $tt = _("Deterines if new callers will be admitted to the Queue, if not, the failover destination will be immediately pursued. The options include:");
+        $tt = _("Determines if new callers will be admitted to the Queue, if not, the failover destination will be immediately pursued. The options include:");
         $tt .= '<ul>';
         $tt .= '<li><b>'._("Yes").'</b> '._("Always allows the caller to join the Queue.").'</li>';
-        $tt .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone then don't admit them. If agents are inuse or ringing someone else, caller will still be admited.").'</li>';
+        $tt .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone then don't admit them. If agents are inuse or ringing someone else, caller will still be admitted.").'</li>';
         if ($ast_ge_162) {
-          $tt .= '<li><b>'._("Ultra Strict").'</b> '._("Same as Strict plus a queue member must be able to answer the phone 'now' to let them in. Simply speaking, any 'available' agents that could answer but are currenlty on the phone or ringing on behalf of another caller will be considered unavailable.").'</li>';
+          $tt .= '<li><b>'._("Ultra Strict").'</b> '._("Same as Strict plus a queue member must be able to answer the phone 'now' to let them in. Simply speaking, any 'available' agents that could answer but are currently on the phone or ringing on behalf of another caller will be considered unavailable.").'</li>';
         }
-        $tt .= '<li><b>'._("No").'</b> '._("Callers will not be admited if all agents are paused, show an invalid state for their device, or have penalty values less then QUEUE_MAX_PENALTY (not currenlty set in FreePBX dialpaln).").'</li>';
+        $tt .= '<li><b>'._("No").'</b> '._("Callers will not be admitted if all agents are paused, show an invalid state for their device, or have penalty values less then QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan).").'</li>';
         if ($ast_ge_16) {
           $tt .= '<li><b>'._("Loose").'</b> '._("Same as No except Callers will be admitted if their are paused agents who could become available.").'</li>';
         }
@@ -870,12 +870,12 @@ if ($ast_ge_16) {
 	</tr>
 
 <?php
-        $tt = _("Deterines if callers should be exited prematurely from the queue in situations where it appears no one is currenlty available to take the call. The options include:");
+        $tt = _("Determines if callers should be exited prematurely from the queue in situations where it appears no one is currently available to take the call. The options include:");
         $tt .= '<ul>';
         $tt .= '<li><b>'._("Yes").'</b> '._("Callers will exit if all agents are paused, show an invalid state for their device or have penalty values less then QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan)..").'</li>';
         $tt .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone then have them leave the queue. If agents are inuse or ringing someone else, caller will still be held.").'</li>';
         if ($ast_ge_162) {
-          $tt .= '<li><b>'._("Ultra Strict").'</b> '._("Same as Strict plus a queue member must be able to answer the phone 'now' to let them remain. Simply speaking, any 'available' agents that could answer but are currenlty on the phone or ringing on behalf of another caller will be considered unavailable.").'</li>';
+          $tt .= '<li><b>'._("Ultra Strict").'</b> '._("Same as Strict plus a queue member must be able to answer the phone 'now' to let them remain. Simply speaking, any 'available' agents that could answer but are currently on the phone or ringing on behalf of another caller will be considered unavailable.").'</li>';
         }
         if ($ast_ge_16) {
           $tt .= '<li><b>'._("Loose").'</b> '._("Same as Yes except Callers will remain in the Queue if their are paused agents who could become available.").'</li>';
@@ -911,7 +911,7 @@ if ($ast_ge_16) {
 if ($ast_ge_16) {
 ?>
 	<tr>
-    <td><a href="#" class="info"><?php echo _("Penalty Members Limit:")?><span><?php echo _("Asterisk: peanltymemberslimit. A limit can be set to disregard penalty settings, allowing all members to be tried, when the queue has too few members.  No penalty will be weighed in if there are only X or fewer queue members.")?></span></a></td>
+    <td><a href="#" class="info"><?php echo _("Penalty Members Limit:")?><span><?php echo _("Asterisk: penaltymemberslimit. A limit can be set to disregard penalty settings, allowing all members to be tried, when the queue has too few members.  No penalty will be weighed in if there are only X or fewer queue members.")?></span></a></td>
     <td>
       <select name="penaltymemberslimit" tabindex="<?php echo ++$tabindex;?>">
 <?php
