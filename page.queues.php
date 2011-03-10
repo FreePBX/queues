@@ -280,7 +280,7 @@ if ($action == 'delete') {
   if ($qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER']) {
 ?>
 	<tr>
-    <td><a href="#" class="info"><?php echo _("Queue No Answer:")?><span><?php echo _("If checked, the queue will not answer the call. Under most circumstance you should always have the queue answering calls. If not, then it's possible that recordings and MoH will not be heard by the waiting callers since early media capabilities vary and are inconsistent. Some cases where it may be desired to not answer a call is when using Strict Join Empty queue policies where the caller will not be admitted to the queue unless there is a queue member immediately availalbe to take the call.")?></span></a></td>
+    <td><a href="#" class="info"><?php echo _("Queue No Answer:")?><span><?php echo _("If checked, the queue will not answer the call. Under most circumstance you should always have the queue answering calls. If not, then it's possible that recordings and MoH will not be heard by the waiting callers since early media capabilities vary and are inconsistent. Some cases where it may be desired to not answer a call is when using Strict Join Empty queue policies where the caller will not be admitted to the queue unless there is a queue member immediately available to take the call.")?></span></a></td>
     <td>
       <input name="qnoanswer" type="checkbox" value="1" <?php echo (isset($qnoanswer) && $qnoanswer == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
     </td>
@@ -878,7 +878,7 @@ if ($ast_ge_16) {
           $tt .= '<li><b>'._("Ultra Strict").'</b> '._("Same as Strict plus a queue member must be able to answer the phone 'now' to let them remain. Simply speaking, any 'available' agents that could answer but are currenlty on the phone or ringing on behalf of another caller will be considered unavailable.").'</li>';
         }
         if ($ast_ge_16) {
-          $tt .= '<li><b>'._("Loose").'</b> '._("Same as Yes except Callers will remain in the Queue if their are paused agents who could become availalbe.").'</li>';
+          $tt .= '<li><b>'._("Loose").'</b> '._("Same as Yes except Callers will remain in the Queue if their are paused agents who could become available.").'</li>';
         }
         $tt .= '<li><b>'._("No").'</b> '._("Never have a caller leave the Queue until the Max Wait Time has expired.").'</li>';
         $tt .= '</ul>';
