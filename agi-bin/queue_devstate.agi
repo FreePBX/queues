@@ -113,7 +113,7 @@
 					break;
 				case 'ADD':
 					$logged_agents_array[$inqueue][]=$loggedagent;
-            if (strstr($item1,'(dynamic)') !== false) {
+            if (strstr($item,'(dynamic)') !== false) {
 							debug("Agent $loggedagent is dynamic");
 						}else{
 							debug("Agent $loggedagent is static");
