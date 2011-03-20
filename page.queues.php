@@ -299,7 +299,7 @@ if ($action == 'delete') {
 <?php } ?>
 
 	<tr>
-    		<td><a href="#" class="info"><?php echo _("Call Confirm:")?><span><?php echo _("If checked, any queue member that is actually an outside telephone number, or any extension Follow-Mes or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered..")?></span></a></td>
+    		<td><a href="#" class="info"><?php echo _("Call Confirm:")?><span><?php echo _("If checked, any queue member that is actually an outside telephone number, or any extensions Follow-Me or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered..")?></span></a></td>
     		<td>
       			<input name="callconfirm" type="checkbox" value="1" <?php echo (isset($callconfirm) && $callconfirm == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
     		</td>
