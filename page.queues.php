@@ -420,7 +420,7 @@ if ($action == 'delete') {
 
 	<tr>
 	  <td><a href="#" class="info"><?php echo _("Restrict Dynamic Agents")?><span><?php echo _('Restrict dynamic queue member logins to only those listed in the Dynamic Members list above. When set to Yes, members not listed will be DENIED ACCESS to the queue.')?></span></a></td>
-    <td><input type="radio" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly=='yes'?'checked':'');?>><?php echo _('Yes')?><input type="radio" name="dynmemberonly" value="no" <?php echo ($dynmemberonly!='yes'?'checked':'');?> ><?php echo _('No')?>
+    <td><span class="radioset"><input type="radio" id="dynmemberonly_yes" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly=='yes'?'checked':'');?>><label for="dynmemberonly_yes"><?php echo _('Yes')?></label><input type="radio" name="dynmemberonly" id="dynmemberonly_no" value="no" <?php echo ($dynmemberonly!='yes'?'checked':'');?>><label for="dynmemberonly_no"><?php echo _('No'); ?></label></span>
 		</td>
 	</tr>
 
@@ -948,7 +948,7 @@ if ($ast_ge_16) {
 		<td><a href="#" class="info"><?php echo _("Announce Position:")?><span><?php echo _("Announce position of caller in the queue?")?></span></a></td>
 		<td>
 			<select name="announceposition" tabindex="<?php echo ++$tabindex;?>">
-			<?php //setting to "no" will override sounds queue-youarenext, queue-thereare, queue-callswaitingÊ 
+			<?php //setting to "no" will override sounds queue-youarenext, queue-thereare, queue-callswaitingÃŠ 
 				$default = (isset($thisQ['announce-position']) ? $thisQ['announce-position'] : "no");  
 					echo '<option value=yes '.($default == "yes" ? 'SELECTED' : '').'>'._("Yes").'</option>';
 					echo '<option value=no '.($default == "no" ? 'SELECTED' : '').'>'._("No").'</option>';
