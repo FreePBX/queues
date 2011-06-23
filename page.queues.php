@@ -973,7 +973,7 @@ if ($ast_ge_16) {
 
 	<tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?><hr></h5></td></tr>
 	
-<?php if(function_exists('ivr_list')) { //only include if IVR module is enabled ?>
+<?php if(function_exists('ivr_get_details')) { //only include if IVR module is enabled ?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("IVR Break Out Menu:")?><span> <?php echo _("You can optionally present an existing IVR as a 'break out' menu.<br><br>This IVR must only contain single-digit 'dialed options'. The Recording set for the IVR will be played at intervals specified in 'Repeat Frequency', below.")?></span></a></td>
 		<td>
@@ -986,16 +986,16 @@ if ($ast_ge_16) {
 			//query for exisiting aa_N contexts
 			//
 			// If a previous bogus IVR was listed, we will leave it in with an error but will no longer show such IVRs as valid options.
-			$unique_aas = ivr_list();		
+			$unique_aas = ivr_get_details();		
 			
 			$compound_recordings = false;
 			$is_error = false;
 			if (isset($unique_aas)) {
 				foreach ($unique_aas as $unique_aa) {
-					$menu_id = $unique_aa['ivr_id'];
-					$menu_name = $unique_aa['displayname'];
+					$menu_id = $unique_aa['id'];
+					$menu_name = $unique_aa['name'] ? $unique_aa['name'] : 'IVR ' . $unique_aa['id'];
 
-					$unique_aa['announcement'] = recordings_get_file($unique_aa['announcement_id']);
+					$unique_aa['announcement'] = recordings_get_file($unique_aa['announcement']);
 					if (strpos($unique_aa['announcement'],"&") === false) {
 						echo '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)."</option>\n";
 					} 

@@ -923,10 +923,10 @@ function queues_check_compoundrecordings() {
 	$sql = "SELECT extension, descr, agentannounce_id, ivr_id FROM queues_config WHERE (ivr_id != 'none' AND ivr_id != '') OR agentannounce_id != ''";
 	$results = sql($sql, "getAll",DB_FETCHMODE_ASSOC);
 
-	if (function_exists('ivr_list')) {
-		$ivr_details = ivr_list();
+	if (function_exists('ivr_get_details')) {
+		$ivr_details = ivr_get_details();
 		foreach ($ivr_details as $item) {
-			$ivr_hash[$item['ivr_id']] = $item;
+			$ivr_hash[$item['id']] = $item;
 		}
 		$check_ivr = true;
 	} else {
