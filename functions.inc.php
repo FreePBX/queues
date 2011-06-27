@@ -1227,10 +1227,15 @@ function queues_configpageinit($pagename) {
 	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
-
-	// We only want to hook 'users' or 'extensions' pages.
-	if ($pagename != 'users' && $pagename != 'extensions') 
+	$display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
+	
+	//hook in to ivr's
+	if ($display == 'ivr') {
+		$currentcomponent->addprocessfunc('queues_configprocess_ivr');
+		// We only want to hook 'users' or 'extensions' pages.
+	} elseif ($pagename != 'users' && $pagename != 'extensions') {
 		return true;
+	}
 	// On a 'new' user, 'tech_hardware' is set, and there's no extension. Hook into the page.
 	if ($tech_hardware != null || $pagename == 'users') {
 		queues_applyhooks();
@@ -1266,9 +1271,11 @@ function queues_configpageload() {
 function queues_configprocess() {
 	//create vars from the request
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$id = isset($_REQUEST['id'])?$_REQUEST['id']:null;
 	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 	$qnostate = isset($_REQUEST['qnostate'])?$_REQUEST['qnostate']:null;
+	
 
 	if ($ext==='') { 
 		$extdisplay = $extn; 
@@ -1280,5 +1287,27 @@ function queues_configprocess() {
       queues_set_qnostate($extdisplay, $qnostate);
 		}
 	} // if 'del' then core will remove the entire tree
+}
+
+function queues_configprocess_ivr() {
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
+	$id = isset($_REQUEST['id'])?$_REQUEST['id']:null;
+
+	
+	if($display == 'ivr' && $action == 'delete') {
+		queues_ivr_delete_event($id);
+	}
+	
+}
+function queues_ivr_delete_event($id = '') {
+	global $db;
+	
+	if (!$id) {
+			sql('UPDATE queues_config SET ivr_id = ""');
+	} else {
+		$sql = 'UPDATE queues_config SET ivr_id = "" WHERE ivr_id = ?';
+		$ret = $db->query($sql, array($id));
+	}
 }
 ?>

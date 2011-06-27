@@ -129,7 +129,7 @@ if (isset($_REQUEST["dynmembers"])) {
 
 
 // do if we are submitting a form
-if(isset($_POST['action'])){
+if(isset($_REQUEST['action'])){
 	//check if the extension is within range for this user
 	if (isset($account) && !checkRange($account)){
 		echo "<script>javascript:alert('"._("Warning! Extension")." $account "._("is not allowed for your account.")."');</script>";
