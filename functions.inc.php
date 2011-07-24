@@ -1312,10 +1312,10 @@ function queues_ivr_delete_event($id = '') {
 }
 /* Get a list of all members that exists for any queue, if any */
 function queues_get_members() {
-        global $db;
-        $sql = "SELECT data FROM queues_details WHERE keyword = 'member' order by flags";
-        $results = $db->getCol($sql);
-        return $results;
+		global $db;
+		$sql = "SELECT data FROM queues_details WHERE keyword = 'member' order by flags";
+		$results = $db->getCol($sql);
+		return $results;
 }
 
 function queues_hook_core($viewing_itemid, $request) {
@@ -1323,34 +1323,34 @@ function queues_hook_core($viewing_itemid, $request) {
 }
 
 function queues_hookProcess_core($viewing_itemid, $request) {
-        global $db;
-	
+		global $db;
+
 	if (!isset($request['action']))
-    	    return;
+		return;
 	switch ($request['action']) {
-    	    case 'del':
-		// Get all members that exists in any queue, if any
-                $members = queues_get_members();
-                // We need to track the array index
-                $item = 0;
-                // Scan all members until we find a match
-                foreach ($members as $member) {
-            	    preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
-                    if($matches[1] == $viewing_itemid) {
-                	// We got a match, now delete that member from all queues
-                        $sql = "DELETE FROM queues_details WHERE data = '$members[$item]'";
-                        $result = $db->query($sql);
-                        if(DB::IsError($result)) {
-                    	    die_freepbx($result->getMessage().$sql);
-                        }
-                        // Now we are done, no need to scan the rest of the entries
-                        // Break out of the foreach loop
-                        // TODO: I think it is neccessary to sort the flag value??
-                        break;
-                    }
-                  $item ++;
-                  }
-            break;
-    }
+		case 'del':
+			// Get all members that exists in any queue, if any
+			$members = queues_get_members();
+			// We need to track the array index
+			$item = 0;
+			// Scan all members until we find a match
+			foreach ($members as $member) {
+				preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
+				if($matches[1] == $viewing_itemid) {
+					// We got a match, now delete that member from all queues
+					$sql = "DELETE FROM queues_details WHERE data = '$members[$item]'";
+					$result = $db->query($sql);
+					if(DB::IsError($result)) {
+						die_freepbx($result->getMessage().$sql);
+					}
+					// Now we are done, no need to scan the rest of the entries
+					// Break out of the foreach loop
+					// TODO: I think it is neccessary to sort the flag value??
+					break;
+				}
+				$item ++;
+			}
+		break;
+	}
 }
 ?>
