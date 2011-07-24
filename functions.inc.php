@@ -1338,7 +1338,9 @@ function queues_hookProcess_core($viewing_itemid, $request) {
 				preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
 				if($matches[1] == $viewing_itemid) {
 					// We got a match, now delete that member from all queues
-					$sql = "DELETE FROM queues_details WHERE data = '$members[$item]'";
+					// Strip the penalty from the member
+					$member_to_delete = explode(',',$members[$item]);
+					$sql = "DELETE FROM queues_details WHERE data LIKE '$member_to_delete[0]%'";
 					$result = $db->query($sql);
 					if(DB::IsError($result)) {
 						die_freepbx($result->getMessage().$sql);
