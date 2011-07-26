@@ -400,8 +400,9 @@ function queues_get_config($engine) {
 					if ($alertinfo != '') {
 						$ext->add('ext-queues', $exten, '', new ext_setvar('__ALERT_INFO', str_replace(';', '\;', $alertinfo)));
 					}
+          $record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
+          $ext->add('ext-queues', $exten, '', new ext_gosub('1','s','sub-record-check',"q,$exten,$record_mode"));
 
-					$ext->add('ext-queues', $exten, '', new ext_setvar('MONITOR_FILENAME','/var/spool/asterisk/monitor/q${EXTEN}-${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)}-${UNIQUEID}'));
 					if ($amp_conf['QUEUES_MIX_MONITOR']) {
 						$monitor_options = '';
 						if (isset($q['monitor_type']) && $q['monitor_type'] != '') {
@@ -473,6 +474,9 @@ function queues_get_config($engine) {
           if($q['use_queue_context'] != '2') {
 					  $ext->add('ext-queues', $exten, '', new ext_macro('blkvm-clr'));
           }
+          // cancel any recording previously requested
+          //
+          $ext->add('ext-queues', $exten, '', new ext_gosub('1','s','sub-record-cancel'));
  					// If we are here, disable the NODEST as we want things to resume as normal
  					//
  					$ext->add('ext-queues', $exten, '', new ext_setvar('__NODEST', ''));
@@ -586,7 +590,7 @@ function queues_get_config($engine) {
 			if (is_array($userlist)) {
 				foreach($userlist as $item) {
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_setvar('RingGroupMethod', 'none'));
-					$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('record-enable',$item[0].",IN"));
+          $ext->add($from_queue_exten_only, $item[0], '', new ext_macro('record-enable',$item[0].",IN"));
           if ($has_extension_state) {
 					  $ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS},'.$item[0]));
           } else {
@@ -1355,4 +1359,3 @@ function queues_hookProcess_core($viewing_itemid, $request) {
 		break;
 	}
 }
-?>
