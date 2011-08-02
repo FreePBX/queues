@@ -401,6 +401,9 @@ function queues_get_config($engine) {
 						$ext->add('ext-queues', $exten, '', new ext_setvar('__ALERT_INFO', str_replace(';', '\;', $alertinfo)));
 					}
           $record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
+          if ($q['monitor-format']) {
+					  $ext->add('ext-queues', $exten, '', new ext_set('__MIXMON_FORMAT', $q['monitor-format']));
+          }
           $ext->add('ext-queues', $exten, '', new ext_gosub('1','s','sub-record-check',"q,$exten,$record_mode"));
 
 					if ($amp_conf['QUEUES_MIX_MONITOR']) {
