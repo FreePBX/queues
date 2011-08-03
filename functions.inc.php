@@ -593,7 +593,7 @@ function queues_get_config($engine) {
 			if (is_array($userlist)) {
 				foreach($userlist as $item) {
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_setvar('RingGroupMethod', 'none'));
-          $ext->add($from_queue_exten_only, $item[0], '', new ext_macro('record-enable',$item[0].",IN"));
+          $ext->add($from_queue_exten_only, $item[0], 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten," . $item[0]));
           if ($has_extension_state) {
 					  $ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS},'.$item[0]));
           } else {
