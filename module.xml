@@ -5,8 +5,7 @@
 	<version>2.9.0.12</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
-	<type>setup</type>
-	<category>Inbound Call Control</category>
+	<category>Apps</category>
 	<description>
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
 	</description>
@@ -24,52 +23,6 @@
 		*2.9.0.2* #4777, #4799
 		*2.9.0.1* #4740, #4758
 		*2.9.0.0* #4651, #4671, #4655
-		*2.8.0.4* #4671
-		*2.8.0.3* localization updates
-		*2.8.0.2* #4327
-		*2.8.0.1* #4297
-		*2.8.0.0* #4165, #4187, #4279, #4280, #2203
-		*2.7.0.2* #4120 again fixed typo in variable name
-		*2.7.0.1* #4120, spelling typo
-		*2.7.0.0* #4084, spelling, tooltips changes, localizations
-		*2.7.0beta1.5* #4084, #4068 (support for experimental dial-one)
-		*2.7.0beta1.4* #4051 (requires MoH 2.7.0.0 or above)
-		*2.7.0beta1.3* #4048
-		*2.7.0beta1.2* #4038
-		*2.7.0beta1.1* #2085
-		*2.7.0beta1.0* #3594
-		*2.6.0.3* #3945,#3984
-		*2.6.0.2* #3794, #3496, #3562 (with use of USEQUEUESTATE=yes and Asterisk patch: 15168
-		*2.6.0.1* #3044 (add per device queue login/blf enabled toggle feature code)
-		*2.6.0.0* #3546, #2768, #3685, #3686
-		*2.5.4.8* #3664
-		*2.5.4.7* #3618, localization udpates
-		*2.5.4.6* localization updates
-		*2.5.4.5* #3400, #3380, various translations
-		*2.5.4.4* #3242, #3230, localization fixes
-		*2.5.4.3* #3222 sqlite3
-		*2.5.4.2* #3200 and localization string fixes
-		*2.5.4.1* #3171 and localize queues_timeString()
-		*2.5.4* #3138, #3147 add the Queues App n option as Retry alternative, see tooltip
-		*2.5.3* #3098 WARNING: subtle queue behavior might change: set persistenetmembers=yes so dynamic agents are retained on asterisk restarting, and added option for autofill
-		*2.5.2.4* #3069 add queue weight option to queues
-		*2.5.2.3* #3083, setting ringinuse causes transfered call to keep agent as unavailable, removing since it is not needed for FreePBX standard agents
-		*2.5.2.2* #2987, #3010 sqlite3 install script, spelling
-		*2.5.2.1* #2970 periodic-announce message not being configured (re #2068 change)
-		*2.5.2* #2073 add a Queue hold time CID prepend to report how long the caller has been holding
-		*2.5.1* #2068 recordings_id, don't list IVRs with compound messages
-		*2.5.0.1* #2875, #2768
-		*2.5.0.0* #2976 Add Optional Regex to filter user agent numbers that they can input
-		*2.4.0.8* #2757 allow spaces and other alphanumeric characters in description
-		*2.4.0.7* #2604, #2707, #2843 fix mal-formed html tags, typo, Russian Translation, add oldstyle module hook
-		*2.4.0.6* added depends on 2.4.0
-		*2.4.0.5* #2637, monitor-join=yes not supported in asterisk 1.6
-		*2.4.0.4* #2636 Queues Options member status allways show No
-		*2.4.0.3* #2579 added strict to joinempty and leavewhenempy, #2627 ringing box ignored
-		*2.4.0.2* #2528 add context = 'ext-queues' when getting destination statement
-		*2.4.0.1* added out() and outn() to install script
-		*2.4.0* Migration from legacy tables, added queues_conf class, Extension/dest registry, #2282, #2487, it translations
-		*2.4.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
 	<depends>
 		<version>2.5.0alpha1</version>
