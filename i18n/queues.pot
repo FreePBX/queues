@@ -14,13 +14,13 @@
 #    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 #
 # FreePBX language template for queues
-# Copyright (C) 2008, 2009, 2010 Bandwith.com
+# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-02 23:37+0200\n"
+"POT-Creation-Date: 2011-09-04 18:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -325,7 +325,7 @@ msgstr ""
 
 msgid ""
 "If checked, any queue member that is actually an outside telephone number, "
-"or any extension Follow-Mes or call forwarding that are pursued and leave "
+"or any extensions Follow-Me or call forwarding that are pursued and leave "
 "the PBX will be forced into Call Confirmation mode where the member must "
 "acknowledge the call before it is answered and delivered.."
 msgstr ""
@@ -1028,7 +1028,7 @@ msgstr ""
 msgid "Queues"
 msgstr ""
 
-msgid "Inbound Call Control"
+msgid "Apps"
 msgstr ""
 
 msgid ""
