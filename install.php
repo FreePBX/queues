@@ -597,23 +597,6 @@ if(DB::IsError($check)) {
         out(_("already exists"));
 }
 
-outn(_("checking for answered_elsewhere field.."));
-$sql = "SELECT `answered_elsewhere` FROM queues_config";
-$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
-if(DB::IsError($check)) {
-        // add new field
-        $sql = "ALTER TABLE queues_config ADD `answered_elsewhere` TINYINT( 1 ) DEFAULT 0";
-        $result = $db->query($sql);
-        if(DB::IsError($result)) {
-                die_freepbx($result->getDebugInfo());
-        }
-        out(_("OK"));
-} else {
-        out(_("already exists"));
-}
-
-
-
 $freepbx_conf =& freepbx_conf::create();
 
 // QUEUES_PESISTENTMEMBERS
