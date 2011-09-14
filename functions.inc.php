@@ -806,10 +806,9 @@ $fields = array(
 	$monitor_type  = isset($monitor_type) ? $monitor_type:'';
 	$monitor_heard = isset($monitor_heard) ? $monitor_heard:'0';
 	$monitor_spoken = isset($monitor_spoken) ? $monitor_spoken:'0';
-	$answered_elsewhere = isset($answered_elsewhere) ? $answered_elsewhere:'0';
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint, qnoanswer, callconfirm, callconfirm_id, monitor_type, monitor_heard, monitor_spoken, answered_elsewhere)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint', '$qnoanswer', '$callconfirm', '$callconfirm_id', '$monitor_type', '$monitor_heard', '$monitor_spoken', '$answered_elsewhere')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint, qnoanswer, callconfirm, callconfirm_id, monitor_type, monitor_heard, monitor_spoken)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint', '$qnoanswer', '$callconfirm', '$callconfirm_id', '$monitor_type', '$monitor_heard', '$monitor_spoken')	";
 	$results = sql($sql);
 
   // store dynamic member data in astDB
