@@ -432,6 +432,11 @@ function queues_get_config($engine) {
 						$ext->add('ext-queues', $exten, '', new ext_playback($joinannounce));
 					}
 					$options = 't';
+					if ($ast_ge_18) {
+						if ($q['answered_elsewhere'] == '1'){
+							$options .= 'C';
+						}
+					}
 					if ($q['rtone'] == 1) {
 						$options .= 'r';
 					}
@@ -708,10 +713,11 @@ function queues_timeString($seconds, $full = false) {
 	}
 }
 
-function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0', $qnoanswer = '0', $callconfirm = '0', $callconfirm_id, $monitor_type = '', $monitor_heard = '0', $monitor_spoken = '0') {
+function queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo='',$cwignore='0',$qregex='',$queuewait='0', $use_queue_context='0', $dynmembers = '', $dynmemberonly = 'no', $togglehint = '0', $qnoanswer = '0', $callconfirm = '0', $callconfirm_id, $monitor_type = '', $monitor_heard = '0', $monitor_spoken = '0',  $answered_elsewhere = '0') {
   global $db,$astman,$amp_conf;
 
 	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
+	$ast_ge_18 = version_compare($amp_conf['ASTVERSION'] , '1.8', 'ge');
 	
 	if (trim($account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
@@ -756,6 +762,9 @@ $fields = array(
 		$fields[] = array($account, 'timeoutpriority',(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',0);
 		$fields[] = array($account, 'penaltymemberslimit',(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',0);
 	}
+	if($ast_ge_18) {
+		$fields[] = array($account,'answered_elsewhere',(isset($_REQUEST['answered_elsewhere']))?$_REQUEST['answered_elsewhere']:'0',0);
+	}
 
 	if ($_REQUEST['music'] != 'inherit') {
 		$fields[] = array($account,'music',($_REQUEST['music'])?$_REQUEST['music']:'default',0);
@@ -797,10 +806,10 @@ $fields = array(
 	$monitor_type  = isset($monitor_type) ? $monitor_type:'';
 	$monitor_heard = isset($monitor_heard) ? $monitor_heard:'0';
 	$monitor_spoken = isset($monitor_spoken) ? $monitor_spoken:'0';
-
+	$answered_elsewhere = isset($answered_elsewhere) ? $answered_elsewhere:'0';
 	// Assumes it has just been deleted
-	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint, qnoanswer, callconfirm, callconfirm_id, monitor_type, monitor_heard, monitor_spoken)
-         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint', '$qnoanswer', '$callconfirm', '$callconfirm_id', '$monitor_type', '$monitor_heard', '$monitor_spoken')	";
+	$sql = "INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce_id, ringing, agentannounce_id, maxwait, password, ivr_id, dest, cwignore, qregex, queuewait, use_queue_context, togglehint, qnoanswer, callconfirm, callconfirm_id, monitor_type, monitor_heard, monitor_spoken, answered_elsewhere)
+         	VALUES ('$extension', '$descr', '$grppre', '$alertinfo', '$joinannounce_id', '$ringing', '$agentannounce_id', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore', '$qregex', '$queuewait', '$use_queue_context', '$togglehint', '$qnoanswer', '$callconfirm', '$callconfirm_id', '$monitor_type', '$monitor_heard', '$monitor_spoken', '$answered_elsewhere')	";
 	$results = sql($sql);
 
   // store dynamic member data in astDB

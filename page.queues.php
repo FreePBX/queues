@@ -41,6 +41,7 @@ $callconfirm_id = isset($_REQUEST['callconfirm_id'])?$_REQUEST['callconfirm_id']
 $monitor_type = isset($_REQUEST['monitor_type'])?$_REQUEST['monitor_type']:'';
 $monitor_heard = isset($_REQUEST['monitor_heard'])?$_REQUEST['monitor_heard']:'0';
 $monitor_spoken = isset($_REQUEST['monitor_spoken'])?$_REQUEST['monitor_spoken']:'0';
+$answered_elsewhere = isset($_REQUEST['answered_elsewhere'])?$_REQUEST['answered_elsewhere']:'0';
 
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
@@ -143,7 +144,7 @@ if(isset($_REQUEST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken);
+					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
 					needreload();
           $_REQUEST['extdisplay'] = $account;
 					redirect_standard('extdisplay');
@@ -156,7 +157,7 @@ if(isset($_REQUEST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken);
+				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -645,6 +646,19 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
     </select>
   </td>
   </tr>
+
+<?php
+	if ($ast_ge_18) {
+?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Mark calls answered elsewhere:")?><span><?php echo _("Enabling this option, all calls are marked as 'answered elsewhere' when cancelled. The effect is that missed queue calls are *not* shown on the phone (if the phone supports it)")?></span></a></td>
+		<td>
+			<input name="answered_elsewhere" type="checkbox" value="1" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
+		</td>
+	</tr>
+<?php
+	}
+?>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Timing & Agent Options")?><hr></h5></td></tr>
 
