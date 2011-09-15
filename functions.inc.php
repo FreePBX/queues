@@ -476,7 +476,7 @@ function queues_get_config($engine) {
 						}
 						$ext->add('ext-queues', $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', $callconfirm));					
 					}
-
+					$ext->add('ext-queues', $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}')); 
 					$ext->add('ext-queues', $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
  
           if($q['use_queue_context'] != '2') {
