@@ -5,7 +5,7 @@
 	<version>2.9.0.12</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
-	<category>Apps</category>
+	<category>Applications</category>
 	<description>
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
 	</description>
