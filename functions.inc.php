@@ -433,7 +433,7 @@ function queues_get_config($engine) {
 					}
 					$options = 't';
 					if ($ast_ge_18) {
-						if ($q['answered_elsewhere'] == '1'){
+						if (isset($q['answered_elsewhere']) && $q['answered_elsewhere'] == '1'){
 							$options .= 'C';
 						}
 					}
@@ -561,7 +561,7 @@ function queues_get_config($engine) {
 
 					// Add routing vector to direct which context call should go
 					//
-					$agent_context = $q['use_queue_context'] ? $queue_context : 'from-internal';
+					$agent_context = isset($q['use_queue_context']) && $q['use_queue_context'] && isset($queue_context) ? $queue_context : 'from-internal';
 					switch ($q['use_queue_context']) {
 						case 1:
 							$agent_context = $from_queue_exten_internal;
