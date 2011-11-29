@@ -54,8 +54,6 @@
 		case 'getall':
 			$new_user = get_login_user();
 			sortqueues();
-			file_put_contents("/tmp/queue_debug.log",print_r($logged_agents_array,true),FILE_APPEND);
-			file_put_contents("/tmp/queue_debug.log",print_r($static_agents_array,true),FILE_APPEND);
 			debug("Looking up queues for agent:r $new_user");
 			$agent_queues = get_agent_queues($new_user);
 			foreach ($agent_queues as $q) {
