@@ -51,6 +51,20 @@
 			debug("Agent $new_user is $queuestat");
 			$agi->set_variable('QUEUESTAT',$queuestat);
 		break;
+		case 'getall':
+			$new_user = get_login_user();
+			sortqueues();
+			file_put_contents("/tmp/queue_debug.log",print_r($logged_agents_array,true),FILE_APPEND);
+			file_put_contents("/tmp/queue_debug.log",print_r($static_agents_array,true),FILE_APPEND);
+			debug("Looking up queues for agent:r $new_user");
+			$agent_queues = get_agent_queues($new_user);
+			foreach ($agent_queues as $q) {
+				debug("Agent is in: $q");
+			}
+			$all_queues_state = get_agent_allqueue_state($new_user, $agent_queues);
+			debug("Agent $new_user is $all_queues_state for at least one of their queues");
+			put_agent_overall_status($all_queues_state, $agent_queues);
+		break;
 		default:
 			debug("Got unknown action: $action, exiting");
 	}
@@ -62,6 +76,54 @@
 	function get_action() {
  		global $argv;
 		return strtolower(trim($argv['1']));
+	}
+
+	function get_agent_queues($user) {
+		global $astman;
+		$this_agents_queues == array();
+
+		$get=$astman->database_show('QPENALTY');
+		if ($get) foreach($get as $key => $value){
+			//  0: QPENALTY
+			//  1: QueueNum
+			//  2: agents (or dynmembers)
+			//  3: AgentNum (if agents)
+			//
+			$key=explode('/',trim($key,'/')); // get rid of leading '/'
+			if ($key[2] == 'agents' && $key[3] == $user) {
+				$this_agents_queues[] = $key[1];
+			}
+		}
+		return $this_agents_queues;
+	}
+
+	// if they are logged into any of the queues provided, they are considered logged in and we will log them out of all
+	//
+	function get_agent_allqueue_state($user, $queues) {
+		global $logged_agents_array;
+		global $static_agents_array;
+
+		if (empty($queues)) {
+			debug("no queues for this agent");
+			return 'NOQUEUES';
+		}
+		foreach ($queues as $q) {
+			debug("checking if logged into queue: $q");
+			if (array_search($user,$logged_agents_array[$q]) && ! array_search($user,$static_agents_array[$q])) {
+				debug("Yes logged into queue: $q");
+				return 'LOGGEDIN';
+			}
+		}
+		debug("Nothing found so logged out");
+		return 'LOGGEDOUT';
+	}
+
+	function put_agent_overall_status($status, $queues) {
+		global $agi;
+
+		$agi->set_variable('QUEUESTAT',$status);
+		$queues_string = implode('-',$queues);
+		$agi->set_variable('USERQUEUES',$queues_string);
 	}
 
 	function sortqueues() {

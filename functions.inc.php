@@ -343,6 +343,7 @@ function queues_get_config($engine) {
 			unset($fcc);
 			if ($que_code != '') {
 				queue_app_toggle($que_code);
+				queue_app_all_toggle();
 				queue_agent_del_toggle();
 				queue_agent_add_toggle();
 			}
@@ -351,7 +352,7 @@ function queues_get_config($engine) {
 			$from_queue_exten_only = 'from-queue-exten-only';
 			$from_queue_exten_internal = 'from-queue-exten-internal';
 
-			if (is_array($qlist)) {
+			if (!empty($qlist)) {
 				foreach($qlist as $item) {
 					
 					$exten = $item[0];
@@ -575,6 +576,11 @@ function queues_get_config($engine) {
 							break;
 					}
 					$ext->add('from-queue', $exten, '', new ext_goto('1','${QAGENT}',$agent_context));
+				}
+				// Create *45 all queue toggle
+				//
+				if ($que_code != '') {
+					$ext->add('ext-queues', $que_code, '', new ext_goto('start','s','app-all-queue-toggle'));
 				}
 			}
 			// We need to have a hangup here, if call is ended by the caller during Playback it will end in the
@@ -1084,6 +1090,39 @@ function queues_get($account, $queues_conf_only=false) {
 	}
 	return $results;
 }
+
+function queue_app_all_toggle() {
+	global $ext;
+	global $amp_conf;
+
+	$id = "app-all-queue-toggle"; // The context to be included
+	$c = 's';
+
+	$ext->add($id, $c, 'start', new ext_answer(''));
+	$ext->add($id, $c, '', new ext_wait('1'));
+	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	$ext->add($id, $c, '', new ext_agi('queue_devstate.agi,getall,${AMPUSER}'));
+	$ext->add($id, $c, '', new ext_gotoif('$["${QUEUESTAT}" = "NOQUEUES"]', 'skip'));
+	$ext->add($id, $c, '', new ext_set('TOGGLE_MACRO', '${IF($["${QUEUESTAT}"="LOGGEDOUT"]?toggle-add-agent:toggle-del-agent)}'));
+	if ($amp_conf['USEDEVSTATE']) {
+		$ext->add($id, $c, '', new ext_set('STATE', '${IF($["${QUEUESTAT}"="LOGGEDOUT"]?INUSE:NOT_INUSE)}'));
+	}
+	$ext->add($id, $c, '', new ext_set('LOOPCNTALL', '${FIELDQTY(USERQUEUES,-)}'));
+	$ext->add($id, $c, '', new ext_set('ITERALL', '1'));
+	$ext->add($id, $c, 'begin', new ext_set('QUEUENO', '${CUT(USERQUEUES,-,${ITERALL})}'));
+	$ext->add($id, $c, '', new ext_set('ITERALL', '$[${ITERALL}+1]'));
+	$ext->add($id, $c, '', new ext_macro('${TOGGLE_MACRO}'));
+	if ($amp_conf['USEDEVSTATE']) {
+		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', 'app-queue-toggle'));
+	}
+	$ext->add($id, $c, '', new ext_gotoif('$[${ITERALL} <= ${LOOPCNTALL}]', 'begin'));
+	$ext->add($id, $c, 'skip', new ext_execif('$["${QUEUESTAT}"="LOGGEDIN" | "${QUEUESTAT}"="NOQUEUES"]', 'Playback', 'agent-loggedoff'));
+	$ext->add($id, $c, '', new ext_execif('$["${QUEUESTAT}"="LOGGEDOUT"]', 'Playback', 'agent-loginok'));
+	$ext->add($id, $c, '', new ext_execif('$["${QUEUESTAT}"="LOGGEDOUT"]', 'SayDigits', '${AMPUSER}'));
+	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+}
+
+
 /* Trial DEVSTATE */
 function queue_app_toggle($c) {
 	global $ext;
