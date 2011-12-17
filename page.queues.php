@@ -1,4 +1,5 @@
 <?php /* $Id$ */
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
 //
 //This program is free software; you can redistribute it and/or
