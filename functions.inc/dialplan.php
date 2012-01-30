@@ -25,243 +25,244 @@ function queues_get_config($engine) {
 					$has_extension_state = true;
 					
 				}
+			}
+			
+			if (isset($queues_conf) && is_a($queues_conf, "queues_conf")) {
+				$queues_conf->addQueuesGeneral('persistentmembers',$amp_conf['QUEUES_PESISTENTMEMBERS'] ? 'yes' : 'no');
+					if ($ast_ge_16) {
+					$queues_conf->addQueuesGeneral('shared_lastcall',$amp_conf['QUEUES_SHARED_LASTCALL'] ? 'yes' : 'no');
+					$queues_conf->addQueuesGeneral('updatecdr',$amp_conf['QUEUES_UPDATECDR'] ? 'yes' : 'no');
+				}
+				if ($amp_conf['QUEUES_MIX_MONITOR']) {
+					$queues_conf->addQueuesGeneral('monitor-type', 'MixMonitor');
+				}
+			}
 
-				if (isset($queues_conf) && is_a($queues_conf, "queues_conf")) {
-					$queues_conf->addQueuesGeneral('persistentmembers',$amp_conf['QUEUES_PESISTENTMEMBERS'] ? 'yes' : 'no');
- 					if ($ast_ge_16) {
-						$queues_conf->addQueuesGeneral('shared_lastcall',$amp_conf['QUEUES_SHARED_LASTCALL'] ? 'yes' : 'no');
-						$queues_conf->addQueuesGeneral('updatecdr',$amp_conf['QUEUES_UPDATECDR'] ? 'yes' : 'no');
-					}
-					if ($amp_conf['QUEUES_MIX_MONITOR']) {
-						$queues_conf->addQueuesGeneral('monitor-type', 'MixMonitor');
-					}
-				}
+			/* queue extensions */
+			$ext->addInclude('from-internal-additional','ext-queues');
+			/* Trial DEVSTATE */
+			if ($amp_conf['USEDEVSTATE']) {
+				$ext->addGlobal('QUEDEVSTATE','TRUE');
+			}
+			// $que_code = '*45';
+			$fcc = new featurecode('queues', 'que_toggle');
+			$que_code = $fcc->getCodeActive();
+			unset($fcc);
+			if ($que_code != '') {
+				queue_app_toggle($que_code);
+				queue_app_all_toggle();
+				queue_agent_del_toggle();
+				queue_agent_add_toggle();
+			}
+			$qlist = queues_list(true);
+			
+			if (empty($qlist)) {
+				return; //nothing to do if we dont have any queues
+			}
+			
+			$from_queue_exten_only = 'from-queue-exten-only';
+			$from_queue_exten_internal = 'from-queue-exten-internal';
 
-				/* queue extensions */
-				$ext->addInclude('from-internal-additional','ext-queues');
-				/* Trial DEVSTATE */
-				if ($amp_conf['USEDEVSTATE']) {
-					$ext->addGlobal('QUEDEVSTATE','TRUE');
-				}
-				// $que_code = '*45';
-				$fcc = new featurecode('queues', 'que_toggle');
-				$que_code = $fcc->getCodeActive();
-				unset($fcc);
-				if ($que_code != '') {
-					queue_app_toggle($que_code);
-					queue_app_all_toggle();
-					queue_agent_del_toggle();
-					queue_agent_add_toggle();
-				}
-				$qlist = queues_list(true);
+			foreach($qlist as $item) {
+			
+				$exten = $item[0];
+				$q = queues_get($exten);
+				$c = 'ext-queues';
 				
-				if (empty($qlist)) {
-					return; //nothing to do if we dont have any queues
-				}
-				
-				$from_queue_exten_only = 'from-queue-exten-only';
-				$from_queue_exten_internal = 'from-queue-exten-internal';
+				$grppre = (isset($q['prefix'])?$q['prefix']:'');
+				$alertinfo = (isset($q['alertinfo'])?$q['alertinfo']:'');
 
-				foreach($qlist as $item) {
-				
-					$exten = $item[0];
-					$q = queues_get($exten);
-					$c = 'ext-queues';
-					
-					$grppre = (isset($q['prefix'])?$q['prefix']:'');
-					$alertinfo = (isset($q['alertinfo'])?$q['alertinfo']:'');
-
-					// Not sure why someone would ever have a ; in the regex, but since Asterisk has problems with them
-					// it would need to be escaped
-					$qregex = (isset($q['qregex'])?$q['qregex']:'');
-					str_replace(';','\;',$qregex);
-				
-					$ext->add($c, $exten, '', new ext_macro('user-callerid'));
-				
-					if (isset($q['qnoanswer']) && $q['qnoanswer'] == FALSE) {
-						$ext->add($c, $exten, '', new ext_answer(''));
-					} else {
-						// TODO: should this only be set if noanswer + (!ringtones || joinannounce)???
-						$ext->add($c, $exten, '', new ext_progress());
-					}
-
-				// block voicemail until phone is answered at which point a macro should be called on the answering
-				// line to clear this flag so that subsequent transfers can occur.
-					if ($q['queuewait']) {
-						$ext->add($c, $exten, '', new ext_execif('$["${QUEUEWAIT}" = ""]', 'Set', '__QUEUEWAIT=${EPOCH}'));
-					}
-					// If extension_only don't do this and CFIGNORE
-					if($q['use_queue_context'] != '2') {
-						$ext->add($c, $exten, '', new ext_macro('blkvm-set', 'reset'));
-						$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)'));
-					}
-
-					// Inform all the children NOT to send calls to destinations or voicemail
-					//
-					$ext->add($c, $exten, '', new ext_setvar('__NODEST', '${EXTEN}'));
-
-					// deal with group CID prefix
-					if ($grppre != '') {
-						$ext->add($c, $exten, '', new ext_macro('prepend-cid', $grppre));
-					}
-
-					// Set Alert_Info
-					if ($alertinfo != '') {
-						$ext->add($c, $exten, '', new ext_setvar('__ALERT_INFO', str_replace(';', '\;', $alertinfo)));
-					}
-					$record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
- 						if ($q['monitor-format']) {
-						$ext->add($c, $exten, '', new ext_set('__MIXMON_FORMAT', $q['monitor-format']));
-					}
-					$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-check',"q,$exten,$record_mode"));
-
-					if ($amp_conf['QUEUES_MIX_MONITOR']) {
-						$monitor_options = '';
-					if (isset($q['monitor_type']) && $q['monitor_type'] != '') {
-						$monitor_options .= 'b';
-					}
-					if (isset($q['monitor_spoken']) && $q['monitor_spoken'] != 0) {
-						$monitor_options .= 'V('.$q['monitor_spoken'].')';
-						}
-					if (isset($q['monitor_heard']) && $q['monitor_heard'] != 0) {
-						$monitor_options .= 'v('.$q['monitor_heard'].')';
-					}
-					if ($monitor_options != '') {
-						$ext->add($c, $exten, '', new ext_setvar('MONITOR_OPTIONS', $monitor_options ));
-					}
-				}
-				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
-				if($joinannounce_id) {
-					$joinannounce = recordings_get_file($joinannounce_id);
-				
-					if (isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE) {
-						$joinannounce = $joinannounce.', noanswer';
-					}
-
-					$ext->add($c, $exten, '', new ext_playback($joinannounce));
-				}
-				$options = 't';
-				if ($ast_ge_18) {
-					if (isset($q['answered_elsewhere']) && $q['answered_elsewhere'] == '1'){
-						$options .= 'C';
-					}
-				}
-				if ($q['rtone'] == 1) {
-					$options .= 'r';
-				}
-				if ($q['retry'] == 'none'){
-					$options .= 'n';
-				}
-				if (isset($q['music'])) {
-						$ext->add($c, $exten, '', new ext_setvar('__MOHCLASS', $q['music']));
-				}
-				// Set CWIGNORE  if enabled so that busy agents don't have another line key ringing and
-				// stalling the ACD.
-				if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
-						$ext->add($c, $exten, '', new ext_setvar('__CWIGNORE', 'TRUE'));
-				}
-				if ($q['use_queue_context']) {
-						$ext->add($c, $exten, '', new ext_setvar('__CFIGNORE', 'TRUE'));
-						$ext->add($c, $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'block-cf'));
-				}
-				$agentannounce_id = (isset($q['agentannounce_id'])?$q['agentannounce_id']:'');
-				if ($agentannounce_id) {
-					$agentannounce = recordings_get_file($agentannounce_id);
+				// Not sure why someone would ever have a ; in the regex, but since Asterisk has problems with them
+				// it would need to be escaped
+				$qregex = (isset($q['qregex'])?$q['qregex']:'');
+				str_replace(';','\;',$qregex);
+			
+				$ext->add($c, $exten, '', new ext_macro('user-callerid'));
+			
+				if (isset($q['qnoanswer']) && $q['qnoanswer'] == FALSE) {
+					$ext->add($c, $exten, '', new ext_answer(''));
 				} else {
-					$agentannounce = '';
+					// TODO: should this only be set if noanswer + (!ringtones || joinannounce)???
+					$ext->add($c, $exten, '', new ext_progress());
 				}
-				
-				if ($q['callconfirm'] == 1) {
-					$ext->add($c, $exten, '', new ext_setvar('__FORCE_CONFIRM', '${CHANNEL}'));
-					if ($amp_conf['AST_FUNC_SHARED']) {
-						$ext->add($c, $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)','NOANSWER'));
-					}
-					$ext->add($c, $exten, '', new ext_setvar('__CALLCONFIRMCID', '${CALLERID(number)}'));
-					$callconfirm_id = (isset($q['callconfirm_id']))?$q['callconfirm_id']:'';
-					if ($callconfirm_id) {	
-						$callconfirm = recordings_get_file($callconfirm_id);
-					} else {
-						$callconfirm = '';
-					}
-					$ext->add($c, $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', $callconfirm));					
-				}
-				$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}')); 
-				$ext->add($c, $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
 
+			// block voicemail until phone is answered at which point a macro should be called on the answering
+			// line to clear this flag so that subsequent transfers can occur.
+				if ($q['queuewait']) {
+					$ext->add($c, $exten, '', new ext_execif('$["${QUEUEWAIT}" = ""]', 'Set', '__QUEUEWAIT=${EPOCH}'));
+				}
+				// If extension_only don't do this and CFIGNORE
 				if($q['use_queue_context'] != '2') {
-					$ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
+					$ext->add($c, $exten, '', new ext_macro('blkvm-set', 'reset'));
+					$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)'));
 				}
-				// cancel any recording previously requested
 
-				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-cancel'));
-					// If we are here, disable the NODEST as we want things to resume as normal
-					$ext->add($c, $exten, '', new ext_setvar('__NODEST', ''));
-				
-				if ($q['callconfirm'] == 1) {
-					if ($amp_conf['AST_FUNC_SHARED']) {
-						$ext->add($c, $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)', ''));
+				// Inform all the children NOT to send calls to destinations or voicemail
+				//
+				$ext->add($c, $exten, '', new ext_setvar('__NODEST', '${EXTEN}'));
+
+				// deal with group CID prefix
+				if ($grppre != '') {
+					$ext->add($c, $exten, '', new ext_macro('prepend-cid', $grppre));
+				}
+
+				// Set Alert_Info
+				if ($alertinfo != '') {
+					$ext->add($c, $exten, '', new ext_setvar('__ALERT_INFO', str_replace(';', '\;', $alertinfo)));
+				}
+				$record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
+						if ($q['monitor-format']) {
+					$ext->add($c, $exten, '', new ext_set('__MIXMON_FORMAT', $q['monitor-format']));
+				}
+				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-check',"q,$exten,$record_mode"));
+
+				if ($amp_conf['QUEUES_MIX_MONITOR']) {
+					$monitor_options = '';
+				if (isset($q['monitor_type']) && $q['monitor_type'] != '') {
+					$monitor_options .= 'b';
+				}
+				if (isset($q['monitor_spoken']) && $q['monitor_spoken'] != 0) {
+					$monitor_options .= 'V('.$q['monitor_spoken'].')';
 					}
-					$ext->add($c, $exten, '', new ext_setvar('__FORCE_CONFIRM', ''));
-					$ext->add($c, $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', ''));				
+				if (isset($q['monitor_heard']) && $q['monitor_heard'] != 0) {
+					$monitor_options .= 'v('.$q['monitor_heard'].')';
+				}
+				if ($monitor_options != '') {
+					$ext->add($c, $exten, '', new ext_setvar('MONITOR_OPTIONS', $monitor_options ));
+				}
+			}
+			$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
+			if($joinannounce_id) {
+				$joinannounce = recordings_get_file($joinannounce_id);
+			
+				if (isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE) {
+					$joinannounce = $joinannounce.', noanswer';
 				}
 
-				if($monitor_options != '') {
-					$ext->add($c, $exten, '', new ext_setvar('MONITOR_OPTIONS', ''));
+				$ext->add($c, $exten, '', new ext_playback($joinannounce));
+			}
+			$options = 't';
+			if ($ast_ge_18) {
+				if (isset($q['answered_elsewhere']) && $q['answered_elsewhere'] == '1'){
+					$options .= 'C';
 				}
-				if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
-					$ext->add($c, $exten, '', new ext_setvar('__CWIGNORE', '')); 
+			}
+			if ($q['rtone'] == 1) {
+				$options .= 'r';
+			}
+			if ($q['retry'] == 'none'){
+				$options .= 'n';
+			}
+			if (isset($q['music'])) {
+					$ext->add($c, $exten, '', new ext_setvar('__MOHCLASS', $q['music']));
+			}
+			// Set CWIGNORE  if enabled so that busy agents don't have another line key ringing and
+			// stalling the ACD.
+			if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
+					$ext->add($c, $exten, '', new ext_setvar('__CWIGNORE', 'TRUE'));
+			}
+			if ($q['use_queue_context']) {
+					$ext->add($c, $exten, '', new ext_setvar('__CFIGNORE', 'TRUE'));
+					$ext->add($c, $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'block-cf'));
+			}
+			$agentannounce_id = (isset($q['agentannounce_id'])?$q['agentannounce_id']:'');
+			if ($agentannounce_id) {
+				$agentannounce = recordings_get_file($agentannounce_id);
+			} else {
+				$agentannounce = '';
+			}
+			
+			if ($q['callconfirm'] == 1) {
+				$ext->add($c, $exten, '', new ext_setvar('__FORCE_CONFIRM', '${CHANNEL}'));
+				if ($amp_conf['AST_FUNC_SHARED']) {
+					$ext->add($c, $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)','NOANSWER'));
 				}
-				if ($q['use_queue_context']) {
-						$ext->add($c, $exten, '', new ext_setvar('__CFIGNORE', ''));
-						$ext->add($c, $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'from-internal'));
-				}
-
-				// destination field in 'incoming' database is backwards from what ext_goto expects
-				$goto_context = strtok($q['goto'],',');
-				$goto_exten = strtok(',');
-				$goto_pri = strtok(',');
-				
-				$ext->add($c, $exten, '', new ext_goto($goto_pri,$goto_exten,$goto_context));
-				
-				//dynamic agent login/logout
-				if (trim($qregex) != '') {
-						$ext->add($c, $exten."*", '', new ext_setvar('QREGEX', $qregex));
-				}
-				if($q['use_queue_context'] == '2') {
-					$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password'].",EXTEN"));
+				$ext->add($c, $exten, '', new ext_setvar('__CALLCONFIRMCID', '${CALLERID(number)}'));
+				$callconfirm_id = (isset($q['callconfirm_id']))?$q['callconfirm_id']:'';
+				if ($callconfirm_id) {	
+					$callconfirm = recordings_get_file($callconfirm_id);
 				} else {
-					$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
+					$callconfirm = '';
 				}
-				$ext->add($c, $exten."**", '', new ext_macro('agent-del',"$exten"));
-				if ($que_code != '') {
-					$ext->add($c, $que_code.$exten, '', new ext_setvar('QUEUENO',$exten));
-					$ext->add($c, $que_code.$exten, '', new ext_goto('start','s','app-queue-toggle'));
+				$ext->add($c, $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', $callconfirm));					
+			}
+			$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}')); 
+			$ext->add($c, $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
+
+			if($q['use_queue_context'] != '2') {
+				$ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
+			}
+			// cancel any recording previously requested
+
+			$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-cancel'));
+				// If we are here, disable the NODEST as we want things to resume as normal
+				$ext->add($c, $exten, '', new ext_setvar('__NODEST', ''));
+			
+			if ($q['callconfirm'] == 1) {
+				if ($amp_conf['AST_FUNC_SHARED']) {
+					$ext->add($c, $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)', ''));
 				}
-				/* Trial Devstate */
-				// Create Hints for Devices and Add Astentries for Users
-				// Clean up the Members array
-				if ($q['togglehint'] && $amp_conf['USEDEVSTATE'] && $que_code != '') {
-					if (!isset($device_list)) {
-					  $device_list = core_devices_list("all", 'full', true);
-				}
-				if ($astman) {
-					if (($dynmemberonly = strtolower($astman->database_get('QPENALTY/'.$exten,'dynmemberonly')) == 'yes') == true) {
-						$get=$astman->database_show('QPENALTY/'.$exten.'/agents');
-						if($get){
-							$mem = array();
-							foreach($get as $key => $value){
-								$key=explode('/',$key);
-								$mem[$key[4]]=$value;
-							}
+				$ext->add($c, $exten, '', new ext_setvar('__FORCE_CONFIRM', ''));
+				$ext->add($c, $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', ''));				
+			}
+
+			if($monitor_options != '') {
+				$ext->add($c, $exten, '', new ext_setvar('MONITOR_OPTIONS', ''));
+			}
+			if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
+				$ext->add($c, $exten, '', new ext_setvar('__CWIGNORE', '')); 
+			}
+			if ($q['use_queue_context']) {
+					$ext->add($c, $exten, '', new ext_setvar('__CFIGNORE', ''));
+					$ext->add($c, $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'from-internal'));
+			}
+
+			// destination field in 'incoming' database is backwards from what ext_goto expects
+			$goto_context = strtok($q['goto'],',');
+			$goto_exten = strtok(',');
+			$goto_pri = strtok(',');
+			
+			$ext->add($c, $exten, '', new ext_goto($goto_pri,$goto_exten,$goto_context));
+			
+			//dynamic agent login/logout
+			if (trim($qregex) != '') {
+					$ext->add($c, $exten."*", '', new ext_setvar('QREGEX', $qregex));
+			}
+			if($q['use_queue_context'] == '2') {
+				$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password'].",EXTEN"));
+			} else {
+				$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
+			}
+			$ext->add($c, $exten."**", '', new ext_macro('agent-del',"$exten"));
+			if ($que_code != '') {
+				$ext->add($c, $que_code.$exten, '', new ext_setvar('QUEUENO',$exten));
+				$ext->add($c, $que_code.$exten, '', new ext_goto('start','s','app-queue-toggle'));
+			}
+			/* Trial Devstate */
+			// Create Hints for Devices and Add Astentries for Users
+			// Clean up the Members array
+			if ($q['togglehint'] && $amp_conf['USEDEVSTATE'] && $que_code != '') {
+				if (!isset($device_list)) {
+				  $device_list = core_devices_list("all", 'full', true);
+			}
+			if ($astman) {
+				if (($dynmemberonly = strtolower($astman->database_get('QPENALTY/'.$exten,'dynmemberonly')) == 'yes') == true) {
+					$get=$astman->database_show('QPENALTY/'.$exten.'/agents');
+					if($get){
+						$mem = array();
+						foreach($get as $key => $value){
+							$key=explode('/',$key);
+							$mem[$key[4]]=$value;
 						}
 					}
-				} else {
-					fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 				}
-				foreach ($device_list as $device) {
-					if (
-						(!$dynmemberonly || $device['devicetype'] == 'adhoc' || isset($mem[$device['user']]))
-						&& ($device['tech'] == 'sip' || $device['tech'] == 'iax2')
+			} else {
+				fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+			}
+			foreach ($device_list as $device) {
+				if (
+					(!$dynmemberonly || $device['devicetype'] == 'adhoc' || isset($mem[$device['user']]))
+					&& ($device['tech'] == 'sip' || $device['tech'] == 'iax2')
 					) {
 						$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUENO',$exten));
 						$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_goto('start','s','app-queue-toggle'));
@@ -409,7 +410,7 @@ function queue_app_all_toggle() {
 	global $amp_conf;
 
 	$c = "app-all-queue-toggle"; // The context to be included
-	$e, = 's';
+	$e = 's';
 
 	$ext->add($c, $e, 'start', new ext_answer(''));
 	$ext->add($c, $e, '', new ext_wait('1'));

@@ -1,11 +1,11 @@
 <?php /* $id:$ */
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
-include_once(dirname(__FILE__) . '/destination_registry.php');
-include_once(dirname(__FILE__) . '/dialplan.php');
-include_once(dirname(__FILE__) . '/hook_core.php');
-include_once(dirname(__FILE__) . '/hook_ivr.php');
-include_once(dirname(__FILE__) . '/geters_seters.php');
-include_once(dirname(__FILE__) . '/queue_conf.php');
+include_once(dirname(__FILE__) . '/functions.inc/destination_registry.php');
+include_once(dirname(__FILE__) . '/functions.inc/dialplan.php');
+include_once(dirname(__FILE__) . '/functions.inc/hook_core.php');
+include_once(dirname(__FILE__) . '/functions.inc/hook_ivr.php');
+include_once(dirname(__FILE__) . '/functions.inc/geters_seters.php');
+include_once(dirname(__FILE__) . '/functions.inc/queue_conf.php');
 
 
 
