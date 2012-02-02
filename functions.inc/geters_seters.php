@@ -345,8 +345,8 @@ function queues_get($account, $queues_conf_only=false) {
 		if (function_exists('ivr_get_details')) {
 			$results['context'] = "ivr-".$config['ivr_id'];
 			$arr = ivr_get_details($config['ivr_id']);
-			if( isset($arr['announcement_id']) && $arr['announcement_id'] != '') {
-				$periodic = recordings_get_file($arr['announcement_id']);
+			if( isset($arr['announcement']) && $arr['announcement'] != '') {
+				$periodic = recordings_get_file($arr['announcement']);
 				// We need to strip off all but the first sound file of any compound sound files
 				$periodic_arr = explode("&", $periodic);
 				$results['periodic-announce'] = $periodic_arr[0];
