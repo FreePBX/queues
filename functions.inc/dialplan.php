@@ -53,6 +53,7 @@ function queues_get_config($engine) {
 				queue_app_all_toggle();
 				queue_agent_del_toggle();
 				queue_agent_add_toggle();
+				$ext->addGlobal('QUEUETOGGLE',$que_code);
 			}
 			$qlist = queues_list(true);
 			
@@ -292,8 +293,46 @@ function queues_get_config($engine) {
 			//
 			if ($que_code != '') {
 				$ext->add($c, $que_code, '', new ext_goto('start','s','app-all-queue-toggle'));
+
+				// create a generic one for any phones that don't get a specific one created since we only
+				// create them for phones we know have queues but who knows what is provisioned on the phones
+				//
+				$ext->add($c, '_' . $que_code . '*X.', '', new ext_goto('start','s','app-all-queue-toggle'));
+
+				// generate with #exec if we are using dynamic hints
+				//
+				if ($amp_conf['DYNAMICHINTS']) {
+					$ext->addExec($c,$amp_conf['AMPBIN'].'/generate_queue_hints.php '.$que_code);
+				} else {
+					// Create hash of which queues each user is in
+					//
+					$qpenalty=$astman->database_show('QPENALTY');
+					$qc = array();
+					foreach(array_keys($qpenalty) as $key) {
+						$key = explode('/', $key);
+						if ($key[3] == 'agents') {
+							$qc[$key[4]][] = $key[2];
+						}
+					}
+
+					// Make sure we have all the devices
+					//
+					if (!isset($device_list)) {
+						$device_list = core_devices_list("all", 'full', true);
+					}
+
+					foreach ($device_list as $device) {
+						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+							$ext->add($c, $que_code . '*' . $device['id'], '', new ext_goto('start','s','app-all-queue-toggle'));
+							if ($device['user'] != '' &&  isset($qc[$device['user']])) {
+								$hlist = 'Custom:QUEUE' . $device['id'] . '*' . implode('&Custom:QUEUE' . $device['id'] . '*', $qc[$device['user']]);
+								$ext->addHint($c, $que_code . '*' . $device['id'], $hlist);
+							}
+						}
+					}
+				}
 			}
-			
+
 			// We need to have a hangup here, if call is ended by the caller during Playback it will end in the
 			// h context and do a proper hangup and clean the blkvm if set, see #4671
 			$ext->add($c, 'h', '', new ext_macro('hangupcall'));
