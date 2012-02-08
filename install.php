@@ -695,3 +695,19 @@ $set['name'] = 'Asterisk Queues Patch 15168 Installed';
 $set['description'] = 'Setting this flag will generate the required dialplan to integrate with the following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state is now standard and always used. This asterisk patch is only available on Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some queue behavior and should be avoided';
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('USEQUEUESTATE',$set,true);
+
+// GENERATE_LEGACY_QUEUE_CODES
+//
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 120;
+$set['name'] = 'Generate queuenum*/** Login/off Codes';
+$set['description'] = 'Queue login and out codes were historically queunum* and queunum**. These have been largely replaced by the *45 queue toggle codes. The legacy codes are required to login or out a third party user that is not the extension dialing. These can be removed from the system by setting this to false.';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('GENERATE_LEGACY_QUEUE_CODES',$set,true);

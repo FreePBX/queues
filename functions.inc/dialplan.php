@@ -229,12 +229,14 @@ function queues_get_config($engine) {
 			if (trim($qregex) != '') {
 					$ext->add($c, $exten."*", '', new ext_setvar('QREGEX', $qregex));
 			}
-			if($q['use_queue_context'] == '2') {
-				$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password'].",EXTEN"));
-			} else {
-				$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
+			if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
+				if($q['use_queue_context'] == '2') {
+					$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password'].",EXTEN"));
+				} else {
+					$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
+				}
+				$ext->add($c, $exten."**", '', new ext_macro('agent-del',"$exten"));
 			}
-			$ext->add($c, $exten."**", '', new ext_macro('agent-del',"$exten"));
 			if ($que_code != '') {
 				$ext->add($c, $que_code.$exten, '', new ext_setvar('QUEUENO',$exten));
 				$ext->add($c, $que_code.$exten, '', new ext_goto('start','s','app-queue-toggle'));
@@ -372,6 +374,8 @@ function queues_get_config($engine) {
 			 * Prompts for call-back number - in not entered, uses CIDNum
 			 */
 
+			if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
+
 			$c = 'macro-agent-add';
 			$exten = 's';
 			
@@ -450,6 +454,8 @@ function queues_get_config($engine) {
 			$ext->add($c, $exten, '', new ext_wait(1));
 			$ext->add($c, $exten, '', new ext_playback('agent-loggedoff'));
 			$ext->add($c, $exten, '', new ext_hangup());
+
+			} // GENERATE_LEGACY_QUEUE_CODES
 		break;
 	}
 }
