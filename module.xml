@@ -25,6 +25,6 @@
 	<menuitems>
 		<queues needsenginedb="yes">Queues</queues>
 	</menuitems>
-	<location>release/2.10/queues-2.10.0.2.tgz</location>
-	<md5sum>5bed681b028a2e1f8f9c97cab3c2adb7</md5sum>
+	<location>release/2.10/queues-2.10.0.3.tgz</location>
+	<md5sum>c8e9ea8a8bb9ac04cc74b2e350f60074</md5sum>
 </module>
