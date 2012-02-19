@@ -515,15 +515,20 @@ function queue_app_toggle($c) {
 	$ext->add($id, $c, '', new ext_gotoif('$["${QUEUESTAT}" = "STATIC"]', 'static','end'));
 	$ext->add($id, $c, 'deactivate', new ext_noop('Agent Logged out'));
 	$ext->add($id, $c, '', new ext_macro('toggle-del-agent'));
+	$logout_label = 'logout';
 	if ($amp_conf['USEDEVSTATE']) {
-		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
+		$ext->add($id, $c, $logout_label, new ext_setvar('STATE', 'NOT_INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
+		$logout_label = '';
 	}
-	$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
+	$ext->add($id, $c, $logout_label, new ext_playback('agent-loggedoff'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	$ext->add($id, $c, 'activate', new ext_noop('Agent Logged In'));
 	$ext->add($id, $c, '', new ext_macro('toggle-add-agent'));
+	$ext->add($id, $c, '', new ext_set('QAGENT_UNAUTHORIZED','1'));
+	$ext->add($id, $c, '', new ext_gotoif('$["${QAGENT_UNAUTHORIZED}"="1"]', 'logout'));
+
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
@@ -581,6 +586,7 @@ function queue_agent_add_toggle() {
 	$ext->add($id, $c, '', new ext_userevent('AgentLogin','Agent: ${CALLBACKNUM}'));
 	$ext->add($id, $c, '', new ext_macroexit());
 	$ext->add($id, $c, 'invalid', new ext_playback('pbx-invalid'));
+	$ext->add($id, $c, '', new ext_set('QAGENT_UNAUTHORIZED','1'));
 	$ext->add($id, $c, '', new ext_macroexit());
 }
 
