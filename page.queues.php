@@ -266,12 +266,16 @@ if ($action == 'delete') {
 		<td><input type="text" name="name" value="<?php echo (isset($name) ? $name : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 
+<?php
+	if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
+?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Queue Password:")?><span><?php echo _("You can require agents to enter a password before they can log in to this queue.<br><br>This setting is optional.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Queue Password:")?><span><?php echo _("You can require agents to enter a password before they can log in to this queue.<br><br>This setting is optional.") . '<br /><br />' . _("The password is only used when logging in with the legacy queueno* code. When using the toggle codes, you must use the Restrict Dynamic Agents option in conjunction with the Dynamic Members list to control access.")?></span></a></td>
 		<td><input type="text" name="password" value="<?php echo (isset($password) ? $password : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-
 <?php
+	}
+
   // show it if checked so they know:
   //
   if ($qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER']) {
