@@ -526,7 +526,6 @@ function queue_app_toggle($c) {
 
 	$ext->add($id, $c, 'activate', new ext_noop('Agent Logged In'));
 	$ext->add($id, $c, '', new ext_macro('toggle-add-agent'));
-	$ext->add($id, $c, '', new ext_set('QAGENT_UNAUTHORIZED','1'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${QAGENT_UNAUTHORIZED}"="1"]', 'logout'));
 
 	if ($amp_conf['USEDEVSTATE']) {
