@@ -117,6 +117,7 @@ class queues_conf {
 					switch($keyword){
 						case (trim($data) == ''):
 						case 'monitor-join': 
+						case 'answered_elsewhere': 
 							break;
 						case 'monitor-format':
 							if (strtolower($data) != 'no'){
