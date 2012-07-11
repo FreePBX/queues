@@ -54,7 +54,7 @@
 		case 'getall':
 			$new_user = get_login_user();
 			sortqueues();
-			debug("Looking up queues for agent:r $new_user");
+			debug("Looking up queues for agent: $new_user");
 			$agent_queues = get_agent_queues($new_user);
 			foreach ($agent_queues as $q) {
 				debug("Agent is in: $q");
@@ -135,8 +135,19 @@
 		$response1=explode("\n",trim($response['data']));
 		// Lets try and process our results here.
 		$inqueue='false';
+		$callers_list = false;
 		foreach ($response1 as $item) {
 			$item1=trim($item);
+			if ($callers_list) {
+				if (preg_match('/^\d+\./',$item1)) {
+					debug("skipping caller $item1 in queue $inqueue", 6);
+					continue;
+				} else {
+					debug("Finished processing callers for $inqueue");
+					$callers_list = false;
+					$inqueue='false';
+				}
+			}
 			if ($inqueue == 'false') {
         if (preg_match('/^(\d+)/',$item1)) {
 					preg_match_all ("/(\\d+)/is", $item1,$matches);
@@ -145,6 +156,7 @@
 						$inqueue=$matches[1][0];
 						$logged_agents_array[$inqueue][]='';
 						$static_agents_array[$inqueue][]='';
+						debug("initiating queue: $inqueue");
 					}
 				}
 			} else {
@@ -158,6 +170,7 @@
 				switch ($item1) {
 				case '':
 					break;
+
 				case '\n':
 					break;
 				
@@ -167,10 +180,16 @@
 					break;
 
 				case 'No Callers':
-				case 'Callers':
 					debug("Finished processing members for $inqueue");
 					$inqueue='false';
 					break;
+
+				case 'Callers':
+				case 'Callers:':
+					debug("Getting ready to skip callers in $inqueue");
+					$callers_list = true;
+					break;
+
 				case 'ADD':
 					$logged_agents_array[$inqueue][]=$loggedagent;
             if (strstr($item,'(dynamic)') !== false) {
