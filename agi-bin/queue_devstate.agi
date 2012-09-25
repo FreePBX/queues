@@ -78,7 +78,7 @@
 
 	function get_agent_queues($user) {
 		global $astman;
-		$this_agents_queues == array();
+		$this_agents_queues = array();
 
 		$get=$astman->database_show('QPENALTY');
 		if ($get) foreach($get as $key => $value){
