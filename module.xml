@@ -28,6 +28,6 @@
 	<menuitems>
 		<queues needsenginedb="yes">Queues</queues>
 	</menuitems>
-	<location>release/2.10/queues-2.10.0.6.tgz</location>
-	<md5sum>ddd75157d7c03e0243b1248b861a6741</md5sum>
+	<location>release/2.11/queues-2.10.0.6.tgz</location>
+	<md5sum>795f0604115f2e6d3bd6945d385aa9d7</md5sum>
 </module>
