@@ -148,6 +148,8 @@ if(isset($_REQUEST['action'])){
 					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
 					needreload();
           $_REQUEST['extdisplay'] = $account;
+					$this_dest = queues_getdest($account);
+					fwmsg::set_dest($this_dest[0]);
 					redirect_standard('extdisplay');
 				}
 			break;
@@ -247,7 +249,7 @@ if ($action == 'delete') {
 					}
 				} 
 ?>
-	<form autocomplete="off" name="editQ" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+	<form class="popover-form" autocomplete="off" name="editQ" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkQ(editQ);">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
 	<table>
@@ -1124,7 +1126,7 @@ if ($ast_ge_16) {
 	?>
 	
 	<tr>
-		<td colspan="2"><br><h6><input name="Submit" type="button" value="<?php echo _("Submit Changes")?>" onclick="checkQ(editQ);" tabindex="<?php echo ++$tabindex;?>"></h6></td>		
+		<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>		
 	</tr>
 	</table>
 
@@ -1146,7 +1148,7 @@ function insertExten(type) {
 }
 
 function checkQ(theForm) {
-	var bad = "false";
+	var bad = false;
 	var msgWarnRegex = "<?php echo _("Using a Regex filter is fairly advanced, please confirm you know what you are doing or leave this blank"); ?>";
 
 	var whichitem = 0;
@@ -1159,23 +1161,21 @@ function checkQ(theForm) {
 
 	if (!isInteger(theForm.account.value)) {
 		<?php echo "alert('"._("Queue Number must not be blank")."')"?>;
-		bad="true";
+		bad=true;
 	}
 
 	defaultEmptyOK = false;	
 	if (!isAlphanumeric(theForm.name.value)) {
 		<?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numeric characters")."')"?>;
-		bad="true";
+		bad=true;
 	}
 	if (!isEmpty(theForm.qregex.value)) {
 		if (!confirm(msgWarnRegex)) {
-			bad="true";
+			bad=true;
 		}
 	}
 
-	if (bad == "false") {
-		theForm.submit();
-	}
+	return !bad; 
 }
 
 //-->
