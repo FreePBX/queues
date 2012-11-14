@@ -10,6 +10,13 @@ $fcc->setDefault('*45');
 $fcc->update();
 unset($fcc);
 
+// Add Feature Codes for Toggle Queue Pause- Using *46
+$fcc = new featurecode('queues', 'que_pause_toggle');
+$fcc->setDescription('Queue Pause Toggle');
+$fcc->setDefault('*46');
+$fcc->update();
+unset($fcc);
+
 $results = array();
 $sql = "SELECT args, extension, priority FROM extensions WHERE context = 'ext-queues' AND descr = 'jump'";
 $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);

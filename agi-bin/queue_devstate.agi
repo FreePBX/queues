@@ -63,6 +63,10 @@
 			debug("Agent $new_user is $all_queues_state for at least one of their queues");
 			put_agent_overall_status($all_queues_state, $agent_queues);
 		break;
+		case 'toggle-pause-all':
+			$pause_user = get_login_user();
+			toggle_pause_all($pause_user);
+		break;
 		default:
 			debug("Got unknown action: $action, exiting");
 	}
@@ -209,6 +213,44 @@
 		debug("Finished sorting");
 	}
 
+	function get_current_queues($user) {
+		global $logged_agents_array;
+		$queues = array();
+
+		foreach ($logged_agents_array as $q => $m) {
+			if (array_search($user,$logged_agents_array[$q])) {
+				$queues[] = $q;
+			}
+		}
+		return $queues;
+	}
+
+	// Since we are pausing/unpausing specific queues, we only care about which queues they are logged into static or dynamic
+	// othewise we throw warnings
+	//
+	function toggle_pause_all($pause_user) {
+		global $agi;
+
+		sortqueues();
+		debug("Looking up queues for agent: $pause_user");
+		$agent_queues = get_current_queues($pause_user);
+		debug("got queues from logged in of: " . implode('-',$agent_queues));
+
+		$user_interface = "Local/$pause_user@from-queue/n";
+		$paused_state = 0;
+		foreach ($agent_queues as $q) {
+			$state = get_var("QUEUE_MEMBER($q,paused,$user_interface)");
+			$paused_state |= $state;
+		}
+		// If one was paused then treat as all paused and unpause all, otherwise pause all
+		// in all queues
+		$new_state = $paused_state ? '0' : '1';
+		foreach ($agent_queues as $q) {
+			$agi->set_variable("QUEUE_MEMBER($q,paused,$user_interface)", $new_state);
+			debug("QUEUE_MEMBER($q,paused,$user_interface)=$new_state");
+		}
+		$agi->set_variable("TOGGLEPAUSED", $new_state);
+	}
 
 	//
 	function get_login_user() {

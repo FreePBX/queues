@@ -246,6 +246,22 @@ function queues_list($listall=false) {
 	}
 }
 
+function queues_get_static_members($account = '') {
+	global $db;
+	if ($account != '') {
+		$sql = "SELECT data FROM queues_details WHERE id = $account AND keyword = 'member' ORDER BY flags";
+		return $db->getCol($sql);
+	} else {
+		$sql = "SELECT id, data FROM queues_details WHERE keyword = 'member' ORDER BY id, flags";
+		$res = $db->getAll($sql,DB_FETCHMODE_ASSOC);
+		$mem_hash = array();
+		foreach ($res as $qmp) {
+			$mem_hash[$qmp['id']][] = $qmp['data'];
+		}
+		return $mem_hash;
+	}
+}
+
 function queues_get($account, $queues_conf_only=false) {
 	global $db,$astman,$amp_conf;
 	
@@ -262,8 +278,7 @@ function queues_get($account, $queues_conf_only=false) {
 	}
 
 	//okay, but there can be multiple member variables ... do another select for them
-	$sql = "SELECT data FROM queues_details WHERE id = $account AND keyword = 'member' order by flags";
-	$results['member'] = $db->getCol($sql);
+	$results['member'] = queues_get_static_members($account);
 	
 	//if 'queue-youarenext=queue-youarenext', then assume we want to announce position
 	if (!$queues_conf_only) {
