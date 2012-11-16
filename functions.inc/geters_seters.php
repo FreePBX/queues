@@ -31,6 +31,7 @@ function queues_add(
 
 	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
 	$ast_ge_18 = version_compare($amp_conf['ASTVERSION'] , '1.8', 'ge');
+	$ast_ge_11 = version_compare($amp_conf['ASTVERSION'] , '11', 'ge');
 	
 	if (trim($account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
@@ -66,10 +67,17 @@ function queues_add(
 		array($account,'autofill',(isset($_REQUEST['autofill']))?'yes':'no',0),
 		array($account,'ringinuse',($cwignore == 2 || $cwignore == 3)?'no':'yes',0),
 		array($account,'reportholdtime',(isset($_REQUEST['reportholdtime']))?$_REQUEST['reportholdtime']:'no',0),
+		array($account,'autopause',(isset($_REQUEST['autopause']))?$_REQUEST['autopause']:'no',0),
+		array($account,'autopausedelay',(isset($_REQUEST['autopausedelay']))?$_REQUEST['autopausedelay']:'0',0),
 		array($account,'servicelevel',(isset($_REQUEST['servicelevel']))?$_REQUEST['servicelevel']:60,0),
 		array($account,'memberdelay',(isset($_REQUEST['memberdelay']))?$_REQUEST['memberdelay']:'0',0),
 		array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
 	);
+
+	if ($ast_ge_11) {
+		$fields[] = array($account,'autopausebusy',(isset($_REQUEST['autopausebusy']))?$_REQUEST['autopausebusy']:'no',0);
+		$fields[] = array($account,'autopauseunavail',(isset($_REQUEST['autopauseunavail']))?$_REQUEST['autopauseunavail']:'no',0);
+	}
 
 	if($ast_ge_16) {
 		$fields[] = array(
