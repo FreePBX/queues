@@ -113,15 +113,54 @@ function queues_get_config($engine) {
 				//
 				$ext->add($c, $exten, '', new ext_setvar('__NODEST', '${EXTEN}'));
 
+				/*
+				 * Virtual Queue Settings, dialplan designed so these can be changed by other modules and those changes
+				 * will override the configured changes here.
+				 */
+
 				// deal with group CID prefix
-				if ($grppre != '') {
-					$ext->add($c, $exten, '', new ext_macro('prepend-cid', $grppre));
-				}
+				$ext->add($c, $exten, '', new ext_set('QCIDPP', '${IF($["${VQ_CIDPP}"!=""]?${VQ_CIDPP}:' . $grppre . ')}'));
+				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Macro', 'prepend-cid, ${QCIDPP}'));
 
 				// Set Alert_Info
-				if ($alertinfo != '') {
-					$ext->add($c, $exten, '', new ext_setvar('__ALERT_INFO', str_replace(';', '\;', $alertinfo)));
+				$ext->add($c, $exten, '', new ext_set('QAINFO', '${IF($["${VQ_AINFO}"!=""]?${VQ_AINFO}:' . str_replace(';', '\;', $alertinfo) . ')}'));
+				$ext->add($c, $exten, '', new ext_execif('$["${QAINFO}"!=""]', 'Set', '__ALERT_INFO=${QAINFO}'));
+
+				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
+				$joinannounce = $joinannounce_id ? recordings_get_file($joinannounce_id) : '';
+				$joinansw = isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE ? 'noanswer' : '';
+				$cplay = $skip_joinannounce ? ' && ${QUEUE_MEMBER(' . $exten . ',' . $skip_joinannounce . ')}>0' : '';
+				$ext->add($c, $exten, '', new ext_set('QJOINMSG', '${IF($["${VQ_JOINMSG}"!=""]?${VQ_JOINMSG}:' . $joinannounce . ')}'));
+
+				$qmoh = isset($q['music']) ? $q['music'] : '';
+				$ext->add($c, $exten, '', new ext_set('QMOH', '${IF($["${VQ_MOH}"!=""]?${VQ_MOH}:' . $qmoh . ')}'));
+				$ext->add($c, $exten, '', new ext_execif('$["${QMOH}"!=""]', 'Set', '__MOHCLASS=${QMOH}'));
+
+				$options = 't';
+				if (isset($q['answered_elsewhere']) && $q['answered_elsewhere'] == '1'){
+					$ext->add($c, $exten, '', new ext_set('QCANCELMISSED', 'C'));
 				}
+				if ($q['rtone'] == 1) {
+					$qringopts = 'r';
+				} else if ($q['rtone'] == 2) {
+					$qringopts = 'R';
+				} else {
+					$qringopts = '';
+				}
+				if ($qringopts) {
+					$ext->add($c, $exten, '', new ext_set('QRINGOPTS', $qringopts));
+				}
+				$qretry = $q['retry'] == 'none' ? 'n' : '';
+				$ext->add($c, $exten, '', new ext_set('QRETRY', '${IF($["${VQ_RETRY}"!=""]?${VQ_RETRY}:' . $qretry . ')}'));
+
+				$ext->add($c, $exten, 'qoptions', new ext_set('QOPTIONS', '${IF($["${VQ_OPTIONS}"!=""]?${VQ_OPTIONS}:' . $options . ')}${QCANCELMISSED}${QRINGOPTS}${QRETRY}'));
+
+				// Set these up to be easily spliced into if we want to configure ability in queue modules
+				//
+				$ext->add($c, $exten, 'qagi', new ext_set('QAGI', '${IF($["${VQ_AGI}"!=""]?${VQ_AGI}:${QAGI})}'));
+				$ext->add($c, $exten, 'qrule', new ext_set('QRULE', '${IF($["${VQ_RULE}"!=""]?${VQ_RULE}:${QRULE})}'));
+				$ext->add($c, $exten, 'qposition', new ext_set('QPOSITION', '${IF($["${VQ_POSITION}"!=""]?${VQ_POSITION}:${QPOSITION})}'));
+
 				$record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
 						if ($q['monitor-format']) {
 					$ext->add($c, $exten, '', new ext_set('__MIXMON_FORMAT', $q['monitor-format']));
@@ -143,31 +182,7 @@ function queues_get_config($engine) {
 						$ext->add($c, $exten, '', new ext_setvar('MONITOR_OPTIONS', $monitor_options ));
 					}
 				}
-				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
-				if($joinannounce_id) {
-					$joinannounce = recordings_get_file($joinannounce_id);
-			
-					if (isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE) {
-						$joinannounce = $joinannounce.', noanswer';
-					}
 
-					$ext->add($c, $exten, '', new ext_playback($joinannounce));
-				}
-				$options = 't';
-				if ($ast_ge_18) {
-					if (isset($q['answered_elsewhere']) && $q['answered_elsewhere'] == '1'){
-						$options .= 'C';
-					}
-				}
-				if ($q['rtone'] == 1) {
-					$options .= 'r';
-				}
-				if ($q['retry'] == 'none'){
-					$options .= 'n';
-				}
-				if (isset($q['music'])) {
-					$ext->add($c, $exten, '', new ext_setvar('__MOHCLASS', $q['music']));
-				}
 				// Set CWIGNORE  if enabled so that busy agents don't have another line key ringing and
 				// stalling the ACD.
 				if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
@@ -196,10 +211,24 @@ function queues_get_config($engine) {
 					} else {
 						$callconfirm = '';
 					}
-					$ext->add($c, $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', $callconfirm));					
+					$ext->add($c, $exten, '', new ext_set('__ALT_CONFIRM_MSG', '${IF($["${VQ_CONFIRMMSG}"!=""]?${VQ_CONFIRMMSG}:' . $callconfirm . ')}'));
 				}
+				$ext->add($c, $exten, '', new ext_execif('$["${QJOINMSG}"!=""' . $cplay . ']', 'Playback', '${QJOINMSG}, ' . $joinansw));
 				$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}')); 
-				$ext->add($c, $exten, '', new ext_queue($exten,$options,'',$agentannounce,$q['maxwait']));
+
+				$agnc = '${IF($["${VQ_AANNOUNCE}"!=""]?${VQ_AANNOUNCE}:' . $agentannounce . ')}';
+				$qmaxwait = '${IF($["${VQ_MAXWAIT}"!=""]?${VQ_MAXWAIT}:' . $q['maxwait'] . ')}';
+
+				$options = '${QOPTIONS}';
+				$qagi = '${QAGI}';
+				$qmacro = '';
+				$qgosub = '';
+				$qrule = '${QRULE}';
+				$qposition = '${QPOSITION}';
+
+				// Queue(queuename[,options[,URL[,announceoverride[,timeout[,AGI[,macro[,gosub[,rule[,position]]]]]]]]])
+				//
+				$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, '', $agnc, $qmaxwait, $qagi, $qmacro, $qgosub, $qrule, $qposition));
 
 				if($q['use_queue_context'] != '2') {
 					$ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
@@ -229,12 +258,8 @@ function queues_get_config($engine) {
 					$ext->add($c, $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'from-internal'));
 				}
 
-				// destination field in 'incoming' database is backwards from what ext_goto expects
-				$goto_context = strtok($q['goto'],',');
-				$goto_exten = strtok(',');
-				$goto_pri = strtok(',');
-			
-				$ext->add($c, $exten, '', new ext_goto($goto_pri,$goto_exten,$goto_context));
+				//VQ_DEST = str_replace(',','^',$vq['goto'])
+				$ext->add($c, $exten, '', new ext_gotoif('$["${VQ_DEST}"=""]',$q['goto'],'${CUT(VQ_DEST,^,1)},${CUT(VQ_DEST,^,2)},${CUT(VQ_DEST,^,3)}'));
 			
 				//dynamic agent login/logout
 				if (trim($qregex) != '') {

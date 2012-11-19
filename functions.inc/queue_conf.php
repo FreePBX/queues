@@ -118,6 +118,7 @@ class queues_conf {
 						case (trim($data) == ''):
 						case 'monitor-join': 
 						case 'answered_elsewhere': 
+						case 'skip_joinannounce': 
 							break;
 						case 'monitor-format':
 							if (strtolower($data) != 'no'){

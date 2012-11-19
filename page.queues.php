@@ -43,6 +43,7 @@ $monitor_type = isset($_REQUEST['monitor_type'])?$_REQUEST['monitor_type']:'';
 $monitor_heard = isset($_REQUEST['monitor_heard'])?$_REQUEST['monitor_heard']:'0';
 $monitor_spoken = isset($_REQUEST['monitor_spoken'])?$_REQUEST['monitor_spoken']:'0';
 $answered_elsewhere = isset($_REQUEST['answered_elsewhere'])?$_REQUEST['answered_elsewhere']:'0';
+$skip_joinannounce = isset($_REQUEST['skip_joinannounce'])?$_REQUEST['skip_joinannounce']:'';
 
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
@@ -534,7 +535,7 @@ if ($action == 'delete') {
 <?php		
 if(function_exists('music_list')) { //only include if music module is enabled?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Music on Hold Class:")?><span><?php echo _("Music (or Commercial) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" Menu.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Music on Hold Class:")?><span><?php echo _("Music (MoH) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route. MoH Only will play music until the agent answers. Agent Ringing will play MoH until an agent's phone is presented with the call and is ringing. If they don't answer, MoH will return.  Ring Only makes callers hear a ringing tone instead of MoH ignoring any MoH Class selected as well as any configured periodic announcements. This music is defined in the \"Music on Hold\" Menu.")?></span></a></td>
 		<td>
 			<select name="music" tabindex="<?php echo ++$tabindex;?>">
 			<?php
@@ -552,21 +553,19 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 					}
 				}
 			?>		
-			</select>		
+			</select>&nbsp;
+		<span class="radioset">
+			<input type="radio" id="rtone-no" name="rtone" value="0" <?php echo ($rtone=='0'?'checked':'');?>><label for="rtone-no"><?php echo _('MoH Only')?></label>
+			<input type="radio" id="rtone-agent" name="rtone" value="2" <?php echo ($rtone=='2'?'checked':'');?>><label for="rtone-agent"><?php echo _('Agent Ringing')?></label>
+			<input type="radio" id="rtone-yes" name="rtone" value="1" <?php echo ($rtone=='1'?'checked':'');?>><label for="rtone-yes"><?php echo _('Ring Only')?></label>
+		</span>
 		</td>
 	</tr>
 <?php } ?>
-
-	<tr>
-		<td><a href="#" class="info"><?php echo _("Ringing Instead of MoH:")?><span><?php echo _("Enabling this option make callers hear a ringing tone instead of Music on Hold.<br/>Enabling this ignores any Music on Hold Class selected as well as ignoring any configured periodic announcements configured.")?></span></a></td>
-		<td>
-			<input name="rtone" type="checkbox" value="1" <?php echo (isset($rtone) && $rtone == 1 ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
-		</td>
-	</tr>
 <?php 
 if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Join Announcement:")?><span><?php echo _("Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Join Announcement:")?><span><?php echo _("Announcement played to callers prior to joining the queue. This can be skipped if there are agents ready to answer a call (meaning they still may be wrapping up from a previous call) or when they are free to answer the call right now. To add additional recordings please use the \"System Recordings\" MENU.")?></span></a></td>
 		<td>
 			<select name="joinannounce_id" tabindex="<?php echo ++$tabindex;?>">
 			<?php
@@ -579,7 +578,12 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 					}
 				}
 			?>		
-			</select>		
+			</select>&nbsp;
+			<span class="radioset">
+				<input type="radio" id="skip_joinannounce-no" name="skip_joinannounce" value="" <?php echo ($skip_joinannounce==''?'checked':'');?>><label for="skip_joinannounce-no"><?php echo _('Always')?></label>
+				<input type="radio" id="skip_joinannounce-free" name="skip_joinannounce" value="free" <?php echo ($skip_joinannounce=='free'?'checked':'');?>><label for="skip_joinannounce-free"><?php echo _('When No Free Agents')?></label>
+				<input type="radio" id="skip_joinannounce-ready" name="skip_joinannounce" value="ready" <?php echo ($skip_joinannounce=='ready'?'checked':'');?>><label for="skip_joinannounce-ready"><?php echo _('When No Ready Agents')?></label>
+			</span>
 		</td>
 	</tr>
 <?php } else { ?>

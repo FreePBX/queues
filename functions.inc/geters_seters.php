@@ -21,7 +21,7 @@ function queues_add(
 	$togglehint = '0',
 	$qnoanswer = '0',
 	$callconfirm = '0',
-	$callconfirm_id,
+	$callconfirm_id = '',
 	$monitor_type = '',
 	$monitor_heard = '0',
 	$monitor_spoken = '0',
@@ -72,6 +72,7 @@ function queues_add(
 		array($account,'servicelevel',(isset($_REQUEST['servicelevel']))?$_REQUEST['servicelevel']:60,0),
 		array($account,'memberdelay',(isset($_REQUEST['memberdelay']))?$_REQUEST['memberdelay']:'0',0),
 		array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
+		array($account,'skip_joinannounce',(isset($_REQUEST['skip_joinannounce']))?$_REQUEST['skip_joinannounce']:'',0),
 	);
 
 	if ($ast_ge_11) {
