@@ -129,7 +129,7 @@ function queues_get_config($engine) {
 				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
 				$joinannounce = $joinannounce_id ? recordings_get_file($joinannounce_id) : '';
 				$joinansw = isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE ? 'noanswer' : '';
-				$cplay = $skip_joinannounce ? ' && ${QUEUE_MEMBER(' . $exten . ',' . $skip_joinannounce . ')}>0' : '';
+				$cplay = $q['skip_joinannounce'] ? ' && ${QUEUE_MEMBER(' . $exten . ',' . $q['skip_joinannounce'] . ')}<1' : '';
 				$ext->add($c, $exten, '', new ext_set('QJOINMSG', '${IF($["${VQ_JOINMSG}"!=""]?${VQ_JOINMSG}:' . $joinannounce . ')}'));
 
 				$qmoh = isset($q['music']) ? $q['music'] : '';
