@@ -162,7 +162,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, 'qposition', new ext_set('QPOSITION', '${IF($["${VQ_POSITION}"!=""]?${VQ_POSITION}:${QPOSITION})}'));
 
 				$record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
-						if ($q['monitor-format']) {
+				if ($q['monitor-format']) {
 					$ext->add($c, $exten, '', new ext_set('__MIXMON_FORMAT', $q['monitor-format']));
 				}
 				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-check',"q,$exten,$record_mode"));
@@ -443,13 +443,17 @@ function queues_get_config($engine) {
 			$userlist = core_users_list();
 			if (is_array($userlist)) {
 				foreach($userlist as $item) {
-					$ext->add($from_queue_exten_only, $item[0], '', new ext_setvar('RingGroupMethod', 'none'));
+					$ext->add($from_queue_exten_only, $item[0], '', new ext_set('RingGroupMethod', 'none'));
+
+					$ext->add($from_queue_exten_only, $item[0], '', new ext_set('QDOPTS', '${IF($["${CALLER_DEST}"!=""]?g:)}${IF($["${AGENT_DEST}"!=""]?F(${AGENT_DEST}):)}'));
+
 					$ext->add($from_queue_exten_only, $item[0], 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten," . $item[0]));
 					if ($has_extension_state) {
-						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS},'.$item[0]));
+						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
 					} else {
-						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial',',${DIAL_OPTIONS},'.$item[0]));
+						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
 					}
+					$ext->add($from_queue_exten_only, $item[0], '', new ext_gotoif('$["${CALLER_DEST}"!=""]','${CUT(CALLER_DEST,^,1)},${CUT(CALLER_DEST,^,2)},${CUT(CALLER_DEST,^,3)}'));
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_hangup());
 				}
  				$ext->add($from_queue_exten_only, 'h', '', new ext_macro('hangupcall'));
