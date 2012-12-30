@@ -45,7 +45,7 @@ function queues_getdestinfo($dest) {
 function queues_recordings_usage($recording_id) {
 	global $active_modules;
 
-	$results = sql("SELECT `extension`, `descr` FROM `queues_config` WHERE `agentannounce_id` = '$recording_id' OR `joinannounce_id` = '$recording_id'","getAll",DB_FETCHMODE_ASSOC);
+	$results = sql("SELECT `extension`, `descr` FROM `queues_config` WHERE `callconfirm_id` = '$recording_id' OR `agentannounce_id` = '$recording_id' OR `joinannounce_id` = '$recording_id'","getAll",DB_FETCHMODE_ASSOC);
 	if (empty($results)) {
 		return array();
 	} else {
