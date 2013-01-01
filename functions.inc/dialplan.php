@@ -159,7 +159,7 @@ function queues_get_config($engine) {
 				// Set these up to be easily spliced into if we want to configure ability in queue modules
 				//
 				$ext->add($c, $exten, 'qagi', new ext_set('QAGI', '${IF($[${LEN(${VQ_AGI})}>0]?${VQ_AGI}:${QAGI})}'));
-				$ext->add($c, $exten, 'qrule', new ext_set('QRULE', '${IF($[${LEN(${VQ_RULE})}>0]?${VQ_RULE}:${QRULE})}'));
+				$ext->add($c, $exten, 'qrule', new ext_set('QRULE', '${IF($[${LEN(${VQ_RULE})}>0]?${IF($["${VQ_RULE}"!="0"]?${VQ_RULE}: )}:${QRULE})}'));
 				$ext->add($c, $exten, 'qposition', new ext_set('QPOSITION', '${IF($[${LEN(${VQ_POSITION})}>0]?${VQ_POSITION}:${QPOSITION})}'));
 
 				$record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
