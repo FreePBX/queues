@@ -262,7 +262,7 @@ function queues_get_config($engine) {
 				}
 
 				//VQ_DEST = str_replace(',','^',$vq['goto'])
-				$ext->add($c, $exten, '', new ext_gotoif('$["${VQ_DEST}"=""]',$q['goto'],'${CUT(VQ_DEST,^,1)},${CUT(VQ_DEST,^,2)},${CUT(VQ_DEST,^,3)}'));
+				$ext->add($c, $exten, 'gotodest', new ext_gotoif('$["${VQ_DEST}"=""]',$q['goto'],'${CUT(VQ_DEST,^,1)},${CUT(VQ_DEST,^,2)},${CUT(VQ_DEST,^,3)}'));
 			
 				//dynamic agent login/logout
 				if (trim($qregex) != '') {
