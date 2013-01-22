@@ -884,7 +884,7 @@ if ($ast_ge_16) {
 				}
 ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Auto Pause Delay:")?><span><?php echo _("This setting will delay the auto pause of an agent by auto pause delay seconds from when it last took a call. For example, if this were set to 2 minutes, and a new call is presented to the agent 1.5 minutes after they last took a call, they will not be auto paused if they don't answer the call. If presented with a call 2 minutes or later after answering the last call, they will then be auto paused. If they have taken no calls, this will have no affect.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Auto Pause Delay:")?><span><?php echo _("This setting will delay the auto pause of an agent by auto pause delay seconds from when it last took a call. For example, if this were set to 120 seconds, and a new call is presented to the agent 90 seconds after they last took a call, they will not be auto paused if they don't answer the call. If presented with a call 120 seconds or later after answering the last call, they will then be auto paused. If they have taken no calls, this will have no affect.")?></span></a></td>
 		<td>
 			<input type="number" name="autopausedelay" size="8" min="0" max="3600" value="<?php echo (isset($autopausedelay)?$autopausedelay:'0') ?>" tabindex="<?php echo ++$tabindex;?>">
 		</td>
