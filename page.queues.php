@@ -1128,32 +1128,76 @@ if ($ast_ge_16) {
 	<tr><td colspan="2"><br><h5><?php echo _("Events, Stats and Advanced")?><hr></h5></td></tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Event When Called:")?><span><?php echo _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete.")?></span></a></td>
+		<td><?php echo fpbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));?></td>
 		<td>
-			<select name="eventwhencalled" tabindex="<?php echo ++$tabindex;?>">
 			<?php
-				$default = (isset($eventwhencalled) ? $eventwhencalled : 'no');
-				$items = array('yes'=>_("Yes"),'no'=>_("No"));
-				foreach ($items as $item=>$val) {
-					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
+				$agentevents_true_label = form_label(_('Enabled'), 'agentevents_true');
+				$agentevents_true = array(
+							'name'		=> 'eventwhencalled',
+							'tabindex'	=> ++$tabindex,
+							'id'		=> 'agentevents_true',
+							'value'		=> 'yes'
+
+				);
+
+				$agentevents_false_label = form_label(_('Disabled'), 'agentevents_false');
+				$agentevents_false = array(
+							'name'		=> 'eventwhencalled',
+							'tabindex'	=> ++$tabindex,
+							'id'		=> 'agentevents_false',
+							'value'		=> 'no'
+
+				);
+				$eventwhencalled = isset($eventwhencalled) && $eventwhencalled
+									? $eventwhencalled 
+									: $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT'];
+				if (in_array($eventwhencalled, array('yes', 1, true), true)) {
+					$agentevents_true['checked'] = true;
+				} elseif (in_array($eventwhencalled, array('no', 0, false), true)) {
+					$agentevents_false['checked'] = true;
 				}
+				echo '<span class="radioset">'
+					. $agentevents_true_label . form_radio($agentevents_true)
+					. $agentevents_false_label . form_radio($agentevents_false)
+					. '</span>'
 			?>
-			</select>
 		</td>
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Member Status Event:")?><span><?php echo _("When set to YES, the following manager event will be generated: QueueMemberStatus")?></span></a></td>
+		<td><?php echo fpbx_label(_("Member Status Event"), _("When set to YES, the following manager event will be generated: QueueMemberStatus"));?></td>
 		<td>
-			<select name="eventmemberstatus" tabindex="<?php echo ++$tabindex;?>">
 			<?php
-				$default = (isset($eventmemberstatus) ? $eventmemberstatus : 'no');
-				$items = array('yes'=>_("Yes"),'no'=>_("No"));
-				foreach ($items as $item=>$val) {
-					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
+				$memberevents_true_label = form_label(_('Enabled'), 'memberevents_true');
+				$memberevents_true = array(
+							'name'		=> 'eventmemberstatus',
+							'tabindex'	=> ++$tabindex,
+							'id'		=> 'memberevents_true',
+							'value'		=> 'yes'
+
+				);
+
+				$memberevents_false_label = form_label(_('Disabled'), 'memberevents_false');
+				$memberevents_false = array(
+							'name'		=> 'eventmemberstatus',
+							'tabindex'	=> ++$tabindex,
+							'id'		=> 'memberevents_false',
+							'value'		=> 'no'
+
+				);
+				$eventmemberstatus = isset($eventmemberstatus) 
+									? $eventmemberstatus 
+									: $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'];
+				if (in_array($eventmemberstatus, array('yes', 1, true), true)) {
+					$memberevents_true['checked'] = true;
+				} elseif (in_array($eventmemberstatus, array('no', 0, false), true)) {
+					$memberevents_false['checked'] = true;
 				}
+				echo '<span class="radioset">'
+					. $memberevents_true_label . form_radio($memberevents_true)
+					. $memberevents_false_label . form_radio($memberevents_false)
+					. '</span>'
 			?>
-			</select>
 		</td>
 	</tr>
 

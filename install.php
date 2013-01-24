@@ -718,3 +718,35 @@ $set['name'] = 'Generate queuenum*/** Login/off Codes';
 $set['description'] = 'Queue login and out codes were historically queunum* and queunum**. These have been largely replaced by the *45 queue toggle codes. The legacy codes are required to login or out a third party user that is not the extension dialing. These can be removed from the system by setting this to false.';
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('GENERATE_LEGACY_QUEUE_CODES',$set,true);
+
+
+// QUEUES_EVENTS_WHEN_CALLED_DEFAULT
+$set['value'] = false;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 120;
+$set['name'] = 'Agent Called Events Default';
+$set['description'] = 'Default state for AMI emit events related to an agent\'s call. This setting will only affect the default for NEW queues, it won\'t change existing queues or enfore the option on in new ones.';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('QUEUES_EVENTS_WHEN_CALLED_DEFAULT', $set, true);
+
+
+// QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT
+$set['value'] = false;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 120;
+$set['name'] = 'Memeber Status Event Default';
+$set['description'] = 'Default state for AMI to emit the QueueMemberStatus event. This setting will only affect the default for NEW queues, it won\'t change existing queues or enfore the option on in new ones.';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT', $set, true);

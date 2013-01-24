@@ -42,7 +42,6 @@ function queues_add(
 	if (empty($agentannounce_id)) {
 		$agentannounce_id="";
 	}
-
 	$fields = array(
 		array($account,'maxlen',($_REQUEST['maxlen'])?$_REQUEST['maxlen']:'0',0),
 		array($account,'joinempty',($_REQUEST['joinempty'])?$_REQUEST['joinempty']:'yes',0),
@@ -61,8 +60,8 @@ function queues_add(
 		array($account,'periodic-announce-frequency',($_REQUEST['pannouncefreq'])?$_REQUEST['pannouncefreq']:'0',0),
 		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
 		array($account,'monitor-join','yes',0),
-		array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:'no',0),
-		array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:'no',0),
+		array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0),
+		array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0),
 		array($account,'weight',(isset($_REQUEST['weight']))?$_REQUEST['weight']:'0',0),
 		array($account,'autofill',(isset($_REQUEST['autofill']))?'yes':'no',0),
 		array($account,'ringinuse',($cwignore == 2 || $cwignore == 3)?'no':'yes',0),
