@@ -32,7 +32,7 @@ function queues_add(
 	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
 	$ast_ge_18 = version_compare($amp_conf['ASTVERSION'] , '1.8', 'ge');
 	$ast_ge_11 = version_compare($amp_conf['ASTVERSION'] , '11', 'ge');
-	
+
 	if (trim($account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
 		return false;
@@ -73,6 +73,28 @@ function queues_add(
 		array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
 		array($account,'skip_joinannounce',(isset($_REQUEST['skip_joinannounce']))?$_REQUEST['skip_joinannounce']:'',0),
 	);
+
+    foreach($_REQUEST as $key => $value) {
+        switch($key) {
+            case 'cron_minute':
+            case 'cron_dom':
+            case 'cron_dow':
+            case 'cron_hour':
+            case 'cron_month':
+            case 'cron_random':
+            case 'cron_schedule':
+                if (is_array($value)) {
+                    $request_value = implode(',',$value);
+                } else {
+                    $request_value = $value;
+                }
+
+                $fields[] = array($account, $key, $request_value, 0);
+                break;
+            default:
+                break;
+        }
+    }
 
 	if ($ast_ge_11) {
 		$fields[] = array($account,'autopausebusy',(isset($_REQUEST['autopausebusy']))?$_REQUEST['autopausebusy']:'no',0);
@@ -117,10 +139,12 @@ function queues_add(
 		}
 	}
 
+	dbug('fields', $fields);
 	$compiled = $db->prepare('INSERT INTO queues_details (id, keyword, data, flags) values (?,?,?,?)');
 	$result = $db->executeMultiple($compiled,$fields);
+	dbug($result);
 	if($db->IsError($result)) {
-		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");	
+		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");
 	}
 	$extension		= $account;
 	$descr			= isset($name) ? $db->escapeSimple($name):'';
@@ -145,50 +169,50 @@ function queues_add(
 	$monitor_spoken	= isset($monitor_spoken) ? $monitor_spoken:'0';
 	// Assumes it has just been deleted
 	$sql = "INSERT INTO queues_config (
-				extension, 
-				descr, 
-				grppre, 
-				alertinfo, 
-				joinannounce_id, 
-				ringing, 
-				agentannounce_id, 
-				maxwait, 
-				password, 
-				ivr_id, 
-				dest, 
-				cwignore, 
-				qregex, 
-				queuewait, 
-				use_queue_context, 
-				togglehint, 
-				qnoanswer, 
-				callconfirm, 
-				callconfirm_id, 
-				monitor_type, 
-				monitor_heard, 
+				extension,
+				descr,
+				grppre,
+				alertinfo,
+				joinannounce_id,
+				ringing,
+				agentannounce_id,
+				maxwait,
+				password,
+				ivr_id,
+				dest,
+				cwignore,
+				qregex,
+				queuewait,
+				use_queue_context,
+				togglehint,
+				qnoanswer,
+				callconfirm,
+				callconfirm_id,
+				monitor_type,
+				monitor_heard,
 				monitor_spoken)
          	VALUES (
-				'$extension', 
-				'$descr', 
-				'$grppre', 
-				'$alertinfo', 
-				'$joinannounce_id', 
-				'$ringing', 
-				'$agentannounce_id', 
-				'$maxwait', 
-				'$password', 
-				'$ivr_id', 
-				'$dest', 
-				'$cwignore', 
-				'$qregex', 
-				'$queuewait', 
-				'$use_queue_context', 
-				'$togglehint', 
-				'$qnoanswer', 
-				'$callconfirm', 
-				'$callconfirm_id', 
-				'$monitor_type', 
-				'$monitor_heard', 
+				'$extension',
+				'$descr',
+				'$grppre',
+				'$alertinfo',
+				'$joinannounce_id',
+				'$ringing',
+				'$agentannounce_id',
+				'$maxwait',
+				'$password',
+				'$ivr_id',
+				'$dest',
+				'$cwignore',
+				'$qregex',
+				'$queuewait',
+				'$use_queue_context',
+				'$togglehint',
+				'$qnoanswer',
+				'$callconfirm',
+				'$callconfirm_id',
+				'$monitor_type',
+				'$monitor_heard',
 				'$monitor_spoken')	";
 	$results = sql($sql);
 
@@ -212,7 +236,7 @@ function queues_add(
 
 function queues_del($account) {
 	global $db, $astman, $amp_conf;
-	
+
 	$sql = "DELETE FROM queues_details WHERE id = '$account'";
 	$result = $db->query($sql);
 	if($db->IsError($result)) {
@@ -223,7 +247,7 @@ function queues_del($account) {
 	if($db->IsError($result)) {
  		die_freepbx($result->getMessage().$sql);
     }
-	
+
 	//remove dynamic memebers from astDB
 	if ($astman) {
 	  $astman->database_deltree('QPENALTY/'.$account);
@@ -272,7 +296,7 @@ function queues_get_static_members($account = '') {
 
 function queues_get($account, $queues_conf_only=false) {
 	global $db,$astman,$amp_conf;
-	
+
     if ($account == "") {
 	    return array();
     }
@@ -287,7 +311,7 @@ function queues_get($account, $queues_conf_only=false) {
 
 	//okay, but there can be multiple member variables ... do another select for them
 	$results['member'] = queues_get_static_members($account);
-	
+
 	//if 'queue-youarenext=queue-youarenext', then assume we want to announce position
 	if (!$queues_conf_only) {
 		if(isset($results['queue-youarenext']) && $results['queue-youarenext'] == 'queue-youarenext') {
@@ -296,7 +320,7 @@ function queues_get($account, $queues_conf_only=false) {
 			$results['announce-position'] = 'no';
 		}
 	}
-	
+
 	//if 'eventmemberstatusoff=Yes', then assume we want to 'eventmemberstatus=no'
 	if(isset($results['eventmemberstatusoff'])) {
 		if (strtolower($results['eventmemberstatusoff']) == 'yes') {
@@ -337,8 +361,8 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['monitor_heard']   = $config['monitor_heard'];
 		$results['monitor_spoken']   = $config['monitor_spoken'];
 
-    // TODO: why the str_replace?
-    //
+		// TODO: why the str_replace?
+    		//
 		if ($astman) {
 			$account = str_replace("'",'',$account);
 			//get dynamic members priority from astDB

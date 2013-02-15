@@ -137,7 +137,9 @@ class queues_conf {
 							}
 							// no break, fallthrough to default
 						default:
-							$output .= $keyword."=".$data."\n";
+							if (strpos($keyword, 'cron_') === FALSE) {
+								$output .= $keyword."=".$data."\n";
+							}
 							break;
 					}
 				}

@@ -13,6 +13,9 @@ function queues_get_config($engine) {
 		case "asterisk":
 			global $astman;
 
+			//set our reset cron
+			queues_set_backup_cron();
+
 			$ast_ge_14 = version_compare($version,'1.4','ge');
 			$ast_ge_16 = version_compare($version,'1.6','ge');
 			$ast_ge_14_25 = version_compare($version,'1.4.25','ge');

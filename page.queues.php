@@ -45,6 +45,15 @@ $monitor_spoken = isset($_REQUEST['monitor_spoken'])?$_REQUEST['monitor_spoken']
 $answered_elsewhere = isset($_REQUEST['answered_elsewhere'])?$_REQUEST['answered_elsewhere']:'0';
 $skip_joinannounce = isset($_REQUEST['skip_joinannounce'])?$_REQUEST['skip_joinannounce']:'';
 
+//cron code
+$cron_schedule = isset($_REQUEST['cron_schedule'])?$_REQUEST['cron_schedule']:'never';
+$cron_minute = isset($_REQUEST['cron_minute'])?$_REQUEST['cron_minute']:array();
+$cron_hour = isset($_REQUEST['cron_hour'])?$_REQUEST['cron_hour']:array();
+$cron_dow = isset($_REQUEST['cron_dow'])?$_REQUEST['cron_dow']:array();
+$cron_month = isset($_REQUEST['cron_month'])?$_REQUEST['cron_month']:array();
+$cron_dom = isset($_REQUEST['cron_dom'])?$_REQUEST['cron_dom']:array();
+$cron_random = isset($_REQUEST['cron_random'])?$_REQUEST['cron_random']:false;
+
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
 $ast_ge_16 = version_compare($astver, '1.6', 'ge');
@@ -174,6 +183,7 @@ if(isset($_REQUEST['action'])){
 $queues = queues_list();
 	
 ?>
+<link type="text/css" src="config.php?display=queues&handler=file&module=queues&file=assets/css/queues.css"></link>
 <div class="rnav"><ul>
     <li><a id="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Queue")?></a></li>
 <?php
@@ -193,6 +203,13 @@ if ($action == 'delete') {
 	$thisQ = queues_get($extdisplay);
 	//create variables
 	extract($thisQ);
+
+	//cron
+	//We check for an array in views/cron.php so make it one
+	$cron_vars = array('cron_schedule', 'cron_minute', 'cron_hour', 'cron_dow', 'cron_month', 'cron_dom', 'cron_random');
+	foreach ($cron_vars as $value) {
+	        $cronVars[$value] = array($$value);
+	}
 
   $mem_array = array();
   foreach ($member as $mem) {
@@ -1229,7 +1246,16 @@ if ($ast_ge_16) {
 	<?php 
 	echo drawselects($goto,0);
 	?>
+	</table>
 	
+	<table>
+		<tr><td colspan="2"><br><h5><?php echo _("Reset Queue Stats")?><hr></h5></td></tr>
+		<tr><td colspan="2">
+			<?php echo load_view(dirname(__FILE__) . '/views/cron.php', $cronVars); ?>
+		</td></tr>
+	</table>
+
+	<table>
 	<tr>
 		<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>		
 	</tr>

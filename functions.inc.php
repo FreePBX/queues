@@ -6,9 +6,7 @@ include_once(dirname(__FILE__) . '/functions.inc/hook_core.php');
 include_once(dirname(__FILE__) . '/functions.inc/hook_ivr.php');
 include_once(dirname(__FILE__) . '/functions.inc/geters_seters.php');
 include_once(dirname(__FILE__) . '/functions.inc/queue_conf.php');
-
-
-
+include_once(dirname(__FILE__) . '/functions.inc/cron.php');
 
 function queues_timeString($seconds, $full = false) {
 	if ($seconds == 0) {
