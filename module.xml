@@ -38,6 +38,6 @@
 				<display>queues</display>
 			</queues>
 	</popovers>
-	<location>release/2.11/queues-2.11.0.3.tgz</location>
-	<md5sum>0d88dfd4a493985c2819b7880f843b20</md5sum>
+	<location>release/2.11/queues-2.11.0.4.tgz</location>
+	<md5sum>8e81c61845f13f054270476175f3b6b0</md5sum>
 </module>
