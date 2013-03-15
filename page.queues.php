@@ -1075,7 +1075,7 @@ if ($ast_ge_16) {
 			<?php // setting this will set the context= option
 			$default = (isset($announcemenu) ? $announcemenu : "none");
 			
-			echo '<option value=none '.($default == "none" ? 'SELECTED' : '').'>'._("None").'</option>';
+			echo '<option value="none" '.($default == "none" ? 'SELECTED' : '').'>'._("None").'</option>';
 			
 			//query for exisiting aa_N contexts
 			//
