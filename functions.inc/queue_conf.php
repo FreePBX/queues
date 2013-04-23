@@ -123,7 +123,6 @@ class queues_conf {
 						case 'monitor-format':
 							if (strtolower($data) != 'no'){
 								$output .= "monitor-type=mixmonitor\n";
-								$output .= $keyword."=".$data."\n";
 							}
 							break;
 						case 'announce-position':
