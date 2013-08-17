@@ -697,19 +697,22 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 			<select name="maxwait" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 				$default = (isset($maxwait) ? $maxwait : 0);
-				for ($i=0; $i < 60; $i+=10) {
+				for ($i=0; $i < 30; $i++) {
 					if ($i == 0)
 						echo '<option value="">'._("Unlimited").'</option>';
 					else
 						echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 				}
-				for ($i=60; $i < 300; $i+=30) {
+				for ($i=30; $i < 60; $i+=5) {
+					echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
+				}
+				for ($i=60; $i < 300; $i+=20) {
 					echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
 				for ($i=300; $i < 1200; $i+=60) {
 					echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
-				for ($i=1200; $i <= 3600; $i+=300) {
+				for ($i=1200; $i <= 7200; $i+=300) {
 					echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
 			?>		
@@ -741,8 +744,8 @@ if ($ast_ge_16) {
 			<?php
 				$default = (isset($timeout) ? $timeout : 15);
 				echo '<option value="0" '.(0 == $default ? 'SELECTED' : '').'>'._("Unlimited").'</option>';
-				for ($i=1; $i <= 60; $i++) {
-					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
+				for ($i=1; $i <= 120; $i++) {
+					echo '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
 			?>		
 			</select>		
@@ -769,7 +772,7 @@ if ($ast_ge_16) {
       <?php
 				$default = (isset($retry) ? $retry : 5);
 				echo '<option value="none" '.(($default == "none") ? 'SELECTED' : '').'>'._("No Retry").'</option>';
-				for ($i=0; $i <= 20; $i++) {
+				for ($i=0; $i <= 60; $i++) {
 					echo '<option value="'.$i.'" '.(("$i" == "$default") ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 				}
 			?>		
@@ -783,8 +786,11 @@ if ($ast_ge_16) {
 			<select name="wrapuptime" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 				$default = (isset($wrapuptime) ? $wrapuptime : 0);
-				for ($i=0; $i <= 60; $i++) {
+				for ($i=0; $i < 60; $i++) {
 					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
+				}
+				for ($i=60; $i <= 3600; $i+=30) {
+					echo '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
 			?>		
 			</select>		
@@ -1225,7 +1231,7 @@ if ($ast_ge_16) {
 			<?php
 				$default = (isset($servicelevel) ? $servicelevel : 60);
 				for ($i=15; $i <= 300; $i+=15) {
-					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
+					echo '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
 			?>		
 			</select>		
