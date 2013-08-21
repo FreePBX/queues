@@ -260,7 +260,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-cancel'));
 				// If we are here, disable the NODEST as we want things to resume as normal
 				$ext->add($c, $exten, '', new ext_setvar('__NODEST', ''));
-				$ext->add($c, $exten, '', new ext_setvar('_QUEUE_PRIO', ''));
+				$ext->add($c, $exten, '', new ext_setvar('_QUEUE_PRIO', '0'));
 			
 				if ($q['callconfirm'] == 1) {
 					if ($amp_conf['AST_FUNC_SHARED']) {
