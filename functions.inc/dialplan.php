@@ -123,11 +123,13 @@ function queues_get_config($engine) {
 
 				// deal with group CID prefix
 				$ext->add($c, $exten, '', new ext_set('QCIDPP', '${IF($[${LEN(${VQ_CIDPP})}>0]?${VQ_CIDPP}' . ':' . ($grppre == '' ? ' ':$grppre) . ')}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_CIDPP', ''));
 				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Macro', 'prepend-cid, ${QCIDPP}'));
 
 				// Set Alert_Info
 				$ainfo = $alertinfo != '' ? str_replace(';', '\;', $alertinfo) : ' ';
 				$ext->add($c, $exten, '', new ext_set('QAINFO', '${IF($[${LEN(${VQ_AINFO})}>0]?${VQ_AINFO}:' . $ainfo . ')}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_AINFO', ''));
 				$ext->add($c, $exten, '', new ext_execif('$["${QAINFO}"!=""]', 'Set', '__ALERT_INFO=${QAINFO}'));
 
 				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
@@ -135,9 +137,11 @@ function queues_get_config($engine) {
 				$joinansw = isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE ? 'noanswer' : '';
 				$cplay = $q['skip_joinannounce'] ? ' && ${QUEUE_MEMBER(' . $exten . ',' . $q['skip_joinannounce'] . ')}<1' : '';
 				$ext->add($c, $exten, '', new ext_set('QJOINMSG', '${IF($[${LEN(${VQ_JOINMSG})}>0]?${IF($["${VQ_JOINMSG}"!="0"]?${VQ_JOINMSG}: )}:' . $joinannounce . ')}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_JOINMSG', ''));
 
 				$qmoh = isset($q['music']) && $q['music'] != '' ? $q['music'] : ' ';
 				$ext->add($c, $exten, '', new ext_set('QMOH', '${IF($["${VQ_MOH}"!=""]?${VQ_MOH}:' . $qmoh . ')}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_MOH', ''));
 				$ext->add($c, $exten, '', new ext_execif('$["${QMOH}"!=""]', 'Set', '__MOHCLASS=${QMOH}'));
 
 				$options = 't';
@@ -156,15 +160,21 @@ function queues_get_config($engine) {
 				}
 				$qretry = $q['retry'] == 'none' ? 'n' : ' ';
 				$ext->add($c, $exten, '', new ext_set('QRETRY', '${IF($[${LEN(${VQ_RETRY})}>0]?${VQ_RETRY}:' . $qretry . ')}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_RETRY', ''));
 
 				$ext->add($c, $exten, 'qoptions', new ext_set('QOPTIONS', '${IF($[${LEN(${VQ_OPTIONS})}>0]?${VQ_OPTIONS}:' . ($options != '' ? $options : ' ') . ')}${QCANCELMISSED}${QRINGOPTS}${QRETRY}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_OPTIONS', ''));
 
 				// Set these up to be easily spliced into if we want to configure ability in queue modules
 				//
 				$ext->add($c, $exten, 'qgosub', new ext_set('QGOSUB', '${IF($[${LEN(${VQ_GOSUB})}>0]?${VQ_GOSUB}:${QGOSUB})}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_GOSUB', ''));
 				$ext->add($c, $exten, 'qagi', new ext_set('QAGI', '${IF($[${LEN(${VQ_AGI})}>0]?${VQ_AGI}:${QAGI})}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_AGI', ''));
 				$ext->add($c, $exten, 'qrule', new ext_set('QRULE', '${IF($[${LEN(${VQ_RULE})}>0]?${IF($["${VQ_RULE}"!="0"]?${VQ_RULE}: )}:${QRULE})}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_RULE', ''));
 				$ext->add($c, $exten, 'qposition', new ext_set('QPOSITION', '${IF($[${LEN(${VQ_POSITION})}>0]?${VQ_POSITION}:${QPOSITION})}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_POSITION', ''));
 
 				$record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
 				if ($q['monitor-format']) {
@@ -218,15 +228,19 @@ function queues_get_config($engine) {
 						$callconfirm = ' ';
 					}
 					$ext->add($c, $exten, '', new ext_set('__ALT_CONFIRM_MSG', '${IF($[${LEN(${VQ_CONFIRMMSG})}>0]?${IF($["${VQ_CONFIRMMSG}"!="0"]?${VQ_CONFIRMMSG}: )}:' . $callconfirm . ')}'));
+					$ext->add($c, $exten, '', new ext_set('VQ_CONFIRMMSG', ''));
 				}
 				$ext->add($c, $exten, '', new ext_execif('$["${QJOINMSG}"!=""' . $cplay . ']', 'Playback', '${QJOINMSG}, ' . $joinansw));
 				$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}')); 
 
 				$ext->add($c, $exten, '', new ext_set('QAANNOUNCE', '${IF($[${LEN(${VQ_AANNOUNCE})}>0]?${IF($["${VQ_AANNOUNCE}"!="0"]?${VQ_AANNOUNCE}: )}:' . $agentannounce . ')}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_AANNOUNCE', ''));
 				$agnc = '${QAANNOUNCE}';
 
-				$qmaxwait = '${IF($[${LEN(${VQ_MAXWAIT})}>0]?${VQ_MAXWAIT}:' . ($q['maxwait'] != '' ? $q['maxwait'] : ' ') . ')}';
+				$ext->add($c, $exten, '', new ext_set('QMAXWAIT', '${IF($[${LEN(${VQ_MAXWAIT})}>0]?${VQ_MAXWAIT}:' . ($q['maxwait'] != '' ? $q['maxwait'] : ' ') . ')}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_MAXWAIT', ''));
 
+				$qmaxwait = '${QMAXWAIT}';
 				$options = '${QOPTIONS}';
 				$qagi = '${QAGI}';
 				$qmacro = '';
@@ -246,6 +260,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-cancel'));
 				// If we are here, disable the NODEST as we want things to resume as normal
 				$ext->add($c, $exten, '', new ext_setvar('__NODEST', ''));
+				$ext->add($c, $exten, '', new ext_setvar('_QUEUE_PRIO', ''));
 			
 				if ($q['callconfirm'] == 1) {
 					if ($amp_conf['AST_FUNC_SHARED']) {
@@ -267,7 +282,9 @@ function queues_get_config($engine) {
 				}
 
 				//VQ_DEST = str_replace(',','^',$vq['goto'])
-				$ext->add($c, $exten, 'gotodest', new ext_gotoif('$["${VQ_DEST}"=""]',$q['goto'],'${CUT(VQ_DEST,^,1)},${CUT(VQ_DEST,^,2)},${CUT(VQ_DEST,^,3)}'));
+				$ext->add($c, $exten, '', new ext_set('QDEST', '${VQ_DEST}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_DEST', ''));
+				$ext->add($c, $exten, 'gotodest', new ext_gotoif('$["${QDEST}"=""]',$q['goto'],'${CUT(QDEST,^,1)},${CUT(QDEST,^,2)},${CUT(QDEST,^,3)}'));
 			
 				//dynamic agent login/logout
 				if (trim($qregex) != '') {
