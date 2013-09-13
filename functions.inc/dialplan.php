@@ -280,6 +280,9 @@ function queues_get_config($engine) {
 					$ext->add($c, $exten, '', new ext_setvar('__CFIGNORE', ''));
 					$ext->add($c, $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'from-internal'));
 				}
+				if ($qringopts) {
+					$ext->add($c, $exten, '', new ext_set('QRINGOPTS', ''));
+				}
 
 				//VQ_DEST = str_replace(',','^',$vq['goto'])
 				$ext->add($c, $exten, '', new ext_set('QDEST', '${VQ_DEST}'));
