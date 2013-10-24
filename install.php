@@ -3,6 +3,12 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $db;
 global $amp_conf;
 
+// For translation only
+if (false) {
+	_("Queue Toggle");
+	_("Queue Pause Toggle");
+}
+
 // Add Feature Codes for Toggle Queues - Using *45
 $fcc = new featurecode('queues', 'que_toggle');
 $fcc->setDescription('Queue Toggle');
