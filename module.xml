@@ -10,7 +10,7 @@
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc. 
 	</description>
 	<changelog>
-		*2.11.0.10* FREEPBX-6927 keep CID Prepend from stacking up if set not to
+		*2.11.0.10* #6836, #6881, #6927
 		*2.11.0.9* #6744
 		*2.11.0.8* #6703
 		*2.11.0.7* Added better granularity and range to some Queue time options
