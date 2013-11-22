@@ -139,10 +139,9 @@ function queues_add(
 		}
 	}
 
-	dbug('fields', $fields);
 	$compiled = $db->prepare('INSERT INTO queues_details (id, keyword, data, flags) values (?,?,?,?)');
 	$result = $db->executeMultiple($compiled,$fields);
-	dbug($result);
+	
 	if($db->IsError($result)) {
 		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");
 	}
