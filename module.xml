@@ -37,4 +37,4 @@
 	</popovers>
 	<location>release/2.11/queues-2.11.0.10.tgz</location>
 	<md5sum>ea5c8063099b54c197c1b2c71d732de6</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
