@@ -38,4 +38,4 @@
 	</popovers>
 	<location>release/2.11/queues-2.11.0.2.tgz</location>
 	<md5sum>f684225c1f42b55dc2ba976d48feebcd</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
