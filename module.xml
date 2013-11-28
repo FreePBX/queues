@@ -30,4 +30,4 @@
 	</menuitems>
 	<location>release/2.11/queues-2.10.0.6.tgz</location>
 	<md5sum>795f0604115f2e6d3bd6945d385aa9d7</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>
