@@ -4,6 +4,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 class queues_conf {
 
 	var $_queues_general = array();
+	var $_queues_additional = array();
 
 	// return an array of filenames to write
 	// files named like pinset_N
@@ -31,6 +32,10 @@ class queues_conf {
 
 	function addQueuesGeneral($key, $value) {
 		$this->_queues_general[] = array('key' => $key, 'value' => $value);
+	}
+
+	function addQueuesAdditional($section, $key, $value) {
+		$this->_queues_additional[$section][] = array('key' => $key, 'value' => $value);
 	}
 
 	function generate_queues_additional($ast_version) {
@@ -143,7 +148,7 @@ class queues_conf {
 					}
 				}
 			}
-
+			
 			// Now pull out all the memebers, one line for each
 			//
 			if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
@@ -186,6 +191,13 @@ class queues_conf {
 					$output .= "member=".$member."\n";
 				}
 			}
+
+			if (isset($this->_queues_additional[$result[0]])) {
+				foreach($this->_queues_additional[$result[0]] as $qsetting) {
+					$output .= $qsetting['key'] . "=" . $qsetting['value'] . "\n";
+				}
+			}
+
 			$output .= $additional."\n";
 		}
 
