@@ -6,16 +6,17 @@ function queues_set_backup_cron() {
 	//remove all stale backup's
 	edit_crontab($amp_conf['AMPBIN'] . '/queue_reset_stats.php');
 
-	//get our list of queues	
+	//get our list of queues
 	$queues_list = queues_list(true);
-	foreach($queues_list as $key => $value) {
+    $queues = array();
+    foreach($queues_list as $key => $value) {
 		//get queue details
 		$queues[$value[0]] = queues_get($value[0],false);
 	}
-	
+
 	foreach ($queues as $qid => $q) {
 
-		
+
 		$cron_vars = array('cron_minute', 'cron_hour', 'cron_dow', 'cron_month', 'cron_dom');
         	foreach ($cron_vars as $value) {
         	        if (isset($q[$value])) {
@@ -78,7 +79,7 @@ function queues_set_backup_cron() {
 			//dbug('calling cron with ', $cron);
 			edit_crontab('', $cron);
 		}
-		
+
 	}
 }
 
