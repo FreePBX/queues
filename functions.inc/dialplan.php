@@ -583,7 +583,7 @@ function queue_agent_add_toggle() {
 	}
 
 	$ext->add($id, $c, '', new ext_userevent('AgentLogin','Agent: ${CALLBACKNUM}'));
-	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${AMPUSERCIDNAME}','ADDMEMBER'));
+	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${AMPUSERCIDNAME})}>0]?${AMPUSERCIDNAME}:${AMPUSER})}','ADDMEMBER'));
 	$ext->add($id, $c, '', new ext_macroexit());
 	$ext->add($id, $c, 'invalid', new ext_playback('pbx-invalid'));
 	$ext->add($id, $c, '', new ext_set('QAGENT_UNAUTHORIZED','1'));
@@ -604,7 +604,7 @@ function queue_agent_del_toggle() {
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-internal/n'));
 	$ext->add($id, $c, '', new ext_userevent('RefreshQueue'));
-	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${AMPUSERCIDNAME}','REMOVEMEMBER'));
+	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${AMPUSERCIDNAME})}>0]?${AMPUSERCIDNAME}:${AMPUSER})}','REMOVEMEMBER'));
 	$ext->add($id, $c, '', new ext_macroexit());
 }
 
