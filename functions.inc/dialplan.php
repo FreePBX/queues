@@ -5,9 +5,10 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 */
 function queues_get_config($engine) {
 	global $ext;  // is this the best way to pass this?
-	global $queues_conf;
 	global $amp_conf;
 	global $version;
+
+	$queues_conf = queues_conf::create();
 
 	switch($engine) {
 		case "asterisk":
