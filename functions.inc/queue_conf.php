@@ -3,8 +3,17 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 class queues_conf {
 
+	private static $obj;
 	var $_queues_general = array();
 	var $_queues_additional = array();
+
+	// FreePBX magic ::create() call
+	public static function create() {
+		if (!isset(self::$obj))
+			self::$obj = new queues_conf();
+
+		return self::$obj;
+	}
 
 	// return an array of filenames to write
 	// files named like pinset_N
