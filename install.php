@@ -647,10 +647,10 @@ $freepbx_conf->define_conf_setting('QUEUES_SHARED_LASTCALL',$set);
 
 // QUEUES_UPDATECDR
 //
-$set['value'] = false;
+$set['value'] = true;
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 0;
-$set['hidden'] = 0;
+$set['hidden'] = 1;
 $set['level'] = 0;
 $set['module'] = 'queues';
 $set['category'] = 'Queues Module';
@@ -695,10 +695,10 @@ $freepbx_conf->define_conf_setting('QUEUES_HIDE_NOANSWER',$set);
 
 // USEQUEUESTATE
 //
-$set['value'] = false;
+$set['value'] = true;
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 0;
-$set['hidden'] = 0;
+$set['hidden'] = 1;
 $set['level'] = 3;
 $set['module'] = 'queues';
 $set['category'] = 'Queues Module';
