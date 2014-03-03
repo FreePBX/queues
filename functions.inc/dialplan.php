@@ -144,6 +144,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('QMOH', '${IF($["${VQ_MOH}"!=""]?${VQ_MOH}:' . $qmoh . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_MOH', ''));
 				$ext->add($c, $exten, '', new ext_execif('$["${QMOH}"!=""]', 'Set', '__MOHCLASS=${QMOH}'));
+				$ext->add($c, $exten, '', new ext_execif('$["${MOHCLASS}"!=""]', 'Set', 'CHANNEL(musicclass)=${MOHCLASS}'));
 
 				$options = 't';
 				if (isset($q['answered_elsewhere']) && $q['answered_elsewhere'] == '1'){
