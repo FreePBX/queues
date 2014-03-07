@@ -15,6 +15,11 @@ class queues_conf {
 		return self::$obj;
 	}
 
+	// Load the static object when created.
+	public function __construct() {
+		self::$obj = $this;
+	}
+
 	// return an array of filenames to write
 	// files named like pinset_N
 	function get_filename() {
