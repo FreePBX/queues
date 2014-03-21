@@ -1217,8 +1217,8 @@ if ($ast_ge_16) {
 					$memberevents_false['checked'] = true;
 				}
 				echo '<span class="radioset">'
-					. $memberevents_true_label . form_radio($memberevents_true)
-					. $memberevents_false_label . form_radio($memberevents_false)
+					. form_radio($memberevents_true) . $memberevents_true_label
+					. form_radio($memberevents_false) . $memberevents_false_label
 					. '</span>'
 			?>
 		</td>
