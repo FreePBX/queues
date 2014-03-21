@@ -72,7 +72,7 @@ if (isset($_REQUEST["members"])) {
 	if (!$members) {
 		$members = null;
 	}
-	
+
 	foreach (array_keys($members) as $key) {
 		//trim it
 		$members[$key] = trim($members[$key]);
@@ -113,7 +113,7 @@ if (isset($_REQUEST["members"])) {
 		}
 
 		// remove blanks // prefix with the channel
-		if (empty($this_member))  
+		if (empty($this_member))
 			unset($members[$key]);
 		else {
       switch($exten_type) {
@@ -147,7 +147,7 @@ if(isset($_REQUEST['action'])){
 	if (isset($account) && !checkRange($account)){
 		echo "<script>javascript:alert('"._("Warning! Extension")." $account "._("is not allowed for your account.")."');</script>";
 	} else {
-		
+
 		//if submitting form, update database
 		switch ($action) {
 			case "add":
@@ -181,7 +181,7 @@ if(isset($_REQUEST['action'])){
 
 //get unique queues
 $queues = queues_list();
-	
+
 ?>
 <link type="text/css" src="config.php?display=queues&handler=file&module=queues&file=assets/css/queues.css"></link>
 <div class="rnav"><ul>
@@ -237,7 +237,7 @@ if ($action == 'delete') {
       $mem_array[] = $exten_prefix.$matches[2].','.$matches[3];
     }
   }
-	
+
 	$delButton = "
 				<form name=delete action=\"{$_SERVER['PHP_SELF']}\" method=POST>
 					<input type=\"hidden\" name=\"display\" value=\"{$dispnum}\">
@@ -258,7 +258,7 @@ if ($action == 'delete') {
 	<h2><?php echo _("Add Queue"); ?></h2>
 <?php } ?>
 
-<?php		if ($extdisplay != '') { 
+<?php		if ($extdisplay != '') {
 					echo $delButton;
 					$usage_list = framework_display_destination_usage(queues_getdest($extdisplay));
 					if (!empty($usage_list)) {
@@ -266,7 +266,7 @@ if ($action == 'delete') {
 						<a href="#" class="info"><?php echo $usage_list['text']?>:<span><?php echo $usage_list['tooltip']?></span></a>
 <?php
 					}
-				} 
+				}
 ?>
 	<form class="popover-form" autocomplete="off" name="editQ" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkQ(editQ);">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
@@ -356,7 +356,7 @@ if ($action == 'delete') {
                 </td>
         </tr>
 <?php
-} 
+}
 ?>
 
 	<tr>
@@ -504,7 +504,7 @@ if ($action == 'delete') {
 				foreach ($items as $item) {
 					echo '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item);
 				}
-			?>		
+			?>
 			</select>
 		</td>
 	</tr>
@@ -522,7 +522,7 @@ if ($action == 'delete') {
 			<select name="cwignore" tabindex="<?php echo ++$tabindex;?>">
 <?php
 				$default = (isset($cwignore) ? $cwignore : 'no');
-				$items = array('0' => _("No"), 
+				$items = array('0' => _("No"),
 				               '1'=>_("Yes"),
 											 '2'=>_("Yes + (ringinuse=no)"),
 											 '3'=>_("Queue calls only (ringinuse=no)"),
@@ -539,17 +539,17 @@ if ($action == 'delete') {
 		<td><a href="#" class="info"><?php echo _("Queue Weight")?>:<span><?php echo _("Gives queues a 'weight' option, to ensure calls waiting in a higher priority queue will deliver its calls first if there are agents common to both queues.")?></span></a></td>
 		<td>
 			<select name="weight" tabindex="<?php echo ++$tabindex;?>">
-<?php 
+<?php
 				$default = (isset($weight) ? $weight : 0);
 				for ($i=0; $i <= 10; $i++) {
 					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.'</option>';
 				}
-?>		
-			</select>		
+?>
+			</select>
 		</td>
 	</tr>
 
-<?php		
+<?php
 if(function_exists('music_list')) { //only include if music module is enabled?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Music on Hold Class:")?><span><?php echo _("Music (MoH) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route. MoH Only will play music until the agent answers. Agent Ringing will play MoH until an agent's phone is presented with the call and is ringing. If they don't answer, MoH will return.  Ring Only makes callers hear a ringing tone instead of MoH ignoring any MoH Class selected as well as any configured periodic announcements. This music is defined in the \"Music on Hold\" Menu.")?></span></a></td>
@@ -565,11 +565,11 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 						$ttext = $tresult;
 						if($tresult == 'inherit') $ttext = _("inherit");
 						if($tresult == 'none') $ttext = _("none");
-						if($tresult == 'default') $ttext = _("default");						
+						if($tresult == 'default') $ttext = _("default");
 						echo '<option value="'.$tresult.'" '.($searchvalue == $default ? 'SELECTED' : '').'>'.$ttext;
 					}
 				}
-			?>		
+			?>
 			</select>&nbsp;
 		<span class="radioset">
 			<input type="radio" id="rtone-no" name="rtone" value="0" <?php echo ($rtone=='0'?'checked':'');?>><label for="rtone-no"><?php echo _('MoH Only')?></label>
@@ -579,7 +579,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 		</td>
 	</tr>
 <?php } ?>
-<?php 
+<?php
 if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Join Announcement:")?><span><?php echo _("Announcement played to callers prior to joining the queue. This can be skipped if there are agents ready to answer a call (meaning they still may be wrapping up from a previous call) or when they are free to answer the call right now. To add additional recordings please use the \"System Recordings\" MENU.")?></span></a></td>
@@ -594,7 +594,7 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 						echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
 					}
 				}
-			?>		
+			?>
 			</select>&nbsp;
 			<span class="radioset">
 				<input type="radio" id="skip_joinannounce-no" name="skip_joinannounce" value="" <?php echo ($skip_joinannounce==''?'checked':'');?>><label for="skip_joinannounce-no"><?php echo _('Always')?></label>
@@ -620,13 +620,13 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 		<td>
 			<select name="monitor-format" tabindex="<?php echo ++$tabindex;?>">
 			<?php
-				$default = (empty($thisQ['monitor-format']) ? "no" : $thisQ['monitor-format']);  
+				$default = (empty($thisQ['monitor-format']) ? "no" : $thisQ['monitor-format']);
 				echo '<option value="wav49" '.($default == "wav49" ? 'SELECTED' : '').'>'._("wav49").'</option>';
 				echo '<option value="wav" '.($default == "wav" ? 'SELECTED' : '').'>'._("wav").'</option>';
 				echo '<option value="gsm" '.($default == "gsm" ? 'SELECTED' : '').'>'._("gsm").'</option>';
 				echo '<option value="" '.($default == "no" ? 'SELECTED' : '').'>'._("No").'</option>';
-			?>	
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -715,8 +715,8 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 				for ($i=1200; $i <= 7200; $i+=300) {
 					echo '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 <?php
@@ -747,8 +747,8 @@ if ($ast_ge_16) {
 				for ($i=1; $i <= 120; $i++) {
 					echo '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -775,8 +775,8 @@ if ($ast_ge_16) {
 				for ($i=0; $i <= 60; $i++) {
 					echo '<option value="'.$i.'" '.(("$i" == "$default") ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -792,8 +792,8 @@ if ($ast_ge_16) {
 				for ($i=60; $i <= 3600; $i+=30) {
 					echo '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -826,8 +826,8 @@ if ($ast_ge_16) {
 						echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
 					}
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 <?php } else { ?>
@@ -852,8 +852,8 @@ if ($ast_ge_16) {
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -867,8 +867,8 @@ if ($ast_ge_16) {
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 <?php
@@ -884,8 +884,8 @@ if ($ast_ge_16) {
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -899,8 +899,8 @@ if ($ast_ge_16) {
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 <?php
@@ -919,14 +919,14 @@ if ($ast_ge_16) {
 		<td><a href="#" class="info"><?php echo _("Max Callers:")?><span><?php echo _("Maximum number of people waiting in the queue (0 for unlimited)")?></span></a></td>
 		<td>
 			<select name="maxlen" tabindex="<?php echo ++$tabindex;?>">
-			<?php 
+			<?php
 				$default = (isset($maxlen) ? $maxlen : 0);
 				echo '<option value="0" '.(!$default ? 'SELECTED' : '').'>'._("No Max").'</option>';
 				for ($i=0; $i <= 50; $i++) {
 					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.'</option>';
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -964,8 +964,8 @@ if ($ast_ge_16) {
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -1003,8 +1003,8 @@ if ($ast_ge_16) {
 				foreach ($items as $item=>$val) {
 					echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 <?php
@@ -1039,8 +1039,8 @@ if ($ast_ge_16) {
 				for ($i=0; $i <= 1200; $i+=15) {
 					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -1048,12 +1048,12 @@ if ($ast_ge_16) {
 		<td><a href="#" class="info"><?php echo _("Announce Position:")?><span><?php echo _("Announce position of caller in the queue?")?></span></a></td>
 		<td>
 			<select name="announceposition" tabindex="<?php echo ++$tabindex;?>">
-			<?php //setting to "no" will override sounds queue-youarenext, queue-thereare, queue-callswaitingÊ 
-				$default = (isset($thisQ['announce-position']) ? $thisQ['announce-position'] : "no");  
+			<?php //setting to "no" will override sounds queue-youarenext, queue-thereare, queue-callswaitingÊ
+				$default = (isset($thisQ['announce-position']) ? $thisQ['announce-position'] : "no");
 					echo '<option value=yes '.($default == "yes" ? 'SELECTED' : '').'>'._("Yes").'</option>';
 					echo '<option value=no '.($default == "no" ? 'SELECTED' : '').'>'._("No").'</option>';
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -1066,13 +1066,13 @@ if ($ast_ge_16) {
 				echo '<option value=yes '.($default == "yes" ? 'SELECTED' : '').'>'._("Yes").'</option>';
 				echo '<option value=no '.($default == "no" ? 'SELECTED' : '').'>'._("No").'</option>';
 				echo '<option value=once '.($default == "once" ? 'SELECTED' : '').'>'._("Once").'</option>';
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?><hr></h5></td></tr>
-	
+
 <?php if(function_exists('ivr_get_details')) { //only include if IVR module is enabled ?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("IVR Break Out Menu:")?><span> <?php echo _("You can optionally present an existing IVR as a 'break out' menu.<br><br>This IVR must only contain single-digit 'dialed options'. The Recording set for the IVR will be played at intervals specified in 'Repeat Frequency', below.")?></span></a></td>
@@ -1080,14 +1080,14 @@ if ($ast_ge_16) {
 			<select name="announcemenu" tabindex="<?php echo ++$tabindex;?>">
 			<?php // setting this will set the context= option
 			$default = (isset($announcemenu) ? $announcemenu : "none");
-			
+
 			echo '<option value="none" '.($default == "none" ? 'SELECTED' : '').'>'._("None").'</option>';
-			
+
 			//query for exisiting aa_N contexts
 			//
 			// If a previous bogus IVR was listed, we will leave it in with an error but will no longer show such IVRs as valid options.
-			$unique_aas = ivr_get_details();		
-			
+			$unique_aas = ivr_get_details();
+
 			$compound_recordings = false;
 			$is_error = false;
 			if (isset($unique_aas)) {
@@ -1098,7 +1098,7 @@ if ($ast_ge_16) {
 					$unique_aa['announcement'] = recordings_get_file($unique_aa['announcement']);
 					if (strpos($unique_aa['announcement'],"&") === false) {
 						echo '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)."</option>\n";
-					} 
+					}
 					else {
 						$compound_recordings = true;
 						if ($menu_id == $default) {
@@ -1114,8 +1114,8 @@ if ($ast_ge_16) {
 			if ($is_error) {
 			?>
 				<small><a style="color:red"  href="#" class="info"><?php echo ($is_error ? _("(**) ERRORS") : _("(**) Warning Potential Errors"))?>
-					<span> 
-						<?php 
+					<span>
+						<?php
 							if ($is_error) {
 								echo _("ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not").'<br />'._("Earlier versions of this module allowed such queues to be chosen, once changing this setting, it will no longer appear as an option");
 							}
@@ -1128,7 +1128,7 @@ if ($ast_ge_16) {
 
 		</td>
 	</tr>
-	
+
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Repeat Frequency:")?><span><?php echo _("How often to announce a voice menu to the caller (0 to Disable Announcements).")?></span></a></td>
 		<td>
@@ -1138,8 +1138,8 @@ if ($ast_ge_16) {
 				for ($i=0; $i <= 1200; $i+=15) {
 					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -1172,7 +1172,7 @@ if ($ast_ge_16) {
 
 				);
 				$eventwhencalled = isset($eventwhencalled) && $eventwhencalled
-									? $eventwhencalled 
+									? $eventwhencalled
 									: $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT'];
 				if (in_array($eventwhencalled, array('yes', 1, true), true)) {
 					$agentevents_true['checked'] = true;
@@ -1180,8 +1180,8 @@ if ($ast_ge_16) {
 					$agentevents_false['checked'] = true;
 				}
 				echo '<span class="radioset">'
-					. $agentevents_true_label . form_radio($agentevents_true)
-					. $agentevents_false_label . form_radio($agentevents_false)
+					. form_radio($agentevents_true) . $agentevents_true_label
+					. form_radio($agentevents_false) . $agentevents_false_label
 					. '</span>'
 			?>
 		</td>
@@ -1208,8 +1208,8 @@ if ($ast_ge_16) {
 							'value'		=> 'no'
 
 				);
-				$eventmemberstatus = isset($eventmemberstatus) 
-									? $eventmemberstatus 
+				$eventmemberstatus = isset($eventmemberstatus)
+									? $eventmemberstatus
 									: $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'];
 				if (in_array($eventmemberstatus, array('yes', 1, true), true)) {
 					$memberevents_true['checked'] = true;
@@ -1233,8 +1233,8 @@ if ($ast_ge_16) {
 				for ($i=15; $i <= 300; $i+=15) {
 					echo '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 				}
-			?>		
-			</select>		
+			?>
+			</select>
 		</td>
 	</tr>
 
@@ -1242,18 +1242,18 @@ if ($ast_ge_16) {
 		<td><a href="#" class="info"><?php echo _("Agent Regex Filter")?><span><?php echo _("Provides an optional regex expression that will be applied against the agent callback number. If the callback number does not pass the regex filter then it will be treated as invalid. This can be used to restrict agents to extensions within a range, not allow callbacks to include keys like *, or any other use that may be appropriate. An example input might be:<br />^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * key.<br />WARNING: make sure you understand what you are doing or otherwise leave this blank!")?></span></a></td>
 		<td><input type="text" name="qregex" value="<?php echo (isset($qregex) ? $qregex : ''); ?>"></td>
 	</tr>
-<?php	
+<?php
 	// implementation of module hook
 	// object was initialized in config.php
 	echo $module_hook->hookHtml;
 ?>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Fail Over Destination")?><hr></h5></td></tr>
-	<?php 
+	<?php
 	echo drawselects($goto,0);
 	?>
 	</table>
-	
+
 	<table>
 		<tr><td colspan="2"><br><h5><?php echo _("Reset Queue Stats")?><hr></h5></td></tr>
 		<tr><td colspan="2">
@@ -1263,7 +1263,7 @@ if ($ast_ge_16) {
 
 	<table>
 	<tr>
-		<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>		
+		<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
 	</tr>
 	</table>
 
@@ -1301,7 +1301,7 @@ function checkQ(theForm) {
 		bad=true;
 	}
 
-	defaultEmptyOK = false;	
+	defaultEmptyOK = false;
 	if (!isAlphanumeric(theForm.name.value)) {
 		<?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numeric characters")."')"?>;
 		bad=true;
@@ -1312,13 +1312,13 @@ function checkQ(theForm) {
 		}
 	}
 
-	return !bad; 
+	return !bad;
 }
 
 //-->
 </script>
 
 	</form>
-<?php		
+<?php
 } //end if action == delGRP
 ?>
