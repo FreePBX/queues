@@ -1302,6 +1302,10 @@ function checkQ(theForm) {
 	}
 
 	defaultEmptyOK = false;
+	var sizeDisplayName = "<?php echo queues_get_field_size('descr', 35); ?>";
+	if (!isCorrectLength(theForm.name.value, sizeDisplayName))
+                return warnInvalid(theForm.name, "<?php echo _('The Queue Name provided is too long.'); ?>")
+
 	if (!isAlphanumeric(theForm.name.value)) {
 		<?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numeric characters")."')"?>;
 		bad=true;
