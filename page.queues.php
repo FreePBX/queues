@@ -1302,7 +1302,7 @@ function checkQ(theForm) {
 	}
 
 	defaultEmptyOK = false;
-	var sizeDisplayName = "<?php echo queues_get_field_size('descr', 35); ?>";
+	var sizeDisplayName = "<?php echo module_get_field_size('queues_config', 'descr', 35); ?>";
 	if (!isCorrectLength(theForm.name.value, sizeDisplayName))
                 return warnInvalid(theForm.name, "<?php echo _('The Queue Name provided is too long.'); ?>")
 
