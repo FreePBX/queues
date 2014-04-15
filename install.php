@@ -7,6 +7,7 @@ global $amp_conf;
 if (false) {
 	_("Queue Toggle");
 	_("Queue Pause Toggle");
+	_("Queue Callers");
 }
 
 // Add Feature Codes for Toggle Queues - Using *45
@@ -20,6 +21,13 @@ unset($fcc);
 $fcc = new featurecode('queues', 'que_pause_toggle');
 $fcc->setDescription('Queue Pause Toggle');
 $fcc->setDefault('*46');
+$fcc->update();
+unset($fcc);
+
+// Add Feature Codes for Queue Callers - Using *47
+$fcc = new featurecode('queues', 'que_callers');
+$fcc->setDescription('Queue Callers');
+$fcc->setDefault('*47');
 $fcc->update();
 unset($fcc);
 
