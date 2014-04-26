@@ -2,8 +2,8 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>2.11.0.21</version>
-	<publisher>FreePBX</publisher>
+	<version>2.11.0.22</version>
+	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
@@ -11,7 +11,7 @@
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.
 	</description>
 	<changelog>
-		*2.11.0.21* Restrict dialing of feature codes (partial revert of previous).
+		*2.11.0.22* Restrict dialing of feature codes (partial revert of previous).
 		*2.11.0.20* Update items
 		*2.11.0.19* Add hints for callers in queues.
 		*2.11.0.18* Forgot one label
