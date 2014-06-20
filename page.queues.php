@@ -1,16 +1,5 @@
 <?php /* $Id$ */
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
-//Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
-//
-//This program is free software; you can redistribute it and/or
-//modify it under the terms of the GNU General Public License
-//as published by the Free Software Foundation; either version 2
-//of the License, or (at your option) any later version.
-//
-//This program is distributed in the hope that it will be useful,
-//but WITHOUT ANY WARRANTY; without even the implied warranty of
-//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//GNU General Public License for more details.
 
 //used for switch on config.php
 $dispnum = 'queues';
@@ -1302,6 +1291,13 @@ function checkQ(theForm) {
 	}
 
 	defaultEmptyOK = false;
+
+	<?php if (function_exists('module_get_field_size')) { ?>
+		var sizeDisplayName = "<?php echo module_get_field_size('queues_config', 'descr', 35); ?>";
+		if (!isCorrectLength(theForm.name.value, sizeDisplayName))
+			return warnInvalid(theForm.name, "<?php echo _('The Queue Name provided is too long.'); ?>")
+	<?php } ?>
+	
 	if (!isAlphanumeric(theForm.name.value)) {
 		<?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numeric characters")."')"?>;
 		bad=true;
