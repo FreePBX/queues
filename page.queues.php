@@ -228,7 +228,7 @@ if ($action == 'delete') {
   }
 
 	$delButton = "
-				<form name=delete action=\"{$_SERVER['PHP_SELF']}\" method=POST>
+				<form name=delete action=\"\" method=POST>
 					<input type=\"hidden\" name=\"display\" value=\"{$dispnum}\">
 					<input type=\"hidden\" name=\"account\" value=\"{$extdisplay}\">
 					<input type=\"hidden\" name=\"action\" value=\"delete\">
@@ -257,7 +257,7 @@ if ($action == 'delete') {
 					}
 				}
 ?>
-	<form class="popover-form" autocomplete="off" name="editQ" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkQ(editQ);">
+	<form class="popover-form" autocomplete="off" name="editQ" action="" method="post" onsubmit="return checkQ(editQ);">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
 	<table>
@@ -1297,7 +1297,7 @@ function checkQ(theForm) {
 		if (!isCorrectLength(theForm.name.value, sizeDisplayName))
 			return warnInvalid(theForm.name, "<?php echo _('The Queue Name provided is too long.'); ?>")
 	<?php } ?>
-	
+
 	if (!isAlphanumeric(theForm.name.value)) {
 		<?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numeric characters")."')"?>;
 		bad=true;
