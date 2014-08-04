@@ -248,6 +248,9 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('QMAXWAIT', '${IF($[${LEN(${VQ_MAXWAIT})}>0]?${VQ_MAXWAIT}:' . ($q['maxwait'] != '' ? $q['maxwait'] : ' ') . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_MAXWAIT', ''));
 
+				$ext->add($c, $exten, '', new ext_set('QUEUENUM', $exten));
+				$ext->add($c, $exten, '', new ext_set('QUEUEJOINTIME', '${EPOCH}'));
+
 				$qmaxwait = '${QMAXWAIT}';
 				$options = '${QOPTIONS}';
 				$qagi = '${QAGI}';
