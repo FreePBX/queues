@@ -300,14 +300,12 @@ if ($action == 'delete') {
   }
 ?>
 
-<?php if ($ast_ge_18 || $amp_conf['USEDEVSTATE']) { ?>
 	<tr>
   <td><a href="#" class="info"><?php echo _("Generate Device Hints:")?><span><?php echo _("If checked, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number.")?></span></a></td>
 		<td>
 			<input name="togglehint" type="checkbox" value="1" <?php echo (isset($togglehint) && $togglehint == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
 		</td>
 	</tr>
-<?php } ?>
 
 	<tr>
     		<td><a href="#" class="info"><?php echo _("Call Confirm:")?><span><?php echo _("If checked, any queue member that is actually an outside telephone number, or any extensions Follow-Me or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered..")?></span></a></td>
