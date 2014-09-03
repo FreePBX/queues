@@ -108,7 +108,7 @@ if(DB::IsError($results)) {
 		$sql = "
 		INSERT INTO `queues_details`
 		SELECT *
-		FROM `queues` 
+		FROM `queues`
 		WHERE
 		keyword NOT IN ('rtone', 'account', 'context')
 		";
@@ -129,7 +129,7 @@ if(DB::IsError($results)) {
 	// Create the queues_config table, don't put IF NOT EXISTS so we
 	// can get the status in the error
 	//
-	// for sqlite3, create the final table template since sqlite3 
+	// for sqlite3, create the final table template since sqlite3
 	// support officially begins at 2.5 release.
 	if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
 
@@ -207,14 +207,14 @@ if(DB::IsError($results)) {
 			out(_("ERROR: accessing queues table obtaining context info, aborting"));
 			$return_code = false;
 			$got_items = false;
-		} 
+		}
 		$sql = "SELECT id, data rtone FROM queues WHERE keyword = 'rtone'";
 		$rtone_results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		if(DB::IsError($context_results)) {
 			out(_("ERROR: accessing queues table obtaining rtone info, aborting"));
 			$return_code = false;
 			$got_items = false;
-		} 
+		}
 		if ($got_items) {
 			// Got context & rtone, make a hash and then  get the list of IDs
 			//
@@ -262,7 +262,7 @@ if(DB::IsError($results)) {
 					$sql = "SELECT args FROM extensions WHERE extension = '$account' AND context = 'ext-queues' AND application = 'SetCIDName'";
 					list($args) = $db->getRow($sql);
 					$prefix = explode('$',$args); //in table like prefix${CALLERID(name)}
-					$grppre = isset($prefix[0]) ?	$prefix[0] : '';	
+					$grppre = isset($prefix[0]) ?	$prefix[0] : '';
 					$grppre = addslashes($grppre);
 
 					// get ALERT_INFO
@@ -288,8 +288,8 @@ if(DB::IsError($results)) {
 					//
 					$sql = "SELECT args FROM extensions WHERE extension = '$account' AND context = 'ext-queues' and application = 'Playback'";
 					list($args) = $db->getRow($sql);
-					$joinannounce = isset($args) && $args !== NULL ? addslashes($args) : ''; 
-					
+					$joinannounce = isset($args) && $args !== NULL ? addslashes($args) : '';
+
 
 					// get password from AddQueueMember command
 					//
@@ -311,9 +311,9 @@ if(DB::IsError($results)) {
 					$account = addslashes($account);
 
 					// Got everything we need for this id (account) so insert it into the queues_config table
-					$sql = 
+					$sql =
 					"INSERT INTO queues_config (extension, descr, grppre, alertinfo, joinannounce, ringing, agentannounce, maxwait, password, ivr_id, dest, cwignore)
-         	VALUES 
+         	VALUES
 					('$account', '$descr', '$grppre', '$alertinfo', '$joinannounce', '$rtone', '$agentannounce', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore')";
 					$results = $db->query($sql);
 					if (DB::IsError($results)) {
@@ -391,7 +391,7 @@ if(DB::IsError($check)) {
   $result = $db->query($sql);
   if(DB::IsError($result)) {
 		out(_("fatal error"));
-		die_freepbx($result->getDebugInfo()); 
+		die_freepbx($result->getDebugInfo());
 	} else {
 		out(_("ok"));
 	}
@@ -400,7 +400,7 @@ if(DB::IsError($check)) {
   $result = $db->query($sql);
   if(DB::IsError($result)) {
 		out(_("fatal error"));
-		die_freepbx($result->getDebugInfo()); 
+		die_freepbx($result->getDebugInfo());
 	} else {
 		out(_("ok"));
 	}
@@ -412,7 +412,7 @@ if(DB::IsError($check)) {
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
 		out(_("fatal error"));
-		die_freepbx($results->getDebugInfo());	
+		die_freepbx($results->getDebugInfo());
 	}
 	$migrate_arr = array();
 	$count = 0;
@@ -428,7 +428,7 @@ if(DB::IsError($check)) {
 		$result = $db->executeMultiple($compiled,$migrate_arr);
 		if(DB::IsError($result)) {
 			out(_("fatal error"));
-			die_freepbx($result->getDebugInfo());	
+			die_freepbx($result->getDebugInfo());
 		}
 	}
 	out(sprintf(_("migrated %s entries"),$count));
@@ -438,7 +438,7 @@ if(DB::IsError($check)) {
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
 		out(_("fatal error"));
-		die_freepbx($results->getDebugInfo());	
+		die_freepbx($results->getDebugInfo());
 	}
 	$migrate_arr = array();
 	$count = 0;
@@ -454,7 +454,7 @@ if(DB::IsError($check)) {
 		$result = $db->executeMultiple($compiled,$migrate_arr);
 		if(DB::IsError($result)) {
 			out(_("fatal error"));
-			die_freepbx($result->getDebugInfo());	
+			die_freepbx($result->getDebugInfo());
 		}
 	}
 	out(sprintf(_("migrated %s entries"),$count));
@@ -466,7 +466,7 @@ if(DB::IsError($check)) {
   if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
 	  $sql = "ALTER TABLE `queues_config` DROP `agentannounce`";
  	 $result = $db->query($sql);
-	  if(DB::IsError($result)) { 
+	  if(DB::IsError($result)) {
 			out(_("no agentannounce field???"));
 		} else {
 			out(_("ok"));
@@ -474,7 +474,7 @@ if(DB::IsError($check)) {
 		outn(_("dropping joinannounce field.."));
 	  $sql = "ALTER TABLE `queues_config` DROP `joinannounce`";
 	  $result = $db->query($sql);
-	  if(DB::IsError($result)) { 
+	  if(DB::IsError($result)) {
 			out(_("no joinannounce field???"));
 		} else {
 			out(_("ok"));
@@ -557,7 +557,7 @@ if(DB::IsError($check)) {
         out(_("OK"));
 } else {
         out(_("already exists"));
-}  
+}
 
 outn(_("checking for callconfirm_id field.."));
 $sql = "SELECT `callconfirm_id` FROM queues_config";
@@ -653,22 +653,6 @@ $set['description'] = 'Queues: shared_lastcall, only valid with Asterisk 1.6+. T
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('QUEUES_SHARED_LASTCALL',$set);
 
-// QUEUES_UPDATECDR
-//
-$set['value'] = true;
-$set['defaultval'] =& $set['value'];
-$set['readonly'] = 0;
-$set['hidden'] = 1;
-$set['level'] = 0;
-$set['module'] = 'queues';
-$set['category'] = 'Queues Module';
-$set['emptyok'] = 0;
-$set['sortorder'] = 30;
-$set['name'] = 'Set Agent Name in CDR dstchannel';
-$set['description'] = 'Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented to mimic chan_agents behavior of populating CDR dstchannel field of a call with an agent name, which is set if available at the login time with AddQueueMember membername parameter, or with static members.';
-$set['type'] = CONF_TYPE_BOOL;
-$freepbx_conf->define_conf_setting('QUEUES_UPDATECDR',$set);
-
 // QUEUES_MIX_MONITOR
 //
 $set['value'] = true;
@@ -700,22 +684,6 @@ $set['name'] = 'Hide Queue No Answer Option';
 $set['description'] = 'It is possible for a queue to NOT Answer a call and still enter callers to the queue. The normal behavior is that all  allers are answered before entering the queue. If the call is not answered, it is possible that some early media delivery would still allow callers to hear recordings, MoH, etc. but this can be inconsistent and vary. Because of the volatility of this option, it is not displayed by default. If a queue is set to not answer, the setting will be displayed for that queue regardless of this setting.';
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('QUEUES_HIDE_NOANSWER',$set);
-
-// USEQUEUESTATE
-//
-$set['value'] = true;
-$set['defaultval'] =& $set['value'];
-$set['readonly'] = 0;
-$set['hidden'] = 1;
-$set['level'] = 3;
-$set['module'] = 'queues';
-$set['category'] = 'Queues Module';
-$set['emptyok'] = 0;
-$set['sortorder'] = 100;
-$set['name'] = 'Asterisk Queues Patch 15168 Installed';
-$set['description'] = 'Setting this flag will generate the required dialplan to integrate with the following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state is now standard and always used. This asterisk patch is only available on Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some queue behavior and should be avoided';
-$set['type'] = CONF_TYPE_BOOL;
-$freepbx_conf->define_conf_setting('USEQUEUESTATE',$set,true);
 
 // GENERATE_LEGACY_QUEUE_CODES
 //
