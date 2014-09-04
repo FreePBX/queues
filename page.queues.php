@@ -1060,6 +1060,20 @@ if ($ast_ge_16) {
 
 	<tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?><hr></h5></td></tr>
 
+<?php if(function_exists('vqplus_callback_get') && function_exists('ivr_get_details')) { ?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Breakout Type")?><span> <?php echo _("Whether this queue uses an IVR Break Out Menu or a Queue Callback.")?></span></a></td>
+		<td>
+			<select name="breakouttype" tabindex="<?php echo ++$tabindex;?>">
+			<option value="ivr">IVR</option>
+			<option value="callback" <?php echo (isset($callback) && $callback != 'none' ? 'SELECTED' : '') ?>>Callback</option>
+			</select>
+		</td>
+	</tr>
+<?php } else {
+	echo "<input type=\"hidden\" name=\"breakouttype\" value=\"ivr\">";
+	}
+?>
 <?php if(function_exists('ivr_get_details')) { //only include if IVR module is enabled ?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("IVR Break Out Menu:")?><span> <?php echo _("You can optionally present an existing IVR as a 'break out' menu.<br><br>This IVR must only contain single-digit 'dialed options'. The Recording set for the IVR will be played at intervals specified in 'Repeat Frequency', below.")?></span></a></td>
@@ -1104,7 +1118,7 @@ if ($ast_ge_16) {
 					<span>
 						<?php
 							if ($is_error) {
-								echo _("ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not").'<br />'._("Earlier versions of this module allowed such queues to be chosen, once changing this setting, it will no longer appear as an option");
+								echo _("ERROR: You have selected an IVR that uses Announcements created from compound sound files. The Queue is not able to play these announcements. This IVRs recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not").'<br />'._("Earlier versions of this module allowed such queues to be chosen, once changing this setting, it will no longer appear as an option");
 							}
 						?>
 					</span></small>
@@ -1132,6 +1146,25 @@ if ($ast_ge_16) {
 
 <?php } else {
 	echo "<input type=\"hidden\" name=\"announcemenu\" value=\"none\">";
+	}
+?>
+<?php if(function_exists('vqplus_callback_get')) { ?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Queue Callback")?><span> <?php echo _("Callback to use when caller presses 1.")?></span></a></td>
+		<td>
+			<select name="callback" tabindex="<?php echo ++$tabindex;?>">
+				<option value="none" <?php echo ($callback == "" ? 'SELECTED' : '')?>><?php echo _("None")?></option>
+				<?php
+				$cbs = vqplus_callback_get();
+				foreach ($cbs as $cb) {
+						echo '<option value="'.$cb['id'].'" '.($callback == $cb['id'] ? 'SELECTED' : '').'>'.$cb['name']."</option>";
+				}
+				?>
+			</select>
+		</td>
+	</tr>
+<?php } else {
+	echo "<input type=\"hidden\" name=\"callback\" value=\"none\">";
 	}
 ?>
 
