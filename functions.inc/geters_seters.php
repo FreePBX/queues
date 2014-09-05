@@ -410,6 +410,13 @@ function queues_get($account, $queues_conf_only=false) {
 	} else if ($config['callback_id'] != 'none' && $config['callback_id'] != '') {
 		if (function_exists('vqplus_callback_get')) {
 			$results['context'] = "queuecallback-".$config['callback_id'];
+			$arr = vqplus_callback_get($config['callback_id']);
+			if( isset($arr['announcement']) && $arr['announcement'] != '') {
+				$periodic = recordings_get_file($arr['announcement']);
+				// We need to strip off all but the first sound file of any compound sound files
+				$periodic_arr = explode("&", $periodic);
+				$results['periodic-announce'] = $periodic_arr[0];
+			}
 		}
 	}
 	return $results;
