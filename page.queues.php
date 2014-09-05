@@ -1068,7 +1068,7 @@ if ($ast_ge_16) {
 	}
 ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Break Out Type")?><span> <?php echo _("Whether this queue uses an IVR Break Out Menu or a Queue Callback.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Break Out Type")?><span> <?php echo _("Whether this queue uses an IVR Break Out Menu or a Queue Callback.  Queue Callbacks can also be achieved through an IVR, but requires extra configuration.")?></span></a></td>
 		<td>
 			<select name="breakouttype" id="breakouttype" tabindex="<?php echo ++$tabindex;?>" onChange="breakoutDisable()">
 			<option value="announcemenu" <?php echo ($breakouttype == 'announcemenu' ? 'SELECTED' : '') ?>><?php echo _("IVR Break Out Menu")?></option>
@@ -1082,8 +1082,9 @@ if ($ast_ge_16) {
 } else if(function_exists('vqplus_callback_get')) {
 	$breakouttype = 'callback';
 	echo "<input type=\"hidden\" name=\"breakouttype\" value=\"callback\">";
-	}
+}
 ?>
+
 <?php if(function_exists('ivr_get_details')) { //only include if IVR module is enabled ?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("IVR Break Out Menu:")?><span> <?php echo _("You can optionally present an existing IVR as a 'break out' menu.<br><br>This IVR must only contain single-digit 'dialed options'. The Recording set for the IVR will be played at intervals specified in 'Repeat Frequency', below.")?></span></a></td>
@@ -1140,20 +1141,6 @@ if ($ast_ge_16) {
 		</td>
 	</tr>
 
-	<tr>
-		<td><a href="#" class="info"><?php echo _("Repeat Frequency:")?><span><?php echo _("How often to announce a voice menu to the caller (0 to Disable Announcements).")?></span></a></td>
-		<td>
-			<select name="pannouncefreq" tabindex="<?php echo ++$tabindex;?>">
-			<?php
-				$default = (isset($thisQ['periodic-announce-frequency']) ? $thisQ['periodic-announce-frequency'] : 0);
-				for ($i=0; $i <= 1200; $i+=15) {
-					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
-				}
-			?>
-			</select>
-		</td>
-	</tr>
-
 <?php } else {
 	echo "<input type=\"hidden\" name=\"announcemenu\" value=\"none\">";
 	}
@@ -1177,6 +1164,22 @@ if ($ast_ge_16) {
 	echo "<input type=\"hidden\" name=\"callback\" value=\"none\">";
 	}
 ?>
+
+<?php if(function_exists('vqplus_callback_get') || function_exists('ivr_get_details')) { ?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Repeat Frequency:")?><span><?php echo _("How often to announce a voice menu to the caller (0 to Disable Announcements).")?></span></a></td>
+		<td>
+			<select name="pannouncefreq" tabindex="<?php echo ++$tabindex;?>">
+			<?php
+				$default = (isset($thisQ['periodic-announce-frequency']) ? $thisQ['periodic-announce-frequency'] : 0);
+				for ($i=0; $i <= 1200; $i+=15) {
+					echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+				}
+			?>
+			</select>
+		</td>
+	</tr>
+<?php } ?>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Events, Stats and Advanced")?><hr></h5></td></tr>
 
