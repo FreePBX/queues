@@ -1062,25 +1062,35 @@ if ($ast_ge_16) {
 
 	<tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?><hr></h5></td></tr>
 
-<?php if(function_exists('vqplus_callback_get') && function_exists('ivr_get_details')) { ?>
+<?php if(function_exists('vqplus_callback_get') && function_exists('ivr_get_details')) {
+	if (isset($callback) && $callback != 'none') {
+		$breakouttype = 'callback';
+	} else {
+		$breakouttype = 'announcemenu';
+	}
+?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Breakout Type")?><span> <?php echo _("Whether this queue uses an IVR Break Out Menu or a Queue Callback.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Break Out Type")?><span> <?php echo _("Whether this queue uses an IVR Break Out Menu or a Queue Callback.")?></span></a></td>
 		<td>
-			<select name="breakouttype" tabindex="<?php echo ++$tabindex;?>">
-			<option value="ivr">IVR</option>
-			<option value="callback" <?php echo (isset($callback) && $callback != 'none' ? 'SELECTED' : '') ?>>Callback</option>
+			<select name="breakouttype" id="breakouttype" tabindex="<?php echo ++$tabindex;?>" onChange="breakoutDisable()">
+			<option value="announcemenu" <?php echo ($breakouttype == 'announcemenu' ? 'SELECTED' : '') ?>><?php echo _("IVR Break Out Menu")?></option>
+			<option value="callback" <?php echo ($breakouttype == 'callback' ? 'SELECTED' : '') ?>><?php echo _("Queue Callback")?></option>
 			</select>
 		</td>
 	</tr>
-<?php } else {
-	echo "<input type=\"hidden\" name=\"breakouttype\" value=\"ivr\">";
+<?php } else if(function_exists('ivr_get_details')) {
+	$breakouttype = 'announcemenu';
+	echo "<input type=\"hidden\" name=\"breakouttype\" value=\"announcemenu\">";
+} else if(function_exists('vqplus_callback_get')) {
+	$breakouttype = 'callback';
+	echo "<input type=\"hidden\" name=\"breakouttype\" value=\"callback\">";
 	}
 ?>
 <?php if(function_exists('ivr_get_details')) { //only include if IVR module is enabled ?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("IVR Break Out Menu:")?><span> <?php echo _("You can optionally present an existing IVR as a 'break out' menu.<br><br>This IVR must only contain single-digit 'dialed options'. The Recording set for the IVR will be played at intervals specified in 'Repeat Frequency', below.")?></span></a></td>
 		<td>
-			<select name="announcemenu" tabindex="<?php echo ++$tabindex;?>">
+			<select name="announcemenu" id="announcemenu" tabindex="<?php echo ++$tabindex;?>" <?php echo($breakouttype == 'announcemenu' ? '' : 'disabled')?>>
 			<?php // setting this will set the context= option
 			$default = (isset($announcemenu) ? $announcemenu : "none");
 
@@ -1154,7 +1164,7 @@ if ($ast_ge_16) {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Queue Callback")?><span> <?php echo _("Callback to use when caller presses 1.")?></span></a></td>
 		<td>
-			<select name="callback" tabindex="<?php echo ++$tabindex;?>">
+			<select name="callback" id="callback" tabindex="<?php echo ++$tabindex;?>" <?php echo($breakouttype == 'callback' ? '' : 'disabled')?>>
 				<option value="none" <?php echo ($callback == "" ? 'SELECTED' : '')?>><?php echo _("None")?></option>
 				<?php
 				$cbs = vqplus_callback_get();
@@ -1342,6 +1352,18 @@ function checkQ(theForm) {
 	}
 
 	return !bad;
+}
+
+function breakoutDisable() {
+	breakouttype = document.getElementById('breakouttype');
+
+	for (var i = 0; i < breakouttype.length; i++) {
+		/* Disable everything */
+		document.getElementById(breakouttype.options[i].value).disabled = true;
+	}
+
+	/* Re-enable the active one */
+	document.getElementById(breakouttype.value).disabled = false;
 }
 
 //-->
