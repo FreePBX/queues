@@ -155,6 +155,12 @@ function queues_add(
 	$maxwait		= isset($maxwait) ? $maxwait:'';
 	$password		= isset($password) ? $password:'';
 	$ivr_id			= isset($_REQUEST['announcemenu']) ? $_REQUEST['announcemenu']:'none';
+	if (isset($_REQUEST['breakouttype']) && $_REQUEST['breakouttype'] == 'callback') {
+		$callback_id	= isset($_REQUEST['callback']) ? $_REQUEST['callback']:'none';
+		$ivr_id		= 'none';
+	} else {
+		$callback_id    = 'none';
+	}
 	$dest			= isset($goto) ? $goto:'';
 	$cwignore		= isset($cwignore) ? $cwignore:'0';
 	$queuewait		= isset($queuewait) ? $queuewait:'0';
@@ -178,6 +184,7 @@ function queues_add(
 				maxwait,
 				password,
 				ivr_id,
+				callback_id,
 				dest,
 				cwignore,
 				qregex,
@@ -201,6 +208,7 @@ function queues_add(
 				'$maxwait',
 				'$password',
 				'$ivr_id',
+				'$callback_id',
 				'$dest',
 				'$cwignore',
 				'$qregex',
@@ -332,7 +340,7 @@ function queues_get($account, $queues_conf_only=false) {
 	}
 
 	if ($queues_conf_only) {
-		$sql = "SELECT ivr_id FROM queues_config WHERE extension = $account";
+		$sql = "SELECT ivr_id, callback_id FROM queues_config WHERE extension = $account";
 		$config = sql($sql, "getRow",DB_FETCHMODE_ASSOC);
 	} else {
 		$sql = "SELECT * FROM queues_config WHERE extension = $account";
@@ -347,6 +355,7 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['password']      = $config['password'];
 		$results['goto']          = $config['dest'];
 		$results['announcemenu']  = $config['ivr_id'];
+		$results['callback']      = $config['callback_id'];
 		$results['rtone']         = $config['ringing'];
 		$results['cwignore']      = $config['cwignore'];
 		$results['qregex']        = $config['qregex'];
@@ -391,6 +400,17 @@ function queues_get($account, $queues_conf_only=false) {
 		if (function_exists('ivr_get_details')) {
 			$results['context'] = "ivr-".$config['ivr_id'];
 			$arr = ivr_get_details($config['ivr_id']);
+			if( isset($arr['announcement']) && $arr['announcement'] != '') {
+				$periodic = recordings_get_file($arr['announcement']);
+				// We need to strip off all but the first sound file of any compound sound files
+				$periodic_arr = explode("&", $periodic);
+				$results['periodic-announce'] = $periodic_arr[0];
+			}
+		}
+	} else if ($config['callback_id'] != 'none' && $config['callback_id'] != '') {
+		if (function_exists('vqplus_callback_get')) {
+			$results['context'] = "queuecallback-".$config['callback_id'];
+			$arr = vqplus_callback_get($config['callback_id']);
 			if( isset($arr['announcement']) && $arr['announcement'] != '') {
 				$periodic = recordings_get_file($arr['announcement']);
 				// We need to strip off all but the first sound file of any compound sound files
