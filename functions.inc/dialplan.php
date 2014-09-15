@@ -421,6 +421,17 @@ function queues_get_config($engine) {
 					}
 				}
 			}
+
+			// Add the static members now since so far it only has dynamic members
+			foreach ($qmembers as $q => $mems) {
+				foreach ($mems as $m) {
+					// If $m is not in qc already then add them, thus avoiding duplicates
+					if (!isset($qc[$m]) || !in_array($q, $qc[$m])) {
+						$qc[$m][] = (string)$q;
+					}
+				}
+			}
+
 			// Create *46 codes/hints
 			//
 			if ($que_pause_code != '') {
@@ -430,16 +441,6 @@ function queues_get_config($engine) {
 				// create them for phones we know have queues but who knows what is provisioned on the phones
 				//
 				$ext->add($c, '_' . $que_pause_code . '*X.', '', new ext_goto('1','s','app-all-queue-pause-toggle'));
-
-				// Add the static members now since so far it only has dynamic members
-				foreach ($qmembers as $q => $mems) {
-					foreach ($mems as $m) {
-						// If $m is not in qc already then add them, thus avoiding duplicates
-						if (!isset($qc[$m]) || !in_array($q, $qc[$m])) {
-							$qc[$m][] = $q;
-						}
-					}
-				}
 
 				foreach ($device_list as $device) {
 					if ($device['user'] != '') {
@@ -513,22 +514,24 @@ function queues_get_config($engine) {
 								continue;
 							}
 
-							$callers_all[] = $item[0];
+							if (isset($qc[$device['user']]) && in_array($item[0], $qc[$device['user']], true)) {
+								$callers_all[] = $item[0];
 
-							$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_gosub('1', 's', 'app-queue-caller-count', $item[0]));
-							$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_hangup());
+								$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_gosub('1', 's', 'app-queue-caller-count', $item[0]));
+								$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_hangup());
 
-							if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
-								$hint = "Queue:$item[0]";
-								$ext->addHint($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], $hint);
-								$callers_all_hints[] = $hint;
+								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+									$hint = "Queue:$item[0]";
+									$ext->addHint($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], $hint);
+									$callers_all_hints[] = $hint;
+								}
 							}
 						}
 
-						$ext->add($c, $que_callers_code . '*' . $device['id'], '', new ext_gosub('1', 's', 'app-queue-caller-count', implode('&', $callers_all)));
-						$ext->add($c, $que_callers_code . '*' . $device['id'], '', new ext_hangup());
-
 						if (!empty($callers_all_hints)) {
+							$ext->add($c, $que_callers_code . '*' . $device['id'], '', new ext_gosub('1', 's', 'app-queue-caller-count', implode('&', $callers_all)));
+							$ext->add($c, $que_callers_code . '*' . $device['id'], '', new ext_hangup());
+
 							$ext->addHint($c, $que_callers_code . '*' . $device['id'], implode('&', $callers_all_hints));
 						}
 					}
