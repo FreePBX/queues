@@ -21,7 +21,7 @@ function queues_get_qnostate($exten) {
 
 function queues_set_qnostate($exten,$qnostate) {
 	global $astman;
-	
+
 	// Update the settings in ASTDB
 	if ($astman) {
 		$astman->database_put("AMPUSER",$exten."/queues/qnostate",$qnostate);
@@ -37,7 +37,7 @@ function queues_applyhooks() {
 	$currentcomponent->addoptlistitem('qnostate', 'ignorestate',_('Ignore State'));
 	$currentcomponent->setoptlistopts('qnostate', 'sort', false);
 
-	// Add the 'process' function - this gets called when the page is loaded, to hook into 
+	// Add the 'process' function - this gets called when the page is loaded, to hook into
 	// displaying stuff on the page.
 	$currentcomponent->addguifunc('queues_configpageload',9);
 
@@ -50,18 +50,18 @@ function queues_configpageload() {
 	// Init vars from $_REQUEST[]
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
 	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-	
+
 	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
 	if ($action != 'del') {
 
 		$qnostate = queues_get_qnostate($extdisplay);
 
 		$section = _('Extension Options');
-		$currentcomponent->addguielem($section, 
-			new gui_selectbox('qnostate', 
-				$currentcomponent->getoptlist('qnostate'), 
-				$qnostate, 
-				_('Queue State Detection'), 
+		$currentcomponent->addguielem($section,
+			new gui_selectbox('qnostate',
+				$currentcomponent->getoptlist('qnostate'),
+				$qnostate,
+				_('Queue State Detection'),
 				_("If this extension is part of a Queue then the Queue will "
 				. "attempt to use the user's extension state or device state "
 				. "information when determining if this queue member should be "
@@ -74,7 +74,7 @@ function queues_configpageload() {
 				. "this route is taken due to the nature of how Queues handle "
 				. "Local channels, such as subsequent transfers will continue to "
 				. "show the member as busy until the original call is terminated. "
-				. "In most cases, this SHOULD BE set to 'Use State'."), false));
+				. "In most cases, this SHOULD BE set to 'Use State'."), false),"advanced");
 	}
 }
 
@@ -85,13 +85,13 @@ function queues_configprocess() {
 	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 	$qnostate = isset($_REQUEST['qnostate'])?$_REQUEST['qnostate']:null;
-	
 
-	if ($ext==='') { 
-		$extdisplay = $extn; 
+
+	if ($ext==='') {
+		$extdisplay = $extn;
 	} else {
 		$extdisplay = $ext;
-	} 
+	}
 	if ($action == "add" || $action == "edit") {
 		if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
 			queues_set_qnostate($extdisplay, $qnostate);
