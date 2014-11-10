@@ -182,10 +182,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, 'qposition', new ext_set('QPOSITION', '${IF($[${LEN(${VQ_POSITION})}>0]?${VQ_POSITION}:${QPOSITION})}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_POSITION', ''));
 
-				$record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
-				if ($q['monitor-format']) {
-					$ext->add($c, $exten, '', new ext_set('__MIXMON_FORMAT', $q['monitor-format']));
-				}
+				$record_mode = $q['recording'];
 
 				if ($amp_conf['QUEUES_MIX_MONITOR']) {
 					$monitor_options = '';
@@ -203,7 +200,7 @@ function queues_get_config($engine) {
 					}
 				}
 
-                $ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-check',"q,$exten,$record_mode"));
+				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-check',"q,$exten,$record_mode"));
 
 				// Set CWIGNORE  if enabled so that busy agents don't have another line key ringing and
 				// stalling the ACD.

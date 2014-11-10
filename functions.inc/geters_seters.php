@@ -25,7 +25,8 @@ function queues_add(
 	$monitor_type = '',
 	$monitor_heard = '0',
 	$monitor_spoken = '0',
-	$answered_elsewhere = '0'
+	$answered_elsewhere = '0',
+	$recording = 'dontcare'
 ) {
  	global $db,$astman,$amp_conf;
 
@@ -58,7 +59,7 @@ function queues_add(
 		array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'silence/1':'queue-callswaiting',0),  //if no, play no sound
 		array($account,'queue-thankyou',($_REQUEST['announceposition']=='no')?'':'queue-thankyou',0),  //if no, play no sound
 		array($account,'periodic-announce-frequency',($_REQUEST['pannouncefreq'])?$_REQUEST['pannouncefreq']:'0',0),
-		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
+		array($account,'recording',($_REQUEST['recording'])?$_REQUEST['recording']:'dontcare',0),
 		array($account,'monitor-join','yes',0),
 		array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0),
 		array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0),

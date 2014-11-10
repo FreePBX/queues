@@ -600,25 +600,29 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 			<input type="hidden" name="joinannounce_id" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : ''); ?>
 		</td>
 	</tr>
-<?php } ?>
+<?php }
+
+if (!isset($thisQ['recording'])) {
+	$recording = "dontcare";
+} else {
+	$recording = $thisQ['recording'];
+}
+
+?>
+
+<tr>
+  <td><a href="#" class="info"><?php echo _("Call Recording:")?><span><?php echo _("Incoming calls to agents can be recorded. If 'never' is selected, then in-call on demand recording is blocked.")?></span></a></td>
+  <td>
+    <span class="radioset">
+      <input type="radio" id="record_always" name="recording" value="always" <?php echo ($recording=='always'?'checked':'');?>><label for="record_always"><?php echo _('Always'); ?></label>
+     <input type="radio" id="record_dontcare" name="recording" value="dontcare" <?php echo ($recording=='dontcare'?'checked':'');?>><label for="record_dontcare"><?php echo _('On Demand')?></label>
+     <input type="radio" id="record_never" name="recording" value="never" <?php echo ($recording=='never'?'checked':'');?>><label for="record_never"><?php echo _('Never'); ?></label>
+   </span>
+  </td>
+</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Call Recording:")?><span><?php echo _("Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)")?></span></a></td>
-		<td>
-			<select name="monitor-format" tabindex="<?php echo ++$tabindex;?>">
-			<?php
-				$default = (empty($thisQ['monitor-format']) ? "no" : $thisQ['monitor-format']);
-				echo '<option value="wav49" '.($default == "wav49" ? 'SELECTED' : '').'>'._("wav49").'</option>';
-				echo '<option value="wav" '.($default == "wav" ? 'SELECTED' : '').'>'._("wav").'</option>';
-				echo '<option value="gsm" '.($default == "gsm" ? 'SELECTED' : '').'>'._("gsm").'</option>';
-				echo '<option value="" '.($default == "no" ? 'SELECTED' : '').'>'._("No").'</option>';
-			?>
-			</select>
-		</td>
-	</tr>
-
-	<tr>
-  <td><a href="#" class="info"><?php echo _("Recording Mode:")?><span><?php echo _("Choose to 'Include Hold Time' in the recording so it starts as soon as they enter the queue, or to defer recording until 'After Answered' and the call is bridged with a queue member.")?></span></a></td>
+  <td><a href="#" class="info"><?php echo _("Recording Mode:")?><span><?php echo _("Choose to 'Include Hold Time' in the recording so it starts as soon as they enter the queue, or to defer recording until 'After Answered' and the call is bridged with a queue member. This has no effect when using MixMonitor (Asterisk 11 and higher), as on-hold time is never recorded.")?></span></a></td>
   <td>
     <select name="monitor_type" tabindex="<?php echo ++$tabindex;?>">
     <?php
