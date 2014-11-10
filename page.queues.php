@@ -49,6 +49,7 @@ $ast_ge_16 = version_compare($astver, '1.6', 'ge');
 $ast_ge_162 = version_compare($astver, '1.6.2', 'ge');
 $ast_ge_18 = version_compare($astver, '1.8', 'ge');
 $ast_ge_11 = version_compare($astver, '11', 'ge');
+$ast_ge_120 = version_compare($astver, '12', 'ge');
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
@@ -1182,81 +1183,78 @@ if ($ast_ge_16) {
 <?php } ?>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Events, Stats and Advanced")?><hr></h5></td></tr>
-
-	<tr>
-		<td><?php echo fpbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));?></td>
-		<td>
-			<?php
-				$agentevents_true_label = form_label(_('Enabled'), 'agentevents_true');
-				$agentevents_true = array(
-							'name'		=> 'eventwhencalled',
-							'tabindex'	=> ++$tabindex,
-							'id'		=> 'agentevents_true',
-							'value'		=> 'yes'
-
-				);
-
-				$agentevents_false_label = form_label(_('Disabled'), 'agentevents_false');
-				$agentevents_false = array(
-							'name'		=> 'eventwhencalled',
-							'tabindex'	=> ++$tabindex,
-							'id'		=> 'agentevents_false',
-							'value'		=> 'no'
-
-				);
-				$eventwhencalled = isset($eventwhencalled) && $eventwhencalled
-									? $eventwhencalled
-									: $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT'];
-				if (in_array($eventwhencalled, array('yes', 1, true), true)) {
-					$agentevents_true['checked'] = true;
-				} elseif (in_array($eventwhencalled, array('no', 0, false), true)) {
-					$agentevents_false['checked'] = true;
-				}
-				echo '<span class="radioset">'
-					. form_radio($agentevents_true) . $agentevents_true_label
-					. form_radio($agentevents_false) . $agentevents_false_label
-					. '</span>'
-			?>
-		</td>
-	</tr>
-
-	<tr>
-		<td><?php echo fpbx_label(_("Member Status Event"), _("When set to YES, the following manager event will be generated: QueueMemberStatus"));?></td>
-		<td>
-			<?php
-				$memberevents_true_label = form_label(_('Enabled'), 'memberevents_true');
-				$memberevents_true = array(
-							'name'		=> 'eventmemberstatus',
-							'tabindex'	=> ++$tabindex,
-							'id'		=> 'memberevents_true',
-							'value'		=> 'yes'
-
-				);
-
-				$memberevents_false_label = form_label(_('Disabled'), 'memberevents_false');
-				$memberevents_false = array(
-							'name'		=> 'eventmemberstatus',
-							'tabindex'	=> ++$tabindex,
-							'id'		=> 'memberevents_false',
-							'value'		=> 'no'
-
-				);
-				$eventmemberstatus = isset($eventmemberstatus)
-									? $eventmemberstatus
-									: $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'];
-				if (in_array($eventmemberstatus, array('yes', 1, true), true)) {
-					$memberevents_true['checked'] = true;
-				} elseif (in_array($eventmemberstatus, array('no', 0, false), true)) {
-					$memberevents_false['checked'] = true;
-				}
-				echo '<span class="radioset">'
-					. form_radio($memberevents_true) . $memberevents_true_label
-					. form_radio($memberevents_false) . $memberevents_false_label
-					. '</span>'
-			?>
-		</td>
-	</tr>
-
+<?php
+	/*
+	 * FREEPBX - 8216. As of Asterisk 12 eventmemberstatus and eventwhencalled are always true and
+	 * are not a user option. These foelds will only show up if the user is running version 11 or lower.
+	 * TODO: Remove this code once we drop 11 support in the future 
+	 */
+	if(!$ast_ge_120){
+		$label = fpbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));
+		$agentevents_true_label = form_label(_('Enabled'), 'agentevents_true');
+		$agentevents_true = array(
+			'name'		=> 'eventwhencalled',
+			'tabindex'	=> ++$tabindex,
+			'id'		=> 'agentevents_true',
+			'value'		=> 'yes'
+			);
+		$agentevents_false_label = form_label(_('Disabled'), 'agentevents_false');
+		$agentevents_false = array(
+			'name'		=> 'eventwhencalled',
+			'tabindex'	=> ++$tabindex,
+			'id'		=> 'agentevents_false',
+			'value'		=> 'no'
+			);
+		$eventwhencalled = isset($eventwhencalled) && $eventwhencalled	
+							? $eventwhencalled
+							: $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT'];
+		if (in_array($eventwhencalled, array('yes', 1, true), true)) {
+			$agentevents_true['checked'] = true;
+		} elseif (in_array($eventwhencalled, array('no', 0, false), true)) {
+			$agentevents_false['checked'] = true;
+		}
+		echo '<tr>';
+		echo '<td>' . $label . '</td>';
+		echo '<td>';
+		echo '<span class="radioset">'
+			. form_radio($agentevents_true) . $agentevents_true_label
+			. form_radio($agentevents_false) . $agentevents_false_label
+			. '</span>';
+		echo '</td></tr>';
+		
+		$label = fpbx_label(_("Member Status Event"), _("When set to YES, the following manager event will be generated: QueueMemberStatus"));
+		$memberevents_true_label = form_label(_('Enabled'), 'memberevents_true');
+		$memberevents_true = array(
+			'name'		=> 'eventmemberstatus',
+			'tabindex'	=> ++$tabindex,
+			'id'		=> 'memberevents_true',
+			'value'		=> 'yes'
+			);
+		$memberevents_false_label = form_label(_('Disabled'), 'memberevents_false');
+		$memberevents_false = array(
+			'name'		=> 'eventmemberstatus',
+			'tabindex'	=> ++$tabindex,
+			'id'		=> 'memberevents_false',
+			'value'		=> 'no'
+			);
+		$eventmemberstatus = isset($eventmemberstatus)
+							? $eventmemberstatus
+							: $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'];
+		if (in_array($eventmemberstatus, array('yes', 1, true), true)) {
+			$memberevents_true['checked'] = true;
+		} elseif (in_array($eventmemberstatus, array('no', 0, false), true)) {
+			$memberevents_false['checked'] = true;
+		}
+		echo '<tr>';
+		echo '<td>' . $label . '</td>';
+		echo '<td>';
+		echo '<span class="radioset">'
+		. form_radio($memberevents_true) . $memberevents_true_label
+		. form_radio($memberevents_false) . $memberevents_false_label
+		. '</span>';
+		echo '</td></tr>';
+	}
+	?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Service Level:")?><span><?php echo _("Used for service level statistics (calls answered within service level time frame)")?></span></a></td>
 		<td>

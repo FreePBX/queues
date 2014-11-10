@@ -32,6 +32,7 @@ function queues_add(
 	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
 	$ast_ge_18 = version_compare($amp_conf['ASTVERSION'] , '1.8', 'ge');
 	$ast_ge_11 = version_compare($amp_conf['ASTVERSION'] , '11', 'ge');
+	$ast_ge_120 = version_compare($amp_conf['ASTVERSION'] , '12', 'ge');
 
 	if (trim($account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
@@ -59,9 +60,7 @@ function queues_add(
 		array($account,'queue-thankyou',($_REQUEST['announceposition']=='no')?'':'queue-thankyou',0),  //if no, play no sound
 		array($account,'periodic-announce-frequency',($_REQUEST['pannouncefreq'])?$_REQUEST['pannouncefreq']:'0',0),
 		array($account,'monitor-format',($_REQUEST['monitor-format'])?$_REQUEST['monitor-format']:'',0),
-		array($account,'monitor-join','yes',0),
-		array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0),
-		array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0),
+		array($account,'monitor-join','yes',0),	
 		array($account,'weight',(isset($_REQUEST['weight']))?$_REQUEST['weight']:'0',0),
 		array($account,'autofill',(isset($_REQUEST['autofill']))?'yes':'no',0),
 		array($account,'ringinuse',($cwignore == 2 || $cwignore == 3)?'no':'yes',0),
@@ -73,6 +72,16 @@ function queues_add(
 		array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
 		array($account,'skip_joinannounce',(isset($_REQUEST['skip_joinannounce']))?$_REQUEST['skip_joinannounce']:'',0),
 	);
+	
+	/*
+	 * FREEPBX - 8216. As of Asterisk 12 eventmemberstatus and eventwhencalled are always true and
+	 * are not a user option. These foelds will only show up if the user is running version 11 or lower.
+	 * TODO: Remove this code once we drop 11 support in the future 
+	 */
+	if(!$ast_ge_120){
+	array_push($fields, array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0));
+	array_push($fields, array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0));
+	}
 
     foreach($_REQUEST as $key => $value) {
         switch($key) {
