@@ -606,6 +606,10 @@ if (!isset($thisQ['recording'])) {
 	$recording = "dontcare";
 } else {
 	$recording = $thisQ['recording'];
+	// Update to recordings 12.1. Remove later.
+	if ($recording == "always") {
+		$recording = "yes";
+	}
 }
 
 ?>
@@ -614,10 +618,12 @@ if (!isset($thisQ['recording'])) {
   <td><a href="#" class="info"><?php echo _("Call Recording:")?><span><?php echo _("Incoming calls to agents can be recorded. If 'never' is selected, then in-call on demand recording is blocked.")?></span></a></td>
   <td>
     <span class="radioset">
-      <input type="radio" id="record_always" name="recording" value="always" <?php echo ($recording=='always'?'checked':'');?>><label for="record_always"><?php echo _('Always'); ?></label>
-     <input type="radio" id="record_dontcare" name="recording" value="dontcare" <?php echo ($recording=='dontcare'?'checked':'');?>><label for="record_dontcare"><?php echo _('On Demand')?></label>
-     <input type="radio" id="record_never" name="recording" value="never" <?php echo ($recording=='never'?'checked':'');?>><label for="record_never"><?php echo _('Never'); ?></label>
-   </span>
+      <input type="radio" id="record_force" name="recording" value="force" <?php echo ($recording=='force'?'checked':'');?>><label for="record_force"><?php echo _('Force'); ?></label>
+      <input type="radio" id="record_yes" name="recording" value="yes" <?php echo ($recording=='yes'?'checked':'');?>><label for="record_yes"><?php echo _('Yes'); ?></label>
+      <input type="radio" id="record_dontcare" name="recording" value="dontcare" <?php echo ($recording=='dontcare'?'checked':'');?>><label for="record_dontcare"><?php echo _("Don't Care")?></label>
+      <input type="radio" id="record_no" name="recording" value="no" <?php echo ($recording=='no'?'checked':'');?>><label for="record_no"><?php echo _('No'); ?></label>
+      <input type="radio" id="record_never" name="recording" value="never" <?php echo ($recording=='never'?'checked':'');?>><label for="record_never"><?php echo _('Never'); ?></label>
+    </span>
   </td>
 </tr>
 
