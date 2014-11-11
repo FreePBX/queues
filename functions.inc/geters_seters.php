@@ -75,7 +75,7 @@ function queues_add(
 	
 	/*
 	 * FREEPBX - 8216. As of Asterisk 12 eventmemberstatus and eventwhencalled are always true and
-	 * are not a user option. These foelds will only show up if the user is running version 11 or lower.
+	 * are not a user option. These fields will only show up if the user is running version 11 or lower.
 	 * TODO: Remove this code once we drop 11 support in the future 
 	 */
 	if(!$ast_ge_120){
