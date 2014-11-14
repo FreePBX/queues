@@ -182,7 +182,11 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, 'qposition', new ext_set('QPOSITION', '${IF($[${LEN(${VQ_POSITION})}>0]?${VQ_POSITION}:${QPOSITION})}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_POSITION', ''));
 
-				$record_mode = $q['recording'];
+				if (!isset($q['recording']) || empty($q['recording'])) {
+					$record_mode = 'dontcare';
+				} else {
+					$record_mode = $q['recording'];
+				}
 
 				if ($amp_conf['QUEUES_MIX_MONITOR']) {
 					$monitor_options = '';
