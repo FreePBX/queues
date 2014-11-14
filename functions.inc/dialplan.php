@@ -564,7 +564,8 @@ function queues_get_config($engine) {
 
 					$ext->add($from_queue_exten_only, $item[0], '', new ext_set('QDOPTS', '${IF($["${CALLER_DEST}"!=""]?g)}${IF($["${AGENT_DEST}"!=""]?F(${AGENT_DEST}))}'));
 
-					$ext->add($from_queue_exten_only, $item[0], 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten," . $item[0]));
+					$ext->add($from_queue_exten_only, $item[0], 'checkrecord', new ext_set('CALLTYPE_OVERRIDE', 'external')); // Make sure the call is tagged as external
+					$ext->add($from_queue_exten_only, $item[0], '', new ext_gosub('1','s','sub-record-check',"exten,".$item[0].","));
 					if ($has_extension_state) {
 						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
 					} else {
