@@ -628,63 +628,11 @@ if (!isset($thisQ['recording'])) {
 </tr>
 
 	<tr>
-  <td><a href="#" class="info"><?php echo _("Recording Mode:")?><span><?php echo _("Choose to 'Include Hold Time' in the recording so it starts as soon as they enter the queue, or to defer recording until 'After Answered' and the call is bridged with a queue member. This has no effect when using MixMonitor (Asterisk 11 and higher), as on-hold time is never recorded.")?></span></a></td>
-  <td>
-    <select name="monitor_type" tabindex="<?php echo ++$tabindex;?>">
-    <?php
-    echo '<option value="" '.($monitor_type == "" ? 'SELECTED' : '').'>'._("Include Hold Time").'</option>';
-    echo '<option value="b" '.($monitor_type == "b" ? 'SELECTED' : '').'>'._("After Answered").'</option>';
-    ?>
-    </select>
-  </td>
-  </tr>
-
-	<tr>
-  <td><a href="#" class="info"><?php echo _("Caller Volume Adjustment:")?><span><?php echo _("Adjust the recording volume of the caller.")?></span></a></td>
-  <td>
-    <select name="monitor_heard" tabindex="<?php echo ++$tabindex;?>">
-    <?php
-    for($i=-4;$i<=-1;$i++) {
-      echo '<option value="'.$i.'" '.($monitor_heard == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
-    }
-    echo '<option value="0" '.(!$monitor_heard ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
-    for($i=1;$i<=4;$i++) {
-      echo '<option value="'.$i.'" '.($monitor_heard == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
-    }
-    ?>
-    </select>
-  </td>
-  </tr>
-
-	<tr>
-  <td><a href="#" class="info"><?php echo _("Agent Volume Adjustment:")?><span><?php echo _("Adjust the recording volume of the queue member (Agent).")?></span></a></td>
-  <td>
-    <select name="monitor_spoken" tabindex="<?php echo ++$tabindex;?>">
-    <?php
-    for($i=-4;$i<=-1;$i++) {
-      echo '<option value="'.$i.'" '.($monitor_spoken == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
-    }
-    echo '<option value="0" '.(!$monitor_spoken ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
-    for($i=1;$i<=4;$i++) {
-      echo '<option value="'.$i.'" '.($monitor_spoken == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
-    }
-    ?>
-    </select>
-  </td>
-  </tr>
-
-<?php
-	if ($ast_ge_18) {
-?>
-	<tr>
 		<td><a href="#" class="info"><?php echo _("Mark calls answered elsewhere:")?><span><?php echo _("Enabling this option, all calls are marked as 'answered elsewhere' when cancelled. The effect is that missed queue calls are *not* shown on the phone (if the phone supports it)")?></span></a></td>
 		<td>
 			<input name="answered_elsewhere" type="checkbox" value="1" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
 		</td>
 	</tr>
-<?php
-	}
-?>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Timing & Agent Options")?><hr></h5></td></tr>
 

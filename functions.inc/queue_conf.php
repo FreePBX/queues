@@ -117,14 +117,11 @@ class queues_conf {
 			$members = $results2['member'];
 			unset($results2['member']);
 
-			// If we've set recordings to 'always', then, always record them. Otherwise
-			// don't.
-			if (isset($results2['recording']) && $results2['recording'] == "always") {
-				$results2['monitor-format'] = "wav";
-			} else {
-				unset($results2['monitor-format']);
-			}
+			// Queues cannot control their own recordings, it must now be
+			// done through sub-record-check
+			unset($results2['monitor-format']);
 			unset($results2['recording']);
+
 			foreach ($results2 as $keyword => $data) {
 				if (trim($data) == '' || substr($keyword, 0, 4) == "cron") {
 					// Skip anything that's empty or not required
@@ -231,4 +228,4 @@ class queues_conf {
 		return $output;
 	}
 }
-?>
+
