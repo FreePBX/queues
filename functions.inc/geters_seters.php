@@ -33,6 +33,7 @@ function queues_add(
 	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
 	$ast_ge_18 = version_compare($amp_conf['ASTVERSION'] , '1.8', 'ge');
 	$ast_ge_11 = version_compare($amp_conf['ASTVERSION'] , '11', 'ge');
+	$ast_ge_120 = version_compare($amp_conf['ASTVERSION'] , '12', 'ge');
 
 	if (trim($account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
@@ -74,6 +75,16 @@ function queues_add(
 		array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
 		array($account,'skip_joinannounce',(isset($_REQUEST['skip_joinannounce']))?$_REQUEST['skip_joinannounce']:'',0),
 	);
+
+	/*
+	 * FREEPBX - 8216. As of Asterisk 12 eventmemberstatus and eventwhencalled are always true and
+	 * are not a user option. These fields will only show up if the user is running version 11 or lower.
+	 * TODO: Remove this code once we drop 11 support in the future
+	 */
+	if(!$ast_ge_120){
+		$fields[] = array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0);
+		$fields[] = array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0);
+	}
 
     foreach($_REQUEST as $key => $value) {
         switch($key) {
@@ -142,7 +153,7 @@ function queues_add(
 
 	$compiled = $db->prepare('INSERT INTO queues_details (id, keyword, data, flags) values (?,?,?,?)');
 	$result = $db->executeMultiple($compiled,$fields);
-	
+
 	if($db->IsError($result)) {
 		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");
 	}

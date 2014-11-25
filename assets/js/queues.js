@@ -1,19 +1,19 @@
 $(document).ready(function(){
 	//cron_custom
 	cron_custom();
-	$('select[name=cron_schedule]').change(cron_custom);
-	
+	$('#cron_schedule').change(cron_custom);
+
 	//cron_schedule
 	cron_random();
-	$('select[name=cron_schedule]').change(cron_random);
-	
-	
+	$('#cron_schedule').change(cron_random);
+
+
 	//style cron custom times
 	$('#crondiv').find('input[type=checkbox]').button();
-	
+
 })
 function cron_custom() {
-	if ($('select[name=cron_schedule]').val() == 'custom') {
+	if ($('#cron_schedule').val() == 'custom') {
 		$('#crondiv').show();
 	} else {
 		$('#crondiv').hide();
@@ -21,7 +21,7 @@ function cron_custom() {
 }
 
 function cron_random() {
-	switch($('select[name=cron_schedule]').val()) {
+	switch($('#cron_schedule').val()) {
 		case 'never':
 		case 'custom':
 		case 'reboot':
@@ -34,5 +34,3 @@ function cron_random() {
 			break;
 	}
 }
-
-
