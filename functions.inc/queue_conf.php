@@ -117,50 +117,30 @@ class queues_conf {
 			$members = $results2['member'];
 			unset($results2['member']);
 
+			// Queues cannot control their own recordings, it must now be
+			// done through sub-record-check
+			unset($results2['monitor-format']);
+			unset($results2['recording']);
+
 			foreach ($results2 as $keyword => $data) {
-				if ($ver12){
-					switch($keyword){
-						case 'ringinuse': 
-						case 'autofill': 
-							break;
-						case 'retry': 
-							if ($data == 'none') {
-								$data = 0;
-							}
-							// no break, fallthrough to default
-						default:
-							$output .= $keyword."=".$data."\n";
-							break;
-					}
-				}else{
-					switch($keyword){
-						case (trim($data) == ''):
-						case 'monitor-join': 
-						case 'answered_elsewhere': 
-						case 'skip_joinannounce': 
-							break;
-						case 'monitor-format':
-							if (strtolower($data) != 'no'){
-								$output .= "monitor-type=mixmonitor\n";
-							}
-							break;
-						case 'announce-position':
-							if ($ver16) {
-								$output .= $keyword."=".$data."\n";
-							}
-							break;
-						case 'retry': 
-							if ($data == 'none') {
-								$data = 0;
-							}
-							// no break, fallthrough to default
-						default:
-							if (strpos($keyword, 'cron_') === FALSE) {
-								$output .= $keyword."=".$data."\n";
-							}
-							break;
-					}
+				if (trim($data) == '' || substr($keyword, 0, 4) == "cron") {
+					// Skip anything that's empty or not required
+					continue;
 				}
+
+				// Some old commands have been removed. Make sure we 
+				// don't add them.
+				switch($keyword){
+					case 'monitor-join':
+					case 'answered_elsewhere':
+					case 'skip_joinannounce':
+						continue;
+				}
+
+				if ($keyword == "retry" && $data == "none") {
+					$data = 0;
+				}
+				$output .= $keyword."=".$data."\n";
 			}
 			
 			// Now pull out all the memebers, one line for each
@@ -248,4 +228,4 @@ class queues_conf {
 		return $output;
 	}
 }
-?>
+

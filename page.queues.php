@@ -49,6 +49,7 @@ $ast_ge_16 = version_compare($astver, '1.6', 'ge');
 $ast_ge_162 = version_compare($astver, '1.6.2', 'ge');
 $ast_ge_18 = version_compare($astver, '1.8', 'ge');
 $ast_ge_11 = version_compare($astver, '11', 'ge');
+$ast_ge_120 = version_compare($astver, '12', 'ge');
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
@@ -600,81 +601,39 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
 			<input type="hidden" name="joinannounce_id" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : ''); ?>
 		</td>
 	</tr>
-<?php } ?>
+<?php }
 
-	<tr>
-		<td><a href="#" class="info"><?php echo _("Call Recording:")?><span><?php echo _("Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)")?></span></a></td>
-		<td>
-			<select name="monitor-format" tabindex="<?php echo ++$tabindex;?>">
-			<?php
-				$default = (empty($thisQ['monitor-format']) ? "no" : $thisQ['monitor-format']);
-				echo '<option value="wav49" '.($default == "wav49" ? 'SELECTED' : '').'>'._("wav49").'</option>';
-				echo '<option value="wav" '.($default == "wav" ? 'SELECTED' : '').'>'._("wav").'</option>';
-				echo '<option value="gsm" '.($default == "gsm" ? 'SELECTED' : '').'>'._("gsm").'</option>';
-				echo '<option value="" '.($default == "no" ? 'SELECTED' : '').'>'._("No").'</option>';
-			?>
-			</select>
-		</td>
-	</tr>
+if (!isset($thisQ['recording'])) {
+	$recording = "dontcare";
+} else {
+	$recording = $thisQ['recording'];
+	// Update to recordings 12.1. Remove later.
+	if ($recording == "always") {
+		$recording = "yes";
+	}
+}
 
-	<tr>
-  <td><a href="#" class="info"><?php echo _("Recording Mode:")?><span><?php echo _("Choose to 'Include Hold Time' in the recording so it starts as soon as they enter the queue, or to defer recording until 'After Answered' and the call is bridged with a queue member.")?></span></a></td>
-  <td>
-    <select name="monitor_type" tabindex="<?php echo ++$tabindex;?>">
-    <?php
-    echo '<option value="" '.($monitor_type == "" ? 'SELECTED' : '').'>'._("Include Hold Time").'</option>';
-    echo '<option value="b" '.($monitor_type == "b" ? 'SELECTED' : '').'>'._("After Answered").'</option>';
-    ?>
-    </select>
-  </td>
-  </tr>
-
-	<tr>
-  <td><a href="#" class="info"><?php echo _("Caller Volume Adjustment:")?><span><?php echo _("Adjust the recording volume of the caller.")?></span></a></td>
-  <td>
-    <select name="monitor_heard" tabindex="<?php echo ++$tabindex;?>">
-    <?php
-    for($i=-4;$i<=-1;$i++) {
-      echo '<option value="'.$i.'" '.($monitor_heard == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
-    }
-    echo '<option value="0" '.(!$monitor_heard ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
-    for($i=1;$i<=4;$i++) {
-      echo '<option value="'.$i.'" '.($monitor_heard == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
-    }
-    ?>
-    </select>
-  </td>
-  </tr>
-
-	<tr>
-  <td><a href="#" class="info"><?php echo _("Agent Volume Adjustment:")?><span><?php echo _("Adjust the recording volume of the queue member (Agent).")?></span></a></td>
-  <td>
-    <select name="monitor_spoken" tabindex="<?php echo ++$tabindex;?>">
-    <?php
-    for($i=-4;$i<=-1;$i++) {
-      echo '<option value="'.$i.'" '.($monitor_spoken == "$i" ? 'SELECTED' : '').'>'."$i".'</option>';
-    }
-    echo '<option value="0" '.(!$monitor_spoken ? 'SELECTED' : '').'>'._("No Adjustment").'</option>';
-    for($i=1;$i<=4;$i++) {
-      echo '<option value="'.$i.'" '.($monitor_spoken == "$i" ? 'SELECTED' : '').'>'."+$i".'</option>';
-    }
-    ?>
-    </select>
-  </td>
-  </tr>
-
-<?php
-	if ($ast_ge_18) {
 ?>
+
+<tr>
+  <td><a href="#" class="info"><?php echo _("Call Recording:")?><span><?php echo _("Incoming calls to agents can be recorded. If 'never' is selected, then in-call on demand recording is blocked.")?></span></a></td>
+  <td>
+    <span class="radioset">
+      <input type="radio" id="record_force" name="recording" value="force" <?php echo ($recording=='force'?'checked':'');?>><label for="record_force"><?php echo _('Force'); ?></label>
+      <input type="radio" id="record_yes" name="recording" value="yes" <?php echo ($recording=='yes'?'checked':'');?>><label for="record_yes"><?php echo _('Yes'); ?></label>
+      <input type="radio" id="record_dontcare" name="recording" value="dontcare" <?php echo ($recording=='dontcare'?'checked':'');?>><label for="record_dontcare"><?php echo _("Don't Care")?></label>
+      <input type="radio" id="record_no" name="recording" value="no" <?php echo ($recording=='no'?'checked':'');?>><label for="record_no"><?php echo _('No'); ?></label>
+      <input type="radio" id="record_never" name="recording" value="never" <?php echo ($recording=='never'?'checked':'');?>><label for="record_never"><?php echo _('Never'); ?></label>
+    </span>
+  </td>
+</tr>
+
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Mark calls answered elsewhere:")?><span><?php echo _("Enabling this option, all calls are marked as 'answered elsewhere' when cancelled. The effect is that missed queue calls are *not* shown on the phone (if the phone supports it)")?></span></a></td>
 		<td>
 			<input name="answered_elsewhere" type="checkbox" value="1" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
 		</td>
 	</tr>
-<?php
-	}
-?>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Timing & Agent Options")?><hr></h5></td></tr>
 
@@ -1182,81 +1141,78 @@ if ($ast_ge_16) {
 <?php } ?>
 
 	<tr><td colspan="2"><br><h5><?php echo _("Events, Stats and Advanced")?><hr></h5></td></tr>
-
-	<tr>
-		<td><?php echo fpbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));?></td>
-		<td>
-			<?php
-				$agentevents_true_label = form_label(_('Enabled'), 'agentevents_true');
-				$agentevents_true = array(
-							'name'		=> 'eventwhencalled',
-							'tabindex'	=> ++$tabindex,
-							'id'		=> 'agentevents_true',
-							'value'		=> 'yes'
-
-				);
-
-				$agentevents_false_label = form_label(_('Disabled'), 'agentevents_false');
-				$agentevents_false = array(
-							'name'		=> 'eventwhencalled',
-							'tabindex'	=> ++$tabindex,
-							'id'		=> 'agentevents_false',
-							'value'		=> 'no'
-
-				);
-				$eventwhencalled = isset($eventwhencalled) && $eventwhencalled
-									? $eventwhencalled
-									: $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT'];
-				if (in_array($eventwhencalled, array('yes', 1, true), true)) {
-					$agentevents_true['checked'] = true;
-				} elseif (in_array($eventwhencalled, array('no', 0, false), true)) {
-					$agentevents_false['checked'] = true;
-				}
-				echo '<span class="radioset">'
-					. form_radio($agentevents_true) . $agentevents_true_label
-					. form_radio($agentevents_false) . $agentevents_false_label
-					. '</span>'
-			?>
-		</td>
-	</tr>
-
-	<tr>
-		<td><?php echo fpbx_label(_("Member Status Event"), _("When set to YES, the following manager event will be generated: QueueMemberStatus"));?></td>
-		<td>
-			<?php
-				$memberevents_true_label = form_label(_('Enabled'), 'memberevents_true');
-				$memberevents_true = array(
-							'name'		=> 'eventmemberstatus',
-							'tabindex'	=> ++$tabindex,
-							'id'		=> 'memberevents_true',
-							'value'		=> 'yes'
-
-				);
-
-				$memberevents_false_label = form_label(_('Disabled'), 'memberevents_false');
-				$memberevents_false = array(
-							'name'		=> 'eventmemberstatus',
-							'tabindex'	=> ++$tabindex,
-							'id'		=> 'memberevents_false',
-							'value'		=> 'no'
-
-				);
-				$eventmemberstatus = isset($eventmemberstatus)
-									? $eventmemberstatus
-									: $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'];
-				if (in_array($eventmemberstatus, array('yes', 1, true), true)) {
-					$memberevents_true['checked'] = true;
-				} elseif (in_array($eventmemberstatus, array('no', 0, false), true)) {
-					$memberevents_false['checked'] = true;
-				}
-				echo '<span class="radioset">'
-					. form_radio($memberevents_true) . $memberevents_true_label
-					. form_radio($memberevents_false) . $memberevents_false_label
-					. '</span>'
-			?>
-		</td>
-	</tr>
-
+<?php
+	/*
+	 * FREEPBX - 8216. As of Asterisk 12 eventmemberstatus and eventwhencalled are always true and
+	 * are not a user option. These fields will only show up if the user is running version 11 or lower.
+	 * TODO: Remove this code once we drop 11 support in the future 
+	 */
+	if(!$ast_ge_120){
+		$label = fpbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));
+		$agentevents_true_label = form_label(_('Enabled'), 'agentevents_true');
+		$agentevents_true = array(
+			'name'		=> 'eventwhencalled',
+			'tabindex'	=> ++$tabindex,
+			'id'		=> 'agentevents_true',
+			'value'		=> 'yes'
+			);
+		$agentevents_false_label = form_label(_('Disabled'), 'agentevents_false');
+		$agentevents_false = array(
+			'name'		=> 'eventwhencalled',
+			'tabindex'	=> ++$tabindex,
+			'id'		=> 'agentevents_false',
+			'value'		=> 'no'
+			);
+		$eventwhencalled = isset($eventwhencalled) && $eventwhencalled	
+							? $eventwhencalled
+							: $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT'];
+		if (in_array($eventwhencalled, array('yes', 1, true), true)) {
+			$agentevents_true['checked'] = true;
+		} elseif (in_array($eventwhencalled, array('no', 0, false), true)) {
+			$agentevents_false['checked'] = true;
+		}
+		echo '<tr>';
+		echo '<td>' . $label . '</td>';
+		echo '<td>';
+		echo '<span class="radioset">'
+			. form_radio($agentevents_true) . $agentevents_true_label
+			. form_radio($agentevents_false) . $agentevents_false_label
+			. '</span>';
+		echo '</td></tr>';
+		
+		$label = fpbx_label(_("Member Status Event"), _("When set to YES, the following manager event will be generated: QueueMemberStatus"));
+		$memberevents_true_label = form_label(_('Enabled'), 'memberevents_true');
+		$memberevents_true = array(
+			'name'		=> 'eventmemberstatus',
+			'tabindex'	=> ++$tabindex,
+			'id'		=> 'memberevents_true',
+			'value'		=> 'yes'
+			);
+		$memberevents_false_label = form_label(_('Disabled'), 'memberevents_false');
+		$memberevents_false = array(
+			'name'		=> 'eventmemberstatus',
+			'tabindex'	=> ++$tabindex,
+			'id'		=> 'memberevents_false',
+			'value'		=> 'no'
+			);
+		$eventmemberstatus = isset($eventmemberstatus)
+							? $eventmemberstatus
+							: $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'];
+		if (in_array($eventmemberstatus, array('yes', 1, true), true)) {
+			$memberevents_true['checked'] = true;
+		} elseif (in_array($eventmemberstatus, array('no', 0, false), true)) {
+			$memberevents_false['checked'] = true;
+		}
+		echo '<tr>';
+		echo '<td>' . $label . '</td>';
+		echo '<td>';
+		echo '<span class="radioset">'
+		. form_radio($memberevents_true) . $memberevents_true_label
+		. form_radio($memberevents_false) . $memberevents_false_label
+		. '</span>';
+		echo '</td></tr>';
+	}
+	?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Service Level:")?><span><?php echo _("Used for service level statistics (calls answered within service level time frame)")?></span></a></td>
 		<td>

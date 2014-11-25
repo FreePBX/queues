@@ -182,9 +182,10 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, 'qposition', new ext_set('QPOSITION', '${IF($[${LEN(${VQ_POSITION})}>0]?${VQ_POSITION}:${QPOSITION})}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_POSITION', ''));
 
-				$record_mode = $q['monitor-format'] ? 'always' : 'dontcare';
-				if ($q['monitor-format']) {
-					$ext->add($c, $exten, '', new ext_set('__MIXMON_FORMAT', $q['monitor-format']));
+				if (!isset($q['recording']) || empty($q['recording'])) {
+					$record_mode = 'dontcare';
+				} else {
+					$record_mode = $q['recording'];
 				}
 
 				if ($amp_conf['QUEUES_MIX_MONITOR']) {
@@ -203,7 +204,7 @@ function queues_get_config($engine) {
 					}
 				}
 
-                $ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-check',"q,$exten,$record_mode"));
+				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-check',"q,$exten,$record_mode"));
 
 				// Set CWIGNORE  if enabled so that busy agents don't have another line key ringing and
 				// stalling the ACD.
@@ -563,7 +564,11 @@ function queues_get_config($engine) {
 
 					$ext->add($from_queue_exten_only, $item[0], '', new ext_set('QDOPTS', '${IF($["${CALLER_DEST}"!=""]?g)}${IF($["${AGENT_DEST}"!=""]?F(${AGENT_DEST}))}'));
 
-					$ext->add($from_queue_exten_only, $item[0], 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten," . $item[0]));
+					$ext->add($from_queue_exten_only, $item[0], 'checkrecord', new ext_set('CALLTYPE_OVERRIDE', 'external')); // Make sure the call is tagged as external
+					// This means:
+					// If (!$fromexten) { if (!$nodest) { $fromexten = 'external' } else { $fromexten = $nodest } }
+					$ext->add($from_queue_exten_only, $item[0], '', new ext_execif('$[!${LEN(${FROMEXTEN})}]', 'Set', 'FROMEXTEN=${IF(${LEN(${NODEST})}?${NODEST}:external}')); // Make sure the call is tagged as external
+					$ext->add($from_queue_exten_only, $item[0], '', new ext_gosub('1','s','sub-record-check',"exten,".$item[0].","));
 					if ($has_extension_state) {
 						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
 					} else {
