@@ -144,12 +144,6 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('QJOINMSG', '${IF($[${LEN(${VQ_JOINMSG})}>0]?${IF($["${VQ_JOINMSG}"!="0"]?${VQ_JOINMSG}: )}:' . $joinannounce . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_JOINMSG', ''));
 
-				$qmoh = isset($q['music']) && $q['music'] != '' ? $q['music'] : ' ';
-				$ext->add($c, $exten, '', new ext_set('QMOH', '${IF($["${VQ_MOH}"!=""]?${VQ_MOH}:' . $qmoh . ')}'));
-				$ext->add($c, $exten, '', new ext_set('VQ_MOH', ''));
-				$ext->add($c, $exten, '', new ext_execif('$["${QMOH}"!=""]', 'Set', '__MOHCLASS=${QMOH}'));
-				$ext->add($c, $exten, '', new ext_execif('$["${MOHCLASS}"!=""]', 'Set', 'CHANNEL(musicclass)=${MOHCLASS}'));
-
 				$options = 't';
 				if (isset($q['answered_elsewhere']) && $q['answered_elsewhere'] == '1'){
 					$ext->add($c, $exten, '', new ext_set('QCANCELMISSED', 'C'));
@@ -243,6 +237,12 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('QAANNOUNCE', '${IF($[${LEN(${VQ_AANNOUNCE})}>0]?${IF($["${VQ_AANNOUNCE}"!="0"]?${VQ_AANNOUNCE}: )}:' . $agentannounce . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_AANNOUNCE', ''));
 				$agnc = '${QAANNOUNCE}';
+
+				$qmoh = isset($q['music']) && $q['music'] != '' ? $q['music'] : ' ';
+				$ext->add($c, $exten, '', new ext_set('QMOH', '${IF($["${VQ_MOH}"!=""]?${VQ_MOH}:' . $qmoh . ')}'));
+				$ext->add($c, $exten, '', new ext_set('VQ_MOH', ''));
+				$ext->add($c, $exten, '', new ext_execif('$["${QMOH}"!=""]', 'Set', '__MOHCLASS=${QMOH}'));
+				$ext->add($c, $exten, '', new ext_execif('$["${MOHCLASS}"!=""]', 'Set', 'CHANNEL(musicclass)=${MOHCLASS}'));
 
 				$ext->add($c, $exten, '', new ext_set('QMAXWAIT', '${IF($[${LEN(${VQ_MAXWAIT})}>0]?${VQ_MAXWAIT}:' . ($q['maxwait'] != '' ? $q['maxwait'] : ' ') . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_MAXWAIT', ''));
