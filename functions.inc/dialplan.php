@@ -22,6 +22,7 @@ function queues_get_config($engine) {
 			$ast_ge_14_25 = version_compare($version,'1.4.25','ge');
 			$ast_ge_18 = version_compare($version,'1.8','ge');
 			$ast_ge_11 = version_compare($version,'11','ge');
+			$ast_ge_12 = version_compare($version,'12','ge');
 
 			$has_extension_state = $ast_ge_16;
 			if ($ast_ge_14 && !$ast_ge_16) {
@@ -448,7 +449,11 @@ function queues_get_config($engine) {
 						if (isset($qc[$device['user']])) foreach($qc[$device['user']] as $q) {
 							$ext->add($c, $que_pause_code . '*' . $device['id'] . '*' . $q, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$device['id']));
 							if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
-								$hint = "qpause:$q:Local/{$device['user']}@from-queue/n";
+								if ($ast_ge_12) {
+									$hint = "Queue:$q_pause_Local/{$device['user']}@from-queue/n";
+								} else {
+									$hint = "qpause:$q:Local/{$device['user']}@from-queue/n";
+								}
 								$ext->addHint($c, $que_pause_code . '*' . $device['id'] . '*' . $q, $hint);
 								$pause_all_hints[] = $hint;
 							}
