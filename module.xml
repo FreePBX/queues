@@ -11,6 +11,7 @@
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.
 	</description>
 	<changelog>
+		*12.0.16* FREEPBX-8400 Fix syntax error in dialplan
 		*12.0.15* FREEPBX-6838 Fix queue pause hint syntax for Asterisk 12
 		*12.0.14* FREEPBX-8318 Play join message first then start music
 		*12.0.13.1* Fix issue on Asterisk 11
