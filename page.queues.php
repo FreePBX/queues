@@ -317,7 +317,7 @@ if ($action == 'delete') {
 <?php
 	if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
         <tr>
-                <td><a href="#" class="info"><?php echo _("Call Confirm Announce:")?><span><?php echo _("Announcement played to the Queue Memeber announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU.")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Call Confirm Announce:")?><span><?php echo _("Announcement played to the Queue Member announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU.")?></span></a></td>
                 <td>
                         <select name="callconfirm_id" tabindex="<?php echo ++$tabindex;?>">
                         <?php
