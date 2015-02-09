@@ -1,36 +1,69 @@
-$(document).ready(function(){
-	//cron_custom
-	cron_custom();
-	$('#cron_schedule').change(cron_custom);
+$("[id^='qsagents']").change(function(){
+	var taelm = $(this).data('for');
+	console.log($('#'+taelm));
+	$('#'+taelm).append($(this).val()+",0\n");
+});
 
-	//cron_schedule
-	cron_random();
-	$('#cron_schedule').change(cron_random);
+function insertExten(type) {
+	exten = document.getElementById(type+'insexten').value;
 
-
-	//style cron custom times
-	$('#crondiv').find('input[type=checkbox]').button();
-
-})
-function cron_custom() {
-	if ($('#cron_schedule').val() == 'custom') {
-		$('#crondiv').show();
+	grpList=document.getElementById(type+'members');
+	if (grpList.value[ grpList.value.length - 1 ] == "\n") {
+		grpList.value = grpList.value + exten + ',0';
 	} else {
-		$('#crondiv').hide();
+		grpList.value = grpList.value + '\n' + exten + ',0';
 	}
+
+	// reset element
+	document.getElementById(type+'insexten').value = '';
 }
 
-function cron_random() {
-	switch($('#cron_schedule').val()) {
-		case 'never':
-		case 'custom':
-		case 'reboot':
-			$('label[for=cron_random]').hide();
-			$('#cron_random').removeAttr("checked").hide();
-			break;
-		default:
-			$('label[for=cron_random]').show();
-			$('#cron_random').show();
-			break;
+function checkQ(theForm) {
+	var bad = false;
+	var msgWarnRegex = _("Using a Regex filter is fairly advanced, please confirm you know what you are doing or leave this blank");
+
+	var whichitem = 0;
+	while (whichitem < theForm.goto0.length) {
+		if (theForm.goto0[whichitem].checked) {
+			theForm.goto0.value=theForm.goto0[whichitem].value;
+		}
+		whichitem++;
 	}
+
+	if (!isInteger(theForm.account.value)) {
+		alert(_("Queue Number must not be blank"));
+		bad=true;
+	}
+
+	defaultEmptyOK = false;
+/*
+	<?php if (function_exists('module_get_field_size')) { ?>
+		var sizeDisplayName = "<?php echo module_get_field_size('queues_config', 'descr', 35); ?>";
+		if (!isCorrectLength(theForm.name.value, sizeDisplayName))
+			return warnInvalid(theForm.name, "<?php echo _('The Queue Name provided is too long.'); ?>")
+	<?php } ?>
+*/
+	if (!isAlphanumeric(theForm.name.value)) {
+		alert(_("Queue name must not be blank and must contain only alpha-numeric characters"));
+		bad=true;
+	}
+	if (!isEmpty(theForm.qregex.value)) {
+		if (!confirm(msgWarnRegex)) {
+			bad=true;
+		}
+	}
+
+	return !bad;
+}
+
+function breakoutDisable() {
+	breakouttype = document.getElementById('breakouttype');
+
+	for (var i = 0; i < breakouttype.length; i++) {
+		/* Disable everything */
+		document.getElementById(breakouttype.options[i].value).disabled = true;
+	}
+
+	/* Re-enable the active one */
+	document.getElementById(breakouttype.value).disabled = false;
 }
