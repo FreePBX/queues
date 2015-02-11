@@ -7,96 +7,616 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-02-11 18:08-0500\n"
 "PO-Revision-Date: 2014-07-22 13:12+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
-"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/queues/bg/>"
-"\n"
-"Language: bg_BG\n"
+"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/queues/bg/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 "X-Poedit-Language: Bulgarian\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid ""
-"Warning, there are compound recordings configured in one or more Queue "
-"configurations. Queues can not play these so they have been truncated to the "
-"first sound file. You should correct this problem.<br />Details:<br /><br />"
+#: /usr/src/freepbx/queues/page.queues.php:1130
+msgid "(**) ERRORS"
+msgstr "(**) ГРЕШКИ"
+
+#: /usr/src/freepbx/queues/page.queues.php:1130
+msgid "(**) Warning Potential Errors"
+msgstr "(**) Внимание потенциални грешки"
+
+#: /usr/src/freepbx/queues/page.queues.php:393
+#: /usr/src/freepbx/queues/page.queues.php:421
+msgid "(pick extension)"
+msgstr "(избери вътрешна линия)"
+
+#: /usr/src/freepbx/queues/page.queues.php:372
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
-"Внимание, има настроени съединени записи в една или повече от настройките на "
-"Опашки. Опашките не могат да ги възпроизвеждат, затова те са скъсени само до "
-"първия звуков файл. Трябва да оправите този проблем.<br />Детайли:<br /><br /"
-">"
+"ALERT_INFO може да се използва за различно звънене при някои SIP устройства."
 
-#, php-format
-msgid "Queue - %s (%s): %s<br />"
-msgstr "Опашка - %s (%s): %s<br />"
+#: /usr/src/freepbx/queues/page.queues.php:177
+#: /usr/src/freepbx/queues/page.queues.php:247
+#: /usr/src/freepbx/queues/page.queues.php:264
+msgid "Add Queue"
+msgstr "Добави Опашка"
 
-msgid "Compound Recordings in Queues Detected"
-msgstr "Намерени са Съединени Записи в Опашките"
+#: /usr/src/freepbx/queues/page.queues.php:635
+msgid "Adjust the recording volume of the caller."
+msgstr ""
 
-#, php-format
-msgid "Queue %s : %s"
-msgstr "Опашка %s : %s"
+#: /usr/src/freepbx/queues/page.queues.php:652
+msgid "Adjust the recording volume of the queue member (Agent)."
+msgstr ""
 
-#, php-format
-msgid "Queue: %s"
-msgstr "Опашка: %s"
+#: /usr/src/freepbx/queues/page.queues.php:628
+msgid "After Answered"
+msgstr ""
 
-msgid "seconds"
-msgstr "секунди"
+#: /usr/src/freepbx/queues/page.queues.php:773
+msgid ""
+"After a successful call, how many seconds to wait before sending a "
+"potentially free agent another call (default is 0, or no delay) If using "
+"Asterisk 1.6+, you can also set the 'Honor Wrapup Time Across Queues' "
+"setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
+"this is honored across queues for members logged on to multiple queues."
+msgstr ""
 
-msgid "day"
-msgstr "ден"
-
-msgid "hour"
-msgstr "час"
-
-msgid "hours"
-msgstr "часа"
-
-msgid "minute"
-msgstr "минута"
-
-msgid "minutes"
-msgstr "минути"
-
-msgid "second"
-msgstr "секунда"
-
-msgid "Bad Queue Number, can not be blank"
-msgstr "Неправилен Номер на Опашка, не може да е празен"
-
-msgid "INUSE"
-msgstr "ИЗПОЛЗВА СЕ"
-
-#, php-format
-msgid "Queue: %s (%s)"
-msgstr "Опашка: %s (%s)"
-
+#: /usr/src/freepbx/queues/functions.inc.php:65
 msgid "Agent Announce Msg"
 msgstr "Съобщение на Агент"
 
+#: /usr/src/freepbx/queues/page.queues.php:805
+#: /usr/src/freepbx/queues/page.queues.php:824
+msgid "Agent Announcement:"
+msgstr "Съобщение за Агента:"
+
+#: /usr/src/freepbx/queues/page.queues.php:1277
+msgid "Agent Regex Filter"
+msgstr "Филтриране на Агенти"
+
+#: /usr/src/freepbx/queues/page.queues.php:439
+msgid "Agent Restrictions"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:565
+msgid "Agent Ringing"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:745
+msgid "Agent Timeout Restart:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:730
+msgid "Agent Timeout:"
+msgstr "Време на Изчакване за Агент:"
+
+#: /usr/src/freepbx/queues/page.queues.php:652
+msgid "Agent Volume Adjustment:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:372
+msgid "Alert Info"
+msgstr "Информация за Сигнал"
+
+#: /usr/src/freepbx/queues/page.queues.php:589
+msgid "Always"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:925
+msgid "Always allows the caller to join the Queue."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1050
+msgid "Announce Hold Time:"
+msgstr "Извастяване за Време на Задържане:"
+
+#: /usr/src/freepbx/queues/page.queues.php:1037
+msgid "Announce Position:"
+msgstr "Известяване за Позиция:"
+
+#: /usr/src/freepbx/queues/page.queues.php:1037
+msgid "Announce position of caller in the queue?"
+msgstr "Да се извести ли позицията в опашката на обаждащия се?"
+
+#: /usr/src/freepbx/queues/page.queues.php:339
+msgid ""
+"Announcement played to anyone using an external follow-me to receive the "
+"queue call.<br><br>You must install and enable the \"Systems Recordings\" "
+"Module to edit this option"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:597
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Съобщение възпроизвеждано еднократно на обаждащите се преди да влязат в "
+"опашката.<br><br>Трябва да сте инсталирали и разрешили Модул \"Системни "
+"Записи\" за да редактирате тази опция"
+
+#: /usr/src/freepbx/queues/page.queues.php:574
+msgid ""
+"Announcement played to callers prior to joining the queue. This can be "
+"skipped if there are agents ready to answer a call (meaning they still may "
+"be wrapping up from a previous call) or when they are free to answer the "
+"call right now. To add additional recordings please use the \"System "
+"Recordings\" MENU."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:805
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>To add additional recordings "
+"please use the \"System Recordings\" MENU. Compound recordings composed of 2 "
+"or more sound files are not displayed as options since this feature can not "
+"accept such recordings."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:824
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>You must install and enable the "
+"\"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Съобщение възпроизвеждано на Агента преди да се свърже с обаждащия се."
+"<br><br> Например: \"Следващото обаждане е от Опашка Продажби\" или \"Това "
+"обаждане е от Опашка Техническа Поддръжка\".<br><br>Трябва да сте "
+"инсталирали и разрешили Модул \"Системни Записи\" за да редактирате тази "
+"опция"
+
+#: /usr/src/freepbx/queues/page.queues.php:321
+msgid ""
+"Announcement played to the Queue Memeber announcing the Queue call and "
+"requesting confirmation prior to answering. If set to default, the standard "
+"call confirmation default message will be played unless the member is "
+"reached through a Follow-Me and there is an alternate message provided in "
+"the Follow-Me. This message will override any other message specified.."
+"<br><br>To add additional recordings please use the \"System Recordings\" "
+"MENU."
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:10
+msgid "Annually"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:108
+msgid "April"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:715
+msgid ""
+"Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
+"caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
+"mode, if a queue member is currently ringing with this call, then we will "
+"wait until the queue stops ringing this queue member or otherwise the call "
+"is rejected by the queue member before taking the caller out of the queue. "
+"This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
+"'Agent Timeout' combined."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1003
+msgid ""
+"Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
+"settings, allowing all members to be tried, when the queue has too few "
+"members.  No penalty will be weighed in if there are only X or fewer queue "
+"members."
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:112
+msgid "August"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:899
+msgid "Auto Pause Delay:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:850
+msgid ""
+"Auto Pause an agent in this queue (or all queues they are a member of) if "
+"they don't answer a call. Specific behavior can be modified by the Auto "
+"Pause Delay as well as Auto Pause Busy/Unavailable settings if supported on "
+"this version of Asterisk."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:867
+msgid "Auto Pause on Busy:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:882
+msgid "Auto Pause on Unavailable:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:850
+msgid "Auto Pause:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:502
+msgid "Autofill:"
+msgstr "Автоматично Назначаване:"
+
+#: /usr/src/freepbx/queues/functions.inc/geters_seters.php:37
+msgid "Bad Queue Number, can not be blank"
+msgstr "Неправилен Номер на Опашка, не може да е празен"
+
+#: /usr/src/freepbx/queues/page.queues.php:1073
+msgid "Break Out Type"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:352
+msgid "CID Name Prefix:"
+msgstr "Префикс на CID Име:"
+
+#: /usr/src/freepbx/queues/page.queues.php:321
+msgid "Call Confirm Announce:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:339
+msgid "Call Confirm Announcement:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:313
+msgid "Call Confirm:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:608
+msgid "Call Recording:"
+msgstr "Запис на Разговор:"
+
+#: /usr/src/freepbx/queues/page.queues.php:444
+msgid "Call as Dialed"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1152
+msgid "Callback to use when caller presses 1."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1020
+msgid "Caller Position Announcements"
+msgstr "Известяване за Позицията на Обаждащият Се"
+
+#: /usr/src/freepbx/queues/page.queues.php:635
+msgid "Caller Volume Adjustment:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:964
+msgid ""
+"Callers will exit if all agents are paused, show an invalid state for their "
+"device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
+"in FreePBX dialplan).."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:930
+msgid ""
+"Callers will not be admitted if all agents are paused, show an invalid state "
+"for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
+"currently set in FreePBX dialplan)."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:905
+msgid "Capacity Options"
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:68
+msgid "Checking for legacy queues table.."
+msgstr "Проверка за останали таблици на опашки .."
+
+#: /usr/src/freepbx/queues/install.php:382
+msgid "Checking if recordings need migration.."
+msgstr "Проверка дали записите имат нужда от преместване.."
+
+#: /usr/src/freepbx/queues/page.queues.php:415
+msgid ""
+"Choose an extension to append to the end of the dynamic member list above."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:387
+msgid ""
+"Choose an extension to append to the end of the static agents list above."
+msgstr ""
+"Изберете вътрешна линия която да се постави в края на списъка със статични "
+"агенти по-горе."
+
+#: /usr/src/freepbx/queues/page.queues.php:623
+msgid ""
+"Choose to 'Include Hold Time' in the recording so it starts as soon as they "
+"enter the queue, or to defer recording until 'After Answered' and the call "
+"is bridged with a queue member."
+msgstr ""
+
+#: /usr/src/freepbx/queues/functions.inc/queue_conf.php:235
+msgid "Compound Recordings in Queues Detected"
+msgstr "Намерени са Съединени Записи в Опашките"
+
+#: /usr/src/freepbx/queues/page.queues.php:240
+msgid "Conflicting Extensions"
+msgstr "Вътрешни Линии в Конфликт"
+
+#: /usr/src/freepbx/queues/install.php:188
+msgid "Creating queues_config.."
+msgstr "Създаване на ueues_config.."
+
+#: /usr/src/freepbx/queues/install.php:94
+msgid "Creating queues_details.."
+msgstr "Създаване на queues_details.."
+
+#: /usr/src/freepbx/queues/views/cron.php:12
+msgid "Custom"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:7
+msgid "Daily"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:132
+msgid "Day of Month"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:77
+msgid "Day of Week"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:116
+msgid "December"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:327
+msgid "Default"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:235
+msgid "Delete Queue"
+msgstr "Изтрий Опашка"
+
+#: /usr/src/freepbx/queues/page.queues.php:962
+msgid ""
+"Determines if callers should be exited prematurely from the queue in "
+"situations where it appears no one is currently available to take the call. "
+"The options include:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:923
+msgid ""
+"Determines if new callers will be admitted to the Queue, if not, the "
+"failover destination will be immediately pursued. The options include:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1201
+#: /usr/src/freepbx/queues/page.queues.php:1238
+msgid "Disabled"
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:339
+msgid "Dropping old queues table.."
+msgstr "Премахване на стари таблица с опашки.."
+
+#: /usr/src/freepbx/queues/page.queues.php:405
+msgid "Dynamic Members"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:405
+msgid ""
+"Dynamic Members are extensions or callback numbers that can log in and out "
+"of the queue. When a member logs in to a queue, their penalty in the queue "
+"will be as specified here. Extensions included here will NOT automatically "
+"be logged in to the queue."
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:328
+msgid "ERROR were encountered"
+msgstr "Натъкнах се на грешки"
+
+#: /usr/src/freepbx/queues/page.queues.php:1134
+msgid ""
+"ERROR: You have selected an IVR that uses Announcements created from "
+"compound sound files. The Queue is not able to play these announcements. "
+"This IVRs recording will be truncated to use only the first sound file. You "
+"can correct the problem by selecting a different announcement for this IVR "
+"that is not from a compound sound file. The IVR itself can play such files, "
+"but the Queue subsystem can not"
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:207
+msgid "ERROR: accessing queues table obtaining context info, aborting"
+msgstr ""
+"ГРЕШКА: при достъп до таблицата с опашки получих context info, прекратявам"
+
+#: /usr/src/freepbx/queues/install.php:232
+msgid "ERROR: accessing queues table obtaining id list, aborting"
+msgstr "ГРЕШКА: при достъп до таблицата с опашки получих id list, прекратявам"
+
+#: /usr/src/freepbx/queues/install.php:214
+msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+msgstr ""
+"ГРЕШКА: при достъп до таблицата с опашки получих rtone info, прекратявам"
+
+#: /usr/src/freepbx/queues/install.php:101
+#: /usr/src/freepbx/queues/install.php:195
+msgid "ERROR: could not create table"
+msgstr "ГРЕШКА: не мога да създам таблица"
+
+#: /usr/src/freepbx/queues/install.php:119
+msgid "ERROR: could not migrate to queues_details"
+msgstr "ГРЕШКА: не мога да преместя към queues_details"
+
+#: /usr/src/freepbx/queues/install.php:320
+#, php-format
+msgid "ERROR: inserting data for row %s: %s.."
+msgstr "ГРЕШКА: въвеждане на данни за ред %s: %s.."
+
+#: /usr/src/freepbx/queues/page.queues.php:1134
+msgid ""
+"Earlier versions of this module allowed such queues to be chosen, once "
+"changing this setting, it will no longer appear as an option"
+msgstr ""
+"Предишните версии на този модул позволяваха да се избере такава опашка, "
+"веднъж променени тези настройки повече няма да се предлагат като опция"
+
+#: /usr/src/freepbx/queues/page.queues.php:264
+msgid "Edit Queue"
+msgstr "Редактирай Опашка"
+
+#: /usr/src/freepbx/queues/page.queues.php:1192
+#: /usr/src/freepbx/queues/page.queues.php:1229
+msgid "Enabled"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:672
+msgid ""
+"Enabling this option, all calls are marked as 'answered elsewhere' when "
+"cancelled. The effect is that missed queue calls are *not* shown on the "
+"phone (if the phone supports it)"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1189
+msgid "Event When Called"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1186
+msgid "Events, Stats and Advanced"
+msgstr ""
+
+#: /usr/src/freepbx/queues/functions.inc/hook_core.php:59
+msgid "Extension Options"
+msgstr "Опции на Вътрешна Линия"
+
+#: /usr/src/freepbx/queues/page.queues.php:385
+#: /usr/src/freepbx/queues/page.queues.php:413
+msgid "Extension Quick Pick"
+msgstr "Бързо Избиране на Вътрешни Линии"
+
+#: /usr/src/freepbx/queues/page.queues.php:446
+msgid "Extensions Only"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1286
+msgid "Fail Over Destination"
+msgstr "Направление При Проваляне"
+
+#: /usr/src/freepbx/queues/views/cron.php:106
+msgid "February"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1023
+msgid "Frequency:"
+msgstr "Цикъл:"
+
+#: /usr/src/freepbx/queues/views/cron.php:85
+msgid "Friday"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:452
+msgid "General Queue Options"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:305
+msgid "Generate Device Hints:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:275
+msgid "Give this queue a brief name to help you identify it."
+msgstr ""
+"Дайте на тази опашка описващо име за да ви помогне при идентифицирането."
+
+#: /usr/src/freepbx/queues/page.queues.php:528
+msgid ""
+"Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
+"queue will deliver its calls first if there are agents common to both queues."
+msgstr ""
+"Дава на опашката опция 'натоварена', за да осигури на чакащи обаждания в "
+"опашка с най-висок приоритет, че ще достави първо нейните обаждания ако има "
+"общи агенти в опашките."
+
+#: /usr/src/freepbx/queues/page.queues.php:1008
+msgid "Honor Penalties"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:61
+msgid "Hour"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:6
+msgid "Hourly"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1172
+msgid ""
+"How often to announce a voice menu to the caller (0 to Disable "
+"Announcements)."
+msgstr ""
+"Колко често да възпроизвежда гласово меню на обаждащия се (0 за Забрана на "
+"Гласово Меню)."
+
+#: /usr/src/freepbx/queues/page.queues.php:1023
+msgid ""
+"How often to announce queue position and estimated holdtime (0 to Disable "
+"Announcements)."
+msgstr ""
+"Колко често да известява позицията в опашката и изминалото време на "
+"задържане (0 за Забрана на Известяване)."
+
+#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:98
+msgid "INUSE"
+msgstr "ИЗПОЛЗВА СЕ"
+
+#: /usr/src/freepbx/queues/functions.inc.php:75
 #, php-format
 msgid "IVR Announce: %s"
 msgstr "IVR Съобщение: %s"
 
-msgid "Use State"
+#: /usr/src/freepbx/queues/page.queues.php:1076
+msgid "IVR Break Out Menu"
 msgstr ""
 
-msgid "Ignore State"
+#: /usr/src/freepbx/queues/page.queues.php:1092
+msgid "IVR Break Out Menu:"
+msgstr "IVR Меню Избягай:"
+
+#: /usr/src/freepbx/queues/page.queues.php:313
+msgid ""
+"If checked, any queue member that is actually an outside telephone number, "
+"or any extensions Follow-Me or call forwarding that are pursued and leave "
+"the PBX will be forced into Call Confirmation mode where the member must "
+"acknowledge the call before it is answered and delivered.."
 msgstr ""
 
-msgid "Extension Options"
-msgstr "Опции на Вътрешна Линия"
-
-msgid "Queue State Detection"
+#: /usr/src/freepbx/queues/page.queues.php:305
+msgid ""
+"If checked, individual hints and dialplan will be generated for each SIP and "
+"IAX2 device that could be part of this queue. These are used in conjunction "
+"with programmable BLF phone buttons to log into and out of a queue and "
+"generate BLF status as to the current state. The format of the hints is<br /"
+"><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle "
+"feature code, ddd is the device number (typically the same as the extension "
+"number) and qqq is this queue's number."
 msgstr ""
 
+#: /usr/src/freepbx/queues/page.queues.php:294
+msgid ""
+"If checked, the queue will not answer the call. Under most circumstance you "
+"should always have the queue answering calls. If not, then it's possible "
+"that recordings and MoH will not be heard by the waiting callers since early "
+"media capabilities vary and are inconsistent. Some cases where it may be "
+"desired to not answer a call is when using Strict Join Empty queue policies "
+"where the caller will not be admitted to the queue unless there is a queue "
+"member immediately available to take the call."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:357
+msgid ""
+"If the call is subsequently transferred, the wait time will reflect the time "
+"since it first entered the queue or reset if the call is transferred to "
+"another queue with this feature set."
+msgstr ""
+
+#: /usr/src/freepbx/queues/functions.inc/hook_core.php:65
 msgid ""
 "If this extension is part of a Queue then the Queue will attempt to use the "
 "user's extension state or device state information when determining if this "
@@ -111,303 +631,504 @@ msgid ""
 "SHOULD BE set to 'Use State'."
 msgstr ""
 
-msgid "Checking for legacy queues table.."
-msgstr "Проверка за останали таблици на опашки .."
+#: /usr/src/freepbx/queues/page.queues.php:745
+msgid ""
+"If timeoutrestart is set to yes, then the time out for an agent to answer is "
+"reset if a BUSY or CONGESTION is received. This can be useful if agents are "
+"able to cancel a call with reject or similar."
+msgstr ""
 
-msgid "NO table found, no migration to do just create tables"
-msgstr "Не са намерени таблици, създаване на таблиците"
+#: /usr/src/freepbx/queues/page.queues.php:790
+msgid ""
+"If you wish to have a delay before the member is connected to the caller (or "
+"before the member hears any announcement messages), set this to the number "
+"of seconds to delay."
+msgstr ""
 
-msgid "OK"
-msgstr "OK"
+#: /usr/src/freepbx/queues/page.queues.php:835
+msgid ""
+"If you wish to report the caller's hold time to the member before they are "
+"connected to the caller, set this to yes."
+msgstr ""
 
-msgid "Creating queues_details.."
-msgstr "Създаване на queues_details.."
+#: /usr/src/freepbx/queues/functions.inc/hook_core.php:37
+msgid "Ignore State"
+msgstr ""
 
-msgid "already exists"
-msgstr "вече съществуват"
+#: /usr/src/freepbx/queues/page.queues.php:627
+msgid "Include Hold Time"
+msgstr ""
 
-msgid "ERROR: could not create table"
-msgstr "ГРЕШКА: не мога да създам таблица"
+#: /usr/src/freepbx/queues/page.queues.php:608
+msgid ""
+"Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
+"monitor)"
+msgstr ""
+"Да се записват ли входящите обаждания към агентите. (Записват се в /var/"
+"spool/asterisk/monitor)"
 
-msgid "Migrating to queues_details.."
-msgstr "Преместване към queues_details.."
+#: /usr/src/freepbx/queues/views/cron.php:105
+msgid "January"
+msgstr ""
 
-msgid "ERROR: could not migrate to queues_details"
-msgstr "ГРЕШКА: не мога да преместя към queues_details"
+#: /usr/src/freepbx/queues/page.queues.php:574
+#: /usr/src/freepbx/queues/page.queues.php:597
+msgid "Join Announcement:"
+msgstr "Съобщение при Включване:"
 
-msgid "Creating queues_config.."
-msgstr "Създаване на ueues_config.."
+#: /usr/src/freepbx/queues/page.queues.php:937
+msgid "Join Empty:"
+msgstr "Влизане aко Няма Агенти:"
 
+#: /usr/src/freepbx/queues/views/cron.php:111
+msgid "July"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:110
+msgid "June"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:976
+msgid "Leave Empty:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:721
+#: /usr/src/freepbx/queues/page.queues.php:932
+#: /usr/src/freepbx/queues/page.queues.php:950
+#: /usr/src/freepbx/queues/page.queues.php:970
+#: /usr/src/freepbx/queues/page.queues.php:988
+msgid "Loose"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:107
+msgid "March"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:672
+msgid "Mark calls answered elsewhere:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:908
+msgid "Max Callers:"
+msgstr "Максимално Обаждащи се:"
+
+#: /usr/src/freepbx/queues/page.queues.php:715
+msgid "Max Wait Time Mode:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:684
+msgid "Max Wait Time:"
+msgstr "Максимално Време на Изчакване:"
+
+#: /usr/src/freepbx/queues/page.queues.php:908
+msgid "Maximum number of people waiting in the queue (0 for unlimited)"
+msgstr "Максималният брой от хора чакащи в опашката (0 за неограничен)"
+
+#: /usr/src/freepbx/queues/views/cron.php:109
+msgid "May"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:790
+msgid "Member Delay:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1226
+msgid "Member Status Event"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1114
+#: /usr/src/freepbx/queues/page.queues.php:1119
+msgid "Menu ID "
+msgstr "ID на Менюто "
+
+#: /usr/src/freepbx/queues/install.php:203
 msgid "Migrating data to queues_config.."
 msgstr "Преместване на данните към queues_config.."
 
-msgid "ERROR: accessing queues table obtaining context info, aborting"
-msgstr ""
-"ГРЕШКА: при достъп до таблицата с опашки получих context info, прекратявам"
+#: /usr/src/freepbx/queues/install.php:116
+msgid "Migrating to queues_details.."
+msgstr "Преместване към queues_details.."
 
-msgid "ERROR: accessing queues table obtaining rtone info, aborting"
-msgstr ""
-"ГРЕШКА: при достъп до таблицата с опашки получих rtone info, прекратявам"
-
-msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr "ГРЕШКА: при достъп до таблицата с опашки получих id list, прекратявам"
-
-#, php-format
-msgid "ERROR: inserting data for row %s: %s.."
-msgstr "ГРЕШКА: въвеждане на данни за ред %s: %s.."
-
-msgid "ERROR were encountered"
-msgstr "Натъкнах се на грешки"
-
-msgid "Dropping old queues table.."
-msgstr "Премахване на стари таблица с опашки.."
-
-#, php-format
-msgid "WARNING FAILED %s"
-msgstr "ГРЕШКА НЕУСПЕХ %s"
-
-msgid "removing queues data extensions table.."
-msgstr "премахване на таблица на опашки с данни за вътрешни линии.."
-
-msgid "checking for qregex field.."
-msgstr "проверка за qregex поле .."
-
-msgid "Checking if recordings need migration.."
-msgstr "Проверка дали записите имат нужда от преместване.."
-
-msgid "migrating"
-msgstr "преместване"
-
-msgid "adding agentannounce_id field.."
-msgstr "добаване на agentannounce_id поле.."
-
-msgid "fatal error"
-msgstr "фатална грешка"
-
-msgid "ok"
-msgstr "ok"
-
-msgid "adding joinannounce_id field.."
-msgstr "добаване на joinannounce_id поле.."
-
-msgid "migrate agentannounce to ids.."
-msgstr "преместване към id на agentannounce.."
-
-#, php-format
-msgid "migrated %s entries"
-msgstr "преместени %s въвеждания"
-
-msgid "migrate joinannounce to ids.."
-msgstr "преместване към joinannounce.."
-
-msgid "dropping agentannounce field.."
-msgstr "премахване на поле agentannounce.."
-
-msgid "no agentannounce field???"
-msgstr "няма agentannounce поле???"
-
-msgid "dropping joinannounce field.."
-msgstr "премахване на поле joinannounce.."
-
-msgid "no joinannounce field???"
-msgstr "няма joinannounce поле???"
-
-msgid "already migrated"
-msgstr "вече са преместени"
-
-msgid "checking for queuewait field.."
-msgstr "проверка за queuewait поле .."
-
-msgid "checking for use_queue_context field.."
+#: /usr/src/freepbx/queues/views/cron.php:45
+msgid "Minutes"
 msgstr ""
 
-msgid "checking for togglehint field.."
+#: /usr/src/freepbx/queues/page.queues.php:564
+msgid "MoH Only"
 msgstr ""
 
-msgid "checking for qnoanswer field.."
+#: /usr/src/freepbx/queues/views/cron.php:81
+msgid "Monday"
 msgstr ""
 
-msgid "checking for callconfirm field.."
+#: /usr/src/freepbx/queues/views/cron.php:102
+msgid "Month"
 msgstr ""
 
-msgid "checking for callconfirm_id field.."
+#: /usr/src/freepbx/queues/views/cron.php:9
+msgid "Monthly"
 msgstr ""
 
-msgid "checking for monitor_type field.."
-msgstr ""
-
-msgid "checking for monitor_heard field.."
-msgstr ""
-
-msgid "checking for monitor_spoken field.."
-msgstr ""
-
-msgid "Warning! Extension"
-msgstr "Внимание! Вътрешна Линия"
-
-msgid "is not allowed for your account."
-msgstr "не е разрешена за вашия акаунт."
-
-msgid "Add Queue"
-msgstr "Добави Опашка"
-
-msgid "Queue"
-msgstr "Опашка"
-
-msgid "deleted"
-msgstr "изтрита"
-
-msgid "Delete Queue"
-msgstr "Изтрий Опашка"
-
-msgid "Conflicting Extensions"
-msgstr "Вътрешни Линии в Конфликт"
-
-msgid "Queue:"
-msgstr "Опашка:"
-
-msgid "Edit Queue"
-msgstr "Редактирай Опашка"
-
-msgid "Queue Number:"
-msgstr "Номер на Опашка:"
-
+#: /usr/src/freepbx/queues/page.queues.php:544
 msgid ""
-"Use this number to dial into the queue, or transfer callers to this number "
-"to put them into the queue.<br><br>Agents will dial this queue number plus * "
-"to log onto the queue, and this queue number plus ** to log out of the queue."
-"<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
-"in<br>123** = log out</b>"
+"Music (MoH) played to the caller while they wait in line for an available "
+"agent. Choose \"inherit\" if you want the MoH class to be what is currently "
+"selected, such as by the inbound route. MoH Only will play music until the "
+"agent answers. Agent Ringing will play MoH until an agent's phone is "
+"presented with the call and is ringing. If they don't answer, MoH will "
+"return.  Ring Only makes callers hear a ringing tone instead of MoH ignoring "
+"any MoH Class selected as well as any configured periodic announcements. "
+"This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
-"Използвайте този номер за да избирате опашката, или да прехвърляте "
-"обаждащите се към този номер за да ги вкарате в опашката.<br><br>Агентите ще "
-"набират този номер на опашка плюс * за да влязат в опашката, и този номер на "
-"опашка плюс ** за да излязат от опашката.<br><br>Например, ако номера на "
-"опашката е 123:<br><br><b>123* = влизане<br>123** = излизане</b>"
 
-msgid "Queue Name:"
-msgstr "Име на Опашка:"
+#: /usr/src/freepbx/queues/page.queues.php:544
+msgid "Music on Hold Class:"
+msgstr "Категория на Музика при Задържане:"
 
-msgid "Give this queue a brief name to help you identify it."
+#: /usr/src/freepbx/queues/install.php:72
+msgid "NO table found, no migration to do just create tables"
+msgstr "Не са намерени таблици, създаване на таблиците"
+
+#: /usr/src/freepbx/queues/views/cron.php:5
+msgid "Never"
 msgstr ""
-"Дайте на тази опашка описващо име за да ви помогне при идентифицирането."
 
-msgid "Queue Password:"
-msgstr "Парола на Опашка:"
-
+#: /usr/src/freepbx/queues/page.queues.php:972
 msgid ""
-"You can require agents to enter a password before they can log in to this "
-"queue.<br><br>This setting is optional."
-msgstr ""
-"Можете да изисквате от агентите парола преди да влязат в опашката."
-"<br><br>Тези настройки не са задължителни."
-
-msgid "Queue No Answer:"
+"Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr ""
 
-msgid ""
-"If checked, the queue will not answer the call. Under most circumstance you "
-"should always have the queue answering calls. If not, then it's possible "
-"that recordings and MoH will not be heard by the waiting callers since early "
-"media capabilities vary and are inconsistent. Some cases where it may be "
-"desired to not answer a call is when using Strict Join Empty queue policies "
-"where the caller will not be admitted to the queue unless there is a queue "
-"member immediately available to take the call."
-msgstr ""
-
-msgid "Generate Device Hints:"
-msgstr ""
-
-msgid ""
-"If checked, individual hints and dialplan will be generated for each SIP and "
-"IAX2 device that could be part of this queue. These are used in conjunction "
-"with programmable BLF phone buttons to log into and out of a queue and "
-"generate BLF status as to the current state. The format of the hints is<br /"
-"><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle "
-"feature code, ddd is the device number (typically the same as the extension "
-"number) and qqq is this queue's number."
-msgstr ""
-
-msgid "Call Confirm:"
-msgstr ""
-
-msgid ""
-"If checked, any queue member that is actually an outside telephone number, "
-"or any extensions Follow-Me or call forwarding that are pursued and leave "
-"the PBX will be forced into Call Confirmation mode where the member must "
-"acknowledge the call before it is answered and delivered.."
-msgstr ""
-
-msgid "Call Confirm Announce:"
-msgstr ""
-
-msgid ""
-"Announcement played to the Queue Memeber announcing the Queue call and "
-"requesting confirmation prior to answering. If set to default, the standard "
-"call confirmation default message will be played unless the member is "
-"reached through a Follow-Me and there is an alternate message provided in "
-"the Follow-Me. This message will override any other message specified.."
-"<br><br>To add additional recordings please use the \"System Recordings\" "
-"MENU."
-msgstr ""
-
-msgid "Default"
-msgstr ""
-
-msgid "Call Confirm Announcement:"
-msgstr ""
-
-msgid ""
-"Announcement played to anyone using an external follow-me to receive the "
-"queue call.<br><br>You must install and enable the \"Systems Recordings\" "
-"Module to edit this option"
-msgstr ""
-
-msgid "CID Name Prefix:"
-msgstr "Префикс на CID Име:"
-
-msgid ""
-"You can optionally prefix the CallerID name of callers to the queue. ie: If "
-"you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
-"John Doe\" on the extensions that ring."
-msgstr ""
-
-msgid "Wait Time Prefix:"
-msgstr "Префикс с Време за Изчакване:"
-
-msgid ""
-"When set to Yes, the CID Name will be prefixed with the total wait time in "
-"the queue so the answering agent is aware how long they have waited. It will "
-"be rounded to the nearest minute, in the form of Mnn: where nn is the number "
-"of minutes."
-msgstr ""
-"Когато е установен на 'Да', към CID Името ще се добави префикс с общото "
-"изчакано време в опашката, така че отговарящия агент да знае колко дълго са "
-"чакали. Ще бъде закръглено към близката минута в формат Mnn: където nn е "
-"броя минути."
-
-msgid ""
-"If the call is subsequently transferred, the wait time will reflect the time "
-"since it first entered the queue or reset if the call is transferred to "
-"another queue with this feature set."
-msgstr ""
-
-msgid "Yes"
-msgstr "Да"
-
+#: /usr/src/freepbx/queues/page.queues.php:362
+#: /usr/src/freepbx/queues/page.queues.php:434
+#: /usr/src/freepbx/queues/page.queues.php:514
+#: /usr/src/freepbx/queues/page.queues.php:616
+#: /usr/src/freepbx/queues/page.queues.php:751
+#: /usr/src/freepbx/queues/page.queues.php:840
+#: /usr/src/freepbx/queues/page.queues.php:855
+#: /usr/src/freepbx/queues/page.queues.php:872
+#: /usr/src/freepbx/queues/page.queues.php:887
+#: /usr/src/freepbx/queues/page.queues.php:930
+#: /usr/src/freepbx/queues/page.queues.php:948
+#: /usr/src/freepbx/queues/page.queues.php:972
+#: /usr/src/freepbx/queues/page.queues.php:990
+#: /usr/src/freepbx/queues/page.queues.php:1043
+#: /usr/src/freepbx/queues/page.queues.php:1056
 msgid "No"
 msgstr "Не"
 
-msgid "Alert Info"
-msgstr "Информация за Сигнал"
-
-msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+#: /usr/src/freepbx/queues/page.queues.php:642
+#: /usr/src/freepbx/queues/page.queues.php:659
+msgid "No Adjustment"
 msgstr ""
-"ALERT_INFO може да се използва за различно звънене при някои SIP устройства."
 
+#: /usr/src/freepbx/queues/page.queues.php:445
+msgid "No Follow-Me or Call Forward"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:913
+msgid "No Max"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:763
+msgid "No Retry"
+msgstr "Не oпитвай oтново"
+
+#: /usr/src/freepbx/queues/page.queues.php:580
+#: /usr/src/freepbx/queues/page.queues.php:812
+#: /usr/src/freepbx/queues/page.queues.php:1098
+#: /usr/src/freepbx/queues/page.queues.php:1155
+msgid "None"
+msgstr "Няма"
+
+#: /usr/src/freepbx/queues/views/cron.php:115
+msgid "November"
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:77
+#: /usr/src/freepbx/queues/install.php:105
+#: /usr/src/freepbx/queues/install.php:122
+#: /usr/src/freepbx/queues/install.php:125
+#: /usr/src/freepbx/queues/install.php:199
+#: /usr/src/freepbx/queues/install.php:326
+#: /usr/src/freepbx/queues/install.php:332
+#: /usr/src/freepbx/queues/install.php:345
+#: /usr/src/freepbx/queues/install.php:354
+#: /usr/src/freepbx/queues/install.php:371
+#: /usr/src/freepbx/queues/install.php:497
+#: /usr/src/freepbx/queues/install.php:512
+#: /usr/src/freepbx/queues/install.php:527
+#: /usr/src/freepbx/queues/install.php:542
+#: /usr/src/freepbx/queues/install.php:557
+#: /usr/src/freepbx/queues/install.php:572
+#: /usr/src/freepbx/queues/install.php:587
+#: /usr/src/freepbx/queues/install.php:602
+#: /usr/src/freepbx/queues/install.php:617
+#: /usr/src/freepbx/queues/install.php:632
+msgid "OK"
+msgstr "OK"
+
+#: /usr/src/freepbx/queues/views/cron.php:114
+msgid "October"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1057
+msgid "Once"
+msgstr "Еднократно"
+
+#: /usr/src/freepbx/queues/page.queues.php:1003
+msgid "Penalty Members Limit:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1063
+msgid "Periodic Announcements"
+msgstr "Периодични Съобщения"
+
+#: /usr/src/freepbx/queues/page.queues.php:1277
+msgid ""
+"Provides an optional regex expression that will be applied against the agent "
+"callback number. If the callback number does not pass the regex filter then "
+"it will be treated as invalid. This can be used to restrict agents to "
+"extensions within a range, not allow callbacks to include keys like *, or "
+"any other use that may be appropriate. An example input might be:<br />^([2-"
+"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
+"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"key.<br />WARNING: make sure you understand what you are doing or otherwise "
+"leave this blank!"
+msgstr ""
+"Предоставя допълнителен филтър, който ще бъде приложен срещу номера за "
+"обратно обаждане на агента. Ако номера за обратно обаждане не премине през "
+"филтъра, тогава ще се третира като неправилен. Може да се използва за "
+"ограничава агентите на вътрешни линии без отдел, не позволява обратните "
+"обаждания да включват * или всякаква друга възможност, която би била "
+"подходяща. Пример за въвеждане:<br />^([2-4][0-9]{3})$<br />Това ще ограничи "
+"агентите от вътрешни линии 2000-4999. Или <br />^([0-9]+)$ ще позволи всеки "
+"номер с всякаква дължина, но ще забрани * бутона.<br />ВНИМАНИЕ: Убедете се "
+"че знаете какво правите или оставете празно!"
+
+#: /usr/src/freepbx/queues/page.queues.php:188
+msgid "Queue"
+msgstr "Опашка"
+
+#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:36
+#, php-format
+msgid "Queue %s : %s"
+msgstr "Опашка %s : %s"
+
+#: /usr/src/freepbx/queues/functions.inc/queue_conf.php:233
+#, php-format
+msgid "Queue - %s (%s): %s<br />"
+msgstr "Опашка - %s (%s): %s<br />"
+
+#: /usr/src/freepbx/queues/page.queues.php:1077
+#: /usr/src/freepbx/queues/page.queues.php:1152
+msgid "Queue Callback"
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:10
+msgid "Queue Callers"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:275
+msgid "Queue Name:"
+msgstr "Име на Опашка:"
+
+#: /usr/src/freepbx/queues/page.queues.php:294
+msgid "Queue No Answer:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1335
+msgid "Queue Number must not be blank"
+msgstr "Неправилен Номер на Опашка, полето не може да е празно"
+
+#: /usr/src/freepbx/queues/page.queues.php:269
+msgid "Queue Number:"
+msgstr "Номер на Опашка:"
+
+#: /usr/src/freepbx/queues/page.queues.php:283
+msgid "Queue Password:"
+msgstr "Парола на Опашка:"
+
+#: /usr/src/freepbx/queues/install.php:9
+msgid "Queue Pause Toggle"
+msgstr ""
+
+#: /usr/src/freepbx/queues/functions.inc/hook_core.php:64
+msgid "Queue State Detection"
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:8
+msgid "Queue Toggle"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:528
+msgid "Queue Weight"
+msgstr "Приоритет на Опашка"
+
+#: /usr/src/freepbx/queues/page.queues.php:517
+msgid "Queue calls only (ringinuse=no)"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1348
+msgid ""
+"Queue name must not be blank and must contain only alpha-numeric characters"
+msgstr ""
+"Името на Опашка не може да е празно и трябва да съдържа само буквено-цифрени "
+"символи"
+
+#: /usr/src/freepbx/queues/page.queues.php:245
+msgid "Queue:"
+msgstr "Опашка:"
+
+#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:56
+#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:73
+#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:97
+#, php-format
+msgid "Queue: %s"
+msgstr "Опашка: %s"
+
+#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:126
+#, php-format
+msgid "Queue: %s (%s)"
+msgstr "Опашка: %s (%s)"
+
+#: /usr/src/freepbx/queues/bin/queue_reset_stats.php:14
+msgid "Queues module not found or is disabled. Aborting!"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:11
+msgid "Reboot"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:623
+msgid "Recording Mode:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1172
+msgid "Repeat Frequency:"
+msgstr "Цикъл на Повтаряне:"
+
+#: /usr/src/freepbx/queues/page.queues.php:835
+msgid "Report Hold Time:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1293
+msgid "Reset Queue Stats"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:433
+msgid "Restrict Dynamic Agents"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:433
+msgid ""
+"Restrict dynamic queue member logins to only those listed in the Dynamic "
+"Members list above. When set to Yes, members not listed will be DENIED "
+"ACCESS to the queue."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:758
+msgid "Retry:"
+msgstr "Опитай Отново:"
+
+#: /usr/src/freepbx/queues/page.queues.php:566
+msgid "Ring Only"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:456
+msgid "Ring Strategy:"
+msgstr "Стратегия на Звънене:"
+
+#: /usr/src/freepbx/queues/views/cron.php:32
+msgid "Run"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:932
+msgid ""
+"Same as No except Callers will be admitted if their are paused agents who "
+"could become available."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:928
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them in. Simply speaking, any 'available' agents that could answer but "
+"are currently on the phone or ringing on behalf of another caller will be "
+"considered unavailable."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:967
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them remain. Simply speaking, any 'available' agents that could answer "
+"but are currently on the phone or ringing on behalf of another caller will "
+"be considered unavailable."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:926
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then don't admit them. If agents are inuse or ringing someone else, "
+"caller will still be admitted."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:965
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then have them leave the queue. If agents are inuse or ringing someone "
+"else, caller will still be held."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:970
+msgid ""
+"Same as Yes except Callers will remain in the Queue if their are paused "
+"agents who could become available."
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:86
+msgid "Saturday"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:113
+msgid "September"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1263
+msgid "Service Level:"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1050
+msgid ""
+"Should we include estimated hold time in position announcements?  Either "
+"yes, no, or only once; hold time will not be announced if <1 minute"
+msgstr ""
+"Да се включи ли изминалото време на задържане в известяването за позицията? "
+"Независимо от избора, времето на задържане няма да се извести ако е <1 минута"
+
+#: /usr/src/freepbx/queues/page.queues.php:509
+msgid "Skip Busy Agents:"
+msgstr "Пропусни Заети Агенти:"
+
+#: /usr/src/freepbx/queues/page.queues.php:502
+msgid ""
+"Starting with Asterisk 1.4, if this is checked, and multiple agents are "
+"available, Asterisk will send one call to each waiting agent (depending on "
+"the ring strategy). Otherwise, it will hold all calls while it tries to find "
+"an agent for the top call in the queue making other calls wait. This was the "
+"behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk "
+"documentation for more details of this feature."
+msgstr ""
+"Достъпно от Астериск 1.4, ако това е маркирано и наколко агенти са свободни, "
+"Астериск ще изпраща по едно обаждане на всеки чакащ агент (в зависимост от "
+"стратегията на звънене). В противен случай, ще задържи всички обаждания "
+"докато се опитва да намери агент за обаждането с най-висока позиция в "
+"опашката, карайки другите обаждания да чакат. Няма ефект при Астериск 1.2. "
+"Вижте Астериск документацията за повече подробности."
+
+#: /usr/src/freepbx/queues/page.queues.php:377
 msgid "Static Agents"
 msgstr "Статични Агенти"
 
+#: /usr/src/freepbx/queues/page.queues.php:377
 msgid ""
 "Static agents are extensions that are assumed to always be on the queue.  "
 "Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
@@ -425,44 +1146,173 @@ msgid ""
 "(Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)"
 msgstr ""
 
-msgid "Extension Quick Pick"
-msgstr "Бързо Избиране на Вътрешни Линии"
+#: /usr/src/freepbx/queues/page.queues.php:720
+#: /usr/src/freepbx/queues/page.queues.php:926
+#: /usr/src/freepbx/queues/page.queues.php:944
+#: /usr/src/freepbx/queues/page.queues.php:965
+#: /usr/src/freepbx/queues/page.queues.php:983
+msgid "Strict"
+msgstr "Без Изключения"
 
+#: /usr/src/freepbx/queues/page.queues.php:1301
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+#: /usr/src/freepbx/queues/views/cron.php:80
+msgid "Sunday"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1344
+msgid "The Queue Name provided is too long."
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:684
 msgid ""
-"Choose an extension to append to the end of the static agents list above."
+"The maximum number of seconds a caller can wait in a queue before being "
+"pulled out.  (0 for unlimited)."
 msgstr ""
-"Изберете вътрешна линия която да се постави в края на списъка със статични "
-"агенти по-горе."
+"Максималното време в секунди за което обаждащия се може да изчаква в "
+"опашката преди да бъде изключен."
 
-msgid "(pick extension)"
-msgstr "(избери вътрешна линия)"
-
-msgid "Dynamic Members"
-msgstr ""
-
+#: /usr/src/freepbx/queues/page.queues.php:730
 msgid ""
-"Dynamic Members are extensions or callback numbers that can log in and out "
-"of the queue. When a member logs in to a queue, their penalty in the queue "
-"will be as specified here. Extensions included here will NOT automatically "
-"be logged in to the queue."
+"The number of seconds an agent's phone can ring before we consider it a "
+"timeout. Unlimited or other timeout values may still be limited by system "
+"ringtime or individual extension defaults."
 msgstr ""
+"Колко време в секунди да звъни телефона на агента преди да се отбележи като "
+"недостъпен. Неограничено или други стойности все още могат да са ограничени "
+"от системното време на звънене или от индивидуална вътрешна линия въведени "
+"по-подразбиране."
 
+#: /usr/src/freepbx/queues/page.queues.php:758
 msgid ""
-"Choose an extension to append to the end of the dynamic member list above."
+"The number of seconds we wait before trying all the phones again. Choosing "
+"\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
+"as the first attempted agent times-out, additional agents will not be "
+"attempted."
 msgstr ""
+"Колко време в секунди да изчакаме преди да опитаме с телефоните отново. "
+"Избирането на \"Не опитвай отново\" ще излезе от опашката и ще се насочи към "
+"направлението при проваляне веднага след като изтече времето на изчакване на "
+"първия опитан агент, другите няма да се пробват."
 
-msgid "Restrict Dynamic Agents"
-msgstr ""
-
+#: /usr/src/freepbx/queues/page.queues.php:283
 msgid ""
-"Restrict dynamic queue member logins to only those listed in the Dynamic "
-"Members list above. When set to Yes, members not listed will be DENIED "
-"ACCESS to the queue."
+"The password is only used when logging in with the legacy queueno* code. "
+"When using the toggle codes, you must use the Restrict Dynamic Agents option "
+"in conjunction with the Dynamic Members list to control access."
 msgstr ""
 
-msgid "Agent Restrictions"
+#: /usr/src/freepbx/queues/page.queues.php:899
+msgid ""
+"This setting will delay the auto pause of an agent by auto pause delay "
+"seconds from when it last took a call. For example, if this were set to 120 "
+"seconds, and a new call is presented to the agent 90 seconds after they last "
+"took a call, they will not be auto paused if they don't answer the call. If "
+"presented with a call 120 seconds or later after answering the last call, "
+"they will then be auto paused. If they have taken no calls, this will have "
+"no affect."
 msgstr ""
 
+#: /usr/src/freepbx/queues/views/cron.php:84
+msgid "Thursday"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:681
+msgid "Timing & Agent Options"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:82
+msgid "Tuesday"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:928
+#: /usr/src/freepbx/queues/page.queues.php:946
+#: /usr/src/freepbx/queues/page.queues.php:967
+#: /usr/src/freepbx/queues/page.queues.php:985
+msgid "Ultra Strict"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:691
+#: /usr/src/freepbx/queues/page.queues.php:735
+msgid "Unlimited"
+msgstr "Неограничено"
+
+#: /usr/src/freepbx/queues/functions.inc/hook_core.php:36
+msgid "Use State"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:269
+msgid ""
+"Use this number to dial into the queue, or transfer callers to this number "
+"to put them into the queue.<br><br>Agents will dial this queue number plus * "
+"to log onto the queue, and this queue number plus ** to log out of the queue."
+"<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
+"in<br>123** = log out</b>"
+msgstr ""
+"Използвайте този номер за да избирате опашката, или да прехвърляте "
+"обаждащите се към този номер за да ги вкарате в опашката.<br><br>Агентите ще "
+"набират този номер на опашка плюс * за да влязат в опашката, и този номер на "
+"опашка плюс ** за да излязат от опашката.<br><br>Например, ако номера на "
+"опашката е 123:<br><br><b>123* = влизане<br>123** = излизане</b>"
+
+#: /usr/src/freepbx/queues/page.queues.php:1263
+msgid ""
+"Used for service level statistics (calls answered within service level time "
+"frame)"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:1324
+msgid ""
+"Using a Regex filter is fairly advanced, please confirm you know what you "
+"are doing or leave this blank"
+msgstr ""
+"Използването на Филтър по Израз е за напреднали, моля потвърдете че знаете "
+"какво правите или оставете празно"
+
+#: /usr/src/freepbx/queues/install.php:343
+#: /usr/src/freepbx/queues/install.php:352
+#, php-format
+msgid "WARNING FAILED %s"
+msgstr "ГРЕШКА НЕУСПЕХ %s"
+
+#: /usr/src/freepbx/queues/page.queues.php:357
+msgid "Wait Time Prefix:"
+msgstr "Префикс с Време за Изчакване:"
+
+#: /usr/src/freepbx/queues/page.queues.php:137
+msgid "Warning! Extension"
+msgstr "Внимание! Вътрешна Линия"
+
+#: /usr/src/freepbx/queues/functions.inc/queue_conf.php:228
+msgid ""
+"Warning, there are compound recordings configured in one or more Queue "
+"configurations. Queues can not play these so they have been truncated to the "
+"first sound file. You should correct this problem.<br />Details:<br /><br />"
+msgstr ""
+"Внимание, има настроени съединени записи в една или повече от настройките на "
+"Опашки. Опашките не могат да ги възпроизвеждат, затова те са скъсени само до "
+"първия звуков файл. Трябва да оправите този проблем.<br />Детайли:<br /><br /"
+">"
+
+#: /usr/src/freepbx/queues/views/cron.php:83
+msgid "Wednesday"
+msgstr ""
+
+#: /usr/src/freepbx/queues/views/cron.php:8
+msgid "Weekly"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:590
+msgid "When No Free Agents"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:591
+msgid "When No Ready Agents"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:439
 msgid ""
 "When set to 'Call as Dialed' the queue will call an extension just as if the "
 "queue were another user. Any Follow-Me or Call Forward states active on the "
@@ -480,101 +1330,7 @@ msgid ""
 "agents, see the 'Agent Regex Filter' to provide some validation."
 msgstr ""
 
-msgid "Call as Dialed"
-msgstr ""
-
-msgid "No Follow-Me or Call Forward"
-msgstr ""
-
-msgid "Extensions Only"
-msgstr ""
-
-msgid "General Queue Options"
-msgstr ""
-
-msgid "Ring Strategy:"
-msgstr "Стратегия на Звънене:"
-
-msgid "ringall"
-msgstr "звъни на всички"
-
-msgid "ring all available agents until one answers (default)"
-msgstr "Звъни на всички достъпни агенти докато отговорят (по-подразбиране)"
-
-msgid "roundrobin"
-msgstr "цикъл"
-
-msgid "take turns ringing each available agent"
-msgstr "Върти звъненето по всички достъпни агенти"
-
-msgid "leastrecent"
-msgstr "последно търсен"
-
-msgid "ring agent which was least recently called by this queue"
-msgstr "Звъни на агент последно търсен в опашката"
-
-msgid "fewestcalls"
-msgstr "малко разговори"
-
-msgid "ring the agent with fewest completed calls from this queue"
-msgstr "Звъни на агент с най-малко приключени разговори в опашката"
-
-msgid "random"
-msgstr "случаен"
-
-msgid "ring random agent"
-msgstr "Звъни на случаен агент"
-
-msgid "rrmemory"
-msgstr "цикъл с памет"
-
-msgid "round robin with memory, remember where we left off last ring pass"
-msgstr "Запомня къде сме доставили последното звънене"
-
-msgid "rrordered"
-msgstr ""
-
-msgid ""
-"same as rrmemory, except the queue member order from config file is preserved"
-msgstr ""
-
-msgid "linear"
-msgstr ""
-
-msgid ""
-"rings agents in the order specified, for dynamic agents in the order they "
-"logged in"
-msgstr ""
-
-msgid "wrandom"
-msgstr ""
-
-msgid ""
-"random using the member's penalty as a weighting factor, see asterisk "
-"documentation for specifics"
-msgstr ""
-
-msgid "Autofill:"
-msgstr "Автоматично Назначаване:"
-
-msgid ""
-"Starting with Asterisk 1.4, if this is checked, and multiple agents are "
-"available, Asterisk will send one call to each waiting agent (depending on "
-"the ring strategy). Otherwise, it will hold all calls while it tries to find "
-"an agent for the top call in the queue making other calls wait. This was the "
-"behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk "
-"documentation for more details of this feature."
-msgstr ""
-"Достъпно от Астериск 1.4, ако това е маркирано и наколко агенти са свободни, "
-"Астериск ще изпраща по едно обаждане на всеки чакащ агент (в зависимост от "
-"стратегията на звънене). В противен случай, ще задържи всички обаждания "
-"докато се опитва да намери агент за обаждането с най-висока позиция в "
-"опашката, карайки другите обаждания да чакат. Няма ефект при Астериск 1.2. "
-"Вижте Астериск документацията за повече подробности."
-
-msgid "Skip Busy Agents:"
-msgstr "Пропусни Заети Агенти:"
-
+#: /usr/src/freepbx/queues/page.queues.php:509
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
 "the line were returning busy. This means that Call Waiting or multi-line "
@@ -598,392 +1354,93 @@ msgid ""
 "queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
 msgstr ""
 
-msgid "Yes + (ringinuse=no)"
-msgstr ""
-
-msgid "Queue calls only (ringinuse=no)"
-msgstr ""
-
-msgid "Queue Weight"
-msgstr "Приоритет на Опашка"
-
+#: /usr/src/freepbx/queues/page.queues.php:1226
 msgid ""
-"Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
-"queue will deliver its calls first if there are agents common to both queues."
+"When set to YES, the following manager event will be generated: "
+"QueueMemberStatus"
 msgstr ""
-"Дава на опашката опция 'натоварена', за да осигури на чакащи обаждания в "
-"опашка с най-висок приоритет, че ще достави първо нейните обаждания ако има "
-"общи агенти в опашките."
 
-msgid "Music on Hold Class:"
-msgstr "Категория на Музика при Задържане:"
-
+#: /usr/src/freepbx/queues/page.queues.php:867
 msgid ""
-"Music (or Commercial) played to the caller while they wait in line for an "
-"available agent. Choose \"inherit\" if you want the MoH class to be what is "
-"currently selected, such as by the inbound route.<br><br>  This music is "
-"defined in the \"Music on Hold\" Menu."
+"When set to Yes agents devices that report busy upon a call attempt will be "
+"considered as a missed call and auto paused immediately or after the auto "
+"pause delay if configured"
 msgstr ""
 
-msgid "inherit"
-msgstr "наследи"
-
-msgid "none"
-msgstr "няма"
-
-msgid "default"
-msgstr "по-подразбиране"
-
-msgid "Ringing Instead of MoH:"
-msgstr "Звънене вместо MoH:"
-
+#: /usr/src/freepbx/queues/page.queues.php:882
 msgid ""
-"Enabling this option make callers hear a ringing tone instead of Music on "
-"Hold.<br/>Enabling this ignores any Music on Hold Class selected as well as "
-"ignoring any configured periodic announcements configured."
+"When set to Yes agents devices that report congestion upon a call attempt "
+"will be considered as a missed call and auto paused immediately or after the "
+"auto pause delay if configured"
 msgstr ""
 
-msgid "Join Announcement:"
-msgstr "Съобщение при Включване:"
-
+#: /usr/src/freepbx/queues/page.queues.php:357
 msgid ""
-"Announcement played to callers once prior to joining the queue.<br><br>To "
-"add additional recordings please use the \"System Recordings\" MENU"
+"When set to Yes, the CID Name will be prefixed with the total wait time in "
+"the queue so the answering agent is aware how long they have waited. It will "
+"be rounded to the nearest minute, in the form of Mnn: where nn is the number "
+"of minutes."
 msgstr ""
+"Когато е установен на 'Да', към CID Името ще се добави префикс с общото "
+"изчакано време в опашката, така че отговарящия агент да знае колко дълго са "
+"чакали. Ще бъде закръглено към близката минута в формат Mnn: където nn е "
+"броя минути."
 
-msgid "None"
-msgstr "Няма"
-
+#: /usr/src/freepbx/queues/page.queues.php:1189
 msgid ""
-"Announcement played to callers once prior to joining the queue.<br><br>You "
-"must install and enable the \"Systems Recordings\" Module to edit this option"
+"When this option is set to YES, the following manager events will be "
+"generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
-"Съобщение възпроизвеждано еднократно на обаждащите се преди да влязат в "
-"опашката.<br><br>Трябва да сте инсталирали и разрешили Модул \"Системни "
-"Записи\" за да редактирате тази опция"
+"Установете на 'Да' ако желаете да се генерират следните резултати: "
+"AgentCalled, AgentDump, AgentConnect и AgentComplete."
 
-msgid "Call Recording:"
-msgstr "Запис на Разговор:"
-
+#: /usr/src/freepbx/queues/page.queues.php:1073
 msgid ""
-"Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
-"monitor)"
-msgstr ""
-"Да се записват ли входящите обаждания към агентите. (Записват се в /var/"
-"spool/asterisk/monitor)"
-
-msgid "wav49"
-msgstr "wav49"
-
-msgid "wav"
-msgstr "wav"
-
-msgid "gsm"
-msgstr "gsm"
-
-msgid "Recording Mode:"
+"Whether this queue uses an IVR Break Out Menu or a Queue Callback.  Queue "
+"Callbacks can also be achieved through an IVR, but requires extra "
+"configuration."
 msgstr ""
 
-msgid ""
-"Choose to 'Include Hold Time' in the recording so it starts as soon as they "
-"enter the queue, or to defer recording until 'After Answered' and the call "
-"is bridged with a queue member."
-msgstr ""
-
-msgid "Include Hold Time"
-msgstr ""
-
-msgid "After Answered"
-msgstr ""
-
-msgid "Caller Volume Adjustment:"
-msgstr ""
-
-msgid "Adjust the recording volume of the caller."
-msgstr ""
-
-msgid "No Adjustment"
-msgstr ""
-
-msgid "Agent Volume Adjustment:"
-msgstr ""
-
-msgid "Adjust the recording volume of the queue member (Agent)."
-msgstr ""
-
-msgid "Mark calls answered elsewhere:"
-msgstr ""
-
-msgid ""
-"Enabling this option, all calls are marked as 'answered elsewhere' when "
-"cancelled. The effect is that missed queue calls are *not* shown on the "
-"phone (if the phone supports it)"
-msgstr ""
-
-msgid "Timing & Agent Options"
-msgstr ""
-
-msgid "Max Wait Time:"
-msgstr "Максимално Време на Изчакване:"
-
-msgid ""
-"The maximum number of seconds a caller can wait in a queue before being "
-"pulled out.  (0 for unlimited)."
-msgstr ""
-"Максималното време в секунди за което обаждащия се може да изчаква в "
-"опашката преди да бъде изключен."
-
-msgid "Unlimited"
-msgstr "Неограничено"
-
-msgid "Max Wait Time Mode:"
-msgstr ""
-
-msgid ""
-"Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
-"caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
-"mode, if a queue member is currently ringing with this call, then we will "
-"wait until the queue stops ringing this queue member or otherwise the call "
-"is rejected by the queue member before taking the caller out of the queue. "
-"This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
-"'Agent Timeout' combined."
-msgstr ""
-
-msgid "Strict"
-msgstr "Без Изключения"
-
-msgid "Loose"
-msgstr ""
-
-msgid "Agent Timeout:"
-msgstr "Време на Изчакване за Агент:"
-
-msgid ""
-"The number of seconds an agent's phone can ring before we consider it a "
-"timeout. Unlimited or other timeout values may still be limited by system "
-"ringtime or individual extension defaults."
-msgstr ""
-"Колко време в секунди да звъни телефона на агента преди да се отбележи като "
-"недостъпен. Неограничено или други стойности все още могат да са ограничени "
-"от системното време на звънене или от индивидуална вътрешна линия въведени "
-"по-подразбиране."
-
-msgid "Agent Timeout Restart:"
-msgstr ""
-
-msgid ""
-"If timeoutrestart is set to yes, then the time out for an agent to answer is "
-"reset if a BUSY or CONGESTION is received. This can be useful if agents are "
-"able to cancel a call with reject or similar."
-msgstr ""
-
-msgid "Retry:"
-msgstr "Опитай Отново:"
-
-msgid ""
-"The number of seconds we wait before trying all the phones again. Choosing "
-"\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
-"as the first attempted agent times-out, additional agents will not be "
-"attempted."
-msgstr ""
-"Колко време в секунди да изчакаме преди да опитаме с телефоните отново. "
-"Избирането на \"Не опитвай отново\" ще излезе от опашката и ще се насочи към "
-"направлението при проваляне веднага след като изтече времето на изчакване на "
-"първия опитан агент, другите няма да се пробват."
-
-msgid "No Retry"
-msgstr "Не oпитвай oтново"
-
+#: /usr/src/freepbx/queues/page.queues.php:773
 msgid "Wrap-Up-Time:"
 msgstr "Скрий-Ме Време:"
 
+#: /usr/src/freepbx/queues/page.queues.php:362
+#: /usr/src/freepbx/queues/page.queues.php:434
+#: /usr/src/freepbx/queues/page.queues.php:515
+#: /usr/src/freepbx/queues/page.queues.php:750
+#: /usr/src/freepbx/queues/page.queues.php:840
+#: /usr/src/freepbx/queues/page.queues.php:872
+#: /usr/src/freepbx/queues/page.queues.php:887
+#: /usr/src/freepbx/queues/page.queues.php:925
+#: /usr/src/freepbx/queues/page.queues.php:943
+#: /usr/src/freepbx/queues/page.queues.php:964
+#: /usr/src/freepbx/queues/page.queues.php:982
+#: /usr/src/freepbx/queues/page.queues.php:1042
+#: /usr/src/freepbx/queues/page.queues.php:1055
+msgid "Yes"
+msgstr "Да"
+
+#: /usr/src/freepbx/queues/page.queues.php:516
+msgid "Yes + (ringinuse=no)"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:855
+msgid "Yes in all queues"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:855
+msgid "Yes in this queue only"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:352
 msgid ""
-"After a successful call, how many seconds to wait before sending a "
-"potentially free agent another call (default is 0, or no delay) If using "
-"Asterisk 1.6+, you can also set the 'Honor Wrapup Time Across Queues' "
-"setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
-"this is honored across queues for members logged on to multiple queues."
+"You can optionally prefix the CallerID name of callers to the queue. ie: If "
+"you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
+"John Doe\" on the extensions that ring."
 msgstr ""
 
-msgid "Member Delay:"
-msgstr ""
-
-msgid ""
-"If you wish to have a delay before the member is connected to the caller (or "
-"before the member hears any announcement messages), set this to the number "
-"of seconds to delay."
-msgstr ""
-
-msgid "Agent Announcement:"
-msgstr "Съобщение за Агента:"
-
-msgid ""
-"Announcement played to the Agent prior to bridging in the caller <br><br> "
-"Example: \"the Following call is from the Sales Queue\" or \"This call is "
-"from the Technical Support Queue\".<br><br>To add additional recordings "
-"please use the \"System Recordings\" MENU. Compound recordings composed of 2 "
-"or more sound files are not displayed as options since this feature can not "
-"accept such recordings."
-msgstr ""
-
-msgid ""
-"Announcement played to the Agent prior to bridging in the caller <br><br> "
-"Example: \"the Following call is from the Sales Queue\" or \"This call is "
-"from the Technical Support Queue\".<br><br>You must install and enable the "
-"\"Systems Recordings\" Module to edit this option"
-msgstr ""
-"Съобщение възпроизвеждано на Агента преди да се свърже с обаждащия "
-"се.<br><br> Например: \"Следващото обаждане е от Опашка Продажби\" или \""
-"Това обаждане е от Опашка Техническа Поддръжка\".<br><br>Трябва да сте "
-"инсталирали и разрешили Модул \"Системни Записи\" за да редактирате тази "
-"опция"
-
-msgid "Report Hold Time:"
-msgstr ""
-
-msgid ""
-"If you wish to report the caller's hold time to the member before they are "
-"connected to the caller, set this to yes."
-msgstr ""
-
-msgid "Capacity Options"
-msgstr ""
-
-msgid "Max Callers:"
-msgstr "Максимално Обаждащи се:"
-
-msgid "Maximum number of people waiting in the queue (0 for unlimited)"
-msgstr "Максималният брой от хора чакащи в опашката (0 за неограничен)"
-
-msgid "No Max"
-msgstr ""
-
-msgid ""
-"Determines if new callers will be admitted to the Queue, if not, the "
-"failover destination will be immediately pursued. The options include:"
-msgstr ""
-
-msgid "Always allows the caller to join the Queue."
-msgstr ""
-
-msgid ""
-"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
-"phone then don't admit them. If agents are inuse or ringing someone else, "
-"caller will still be admitted."
-msgstr ""
-
-msgid "Ultra Strict"
-msgstr ""
-
-msgid ""
-"Same as Strict plus a queue member must be able to answer the phone 'now' to "
-"let them in. Simply speaking, any 'available' agents that could answer but "
-"are currently on the phone or ringing on behalf of another caller will be "
-"considered unavailable."
-msgstr ""
-
-msgid ""
-"Callers will not be admitted if all agents are paused, show an invalid state "
-"for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
-"currently set in FreePBX dialplan)."
-msgstr ""
-
-msgid ""
-"Same as No except Callers will be admitted if their are paused agents who "
-"could become available."
-msgstr ""
-
-msgid "Join Empty:"
-msgstr "Влизане aко Няма Агенти:"
-
-msgid ""
-"Determines if callers should be exited prematurely from the queue in "
-"situations where it appears no one is currently available to take the call. "
-"The options include:"
-msgstr ""
-
-msgid ""
-"Callers will exit if all agents are paused, show an invalid state for their "
-"device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
-"in FreePBX dialplan).."
-msgstr ""
-
-msgid ""
-"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
-"phone then have them leave the queue. If agents are inuse or ringing someone "
-"else, caller will still be held."
-msgstr ""
-
-msgid ""
-"Same as Strict plus a queue member must be able to answer the phone 'now' to "
-"let them remain. Simply speaking, any 'available' agents that could answer "
-"but are currently on the phone or ringing on behalf of another caller will "
-"be considered unavailable."
-msgstr ""
-
-msgid ""
-"Same as Yes except Callers will remain in the Queue if their are paused "
-"agents who could become available."
-msgstr ""
-
-msgid ""
-"Never have a caller leave the Queue until the Max Wait Time has expired."
-msgstr ""
-
-msgid "Leave Empty:"
-msgstr ""
-
-msgid "Penalty Members Limit:"
-msgstr ""
-
-msgid ""
-"Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
-"settings, allowing all members to be tried, when the queue has too few "
-"members.  No penalty will be weighed in if there are only X or fewer queue "
-"members."
-msgstr ""
-
-msgid "Honor Penalties"
-msgstr ""
-
-msgid "Caller Position Announcements"
-msgstr "Известяване за Позицията на Обаждащият Се"
-
-msgid "Frequency:"
-msgstr "Цикъл:"
-
-msgid ""
-"How often to announce queue position and estimated holdtime (0 to Disable "
-"Announcements)."
-msgstr ""
-"Колко често да известява позицията в опашката и изминалото време на "
-"задържане (0 за Забрана на Известяване)."
-
-msgid "Announce Position:"
-msgstr "Известяване за Позиция:"
-
-msgid "Announce position of caller in the queue?"
-msgstr "Да се извести ли позицията в опашката на обаждащия се?"
-
-msgid "Announce Hold Time:"
-msgstr "Извастяване за Време на Задържане:"
-
-msgid ""
-"Should we include estimated hold time in position announcements?  Either "
-"yes, no, or only once; hold time will not be announced if <1 minute"
-msgstr ""
-"Да се включи ли изминалото време на задържане в известяването за позицията? "
-"Независимо от избора, времето на задържане няма да се извести ако е <1 минута"
-
-msgid "Once"
-msgstr "Еднократно"
-
-msgid "Periodic Announcements"
-msgstr "Периодични Съобщения"
-
-msgid "IVR Break Out Menu:"
-msgstr "IVR Меню Избягай:"
-
+#: /usr/src/freepbx/queues/page.queues.php:1092
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
 "<br><br>This IVR must only contain single-digit 'dialed options'. The "
@@ -994,198 +1451,306 @@ msgstr ""
 "да съдържа само едноцифрени 'опции за избиране'. Записът установен в IVR ще "
 "се възпроизвежда през определения интервал в 'Цикъл на Повтаряне' по-долу."
 
-msgid "Menu ID "
-msgstr "ID на Менюто "
-
-msgid "(**) ERRORS"
-msgstr "(**) ГРЕШКИ"
-
-msgid "(**) Warning Potential Errors"
-msgstr "(**) Внимание потенциални грешки"
-
+#: /usr/src/freepbx/queues/page.queues.php:283
 msgid ""
-"ERROR: You have selected an IVR's that use Announcements created from "
-"compound sound files. The Queue is not able to play these announcements. "
-"This IVR's recording will be truncated to use only the first sound file. You "
-"can correct the problem by selecting a different announcement for this IVR "
-"that is not from a compound sound file. The IVR itself can play such files, "
-"but the Queue subsystem can not"
+"You can require agents to enter a password before they can log in to this "
+"queue.<br><br>This setting is optional."
 msgstr ""
-"ГРЕШКА: Избрали сте  IVR който използва Съобщения направени от съединени "
-"звукови файлове. Опашката не може да възпроизвежда такива файлове. Този IVR "
-"запис ще бъде съкратен да използва само първия звуков файл. Можете да "
-"оправите проблема като изберете друго съобщение за този IVR, което не е от "
-"съединени файлове. IVR може да възпроизвежда такива файлове, но не и опашките"
+"Можете да изисквате от агентите парола преди да влязат в опашката."
+"<br><br>Тези настройки не са задължителни."
 
+#: /usr/src/freepbx/queues/install.php:389
+msgid "adding agentannounce_id field.."
+msgstr "добаване на agentannounce_id поле.."
+
+#: /usr/src/freepbx/queues/install.php:398
+msgid "adding joinannounce_id field.."
+msgstr "добаване на joinannounce_id поле.."
+
+#: /usr/src/freepbx/queues/install.php:99
+#: /usr/src/freepbx/queues/install.php:193
+#: /usr/src/freepbx/queues/install.php:373
+#: /usr/src/freepbx/queues/install.php:499
+#: /usr/src/freepbx/queues/install.php:514
+#: /usr/src/freepbx/queues/install.php:529
+#: /usr/src/freepbx/queues/install.php:544
+#: /usr/src/freepbx/queues/install.php:559
+#: /usr/src/freepbx/queues/install.php:574
+#: /usr/src/freepbx/queues/install.php:589
+#: /usr/src/freepbx/queues/install.php:604
+#: /usr/src/freepbx/queues/install.php:619
+#: /usr/src/freepbx/queues/install.php:634
+msgid "already exists"
+msgstr "вече съществуват"
+
+#: /usr/src/freepbx/queues/install.php:483
+msgid "already migrated"
+msgstr "вече са преместени"
+
+#: /usr/src/freepbx/queues/install.php:622
+msgid "checking for callback_id field.."
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:547
+msgid "checking for callconfirm field.."
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:562
+msgid "checking for callconfirm_id field.."
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:592
+msgid "checking for monitor_heard field.."
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:607
+msgid "checking for monitor_spoken field.."
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:577
+msgid "checking for monitor_type field.."
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:532
+msgid "checking for qnoanswer field.."
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:361
+msgid "checking for qregex field.."
+msgstr "проверка за qregex поле .."
+
+#: /usr/src/freepbx/queues/install.php:487
+msgid "checking for queuewait field.."
+msgstr "проверка за queuewait поле .."
+
+#: /usr/src/freepbx/queues/install.php:517
+msgid "checking for togglehint field.."
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:502
+msgid "checking for use_queue_context field.."
+msgstr ""
+
+#: /usr/src/freepbx/queues/functions.inc.php:31
+msgid "day"
+msgstr "ден"
+
+#: /usr/src/freepbx/queues/page.queues.php:557
+msgid "default"
+msgstr "по-подразбиране"
+
+#: /usr/src/freepbx/queues/page.queues.php:188
+msgid "deleted"
+msgstr "изтрита"
+
+#: /usr/src/freepbx/queues/install.php:464
+msgid "dropping agentannounce field.."
+msgstr "премахване на поле agentannounce.."
+
+#: /usr/src/freepbx/queues/install.php:474
+msgid "dropping joinannounce field.."
+msgstr "премахване на поле joinannounce.."
+
+#: /usr/src/freepbx/queues/install.php:393
+#: /usr/src/freepbx/queues/install.php:402
+#: /usr/src/freepbx/queues/install.php:414
+#: /usr/src/freepbx/queues/install.php:430
+#: /usr/src/freepbx/queues/install.php:440
+#: /usr/src/freepbx/queues/install.php:456
+msgid "fatal error"
+msgstr "фатална грешка"
+
+#: /usr/src/freepbx/queues/page.queues.php:467
+msgid "fewestcalls"
+msgstr "малко разговори"
+
+#: /usr/src/freepbx/queues/page.queues.php:615
+msgid "gsm"
+msgstr "gsm"
+
+#: /usr/src/freepbx/queues/functions.inc.php:32
+msgid "hour"
+msgstr "час"
+
+#: /usr/src/freepbx/queues/functions.inc.php:32
+msgid "hours"
+msgstr "часа"
+
+#: /usr/src/freepbx/queues/page.queues.php:555
+msgid "inherit"
+msgstr "наследи"
+
+#: /usr/src/freepbx/queues/page.queues.php:137
+msgid "is not allowed for your account."
+msgstr "не е разрешена за вашия акаунт."
+
+#: /usr/src/freepbx/queues/page.queues.php:466
+msgid "leastrecent"
+msgstr "последно търсен"
+
+#: /usr/src/freepbx/queues/page.queues.php:474
+msgid "linear"
+msgstr ""
+
+#: /usr/src/freepbx/queues/install.php:410
+msgid "migrate agentannounce to ids.."
+msgstr "преместване към id на agentannounce.."
+
+#: /usr/src/freepbx/queues/install.php:436
+msgid "migrate joinannounce to ids.."
+msgstr "преместване към joinannounce.."
+
+#: /usr/src/freepbx/queues/install.php:434
+#: /usr/src/freepbx/queues/install.php:460
+#, php-format
+msgid "migrated %s entries"
+msgstr "преместени %s въвеждания"
+
+#: /usr/src/freepbx/queues/install.php:388
+msgid "migrating"
+msgstr "преместване"
+
+#: /usr/src/freepbx/queues/functions.inc.php:33
+msgid "minute"
+msgstr "минута"
+
+#: /usr/src/freepbx/queues/functions.inc.php:33
+msgid "minutes"
+msgstr "минути"
+
+#: /usr/src/freepbx/queues/install.php:470
+msgid "no agentannounce field???"
+msgstr "няма agentannounce поле???"
+
+#: /usr/src/freepbx/queues/install.php:478
+msgid "no joinannounce field???"
+msgstr "няма joinannounce поле???"
+
+#: /usr/src/freepbx/queues/page.queues.php:556
+msgid "none"
+msgstr "няма"
+
+#: /usr/src/freepbx/queues/install.php:396
+#: /usr/src/freepbx/queues/install.php:405
+#: /usr/src/freepbx/queues/install.php:472
+#: /usr/src/freepbx/queues/install.php:480
+msgid "ok"
+msgstr "ok"
+
+#: /usr/src/freepbx/queues/page.queues.php:468
+msgid "random"
+msgstr "случаен"
+
+#: /usr/src/freepbx/queues/page.queues.php:475
 msgid ""
-"Earlier versions of this module allowed such queues to be chosen, once "
-"changing this setting, it will no longer appear as an option"
+"random using the member's penalty as a weighting factor, see asterisk "
+"documentation for specifics"
 msgstr ""
-"Предишните версии на този модул позволяваха да се избере такава опашка, "
-"веднъж променени тези настройки повече няма да се предлагат като опция"
 
-msgid "Repeat Frequency:"
-msgstr "Цикъл на Повтаряне:"
+#: /usr/src/freepbx/queues/install.php:348
+msgid "removing queues data extensions table.."
+msgstr "премахване на таблица на опашки с данни за вътрешни линии.."
 
+#: /usr/src/freepbx/queues/page.queues.php:466
+msgid "ring agent which was least recently called by this queue"
+msgstr "Звъни на агент последно търсен в опашката"
+
+#: /usr/src/freepbx/queues/page.queues.php:458
+msgid "ring all available agents until one answers (default)"
+msgstr "Звъни на всички достъпни агенти докато отговорят (по-подразбиране)"
+
+#: /usr/src/freepbx/queues/page.queues.php:468
+msgid "ring random agent"
+msgstr "Звъни на случаен агент"
+
+#: /usr/src/freepbx/queues/page.queues.php:467
+msgid "ring the agent with fewest completed calls from this queue"
+msgstr "Звъни на агент с най-малко приключени разговори в опашката"
+
+#: /usr/src/freepbx/queues/page.queues.php:458
+msgid "ringall"
+msgstr "звъни на всички"
+
+#: /usr/src/freepbx/queues/page.queues.php:474
 msgid ""
-"How often to announce a voice menu to the caller (0 to Disable "
-"Announcements)."
-msgstr ""
-"Колко често да възпроизвежда гласово меню на обаждащия се (0 за Забрана на "
-"Гласово Меню)."
-
-msgid "Events, Stats and Advanced"
+"rings agents in the order specified, for dynamic agents in the order they "
+"logged in"
 msgstr ""
 
-msgid "Event When Called:"
-msgstr "Резултат oт Обаждане:"
+#: /usr/src/freepbx/queues/page.queues.php:469
+msgid "round robin with memory, remember where we left off last ring pass"
+msgstr "Запомня къде сме доставили последното звънене"
 
+#: /usr/src/freepbx/queues/page.queues.php:462
+msgid "roundrobin"
+msgstr "цикъл"
+
+#: /usr/src/freepbx/queues/page.queues.php:469
+msgid "rrmemory"
+msgstr "цикъл с памет"
+
+#: /usr/src/freepbx/queues/page.queues.php:470
+msgid "rrordered"
+msgstr ""
+
+#: /usr/src/freepbx/queues/page.queues.php:470
 msgid ""
-"When this option is set to YES, the following manager events will be "
-"generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
-msgstr ""
-"Установете на 'Да' ако желаете да се генерират следните резултати: "
-"AgentCalled, AgentDump, AgentConnect и AgentComplete."
-
-msgid "Member Status Event:"
+"same as rrmemory, except the queue member order from config file is preserved"
 msgstr ""
 
-msgid ""
-"When set to YES, the following manager event will be generated: "
-"QueueMemberStatus"
+#: /usr/src/freepbx/queues/functions.inc.php:34
+msgid "second"
+msgstr "секунда"
+
+#: /usr/src/freepbx/queues/functions.inc.php:17
+#: /usr/src/freepbx/queues/functions.inc.php:34
+#: /usr/src/freepbx/queues/page.queues.php:693
+#: /usr/src/freepbx/queues/page.queues.php:696
+#: /usr/src/freepbx/queues/page.queues.php:765
+#: /usr/src/freepbx/queues/page.queues.php:779
+#: /usr/src/freepbx/queues/page.queues.php:796
+msgid "seconds"
+msgstr "секунди"
+
+#: /usr/src/freepbx/queues/page.queues.php:462
+msgid "take turns ringing each available agent"
+msgstr "Върти звъненето по всички достъпни агенти"
+
+#: /usr/src/freepbx/queues/page.queues.php:614
+msgid "wav"
+msgstr "wav"
+
+#: /usr/src/freepbx/queues/page.queues.php:613
+msgid "wav49"
+msgstr "wav49"
+
+#: /usr/src/freepbx/queues/page.queues.php:475
+msgid "wrandom"
 msgstr ""
 
-msgid "Service Level:"
-msgstr ""
+#~ msgid "Ringing Instead of MoH:"
+#~ msgstr "Звънене вместо MoH:"
 
-msgid ""
-"Used for service level statistics (calls answered within service level time "
-"frame)"
-msgstr ""
+#~ msgid ""
+#~ "ERROR: You have selected an IVR's that use Announcements created from "
+#~ "compound sound files. The Queue is not able to play these announcements. "
+#~ "This IVR's recording will be truncated to use only the first sound file. "
+#~ "You can correct the problem by selecting a different announcement for "
+#~ "this IVR that is not from a compound sound file. The IVR itself can play "
+#~ "such files, but the Queue subsystem can not"
+#~ msgstr ""
+#~ "ГРЕШКА: Избрали сте  IVR който използва Съобщения направени от съединени "
+#~ "звукови файлове. Опашката не може да възпроизвежда такива файлове. Този "
+#~ "IVR запис ще бъде съкратен да използва само първия звуков файл. Можете да "
+#~ "оправите проблема като изберете друго съобщение за този IVR, което не е "
+#~ "от съединени файлове. IVR може да възпроизвежда такива файлове, но не и "
+#~ "опашките"
 
-msgid "Agent Regex Filter"
-msgstr "Филтриране на Агенти"
+#~ msgid "Event When Called:"
+#~ msgstr "Резултат oт Обаждане:"
 
-msgid ""
-"Provides an optional regex expression that will be applied against the agent "
-"callback number. If the callback number does not pass the regex filter then "
-"it will be treated as invalid. This can be used to restrict agents to "
-"extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^([2-"
-"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
-"key.<br />WARNING: make sure you understand what you are doing or otherwise "
-"leave this blank!"
-msgstr ""
-"Предоставя допълнителен филтър, който ще бъде приложен срещу номера за "
-"обратно обаждане на агента. Ако номера за обратно обаждане не премине през "
-"филтъра, тогава ще се третира като неправилен. Може да се използва за "
-"ограничава агентите на вътрешни линии без отдел, не позволява обратните "
-"обаждания да включват * или всякаква друга възможност, която би била "
-"подходяща. Пример за въвеждане:<br />^([2-4][0-9]{3})$<br />Това ще ограничи "
-"агентите от вътрешни линии 2000-4999. Или <br />^([0-9]+)$ ще позволи всеки "
-"номер с всякаква дължина, но ще забрани * бутона.<br />ВНИМАНИЕ: Убедете се "
-"че знаете какво правите или оставете празно!"
-
-msgid "Fail Over Destination"
-msgstr "Направление При Проваляне"
-
-msgid "Submit Changes"
-msgstr "Приеми Промените"
-
-msgid ""
-"Using a Regex filter is fairly advanced, please confirm you know what you "
-"are doing or leave this blank"
-msgstr ""
-"Използването на Филтър по Израз е за напреднали, моля потвърдете че знаете "
-"какво правите или оставете празно"
-
-msgid "Queue Number must not be blank"
-msgstr "Неправилен Номер на Опашка, полето не може да е празно"
-
-msgid ""
-"Queue name must not be blank and must contain only alpha-numeric characters"
-msgstr ""
-"Името на Опашка не може да е празно и трябва да съдържа само буквено-цифрени "
-"символи"
-
-msgid "Queues"
-msgstr "Опашки"
-
-msgid "Applications"
-msgstr ""
-
-msgid ""
-"Creates a queue where calls are placed on hold and answered on a first-in, "
-"first-out basis. Many options are available, including ring strategy for "
-"agents, caller announcements, max wait times, etc."
-msgstr ""
-
-msgid "Persistent Members"
-msgstr ""
-
-msgid "Queues Module"
-msgstr ""
-
-msgid ""
-"Queues: persistentmembers. Store each dynamic member in each queue in the "
-"astdb so that when asterisk is restarted, each member will be automatically "
-"read into their recorded queues."
-msgstr ""
-
-msgid "Honor Wrapup Time Across Queues"
-msgstr ""
-
-msgid ""
-"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
-"lastcall and calls received be the same in members logged in more than one "
-"queue. This is useful to make the queue respect the wrapuptime of another "
-"queue for a shared member."
-msgstr ""
-
-msgid "Set Agent Name in CDR dstchannel"
-msgstr ""
-
-msgid ""
-"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
-"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
-"with an agent name, which is set if available at the login time with "
-"AddQueueMember membername parameter, or with static members."
-msgstr ""
-
-msgid "Use MixMonitor for Recordings"
-msgstr ""
-
-msgid ""
-"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-"application instead of Monitor so the concept of 'joining/mixing' the in/out "
-"files now goes away when this is enabled."
-msgstr ""
-
-msgid "Hide Queue No Answer Option"
-msgstr ""
-
-msgid ""
-"It is possible for a queue to NOT Answer a call and still enter callers to "
-"the queue. The normal behavior is that all  allers are answered before "
-"entering the queue. If the call is not answered, it is possible that some "
-"early media delivery would still allow callers to hear recordings, MoH, etc. "
-"but this can be inconsistent and vary. Because of the volatility of this "
-"option, it is not displayed by default. If a queue is set to not answer, the "
-"setting will be displayed for that queue regardless of this setting."
-msgstr ""
-
-msgid "Asterisk Queues Patch 15168 Installed"
-msgstr ""
-
-msgid ""
-"Setting this flag will generate the required dialplan to integrate with the "
-"following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</"
-"b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state "
-"is now standard and always used. This asterisk patch is only available on "
-"Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some "
-"queue behavior and should be avoided"
-msgstr ""
+#~ msgid "Queues"
+#~ msgstr "Опашки"
 
 #~ msgid ""
 #~ "You can optionally prefix the Caller ID name of callers to the queue. ie: "
