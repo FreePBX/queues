@@ -38,15 +38,16 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-11 18:08-0500\n"
-"PO-Revision-Date: 2014-02-21 01:32+0200\n"
-"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
-"Language-Team: Japanese <http://192.168.30.85/projects/freepbx/queues/ja/>\n"
+"PO-Revision-Date: 2015-02-19 09:37+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese "
+"<http://weblate.freepbx.org/projects/freepbx/queues/ja_JP/>\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: /usr/src/freepbx/queues/page.queues.php:1130
 msgid "(**) ERRORS"
@@ -912,7 +913,7 @@ msgstr "テーブルが見つかりません、移行は行わずテーブルの
 
 #: /usr/src/freepbx/queues/views/cron.php:5
 msgid "Never"
-msgstr "決して無い"
+msgstr "ブロック"
 
 #: /usr/src/freepbx/queues/page.queues.php:972
 msgid ""
