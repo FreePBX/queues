@@ -37,54 +37,51 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-11 18:08-0500\n"
+"POT-Creation-Date: 2015-02-20 19:52-0500\n"
 "PO-Revision-Date: 2015-02-19 09:37+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese "
-"<http://weblate.freepbx.org/projects/freepbx/queues/ja_JP/>\n"
-"Language: ja_JP\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
+"ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: /usr/src/freepbx/queues/page.queues.php:1130
+#: page.queues.php:1130
 msgid "(**) ERRORS"
 msgstr "(**) エラー"
 
-#: /usr/src/freepbx/queues/page.queues.php:1130
+#: page.queues.php:1130
 msgid "(**) Warning Potential Errors"
 msgstr "(**) 警告 潜在的なエラー"
 
-#: /usr/src/freepbx/queues/page.queues.php:393
-#: /usr/src/freepbx/queues/page.queues.php:421
+#: page.queues.php:393 page.queues.php:421
 msgid "(pick extension)"
 msgstr "内線をピックアップ"
 
-#: /usr/src/freepbx/queues/page.queues.php:372
+#: page.queues.php:372
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr "ALERT_INFOは、SIPデバイスと着信音に使用することができます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:177
-#: /usr/src/freepbx/queues/page.queues.php:247
-#: /usr/src/freepbx/queues/page.queues.php:264
+#: page.queues.php:177 page.queues.php:247 page.queues.php:264
 msgid "Add Queue"
 msgstr "キューを追加"
 
-#: /usr/src/freepbx/queues/page.queues.php:635
+#: page.queues.php:635
 msgid "Adjust the recording volume of the caller."
 msgstr "発信者側の録音音量を調節。"
 
-#: /usr/src/freepbx/queues/page.queues.php:652
+#: page.queues.php:652
 msgid "Adjust the recording volume of the queue member (Agent)."
 msgstr "キューメンバー(エージェント)の録音音量を調節。"
 
-#: /usr/src/freepbx/queues/page.queues.php:628
+#: page.queues.php:628
 msgid "After Answered"
 msgstr "応答後"
 
-#: /usr/src/freepbx/queues/page.queues.php:773
+#: page.queues.php:773
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay) If using "
@@ -98,64 +95,67 @@ msgstr ""
 "重されるように、'高度な設定ページでキューをまたいでまとめた時間を尊重する'を"
 "設定することもできます。"
 
-#: /usr/src/freepbx/queues/functions.inc.php:65
+#: functions.inc.php:65
 msgid "Agent Announce Msg"
 msgstr "エージェントアナウンスメッセージ"
 
-#: /usr/src/freepbx/queues/page.queues.php:805
-#: /usr/src/freepbx/queues/page.queues.php:824
+#: page.queues.php:805 page.queues.php:824
 msgid "Agent Announcement:"
 msgstr "エージェントアナウンス："
 
-#: /usr/src/freepbx/queues/page.queues.php:1277
+#: queues.i18n.php:26
+msgid "Agent Called Events Default"
+msgstr "標準エージェント・イベントコール"
+
+#: page.queues.php:1277
 msgid "Agent Regex Filter"
 msgstr "エージェント正規表現フィルター"
 
-#: /usr/src/freepbx/queues/page.queues.php:439
+#: page.queues.php:439
 msgid "Agent Restrictions"
 msgstr "エージェントを制限"
 
-#: /usr/src/freepbx/queues/page.queues.php:565
+#: page.queues.php:565
 msgid "Agent Ringing"
 msgstr "エージェントをリング時"
 
-#: /usr/src/freepbx/queues/page.queues.php:745
+#: page.queues.php:745
 msgid "Agent Timeout Restart:"
 msgstr "エージェントタイムアウト再開："
 
-#: /usr/src/freepbx/queues/page.queues.php:730
+#: page.queues.php:730
 msgid "Agent Timeout:"
 msgstr "エージェントタイムアウト："
 
-#: /usr/src/freepbx/queues/page.queues.php:652
+#: page.queues.php:652
 msgid "Agent Volume Adjustment:"
 msgstr "エージェント音量調節："
 
-#: /usr/src/freepbx/queues/page.queues.php:372
+#: page.queues.php:372
 msgid "Alert Info"
 msgstr "アラートインフォ"
 
-#: /usr/src/freepbx/queues/page.queues.php:589
+#: page.queues.php:589
 msgid "Always"
 msgstr "常に"
 
-#: /usr/src/freepbx/queues/page.queues.php:925
+#: page.queues.php:925
 msgid "Always allows the caller to join the Queue."
 msgstr "発信者がキューに参加するのを常に許可。"
 
-#: /usr/src/freepbx/queues/page.queues.php:1050
+#: page.queues.php:1050
 msgid "Announce Hold Time:"
 msgstr "待ち時間アナウンス："
 
-#: /usr/src/freepbx/queues/page.queues.php:1037
+#: page.queues.php:1037
 msgid "Announce Position:"
 msgstr "待ち順アナウンス："
 
-#: /usr/src/freepbx/queues/page.queues.php:1037
+#: page.queues.php:1037
 msgid "Announce position of caller in the queue?"
 msgstr "発信者の通話待ちの順番をアナウンスしますか？"
 
-#: /usr/src/freepbx/queues/page.queues.php:339
+#: page.queues.php:339
 msgid ""
 "Announcement played to anyone using an external follow-me to receive the "
 "queue call.<br><br>You must install and enable the \"Systems Recordings\" "
@@ -165,7 +165,7 @@ msgstr ""
 "メッセージです。<br><br>このオプションを編集するには、\"システム録音\"モ"
 "ジュールをインストールし有効にしなければなりません"
 
-#: /usr/src/freepbx/queues/page.queues.php:597
+#: page.queues.php:597
 msgid ""
 "Announcement played to callers once prior to joining the queue.<br><br>You "
 "must install and enable the \"Systems Recordings\" Module to edit this option"
@@ -174,7 +174,7 @@ msgstr ""
 "ションを編集するには\"システム録音\"モジュールをインストールし有効にする必要"
 "があります"
 
-#: /usr/src/freepbx/queues/page.queues.php:574
+#: page.queues.php:574
 msgid ""
 "Announcement played to callers prior to joining the queue. This can be "
 "skipped if there are agents ready to answer a call (meaning they still may "
@@ -186,7 +186,7 @@ msgstr ""
 "トを含む）がいる場合は、スキップすることができます。アナウンスを追加する場合"
 "は、\"システム音声\"メニューを使用してください。"
 
-#: /usr/src/freepbx/queues/page.queues.php:805
+#: page.queues.php:805
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -201,7 +201,7 @@ msgstr ""
 "ください。2つ以上の音声ファイルから構成された合成録音は、この機能ではそのよう"
 "な録音を受け付けられないため、オプションとして表示されません。"
 
-#: /usr/src/freepbx/queues/page.queues.php:824
+#: page.queues.php:824
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -212,7 +212,7 @@ msgstr ""
 "問合せ\" や \"テクニカルサポートに関するお問合せ\"。<br><br>このオプションは"
 "\"システム録音\"モジュールをインストールし有効にしてください"
 
-#: /usr/src/freepbx/queues/page.queues.php:321
+#: page.queues.php:321
 msgid ""
 "Announcement played to the Queue Memeber announcing the Queue call and "
 "requesting confirmation prior to answering. If set to default, the standard "
@@ -229,15 +229,19 @@ msgstr ""
 "定されたメッセージを上書きします。..<br><br>録音を追加する場合は\"システム録"
 "音\"メニューを使用してください。"
 
-#: /usr/src/freepbx/queues/views/cron.php:10
+#: views/cron.php:10
 msgid "Annually"
 msgstr "毎年"
 
-#: /usr/src/freepbx/queues/views/cron.php:108
+#: queues.i18n.php:4
+msgid "Applications"
+msgstr "アプリケーション"
+
+#: views/cron.php:108
 msgid "April"
 msgstr "4月"
 
-#: /usr/src/freepbx/queues/page.queues.php:715
+#: page.queues.php:715
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
 "caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
@@ -254,7 +258,7 @@ msgstr ""
 "キューメンバーによって拒否されます。これは、'最大待ち時間'は '最大待ち時間' "
 "+ 'エージェントタイムアウト'の合計の長さになる可能性があることを意味します。"
 
-#: /usr/src/freepbx/queues/page.queues.php:1003
+#: page.queues.php:1003
 msgid ""
 "Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
 "settings, allowing all members to be tried, when the queue has too few "
@@ -266,15 +270,15 @@ msgstr ""
 "うになります。X人やそれ以下のキューメンバーしかいない時に、ペナルティのウェイ"
 "トが計算されなくなります。"
 
-#: /usr/src/freepbx/queues/views/cron.php:112
+#: views/cron.php:112
 msgid "August"
 msgstr "8月"
 
-#: /usr/src/freepbx/queues/page.queues.php:899
+#: page.queues.php:899
 msgid "Auto Pause Delay:"
 msgstr "オートポーズディレイ："
 
-#: /usr/src/freepbx/queues/page.queues.php:850
+#: page.queues.php:850
 msgid ""
 "Auto Pause an agent in this queue (or all queues they are a member of) if "
 "they don't answer a call. Specific behavior can be modified by the Auto "
@@ -286,67 +290,67 @@ msgstr ""
 "バージョンによって、具体的な動作は「オートポーズディレイ」、又は「利用不可能"
 "時にオートポーズ」などの設定で変更できます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:867
+#: page.queues.php:867
 msgid "Auto Pause on Busy:"
 msgstr "オートポーズビジー："
 
-#: /usr/src/freepbx/queues/page.queues.php:882
+#: page.queues.php:882
 msgid "Auto Pause on Unavailable:"
 msgstr "利用不可能時にオートポーズ："
 
-#: /usr/src/freepbx/queues/page.queues.php:850
+#: page.queues.php:850
 msgid "Auto Pause:"
 msgstr "オートポーズ："
 
-#: /usr/src/freepbx/queues/page.queues.php:502
+#: page.queues.php:502
 msgid "Autofill:"
 msgstr "Autofill："
 
-#: /usr/src/freepbx/queues/functions.inc/geters_seters.php:37
+#: functions.inc/geters_seters.php:37
 msgid "Bad Queue Number, can not be blank"
 msgstr "不正なキュー番号、空白は許可されません"
 
-#: /usr/src/freepbx/queues/page.queues.php:1073
+#: page.queues.php:1073
 msgid "Break Out Type"
 msgstr ""
 
-#: /usr/src/freepbx/queues/page.queues.php:352
+#: page.queues.php:352
 msgid "CID Name Prefix:"
 msgstr "発信者ID名プリフィックス："
 
-#: /usr/src/freepbx/queues/page.queues.php:321
+#: page.queues.php:321
 msgid "Call Confirm Announce:"
 msgstr "コール確認アナウンス："
 
-#: /usr/src/freepbx/queues/page.queues.php:339
+#: page.queues.php:339
 msgid "Call Confirm Announcement:"
 msgstr "コール確認のアナウンス："
 
-#: /usr/src/freepbx/queues/page.queues.php:313
+#: page.queues.php:313
 msgid "Call Confirm:"
 msgstr "コール確認："
 
-#: /usr/src/freepbx/queues/page.queues.php:608
+#: page.queues.php:608
 msgid "Call Recording:"
 msgstr "通話録音："
 
-#: /usr/src/freepbx/queues/page.queues.php:444
+#: page.queues.php:444
 msgid "Call as Dialed"
 msgstr "ダイヤルされたかのように呼び出す"
 
-#: /usr/src/freepbx/queues/page.queues.php:1152
+#: page.queues.php:1152
 msgid "Callback to use when caller presses 1."
 msgstr ""
 
-#: /usr/src/freepbx/queues/page.queues.php:1020
+#: page.queues.php:1020
 msgid "Caller Position Announcements"
 msgstr "発信者の待ち順アナウンス"
 
-#: /usr/src/freepbx/queues/page.queues.php:635
+#: page.queues.php:635
 msgid "Caller Volume Adjustment:"
 msgstr "発信者音量調節："
 
-#: /usr/src/freepbx/queues/page.queues.php:964
+#: page.queues.php:964
 msgid ""
 "Callers will exit if all agents are paused, show an invalid state for their "
 "device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
@@ -356,7 +360,7 @@ msgstr ""
 "場合や、QUEUE_MAX_PENALTY(現在FreePBXダイヤルプランに設定されていません) の値"
 "より小さいペナルティ値を持っている場合に発信者が退出します。"
 
-#: /usr/src/freepbx/queues/page.queues.php:930
+#: page.queues.php:930
 msgid ""
 "Callers will not be admitted if all agents are paused, show an invalid state "
 "for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
@@ -366,29 +370,29 @@ msgstr ""
 "る場合または、 QUEUE_MAX_PENALTY の値よりも少ないペナルティ値をもつ場合に発信"
 "者は入ることが許可されません。"
 
-#: /usr/src/freepbx/queues/page.queues.php:905
+#: page.queues.php:905
 msgid "Capacity Options"
 msgstr "キャパシティーオプション"
 
-#: /usr/src/freepbx/queues/install.php:68
+#: install.php:68
 msgid "Checking for legacy queues table.."
 msgstr "レガシーのqueuesテーブルをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:382
+#: install.php:382
 msgid "Checking if recordings need migration.."
 msgstr "録音の移行が必要かチェック中.."
 
-#: /usr/src/freepbx/queues/page.queues.php:415
+#: page.queues.php:415
 msgid ""
 "Choose an extension to append to the end of the dynamic member list above."
 msgstr "上記の動的エージェントリストの最後に追加する内線を選択してください。"
 
-#: /usr/src/freepbx/queues/page.queues.php:387
+#: page.queues.php:387
 msgid ""
 "Choose an extension to append to the end of the static agents list above."
 msgstr "上記の静的エージェントリストの最後に追加する内線を選択してください。"
 
-#: /usr/src/freepbx/queues/page.queues.php:623
+#: page.queues.php:623
 msgid ""
 "Choose to 'Include Hold Time' in the recording so it starts as soon as they "
 "enter the queue, or to defer recording until 'After Answered' and the call "
@@ -398,51 +402,79 @@ msgstr ""
 "か、'応答後'とコールがキューメンバーとつないでいる間に録音を遅らせてくださ"
 "い。"
 
-#: /usr/src/freepbx/queues/functions.inc/queue_conf.php:235
+#: functions.inc/queue_conf.php:235
 msgid "Compound Recordings in Queues Detected"
 msgstr "キューに合成録音を検知しました"
 
-#: /usr/src/freepbx/queues/page.queues.php:240
+#: page.queues.php:240
 msgid "Conflicting Extensions"
 msgstr "内線の競合"
 
-#: /usr/src/freepbx/queues/install.php:188
+#: queues.i18n.php:5
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
+"コールが保留中に置かれ、先入れ先出しに基づいて応答されるキューを作成します。"
+"エージェントへのリングストラテジー、発信者アナウンス、最大待ち時間等を含む多"
+"くのオプションを利用できます。"
+
+#: install.php:188
 msgid "Creating queues_config.."
 msgstr "queues_configを作成中.."
 
-#: /usr/src/freepbx/queues/install.php:94
+#: install.php:94
 msgid "Creating queues_details.."
 msgstr "queues_detailsを作成中.."
 
-#: /usr/src/freepbx/queues/views/cron.php:12
+#: views/cron.php:12
 msgid "Custom"
 msgstr "カスタム"
 
-#: /usr/src/freepbx/queues/views/cron.php:7
+#: views/cron.php:7
 msgid "Daily"
 msgstr "毎日"
 
-#: /usr/src/freepbx/queues/views/cron.php:132
+#: views/cron.php:132
 msgid "Day of Month"
 msgstr "日付"
 
-#: /usr/src/freepbx/queues/views/cron.php:77
+#: views/cron.php:77
 msgid "Day of Week"
 msgstr "曜日"
 
-#: /usr/src/freepbx/queues/views/cron.php:116
+#: views/cron.php:116
 msgid "December"
 msgstr "12月"
 
-#: /usr/src/freepbx/queues/page.queues.php:327
+#: page.queues.php:327
 msgid "Default"
 msgstr "デフォルト"
 
-#: /usr/src/freepbx/queues/page.queues.php:235
+#: queues.i18n.php:28
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr ""
+"エージェントの呼に関連するAMI emit eventのデフォルト。この設定は、新規キュー"
+"のデフォルトのみを変更し、既存のキューの設定は変更しません。"
+
+#: queues.i18n.php:36
+msgid ""
+"Default state for AMI to emit the QueueMemberStatus event. This setting will "
+"only affect the default for NEW queues, it won't change existing queues or "
+"enfore the option on in new ones."
+msgstr ""
+"AMIがQueueMemberStatusイベントを発行する際のデフォルトのステータス。この設定"
+"は、新規キューのデフォルトのみを変更し、既存のキューの設定は変更しません。"
+
+#: page.queues.php:235
 msgid "Delete Queue"
 msgstr "キューを削除"
 
-#: /usr/src/freepbx/queues/page.queues.php:962
+#: page.queues.php:962
 msgid ""
 "Determines if callers should be exited prematurely from the queue in "
 "situations where it appears no one is currently available to take the call. "
@@ -451,7 +483,7 @@ msgstr ""
 "コールにでられるひとが現在だれもいないような状況で、発信者がキューから途中退"
 "出されるべきかどうかを判断します。オプションは次のとおりです:"
 
-#: /usr/src/freepbx/queues/page.queues.php:923
+#: page.queues.php:923
 msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
 "failover destination will be immediately pursued. The options include:"
@@ -460,20 +492,19 @@ msgstr ""
 "なかった場合は続いてフェイルオーバー宛先に移動します。オプションは次を含みま"
 "す:"
 
-#: /usr/src/freepbx/queues/page.queues.php:1201
-#: /usr/src/freepbx/queues/page.queues.php:1238
+#: page.queues.php:1201 page.queues.php:1238
 msgid "Disabled"
 msgstr "無効"
 
-#: /usr/src/freepbx/queues/install.php:339
+#: install.php:339
 msgid "Dropping old queues table.."
 msgstr "古い queues テーブルをドロップ中.."
 
-#: /usr/src/freepbx/queues/page.queues.php:405
+#: page.queues.php:405
 msgid "Dynamic Members"
 msgstr "ダイナミックメンバー"
 
-#: /usr/src/freepbx/queues/page.queues.php:405
+#: page.queues.php:405
 msgid ""
 "Dynamic Members are extensions or callback numbers that can log in and out "
 "of the queue. When a member logs in to a queue, their penalty in the queue "
@@ -485,11 +516,11 @@ msgstr ""
 "で指定された通りとなります。ここにふくまれた内線は自動的にキューにはログイン"
 "しません。"
 
-#: /usr/src/freepbx/queues/install.php:328
+#: install.php:328
 msgid "ERROR were encountered"
 msgstr "エラーに遭遇しました"
 
-#: /usr/src/freepbx/queues/page.queues.php:1134
+#: page.queues.php:1134
 msgid ""
 "ERROR: You have selected an IVR that uses Announcements created from "
 "compound sound files. The Queue is not able to play these announcements. "
@@ -499,34 +530,33 @@ msgid ""
 "but the Queue subsystem can not"
 msgstr ""
 
-#: /usr/src/freepbx/queues/install.php:207
+#: install.php:207
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
 "エラー: context情報を取得するためにqueues テーブルへアクセス、中止します"
 
-#: /usr/src/freepbx/queues/install.php:232
+#: install.php:232
 msgid "ERROR: accessing queues table obtaining id list, aborting"
 msgstr "エラー: idリストを取得するためにqueuesテーブルへアクセス、中止します"
 
-#: /usr/src/freepbx/queues/install.php:214
+#: install.php:214
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr "エラー: rtone情報を取得するためにqueuesテーブルへアクセス、中止します"
 
-#: /usr/src/freepbx/queues/install.php:101
-#: /usr/src/freepbx/queues/install.php:195
+#: install.php:101 install.php:195
 msgid "ERROR: could not create table"
 msgstr "エラー: テーブルの作成ができませんでした"
 
-#: /usr/src/freepbx/queues/install.php:119
+#: install.php:119
 msgid "ERROR: could not migrate to queues_details"
 msgstr "エラー: queues_detailsに移行できませんでした"
 
-#: /usr/src/freepbx/queues/install.php:320
+#: install.php:320
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
 msgstr "エラー:行 %s へデータのインサート中: %s.."
 
-#: /usr/src/freepbx/queues/page.queues.php:1134
+#: page.queues.php:1134
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
@@ -534,16 +564,15 @@ msgstr ""
 "モジュールの以前のバージョンはキューが選択を許可していました。この設定を一度"
 "変更すると、オプションとして表示されません"
 
-#: /usr/src/freepbx/queues/page.queues.php:264
+#: page.queues.php:264
 msgid "Edit Queue"
 msgstr "キューを編集"
 
-#: /usr/src/freepbx/queues/page.queues.php:1192
-#: /usr/src/freepbx/queues/page.queues.php:1229
+#: page.queues.php:1192 page.queues.php:1229
 msgid "Enabled"
 msgstr "有効"
 
-#: /usr/src/freepbx/queues/page.queues.php:672
+#: page.queues.php:672
 msgid ""
 "Enabling this option, all calls are marked as 'answered elsewhere' when "
 "cancelled. The effect is that missed queue calls are *not* shown on the "
@@ -553,56 +582,59 @@ msgstr ""
 "てマークされます。また受電されなかった呼は電話機に表示されません（電話機がサ"
 "ポートしている場合）"
 
-#: /usr/src/freepbx/queues/page.queues.php:1189
+#: page.queues.php:1189
 msgid "Event When Called"
 msgstr "着信時イベント"
 
-#: /usr/src/freepbx/queues/page.queues.php:1186
+#: page.queues.php:1186
 msgid "Events, Stats and Advanced"
 msgstr "イベント、ステータスの高度な設定"
 
-#: /usr/src/freepbx/queues/functions.inc/hook_core.php:59
+#: functions.inc/hook_core.php:59
 msgid "Extension Options"
 msgstr "内線オプション"
 
-#: /usr/src/freepbx/queues/page.queues.php:385
-#: /usr/src/freepbx/queues/page.queues.php:413
+#: page.queues.php:385 page.queues.php:413
 msgid "Extension Quick Pick"
 msgstr "内線クイックピックアップ"
 
-#: /usr/src/freepbx/queues/page.queues.php:446
+#: page.queues.php:446
 msgid "Extensions Only"
 msgstr "内線のみ"
 
-#: /usr/src/freepbx/queues/page.queues.php:1286
+#: page.queues.php:1286
 msgid "Fail Over Destination"
 msgstr "キューオーバー時の宛先"
 
-#: /usr/src/freepbx/queues/views/cron.php:106
+#: views/cron.php:106
 msgid "February"
 msgstr "2月"
 
-#: /usr/src/freepbx/queues/page.queues.php:1023
+#: page.queues.php:1023
 msgid "Frequency:"
 msgstr "頻度："
 
-#: /usr/src/freepbx/queues/views/cron.php:85
+#: views/cron.php:85
 msgid "Friday"
 msgstr "金曜日"
 
-#: /usr/src/freepbx/queues/page.queues.php:452
+#: page.queues.php:452
 msgid "General Queue Options"
 msgstr "一般キューオプション"
 
-#: /usr/src/freepbx/queues/page.queues.php:305
+#: page.queues.php:305
 msgid "Generate Device Hints:"
 msgstr "デバイスヒントを生成する："
 
-#: /usr/src/freepbx/queues/page.queues.php:275
+#: queues.i18n.php:30
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "queuenum*/** Login/offのコードを生成する"
+
+#: page.queues.php:275
 msgid "Give this queue a brief name to help you identify it."
 msgstr "このキューを識別するために簡潔な名前を付けます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:528
+#: page.queues.php:528
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
@@ -611,26 +643,34 @@ msgstr ""
 "ているコールが運ばれることを保証するために、キューに'ウェイト'オプションを提"
 "供します。"
 
-#: /usr/src/freepbx/queues/page.queues.php:1008
+#: queues.i18n.php:22
+msgid "Hide Queue No Answer Option"
+msgstr "キューを隠し応答しないオプション"
+
+#: page.queues.php:1008
 msgid "Honor Penalties"
 msgstr "ペナルティを与える"
 
-#: /usr/src/freepbx/queues/views/cron.php:61
+#: queues.i18n.php:14
+msgid "Honor Wrapup Time Across Queues"
+msgstr "キューをまたいでまとめた時間を尊重する"
+
+#: views/cron.php:61
 msgid "Hour"
 msgstr "時"
 
-#: /usr/src/freepbx/queues/views/cron.php:6
+#: views/cron.php:6
 msgid "Hourly"
 msgstr "毎時間"
 
-#: /usr/src/freepbx/queues/page.queues.php:1172
+#: page.queues.php:1172
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
 "発信者に対してどの間隔でボイスメニューをアナウンスするか(アナウンス無効は0)。"
 
-#: /usr/src/freepbx/queues/page.queues.php:1023
+#: page.queues.php:1023
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
@@ -638,24 +678,24 @@ msgstr ""
 "キューの位置や予想待ち時間をどれぐらいの頻度でアナウンスするか(アナウンス無し"
 "は0)。"
 
-#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:98
+#: functions.inc/destination_registry.php:98
 msgid "INUSE"
 msgstr "使用中"
 
-#: /usr/src/freepbx/queues/functions.inc.php:75
+#: functions.inc.php:75
 #, php-format
 msgid "IVR Announce: %s"
 msgstr "IVR アナウンス: %s"
 
-#: /usr/src/freepbx/queues/page.queues.php:1076
+#: page.queues.php:1076
 msgid "IVR Break Out Menu"
 msgstr ""
 
-#: /usr/src/freepbx/queues/page.queues.php:1092
+#: page.queues.php:1092
 msgid "IVR Break Out Menu:"
 msgstr "IVRメニュー呼出し："
 
-#: /usr/src/freepbx/queues/page.queues.php:313
+#: page.queues.php:313
 msgid ""
 "If checked, any queue member that is actually an outside telephone number, "
 "or any extensions Follow-Me or call forwarding that are pursued and leave "
@@ -667,7 +707,7 @@ msgstr ""
 "モードに入り、そこではコールが応答されたり運ばれる前にメンバーはコールを知る"
 "必要があります。"
 
-#: /usr/src/freepbx/queues/page.queues.php:305
+#: page.queues.php:305
 msgid ""
 "If checked, individual hints and dialplan will be generated for each SIP and "
 "IAX2 device that could be part of this queue. These are used in conjunction "
@@ -685,7 +725,7 @@ msgstr ""
 "で、dddはデバイス番号（通常は内線番号と同じです。 ）でQQQはこのキューの番号で"
 "す。"
 
-#: /usr/src/freepbx/queues/page.queues.php:294
+#: page.queues.php:294
 msgid ""
 "If checked, the queue will not answer the call. Under most circumstance you "
 "should always have the queue answering calls. If not, then it's possible "
@@ -703,7 +743,7 @@ msgstr ""
 "シーを使用するときには、コールに応答しないように望まれるかもしれないいくつか"
 "のケースがあります。"
 
-#: /usr/src/freepbx/queues/page.queues.php:357
+#: page.queues.php:357
 msgid ""
 "If the call is subsequently transferred, the wait time will reflect the time "
 "since it first entered the queue or reset if the call is transferred to "
@@ -714,7 +754,7 @@ msgstr ""
 "くはこの機能セットによってコールが他のキューに転送された場合はリセットしま"
 "す。"
 
-#: /usr/src/freepbx/queues/functions.inc/hook_core.php:65
+#: functions.inc/hook_core.php:65
 msgid ""
 "If this extension is part of a Queue then the Queue will attempt to use the "
 "user's extension state or device state information when determining if this "
@@ -739,7 +779,7 @@ msgstr ""
 "に起因してこのルートが選択された場合には、特定の側面に影響を与える可能性があ"
 "ります。たいていの場合では、'状態を使用する'に設定するべきです。"
 
-#: /usr/src/freepbx/queues/page.queues.php:745
+#: page.queues.php:745
 msgid ""
 "If timeoutrestart is set to yes, then the time out for an agent to answer is "
 "reset if a BUSY or CONGESTION is received. This can be useful if agents are "
@@ -749,7 +789,7 @@ msgstr ""
 "エージェントへの応答タイムアウトはリセットされます。これは、エージェントがリ"
 "ジェクト等を使用してコールをキャンセルすることができるときに役立ちます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:790
+#: page.queues.php:790
 msgid ""
 "If you wish to have a delay before the member is connected to the caller (or "
 "before the member hears any announcement messages), set this to the number "
@@ -759,7 +799,7 @@ msgstr ""
 "聞く前)にディレイを持たせたい場合は、これをディレイする秒数に設定してくださ"
 "い。"
 
-#: /usr/src/freepbx/queues/page.queues.php:835
+#: page.queues.php:835
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
 "connected to the caller, set this to yes."
@@ -767,15 +807,15 @@ msgstr ""
 "メンバーが発信者につながる前にメンバーに対して発信者の保留時間をレポートした"
 "い場合はこれを「はい」に設定してください。"
 
-#: /usr/src/freepbx/queues/functions.inc/hook_core.php:37
+#: functions.inc/hook_core.php:37
 msgid "Ignore State"
 msgstr "状態を無視する"
 
-#: /usr/src/freepbx/queues/page.queues.php:627
+#: page.queues.php:627
 msgid "Include Hold Time"
 msgstr "保留時間も含む"
 
-#: /usr/src/freepbx/queues/page.queues.php:608
+#: page.queues.php:608
 msgid ""
 "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
 "monitor)"
@@ -783,109 +823,126 @@ msgstr ""
 "エージェントへの着信呼が録音されます。(/var/spool/asterisk/monitorに保存され"
 "ます)"
 
-#: /usr/src/freepbx/queues/views/cron.php:105
+#: queues.i18n.php:24
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr ""
+"キューに対して、コールに応答しないようにし、さらにまだ発信者をキューに入れた"
+"状態にすることが可能です。通常の動作では、全ての発信者はキューに入る前に応答"
+"されます。コールに応答されない場合、いづれかの早いメディアが発信者に録音や、"
+"保留音等を聞かせるように運ぶことが可能です。しかし、これは一貫性がなく可変で"
+"す。このオプションは不安定なため、デフォルトでは表示されません。キューが応答"
+"しないように設定された場合、この設定にかかわらず、そのキューに対して設定が表"
+"示されます。"
+
+#: views/cron.php:105
 msgid "January"
 msgstr "1月"
 
-#: /usr/src/freepbx/queues/page.queues.php:574
-#: /usr/src/freepbx/queues/page.queues.php:597
+#: page.queues.php:574 page.queues.php:597
 msgid "Join Announcement:"
 msgstr "キュー追加アナウンス："
 
-#: /usr/src/freepbx/queues/page.queues.php:937
+#: page.queues.php:937
 msgid "Join Empty:"
 msgstr "ジョインエンプティー："
 
-#: /usr/src/freepbx/queues/views/cron.php:111
+#: views/cron.php:111
 msgid "July"
 msgstr "7月"
 
-#: /usr/src/freepbx/queues/views/cron.php:110
+#: views/cron.php:110
 msgid "June"
 msgstr "6月"
 
-#: /usr/src/freepbx/queues/page.queues.php:976
+#: page.queues.php:976
 msgid "Leave Empty:"
 msgstr "リーブエンプティー："
 
-#: /usr/src/freepbx/queues/page.queues.php:721
-#: /usr/src/freepbx/queues/page.queues.php:932
-#: /usr/src/freepbx/queues/page.queues.php:950
-#: /usr/src/freepbx/queues/page.queues.php:970
-#: /usr/src/freepbx/queues/page.queues.php:988
+#: page.queues.php:721 page.queues.php:932 page.queues.php:950
+#: page.queues.php:970 page.queues.php:988
 msgid "Loose"
 msgstr "ルーズ"
 
-#: /usr/src/freepbx/queues/views/cron.php:107
+#: views/cron.php:107
 msgid "March"
 msgstr "3月"
 
-#: /usr/src/freepbx/queues/page.queues.php:672
+#: page.queues.php:672
 msgid "Mark calls answered elsewhere:"
 msgstr "他の場所で応答されたコールをマークします："
 
-#: /usr/src/freepbx/queues/page.queues.php:908
+#: page.queues.php:908
 msgid "Max Callers:"
 msgstr "発信者数最大："
 
-#: /usr/src/freepbx/queues/page.queues.php:715
+#: page.queues.php:715
 msgid "Max Wait Time Mode:"
 msgstr "最大待ち時間モード："
 
-#: /usr/src/freepbx/queues/page.queues.php:684
+#: page.queues.php:684
 msgid "Max Wait Time:"
 msgstr "最大待ち時間："
 
-#: /usr/src/freepbx/queues/page.queues.php:908
+#: page.queues.php:908
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "キューの中で待ちとなる最大人数(無制限の場合は0)"
 
-#: /usr/src/freepbx/queues/views/cron.php:109
+#: views/cron.php:109
 msgid "May"
 msgstr "5月"
 
-#: /usr/src/freepbx/queues/page.queues.php:790
+#: page.queues.php:790
 msgid "Member Delay:"
 msgstr "メンバーディレイ："
 
-#: /usr/src/freepbx/queues/page.queues.php:1226
+#: page.queues.php:1226
 msgid "Member Status Event"
 msgstr "メンバーステータスイベント"
 
-#: /usr/src/freepbx/queues/page.queues.php:1114
-#: /usr/src/freepbx/queues/page.queues.php:1119
+#: queues.i18n.php:34
+msgid "Memeber Status Event Default"
+msgstr "メンバーステータスイベントデフォルト"
+
+#: page.queues.php:1114 page.queues.php:1119
 msgid "Menu ID "
 msgstr "メニューID "
 
-#: /usr/src/freepbx/queues/install.php:203
+#: install.php:203
 msgid "Migrating data to queues_config.."
 msgstr "データをqueues_configに移行中.."
 
-#: /usr/src/freepbx/queues/install.php:116
+#: install.php:116
 msgid "Migrating to queues_details.."
 msgstr "queues_detailsに移行.."
 
-#: /usr/src/freepbx/queues/views/cron.php:45
+#: views/cron.php:45
 msgid "Minutes"
 msgstr "分"
 
-#: /usr/src/freepbx/queues/page.queues.php:564
+#: page.queues.php:564
 msgid "MoH Only"
 msgstr "保留音のみ"
 
-#: /usr/src/freepbx/queues/views/cron.php:81
+#: views/cron.php:81
 msgid "Monday"
 msgstr "月曜日"
 
-#: /usr/src/freepbx/queues/views/cron.php:102
+#: views/cron.php:102
 msgid "Month"
 msgstr "月"
 
-#: /usr/src/freepbx/queues/views/cron.php:9
+#: views/cron.php:9
 msgid "Monthly"
 msgstr "毎月"
 
-#: /usr/src/freepbx/queues/page.queues.php:544
+#: page.queues.php:544
 msgid ""
 "Music (MoH) played to the caller while they wait in line for an available "
 "agent. Choose \"inherit\" if you want the MoH class to be what is currently "
@@ -903,109 +960,85 @@ msgstr ""
 "します。エージェントが電話に出ない場合は、保留音が再度ながれます。「着信音の"
 "み」は、保留音クラスや定期的なアナウンス設定を無視し着信音のみを再生します。"
 
-#: /usr/src/freepbx/queues/page.queues.php:544
+#: page.queues.php:544
 msgid "Music on Hold Class:"
 msgstr "保留クラス音："
 
-#: /usr/src/freepbx/queues/install.php:72
+#: install.php:72
 msgid "NO table found, no migration to do just create tables"
 msgstr "テーブルが見つかりません、移行は行わずテーブルのみが作成されます"
 
-#: /usr/src/freepbx/queues/views/cron.php:5
+#: views/cron.php:5
 msgid "Never"
 msgstr "ブロック"
 
-#: /usr/src/freepbx/queues/page.queues.php:972
+#: page.queues.php:972
 msgid ""
 "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr "最大待機時間が経過するまで、発信者をキューを残しません。"
 
-#: /usr/src/freepbx/queues/page.queues.php:362
-#: /usr/src/freepbx/queues/page.queues.php:434
-#: /usr/src/freepbx/queues/page.queues.php:514
-#: /usr/src/freepbx/queues/page.queues.php:616
-#: /usr/src/freepbx/queues/page.queues.php:751
-#: /usr/src/freepbx/queues/page.queues.php:840
-#: /usr/src/freepbx/queues/page.queues.php:855
-#: /usr/src/freepbx/queues/page.queues.php:872
-#: /usr/src/freepbx/queues/page.queues.php:887
-#: /usr/src/freepbx/queues/page.queues.php:930
-#: /usr/src/freepbx/queues/page.queues.php:948
-#: /usr/src/freepbx/queues/page.queues.php:972
-#: /usr/src/freepbx/queues/page.queues.php:990
-#: /usr/src/freepbx/queues/page.queues.php:1043
-#: /usr/src/freepbx/queues/page.queues.php:1056
+#: page.queues.php:362 page.queues.php:434 page.queues.php:514
+#: page.queues.php:616 page.queues.php:751 page.queues.php:840
+#: page.queues.php:855 page.queues.php:872 page.queues.php:887
+#: page.queues.php:930 page.queues.php:948 page.queues.php:972
+#: page.queues.php:990 page.queues.php:1043 page.queues.php:1056
 msgid "No"
 msgstr "いいえ"
 
-#: /usr/src/freepbx/queues/page.queues.php:642
-#: /usr/src/freepbx/queues/page.queues.php:659
+#: page.queues.php:642 page.queues.php:659
 msgid "No Adjustment"
 msgstr "調節なし"
 
-#: /usr/src/freepbx/queues/page.queues.php:445
+#: page.queues.php:445
 msgid "No Follow-Me or Call Forward"
 msgstr "フォローミーやコール転送しない"
 
-#: /usr/src/freepbx/queues/page.queues.php:913
+#: page.queues.php:913
 msgid "No Max"
 msgstr "Maxなし"
 
-#: /usr/src/freepbx/queues/page.queues.php:763
+#: page.queues.php:763
 msgid "No Retry"
 msgstr "リトライなし"
 
-#: /usr/src/freepbx/queues/page.queues.php:580
-#: /usr/src/freepbx/queues/page.queues.php:812
-#: /usr/src/freepbx/queues/page.queues.php:1098
-#: /usr/src/freepbx/queues/page.queues.php:1155
+#: page.queues.php:580 page.queues.php:812 page.queues.php:1098
+#: page.queues.php:1155
 msgid "None"
 msgstr "なし"
 
-#: /usr/src/freepbx/queues/views/cron.php:115
+#: views/cron.php:115
 msgid "November"
 msgstr "11月"
 
-#: /usr/src/freepbx/queues/install.php:77
-#: /usr/src/freepbx/queues/install.php:105
-#: /usr/src/freepbx/queues/install.php:122
-#: /usr/src/freepbx/queues/install.php:125
-#: /usr/src/freepbx/queues/install.php:199
-#: /usr/src/freepbx/queues/install.php:326
-#: /usr/src/freepbx/queues/install.php:332
-#: /usr/src/freepbx/queues/install.php:345
-#: /usr/src/freepbx/queues/install.php:354
-#: /usr/src/freepbx/queues/install.php:371
-#: /usr/src/freepbx/queues/install.php:497
-#: /usr/src/freepbx/queues/install.php:512
-#: /usr/src/freepbx/queues/install.php:527
-#: /usr/src/freepbx/queues/install.php:542
-#: /usr/src/freepbx/queues/install.php:557
-#: /usr/src/freepbx/queues/install.php:572
-#: /usr/src/freepbx/queues/install.php:587
-#: /usr/src/freepbx/queues/install.php:602
-#: /usr/src/freepbx/queues/install.php:617
-#: /usr/src/freepbx/queues/install.php:632
+#: install.php:77 install.php:105 install.php:122 install.php:125
+#: install.php:199 install.php:326 install.php:332 install.php:345
+#: install.php:354 install.php:371 install.php:497 install.php:512
+#: install.php:527 install.php:542 install.php:557 install.php:572
+#: install.php:587 install.php:602 install.php:617 install.php:632
 msgid "OK"
 msgstr "OK"
 
-#: /usr/src/freepbx/queues/views/cron.php:114
+#: views/cron.php:114
 msgid "October"
 msgstr "10月"
 
-#: /usr/src/freepbx/queues/page.queues.php:1057
+#: page.queues.php:1057
 msgid "Once"
 msgstr "一回のみ"
 
-#: /usr/src/freepbx/queues/page.queues.php:1003
+#: page.queues.php:1003
 msgid "Penalty Members Limit:"
 msgstr "ペナルティメンバーリミット："
 
-#: /usr/src/freepbx/queues/page.queues.php:1063
+#: page.queues.php:1063
 msgid "Periodic Announcements"
 msgstr "定期的なアナウンス"
 
-#: /usr/src/freepbx/queues/page.queues.php:1277
+#: queues.i18n.php:8
+msgid "Persistent Members"
+msgstr "永続的なメンバー"
+
+#: page.queues.php:1277
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
 "callback number. If the callback number does not pass the regex filter then "
@@ -1026,120 +1059,170 @@ msgstr ""
 "号でも許可されますが、*キーを制限します。<br />警告: 自分が使用としていること"
 "を理解しているかを確認し、さもなくば空白のままにしておいてください!"
 
-#: /usr/src/freepbx/queues/page.queues.php:188
+#: page.queues.php:188
 msgid "Queue"
 msgstr "キュー"
 
-#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:36
+#: functions.inc/destination_registry.php:36
 #, php-format
 msgid "Queue %s : %s"
 msgstr "キュー %s : %s"
 
-#: /usr/src/freepbx/queues/functions.inc/queue_conf.php:233
+#: functions.inc/queue_conf.php:233
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "キュー - %s (%s): %s<br />"
 
-#: /usr/src/freepbx/queues/page.queues.php:1077
-#: /usr/src/freepbx/queues/page.queues.php:1152
+#: page.queues.php:1077 page.queues.php:1152
 msgid "Queue Callback"
 msgstr ""
 
-#: /usr/src/freepbx/queues/install.php:10
+#: install.php:10
 msgid "Queue Callers"
 msgstr ""
 
-#: /usr/src/freepbx/queues/page.queues.php:275
+#: page.queues.php:275
 msgid "Queue Name:"
 msgstr "キュー名："
 
-#: /usr/src/freepbx/queues/page.queues.php:294
+#: page.queues.php:294
 msgid "Queue No Answer:"
 msgstr "応答なしキュー："
 
-#: /usr/src/freepbx/queues/page.queues.php:1335
+#: page.queues.php:1335
 msgid "Queue Number must not be blank"
 msgstr "キュー番号を空にすることはできません"
 
-#: /usr/src/freepbx/queues/page.queues.php:269
+#: page.queues.php:269
 msgid "Queue Number:"
 msgstr "キュー番号："
 
-#: /usr/src/freepbx/queues/page.queues.php:283
+#: page.queues.php:283
 msgid "Queue Password:"
 msgstr "キューパスワード："
 
-#: /usr/src/freepbx/queues/install.php:9
+#: install.php:9
 msgid "Queue Pause Toggle"
 msgstr "キューポーズトグル"
 
-#: /usr/src/freepbx/queues/functions.inc/hook_core.php:64
+#: functions.inc/hook_core.php:64
 msgid "Queue State Detection"
 msgstr "キューステート検知"
 
-#: /usr/src/freepbx/queues/install.php:8
+#: install.php:8
 msgid "Queue Toggle"
 msgstr "キュートグル"
 
-#: /usr/src/freepbx/queues/page.queues.php:528
+#: page.queues.php:528
 msgid "Queue Weight"
 msgstr "キューの重みづけ"
 
-#: /usr/src/freepbx/queues/page.queues.php:517
+#: page.queues.php:517
 msgid "Queue calls only (ringinuse=no)"
 msgstr "キューコールオンリー (使用中着信=no)"
 
-#: /usr/src/freepbx/queues/page.queues.php:1348
+#: queues.i18n.php:32
+msgid ""
+"Queue login and out codes were historically queunum* and queunum**. These "
+"have been largely replaced by the *45 queue toggle codes. The legacy codes "
+"are required to login or out a third party user that is not the extension "
+"dialing. These can be removed from the system by setting this to false."
+msgstr ""
+"キューログイン／ログアウトコードは、以前迄はqueunum*とqueunum**でしたが、ほぼ"
+"*45 キュートグルコードに切り替えられています。レガシーのコードは、第三者ユー"
+"ザー（非発信者の内線）のログイン／ログアウトに必要です。falseに設定すると、こ"
+"れらのコードをシステムから削除することができます。"
+
+#: page.queues.php:1348
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr "キュー名を空欄にすることはできません。英数字のみ記入可能です"
 
-#: /usr/src/freepbx/queues/page.queues.php:245
+#: page.queues.php:245
 msgid "Queue:"
 msgstr "キュー："
 
-#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:56
-#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:73
-#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:97
+#: functions.inc/destination_registry.php:56
+#: functions.inc/destination_registry.php:73
+#: functions.inc/destination_registry.php:97
 #, php-format
 msgid "Queue: %s"
 msgstr "キュー: %s"
 
-#: /usr/src/freepbx/queues/functions.inc/destination_registry.php:126
+#: functions.inc/destination_registry.php:126
 #, php-format
 msgid "Queue: %s (%s)"
 msgstr "キュー: %s (%s)"
 
-#: /usr/src/freepbx/queues/bin/queue_reset_stats.php:14
+#: queues.i18n.php:3 queues.i18n.php:6
+msgid "Queues"
+msgstr "キュー"
+
+#: queues.i18n.php:10
+msgid "Queues Module"
+msgstr "キューモジュール"
+
+#: bin/queue_reset_stats.php:14
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 "キューのモジュールが見つからない、または無効になっているため終了します！"
 
-#: /usr/src/freepbx/queues/views/cron.php:11
+#: queues.i18n.php:20
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+"キュー: モニタータイプ = Mixモニター。.これを有効にすることにより、モニターの"
+"代わりにMixモニターアプリケーションが使用され、入/出力ファイルを'追加/ミック"
+"ス'するという概念が消えます。"
+
+#: queues.i18n.php:12
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+"キュー：persistentmembers。asteriskが再起動されたときに、自動的に記録された"
+"キューに読み込まれるように、各キューに入っている各動的メンバーをastdb内に格納"
+"します。"
+
+#: queues.i18n.php:16
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr ""
+"キュー: shared_lastcall, Asterisk 1.6以降でのみ有効です。これにより最後のコー"
+"ルと受信したコールを１つ以上のキューにログインしたメンバー内で同じにします。"
+"これは、共有メンバーで他のキューのラップアップタイムを尊重するのに便利です。"
+
+#: views/cron.php:11
 msgid "Reboot"
 msgstr "再起動"
 
-#: /usr/src/freepbx/queues/page.queues.php:623
+#: page.queues.php:623
 msgid "Recording Mode:"
 msgstr "録音モード："
 
-#: /usr/src/freepbx/queues/page.queues.php:1172
+#: page.queues.php:1172
 msgid "Repeat Frequency:"
 msgstr "リピート頻度："
 
-#: /usr/src/freepbx/queues/page.queues.php:835
+#: page.queues.php:835
 msgid "Report Hold Time:"
 msgstr "保留時間レポート："
 
-#: /usr/src/freepbx/queues/page.queues.php:1293
+#: page.queues.php:1293
 msgid "Reset Queue Stats"
 msgstr "キューの統計をリセット"
 
-#: /usr/src/freepbx/queues/page.queues.php:433
+#: page.queues.php:433
 msgid "Restrict Dynamic Agents"
 msgstr "ダイナミックエージェントを制限"
 
-#: /usr/src/freepbx/queues/page.queues.php:433
+#: page.queues.php:433
 msgid ""
 "Restrict dynamic queue member logins to only those listed in the Dynamic "
 "Members list above. When set to Yes, members not listed will be DENIED "
@@ -1149,23 +1232,23 @@ msgstr ""
 "ンバーのみに制限します。「はい」に設定した場合、リストアップされていないメン"
 "バーはキューへのアクセスが拒否されます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:758
+#: page.queues.php:758
 msgid "Retry:"
 msgstr "リトライ："
 
-#: /usr/src/freepbx/queues/page.queues.php:566
+#: page.queues.php:566
 msgid "Ring Only"
 msgstr "着信音のみ"
 
-#: /usr/src/freepbx/queues/page.queues.php:456
+#: page.queues.php:456
 msgid "Ring Strategy:"
 msgstr "ACD設定："
 
-#: /usr/src/freepbx/queues/views/cron.php:32
+#: views/cron.php:32
 msgid "Run"
 msgstr "実行"
 
-#: /usr/src/freepbx/queues/page.queues.php:932
+#: page.queues.php:932
 msgid ""
 "Same as No except Callers will be admitted if their are paused agents who "
 "could become available."
@@ -1173,7 +1256,7 @@ msgstr ""
 "利用可能になることができる一時停止中のエージェントがいる場合に、発信者が入る"
 "ことが許可されることを除いて、「いいえ」と同じ。"
 
-#: /usr/src/freepbx/queues/page.queues.php:928
+#: page.queues.php:928
 msgid ""
 "Same as Strict plus a queue member must be able to answer the phone 'now' to "
 "let them in. Simply speaking, any 'available' agents that could answer but "
@@ -1185,7 +1268,7 @@ msgstr ""
 "ト、しかし現在は電話に出ていたり他の発信者のかわりに着信中のエージェントは利"
 "用不可と見なされます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:967
+#: page.queues.php:967
 msgid ""
 "Same as Strict plus a queue member must be able to answer the phone 'now' to "
 "let them remain. Simply speaking, any 'available' agents that could answer "
@@ -1197,7 +1280,7 @@ msgstr ""
 "かし現在は電話に出ていたり他の発信者のかわりに着信中のエージェントは利用不可"
 "と見なされます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:926
+#: page.queues.php:926
 msgid ""
 "Same as Yes but more strict.  Simply speaking, if no agent could answer the "
 "phone then don't admit them. If agents are inuse or ringing someone else, "
@@ -1208,7 +1291,7 @@ msgstr ""
 "または他のだれかに電話をしている場合は、発信者はまだキューに入ることを許可さ"
 "れます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:965
+#: page.queues.php:965
 msgid ""
 "Same as Yes but more strict.  Simply speaking, if no agent could answer the "
 "phone then have them leave the queue. If agents are inuse or ringing someone "
@@ -1218,7 +1301,7 @@ msgstr ""
 "がいない場合、かれらをキューにいるままにしておきます。エージェントが使用中で"
 "あったり、他のだれかに発信している場合は発信者はまだ保留されます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:970
+#: page.queues.php:970
 msgid ""
 "Same as Yes except Callers will remain in the Queue if their are paused "
 "agents who could become available."
@@ -1226,19 +1309,19 @@ msgstr ""
 "利用可能になることができる一時停止中のエージェントがいる場合に、発信者が"
 "キューに残る以外、「はい」と同じです。"
 
-#: /usr/src/freepbx/queues/views/cron.php:86
+#: views/cron.php:86
 msgid "Saturday"
 msgstr "土曜日"
 
-#: /usr/src/freepbx/queues/views/cron.php:113
+#: views/cron.php:113
 msgid "September"
 msgstr "9月"
 
-#: /usr/src/freepbx/queues/page.queues.php:1263
+#: page.queues.php:1263
 msgid "Service Level:"
 msgstr "サービスレベル："
 
-#: /usr/src/freepbx/queues/page.queues.php:1050
+#: page.queues.php:1050
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
@@ -1246,11 +1329,11 @@ msgstr ""
 "待ち順のアナウンスに想定待ち時間を含めますか？　はい／いいえ、一回のみどちら"
 "の選択でも、1分以下の場合は待ち時間のアナウンスは流れません"
 
-#: /usr/src/freepbx/queues/page.queues.php:509
+#: page.queues.php:509
 msgid "Skip Busy Agents:"
 msgstr "ビジーエージェントをスキップ："
 
-#: /usr/src/freepbx/queues/page.queues.php:502
+#: page.queues.php:502
 msgid ""
 "Starting with Asterisk 1.4, if this is checked, and multiple agents are "
 "available, Asterisk will send one call to each waiting agent (depending on "
@@ -1266,11 +1349,11 @@ msgstr ""
 "Asterisk1.2の動作でした、そして1.2内では何の効果もありません。この機能のより"
 "詳細情報についてはAsteriskドキュメントを参照ください。"
 
-#: /usr/src/freepbx/queues/page.queues.php:377
+#: page.queues.php:377
 msgid "Static Agents"
 msgstr "静的エージェント"
 
-#: /usr/src/freepbx/queues/page.queues.php:377
+#: page.queues.php:377
 msgid ""
 "Static agents are extensions that are assumed to always be on the queue.  "
 "Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
@@ -1304,33 +1387,30 @@ msgstr ""
 "しれません。（チャネルエージェントは、Asteriskの1.4のスタートとともに非推奨と"
 "なり、1.6 +ではなくなっています。）"
 
-#: /usr/src/freepbx/queues/page.queues.php:720
-#: /usr/src/freepbx/queues/page.queues.php:926
-#: /usr/src/freepbx/queues/page.queues.php:944
-#: /usr/src/freepbx/queues/page.queues.php:965
-#: /usr/src/freepbx/queues/page.queues.php:983
+#: page.queues.php:720 page.queues.php:926 page.queues.php:944
+#: page.queues.php:965 page.queues.php:983
 msgid "Strict"
 msgstr "厳密"
 
-#: /usr/src/freepbx/queues/page.queues.php:1301
+#: page.queues.php:1301
 msgid "Submit Changes"
 msgstr "変更を適用"
 
-#: /usr/src/freepbx/queues/views/cron.php:80
+#: views/cron.php:80
 msgid "Sunday"
 msgstr "日曜日"
 
-#: /usr/src/freepbx/queues/page.queues.php:1344
+#: page.queues.php:1344
 msgid "The Queue Name provided is too long."
 msgstr ""
 
-#: /usr/src/freepbx/queues/page.queues.php:684
+#: page.queues.php:684
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr "発信者の呼が待ち呼としてキューに滞在できる最大秒数 (無制限は0)。"
 
-#: /usr/src/freepbx/queues/page.queues.php:730
+#: page.queues.php:730
 msgid ""
 "The number of seconds an agent's phone can ring before we consider it a "
 "timeout. Unlimited or other timeout values may still be limited by system "
@@ -1340,7 +1420,7 @@ msgstr ""
 "アウト値はまだシステムのリングタイムや個人の内線デフォルトによって制限されま"
 "す。"
 
-#: /usr/src/freepbx/queues/page.queues.php:758
+#: page.queues.php:758
 msgid ""
 "The number of seconds we wait before trying all the phones again. Choosing "
 "\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
@@ -1351,7 +1431,7 @@ msgstr ""
 "試みられたエージェントがタイムアウトしたらすぐにキューを出てフェイルオーバー"
 "の宛先に移動し、追加のエージェントへは試みません。"
 
-#: /usr/src/freepbx/queues/page.queues.php:283
+#: page.queues.php:283
 msgid ""
 "The password is only used when logging in with the legacy queueno* code. "
 "When using the toggle codes, you must use the Restrict Dynamic Agents option "
@@ -1361,7 +1441,7 @@ msgstr ""
 "ドは、「ダイナミックエージェント制限」オプションを「ダイナミックメンバーズ」"
 "リストと合わせて使用し、はじめてアクセス制限ができます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:899
+#: page.queues.php:899
 msgid ""
 "This setting will delay the auto pause of an agent by auto pause delay "
 "seconds from when it last took a call. For example, if this were set to 120 "
@@ -1376,35 +1456,36 @@ msgstr ""
 "合は、自動的にオートポーズになります。着信が全く無い場合は、この設定は無視さ"
 "れます。"
 
-#: /usr/src/freepbx/queues/views/cron.php:84
+#: views/cron.php:84
 msgid "Thursday"
 msgstr "木曜日"
 
-#: /usr/src/freepbx/queues/page.queues.php:681
+#: page.queues.php:681
 msgid "Timing & Agent Options"
 msgstr "タイミング & エージェントオプション"
 
-#: /usr/src/freepbx/queues/views/cron.php:82
+#: views/cron.php:82
 msgid "Tuesday"
 msgstr "火曜日"
 
-#: /usr/src/freepbx/queues/page.queues.php:928
-#: /usr/src/freepbx/queues/page.queues.php:946
-#: /usr/src/freepbx/queues/page.queues.php:967
-#: /usr/src/freepbx/queues/page.queues.php:985
+#: page.queues.php:928 page.queues.php:946 page.queues.php:967
+#: page.queues.php:985
 msgid "Ultra Strict"
 msgstr "非常に厳密"
 
-#: /usr/src/freepbx/queues/page.queues.php:691
-#: /usr/src/freepbx/queues/page.queues.php:735
+#: page.queues.php:691 page.queues.php:735
 msgid "Unlimited"
 msgstr "無制限"
 
-#: /usr/src/freepbx/queues/functions.inc/hook_core.php:36
+#: queues.i18n.php:18
+msgid "Use MixMonitor for Recordings"
+msgstr "録音にMixモニターを使用"
+
+#: functions.inc/hook_core.php:36
 msgid "Use State"
 msgstr "状態を使用する"
 
-#: /usr/src/freepbx/queues/page.queues.php:269
+#: page.queues.php:269
 msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
 "to put them into the queue.<br><br>Agents will dial this queue number plus * "
@@ -1418,7 +1499,7 @@ msgstr ""
 "トします。<br><br>例えば、キュー番号が123の場合:<br><br><b>123* = ログイン"
 "<br>123** = ログアウト</b>"
 
-#: /usr/src/freepbx/queues/page.queues.php:1263
+#: page.queues.php:1263
 msgid ""
 "Used for service level statistics (calls answered within service level time "
 "frame)"
@@ -1426,7 +1507,7 @@ msgstr ""
 "サービスレベルの統計に使用されます。(サービスレベルタイムフレーム以内で応答さ"
 "れたコール)"
 
-#: /usr/src/freepbx/queues/page.queues.php:1324
+#: page.queues.php:1324
 msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
@@ -1434,21 +1515,20 @@ msgstr ""
 "正規表現フィルタを使用は非常に高度です、何を使用としているのかを確認してくだ"
 "さい、でなければ空欄にします"
 
-#: /usr/src/freepbx/queues/install.php:343
-#: /usr/src/freepbx/queues/install.php:352
+#: install.php:343 install.php:352
 #, php-format
 msgid "WARNING FAILED %s"
 msgstr "警告 失敗 %s"
 
-#: /usr/src/freepbx/queues/page.queues.php:357
+#: page.queues.php:357
 msgid "Wait Time Prefix:"
 msgstr "待ち時間プリフィックス："
 
-#: /usr/src/freepbx/queues/page.queues.php:137
+#: page.queues.php:137
 msgid "Warning! Extension"
 msgstr "警告! 内線"
 
-#: /usr/src/freepbx/queues/functions.inc/queue_conf.php:228
+#: functions.inc/queue_conf.php:228
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1458,23 +1538,23 @@ msgstr ""
 "を再生できないため、これらは切り捨てられ最初の音声ファイルに設定されます。こ"
 "の問題を訂正してください。<br />詳細:<br /><br />"
 
-#: /usr/src/freepbx/queues/views/cron.php:83
+#: views/cron.php:83
 msgid "Wednesday"
 msgstr "水曜日"
 
-#: /usr/src/freepbx/queues/views/cron.php:8
+#: views/cron.php:8
 msgid "Weekly"
 msgstr "毎週"
 
-#: /usr/src/freepbx/queues/page.queues.php:590
+#: page.queues.php:590
 msgid "When No Free Agents"
 msgstr "Freeエージェントがいない場合"
 
-#: /usr/src/freepbx/queues/page.queues.php:591
+#: page.queues.php:591
 msgid "When No Ready Agents"
 msgstr "Readyエージェントがいない場合"
 
-#: /usr/src/freepbx/queues/page.queues.php:439
+#: page.queues.php:439
 msgid ""
 "When set to 'Call as Dialed' the queue will call an extension just as if the "
 "queue were another user. Any Follow-Me or Call Forward states active on the "
@@ -1507,7 +1587,7 @@ msgstr ""
 "にコールがブロックされます。動的エージェントになんらかの検証を提供するに"
 "は、'エージェント Regex フィルター'を確認してください。"
 
-#: /usr/src/freepbx/queues/page.queues.php:509
+#: page.queues.php:509
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
 "the line were returning busy. This means that Call Waiting or multi-line "
@@ -1552,7 +1632,7 @@ msgstr ""
 "に対して '使用中' に見えてしまうため、そのコールが切断されるまで利用不可能な"
 "ままになってしまいます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:1226
+#: page.queues.php:1226
 msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
@@ -1560,7 +1640,7 @@ msgstr ""
 "「はい」に設定された場合、次のマネージャーイベントが生成されます: "
 "QueueMemberStatus"
 
-#: /usr/src/freepbx/queues/page.queues.php:867
+#: page.queues.php:867
 msgid ""
 "When set to Yes agents devices that report busy upon a call attempt will be "
 "considered as a missed call and auto paused immediately or after the auto "
@@ -1569,7 +1649,7 @@ msgstr ""
 "Yesに設定すると、話中となりエージェントへの着信は、不在着信として判断され、"
 "エージェントはオートポーズディレイ後にオートポーズします"
 
-#: /usr/src/freepbx/queues/page.queues.php:882
+#: page.queues.php:882
 msgid ""
 "When set to Yes agents devices that report congestion upon a call attempt "
 "will be considered as a missed call and auto paused immediately or after the "
@@ -1578,7 +1658,7 @@ msgstr ""
 "Yesに設定すると、混雑を報告するエージェントへの着信は不在着信と判断され、エー"
 "ジェントはオートポーズディレイ後にオートポーズします"
 
-#: /usr/src/freepbx/queues/page.queues.php:357
+#: page.queues.php:357
 msgid ""
 "When set to Yes, the CID Name will be prefixed with the total wait time in "
 "the queue so the answering agent is aware how long they have waited. It will "
@@ -1589,7 +1669,7 @@ msgstr ""
 "るため、応答したエージェントは彼らがどれぐらい待っているかに気づきます。Mnnと"
 "いう形式で、最も近い分に切り上げられます。nnは分を表す数字です。"
 
-#: /usr/src/freepbx/queues/page.queues.php:1189
+#: page.queues.php:1189
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
@@ -1597,46 +1677,38 @@ msgstr ""
 "このオプションが「はい」に設定された場合、次のマネージャーイベントが生成され"
 "ます: AgentCalled, AgentDump, AgentConnect and AgentComplete。"
 
-#: /usr/src/freepbx/queues/page.queues.php:1073
+#: page.queues.php:1073
 msgid ""
 "Whether this queue uses an IVR Break Out Menu or a Queue Callback.  Queue "
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
 msgstr ""
 
-#: /usr/src/freepbx/queues/page.queues.php:773
+#: page.queues.php:773
 msgid "Wrap-Up-Time:"
 msgstr "ラップアップタイム："
 
-#: /usr/src/freepbx/queues/page.queues.php:362
-#: /usr/src/freepbx/queues/page.queues.php:434
-#: /usr/src/freepbx/queues/page.queues.php:515
-#: /usr/src/freepbx/queues/page.queues.php:750
-#: /usr/src/freepbx/queues/page.queues.php:840
-#: /usr/src/freepbx/queues/page.queues.php:872
-#: /usr/src/freepbx/queues/page.queues.php:887
-#: /usr/src/freepbx/queues/page.queues.php:925
-#: /usr/src/freepbx/queues/page.queues.php:943
-#: /usr/src/freepbx/queues/page.queues.php:964
-#: /usr/src/freepbx/queues/page.queues.php:982
-#: /usr/src/freepbx/queues/page.queues.php:1042
-#: /usr/src/freepbx/queues/page.queues.php:1055
+#: page.queues.php:362 page.queues.php:434 page.queues.php:515
+#: page.queues.php:750 page.queues.php:840 page.queues.php:872
+#: page.queues.php:887 page.queues.php:925 page.queues.php:943
+#: page.queues.php:964 page.queues.php:982 page.queues.php:1042
+#: page.queues.php:1055
 msgid "Yes"
 msgstr "はい"
 
-#: /usr/src/freepbx/queues/page.queues.php:516
+#: page.queues.php:516
 msgid "Yes + (ringinuse=no)"
 msgstr "はい + (使用中着信=no)"
 
-#: /usr/src/freepbx/queues/page.queues.php:855
+#: page.queues.php:855
 msgid "Yes in all queues"
 msgstr "はい、全てのキューで"
 
-#: /usr/src/freepbx/queues/page.queues.php:855
+#: page.queues.php:855
 msgid "Yes in this queue only"
 msgstr "はい、このキューだけで"
 
-#: /usr/src/freepbx/queues/page.queues.php:352
+#: page.queues.php:352
 msgid ""
 "You can optionally prefix the CallerID name of callers to the queue. ie: If "
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
@@ -1646,7 +1718,7 @@ msgstr ""
 "ことができます。例:もし\"営業:\"というプリフィックスをつければ、\"森圭介\"か"
 "らのコールは着信した内線電話に\"営業:森圭介\"と表示されます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:1092
+#: page.queues.php:1092
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
 "<br><br>This IVR must only contain single-digit 'dialed options'. The "
@@ -1657,7 +1729,7 @@ msgstr ""
 "<br><br>このIVRは1桁の'ダイヤルオプション'のみを含める必要があります。IVRに設"
 "定された録音は、以下の'リピート頻度'で指定された間隔で再生されます。"
 
-#: /usr/src/freepbx/queues/page.queues.php:283
+#: page.queues.php:283
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
@@ -1665,189 +1737,172 @@ msgstr ""
 "エージェントがこのキューにログインする前にパスワードを入力させることができま"
 "す。<br><br>この設定はオプションです。"
 
-#: /usr/src/freepbx/queues/install.php:389
+#: install.php:389
 msgid "adding agentannounce_id field.."
 msgstr "agentannounce_idフィールドを追加中.."
 
-#: /usr/src/freepbx/queues/install.php:398
+#: install.php:398
 msgid "adding joinannounce_id field.."
 msgstr "joinannounce_idフィールドを追加中.."
 
-#: /usr/src/freepbx/queues/install.php:99
-#: /usr/src/freepbx/queues/install.php:193
-#: /usr/src/freepbx/queues/install.php:373
-#: /usr/src/freepbx/queues/install.php:499
-#: /usr/src/freepbx/queues/install.php:514
-#: /usr/src/freepbx/queues/install.php:529
-#: /usr/src/freepbx/queues/install.php:544
-#: /usr/src/freepbx/queues/install.php:559
-#: /usr/src/freepbx/queues/install.php:574
-#: /usr/src/freepbx/queues/install.php:589
-#: /usr/src/freepbx/queues/install.php:604
-#: /usr/src/freepbx/queues/install.php:619
-#: /usr/src/freepbx/queues/install.php:634
+#: install.php:99 install.php:193 install.php:373 install.php:499
+#: install.php:514 install.php:529 install.php:544 install.php:559
+#: install.php:574 install.php:589 install.php:604 install.php:619
+#: install.php:634
 msgid "already exists"
 msgstr "既存します"
 
-#: /usr/src/freepbx/queues/install.php:483
+#: install.php:483
 msgid "already migrated"
 msgstr "移行済み"
 
-#: /usr/src/freepbx/queues/install.php:622
+#: install.php:622
 msgid "checking for callback_id field.."
 msgstr ""
 
-#: /usr/src/freepbx/queues/install.php:547
+#: install.php:547
 msgid "checking for callconfirm field.."
 msgstr "callconfirm フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:562
+#: install.php:562
 msgid "checking for callconfirm_id field.."
 msgstr "callconfirm_id フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:592
+#: install.php:592
 msgid "checking for monitor_heard field.."
 msgstr "monitor_heard フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:607
+#: install.php:607
 msgid "checking for monitor_spoken field.."
 msgstr "monitor_spoken フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:577
+#: install.php:577
 msgid "checking for monitor_type field.."
 msgstr "monitor_type フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:532
+#: install.php:532
 msgid "checking for qnoanswer field.."
 msgstr "qnoanswer フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:361
+#: install.php:361
 msgid "checking for qregex field.."
 msgstr "qregex フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:487
+#: install.php:487
 msgid "checking for queuewait field.."
 msgstr "queuewait フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:517
+#: install.php:517
 msgid "checking for togglehint field.."
 msgstr "togglehint フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/install.php:502
+#: install.php:502
 msgid "checking for use_queue_context field.."
 msgstr "use_queue_context フィールドをチェック中.."
 
-#: /usr/src/freepbx/queues/functions.inc.php:31
+#: functions.inc.php:31
 msgid "day"
 msgstr "日"
 
-#: /usr/src/freepbx/queues/page.queues.php:557
+#: page.queues.php:557
 msgid "default"
 msgstr "デフォルト"
 
-#: /usr/src/freepbx/queues/page.queues.php:188
+#: page.queues.php:188
 msgid "deleted"
 msgstr "削除しました"
 
-#: /usr/src/freepbx/queues/install.php:464
+#: install.php:464
 msgid "dropping agentannounce field.."
 msgstr "agentannounce フィールドをドロップ中.."
 
-#: /usr/src/freepbx/queues/install.php:474
+#: install.php:474
 msgid "dropping joinannounce field.."
 msgstr "joinannounce フィールドをドロップ中.."
 
-#: /usr/src/freepbx/queues/install.php:393
-#: /usr/src/freepbx/queues/install.php:402
-#: /usr/src/freepbx/queues/install.php:414
-#: /usr/src/freepbx/queues/install.php:430
-#: /usr/src/freepbx/queues/install.php:440
-#: /usr/src/freepbx/queues/install.php:456
+#: install.php:393 install.php:402 install.php:414 install.php:430
+#: install.php:440 install.php:456
 msgid "fatal error"
 msgstr "致命的なエラー"
 
-#: /usr/src/freepbx/queues/page.queues.php:467
+#: page.queues.php:467
 msgid "fewestcalls"
 msgstr "fewestcalls"
 
-#: /usr/src/freepbx/queues/page.queues.php:615
+#: page.queues.php:615
 msgid "gsm"
 msgstr "gsm"
 
-#: /usr/src/freepbx/queues/functions.inc.php:32
+#: functions.inc.php:32
 msgid "hour"
 msgstr "時"
 
-#: /usr/src/freepbx/queues/functions.inc.php:32
+#: functions.inc.php:32
 msgid "hours"
 msgstr "時間"
 
-#: /usr/src/freepbx/queues/page.queues.php:555
+#: page.queues.php:555
 msgid "inherit"
 msgstr "継承"
 
-#: /usr/src/freepbx/queues/page.queues.php:137
+#: page.queues.php:137
 msgid "is not allowed for your account."
 msgstr "は、あなたのアカウントには権限がありません。"
 
-#: /usr/src/freepbx/queues/page.queues.php:466
+#: page.queues.php:466
 msgid "leastrecent"
 msgstr "leastrecent"
 
-#: /usr/src/freepbx/queues/page.queues.php:474
+#: page.queues.php:474
 msgid "linear"
 msgstr "リニア"
 
-#: /usr/src/freepbx/queues/install.php:410
+#: install.php:410
 msgid "migrate agentannounce to ids.."
 msgstr "idsにagentannounceを移行.."
 
-#: /usr/src/freepbx/queues/install.php:436
+#: install.php:436
 msgid "migrate joinannounce to ids.."
 msgstr "joinannounce を idsに移行.."
 
-#: /usr/src/freepbx/queues/install.php:434
-#: /usr/src/freepbx/queues/install.php:460
+#: install.php:434 install.php:460
 #, php-format
 msgid "migrated %s entries"
 msgstr "%sエントリーを移行する"
 
-#: /usr/src/freepbx/queues/install.php:388
+#: install.php:388
 msgid "migrating"
 msgstr "移行中"
 
-#: /usr/src/freepbx/queues/functions.inc.php:33
+#: functions.inc.php:33
 msgid "minute"
 msgstr "分"
 
-#: /usr/src/freepbx/queues/functions.inc.php:33
+#: functions.inc.php:33
 msgid "minutes"
 msgstr "分"
 
-#: /usr/src/freepbx/queues/install.php:470
+#: install.php:470
 msgid "no agentannounce field???"
 msgstr "agentannounce フィールドがありません???"
 
-#: /usr/src/freepbx/queues/install.php:478
+#: install.php:478
 msgid "no joinannounce field???"
 msgstr "joinannounce フィールドがありません???"
 
-#: /usr/src/freepbx/queues/page.queues.php:556
+#: page.queues.php:556
 msgid "none"
 msgstr "なし"
 
-#: /usr/src/freepbx/queues/install.php:396
-#: /usr/src/freepbx/queues/install.php:405
-#: /usr/src/freepbx/queues/install.php:472
-#: /usr/src/freepbx/queues/install.php:480
+#: install.php:396 install.php:405 install.php:472 install.php:480
 msgid "ok"
 msgstr "ok"
 
-#: /usr/src/freepbx/queues/page.queues.php:468
+#: page.queues.php:468
 msgid "random"
 msgstr "ランダム"
 
-#: /usr/src/freepbx/queues/page.queues.php:475
+#: page.queues.php:475
 msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
@@ -1855,31 +1910,31 @@ msgstr ""
 "ウェイト要素としてメンバーのペナルティをランダムに使用する、仕様に関しては"
 "Asteriskのドキュメントを確認してください"
 
-#: /usr/src/freepbx/queues/install.php:348
+#: install.php:348
 msgid "removing queues data extensions table.."
 msgstr "queuesデータ extensionsテーブルを削除中.."
 
-#: /usr/src/freepbx/queues/page.queues.php:466
+#: page.queues.php:466
 msgid "ring agent which was least recently called by this queue"
 msgstr "一番待ち時間の長いエージェントに着信させる"
 
-#: /usr/src/freepbx/queues/page.queues.php:458
+#: page.queues.php:458
 msgid "ring all available agents until one answers (default)"
 msgstr "誰かが応答するまで全ての利用可能なエージェントを鳴らす(デフォルト)"
 
-#: /usr/src/freepbx/queues/page.queues.php:468
+#: page.queues.php:468
 msgid "ring random agent"
 msgstr "ランダムに着信させる"
 
-#: /usr/src/freepbx/queues/page.queues.php:467
+#: page.queues.php:467
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr "一番着信呼が少ないエージェントに着信させる"
 
-#: /usr/src/freepbx/queues/page.queues.php:458
+#: page.queues.php:458
 msgid "ringall"
 msgstr "リングオール"
 
-#: /usr/src/freepbx/queues/page.queues.php:474
+#: page.queues.php:474
 msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
@@ -1887,56 +1942,52 @@ msgstr ""
 "指定された順番にエージェントに着信させます。ダイナミックエージェントの場合は"
 "ログインした順番となります"
 
-#: /usr/src/freepbx/queues/page.queues.php:469
+#: page.queues.php:469
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr "最後に着信した時間を記憶し、順繰りに接続します"
 
-#: /usr/src/freepbx/queues/page.queues.php:462
+#: page.queues.php:462
 msgid "roundrobin"
 msgstr "ラウンドロビン"
 
-#: /usr/src/freepbx/queues/page.queues.php:469
+#: page.queues.php:469
 msgid "rrmemory"
 msgstr "rrmemory"
 
-#: /usr/src/freepbx/queues/page.queues.php:470
+#: page.queues.php:470
 msgid "rrordered"
 msgstr "rrordered"
 
-#: /usr/src/freepbx/queues/page.queues.php:470
+#: page.queues.php:470
 msgid ""
 "same as rrmemory, except the queue member order from config file is preserved"
 msgstr ""
 "rrmemoryと同じですが、configファイルからキューメンバーの順序を除いて保存され"
 "ます"
 
-#: /usr/src/freepbx/queues/functions.inc.php:34
+#: functions.inc.php:34
 msgid "second"
 msgstr "秒"
 
-#: /usr/src/freepbx/queues/functions.inc.php:17
-#: /usr/src/freepbx/queues/functions.inc.php:34
-#: /usr/src/freepbx/queues/page.queues.php:693
-#: /usr/src/freepbx/queues/page.queues.php:696
-#: /usr/src/freepbx/queues/page.queues.php:765
-#: /usr/src/freepbx/queues/page.queues.php:779
-#: /usr/src/freepbx/queues/page.queues.php:796
+#: functions.inc.php:17 functions.inc.php:34 page.queues.php:693
+#: page.queues.php:696 page.queues.php:765 page.queues.php:779
+#: page.queues.php:796
 msgid "seconds"
 msgstr "秒"
 
-#: /usr/src/freepbx/queues/page.queues.php:462
+#: page.queues.php:462
 msgid "take turns ringing each available agent"
 msgstr "利用可能な各エージェントを順番に着信させる"
 
-#: /usr/src/freepbx/queues/page.queues.php:614
+#: page.queues.php:614
 msgid "wav"
 msgstr "wav"
 
-#: /usr/src/freepbx/queues/page.queues.php:613
+#: page.queues.php:613
 msgid "wav49"
 msgstr "wav49"
 
-#: /usr/src/freepbx/queues/page.queues.php:475
+#: page.queues.php:475
 msgid "wrandom"
 msgstr "wrandom"
 
@@ -1954,50 +2005,6 @@ msgstr "wrandom"
 #~ "す。IVRシステムはファイル再生可能ですが、キューサブシステムがサポートして"
 #~ "いません"
 
-#~ msgid "Queues"
-#~ msgstr "キュー"
-
-#~ msgid "Applications"
-#~ msgstr "アプリケーション"
-
-#~ msgid ""
-#~ "Creates a queue where calls are placed on hold and answered on a first-"
-#~ "in, first-out basis. Many options are available, including ring strategy "
-#~ "for agents, caller announcements, max wait times, etc."
-#~ msgstr ""
-#~ "コールが保留中に置かれ、先入れ先出しに基づいて応答されるキューを作成しま"
-#~ "す。エージェントへのリングストラテジー、発信者アナウンス、最大待ち時間等を"
-#~ "含む多くのオプションを利用できます。"
-
-#~ msgid "Persistent Members"
-#~ msgstr "永続的なメンバー"
-
-#~ msgid "Queues Module"
-#~ msgstr "キューモジュール"
-
-#~ msgid ""
-#~ "Queues: persistentmembers. Store each dynamic member in each queue in the "
-#~ "astdb so that when asterisk is restarted, each member will be "
-#~ "automatically read into their recorded queues."
-#~ msgstr ""
-#~ "キュー：persistentmembers。asteriskが再起動されたときに、自動的に記録され"
-#~ "たキューに読み込まれるように、各キューに入っている各動的メンバーをastdb内"
-#~ "に格納します。"
-
-#~ msgid "Honor Wrapup Time Across Queues"
-#~ msgstr "キューをまたいでまとめた時間を尊重する"
-
-#~ msgid ""
-#~ "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make "
-#~ "the lastcall and calls received be the same in members logged in more "
-#~ "than one queue. This is useful to make the queue respect the wrapuptime "
-#~ "of another queue for a shared member."
-#~ msgstr ""
-#~ "キュー: shared_lastcall, Asterisk 1.6以降でのみ有効です。これにより最後の"
-#~ "コールと受信したコールを１つ以上のキューにログインしたメンバー内で同じにし"
-#~ "ます。これは、共有メンバーで他のキューのラップアップタイムを尊重するのに便"
-#~ "利です。"
-
 #~ msgid "Set Agent Name in CDR dstchannel"
 #~ msgstr "CDR dstchannelにエージェント名を設定"
 
@@ -2013,39 +2020,6 @@ msgstr "wrandom"
 #~ "にログイン時に利用可能ならセットされるエージェント名つきのコールのCDR "
 #~ "dstchannelフィールドを移入するchan_agentsの挙動を真似するように実装されて"
 #~ "います。"
-
-#~ msgid "Use MixMonitor for Recordings"
-#~ msgstr "録音にMixモニターを使用"
-
-#~ msgid ""
-#~ "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-#~ "application instead of Monitor so the concept of 'joining/mixing' the in/"
-#~ "out files now goes away when this is enabled."
-#~ msgstr ""
-#~ "キュー: モニタータイプ = Mixモニター。.これを有効にすることにより、モニ"
-#~ "ターの代わりにMixモニターアプリケーションが使用され、入/出力ファイルを'追"
-#~ "加/ミックス'するという概念が消えます。"
-
-#~ msgid "Hide Queue No Answer Option"
-#~ msgstr "キューを隠し応答しないオプション"
-
-#~ msgid ""
-#~ "It is possible for a queue to NOT Answer a call and still enter callers "
-#~ "to the queue. The normal behavior is that all  allers are answered before "
-#~ "entering the queue. If the call is not answered, it is possible that some "
-#~ "early media delivery would still allow callers to hear recordings, MoH, "
-#~ "etc. but this can be inconsistent and vary. Because of the volatility of "
-#~ "this option, it is not displayed by default. If a queue is set to not "
-#~ "answer, the setting will be displayed for that queue regardless of this "
-#~ "setting."
-#~ msgstr ""
-#~ "キューに対して、コールに応答しないようにし、さらにまだ発信者をキューに入れ"
-#~ "た状態にすることが可能です。通常の動作では、全ての発信者はキューに入る前に"
-#~ "応答されます。コールに応答されない場合、いづれかの早いメディアが発信者に録"
-#~ "音や、保留音等を聞かせるように運ぶことが可能です。しかし、これは一貫性がな"
-#~ "く可変です。このオプションは不安定なため、デフォルトでは表示されません。"
-#~ "キューが応答しないように設定された場合、この設定にかかわらず、そのキューに"
-#~ "対して設定が表示されます。"
 
 #~ msgid "Asterisk Queues Patch 15168 Installed"
 #~ msgstr "Asterisk キューパッチ 15168 がインストールされました"
@@ -2064,44 +2038,6 @@ msgstr "wrandom"
 #~ "1.8以降では廃止されます。このasteriskパッチはAsterisk1.4のみで利用可能で"
 #~ "す、Asterisk 1.6でこの設定を使用しようとすると、いくつかのキューの動作が壊"
 #~ "れる為回避してください"
-
-#~ msgid "Agent Called Events Default"
-#~ msgstr "標準エージェント・イベントコール"
-
-#~ msgid ""
-#~ "Default state for AMI emit events related to an agent's call. This "
-#~ "setting will only affect the default for NEW queues, it won't change "
-#~ "existing queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "エージェントの呼に関連するAMI emit eventのデフォルト。この設定は、新規"
-#~ "キューのデフォルトのみを変更し、既存のキューの設定は変更しません。"
-
-#~ msgid "Generate queuenum*/** Login/off Codes"
-#~ msgstr "queuenum*/** Login/offのコードを生成する"
-
-#~ msgid ""
-#~ "Queue login and out codes were historically queunum* and queunum**. These "
-#~ "have been largely replaced by the *45 queue toggle codes. The legacy "
-#~ "codes are required to login or out a third party user that is not the "
-#~ "extension dialing. These can be removed from the system by setting this "
-#~ "to false."
-#~ msgstr ""
-#~ "キューログイン／ログアウトコードは、以前迄はqueunum*とqueunum**でしたが、"
-#~ "ほぼ*45 キュートグルコードに切り替えられています。レガシーのコードは、第三"
-#~ "者ユーザー（非発信者の内線）のログイン／ログアウトに必要です。falseに設定"
-#~ "すると、これらのコードをシステムから削除することができます。"
-
-#~ msgid "Memeber Status Event Default"
-#~ msgstr "メンバーステータスイベントデフォルト"
-
-#~ msgid ""
-#~ "Default state for AMI to emit the QueueMemberStatus event. This setting "
-#~ "will only affect the default for NEW queues, it won't change existing "
-#~ "queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "AMIがQueueMemberStatusイベントを発行する際のデフォルトのステータス。この設"
-#~ "定は、新規キューのデフォルトのみを変更し、既存のキューの設定は変更しませ"
-#~ "ん。"
 
 #~ msgid ""
 #~ "Music (or Commercial) played to the caller while they wait in line for an "
