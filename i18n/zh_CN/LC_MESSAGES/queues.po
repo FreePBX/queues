@@ -77,15 +77,15 @@ msgstr "针对坐席的正则表达式过滤器"
 
 #: page.queues.php:439
 msgid "Agent Restrictions"
-msgstr ""
+msgstr "坐席限定"
 
 #: page.queues.php:565
 msgid "Agent Ringing"
-msgstr ""
+msgstr "坐席振铃"
 
 #: page.queues.php:745
 msgid "Agent Timeout Restart:"
-msgstr ""
+msgstr "座席超时重启:"
 
 #: page.queues.php:730
 msgid "Agent Timeout:"
@@ -93,7 +93,7 @@ msgstr "坐席超时："
 
 #: page.queues.php:652
 msgid "Agent Volume Adjustment:"
-msgstr ""
+msgstr "座席语音增益调整:"
 
 #: page.queues.php:372
 msgid "Alert Info"
@@ -101,7 +101,7 @@ msgstr "警告信息"
 
 #: page.queues.php:589
 msgid "Always"
-msgstr ""
+msgstr "总是"
 
 #: page.queues.php:925
 msgid "Always allows the caller to join the Queue."
@@ -212,7 +212,7 @@ msgstr ""
 
 #: page.queues.php:899
 msgid "Auto Pause Delay:"
-msgstr ""
+msgstr "自动暂停延迟:"
 
 #: page.queues.php:850
 msgid ""
@@ -224,15 +224,15 @@ msgstr ""
 
 #: page.queues.php:867
 msgid "Auto Pause on Busy:"
-msgstr ""
+msgstr "忙状态自动暂停:"
 
 #: page.queues.php:882
 msgid "Auto Pause on Unavailable:"
-msgstr ""
+msgstr "无效状态自动暂停:"
 
 #: page.queues.php:850
 msgid "Auto Pause:"
-msgstr ""
+msgstr "自动暂停:"
 
 #: page.queues.php:502
 msgid "Autofill:"
@@ -252,7 +252,7 @@ msgstr "主叫ID名的前缀"
 
 #: page.queues.php:321
 msgid "Call Confirm Announce:"
-msgstr ""
+msgstr "呼叫确认声明:"
 
 #: page.queues.php:339
 msgid "Call Confirm Announcement:"
@@ -260,7 +260,7 @@ msgstr ""
 
 #: page.queues.php:313
 msgid "Call Confirm:"
-msgstr ""
+msgstr "呼叫确认"
 
 #: page.queues.php:608
 msgid "Call Recording:"
@@ -268,7 +268,7 @@ msgstr "呼叫录音："
 
 #: page.queues.php:444
 msgid "Call as Dialed"
-msgstr ""
+msgstr "呼叫"
 
 #: page.queues.php:1152
 msgid "Callback to use when caller presses 1."
@@ -280,7 +280,7 @@ msgstr "主叫位置通告"
 
 #: page.queues.php:635
 msgid "Caller Volume Adjustment:"
-msgstr ""
+msgstr "呼叫方音增益调整:"
 
 #: page.queues.php:964
 msgid ""
@@ -298,7 +298,7 @@ msgstr ""
 
 #: page.queues.php:905
 msgid "Capacity Options"
-msgstr ""
+msgstr "处理能力选项"
 
 #: install.php:68
 msgid "Checking for legacy queues table.."
@@ -413,7 +413,7 @@ msgstr "正在删除旧的等待队列表格"
 
 #: page.queues.php:405
 msgid "Dynamic Members"
-msgstr ""
+msgstr "动态号码"
 
 #: page.queues.php:405
 msgid ""
@@ -487,11 +487,11 @@ msgstr ""
 
 #: page.queues.php:1189
 msgid "Event When Called"
-msgstr ""
+msgstr "呼叫后触发事件"
 
 #: page.queues.php:1186
 msgid "Events, Stats and Advanced"
-msgstr ""
+msgstr "事件状态，高级选项"
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
@@ -503,7 +503,7 @@ msgstr "快速分机选取"
 
 #: page.queues.php:446
 msgid "Extensions Only"
-msgstr ""
+msgstr "仅是分机"
 
 #: page.queues.php:1286
 msgid "Fail Over Destination"
@@ -523,11 +523,11 @@ msgstr ""
 
 #: page.queues.php:452
 msgid "General Queue Options"
-msgstr ""
+msgstr "队列基本选项"
 
 #: page.queues.php:305
 msgid "Generate Device Hints:"
-msgstr ""
+msgstr "生成设备Hints和拨号规则"
 
 #: queues.i18n.php:30
 msgid "Generate queuenum*/** Login/off Codes"
@@ -666,7 +666,7 @@ msgstr ""
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
 "connected to the caller, set this to yes."
-msgstr ""
+msgstr "如果希望对呼叫者播放播放队列中的呼叫等待的人数，设置成Yes"
 
 #: functions.inc/hook_core.php:37
 msgid "Ignore State"
@@ -715,7 +715,7 @@ msgstr ""
 
 #: page.queues.php:976
 msgid "Leave Empty:"
-msgstr ""
+msgstr "留为空:"
 
 #: page.queues.php:721 page.queues.php:932 page.queues.php:950
 #: page.queues.php:970 page.queues.php:988
@@ -728,7 +728,7 @@ msgstr ""
 
 #: page.queues.php:672
 msgid "Mark calls answered elsewhere:"
-msgstr ""
+msgstr "任何地方都可以应答呼叫:"
 
 #: page.queues.php:908
 msgid "Max Callers:"
@@ -736,7 +736,7 @@ msgstr "最大呼叫数："
 
 #: page.queues.php:715
 msgid "Max Wait Time Mode:"
-msgstr ""
+msgstr "最长等待时间模式"
 
 #: page.queues.php:684
 msgid "Max Wait Time:"
@@ -752,11 +752,11 @@ msgstr ""
 
 #: page.queues.php:790
 msgid "Member Delay:"
-msgstr ""
+msgstr "成员延迟:"
 
 #: page.queues.php:1226
 msgid "Member Status Event"
-msgstr ""
+msgstr "成员状态事件"
 
 #: queues.i18n.php:34
 msgid "Memeber Status Event Default"
@@ -780,7 +780,7 @@ msgstr ""
 
 #: page.queues.php:564
 msgid "MoH Only"
-msgstr ""
+msgstr "仅语音等待"
 
 #: views/cron.php:81
 msgid "Monday"
@@ -816,7 +816,7 @@ msgstr "没有找到任何遗留的队列表格信息，不需要进行迁移，
 
 #: views/cron.php:5
 msgid "Never"
-msgstr ""
+msgstr "从不"
 
 #: page.queues.php:972
 msgid ""
@@ -837,7 +837,7 @@ msgstr ""
 
 #: page.queues.php:445
 msgid "No Follow-Me or Call Forward"
-msgstr ""
+msgstr "无分机随行或呼叫前转"
 
 #: page.queues.php:913
 msgid "No Max"
@@ -874,7 +874,7 @@ msgstr "一次"
 
 #: page.queues.php:1003
 msgid "Penalty Members Limit:"
-msgstr ""
+msgstr "成员接听权重限制:"
 
 #: page.queues.php:1063
 msgid "Periodic Announcements"
@@ -1033,7 +1033,7 @@ msgstr ""
 
 #: page.queues.php:623
 msgid "Recording Mode:"
-msgstr ""
+msgstr "录音模式:"
 
 #: page.queues.php:1172
 msgid "Repeat Frequency:"
@@ -1041,7 +1041,7 @@ msgstr "重复频率："
 
 #: page.queues.php:835
 msgid "Report Hold Time:"
-msgstr ""
+msgstr "播放等待时间"
 
 #: page.queues.php:1293
 msgid "Reset Queue Stats"
@@ -1049,7 +1049,7 @@ msgstr ""
 
 #: page.queues.php:433
 msgid "Restrict Dynamic Agents"
-msgstr ""
+msgstr "限制动态坐席"
 
 #: page.queues.php:433
 msgid ""
@@ -1064,7 +1064,7 @@ msgstr "重试："
 
 #: page.queues.php:566
 msgid "Ring Only"
-msgstr ""
+msgstr "仅振铃"
 
 #: page.queues.php:456
 msgid "Ring Strategy:"
@@ -1126,7 +1126,7 @@ msgstr ""
 
 #: page.queues.php:1263
 msgid "Service Level:"
-msgstr ""
+msgstr "服务级别"
 
 #: page.queues.php:1050
 msgid ""
@@ -1242,7 +1242,7 @@ msgstr ""
 
 #: page.queues.php:681
 msgid "Timing & Agent Options"
-msgstr ""
+msgstr "时间和座席选项"
 
 #: views/cron.php:82
 msgid "Tuesday"
@@ -1324,11 +1324,11 @@ msgstr ""
 
 #: page.queues.php:590
 msgid "When No Free Agents"
-msgstr ""
+msgstr "当无空闲坐席"
 
 #: page.queues.php:591
 msgid "When No Ready Agents"
-msgstr ""
+msgstr "当无已准备好坐席"
 
 #: page.queues.php:439
 msgid ""
@@ -1521,11 +1521,11 @@ msgstr "正在检查queuewait字段。。。"
 
 #: install.php:517
 msgid "checking for togglehint field.."
-msgstr ""
+msgstr "检查触发的选项"
 
 #: install.php:502
 msgid "checking for use_queue_context field.."
-msgstr ""
+msgstr "检查用户队列context 内容"
 
 #: functions.inc.php:31
 msgid "day"
@@ -1723,10 +1723,8 @@ msgstr ""
 #~ "this IVR that is not from a compound sound file. The IVR itself can play "
 #~ "such files, but the Queue subsystem can not"
 #~ msgstr ""
-#~ "错误：你选择了一个公告是复合录音的IVR。等待队列不能播放这样的公告。此IVR的"
-#~ "录音将被截断，只有第一个录音文件会被播放出来。你可以为此IVR选择不包含复合"
-#~ "录音的公告来更正这个错误。IVR本身可以播放这种文件，只是等待队列子系统不能"
-#~ "播放。"
+#~ "错误：你选择了一个公告是复合录音的IVR。等待队列不能播放这样的公告。此IVR的录音将被截断，只有第一个录音文件会被播放出来。你可以为此IVR选择不包含复"
+#~ "合录音的公告来更正这个错误。IVR本身可以播放这种文件，只是等待队列子系统不能播放。"
 
 #~ msgid "Event When Called:"
 #~ msgstr "被叫时产生事件："
@@ -1736,16 +1734,13 @@ msgstr ""
 #~ "If you prefix with \"Sales:\", a call from John Doe would display as "
 #~ "\"Sales:John Doe\" on the extensions that ring."
 #~ msgstr ""
-#~ "在为这个小组的分机响铃时，你可以为主叫ID名字添加可选的前缀。例如：如果你添"
-#~ "加了“销售：”前缀，从小王打来的电话在响铃的分机上会显示为：“销售：小王”。"
+#~ "在为这个小组的分机响铃时，你可以为主叫ID名字添加可选的前缀。例如：如果你添加了“销售：”前缀，从小王打来的电话在响铃的分机上会显示为：“销售：小王”。"
 
 #~ msgid ""
 #~ "If the call is subsequently transfered, the wait time will reflect the "
 #~ "time since it first entered the queue or reset if the call is transfered "
 #~ "to another queue with this feature set."
-#~ msgstr ""
-#~ "如果呼叫随后被转移，等待时间反映了呼叫进入队列后等待的时间，或者启用此项设"
-#~ "置后，呼叫被转移到其他队列时，等待时间将重置。"
+#~ msgstr "如果呼叫随后被转移，等待时间反映了呼叫进入队列后等待的时间，或者启用此项设置后，呼叫被转移到其他队列时，等待时间将重置。"
 
 #~ msgid "Queue Options"
 #~ msgstr "队列选项"
@@ -1758,18 +1753,14 @@ msgstr ""
 #~ "recordings composed of 2 or more sound files are not displayed as options "
 #~ "since this feature can not accept such recordings."
 #~ msgstr ""
-#~ "在与主叫桥接之前，要播放给坐席的消息。<br /><br />例如：“此呼叫是从销售队"
-#~ "列桥转过来的”或者“此呼叫是从技术支持队列转过来的”<br /><br />要添加额外的"
-#~ "录音，请使用左边的“系统录音”菜单。包含2以上录音的复合录音无法作为选项播放"
-#~ "出来，因为此功能不支持这种录音。"
+#~ "在与主叫桥接之前，要播放给坐席的消息。<br /><br />例如：“此呼叫是从销售队列桥转过来的”或者“此呼叫是从技术支持队列转过来的”<br /><"
+#~ "br />要添加额外的录音，请使用左边的“系统录音”菜单。包含2以上录音的复合录音无法作为选项播放出来，因为此功能不支持这种录音。"
 
 #~ msgid ""
 #~ "Announcement played to callers once prior to joining the queue.<br><br>To "
 #~ "add additional recordings please use the \"System Recordings\" MENU to "
 #~ "the left"
-#~ msgstr ""
-#~ "在加入这个队列之前，要播放给主叫的通告。<br /><br />要添加额外的录音，请使"
-#~ "用左边的“系统录音”菜单"
+#~ msgstr "在加入这个队列之前，要播放给主叫的通告。<br /><br />要添加额外的录音，请使用左边的“系统录音”菜单"
 
 #~ msgid ""
 #~ "Music (or Commercial) played to the caller while they wait in line for an "
@@ -1777,17 +1768,14 @@ msgstr ""
 #~ "is currently selected, such as by the inbound route.<br><br>  This music "
 #~ "is defined in the \"Music on Hold\" Menu to the left."
 #~ msgstr ""
-#~ "在主叫等待坐席接听时所播放的音乐（或广告）。如果你希望使用当前已选择的等待"
-#~ "音乐类别（例如在入局线路中选择了音乐类别），就选择“继承”。<br /><br />  音"
-#~ "乐类别是在左侧的“等待音乐”菜单中定义的。"
+#~ "在主叫等待坐席接听时所播放的音乐（或广告）。如果你希望使用当前已选择的等待音乐类别（例如在入局线路中选择了音乐类别），就选择“继承”。<br /><br "
+#~ "/>  音乐类别是在左侧的“等待音乐”菜单中定义的。"
 
 #~ msgid ""
 #~ "If you wish to allow callers to join queues that currently have no "
 #~ "agents, set this to yes. Set to strict if callers cannot join a queue "
 #~ "with no members or only unavailable members"
-#~ msgstr ""
-#~ "如果你允许呼叫者加入还没有坐席登录的队列，就选择“是”。如果不允许呼叫者加入"
-#~ "没有成员的队列或没有有效成员的队列，就选择“严格”"
+#~ msgstr "如果你允许呼叫者加入还没有坐席登录的队列，就选择“是”。如果不允许呼叫者加入没有成员的队列或没有有效成员的队列，就选择“严格”"
 
 #~ msgid "Leave When Empty:"
 #~ msgstr "自动离开无坐席队列"
@@ -1796,16 +1784,12 @@ msgstr ""
 #~ "If you wish to remove callers from the queue if there are no agents "
 #~ "present, set this to yes. Set to strict if callers cannot join a queue "
 #~ "with no members or only unavailable members"
-#~ msgstr ""
-#~ "如果你希望呼叫者自动从没有坐席的队列离开，就选择“是”。如果不允许呼叫者加入"
-#~ "没有成员的队列或没有有效成员的队列，就选择“严格”"
+#~ msgstr "如果你希望呼叫者自动从没有坐席的队列离开，就选择“是”。如果不允许呼叫者加入没有成员的队列或没有有效成员的队列，就选择“严格”"
 
 #~ msgid ""
 #~ "After a successful call, how many seconds to wait before sending a "
 #~ "potentially free agent another call (default is 0, or no delay)"
-#~ msgstr ""
-#~ "在某坐席完成了一次对话之后，要等待多少秒才重新把它视为空闲（默认是0，无延"
-#~ "迟）"
+#~ msgstr "在某坐席完成了一次对话之后，要等待多少秒才重新把它视为空闲（默认是0，无延迟）"
 
 #~ msgid "Member Status:"
 #~ msgstr "成员状态："
