@@ -176,9 +176,9 @@ if(function_exists('recordings_list')){
 	}
 	$jahtml .= '			</select>
 							<span class="radioset input-group">
-								<input type="radio" id="skip_joinannounce-no" name="skip_joinannounce" value="" '.($skip_joinannounce==''?'checked':'').'><label for="skip_joinannounce-no">'. _('Always').'</label>
-								<input type="radio" id="skip_joinannounce-free" name="skip_joinannounce" value="free" '.($skip_joinannounce=='free'?'checked':'').'><label for="skip_joinannounce-free">'. _('When No Free Agents').'</label>
-								<input type="radio" id="skip_joinannounce-ready" name="skip_joinannounce" value="ready" '. ($skip_joinannounce=='ready'?'checked':'').'><label for="skip_joinannounce-ready">'. _('When No Ready Agents').'</label>
+								<input type="radio" id="skip_joinannounce-no" name="skip_joinannounce" value="" '.($skip_joinannounce[0] ==''?'checked':'').'><label for="skip_joinannounce-no">'. _('Always').'</label>
+								<input type="radio" id="skip_joinannounce-free" name="skip_joinannounce" value="free" '.($skip_joinannounce[0] =='free'?'checked':'').'><label for="skip_joinannounce-free">'. _('When No Free Agents').'</label>
+								<input type="radio" id="skip_joinannounce-ready" name="skip_joinannounce" value="ready" '. ($skip_joinannounce[0] =='ready'?'checked':'').'><label for="skip_joinannounce-ready">'. _('When No Ready Agents').'</label>
 							</span>
 						</div>
 					</div>
@@ -717,7 +717,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="name"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="text" name="name" id="name" class="form-control" value="<?php echo (isset($name) ? $name : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
+								<input type="text" name="name" id="name" class="form-control" value="<?php echo (isset($name) ? $name : ''); ?>" >
 							</div>
 						</div>
 					</div>
@@ -742,8 +742,10 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="togglehintw"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<input name="togglehint" id="togglehint" type="checkbox" value="1" <?php echo (isset($togglehint) && $togglehint == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
-								<label for="togglehint"><?php echo _("Enable")?></label>
+								<input type="radio" name="togglehint" id="togglehintyes" value="1" <?php echo (isset($togglehint) && $togglehint == '1'?"CHECKED":"") ?>>
+								<label for="togglehintyes"><?php echo _("Yes");?></label>
+								<input type="radio" name="togglehint" id="togglehintno" value="" <?php echo (isset($togglehint) && $togglehint == '1'?"":"CHECKED") ?>>
+								<label for="togglehintno"><?php echo _("No");?></label>
 							</div>
 						</div>
 					</div>
@@ -767,8 +769,10 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="callconfirmw"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<input name="callconfirm" id="callconfirm" type="checkbox" value="1" <?php echo (isset($callconfirm) && $callconfirm == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
-								<label for="callconfirm"><?php echo _("Enable") ?></label>
+								<input type="radio" name="callconfirm" id="callconfirmyes" value="1" <?php echo (isset($callconfirm) && $callconfirm == '1' ?"CHECKED":"") ?>>
+								<label for="callconfirmyes"><?php echo _("Yes");?></label>
+								<input type="radio" name="callconfirm" id="callconfirmno" value="" <?php echo (isset($callconfirm) && $callconfirm == '1' ?"":"CHECKED") ?>>
+								<label for="callconfirmno"><?php echo _("No");?></label>
 							</div>
 						</div>
 					</div>
@@ -793,7 +797,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="prefix"></i>
 							</div>
 							<div class="col-md-9">
-								<input class="form-control" type="text" name="prefix" id="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
+								<input class="form-control" type="text" name="prefix" id="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>" >
 							</div>
 						</div>
 					</div>
@@ -845,7 +849,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="alertinfo"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="text" name="alertinfo" id="alertinfo" class="form-control" value="<?php echo (isset($alertinfo)?$alertinfo:'') ?>" tabindex="<?php echo ++$tabindex;?>">
+								<input type="text" name="alertinfo" id="alertinfo" class="form-control" value="<?php echo (isset($alertinfo)?$alertinfo:'') ?>" >
 							</div>
 						</div>
 					</div>
@@ -870,7 +874,7 @@ for ($i=15; $i <= 300; $i+=15) {
 							</div>
 							<div class="col-md-9">
 								<div class="input-group">
-									<textarea id="members" class="form-control" cols="15" rows="<?php  $rows = count($mem_array)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$mem_array) ?></textarea>
+									<textarea id="members" class="form-control" cols="15" rows="<?php  $rows = count($mem_array)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" ><?php echo implode("\n",$mem_array) ?></textarea>
 									<span class="input-group-addon">
 										<label for="qsagents1"><strong><?php echo("Agent Quick Select")?></strong></label>
 										<select id="qsagents1" class="form-control" data-for="members">
@@ -903,7 +907,7 @@ for ($i=15; $i <= 300; $i+=15) {
 							</div>
 							<div class="col-md-9">
 								<div class="input-group">
-									<textarea id="dynmembers" class="form-control" cols="15" rows="<?php  $rows = count($dynmembers)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$dynmembers) ?></textarea>
+									<textarea id="dynmembers" class="form-control" cols="15" rows="<?php  $rows = count($dynmembers)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" ><?php echo implode("\n",$dynmembers) ?></textarea>
 									<span class="input-group-addon">
 										<label for="qsagents2"><strong><?php echo("Agent Quick Select")?></strong></label>
 										<select id="qsagents2" class="form-control" data-for="dynmembers">
@@ -961,15 +965,16 @@ for ($i=15; $i <= 300; $i+=15) {
 								<label class="control-label" for="use_queue_context"><?php echo _("Agent Restrictions") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="use_queue_context"></i>
 							</div>
-							<div class="col-md-9">
-								<select name="use_queue_context" id="use_queue_context" class="form-control" tabindex="<?php echo ++$tabindex;?>">
-									<?php
-									$default = (isset($use_queue_context) ? $use_queue_context : '0');
-									echo '<option value="0"'. ($default == '0' ? ' SELECTED' : '').'>'._("Call as Dialed")."\n";
-									echo '<option value="1"'. ($default == '1' ? ' SELECTED' : '').'>'._("No Follow-Me or Call Forward")."\n";
-									echo '<option value="2"'. ($default == '2' ? ' SELECTED' : '').'>'._("Extensions Only")."\n";
-									?>
-								</select>
+							<div class="col-md-9 radioset">
+								<?php
+								$default = (isset($use_queue_context) ? $use_queue_context : '0');
+								?>
+								<input type="radio" name="use_queue_context" id="use_queue_context0" value="0" <?php echo ($default == "0"?"CHECKED":"") ?>>
+								<label for="use_queue_context0"><?php echo _("Call as Dialed");?></label>
+								<input type="radio" name="use_queue_context" id="use_queue_context1" value="1" <?php echo ($default == "1"?"CHECKED":"") ?>>
+								<label for="use_queue_context1"><?php echo _("No Follow-Me or Call Forward");?></label>
+								<input type="radio" name="use_queue_context" id="use_queue_context2" value="2" <?php echo ($default == "2"?"CHECKED":"") ?>>
+								<label for="use_queue_context2"><?php echo _("Extensions Only");?></label>
 							</div>
 						</div>
 					</div>
@@ -993,7 +998,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="strategy"></i>
 							</div>
 							<div class="col-md-9">
-								<select name="strategy" id="strategy" class="form-control" tabindex="<?php echo ++$tabindex;?>">
+								<select name="strategy" id="strategy" class="form-control" >
 									<?php echo $strategyopts ?>
 								</select>
 							</div>
@@ -1019,8 +1024,10 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autofillw"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<input name="autofill" id="autofill" type="checkbox" value="1" <?php echo (isset($autofill) && $autofill == 'yes' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
-								<label for="autofill"><?php echo _("Enable") ?></label>
+								<input type="radio" name="autofill" id="autofillyes" value="1" <?php echo (isset($autofill) && $autofill == 'yes' ?"CHECKED":"") ?>>
+								<label for="autofillyes"><?php echo _("Yes");?></label>
+								<input type="radio" name="autofill" id="autofillno" value="" <?php echo (isset($autofill) && $autofill == 'yes' ?"":"CHECKED") ?>>
+								<label for="autofillno"><?php echo _("No");?></label>
 							</div>
 						</div>
 					</div>
@@ -1043,8 +1050,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<label class="control-label" for="cwignore"><?php echo _("Skip Busy Agents") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="cwignore"></i>
 							</div>
-							<div class="col-md-9">
-								<select name="cwignore" id="cwignore" class="form-control" tabindex="<?php echo ++$tabindex;?>">
+							<div class="col-md-9 radioset">
 									<?php
 									$default = (isset($cwignore) ? $cwignore : 'no');
 									$items = array(
@@ -1054,10 +1060,10 @@ for ($i=15; $i <= 300; $i+=15) {
 										'3'=>_("Queue calls only (ringinuse=no)"),
 										);
 									foreach ($items as $item=>$val) {
-										echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
+										echo '<input type="radio" name="cwignore" id="cwignore'.$item.'" value="'.$item.'" '. ($default == $item?"CHECKED":"") .'>';
+										echo '<label for="cwignore'.$item.'">'.$val.'</label>';
 									}
 									?>
-								</select>
 							</div>
 						</div>
 					</div>
@@ -1109,11 +1115,11 @@ for ($i=15; $i <= 300; $i+=15) {
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;<!--Align Span to other elements. Not sure why it shifts-->
-								<input type="radio" id="record_force" name="recording" value="force" <?php echo ($recording=='force'?'checked':'');?>><label for="record_force"><?php echo _('Force'); ?></label>
-								<input type="radio" id="record_yes" name="recording" value="yes" <?php echo ($recording=='yes'?'checked':'');?>><label for="record_yes"><?php echo _('Yes'); ?></label>
-								<input type="radio" id="record_dontcare" name="recording" value="dontcare" <?php echo ($recording=='dontcare'?'checked':'');?>><label for="record_dontcare"><?php echo _("Don't Care")?></label>
-								<input type="radio" id="record_no" name="recording" value="no" <?php echo ($recording=='no'?'checked':'');?>><label for="record_no"><?php echo _('No'); ?></label>
-								<input type="radio" id="record_never" name="recording" value="never" <?php echo ($recording=='never'?'checked':'');?>><label for="record_never"><?php echo _('Never'); ?></label>
+								<input type="radio" id="record_force" name="recording" value="force" <?php echo ($recording[0] =='force'?'checked':'');?>><label for="record_force"><?php echo _('Force'); ?></label>
+								<input type="radio" id="record_yes" name="recording" value="yes" <?php echo ($recording[0] =='yes'?'checked':'');?>><label for="record_yes"><?php echo _('Yes'); ?></label>
+								<input type="radio" id="record_dontcare" name="recording" value="dontcare" <?php echo ($recording[0] =='dontcare'?'checked':'');?>><label for="record_dontcare"><?php echo _("Don't Care")?></label>
+								<input type="radio" id="record_no" name="recording" value="no" <?php echo ($recording[0] =='no'?'checked':'');?>><label for="record_no"><?php echo _('No'); ?></label>
+								<input type="radio" id="record_never" name="recording" value="never" <?php echo ($recording[0] =='never'?'checked':'');?>><label for="record_never"><?php echo _('Never'); ?></label>
 							</div>
 						</div>
 					</div>
@@ -1137,8 +1143,11 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="answered_elsewherew"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<input name="answered_elsewhere" id="answered_elsewhere" type="checkbox" value="1" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
-								<label for="answered_elsewhere"><?php echo _("Enable") ?></label>
+								<span class="radioset">
+								<input type="radio" name="answered_elsewhere" id="answered_elsewhereyes" value="1" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ?"CHECKED":"") ?>>
+								<label for="answered_elsewhereyes"><?php echo _("Yes");?></label>
+								<input type="radio" name="answered_elsewhere" id="answered_elsewhereno" value="" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ?"":"CHECKED") ?>>
+								<label for="answered_elsewhereno"><?php echo _("No");?></label>
 							</div>
 						</div>
 					</div>
@@ -1189,7 +1198,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="maxwait"></i>
 							</div>
 							<div class="col-md-9">
-								<select name="maxwait" id="maxwait" class="form-control" tabindex="<?php echo ++$tabindex;?>">
+								<select name="maxwait" id="maxwait" class="form-control" >
 									<?php echo $maxwopts ?>
 								</select>
 							</div>
@@ -1216,10 +1225,10 @@ for ($i=15; $i <= 300; $i+=15) {
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($timeoutpriority) ? $timeoutpriority : "app")?>
-								<input type="radio" name="timeoutpriority" id="timeoutpriorityapp" value="app" <?php echo ($default == "app" ? 'CHECKED' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<?php $default = (isset($timeoutpriority[0]) ? $timeoutpriority[0] : "app")?>
+								<input type="radio" name="timeoutpriority" id="timeoutpriorityapp" value="app" <?php echo ($default == "app" ? 'CHECKED' : '') ?> >
 								<label for="timeoutpriorityapp"><?php echo _("Strict") ?></label>
-								<input type="radio" name="timeoutpriority" id="timeoutpriorityconf" value="conf" <?php echo ($default == "conf" ? 'CHECKED' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<input type="radio" name="timeoutpriority" id="timeoutpriorityconf" value="conf" <?php echo ($default == "conf" ? 'CHECKED' : '') ?> >
 								<label for="timeoutpriorityconf"><?php echo _("Loose") ?></label>
 							</div>
 						</div>
@@ -1244,7 +1253,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="timeout"></i>
 							</div>
 							<div class="col-md-9">
-								<select name="timeout" id="timeout" class="form-control" tabindex="<?php echo ++$tabindex;?>">
+								<select name="timeout" id="timeout" class="form-control" >
 									<?php echo $toopts ?>
 								</select>
 							</div>
@@ -1271,10 +1280,10 @@ for ($i=15; $i <= 300; $i+=15) {
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($timeoutrestart) ? $timeoutrestart : "no");?>
-								<input type="radio" name="timeoutrestart" id="timeoutrestartyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<?php $default = (isset($timeoutrestart[0]) ? $timeoutrestart[0] : "no");?>
+								<input type="radio" name="timeoutrestart" id="timeoutrestartyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '')?> >
 								<label for="timeoutrestartyes"><?php echo _("Yes") ?></label>
-								<input type="radio" name="timeoutrestart" id="timeoutrestartno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<input type="radio" name="timeoutrestart" id="timeoutrestartno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
 								<label for="timeoutrestartno"><?php echo _("No") ?></label>
 								
 							</div>
@@ -1300,7 +1309,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="retry"></i>
 							</div>
 							<div class="col-md-9">
-								<select name="retry" id="retry" class="form-control" tabindex="<?php echo ++$tabindex;?>">>
+								<select name="retry" id="retry" class="form-control" >>
 									<?php echo $retryopts ?>
 								</select>
 							</div>
@@ -1326,7 +1335,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="wrapuptime"></i>
 							</div>
 							<div class="col-md-9">
-								<select name="wrapuptime" id="wrapuptime" class="form-control" tabindex="<?php echo ++$tabindex;?>">
+								<select name="wrapuptime" id="wrapuptime" class="form-control" >
 									<?php echo $wutopts ?>
 								</select>
 							</div>
@@ -1352,7 +1361,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="memberdelay"></i>
 							</div>
 							<div class="col-md-9">
-								<select name="memberdelay" id="memberdelay" class="form-control" tabindex="<?php echo ++$tabindex;?>">
+								<select name="memberdelay" id="memberdelay" class="form-control" >
 									<?php echo $mdopts ?>
 								</select>
 							</div>
@@ -1380,10 +1389,10 @@ for ($i=15; $i <= 300; $i+=15) {
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($reportholdtime) ? $reportholdtime : "no");?>
-								<input type="radio" name="reportholdtime" id="reportholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<?php $default = (isset($reportholdtime[0]) ? $reportholdtime[0] : "no");?>
+								<input type="radio" name="reportholdtime" id="reportholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="reportholdtimeyes"><?php echo _("Yes") ?></label>
-								<input type="radio" name="reportholdtime" id="reportholdtimeno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<input type="radio" name="reportholdtime" id="reportholdtimeno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
 								<label for="reportholdtimeno"><?php echo _("No") ?></label>
 							</div>
 						</div>
@@ -1407,16 +1416,15 @@ for ($i=15; $i <= 300; $i+=15) {
 								<label class="control-label" for="autopause"><?php echo _("Auto Pause") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autopause"></i>
 							</div>
-							<div class="col-md-9">
-								<select name="autopause" id="autopause" class="form-control" tabindex="<?php echo ++$tabindex;?>">
+							<div class="col-md-9 radioset">
 									<?php
-										$default = (isset($autopause) ? $autopause : 'no');
+										$default = (isset($autopause[0]) ? $autopause[0] : 'no');
 										$items = array('yes'=>_("Yes in this queue only"),'all'=>_('Yes in all queues'),'no'=>_("No"));
 										foreach ($items as $item=>$val) {
-											echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
+											echo '<input type="radio" name="autopause" id="autopause'.$item.'" value="'.$item.'" '.($default == $item?"CHECKED":"") .'>';
+											echo '<label for="autopause'.$item.'">'.$val.'</label>';
 										}
 									?>
-								</select>
 							</div>
 						</div>
 					</div>
@@ -1441,10 +1449,10 @@ for ($i=15; $i <= 300; $i+=15) {
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($autopausebusy) ? $autopausebusy : "no");?>
-								<input type="radio" name="autopausebusy" id="autopausebusyyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<?php $default = (isset($autopausebusy[0]) ? $autopausebusy[0] : "no");?>
+								<input type="radio" name="autopausebusy" id="autopausebusyyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="autopausebusyyes"><?php echo _("Yes") ?></label>
-								<input type="radio" name="autopausebusy" id="autopausebusyno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<input type="radio" name="autopausebusy" id="autopausebusyno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
 								<label for="autopausebusyno"><?php echo _("No") ?></label>
 							</div>
 						</div>
@@ -1470,10 +1478,10 @@ for ($i=15; $i <= 300; $i+=15) {
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($autopauseunavail) ? $autopauseunavail : "no");?>
-								<input type="radio" name="autopauseunavail" id="autopauseunavailyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<?php $default = (isset($autopauseunavail[0]) ? $autopauseunavail[0] : "no");?>
+								<input type="radio" name="autopauseunavail" id="autopauseunavailyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="autopauseunavailyes"><?php echo _("Yes") ?></label>
-								<input type="radio" name="autopauseunavail" id="autopauseunavailno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<input type="radio" name="autopauseunavail" id="autopauseunavailno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
 								<label for="autopauseunavailno"><?php echo _("No") ?></label>
 							</div>
 						</div>
@@ -1498,7 +1506,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autopausedelay"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="number" class="form-control" id="autopausedelay" name="autopausedelay" min="0" max="3600" value="<?php echo (isset($autopausedelay)?$autopausedelay:'0') ?>" tabindex="<?php echo ++$tabindex;?>">
+								<input type="number" class="form-control" id="autopausedelay" name="autopausedelay" min="0" max="3600" value="<?php echo (isset($autopausedelay[0])?$autopausedelay[0]:'0') ?>" >
 							</div>
 						</div>
 					</div>
@@ -1525,8 +1533,8 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="maxlen"></i>
 							</div>
 							<div class="col-md-9">
-								<?php $default = (isset($maxlen) ? $maxlen : 0);?>
-								<input type="number" min="0" max="50" class="form-control" id="maxlen" name="maxlen" value="<?php echo $default ?>" tabindex="<?php echo ++$tabindex;?>">
+								<?php $default = (isset($maxlen[0]) ? $maxlen[0] : 0);?>
+								<input type="number" min="0" max="50" class="form-control" id="maxlen" name="maxlen" value="<?php echo $default ?>" >
 							</div>
 						</div>
 					</div>
@@ -1549,15 +1557,18 @@ for ($i=15; $i <= 300; $i+=15) {
 								<label class="control-label" for="joinempty"><?php echo _("Join Empty") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="joinempty"></i>
 							</div>
-							<div class="col-md-9">
-								<?php $default = (isset($joinempty) ? $joinempty : 'yes');?>
-								<select name="joinempty" id="joinempty" class="form-control" tabindex="<?php echo ++$tabindex;?>">
-									<option value="yes" <?php echo ($default == "yes" ? 'SELECTED' : '')?>><?php echo _("Yes") ?></option>
-									<option value="strict"  <?php echo ($default == "strict" ? 'SELECTED' : '')?>><?php echo _("Strict") ?></option>
-									<option value="penalty,paused,invalid,unavailable,inuse,ringing"  <?php echo ($default == "penalty,paused,invalid,unavailable,inuse,ringing" ? 'SELECTED' : '')?>><?php echo _("Ultra Strict") ?></option>
-									<option value="no"  <?php echo ($default == "no" ? 'SELECTED' : '')?>><?php echo _("No") ?></option>
-									<option value="loose"  <?php echo ($default == "loose" ? 'SELECTED' : '')?>><?php echo _("Loose") ?></option>
-								</select>
+							<div class="col-md-9 radioset">
+								<?php $default = (isset($joinempty[0]) ? $joinempty[0] : 'yes');?>
+								<input type="radio" name="joinempty" id="joinemptyyes" value="yes" <?php echo ($default == "yes"?"CHECKED":"") ?>>
+								<label for="joinemptyyes"><?php echo _("Yes");?></label>
+								<input type="radio" name="joinempty" id="joinemptystrict" value="strict" <?php echo ($default == "strict"?"CHECKED":"") ?>>
+								<label for="joinemptystrict"><?php echo _("Strict");?></label>
+								<input type="radio" name="joinempty" id="joinemptyultra" value="penalty,paused,invalid,unavailable,inuse,ringing" <?php echo ($default == "penalty,paused,invalid,unavailable,inuse,ringing"?"CHECKED":"") ?>>
+								<label for="joinemptyno"><?php echo _("Ultra Strict");?></label>
+								<input type="radio" name="joinempty" id="joinemptyno" value="no" <?php echo ($default == "no"?"CHECKED":"") ?>>
+								<label for="joinemptyno"><?php echo _("No");?></label>
+								<input type="radio" name="joinempty" id="joinemptyloose" value="loose" <?php echo ($default == "loose"?"CHECKED":"") ?>>
+								<label for="joinemptyloose"><?php echo _("Loose");?></label>
 							</div>
 						</div>
 					</div>
@@ -1580,15 +1591,18 @@ for ($i=15; $i <= 300; $i+=15) {
 								<label class="control-label" for="leavewhenempty"><?php echo _("Leave Empty") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="leavewhenempty"></i>
 							</div>
-							<div class="col-md-9">
-								<?php $default = (isset($leavewhenempty) ? $leavewhenempty : 'no');?>
-								<select name="leavewhenempty" id="leavewhenempty" class="form-control" tabindex="<?php echo ++$tabindex;?>">
-									<option value="yes" <?php echo ($default == "yes" ? 'SELECTED' : '')?>><?php echo _("Yes") ?></option>
-									<option value="strict"  <?php echo ($default == "strict" ? 'SELECTED' : '')?>><?php echo _("Strict") ?></option>
-									<option value="penalty,paused,invalid,unavailable,inuse,ringing"  <?php echo ($default == "penalty,paused,invalid,unavailable,inuse,ringing" ? 'SELECTED' : '')?>><?php echo _("Ultra Strict") ?></option>
-									<option value="no"  <?php echo ($default == "no" ? 'SELECTED' : '')?>><?php echo _("No") ?></option>
-									<option value="loose"  <?php echo ($default == "loose" ? 'SELECTED' : '')?>><?php echo _("Loose") ?></option>
-								</select>
+							<div class="col-md-9 radioset">
+								<?php $default = (isset($leavewhenempty[0]) ? $leavewhenempty[0] : 'no');?>
+								<input type="radio" name="leavewhenempty" id="leavewhenemptyyes" value="yes" <?php echo ($default == "yes"?"CHECKED":"") ?>>
+								<label for="leavewhenemptyyes"><?php echo _("Yes");?></label>
+								<input type="radio" name="leavewhenempty" id="leavewhenemptystrict" value="strict" <?php echo ($default == "strict"?"CHECKED":"") ?>>
+								<label for="leavewhenemptystrict"><?php echo _("Strict");?></label>
+								<input type="radio" name="leavewhenempty" id="leavewhenemptyultra" value="penalty,paused,invalid,unavailable,inuse,ringing" <?php echo ($default == "penalty,paused,invalid,unavailable,inuse,ringing"?"CHECKED":"") ?>>
+								<label for="leavewhenemptyno"><?php echo _("Ultra Strict");?></label>
+								<input type="radio" name="leavewhenempty" id="leavewhenemptyno" value="no" <?php echo ($default == "no"?"CHECKED":"") ?>>
+								<label for="leavewhenemptyno"><?php echo _("No");?></label>
+								<input type="radio" name="leavewhenempty" id="leavewhenemptyloose" value="loose" <?php echo ($default == "loose"?"CHECKED":"") ?>>
+								<label for="leavewhenemptyloose"><?php echo _("Loose");?></label>
 							</div>
 						</div>
 					</div>
@@ -1601,14 +1615,14 @@ for ($i=15; $i <= 300; $i+=15) {
 			</div>
 		</div>
 		<!--END Leave Empty-->
-		<!--enalty Members Limit-->
+		<!--Penalty Members Limit-->
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="row">
 						<div class="form-group">
 							<div class="col-md-3">
-								<label class="control-label" for="penaltymemberslimit"><?php echo _("enalty Members Limit") ?></label>
+								<label class="control-label" for="penaltymemberslimit"><?php echo _("Penalty Members Limit") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="penaltymemberslimit"></i>
 							</div>
 							<div class="col-md-9">
@@ -1626,7 +1640,7 @@ for ($i=15; $i <= 300; $i+=15) {
 				</div>
 			</div>
 		</div>
-		<!--END enalty Members Limit-->
+		<!--END Penalty Members Limit-->
 	</div>
 	<!--END Capacity options-->
 	<div role="tabpanel" id="qcallerannounce" class="tab-pane">
@@ -1645,7 +1659,7 @@ for ($i=15; $i <= 300; $i+=15) {
    									<i class="fa fa-question-circle fpbx-help-icon" data-for="announcefreq"></i>
    								</div>
    								<div class="col-md-9">
-   									<select class="form-control" id="announcefreq" name="announcefreq" tabindex="<?php echo ++$tabindex;?>">
+   									<select class="form-control" id="announcefreq" name="announcefreq" >
    										<?php echo $qafreqopts ?>
    									</select>
    								</div>
@@ -1673,9 +1687,9 @@ for ($i=15; $i <= 300; $i+=15) {
    								<div class="col-md-9 radioset input-group">
    								&nbsp;&nbsp;&nbsp;
 								<?php $default = (isset($thisQ['announce-position']) ? $thisQ['announce-position'] : "no");?>
-								<input type="radio" name="announceposition" id="announcepositionyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<input type="radio" name="announceposition" id="announcepositionyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="announcepositionyes"><?php echo _("Yes") ?></label>
-								<input type="radio" name="announceposition" id="announcepositionno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<input type="radio" name="announceposition" id="announcepositionno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
 								<label for="announcepositionno"><?php echo _("No") ?></label>
    								</div>
    							</div>
@@ -1701,12 +1715,12 @@ for ($i=15; $i <= 300; $i+=15) {
    								</div>
    								<div class="col-md-9 radioset input-group">
    								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($thisQ['announce-holdtime']) ? $thisQ['announce-holdtime'] : "no");?>
-								<input type="radio" name="announceholdtime" id="announceholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<?php $default = (isset($thisQ['announce-holdtime'][0]) ? $thisQ['announce-holdtime'][0] : "no");?>
+								<input type="radio" name="announceholdtime" id="announceholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="announceholdtimeyes"><?php echo _("Yes") ?></label>
-								<input type="radio" name="announceholdtime" id="announceholdtimeno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+								<input type="radio" name="announceholdtime" id="announceholdtimeno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
 								<label for="announceholdtimeno"><?php echo _("No") ?></label>
-   								<input type="radio" name="announceholdtime" id="announceholdtimeonce" value="once" <?php echo ($default == "once" ? 'checked' : '') ?> tabindex="<?php echo ++$tabindex;?>">
+   								<input type="radio" name="announceholdtime" id="announceholdtimeonce" value="once" <?php echo ($default == "once" ? 'checked' : '') ?> >
 								<label for="announceholdtimeonce"><?php echo _("Once") ?></label>
    								</div>
    							</div>
@@ -1746,7 +1760,7 @@ for ($i=15; $i <= 300; $i+=15) {
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="servicelevel"></i>
 							</div>
 							<div class="col-md-9">
-								<select name="servicelevel" id="servicelevel" class="form-control" tabindex="<?php echo ++$tabindex;?>">
+								<select name="servicelevel" id="servicelevel" class="form-control" >
 									<?php echo $slopts ?>
 								</select>
 							</div>

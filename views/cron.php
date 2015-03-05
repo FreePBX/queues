@@ -14,8 +14,12 @@ $cron_schedule = $cron_schedule?$cron_schedule:'never';
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="enabledw"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="checkbox" id="disablecron" <?php echo ($cron_schedule == 'never'? 'CHECKED':'') ?>>
-						<label for="disablecron"><?php echo _("Disabled") ?></label>
+						<span class="radioset">
+						<input type="radio" name="disablecron" id="disablecronyes" value="" <?php echo ($disablecron == "never"?"":"CHECKED") ?>>
+						<label for="disablecronyes"><?php echo _("Yes");?></label>
+						<input type="radio" name="disablecron" id="disablecronno" value="never" <?php echo ($disablecron == "never"?"CHECKED":"") ?>>
+						<label for="disablecronno"><?php echo _("No");?></label>
+						</span>
 					</div>
 				</div>
 			</div>
@@ -46,8 +50,10 @@ $cron_schedule = $cron_schedule?$cron_schedule:'never';
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_randomw"></i>
 					</div>
 					<div class="col-md-9 radioset form-inline">
-						<input type="checkbox" id="cron_random" name="cron_random" value="true" <?php echo $cron_random?'CHECKED':''?> <?php ($cron_schedule == 'never'? 'disabled':'') ?>>
-						<label for="cron_random"><?php echo _("Enable")?></label>
+						<input type="radio" name="cron_random" id="cron_randomyes" value="true" <?php echo ($cron_random == "true"?"CHECKED":"") ?>>
+						<label for="cron_randomyes"><?php echo _("Yes");?></label>
+						<input type="radio" name="cron_random" id="cron_randomno" value="false" <?php echo ($cron_random == "true"?"":"CHECKED") ?>>
+						<label for="cron_randomno"><?php echo _("No");?></label>
 						<select class="form-control" id="cron_schedule_select" <?php echo ($cron_random ? '':'disabled') ?>>
 							<option value = "hourly" <?php echo ($cron_schedule == 'hourly'?'SELECTED':'')?>><?php echo _("Hourly")?></option>
 							<option value = "daily" <?php echo ($cron_schedule == 'daily'?'SELECTED':'')?>><?php echo _("Daily")?></option>
@@ -170,8 +176,8 @@ $(document).ready(function() {
 	});
 });
 //Disable Check box...
-$("#disablecron").change(function(){
-	if(this.checked){
+$('input[name="disablecron"]').on('change',function(){
+	if($(this).val() == 'never'){
 		$('#cron_minute').attr('disabled', true);
 		$('#cron_hour').attr('disabled', true);
 		$('#cron_dow').attr('disabled', true);
@@ -194,8 +200,9 @@ $("#disablecron").change(function(){
 	}
 });
 //Random
-$("#cron_random").change(function(){
-	if(this.checked){
+$('input[name="cron_random"]').on('change',function(){
+		console.log($(this).val());
+	if($(this).val() == "true"){
 		$('#cron_schedule_select').attr('disabled', false);
 		$('#cron_minute').attr('disabled', true);
 		$('#cron_hour').attr('disabled', true);
