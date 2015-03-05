@@ -1,7 +1,13 @@
-$("[id^='qsagents']").change(function(){
+$("[id^='qsagents']").on('change',function(){
 	var taelm = $(this).data('for');
-	console.log($('#'+taelm));
-	$('#'+taelm).append($(this).val()+",0\n");
+	var cval = $('#'+taelm).val();
+	if(cval.length === 0){
+		$('#'+taelm).val($(this).val()+",0");
+		$(this).children('option[value="'+$(this).val()+'"]').remove();
+	}else{
+		$('#'+taelm).val(cval+"\n"+$(this).val()+",0");
+		$(this).children('option[value="'+$(this).val()+'"]').remove();
+	}
 });
 
 function insertExten(type) {
