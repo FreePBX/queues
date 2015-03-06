@@ -2,7 +2,7 @@
 # ================================
 # Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
 # Inquiries: info@qloog.com / www.qloog.com
-# 
+#
 # This translation is a culmination of the hard work of
 # several outstanding individuals, which started in 2009 with the 
 # first-ever Japanese localization of FreePBX by Kenichi Fukaumi 
@@ -14,7 +14,7 @@
 # of course, released under the same GPLv2 license as FreePBX. 
 # We only ask that you kindly retain these credits in honor of 
 # the time and effort that all of us have contributed. Enjoy!
-# 
+#
 # This file is part of FreePBX.
 #
 #    FreePBX is free software: you can redistribute it and/or modify
@@ -37,63 +37,696 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-05 19:32+0900\n"
-"PO-Revision-Date: 2014-02-21 01:32+0200\n"
-"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
-"Language-Team: Japanese <http://192.168.30.85/projects/freepbx/queues/ja/>\n"
-"Language: ja\n"
+"POT-Creation-Date: 2015-03-06 13:47-0500\n"
+"PO-Revision-Date: 2015-02-19 09:37+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
+"ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 2.2-dev\n"
 
+#: page.queues.php:1087
+msgid "(**) ERRORS"
+msgstr "(**) エラー"
+
+#: page.queues.php:1087
+msgid "(**) Warning Potential Errors"
+msgstr "(**) 警告 潜在的なエラー"
+
+#: page.queues.php:392 page.queues.php:420
+msgid "(pick extension)"
+msgstr "内線をピックアップ"
+
+#: page.queues.php:371
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr "ALERT_INFOは、SIPデバイスと着信音に使用することができます。"
+
+#: page.queues.php:178 page.queues.php:248 page.queues.php:265
+msgid "Add Queue"
+msgstr "キューを追加"
+
+#: page.queues.php:730
+msgid ""
+"After a successful call, how many seconds to wait before sending a "
+"potentially free agent another call (default is 0, or no delay) If using "
+"Asterisk 1.6+, you can also set the 'Honor Wrapup Time Across Queues' "
+"setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
+"this is honored across queues for members logged on to multiple queues."
+msgstr ""
+"コールが成功した後に、潜在的にフリーなエージェントへ他のコールを送信する前に"
+"何秒間待つか。(デフォルトは0, またはディレイなし)もしAsterisk 1.6以降を使用し"
+"ている場合は、複数のキューログインしているメンバーのためにキューをまたいで尊"
+"重されるように、'高度な設定ページでキューをまたいでまとめた時間を尊重する'を"
+"設定することもできます。"
+
+#: functions.inc.php:65
+msgid "Agent Announce Msg"
+msgstr "エージェントアナウンスメッセージ"
+
+#: page.queues.php:762 page.queues.php:781
+msgid "Agent Announcement:"
+msgstr "エージェントアナウンス："
+
+#: queues.i18n.php:32
+msgid "Agent Called Events Default"
+msgstr "標準エージェント・イベントコール"
+
+#: page.queues.php:1231
+msgid "Agent Regex Filter"
+msgstr "エージェント正規表現フィルター"
+
+#: page.queues.php:438
+msgid "Agent Restrictions"
+msgstr "エージェントを制限"
+
+#: page.queues.php:564
+msgid "Agent Ringing"
+msgstr "エージェントをリング時"
+
+#: page.queues.php:702
+msgid "Agent Timeout Restart:"
+msgstr "エージェントタイムアウト再開："
+
+#: page.queues.php:687
+msgid "Agent Timeout:"
+msgstr "エージェントタイムアウト："
+
+#: page.queues.php:371
+msgid "Alert Info"
+msgstr "アラートインフォ"
+
+#: page.queues.php:588
+msgid "Always"
+msgstr "常に"
+
+#: page.queues.php:882
+msgid "Always allows the caller to join the Queue."
+msgstr "発信者がキューに参加するのを常に許可。"
+
+#: page.queues.php:1007
+msgid "Announce Hold Time:"
+msgstr "待ち時間アナウンス："
+
+#: page.queues.php:994
+msgid "Announce Position:"
+msgstr "待ち順アナウンス："
+
+#: page.queues.php:994
+msgid "Announce position of caller in the queue?"
+msgstr "発信者の通話待ちの順番をアナウンスしますか？"
+
+#: page.queues.php:338
+msgid ""
+"Announcement played to anyone using an external follow-me to receive the "
+"queue call.<br><br>You must install and enable the \"Systems Recordings\" "
+"Module to edit this option"
+msgstr ""
+"キュー内の呼を受信するため外部フォローミー機能を使用する人に対し、再生される"
+"メッセージです。<br><br>このオプションを編集するには、\"システム録音\"モ"
+"ジュールをインストールし有効にしなければなりません"
+
+#: page.queues.php:596
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"キューに参加する前に一回のみ発信者に再生されるアナウンス。<br><br>このオプ"
+"ションを編集するには\"システム録音\"モジュールをインストールし有効にする必要"
+"があります"
+
+#: page.queues.php:573
+msgid ""
+"Announcement played to callers prior to joining the queue. This can be "
+"skipped if there are agents ready to answer a call (meaning they still may "
+"be wrapping up from a previous call) or when they are free to answer the "
+"call right now. To add additional recordings please use the \"System "
+"Recordings\" MENU."
+msgstr ""
+"キューに参加する前に再生するアナウンス。対応可能なエージェント（ACWエージェン"
+"トを含む）がいる場合は、スキップすることができます。アナウンスを追加する場合"
+"は、\"システム音声\"メニューを使用してください。"
+
+#: page.queues.php:762
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>To add additional recordings "
+"please use the \"System Recordings\" MENU. Compound recordings composed of 2 "
+"or more sound files are not displayed as options since this feature can not "
+"accept such recordings."
+msgstr ""
+"発信者のブリッジの前にエージェントに再生されるアナウンス<br><br>例:\"次のコー"
+"ルは営業キューからのものです\" や \"このコールはテクニカルサポートキューから"
+"のものです。\"<br><br>録音を追加するには、\"システム録音\"メニューを使用して"
+"ください。2つ以上の音声ファイルから構成された合成録音は、この機能ではそのよう"
+"な録音を受け付けられないため、オプションとして表示されません。"
+
+#: page.queues.php:781
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>You must install and enable the "
+"\"Systems Recordings\" Module to edit this option"
+msgstr ""
+"発信者との接続前にエージェントに流れるアナウンス<br><br>例：\"営業に関するお"
+"問合せ\" や \"テクニカルサポートに関するお問合せ\"。<br><br>このオプションは"
+"\"システム録音\"モジュールをインストールし有効にしてください"
+
+#: page.queues.php:320
+msgid ""
+"Announcement played to the Queue Member announcing the Queue call and "
+"requesting confirmation prior to answering. If set to default, the standard "
+"call confirmation default message will be played unless the member is "
+"reached through a Follow-Me and there is an alternate message provided in "
+"the Follow-Me. This message will override any other message specified.."
+"<br><br>To add additional recordings please use the \"System Recordings\" "
+"MENU."
+msgstr ""
+
+#: views/cron.php:10
+msgid "Annually"
+msgstr "毎年"
+
+#: queues.i18n.php:6 queues.i18n.php:12
+msgid "Applications"
+msgstr "アプリケーション"
+
+#: views/cron.php:108
+msgid "April"
+msgstr "4月"
+
+#: page.queues.php:672
+msgid ""
+"Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
+"caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
+"mode, if a queue member is currently ringing with this call, then we will "
+"wait until the queue stops ringing this queue member or otherwise the call "
+"is rejected by the queue member before taking the caller out of the queue. "
+"This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
+"'Agent Timeout' combined."
+msgstr ""
+"Asterisk タイムアウト優先度。'厳密'モードでは、発信者の'最大待ち時間'がヒット"
+"した時には即座にキューから出されます。'ルーズ'モードでは、もしキューメンバー"
+"が現在このコールを着信させている場合、キューがこのキューメンバーを着信をス"
+"トップする間待ちます、さもなくば、発信者をキューの外へ連れて行く前にコールは"
+"キューメンバーによって拒否されます。これは、'最大待ち時間'は '最大待ち時間' "
+"+ 'エージェントタイムアウト'の合計の長さになる可能性があることを意味します。"
+
+#: page.queues.php:960
+msgid ""
+"Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
+"settings, allowing all members to be tried, when the queue has too few "
+"members.  No penalty will be weighed in if there are only X or fewer queue "
+"members."
+msgstr ""
+"Asterisk: ペナルティメンバーリミット。キューのメンバーが非常に少ない時に、リ"
+"ミットはペナルティ設定を無視するように設定でき、全てのメンバーが試みられるよ"
+"うになります。X人やそれ以下のキューメンバーしかいない時に、ペナルティのウェイ"
+"トが計算されなくなります。"
+
+#: views/cron.php:112
+msgid "August"
+msgstr "8月"
+
+#: page.queues.php:856
+msgid "Auto Pause Delay:"
+msgstr "オートポーズディレイ："
+
+#: page.queues.php:807
+msgid ""
+"Auto Pause an agent in this queue (or all queues they are a member of) if "
+"they don't answer a call. Specific behavior can be modified by the Auto "
+"Pause Delay as well as Auto Pause Busy/Unavailable settings if supported on "
+"this version of Asterisk."
+msgstr ""
+"エージェントが電話に出なかった場合に、そのエージェントをこのキュー（若しくは"
+"すべての参加しているキュー）においてオートポーズ（自動中止）する。Asteriskの"
+"バージョンによって、具体的な動作は「オートポーズディレイ」、又は「利用不可能"
+"時にオートポーズ」などの設定で変更できます。"
+
+#: page.queues.php:824
+msgid "Auto Pause on Busy:"
+msgstr "オートポーズビジー："
+
+#: page.queues.php:839
+msgid "Auto Pause on Unavailable:"
+msgstr "利用不可能時にオートポーズ："
+
+#: page.queues.php:807
+msgid "Auto Pause:"
+msgstr "オートポーズ："
+
+#: page.queues.php:501
+msgid "Autofill:"
+msgstr "Autofill："
+
+#: functions.inc/geters_seters.php:39
 msgid "Bad Queue Number, can not be blank"
 msgstr "不正なキュー番号、空白は許可されません"
 
-msgid ""
-"Warning, there are compound recordings configured in one or more Queue "
-"configurations. Queues can not play these so they have been truncated to the "
-"first sound file. You should correct this problem.<br />Details:<br /><br />"
+#: page.queues.php:1030
+msgid "Break Out Type"
 msgstr ""
-"警告、一つ以上のキュー設定の中で、合成録音の設定があります。キューではこれら"
-"を再生できないため、これらは切り捨てられ最初の音声ファイルに設定されます。こ"
-"の問題を訂正してください。<br />詳細:<br /><br />"
 
-#, php-format
-msgid "Queue - %s (%s): %s<br />"
-msgstr "キュー - %s (%s): %s<br />"
+#: page.queues.php:351
+msgid "CID Name Prefix:"
+msgstr "発信者ID名プリフィックス："
 
+#: page.queues.php:320
+msgid "Call Confirm Announce:"
+msgstr "コール確認アナウンス："
+
+#: page.queues.php:338
+msgid "Call Confirm Announcement:"
+msgstr "コール確認のアナウンス："
+
+#: page.queues.php:312
+msgid "Call Confirm:"
+msgstr "コール確認："
+
+#: page.queues.php:619
+msgid "Call Recording:"
+msgstr "通話録音："
+
+#: page.queues.php:443
+msgid "Call as Dialed"
+msgstr "ダイヤルされたかのように呼び出す"
+
+#: page.queues.php:1109
+msgid "Callback to use when caller presses 1."
+msgstr ""
+
+#: page.queues.php:977
+msgid "Caller Position Announcements"
+msgstr "発信者の待ち順アナウンス"
+
+#: page.queues.php:921
+msgid ""
+"Callers will exit if all agents are paused, show an invalid state for their "
+"device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
+"in FreePBX dialplan).."
+msgstr ""
+"エージェントが一時停止中や、彼らのデバイスに無効なステータスが表示されている"
+"場合や、QUEUE_MAX_PENALTY(現在FreePBXダイヤルプランに設定されていません) の値"
+"より小さいペナルティ値を持っている場合に発信者が退出します。"
+
+#: page.queues.php:887
+msgid ""
+"Callers will not be admitted if all agents are paused, show an invalid state "
+"for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
+"currently set in FreePBX dialplan)."
+msgstr ""
+"もし全てのエージェントが停止中の場合またはかれらのデバイスに無効な状態されて"
+"る場合または、 QUEUE_MAX_PENALTY の値よりも少ないペナルティ値をもつ場合に発信"
+"者は入ることが許可されません。"
+
+#: page.queues.php:862
+msgid "Capacity Options"
+msgstr "キャパシティーオプション"
+
+#: install.php:68
+msgid "Checking for legacy queues table.."
+msgstr "レガシーのqueuesテーブルをチェック中.."
+
+#: install.php:382
+msgid "Checking if recordings need migration.."
+msgstr "録音の移行が必要かチェック中.."
+
+#: page.queues.php:414
+msgid ""
+"Choose an extension to append to the end of the dynamic member list above."
+msgstr "上記の動的エージェントリストの最後に追加する内線を選択してください。"
+
+#: page.queues.php:386
+msgid ""
+"Choose an extension to append to the end of the static agents list above."
+msgstr "上記の静的エージェントリストの最後に追加する内線を選択してください。"
+
+#: functions.inc/queue_conf.php:215
 msgid "Compound Recordings in Queues Detected"
 msgstr "キューに合成録音を検知しました"
 
+#: page.queues.php:241
+msgid "Conflicting Extensions"
+msgstr "内線の競合"
+
+#: queues.i18n.php:8
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
+"コールが保留中に置かれ、先入れ先出しに基づいて応答されるキューを作成します。"
+"エージェントへのリングストラテジー、発信者アナウンス、最大待ち時間等を含む多"
+"くのオプションを利用できます。"
+
+#: install.php:188
+msgid "Creating queues_config.."
+msgstr "queues_configを作成中.."
+
+#: install.php:94
+msgid "Creating queues_details.."
+msgstr "queues_detailsを作成中.."
+
+#: views/cron.php:12
+msgid "Custom"
+msgstr "カスタム"
+
+#: views/cron.php:7
+msgid "Daily"
+msgstr "毎日"
+
+#: views/cron.php:132
+msgid "Day of Month"
+msgstr "日付"
+
+#: views/cron.php:77
+msgid "Day of Week"
+msgstr "曜日"
+
+#: views/cron.php:116
+msgid "December"
+msgstr "12月"
+
+#: page.queues.php:326
+msgid "Default"
+msgstr "デフォルト"
+
+#: queues.i18n.php:34
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr ""
+"エージェントの呼に関連するAMI emit eventのデフォルト。この設定は、新規キュー"
+"のデフォルトのみを変更し、既存のキューの設定は変更しません。"
+
+#: queues.i18n.php:42
+msgid ""
+"Default state for AMI to emit the QueueMemberStatus event. This setting will "
+"only affect the default for NEW queues, it won't change existing queues or "
+"enfore the option on in new ones."
+msgstr ""
+"AMIがQueueMemberStatusイベントを発行する際のデフォルトのステータス。この設定"
+"は、新規キューのデフォルトのみを変更し、既存のキューの設定は変更しません。"
+
+#: page.queues.php:236
+msgid "Delete Queue"
+msgstr "キューを削除"
+
+#: page.queues.php:919
+msgid ""
+"Determines if callers should be exited prematurely from the queue in "
+"situations where it appears no one is currently available to take the call. "
+"The options include:"
+msgstr ""
+"コールにでられるひとが現在だれもいないような状況で、発信者がキューから途中退"
+"出されるべきかどうかを判断します。オプションは次のとおりです:"
+
+#: page.queues.php:880
+msgid ""
+"Determines if new callers will be admitted to the Queue, if not, the "
+"failover destination will be immediately pursued. The options include:"
+msgstr ""
+"新しい発信者がキューに入ることを許可されるかどうかを決定します、もし許可され"
+"なかった場合は続いてフェイルオーバー宛先に移動します。オプションは次を含みま"
+"す:"
+
+#: page.queues.php:1159 page.queues.php:1191
+msgid "Disabled"
+msgstr "無効"
+
+#: page.queues.php:624
+msgid "Don't Care"
+msgstr ""
+
+#: install.php:339
+msgid "Dropping old queues table.."
+msgstr "古い queues テーブルをドロップ中.."
+
+#: page.queues.php:404
+msgid "Dynamic Members"
+msgstr "ダイナミックメンバー"
+
+#: page.queues.php:404
+msgid ""
+"Dynamic Members are extensions or callback numbers that can log in and out "
+"of the queue. When a member logs in to a queue, their penalty in the queue "
+"will be as specified here. Extensions included here will NOT automatically "
+"be logged in to the queue."
+msgstr ""
+"動的メンバーはキューにログインやログアウトが可能な内線もしくはコールバック番"
+"号です。メンバーがキューにログインした時、キュー内のそれらのペナルティはここ"
+"で指定された通りとなります。ここにふくまれた内線は自動的にキューにはログイン"
+"しません。"
+
+#: install.php:328
+msgid "ERROR were encountered"
+msgstr "エラーに遭遇しました"
+
+#: page.queues.php:1091
+msgid ""
+"ERROR: You have selected an IVR that uses Announcements created from "
+"compound sound files. The Queue is not able to play these announcements. "
+"This IVRs recording will be truncated to use only the first sound file. You "
+"can correct the problem by selecting a different announcement for this IVR "
+"that is not from a compound sound file. The IVR itself can play such files, "
+"but the Queue subsystem can not"
+msgstr ""
+
+#: install.php:207
+msgid "ERROR: accessing queues table obtaining context info, aborting"
+msgstr ""
+"エラー: context情報を取得するためにqueues テーブルへアクセス、中止します"
+
+#: install.php:232
+msgid "ERROR: accessing queues table obtaining id list, aborting"
+msgstr "エラー: idリストを取得するためにqueuesテーブルへアクセス、中止します"
+
+#: install.php:214
+msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+msgstr "エラー: rtone情報を取得するためにqueuesテーブルへアクセス、中止します"
+
+#: install.php:101 install.php:195
+msgid "ERROR: could not create table"
+msgstr "エラー: テーブルの作成ができませんでした"
+
+#: install.php:119
+msgid "ERROR: could not migrate to queues_details"
+msgstr "エラー: queues_detailsに移行できませんでした"
+
+#: install.php:320
 #, php-format
-msgid "Queue %s : %s"
-msgstr "キュー %s : %s"
+msgid "ERROR: inserting data for row %s: %s.."
+msgstr "エラー:行 %s へデータのインサート中: %s.."
 
-#, php-format
-msgid "Queue: %s"
-msgstr "キュー: %s"
+#: page.queues.php:1091
+msgid ""
+"Earlier versions of this module allowed such queues to be chosen, once "
+"changing this setting, it will no longer appear as an option"
+msgstr ""
+"モジュールの以前のバージョンはキューが選択を許可していました。この設定を一度"
+"変更すると、オプションとして表示されません"
 
-msgid "INUSE"
-msgstr "使用中"
+#: page.queues.php:265
+msgid "Edit Queue"
+msgstr "キューを編集"
 
-#, php-format
-msgid "Queue: %s (%s)"
-msgstr "キュー: %s (%s)"
+#: page.queues.php:1152 page.queues.php:1184
+msgid "Enabled"
+msgstr "有効"
 
-msgid "Use State"
-msgstr "状態を使用する"
+#: page.queues.php:632
+msgid ""
+"Enabling this option, all calls are marked as 'answered elsewhere' when "
+"cancelled. The effect is that missed queue calls are *not* shown on the "
+"phone (if the phone supports it)"
+msgstr ""
+"オプションを有効にした場合、キャンセル時に全コールが'他で応答されました'とし"
+"てマークされます。また受電されなかった呼は電話機に表示されません（電話機がサ"
+"ポートしている場合）"
 
-msgid "Ignore State"
-msgstr "状態を無視する"
+#: page.queues.php:1151
+msgid "Event When Called"
+msgstr "着信時イベント"
 
+#: page.queues.php:1143
+msgid "Events, Stats and Advanced"
+msgstr "イベント、ステータスの高度な設定"
+
+#: functions.inc/hook_core.php:59
 msgid "Extension Options"
 msgstr "内線オプション"
 
-msgid "Queue State Detection"
-msgstr "キューステート検知"
+#: page.queues.php:384 page.queues.php:412
+msgid "Extension Quick Pick"
+msgstr "内線クイックピックアップ"
 
+#: page.queues.php:445
+msgid "Extensions Only"
+msgstr "内線のみ"
+
+#: page.queues.php:1240
+msgid "Fail Over Destination"
+msgstr "キューオーバー時の宛先"
+
+#: views/cron.php:106
+msgid "February"
+msgstr "2月"
+
+#: page.queues.php:622
+msgid "Force"
+msgstr ""
+
+#: page.queues.php:980
+msgid "Frequency:"
+msgstr "頻度："
+
+#: views/cron.php:85
+msgid "Friday"
+msgstr "金曜日"
+
+#: page.queues.php:451
+msgid "General Queue Options"
+msgstr "一般キューオプション"
+
+#: page.queues.php:305
+msgid "Generate Device Hints:"
+msgstr "デバイスヒントを生成する："
+
+#: queues.i18n.php:36
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "queuenum*/** Login/offのコードを生成する"
+
+#: page.queues.php:276
+msgid "Give this queue a brief name to help you identify it."
+msgstr "このキューを識別するために簡潔な名前を付けます。"
+
+#: page.queues.php:527
+msgid ""
+"Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
+"queue will deliver its calls first if there are agents common to both queues."
+msgstr ""
+"どちらのキューにも共通なエージェントがいる場合に、より高い優先度キューで待っ"
+"ているコールが運ばれることを保証するために、キューに'ウェイト'オプションを提"
+"供します。"
+
+#: queues.i18n.php:28
+msgid "Hide Queue No Answer Option"
+msgstr "キューを隠し応答しないオプション"
+
+#: page.queues.php:965
+msgid "Honor Penalties"
+msgstr "ペナルティを与える"
+
+#: queues.i18n.php:20
+msgid "Honor Wrapup Time Across Queues"
+msgstr "キューをまたいでまとめた時間を尊重する"
+
+#: views/cron.php:61
+msgid "Hour"
+msgstr "時"
+
+#: views/cron.php:6
+msgid "Hourly"
+msgstr "毎時間"
+
+#: page.queues.php:1129
+msgid ""
+"How often to announce a voice menu to the caller (0 to Disable "
+"Announcements)."
+msgstr ""
+"発信者に対してどの間隔でボイスメニューをアナウンスするか(アナウンス無効は0)。"
+
+#: page.queues.php:980
+msgid ""
+"How often to announce queue position and estimated holdtime (0 to Disable "
+"Announcements)."
+msgstr ""
+"キューの位置や予想待ち時間をどれぐらいの頻度でアナウンスするか(アナウンス無し"
+"は0)。"
+
+#: functions.inc/destination_registry.php:98
+msgid "INUSE"
+msgstr "使用中"
+
+#: functions.inc.php:75
+#, php-format
+msgid "IVR Announce: %s"
+msgstr "IVR アナウンス: %s"
+
+#: page.queues.php:1033
+msgid "IVR Break Out Menu"
+msgstr ""
+
+#: page.queues.php:1049
+msgid "IVR Break Out Menu:"
+msgstr "IVRメニュー呼出し："
+
+#: page.queues.php:312
+msgid ""
+"If checked, any queue member that is actually an outside telephone number, "
+"or any extensions Follow-Me or call forwarding that are pursued and leave "
+"the PBX will be forced into Call Confirmation mode where the member must "
+"acknowledge the call before it is answered and delivered.."
+msgstr ""
+"チェックされた場合、実際は外部の電話番号のキューメンバーもしくは追跡された"
+"り、PBXを残しておくフォローミーやコール転送の内線番号は強制的にコールの確認"
+"モードに入り、そこではコールが応答されたり運ばれる前にメンバーはコールを知る"
+"必要があります。"
+
+#: page.queues.php:305
+msgid ""
+"If checked, individual hints and dialplan will be generated for each SIP and "
+"IAX2 device that could be part of this queue. These are used in conjunction "
+"with programmable BLF phone buttons to log into and out of a queue and "
+"generate BLF status as to the current state. The format of the hints is<br /"
+"><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle "
+"feature code, ddd is the device number (typically the same as the extension "
+"number) and qqq is this queue's number."
+msgstr ""
+"チェックされた場合、個人のヒントやダイヤルプランがこのキューの一部となる可能"
+"性がある各SIPやIAX2デバイスのために生成されます。これらはキューにログインした"
+"りログアウトして、現在の状態に関してBLFステータスを生成するためのプログラマブ"
+"ルBLF電話のボタンと組み合わせて使用されます。ヒントの形式は<br /><br /"
+">*45ddd*qqq<br /><br />ここで、* 45は、現在定義されている切り替え機能コード"
+"で、dddはデバイス番号（通常は内線番号と同じです。 ）でQQQはこのキューの番号で"
+"す。"
+
+#: page.queues.php:295
+msgid ""
+"If checked, the queue will not answer the call. Under most circumstance you "
+"should always have the queue answering calls. If not, then it's possible "
+"that recordings and MoH will not be heard by the waiting callers since early "
+"media capabilities vary and are inconsistent. Some cases where it may be "
+"desired to not answer a call is when using Strict Join Empty queue policies "
+"where the caller will not be admitted to the queue unless there is a queue "
+"member immediately available to take the call."
+msgstr ""
+"チェックされた場合、キューはコールに応答しません。ほとんどの状況下では、常に"
+"呼び出しに応答キューを持っている必要があります。されていない場合、それは早期"
+"メディア機能が異なり、矛盾しているので、録音やMoHが待っている発信者が聞くこと"
+"がないことが可能です。電話を取るためにすぐに使用できるキューのメンバーがある"
+"場合を除き、呼び出しは、キューへの入場はできません厳格な入会空のキューのポリ"
+"シーを使用するときには、コールに応答しないように望まれるかもしれないいくつか"
+"のケースがあります。"
+
+#: page.queues.php:356
+msgid ""
+"If the call is subsequently transferred, the wait time will reflect the time "
+"since it first entered the queue or reset if the call is transferred to "
+"another queue with this feature set."
+msgstr ""
+"コールが続いて転送された場合、待機時間はコールがこの機能セットを持つ別の"
+"キューに転送されていれば、最初にキューに入ってからの待機時間が反映され、もし"
+"くはこの機能セットによってコールが他のキューに転送された場合はリセットしま"
+"す。"
+
+#: functions.inc/hook_core.php:65
 msgid ""
 "If this extension is part of a Queue then the Queue will attempt to use the "
 "user's extension state or device state information when determining if this "
@@ -118,448 +751,567 @@ msgstr ""
 "に起因してこのルートが選択された場合には、特定の側面に影響を与える可能性があ"
 "ります。たいていの場合では、'状態を使用する'に設定するべきです。"
 
-msgid "Queue Pause Toggle"
-msgstr "キューポーズトグル"
-
-msgid "Queue Toggle"
-msgstr "キュートグル"
-
-msgid "Checking for legacy queues table.."
-msgstr "レガシーのqueuesテーブルをチェック中.."
-
-msgid "NO table found, no migration to do just create tables"
-msgstr "テーブルが見つかりません、移行は行わずテーブルのみが作成されます"
-
-msgid "OK"
-msgstr "OK"
-
-msgid "Creating queues_details.."
-msgstr "queues_detailsを作成中.."
-
-msgid "already exists"
-msgstr "既存します"
-
-msgid "ERROR: could not create table"
-msgstr "エラー: テーブルの作成ができませんでした"
-
-msgid "Migrating to queues_details.."
-msgstr "queues_detailsに移行.."
-
-msgid "ERROR: could not migrate to queues_details"
-msgstr "エラー: queues_detailsに移行できませんでした"
-
-msgid "Creating queues_config.."
-msgstr "queues_configを作成中.."
-
-msgid "Migrating data to queues_config.."
-msgstr "データをqueues_configに移行中.."
-
-msgid "ERROR: accessing queues table obtaining context info, aborting"
+#: page.queues.php:702
+msgid ""
+"If timeoutrestart is set to yes, then the time out for an agent to answer is "
+"reset if a BUSY or CONGESTION is received. This can be useful if agents are "
+"able to cancel a call with reject or similar."
 msgstr ""
-"エラー: context情報を取得するためにqueues テーブルへアクセス、中止します"
+"タイムアウト再開が'はい'に設定された場合、もしビジーや輻輳を受信した場合は"
+"エージェントへの応答タイムアウトはリセットされます。これは、エージェントがリ"
+"ジェクト等を使用してコールをキャンセルすることができるときに役立ちます。"
 
-msgid "ERROR: accessing queues table obtaining rtone info, aborting"
-msgstr "エラー: rtone情報を取得するためにqueuesテーブルへアクセス、中止します"
+#: page.queues.php:747
+msgid ""
+"If you wish to have a delay before the member is connected to the caller (or "
+"before the member hears any announcement messages), set this to the number "
+"of seconds to delay."
+msgstr ""
+"メンバーが発信者につながる前(またはメンバーがなんらかのアナウンスメッセージを"
+"聞く前)にディレイを持たせたい場合は、これをディレイする秒数に設定してくださ"
+"い。"
 
-msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr "エラー: idリストを取得するためにqueuesテーブルへアクセス、中止します"
+#: page.queues.php:792
+msgid ""
+"If you wish to report the caller's hold time to the member before they are "
+"connected to the caller, set this to yes."
+msgstr ""
+"メンバーが発信者につながる前にメンバーに対して発信者の保留時間をレポートした"
+"い場合はこれを「はい」に設定してください。"
 
-#, php-format
-msgid "ERROR: inserting data for row %s: %s.."
-msgstr "エラー:行 %s へデータのインサート中: %s.."
+#: functions.inc/hook_core.php:37
+msgid "Ignore State"
+msgstr "状態を無視する"
 
-msgid "ERROR were encountered"
-msgstr "エラーに遭遇しました"
+#: page.queues.php:619
+msgid ""
+"Incoming calls to agents can be recorded. If 'never' is selected, then in-"
+"call on demand recording is blocked."
+msgstr ""
 
-msgid "Dropping old queues table.."
-msgstr "古い queues テーブルをドロップ中.."
+#: queues.i18n.php:30
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr ""
+"キューに対して、コールに応答しないようにし、さらにまだ発信者をキューに入れた"
+"状態にすることが可能です。通常の動作では、全ての発信者はキューに入る前に応答"
+"されます。コールに応答されない場合、いづれかの早いメディアが発信者に録音や、"
+"保留音等を聞かせるように運ぶことが可能です。しかし、これは一貫性がなく可変で"
+"す。このオプションは不安定なため、デフォルトでは表示されません。キューが応答"
+"しないように設定された場合、この設定にかかわらず、そのキューに対して設定が表"
+"示されます。"
 
-#, php-format
-msgid "WARNING FAILED %s"
-msgstr "警告 失敗 %s"
-
-msgid "removing queues data extensions table.."
-msgstr "queuesデータ extensionsテーブルを削除中.."
-
-msgid "checking for qregex field.."
-msgstr "qregex フィールドをチェック中.."
-
-msgid "Checking if recordings need migration.."
-msgstr "録音の移行が必要かチェック中.."
-
-msgid "migrating"
-msgstr "移行中"
-
-msgid "adding agentannounce_id field.."
-msgstr "agentannounce_idフィールドを追加中.."
-
-msgid "fatal error"
-msgstr "致命的なエラー"
-
-msgid "ok"
-msgstr "ok"
-
-msgid "adding joinannounce_id field.."
-msgstr "joinannounce_idフィールドを追加中.."
-
-msgid "migrate agentannounce to ids.."
-msgstr "idsにagentannounceを移行.."
-
-#, php-format
-msgid "migrated %s entries"
-msgstr "%sエントリーを移行する"
-
-msgid "migrate joinannounce to ids.."
-msgstr "joinannounce を idsに移行.."
-
-msgid "dropping agentannounce field.."
-msgstr "agentannounce フィールドをドロップ中.."
-
-msgid "no agentannounce field???"
-msgstr "agentannounce フィールドがありません???"
-
-msgid "dropping joinannounce field.."
-msgstr "joinannounce フィールドをドロップ中.."
-
-msgid "no joinannounce field???"
-msgstr "joinannounce フィールドがありません???"
-
-msgid "already migrated"
-msgstr "移行済み"
-
-msgid "checking for queuewait field.."
-msgstr "queuewait フィールドをチェック中.."
-
-msgid "checking for use_queue_context field.."
-msgstr "use_queue_context フィールドをチェック中.."
-
-msgid "checking for togglehint field.."
-msgstr "togglehint フィールドをチェック中.."
-
-msgid "checking for qnoanswer field.."
-msgstr "qnoanswer フィールドをチェック中.."
-
-msgid "checking for callconfirm field.."
-msgstr "callconfirm フィールドをチェック中.."
-
-msgid "checking for callconfirm_id field.."
-msgstr "callconfirm_id フィールドをチェック中.."
-
-msgid "checking for monitor_type field.."
-msgstr "monitor_type フィールドをチェック中.."
-
-msgid "checking for monitor_heard field.."
-msgstr "monitor_heard フィールドをチェック中.."
-
-msgid "checking for monitor_spoken field.."
-msgstr "monitor_spoken フィールドをチェック中.."
-
-msgid "Queues module not found or is disabled. Aborting!"
-msgstr "キューのモジュールが見つからない、または無効になっているため終了します！"
-
-msgid "Never"
-msgstr "決して無い"
-
-msgid "Hourly"
-msgstr "毎時間"
-
-msgid "Daily"
-msgstr "毎日"
-
-msgid "Weekly"
-msgstr "毎週"
-
-msgid "Monthly"
-msgstr "毎月"
-
-msgid "Annually"
-msgstr "毎年"
-
-msgid "Reboot"
-msgstr "再起動"
-
-msgid "Custom"
-msgstr "カスタム"
-
-msgid "Run"
-msgstr "実行"
-
-msgid "Minutes"
-msgstr "分"
-
-msgid "Hour"
-msgstr "時"
-
-msgid "Day of Week"
-msgstr "曜日"
-
-msgid "Sunday"
-msgstr "日曜日"
-
-msgid "Monday"
-msgstr "月曜日"
-
-msgid "Tuesday"
-msgstr "火曜日"
-
-msgid "Wednesday"
-msgstr "水曜日"
-
-msgid "Thursday"
-msgstr "木曜日"
-
-msgid "Friday"
-msgstr "金曜日"
-
-msgid "Saturday"
-msgstr "土曜日"
-
-msgid "Month"
-msgstr "月"
-
+#: views/cron.php:105
 msgid "January"
 msgstr "1月"
 
-msgid "February"
-msgstr "2月"
+#: page.queues.php:573 page.queues.php:596
+msgid "Join Announcement:"
+msgstr "キュー追加アナウンス："
 
-msgid "March"
-msgstr "3月"
+#: page.queues.php:894
+msgid "Join Empty:"
+msgstr "ジョインエンプティー："
 
-msgid "April"
-msgstr "4月"
-
-msgid "May"
-msgstr "5月"
-
-msgid "June"
-msgstr "6月"
-
+#: views/cron.php:111
 msgid "July"
 msgstr "7月"
 
-msgid "August"
-msgstr "8月"
+#: views/cron.php:110
+msgid "June"
+msgstr "6月"
 
-msgid "September"
-msgstr "9月"
+#: page.queues.php:933
+msgid "Leave Empty:"
+msgstr "リーブエンプティー："
 
-msgid "October"
-msgstr "10月"
+#: page.queues.php:678 page.queues.php:889 page.queues.php:907
+#: page.queues.php:927 page.queues.php:945
+msgid "Loose"
+msgstr "ルーズ"
 
-msgid "November"
-msgstr "11月"
+#: views/cron.php:107
+msgid "March"
+msgstr "3月"
 
-msgid "December"
-msgstr "12月"
+#: page.queues.php:632
+msgid "Mark calls answered elsewhere:"
+msgstr "他の場所で応答されたコールをマークします："
 
-msgid "Day of Month"
-msgstr "日付"
+#: page.queues.php:865
+msgid "Max Callers:"
+msgstr "発信者数最大："
 
-msgid "Warning! Extension"
-msgstr "警告! 内線"
+#: page.queues.php:672
+msgid "Max Wait Time Mode:"
+msgstr "最大待ち時間モード："
 
-msgid "is not allowed for your account."
-msgstr "は、あなたのアカウントには権限がありません。"
+#: page.queues.php:641
+msgid "Max Wait Time:"
+msgstr "最大待ち時間："
 
-msgid "Add Queue"
-msgstr "キューを追加"
+#: page.queues.php:865
+msgid "Maximum number of people waiting in the queue (0 for unlimited)"
+msgstr "キューの中で待ちとなる最大人数(無制限の場合は0)"
 
-msgid "Queue"
-msgstr "キュー"
+#: views/cron.php:109
+msgid "May"
+msgstr "5月"
 
-msgid "deleted"
-msgstr "削除しました"
+#: page.queues.php:747
+msgid "Member Delay:"
+msgstr "メンバーディレイ："
 
-msgid "Delete Queue"
-msgstr "キューを削除"
+#: page.queues.php:1183
+msgid "Member Status Event"
+msgstr "メンバーステータスイベント"
 
-msgid "Conflicting Extensions"
-msgstr "内線の競合"
+#: queues.i18n.php:40
+msgid "Memeber Status Event Default"
+msgstr "メンバーステータスイベントデフォルト"
 
-msgid "Queue:"
-msgstr "キュー："
+#: page.queues.php:1071 page.queues.php:1076
+msgid "Menu ID "
+msgstr "メニューID "
 
-msgid "Edit Queue"
-msgstr "キューを編集"
+#: install.php:203
+msgid "Migrating data to queues_config.."
+msgstr "データをqueues_configに移行中.."
 
-msgid "Queue Number:"
-msgstr "キュー番号："
+#: install.php:116
+msgid "Migrating to queues_details.."
+msgstr "queues_detailsに移行.."
 
+#: views/cron.php:45
+msgid "Minutes"
+msgstr "分"
+
+#: page.queues.php:563
+msgid "MoH Only"
+msgstr "保留音のみ"
+
+#: views/cron.php:81
+msgid "Monday"
+msgstr "月曜日"
+
+#: views/cron.php:102
+msgid "Month"
+msgstr "月"
+
+#: views/cron.php:9
+msgid "Monthly"
+msgstr "毎月"
+
+#: page.queues.php:543
 msgid ""
-"Use this number to dial into the queue, or transfer callers to this number "
-"to put them into the queue.<br><br>Agents will dial this queue number plus * "
-"to log onto the queue, and this queue number plus ** to log out of the queue."
-"<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
-"in<br>123** = log out</b>"
+"Music (MoH) played to the caller while they wait in line for an available "
+"agent. Choose \"inherit\" if you want the MoH class to be what is currently "
+"selected, such as by the inbound route. MoH Only will play music until the "
+"agent answers. Agent Ringing will play MoH until an agent's phone is "
+"presented with the call and is ringing. If they don't answer, MoH will "
+"return.  Ring Only makes callers hear a ringing tone instead of MoH ignoring "
+"any MoH Class selected as well as any configured periodic announcements. "
+"This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
-"キューにダイヤルする際にこの番号を使用します、もしくは発信者をキューにいれる"
-"ためにこの番号へ転送します。<br><br>エージェントがこのキューにログインするに"
-"はこの番号プラス * をダイヤルし、このキュー番号プラス ** でキューからログアウ"
-"トします。<br><br>例えば、キュー番号が123の場合:<br><br><b>123* = ログイン"
-"<br>123** = ログアウト</b>"
+"発信者が対応できるエージェントを待つ間再生される音楽は、\"保留音\"設定項目で"
+"定義されています。インバウンドルートなど、保留音クラスを現在のまま使用するに"
+"は\"継承\"を選択します。「保留音のみ」は、エージェントが電話にでるまで再生し"
+"ます。「エージェント呼出」は、呼び出したいエージェントの電話を鳴らすまで再生"
+"します。エージェントが電話に出ない場合は、保留音が再度ながれます。「着信音の"
+"み」は、保留音クラスや定期的なアナウンス設定を無視し着信音のみを再生します。"
 
-msgid "Queue Name:"
-msgstr "キュー名："
+#: page.queues.php:543
+msgid "Music on Hold Class:"
+msgstr "保留クラス音："
 
-msgid "Give this queue a brief name to help you identify it."
-msgstr "このキューを識別するために簡潔な名前を付けます。"
+#: install.php:72
+msgid "NO table found, no migration to do just create tables"
+msgstr "テーブルが見つかりません、移行は行わずテーブルのみが作成されます"
 
-msgid "Queue Password:"
-msgstr "キューパスワード："
+#: page.queues.php:626 views/cron.php:5
+msgid "Never"
+msgstr "ブロック"
 
+#: page.queues.php:929
 msgid ""
-"You can require agents to enter a password before they can log in to this "
-"queue.<br><br>This setting is optional."
-msgstr ""
-"エージェントがこのキューにログインする前にパスワードを入力させることができま"
-"す。<br><br>この設定はオプションです。"
+"Never have a caller leave the Queue until the Max Wait Time has expired."
+msgstr "最大待機時間が経過するまで、発信者をキューを残しません。"
 
-msgid ""
-"The password is only used when logging in with the legacy queueno* code. "
-"When using the toggle codes, you must use the Restrict Dynamic Agents option "
-"in conjunction with the Dynamic Members list to control access."
-msgstr ""
-"パスワードは、レガシィqueueno*コードでログイン時のみ使用可能です。トグルコードは、「ダイナミックエージェント制限」オプションを「ダイナミックメン"
-"バーズ」リストと合わせて使用し、はじめてアクセス制限ができます。"
-
-msgid "Queue No Answer:"
-msgstr "応答なしキュー："
-
-msgid ""
-"If checked, the queue will not answer the call. Under most circumstance you "
-"should always have the queue answering calls. If not, then it's possible "
-"that recordings and MoH will not be heard by the waiting callers since early "
-"media capabilities vary and are inconsistent. Some cases where it may be "
-"desired to not answer a call is when using Strict Join Empty queue policies "
-"where the caller will not be admitted to the queue unless there is a queue "
-"member immediately available to take the call."
-msgstr ""
-"チェックされた場合、キューはコールに応答しません。ほとんどの状況下では、常に"
-"呼び出しに応答キューを持っている必要があります。されていない場合、それは早期"
-"メディア機能が異なり、矛盾しているので、録音やMoHが待っている発信者が聞くこと"
-"がないことが可能です。電話を取るためにすぐに使用できるキューのメンバーがある"
-"場合を除き、呼び出しは、キューへの入場はできません厳格な入会空のキューのポリ"
-"シーを使用するときには、コールに応答しないように望まれるかもしれないいくつか"
-"のケースがあります。"
-
-msgid "Generate Device Hints:"
-msgstr "デバイスヒントを生成する："
-
-msgid ""
-"If checked, individual hints and dialplan will be generated for each SIP and "
-"IAX2 device that could be part of this queue. These are used in conjunction "
-"with programmable BLF phone buttons to log into and out of a queue and "
-"generate BLF status as to the current state. The format of the hints is<br /"
-"><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle "
-"feature code, ddd is the device number (typically the same as the extension "
-"number) and qqq is this queue's number."
-msgstr ""
-"チェックされた場合、個人のヒントやダイヤルプランがこのキューの一部となる可能"
-"性がある各SIPやIAX2デバイスのために生成されます。これらはキューにログインした"
-"りログアウトして、現在の状態に関してBLFステータスを生成するためのプログラマブ"
-"ルBLF電話のボタンと組み合わせて使用されます。ヒントの形式は<br /><br /"
-">*45ddd*qqq<br /><br />ここで、* 45は、現在定義されている切り替え機能コード"
-"で、dddはデバイス番号（通常は内線番号と同じです。 ）でQQQはこのキューの番号で"
-"す。"
-
-msgid "Call Confirm:"
-msgstr "コール確認："
-
-msgid ""
-"If checked, any queue member that is actually an outside telephone number, "
-"or any extensions Follow-Me or call forwarding that are pursued and leave "
-"the PBX will be forced into Call Confirmation mode where the member must "
-"acknowledge the call before it is answered and delivered.."
-msgstr ""
-"チェックされた場合、実際は外部の電話番号のキューメンバーもしくは追跡された"
-"り、PBXを残しておくフォローミーやコール転送の内線番号は強制的にコールの確認"
-"モードに入り、そこではコールが応答されたり運ばれる前にメンバーはコールを知る"
-"必要があります。"
-
-msgid "Call Confirm Announce:"
-msgstr "コール確認アナウンス："
-
-msgid ""
-"Announcement played to the Queue Memeber announcing the Queue call and "
-"requesting confirmation prior to answering. If set to default, the standard "
-"call confirmation default message will be played unless the member is "
-"reached through a Follow-Me and there is an alternate message provided in "
-"the Follow-Me. This message will override any other message specified.."
-"<br><br>To add additional recordings please use the \"System Recordings\" "
-"MENU."
-msgstr ""
-"キューメンバーに対してキューコールを通知し、応答前に確認を要求するアナウンス"
-"を再生します。デフォルトに設定された場合、メンバーがフォローミー経由で到着さ"
-"れたり、フォローミーで提供される代わりのメッセージがある場合を除き、標準の"
-"コール確認デフォルトメッセージが再生されます。このメッセージは他のいかなる指"
-"定されたメッセージを上書きします。..<br><br>録音を追加する場合は\"システム録"
-"音\"メニューを使用してください。"
-
-msgid "Default"
-msgstr "デフォルト"
-
-msgid "Call Confirm Announcement:"
-msgstr "コール確認のアナウンス："
-
-msgid ""
-"Announcement played to anyone using an external follow-me to receive the "
-"queue call.<br><br>You must install and enable the \"Systems Recordings\" "
-"Module to edit this option"
-msgstr ""
-"キュー内の呼を受信するため外部フォローミー機能を使用する人に対し、再生されるメッセージです。<br><br>このオプションを編集するには、\"システム録音"
-"\"モジュールをインストールし有効にしなければなりません"
-
-msgid "CID Name Prefix:"
-msgstr "発信者ID名プリフィックス："
-
-msgid ""
-"You can optionally prefix the CallerID name of callers to the queue. ie: If "
-"you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
-"John Doe\" on the extensions that ring."
-msgstr ""
-"あなたはオプションでキューに対して発信者の発信者ID名にプリフィックスを付ける"
-"ことができます。例:もし\"営業:\"というプリフィックスをつければ、\"森圭介\"か"
-"らのコールは着信した内線電話に\"営業:森圭介\"と表示されます。"
-
-msgid "Wait Time Prefix:"
-msgstr "待ち時間プリフィックス："
-
-msgid ""
-"When set to Yes, the CID Name will be prefixed with the total wait time in "
-"the queue so the answering agent is aware how long they have waited. It will "
-"be rounded to the nearest minute, in the form of Mnn: where nn is the number "
-"of minutes."
-msgstr ""
-"はい が設定されると、発信者ID名の先頭にキューの中のトータル待ち時間が付与され"
-"るため、応答したエージェントは彼らがどれぐらい待っているかに気づきます。Mnnと"
-"いう形式で、最も近い分に切り上げられます。nnは分を表す数字です。"
-
-msgid ""
-"If the call is subsequently transferred, the wait time will reflect the time "
-"since it first entered the queue or reset if the call is transferred to "
-"another queue with this feature set."
-msgstr ""
-"コールが続いて転送された場合、待機時間はコールがこの機能セットを持つ別の"
-"キューに転送されていれば、最初にキューに入ってからの待機時間が反映され、もし"
-"くはこの機能セットによってコールが他のキューに転送された場合はリセットしま"
-"す。"
-
-msgid "Yes"
-msgstr "はい"
-
+#: page.queues.php:361 page.queues.php:433 page.queues.php:513
+#: page.queues.php:625 page.queues.php:708 page.queues.php:797
+#: page.queues.php:812 page.queues.php:829 page.queues.php:844
+#: page.queues.php:887 page.queues.php:905 page.queues.php:929
+#: page.queues.php:947 page.queues.php:1000 page.queues.php:1013
 msgid "No"
 msgstr "いいえ"
 
-msgid "Alert Info"
-msgstr "アラートインフォ"
+#: page.queues.php:444
+msgid "No Follow-Me or Call Forward"
+msgstr "フォローミーやコール転送しない"
 
-msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
-msgstr "ALERT_INFOは、SIPデバイスと着信音に使用することができます。"
+#: page.queues.php:870
+msgid "No Max"
+msgstr "Maxなし"
 
+#: page.queues.php:720
+msgid "No Retry"
+msgstr "リトライなし"
+
+#: page.queues.php:579 page.queues.php:769 page.queues.php:1055
+#: page.queues.php:1112
+msgid "None"
+msgstr "なし"
+
+#: views/cron.php:115
+msgid "November"
+msgstr "11月"
+
+#: install.php:77 install.php:105 install.php:122 install.php:125
+#: install.php:199 install.php:326 install.php:332 install.php:345
+#: install.php:354 install.php:371 install.php:497 install.php:512
+#: install.php:527 install.php:542 install.php:557 install.php:572
+#: install.php:587 install.php:602 install.php:617 install.php:632
+msgid "OK"
+msgstr "OK"
+
+#: views/cron.php:114
+msgid "October"
+msgstr "10月"
+
+#: page.queues.php:1014
+msgid "Once"
+msgstr "一回のみ"
+
+#: page.queues.php:960
+msgid "Penalty Members Limit:"
+msgstr "ペナルティメンバーリミット："
+
+#: page.queues.php:1020
+msgid "Periodic Announcements"
+msgstr "定期的なアナウンス"
+
+#: queues.i18n.php:14
+msgid "Persistent Members"
+msgstr "永続的なメンバー"
+
+#: page.queues.php:1231
+msgid ""
+"Provides an optional regex expression that will be applied against the agent "
+"callback number. If the callback number does not pass the regex filter then "
+"it will be treated as invalid. This can be used to restrict agents to "
+"extensions within a range, not allow callbacks to include keys like *, or "
+"any other use that may be appropriate. An example input might be:<br />^([2-"
+"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
+"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"key.<br />WARNING: make sure you understand what you are doing or otherwise "
+"leave this blank!"
+msgstr ""
+"エージェントのコールバック番号に適用されるオプションの正規表現を提供します。"
+"コールバック番号が正規表現フィルターを通過しない場合は、無効として扱われま"
+"す。これは、エージェントを内線の範囲で制限することができ、コールバックに*のよ"
+"うなキーを含むのを許可しないように使用したり、その他適切な使用をすることがで"
+"きます。入力例:<br />^([2-4][0-9]{3})$<br />この例では、エージェントを内線 "
+"2000-4999に制限します。 また、 <br />^([0-9]+)$ はどのような長さでも、どの番"
+"号でも許可されますが、*キーを制限します。<br />警告: 自分が使用としていること"
+"を理解しているかを確認し、さもなくば空白のままにしておいてください!"
+
+#: page.queues.php:189
+msgid "Queue"
+msgstr "キュー"
+
+#: functions.inc/destination_registry.php:36
+#, php-format
+msgid "Queue %s : %s"
+msgstr "キュー %s : %s"
+
+#: functions.inc/queue_conf.php:213
+#, php-format
+msgid "Queue - %s (%s): %s<br />"
+msgstr "キュー - %s (%s): %s<br />"
+
+#: page.queues.php:1034 page.queues.php:1109
+msgid "Queue Callback"
+msgstr ""
+
+#: install.php:10
+msgid "Queue Callers"
+msgstr ""
+
+#: page.queues.php:276
+msgid "Queue Name:"
+msgstr "キュー名："
+
+#: page.queues.php:295
+msgid "Queue No Answer:"
+msgstr "応答なしキュー："
+
+#: page.queues.php:1289
+msgid "Queue Number must not be blank"
+msgstr "キュー番号を空にすることはできません"
+
+#: page.queues.php:270
+msgid "Queue Number:"
+msgstr "キュー番号："
+
+#: page.queues.php:284
+msgid "Queue Password:"
+msgstr "キューパスワード："
+
+#: install.php:9
+msgid "Queue Pause Toggle"
+msgstr "キューポーズトグル"
+
+#: functions.inc/hook_core.php:64
+msgid "Queue State Detection"
+msgstr "キューステート検知"
+
+#: install.php:8
+msgid "Queue Toggle"
+msgstr "キュートグル"
+
+#: page.queues.php:527
+msgid "Queue Weight"
+msgstr "キューの重みづけ"
+
+#: page.queues.php:516
+msgid "Queue calls only (ringinuse=no)"
+msgstr "キューコールオンリー (使用中着信=no)"
+
+#: queues.i18n.php:38
+msgid ""
+"Queue login and out codes were historically queunum* and queunum**. These "
+"have been largely replaced by the *45 queue toggle codes. The legacy codes "
+"are required to login or out a third party user that is not the extension "
+"dialing. These can be removed from the system by setting this to false."
+msgstr ""
+"キューログイン／ログアウトコードは、以前迄はqueunum*とqueunum**でしたが、ほぼ"
+"*45 キュートグルコードに切り替えられています。レガシーのコードは、第三者ユー"
+"ザー（非発信者の内線）のログイン／ログアウトに必要です。falseに設定すると、こ"
+"れらのコードをシステムから削除することができます。"
+
+#: page.queues.php:1302
+msgid ""
+"Queue name must not be blank and must contain only alpha-numeric characters"
+msgstr "キュー名を空欄にすることはできません。英数字のみ記入可能です"
+
+#: page.queues.php:246
+msgid "Queue:"
+msgstr "キュー："
+
+#: functions.inc/destination_registry.php:56
+#: functions.inc/destination_registry.php:73
+#: functions.inc/destination_registry.php:97
+#, php-format
+msgid "Queue: %s"
+msgstr "キュー: %s"
+
+#: functions.inc/destination_registry.php:126
+#, php-format
+msgid "Queue: %s (%s)"
+msgstr "キュー: %s (%s)"
+
+#: queues.i18n.php:4 queues.i18n.php:10
+msgid "Queues"
+msgstr "キュー"
+
+#: queues.i18n.php:16
+msgid "Queues Module"
+msgstr "キューモジュール"
+
+#: bin/queue_reset_stats.php:14
+msgid "Queues module not found or is disabled. Aborting!"
+msgstr ""
+"キューのモジュールが見つからない、または無効になっているため終了します！"
+
+#: queues.i18n.php:26
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+"キュー: モニタータイプ = Mixモニター。.これを有効にすることにより、モニターの"
+"代わりにMixモニターアプリケーションが使用され、入/出力ファイルを'追加/ミック"
+"ス'するという概念が消えます。"
+
+#: queues.i18n.php:18
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+"キュー：persistentmembers。asteriskが再起動されたときに、自動的に記録された"
+"キューに読み込まれるように、各キューに入っている各動的メンバーをastdb内に格納"
+"します。"
+
+#: queues.i18n.php:22
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr ""
+"キュー: shared_lastcall, Asterisk 1.6以降でのみ有効です。これにより最後のコー"
+"ルと受信したコールを１つ以上のキューにログインしたメンバー内で同じにします。"
+"これは、共有メンバーで他のキューのラップアップタイムを尊重するのに便利です。"
+
+#: views/cron.php:11
+msgid "Reboot"
+msgstr "再起動"
+
+#: page.queues.php:1129
+msgid "Repeat Frequency:"
+msgstr "リピート頻度："
+
+#: page.queues.php:792
+msgid "Report Hold Time:"
+msgstr "保留時間レポート："
+
+#: page.queues.php:1247
+msgid "Reset Queue Stats"
+msgstr "キューの統計をリセット"
+
+#: page.queues.php:432
+msgid "Restrict Dynamic Agents"
+msgstr "ダイナミックエージェントを制限"
+
+#: page.queues.php:432
+msgid ""
+"Restrict dynamic queue member logins to only those listed in the Dynamic "
+"Members list above. When set to Yes, members not listed will be DENIED "
+"ACCESS to the queue."
+msgstr ""
+"動的キューメンバーのログインを上記の動的メンバーリストにリストアップされたメ"
+"ンバーのみに制限します。「はい」に設定した場合、リストアップされていないメン"
+"バーはキューへのアクセスが拒否されます。"
+
+#: page.queues.php:715
+msgid "Retry:"
+msgstr "リトライ："
+
+#: page.queues.php:565
+msgid "Ring Only"
+msgstr "着信音のみ"
+
+#: page.queues.php:455
+msgid "Ring Strategy:"
+msgstr "ACD設定："
+
+#: views/cron.php:32
+msgid "Run"
+msgstr "実行"
+
+#: page.queues.php:889
+msgid ""
+"Same as No except Callers will be admitted if their are paused agents who "
+"could become available."
+msgstr ""
+"利用可能になることができる一時停止中のエージェントがいる場合に、発信者が入る"
+"ことが許可されることを除いて、「いいえ」と同じ。"
+
+#: page.queues.php:885
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them in. Simply speaking, any 'available' agents that could answer but "
+"are currently on the phone or ringing on behalf of another caller will be "
+"considered unavailable."
+msgstr ""
+"厳密と同じプラス、かれらに入らせるためには、キューメンバーは'今'電話に応答で"
+"きなければいけません。簡単に言うと、応答可能ないかなる'利用可能'エージェン"
+"ト、しかし現在は電話に出ていたり他の発信者のかわりに着信中のエージェントは利"
+"用不可と見なされます。"
+
+#: page.queues.php:924
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them remain. Simply speaking, any 'available' agents that could answer "
+"but are currently on the phone or ringing on behalf of another caller will "
+"be considered unavailable."
+msgstr ""
+"厳密と同じプラス、かれらに残らせるには、キューメンバーは'今'電話に応答できな"
+"ければいけません。簡単に言うと、応答可能ないかなる'利用可能'エージェント、し"
+"かし現在は電話に出ていたり他の発信者のかわりに着信中のエージェントは利用不可"
+"と見なされます。"
+
+#: page.queues.php:883
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then don't admit them. If agents are inuse or ringing someone else, "
+"caller will still be admitted."
+msgstr ""
+"「はい」と同じですが、より厳密です。簡単に言うと、エージェント誰も電話に応答"
+"できなかった場合、キューに入ることが許可されません。もしエージェントが使用中"
+"または他のだれかに電話をしている場合は、発信者はまだキューに入ることを許可さ"
+"れます。"
+
+#: page.queues.php:922
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then have them leave the queue. If agents are inuse or ringing someone "
+"else, caller will still be held."
+msgstr ""
+"「はい」と同じですがより厳密です。簡単に言うと、電話に応答できるエージェント"
+"がいない場合、かれらをキューにいるままにしておきます。エージェントが使用中で"
+"あったり、他のだれかに発信している場合は発信者はまだ保留されます。"
+
+#: page.queues.php:927
+msgid ""
+"Same as Yes except Callers will remain in the Queue if their are paused "
+"agents who could become available."
+msgstr ""
+"利用可能になることができる一時停止中のエージェントがいる場合に、発信者が"
+"キューに残る以外、「はい」と同じです。"
+
+#: views/cron.php:86
+msgid "Saturday"
+msgstr "土曜日"
+
+#: views/cron.php:113
+msgid "September"
+msgstr "9月"
+
+#: page.queues.php:1217
+msgid "Service Level:"
+msgstr "サービスレベル："
+
+#: page.queues.php:1007
+msgid ""
+"Should we include estimated hold time in position announcements?  Either "
+"yes, no, or only once; hold time will not be announced if <1 minute"
+msgstr ""
+"待ち順のアナウンスに想定待ち時間を含めますか？　はい／いいえ、一回のみどちら"
+"の選択でも、1分以下の場合は待ち時間のアナウンスは流れません"
+
+#: page.queues.php:508
+msgid "Skip Busy Agents:"
+msgstr "ビジーエージェントをスキップ："
+
+#: page.queues.php:501
+msgid ""
+"Starting with Asterisk 1.4, if this is checked, and multiple agents are "
+"available, Asterisk will send one call to each waiting agent (depending on "
+"the ring strategy). Otherwise, it will hold all calls while it tries to find "
+"an agent for the top call in the queue making other calls wait. This was the "
+"behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk "
+"documentation for more details of this feature."
+msgstr ""
+"Asterisk 1.4とともに、これがチェックされて、複数のエージェントが利用可能な場"
+"合は、Asteriskは各待ちエージェントに１コール送信します。(リングストラテジーに"
+"依存します。)若しくは、他のコールを待たせているキュー内のトップコールのエー"
+"ジェントを発見しようと試みている間は、全てのコールを保留します。これは"
+"Asterisk1.2の動作でした、そして1.2内では何の効果もありません。この機能のより"
+"詳細情報についてはAsteriskドキュメントを参照ください。"
+
+#: page.queues.php:376
 msgid "Static Agents"
 msgstr "静的エージェント"
 
+#: page.queues.php:376
 msgid ""
 "Static agents are extensions that are assumed to always be on the queue.  "
 "Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
@@ -593,49 +1345,174 @@ msgstr ""
 "しれません。（チャネルエージェントは、Asteriskの1.4のスタートとともに非推奨と"
 "なり、1.6 +ではなくなっています。）"
 
-msgid "Extension Quick Pick"
-msgstr "内線クイックピックアップ"
+#: page.queues.php:677 page.queues.php:883 page.queues.php:901
+#: page.queues.php:922 page.queues.php:940
+msgid "Strict"
+msgstr "厳密"
 
-msgid ""
-"Choose an extension to append to the end of the static agents list above."
-msgstr "上記の静的エージェントリストの最後に追加する内線を選択してください。"
+#: page.queues.php:1255
+msgid "Submit Changes"
+msgstr "変更を適用"
 
-msgid "(pick extension)"
-msgstr "内線をピックアップ"
+#: views/cron.php:80
+msgid "Sunday"
+msgstr "日曜日"
 
-msgid "Dynamic Members"
-msgstr "ダイナミックメンバー"
-
-msgid ""
-"Dynamic Members are extensions or callback numbers that can log in and out "
-"of the queue. When a member logs in to a queue, their penalty in the queue "
-"will be as specified here. Extensions included here will NOT automatically "
-"be logged in to the queue."
+#: page.queues.php:1298
+msgid "The Queue Name provided is too long."
 msgstr ""
-"動的メンバーはキューにログインやログアウトが可能な内線もしくはコールバック番"
-"号です。メンバーがキューにログインした時、キュー内のそれらのペナルティはここ"
-"で指定された通りとなります。ここにふくまれた内線は自動的にキューにはログイン"
-"しません。"
 
+#: page.queues.php:641
 msgid ""
-"Choose an extension to append to the end of the dynamic member list above."
-msgstr "上記の動的エージェントリストの最後に追加する内線を選択してください。"
+"The maximum number of seconds a caller can wait in a queue before being "
+"pulled out.  (0 for unlimited)."
+msgstr "発信者の呼が待ち呼としてキューに滞在できる最大秒数 (無制限は0)。"
 
-msgid "Restrict Dynamic Agents"
-msgstr "ダイナミックエージェントを制限"
-
+#: page.queues.php:687
 msgid ""
-"Restrict dynamic queue member logins to only those listed in the Dynamic "
-"Members list above. When set to Yes, members not listed will be DENIED "
-"ACCESS to the queue."
+"The number of seconds an agent's phone can ring before we consider it a "
+"timeout. Unlimited or other timeout values may still be limited by system "
+"ringtime or individual extension defaults."
 msgstr ""
-"動的キューメンバーのログインを上記の動的メンバーリストにリストアップされたメ"
-"ンバーのみに制限します。「はい」に設定した場合、リストアップされていないメン"
-"バーはキューへのアクセスが拒否されます。"
+"タイムアウトと見なす前にエージェントの電話が鳴る秒数。無制限または他のタイム"
+"アウト値はまだシステムのリングタイムや個人の内線デフォルトによって制限されま"
+"す。"
 
-msgid "Agent Restrictions"
-msgstr "エージェントを制限"
+#: page.queues.php:715
+msgid ""
+"The number of seconds we wait before trying all the phones again. Choosing "
+"\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
+"as the first attempted agent times-out, additional agents will not be "
+"attempted."
+msgstr ""
+"全ての電話を再度トライする前に待つ秒数。'リトライなし'を選択した場合は最初に"
+"試みられたエージェントがタイムアウトしたらすぐにキューを出てフェイルオーバー"
+"の宛先に移動し、追加のエージェントへは試みません。"
 
+#: page.queues.php:284
+msgid ""
+"The password is only used when logging in with the legacy queueno* code. "
+"When using the toggle codes, you must use the Restrict Dynamic Agents option "
+"in conjunction with the Dynamic Members list to control access."
+msgstr ""
+"パスワードは、レガシィqueueno*コードでログイン時のみ使用可能です。トグルコー"
+"ドは、「ダイナミックエージェント制限」オプションを「ダイナミックメンバーズ」"
+"リストと合わせて使用し、はじめてアクセス制限ができます。"
+
+#: page.queues.php:856
+msgid ""
+"This setting will delay the auto pause of an agent by auto pause delay "
+"seconds from when it last took a call. For example, if this were set to 120 "
+"seconds, and a new call is presented to the agent 90 seconds after they last "
+"took a call, they will not be auto paused if they don't answer the call. If "
+"presented with a call 120 seconds or later after answering the last call, "
+"they will then be auto paused. If they have taken no calls, this will have "
+"no affect."
+msgstr ""
+"エージェントが最後の受電からオートポーズが有効になる迄の秒数を設定します。例"
+"えば、120秒に設定した場合、120秒以内の着信でエージェントが電話に出なかった場"
+"合は、自動的にオートポーズになります。着信が全く無い場合は、この設定は無視さ"
+"れます。"
+
+#: views/cron.php:84
+msgid "Thursday"
+msgstr "木曜日"
+
+#: page.queues.php:638
+msgid "Timing & Agent Options"
+msgstr "タイミング & エージェントオプション"
+
+#: views/cron.php:82
+msgid "Tuesday"
+msgstr "火曜日"
+
+#: page.queues.php:885 page.queues.php:903 page.queues.php:924
+#: page.queues.php:942
+msgid "Ultra Strict"
+msgstr "非常に厳密"
+
+#: page.queues.php:648 page.queues.php:692
+msgid "Unlimited"
+msgstr "無制限"
+
+#: queues.i18n.php:24
+msgid "Use MixMonitor for Recordings"
+msgstr "録音にMixモニターを使用"
+
+#: functions.inc/hook_core.php:36
+msgid "Use State"
+msgstr "状態を使用する"
+
+#: page.queues.php:270
+msgid ""
+"Use this number to dial into the queue, or transfer callers to this number "
+"to put them into the queue.<br><br>Agents will dial this queue number plus * "
+"to log onto the queue, and this queue number plus ** to log out of the queue."
+"<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
+"in<br>123** = log out</b>"
+msgstr ""
+"キューにダイヤルする際にこの番号を使用します、もしくは発信者をキューにいれる"
+"ためにこの番号へ転送します。<br><br>エージェントがこのキューにログインするに"
+"はこの番号プラス * をダイヤルし、このキュー番号プラス ** でキューからログアウ"
+"トします。<br><br>例えば、キュー番号が123の場合:<br><br><b>123* = ログイン"
+"<br>123** = ログアウト</b>"
+
+#: page.queues.php:1217
+msgid ""
+"Used for service level statistics (calls answered within service level time "
+"frame)"
+msgstr ""
+"サービスレベルの統計に使用されます。(サービスレベルタイムフレーム以内で応答さ"
+"れたコール)"
+
+#: page.queues.php:1278
+msgid ""
+"Using a Regex filter is fairly advanced, please confirm you know what you "
+"are doing or leave this blank"
+msgstr ""
+"正規表現フィルタを使用は非常に高度です、何を使用としているのかを確認してくだ"
+"さい、でなければ空欄にします"
+
+#: install.php:343 install.php:352
+#, php-format
+msgid "WARNING FAILED %s"
+msgstr "警告 失敗 %s"
+
+#: page.queues.php:356
+msgid "Wait Time Prefix:"
+msgstr "待ち時間プリフィックス："
+
+#: page.queues.php:138
+msgid "Warning! Extension"
+msgstr "警告! 内線"
+
+#: functions.inc/queue_conf.php:208
+msgid ""
+"Warning, there are compound recordings configured in one or more Queue "
+"configurations. Queues can not play these so they have been truncated to the "
+"first sound file. You should correct this problem.<br />Details:<br /><br />"
+msgstr ""
+"警告、一つ以上のキュー設定の中で、合成録音の設定があります。キューではこれら"
+"を再生できないため、これらは切り捨てられ最初の音声ファイルに設定されます。こ"
+"の問題を訂正してください。<br />詳細:<br /><br />"
+
+#: views/cron.php:83
+msgid "Wednesday"
+msgstr "水曜日"
+
+#: views/cron.php:8
+msgid "Weekly"
+msgstr "毎週"
+
+#: page.queues.php:589
+msgid "When No Free Agents"
+msgstr "Freeエージェントがいない場合"
+
+#: page.queues.php:590
+msgid "When No Ready Agents"
+msgstr "Readyエージェントがいない場合"
+
+#: page.queues.php:438
 msgid ""
 "When set to 'Call as Dialed' the queue will call an extension just as if the "
 "queue were another user. Any Follow-Me or Call Forward states active on the "
@@ -668,103 +1545,7 @@ msgstr ""
 "にコールがブロックされます。動的エージェントになんらかの検証を提供するに"
 "は、'エージェント Regex フィルター'を確認してください。"
 
-msgid "Call as Dialed"
-msgstr "ダイヤルされたかのように呼び出す"
-
-msgid "No Follow-Me or Call Forward"
-msgstr "フォローミーやコール転送しない"
-
-msgid "Extensions Only"
-msgstr "内線のみ"
-
-msgid "General Queue Options"
-msgstr "一般キューオプション"
-
-msgid "Ring Strategy:"
-msgstr "ACD設定："
-
-msgid "ringall"
-msgstr "リングオール"
-
-msgid "ring all available agents until one answers (default)"
-msgstr "誰かが応答するまで全ての利用可能なエージェントを鳴らす(デフォルト)"
-
-msgid "roundrobin"
-msgstr "ラウンドロビン"
-
-msgid "take turns ringing each available agent"
-msgstr "利用可能な各エージェントを順番に着信させる"
-
-msgid "leastrecent"
-msgstr "leastrecent"
-
-msgid "ring agent which was least recently called by this queue"
-msgstr "一番待ち時間の長いエージェントに着信させる"
-
-msgid "fewestcalls"
-msgstr "fewestcalls"
-
-msgid "ring the agent with fewest completed calls from this queue"
-msgstr "一番着信呼が少ないエージェントに着信させる"
-
-msgid "random"
-msgstr "ランダム"
-
-msgid "ring random agent"
-msgstr "ランダムに着信させる"
-
-msgid "rrmemory"
-msgstr "rrmemory"
-
-msgid "round robin with memory, remember where we left off last ring pass"
-msgstr "最後に着信した時間を記憶し、順繰りに接続します"
-
-msgid "rrordered"
-msgstr "rrordered"
-
-msgid ""
-"same as rrmemory, except the queue member order from config file is preserved"
-msgstr ""
-"rrmemoryと同じですが、configファイルからキューメンバーの順序を除いて保存され"
-"ます"
-
-msgid "linear"
-msgstr "リニア"
-
-msgid ""
-"rings agents in the order specified, for dynamic agents in the order they "
-"logged in"
-msgstr "指定された順番にエージェントに着信させます。ダイナミックエージェントの場合はログインした順番となります"
-
-msgid "wrandom"
-msgstr "wrandom"
-
-msgid ""
-"random using the member's penalty as a weighting factor, see asterisk "
-"documentation for specifics"
-msgstr "ウェイト要素としてメンバーのペナルティをランダムに使用する、仕様に関してはAsteriskのドキュメントを確認してください"
-
-msgid "Autofill:"
-msgstr "Autofill："
-
-msgid ""
-"Starting with Asterisk 1.4, if this is checked, and multiple agents are "
-"available, Asterisk will send one call to each waiting agent (depending on "
-"the ring strategy). Otherwise, it will hold all calls while it tries to find "
-"an agent for the top call in the queue making other calls wait. This was the "
-"behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk "
-"documentation for more details of this feature."
-msgstr ""
-"Asterisk 1.4とともに、これがチェックされて、複数のエージェントが利用可能な場"
-"合は、Asteriskは各待ちエージェントに１コール送信します。(リングストラテジーに"
-"依存します。)若しくは、他のコールを待たせているキュー内のトップコールのエー"
-"ジェントを発見しようと試みている間は、全てのコールを保留します。これは"
-"Asterisk1.2の動作でした、そして1.2内では何の効果もありません。この機能のより"
-"詳細情報についてはAsteriskドキュメントを参照ください。"
-
-msgid "Skip Busy Agents:"
-msgstr "ビジーエージェントをスキップ："
-
+#: page.queues.php:508
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
 "the line were returning busy. This means that Call Waiting or multi-line "
@@ -809,520 +1590,93 @@ msgstr ""
 "に対して '使用中' に見えてしまうため、そのコールが切断されるまで利用不可能な"
 "ままになってしまいます。"
 
-msgid "Yes + (ringinuse=no)"
-msgstr "はい + (使用中着信=no)"
-
-msgid "Queue calls only (ringinuse=no)"
-msgstr "キューコールオンリー (使用中着信=no)"
-
-msgid "Queue Weight"
-msgstr "キューの重みづけ"
-
+#: page.queues.php:1183
 msgid ""
-"Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
-"queue will deliver its calls first if there are agents common to both queues."
+"When set to YES, the following manager event will be generated: "
+"QueueMemberStatus"
 msgstr ""
-"どちらのキューにも共通なエージェントがいる場合に、より高い優先度キューで待っ"
-"ているコールが運ばれることを保証するために、キューに'ウェイト'オプションを提"
-"供します。"
+"「はい」に設定された場合、次のマネージャーイベントが生成されます: "
+"QueueMemberStatus"
 
-msgid "Music on Hold Class:"
-msgstr "保留クラス音："
-
-msgid ""
-"Music (MoH) played to the caller while they wait in line for an available "
-"agent. Choose \"inherit\" if you want the MoH class to be what is currently "
-"selected, such as by the inbound route. MoH Only will play music until the "
-"agent answers. Agent Ringing will play MoH until an agent's phone is "
-"presented with the call and is ringing. If they don't answer, MoH will "
-"return.  Ring Only makes callers hear a ringing tone instead of MoH ignoring "
-"any MoH Class selected as well as any configured periodic announcements. "
-"This music is defined in the \"Music on Hold\" Menu."
-msgstr ""
-"発信者が対応できるエージェントを待つ間再生される音楽は、\"保留音\"設定項目で定義されています。インバウンドルートなど、保留音クラスを現在のまま使用するに"
-"は\"継承\"を選択します。「保留音のみ」は、エージェントが電話にでるまで再生します。「エージェント呼出」は、呼び出したいエージェントの電話を鳴らすまで再生"
-"します。エージェントが電話に出ない場合は、保留音が再度ながれます。「着信音のみ」は、保留音クラスや定期的なアナウンス設定を無視し着信音のみを再生します。"
-
-msgid "inherit"
-msgstr "継承"
-
-msgid "none"
-msgstr "なし"
-
-msgid "default"
-msgstr "デフォルト"
-
-msgid "MoH Only"
-msgstr "保留音のみ"
-
-msgid "Agent Ringing"
-msgstr "エージェントをリング時"
-
-msgid "Ring Only"
-msgstr "着信音のみ"
-
-msgid "Join Announcement:"
-msgstr "キュー追加アナウンス："
-
-msgid ""
-"Announcement played to callers prior to joining the queue. This can be "
-"skipped if there are agents ready to answer a call (meaning they still may "
-"be wrapping up from a previous call) or when they are free to answer the "
-"call right now. To add additional recordings please use the \"System "
-"Recordings\" MENU."
-msgstr ""
-"キューに参加する前に再生するアナウンス。対応可能なエージェント（ACWエージェントを含む）がいる場合は、スキップすることができます。アナウンスを追加する"
-"場合は、\"システム音声\"メニューを使用してください。"
-
-msgid "None"
-msgstr "なし"
-
-msgid "Always"
-msgstr "常に"
-
-msgid "When No Free Agents"
-msgstr "Freeエージェントがいない場合"
-
-msgid "When No Ready Agents"
-msgstr "Readyエージェントがいない場合"
-
-msgid ""
-"Announcement played to callers once prior to joining the queue.<br><br>You "
-"must install and enable the \"Systems Recordings\" Module to edit this option"
-msgstr ""
-"キューに参加する前に一回のみ発信者に再生されるアナウンス。<br><br>このオプションを編集するには\"システム録音\"モジュールをインストールし有効にす"
-"る必要があります"
-
-msgid "Call Recording:"
-msgstr "通話録音："
-
-msgid ""
-"Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
-"monitor)"
-msgstr ""
-"エージェントへの着信呼が録音されます。(/var/spool/asterisk/monitorに保存され"
-"ます)"
-
-msgid "wav49"
-msgstr "wav49"
-
-msgid "wav"
-msgstr "wav"
-
-msgid "gsm"
-msgstr "gsm"
-
-msgid "Recording Mode:"
-msgstr "録音モード："
-
-msgid ""
-"Choose to 'Include Hold Time' in the recording so it starts as soon as they "
-"enter the queue, or to defer recording until 'After Answered' and the call "
-"is bridged with a queue member."
-msgstr ""
-"キューに入ったらすぐにスタートするように、録音内の'保留時間も含む'を選択する"
-"か、'応答後'とコールがキューメンバーとつないでいる間に録音を遅らせてくださ"
-"い。"
-
-msgid "Include Hold Time"
-msgstr "保留時間も含む"
-
-msgid "After Answered"
-msgstr "応答後"
-
-msgid "Caller Volume Adjustment:"
-msgstr "発信者音量調節："
-
-msgid "Adjust the recording volume of the caller."
-msgstr "発信者側の録音音量を調節。"
-
-msgid "No Adjustment"
-msgstr "調節なし"
-
-msgid "Agent Volume Adjustment:"
-msgstr "エージェント音量調節："
-
-msgid "Adjust the recording volume of the queue member (Agent)."
-msgstr "キューメンバー(エージェント)の録音音量を調節。"
-
-msgid "Mark calls answered elsewhere:"
-msgstr "他の場所で応答されたコールをマークします："
-
-msgid ""
-"Enabling this option, all calls are marked as 'answered elsewhere' when "
-"cancelled. The effect is that missed queue calls are *not* shown on the "
-"phone (if the phone supports it)"
-msgstr ""
-"オプションを有効にした場合、キャンセル時に全コールが'他で応答されました'としてマークされます。また受電されなかった呼は電話機に表示されません（電話機が"
-"サポートしている場合）"
-
-msgid "Timing & Agent Options"
-msgstr "タイミング & エージェントオプション"
-
-msgid "Max Wait Time:"
-msgstr "最大待ち時間："
-
-msgid ""
-"The maximum number of seconds a caller can wait in a queue before being "
-"pulled out.  (0 for unlimited)."
-msgstr "発信者の呼が待ち呼としてキューに滞在できる最大秒数 (無制限は0)。"
-
-msgid "Unlimited"
-msgstr "無制限"
-
-msgid "seconds"
-msgstr "秒"
-
-msgid "Max Wait Time Mode:"
-msgstr "最大待ち時間モード："
-
-msgid ""
-"Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
-"caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
-"mode, if a queue member is currently ringing with this call, then we will "
-"wait until the queue stops ringing this queue member or otherwise the call "
-"is rejected by the queue member before taking the caller out of the queue. "
-"This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
-"'Agent Timeout' combined."
-msgstr ""
-"Asterisk タイムアウト優先度。'厳密'モードでは、発信者の'最大待ち時間'がヒット"
-"した時には即座にキューから出されます。'ルーズ'モードでは、もしキューメンバー"
-"が現在このコールを着信させている場合、キューがこのキューメンバーを着信をス"
-"トップする間待ちます、さもなくば、発信者をキューの外へ連れて行く前にコールは"
-"キューメンバーによって拒否されます。これは、'最大待ち時間'は '最大待ち時間' "
-"+ 'エージェントタイムアウト'の合計の長さになる可能性があることを意味します。"
-
-msgid "Strict"
-msgstr "厳密"
-
-msgid "Loose"
-msgstr "ルーズ"
-
-msgid "Agent Timeout:"
-msgstr "エージェントタイムアウト："
-
-msgid ""
-"The number of seconds an agent's phone can ring before we consider it a "
-"timeout. Unlimited or other timeout values may still be limited by system "
-"ringtime or individual extension defaults."
-msgstr ""
-"タイムアウトと見なす前にエージェントの電話が鳴る秒数。無制限または他のタイム"
-"アウト値はまだシステムのリングタイムや個人の内線デフォルトによって制限されま"
-"す。"
-
-msgid "Agent Timeout Restart:"
-msgstr "エージェントタイムアウト再開："
-
-msgid ""
-"If timeoutrestart is set to yes, then the time out for an agent to answer is "
-"reset if a BUSY or CONGESTION is received. This can be useful if agents are "
-"able to cancel a call with reject or similar."
-msgstr ""
-"タイムアウト再開が'はい'に設定された場合、もしビジーや輻輳を受信した場合は"
-"エージェントへの応答タイムアウトはリセットされます。これは、エージェントがリ"
-"ジェクト等を使用してコールをキャンセルすることができるときに役立ちます。"
-
-msgid "Retry:"
-msgstr "リトライ："
-
-msgid ""
-"The number of seconds we wait before trying all the phones again. Choosing "
-"\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
-"as the first attempted agent times-out, additional agents will not be "
-"attempted."
-msgstr ""
-"全ての電話を再度トライする前に待つ秒数。'リトライなし'を選択した場合は最初に"
-"試みられたエージェントがタイムアウトしたらすぐにキューを出てフェイルオーバー"
-"の宛先に移動し、追加のエージェントへは試みません。"
-
-msgid "No Retry"
-msgstr "リトライなし"
-
-msgid "Wrap-Up-Time:"
-msgstr "ラップアップタイム："
-
-msgid ""
-"After a successful call, how many seconds to wait before sending a "
-"potentially free agent another call (default is 0, or no delay) If using "
-"Asterisk 1.6+, you can also set the 'Honor Wrapup Time Across Queues' "
-"setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
-"this is honored across queues for members logged on to multiple queues."
-msgstr ""
-"コールが成功した後に、潜在的にフリーなエージェントへ他のコールを送信する前に"
-"何秒間待つか。(デフォルトは0, またはディレイなし)もしAsterisk 1.6以降を使用し"
-"ている場合は、複数のキューログインしているメンバーのためにキューをまたいで尊"
-"重されるように、'高度な設定ページでキューをまたいでまとめた時間を尊重する'を"
-"設定することもできます。"
-
-msgid "Member Delay:"
-msgstr "メンバーディレイ："
-
-msgid ""
-"If you wish to have a delay before the member is connected to the caller (or "
-"before the member hears any announcement messages), set this to the number "
-"of seconds to delay."
-msgstr ""
-"メンバーが発信者につながる前(またはメンバーがなんらかのアナウンスメッセージを"
-"聞く前)にディレイを持たせたい場合は、これをディレイする秒数に設定してくださ"
-"い。"
-
-msgid "Agent Announcement:"
-msgstr "エージェントアナウンス："
-
-msgid ""
-"Announcement played to the Agent prior to bridging in the caller <br><br> "
-"Example: \"the Following call is from the Sales Queue\" or \"This call is "
-"from the Technical Support Queue\".<br><br>To add additional recordings "
-"please use the \"System Recordings\" MENU. Compound recordings composed of 2 "
-"or more sound files are not displayed as options since this feature can not "
-"accept such recordings."
-msgstr ""
-"発信者のブリッジの前にエージェントに再生されるアナウンス<br><br>例:\"次のコー"
-"ルは営業キューからのものです\" や \"このコールはテクニカルサポートキューから"
-"のものです。\"<br><br>録音を追加するには、\"システム録音\"メニューを使用して"
-"ください。2つ以上の音声ファイルから構成された合成録音は、この機能ではそのよう"
-"な録音を受け付けられないため、オプションとして表示されません。"
-
-msgid ""
-"Announcement played to the Agent prior to bridging in the caller <br><br> "
-"Example: \"the Following call is from the Sales Queue\" or \"This call is "
-"from the Technical Support Queue\".<br><br>You must install and enable the "
-"\"Systems Recordings\" Module to edit this option"
-msgstr ""
-"発信者との接続前にエージェントに流れるアナウンス<br><br>例：\"営業に関するお問合せ\" や "
-"\"テクニカルサポートに関するお問合せ\"。<br><br>このオプションは\"システム録音\"モジュールをインストールし有効にしてください"
-
-msgid "Report Hold Time:"
-msgstr "保留時間レポート："
-
-msgid ""
-"If you wish to report the caller's hold time to the member before they are "
-"connected to the caller, set this to yes."
-msgstr ""
-"メンバーが発信者につながる前にメンバーに対して発信者の保留時間をレポートした"
-"い場合はこれを「はい」に設定してください。"
-
-msgid "Auto Pause:"
-msgstr "オートポーズ："
-
-msgid ""
-"Auto Pause an agent in this queue (or all queues they are a member of) if "
-"they don't answer a call. Specific behavior can be modified by the Auto "
-"Pause Delay as well as Auto Pause Busy/Unavailable settings if supported on "
-"this version of Asterisk."
-msgstr ""
-"エージェントが電話に出なかった場合に、そのエージェントをこのキュー（若しくは"
-"すべての参加しているキュー）においてオートポーズ（自動中止）する。Asteriskの"
-"バージョンによって、具体的な動作は「オートポーズディレイ」、又は「利用不可能"
-"時にオートポーズ」などの設定で変更できます。"
-
-msgid "Yes in this queue only"
-msgstr "はい、このキューだけで"
-
-msgid "Yes in all queues"
-msgstr "はい、全てのキューで"
-
-msgid "Auto Pause on Busy:"
-msgstr "オートポーズビジー："
-
+#: page.queues.php:824
 msgid ""
 "When set to Yes agents devices that report busy upon a call attempt will be "
 "considered as a missed call and auto paused immediately or after the auto "
 "pause delay if configured"
-msgstr "Yesに設定すると、話中となりエージェントへの着信は、不在着信として判断され、エージェントはオートポーズディレイ後にオートポーズします"
+msgstr ""
+"Yesに設定すると、話中となりエージェントへの着信は、不在着信として判断され、"
+"エージェントはオートポーズディレイ後にオートポーズします"
 
-msgid "Auto Pause on Unavailable:"
-msgstr "利用不可能時にオートポーズ："
-
+#: page.queues.php:839
 msgid ""
 "When set to Yes agents devices that report congestion upon a call attempt "
 "will be considered as a missed call and auto paused immediately or after the "
 "auto pause delay if configured"
-msgstr "Yesに設定すると、混雑を報告するエージェントへの着信は不在着信と判断され、エージェントはオートポーズディレイ後にオートポーズします"
-
-msgid "Auto Pause Delay:"
-msgstr "オートポーズディレイ："
-
-msgid ""
-"This setting will delay the auto pause of an agent by auto pause delay "
-"seconds from when it last took a call. For example, if this were set to 120 "
-"seconds, and a new call is presented to the agent 90 seconds after they last "
-"took a call, they will not be auto paused if they don't answer the call. If "
-"presented with a call 120 seconds or later after answering the last call, "
-"they will then be auto paused. If they have taken no calls, this will have "
-"no affect."
 msgstr ""
-"エージェントが最後の受電からオートポーズが有効になる迄の秒数を設定します。例えば、120秒に設定した場合、120秒以内の着信でエージェントが電話に出なか"
-"った場合は、自動的にオートポーズになります。着信が全く無い場合は、この設定は無視されます。"
+"Yesに設定すると、混雑を報告するエージェントへの着信は不在着信と判断され、エー"
+"ジェントはオートポーズディレイ後にオートポーズします"
 
-msgid "Capacity Options"
-msgstr "キャパシティーオプション"
-
-msgid "Max Callers:"
-msgstr "発信者数最大："
-
-msgid "Maximum number of people waiting in the queue (0 for unlimited)"
-msgstr "キューの中で待ちとなる最大人数(無制限の場合は0)"
-
-msgid "No Max"
-msgstr "Maxなし"
-
+#: page.queues.php:356
 msgid ""
-"Determines if new callers will be admitted to the Queue, if not, the "
-"failover destination will be immediately pursued. The options include:"
+"When set to Yes, the CID Name will be prefixed with the total wait time in "
+"the queue so the answering agent is aware how long they have waited. It will "
+"be rounded to the nearest minute, in the form of Mnn: where nn is the number "
+"of minutes."
 msgstr ""
-"新しい発信者がキューに入ることを許可されるかどうかを決定します、もし許可され"
-"なかった場合は続いてフェイルオーバー宛先に移動します。オプションは次を含みま"
-"す:"
+"はい が設定されると、発信者ID名の先頭にキューの中のトータル待ち時間が付与され"
+"るため、応答したエージェントは彼らがどれぐらい待っているかに気づきます。Mnnと"
+"いう形式で、最も近い分に切り上げられます。nnは分を表す数字です。"
 
-msgid "Always allows the caller to join the Queue."
-msgstr "発信者がキューに参加するのを常に許可。"
-
+#: page.queues.php:1151
 msgid ""
-"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
-"phone then don't admit them. If agents are inuse or ringing someone else, "
-"caller will still be admitted."
+"When this option is set to YES, the following manager events will be "
+"generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
-"「はい」と同じですが、より厳密です。簡単に言うと、エージェント誰も電話に応答"
-"できなかった場合、キューに入ることが許可されません。もしエージェントが使用中"
-"または他のだれかに電話をしている場合は、発信者はまだキューに入ることを許可さ"
-"れます。"
+"このオプションが「はい」に設定された場合、次のマネージャーイベントが生成され"
+"ます: AgentCalled, AgentDump, AgentConnect and AgentComplete。"
 
-msgid "Ultra Strict"
-msgstr "非常に厳密"
-
+#: page.queues.php:1030
 msgid ""
-"Same as Strict plus a queue member must be able to answer the phone 'now' to "
-"let them in. Simply speaking, any 'available' agents that could answer but "
-"are currently on the phone or ringing on behalf of another caller will be "
-"considered unavailable."
+"Whether this queue uses an IVR Break Out Menu or a Queue Callback.  Queue "
+"Callbacks can also be achieved through an IVR, but requires extra "
+"configuration."
 msgstr ""
-"厳密と同じプラス、かれらに入らせるためには、キューメンバーは'今'電話に応答で"
-"きなければいけません。簡単に言うと、応答可能ないかなる'利用可能'エージェン"
-"ト、しかし現在は電話に出ていたり他の発信者のかわりに着信中のエージェントは利"
-"用不可と見なされます。"
 
+#: page.queues.php:730
+msgid "Wrap-Up-Time:"
+msgstr "ラップアップタイム："
+
+#: page.queues.php:361 page.queues.php:433 page.queues.php:514
+#: page.queues.php:623 page.queues.php:707 page.queues.php:797
+#: page.queues.php:829 page.queues.php:844 page.queues.php:882
+#: page.queues.php:900 page.queues.php:921 page.queues.php:939
+#: page.queues.php:999 page.queues.php:1012
+msgid "Yes"
+msgstr "はい"
+
+#: page.queues.php:515
+msgid "Yes + (ringinuse=no)"
+msgstr "はい + (使用中着信=no)"
+
+#: page.queues.php:812
+msgid "Yes in all queues"
+msgstr "はい、全てのキューで"
+
+#: page.queues.php:812
+msgid "Yes in this queue only"
+msgstr "はい、このキューだけで"
+
+#: page.queues.php:351
 msgid ""
-"Callers will not be admitted if all agents are paused, show an invalid state "
-"for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
-"currently set in FreePBX dialplan)."
+"You can optionally prefix the CallerID name of callers to the queue. ie: If "
+"you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
+"John Doe\" on the extensions that ring."
 msgstr ""
-"もし全てのエージェントが停止中の場合またはかれらのデバイスに無効な状態されて"
-"る場合または、 QUEUE_MAX_PENALTY の値よりも少ないペナルティ値をもつ場合に発信"
-"者は入ることが許可されません。"
+"あなたはオプションでキューに対して発信者の発信者ID名にプリフィックスを付ける"
+"ことができます。例:もし\"営業:\"というプリフィックスをつければ、\"森圭介\"か"
+"らのコールは着信した内線電話に\"営業:森圭介\"と表示されます。"
 
-msgid ""
-"Same as No except Callers will be admitted if their are paused agents who "
-"could become available."
-msgstr ""
-"利用可能になることができる一時停止中のエージェントがいる場合に、発信者が入る"
-"ことが許可されることを除いて、「いいえ」と同じ。"
-
-msgid "Join Empty:"
-msgstr "ジョインエンプティー："
-
-msgid ""
-"Determines if callers should be exited prematurely from the queue in "
-"situations where it appears no one is currently available to take the call. "
-"The options include:"
-msgstr ""
-"コールにでられるひとが現在だれもいないような状況で、発信者がキューから途中退"
-"出されるべきかどうかを判断します。オプションは次のとおりです:"
-
-msgid ""
-"Callers will exit if all agents are paused, show an invalid state for their "
-"device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
-"in FreePBX dialplan).."
-msgstr ""
-"エージェントが一時停止中や、彼らのデバイスに無効なステータスが表示されている"
-"場合や、QUEUE_MAX_PENALTY(現在FreePBXダイヤルプランに設定されていません) の値"
-"より小さいペナルティ値を持っている場合に発信者が退出します。"
-
-msgid ""
-"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
-"phone then have them leave the queue. If agents are inuse or ringing someone "
-"else, caller will still be held."
-msgstr ""
-"「はい」と同じですがより厳密です。簡単に言うと、電話に応答できるエージェント"
-"がいない場合、かれらをキューにいるままにしておきます。エージェントが使用中で"
-"あったり、他のだれかに発信している場合は発信者はまだ保留されます。"
-
-msgid ""
-"Same as Strict plus a queue member must be able to answer the phone 'now' to "
-"let them remain. Simply speaking, any 'available' agents that could answer "
-"but are currently on the phone or ringing on behalf of another caller will "
-"be considered unavailable."
-msgstr ""
-"厳密と同じプラス、かれらに残らせるには、キューメンバーは'今'電話に応答できな"
-"ければいけません。簡単に言うと、応答可能ないかなる'利用可能'エージェント、し"
-"かし現在は電話に出ていたり他の発信者のかわりに着信中のエージェントは利用不可"
-"と見なされます。"
-
-msgid ""
-"Same as Yes except Callers will remain in the Queue if their are paused "
-"agents who could become available."
-msgstr ""
-"利用可能になることができる一時停止中のエージェントがいる場合に、発信者が"
-"キューに残る以外、「はい」と同じです。"
-
-msgid ""
-"Never have a caller leave the Queue until the Max Wait Time has expired."
-msgstr "最大待機時間が経過するまで、発信者をキューを残しません。"
-
-msgid "Leave Empty:"
-msgstr "リーブエンプティー："
-
-msgid "Penalty Members Limit:"
-msgstr "ペナルティメンバーリミット："
-
-msgid ""
-"Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
-"settings, allowing all members to be tried, when the queue has too few "
-"members.  No penalty will be weighed in if there are only X or fewer queue "
-"members."
-msgstr ""
-"Asterisk: ペナルティメンバーリミット。キューのメンバーが非常に少ない時に、リ"
-"ミットはペナルティ設定を無視するように設定でき、全てのメンバーが試みられるよ"
-"うになります。X人やそれ以下のキューメンバーしかいない時に、ペナルティのウェイ"
-"トが計算されなくなります。"
-
-msgid "Honor Penalties"
-msgstr "ペナルティを与える"
-
-msgid "Caller Position Announcements"
-msgstr "発信者の待ち順アナウンス"
-
-msgid "Frequency:"
-msgstr "頻度："
-
-msgid ""
-"How often to announce queue position and estimated holdtime (0 to Disable "
-"Announcements)."
-msgstr "キューの位置や予想待ち時間をどれぐらいの頻度でアナウンスするか(アナウンス無しは0)。"
-
-msgid "Announce Position:"
-msgstr "待ち順アナウンス："
-
-msgid "Announce position of caller in the queue?"
-msgstr "発信者の通話待ちの順番をアナウンスしますか？"
-
-msgid "Announce Hold Time:"
-msgstr "待ち時間アナウンス："
-
-msgid ""
-"Should we include estimated hold time in position announcements?  Either "
-"yes, no, or only once; hold time will not be announced if <1 minute"
-msgstr "待ち順のアナウンスに想定待ち時間を含めますか？　はい／いいえ、一回のみどちらの選択でも、1分以下の場合は待ち時間のアナウンスは流れません"
-
-msgid "Once"
-msgstr "一回のみ"
-
-msgid "Periodic Announcements"
-msgstr "定期的なアナウンス"
-
-msgid "IVR Break Out Menu:"
-msgstr "IVRメニュー呼出し："
-
+#: page.queues.php:1049
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
 "<br><br>This IVR must only contain single-digit 'dialed options'. The "
@@ -1333,287 +1687,368 @@ msgstr ""
 "<br><br>このIVRは1桁の'ダイヤルオプション'のみを含める必要があります。IVRに設"
 "定された録音は、以下の'リピート頻度'で指定された間隔で再生されます。"
 
-msgid "Menu ID "
-msgstr "メニューID "
-
-msgid "(**) ERRORS"
-msgstr "(**) エラー"
-
-msgid "(**) Warning Potential Errors"
-msgstr "(**) 警告 潜在的なエラー"
-
+#: page.queues.php:284
 msgid ""
-"ERROR: You have selected an IVR's that use Announcements created from "
-"compound sound files. The Queue is not able to play these announcements. "
-"This IVR's recording will be truncated to use only the first sound file. You "
-"can correct the problem by selecting a different announcement for this IVR "
-"that is not from a compound sound file. The IVR itself can play such files, "
-"but the Queue subsystem can not"
+"You can require agents to enter a password before they can log in to this "
+"queue.<br><br>This setting is optional."
 msgstr ""
-"エラー: 合成音声アナウンスのIVRを選択しています。キューは合成音声を再生することができません。このIVR録音は最初の音声ファイルのみを使用するように"
-"切り詰められます。このIVRへ合成音声でないアナウンスの選択で問題解決ができます。IVRシステムはファイル再生可能ですが、キューサブシステムがサポートし"
-"ていません"
+"エージェントがこのキューにログインする前にパスワードを入力させることができま"
+"す。<br><br>この設定はオプションです。"
 
-msgid ""
-"Earlier versions of this module allowed such queues to be chosen, once "
-"changing this setting, it will no longer appear as an option"
-msgstr "モジュールの以前のバージョンはキューが選択を許可していました。この設定を一度変更すると、オプションとして表示されません"
+#: install.php:389
+msgid "adding agentannounce_id field.."
+msgstr "agentannounce_idフィールドを追加中.."
 
-msgid "Repeat Frequency:"
-msgstr "リピート頻度："
+#: install.php:398
+msgid "adding joinannounce_id field.."
+msgstr "joinannounce_idフィールドを追加中.."
 
-msgid ""
-"How often to announce a voice menu to the caller (0 to Disable "
-"Announcements)."
-msgstr "発信者に対してどの間隔でボイスメニューをアナウンスするか(アナウンス無効は0)。"
+#: install.php:99 install.php:193 install.php:373 install.php:499
+#: install.php:514 install.php:529 install.php:544 install.php:559
+#: install.php:574 install.php:589 install.php:604 install.php:619
+#: install.php:634
+msgid "already exists"
+msgstr "既存します"
 
-msgid "Events, Stats and Advanced"
-msgstr "イベント、ステータスの高度な設定"
+#: install.php:483
+msgid "already migrated"
+msgstr "移行済み"
 
-msgid "Event When Called"
-msgstr "着信時イベント"
-
-msgid ""
-"When this option is set to YES, the following manager events will be "
-"generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
+#: install.php:622
+msgid "checking for callback_id field.."
 msgstr ""
-"このオプションが「はい」に設定された場合、次のマネージャーイベントが生成され"
-"ます: AgentCalled, AgentDump, AgentConnect and AgentComplete。"
 
-msgid "Enabled"
-msgstr "有効"
+#: install.php:547
+msgid "checking for callconfirm field.."
+msgstr "callconfirm フィールドをチェック中.."
 
-msgid "Disabled"
-msgstr "無効"
+#: install.php:562
+msgid "checking for callconfirm_id field.."
+msgstr "callconfirm_id フィールドをチェック中.."
 
-msgid "Member Status Event"
-msgstr "メンバーステータスイベント"
+#: install.php:592
+msgid "checking for monitor_heard field.."
+msgstr "monitor_heard フィールドをチェック中.."
 
-msgid ""
-"When set to YES, the following manager event will be generated: "
-"QueueMemberStatus"
-msgstr ""
-"「はい」に設定された場合、次のマネージャーイベントが生成されます: "
-"QueueMemberStatus"
+#: install.php:607
+msgid "checking for monitor_spoken field.."
+msgstr "monitor_spoken フィールドをチェック中.."
 
-msgid "Service Level:"
-msgstr "サービスレベル："
+#: install.php:577
+msgid "checking for monitor_type field.."
+msgstr "monitor_type フィールドをチェック中.."
 
-msgid ""
-"Used for service level statistics (calls answered within service level time "
-"frame)"
-msgstr ""
-"サービスレベルの統計に使用されます。(サービスレベルタイムフレーム以内で応答さ"
-"れたコール)"
+#: install.php:532
+msgid "checking for qnoanswer field.."
+msgstr "qnoanswer フィールドをチェック中.."
 
-msgid "Agent Regex Filter"
-msgstr "エージェント正規表現フィルター"
+#: install.php:361
+msgid "checking for qregex field.."
+msgstr "qregex フィールドをチェック中.."
 
-msgid ""
-"Provides an optional regex expression that will be applied against the agent "
-"callback number. If the callback number does not pass the regex filter then "
-"it will be treated as invalid. This can be used to restrict agents to "
-"extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^"
-"([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
-"key.<br />WARNING: make sure you understand what you are doing or otherwise "
-"leave this blank!"
-msgstr ""
-"エージェントのコールバック番号に適用されるオプションの正規表現を提供します。"
-"コールバック番号が正規表現フィルターを通過しない場合は、無効として扱われま"
-"す。これは、エージェントを内線の範囲で制限することができ、コールバックに*のよ"
-"うなキーを含むのを許可しないように使用したり、その他適切な使用をすることがで"
-"きます。入力例:<br />^([2-4][0-9]{3})$<br />この例では、エージェントを内線 "
-"2000-4999に制限します。 また、 <br />^([0-9]+)$ はどのような長さでも、どの番"
-"号でも許可されますが、*キーを制限します。<br />警告: 自分が使用としていること"
-"を理解しているかを確認し、さもなくば空白のままにしておいてください!"
+#: install.php:487
+msgid "checking for queuewait field.."
+msgstr "queuewait フィールドをチェック中.."
 
-msgid "Fail Over Destination"
-msgstr "キューオーバー時の宛先"
+#: install.php:517
+msgid "checking for togglehint field.."
+msgstr "togglehint フィールドをチェック中.."
 
-msgid "Reset Queue Stats"
-msgstr "キューの統計をリセット"
+#: install.php:502
+msgid "checking for use_queue_context field.."
+msgstr "use_queue_context フィールドをチェック中.."
 
-msgid "Submit Changes"
-msgstr "変更を適用"
-
-msgid ""
-"Using a Regex filter is fairly advanced, please confirm you know what you "
-"are doing or leave this blank"
-msgstr "正規表現フィルタを使用は非常に高度です、何を使用としているのかを確認してください、でなければ空欄にします"
-
-msgid "Queue Number must not be blank"
-msgstr "キュー番号を空にすることはできません"
-
-msgid ""
-"Queue name must not be blank and must contain only alpha-numeric characters"
-msgstr "キュー名を空欄にすることはできません。英数字のみ記入可能です"
-
+#: functions.inc.php:31
 msgid "day"
 msgstr "日"
 
+#: page.queues.php:556
+msgid "default"
+msgstr "デフォルト"
+
+#: page.queues.php:189
+msgid "deleted"
+msgstr "削除しました"
+
+#: install.php:464
+msgid "dropping agentannounce field.."
+msgstr "agentannounce フィールドをドロップ中.."
+
+#: install.php:474
+msgid "dropping joinannounce field.."
+msgstr "joinannounce フィールドをドロップ中.."
+
+#: install.php:393 install.php:402 install.php:414 install.php:430
+#: install.php:440 install.php:456
+msgid "fatal error"
+msgstr "致命的なエラー"
+
+#: page.queues.php:466
+msgid "fewestcalls"
+msgstr "fewestcalls"
+
+#: functions.inc.php:32
 msgid "hour"
 msgstr "時"
 
+#: functions.inc.php:32
 msgid "hours"
 msgstr "時間"
 
+#: page.queues.php:554
+msgid "inherit"
+msgstr "継承"
+
+#: page.queues.php:138
+msgid "is not allowed for your account."
+msgstr "は、あなたのアカウントには権限がありません。"
+
+#: page.queues.php:465
+msgid "leastrecent"
+msgstr "leastrecent"
+
+#: page.queues.php:473
+msgid "linear"
+msgstr "リニア"
+
+#: install.php:410
+msgid "migrate agentannounce to ids.."
+msgstr "idsにagentannounceを移行.."
+
+#: install.php:436
+msgid "migrate joinannounce to ids.."
+msgstr "joinannounce を idsに移行.."
+
+#: install.php:434 install.php:460
+#, php-format
+msgid "migrated %s entries"
+msgstr "%sエントリーを移行する"
+
+#: install.php:388
+msgid "migrating"
+msgstr "移行中"
+
+#: functions.inc.php:33
 msgid "minute"
 msgstr "分"
 
+#: functions.inc.php:33
 msgid "minutes"
 msgstr "分"
 
+#: install.php:470
+msgid "no agentannounce field???"
+msgstr "agentannounce フィールドがありません???"
+
+#: install.php:478
+msgid "no joinannounce field???"
+msgstr "joinannounce フィールドがありません???"
+
+#: page.queues.php:555
+msgid "none"
+msgstr "なし"
+
+#: install.php:396 install.php:405 install.php:472 install.php:480
+msgid "ok"
+msgstr "ok"
+
+#: page.queues.php:467
+msgid "random"
+msgstr "ランダム"
+
+#: page.queues.php:474
+msgid ""
+"random using the member's penalty as a weighting factor, see asterisk "
+"documentation for specifics"
+msgstr ""
+"ウェイト要素としてメンバーのペナルティをランダムに使用する、仕様に関しては"
+"Asteriskのドキュメントを確認してください"
+
+#: install.php:348
+msgid "removing queues data extensions table.."
+msgstr "queuesデータ extensionsテーブルを削除中.."
+
+#: page.queues.php:465
+msgid "ring agent which was least recently called by this queue"
+msgstr "一番待ち時間の長いエージェントに着信させる"
+
+#: page.queues.php:457
+msgid "ring all available agents until one answers (default)"
+msgstr "誰かが応答するまで全ての利用可能なエージェントを鳴らす(デフォルト)"
+
+#: page.queues.php:467
+msgid "ring random agent"
+msgstr "ランダムに着信させる"
+
+#: page.queues.php:466
+msgid "ring the agent with fewest completed calls from this queue"
+msgstr "一番着信呼が少ないエージェントに着信させる"
+
+#: page.queues.php:457
+msgid "ringall"
+msgstr "リングオール"
+
+#: page.queues.php:473
+msgid ""
+"rings agents in the order specified, for dynamic agents in the order they "
+"logged in"
+msgstr ""
+"指定された順番にエージェントに着信させます。ダイナミックエージェントの場合は"
+"ログインした順番となります"
+
+#: page.queues.php:468
+msgid "round robin with memory, remember where we left off last ring pass"
+msgstr "最後に着信した時間を記憶し、順繰りに接続します"
+
+#: page.queues.php:461
+msgid "roundrobin"
+msgstr "ラウンドロビン"
+
+#: page.queues.php:468
+msgid "rrmemory"
+msgstr "rrmemory"
+
+#: page.queues.php:469
+msgid "rrordered"
+msgstr "rrordered"
+
+#: page.queues.php:469
+msgid ""
+"same as rrmemory, except the queue member order from config file is preserved"
+msgstr ""
+"rrmemoryと同じですが、configファイルからキューメンバーの順序を除いて保存され"
+"ます"
+
+#: functions.inc.php:34
 msgid "second"
 msgstr "秒"
 
-msgid "Agent Announce Msg"
-msgstr "エージェントアナウンスメッセージ"
+#: functions.inc.php:17 functions.inc.php:34 page.queues.php:650
+#: page.queues.php:653 page.queues.php:722 page.queues.php:736
+#: page.queues.php:753
+msgid "seconds"
+msgstr "秒"
 
-#, php-format
-msgid "IVR Announce: %s"
-msgstr "IVR アナウンス: %s"
+#: page.queues.php:461
+msgid "take turns ringing each available agent"
+msgstr "利用可能な各エージェントを順番に着信させる"
 
-msgid "Queues"
-msgstr "キュー"
+#: page.queues.php:474
+msgid "wrandom"
+msgstr "wrandom"
 
-msgid "Applications"
-msgstr "アプリケーション"
+#~ msgid "Adjust the recording volume of the caller."
+#~ msgstr "発信者側の録音音量を調節。"
 
-msgid ""
-"Creates a queue where calls are placed on hold and answered on a first-in, "
-"first-out basis. Many options are available, including ring strategy for "
-"agents, caller announcements, max wait times, etc."
-msgstr ""
-"コールが保留中に置かれ、先入れ先出しに基づいて応答されるキューを作成します。"
-"エージェントへのリングストラテジー、発信者アナウンス、最大待ち時間等を含む多"
-"くのオプションを利用できます。"
+#~ msgid "Adjust the recording volume of the queue member (Agent)."
+#~ msgstr "キューメンバー(エージェント)の録音音量を調節。"
 
-msgid "Persistent Members"
-msgstr "永続的なメンバー"
+#~ msgid "After Answered"
+#~ msgstr "応答後"
 
-msgid "Queues Module"
-msgstr "キューモジュール"
+#~ msgid "Agent Volume Adjustment:"
+#~ msgstr "エージェント音量調節："
 
-msgid ""
-"Queues: persistentmembers. Store each dynamic member in each queue in the "
-"astdb so that when asterisk is restarted, each member will be automatically "
-"read into their recorded queues."
-msgstr ""
-"キュー：persistentmembers。asteriskが再起動されたときに、自動的に記録された"
-"キューに読み込まれるように、各キューに入っている各動的メンバーをastdb内に格納"
-"します。"
+#~ msgid ""
+#~ "Announcement played to the Queue Memeber announcing the Queue call and "
+#~ "requesting confirmation prior to answering. If set to default, the "
+#~ "standard call confirmation default message will be played unless the "
+#~ "member is reached through a Follow-Me and there is an alternate message "
+#~ "provided in the Follow-Me. This message will override any other message "
+#~ "specified..<br><br>To add additional recordings please use the \"System "
+#~ "Recordings\" MENU."
+#~ msgstr ""
+#~ "キューメンバーに対してキューコールを通知し、応答前に確認を要求するアナウン"
+#~ "スを再生します。デフォルトに設定された場合、メンバーがフォローミー経由で到"
+#~ "着されたり、フォローミーで提供される代わりのメッセージがある場合を除き、標"
+#~ "準のコール確認デフォルトメッセージが再生されます。このメッセージは他のいか"
+#~ "なる指定されたメッセージを上書きします。..<br><br>録音を追加する場合は\"シ"
+#~ "ステム録音\"メニューを使用してください。"
 
-msgid "Honor Wrapup Time Across Queues"
-msgstr "キューをまたいでまとめた時間を尊重する"
+#~ msgid "Caller Volume Adjustment:"
+#~ msgstr "発信者音量調節："
 
-msgid ""
-"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
-"lastcall and calls received be the same in members logged in more than one "
-"queue. This is useful to make the queue respect the wrapuptime of another "
-"queue for a shared member."
-msgstr ""
-"キュー: shared_lastcall, Asterisk 1.6以降でのみ有効です。これにより最後のコー"
-"ルと受信したコールを１つ以上のキューにログインしたメンバー内で同じにします。"
-"これは、共有メンバーで他のキューのラップアップタイムを尊重するのに便利です。"
+#~ msgid ""
+#~ "Choose to 'Include Hold Time' in the recording so it starts as soon as "
+#~ "they enter the queue, or to defer recording until 'After Answered' and "
+#~ "the call is bridged with a queue member."
+#~ msgstr ""
+#~ "キューに入ったらすぐにスタートするように、録音内の'保留時間も含む'を選択す"
+#~ "るか、'応答後'とコールがキューメンバーとつないでいる間に録音を遅らせてくだ"
+#~ "さい。"
 
-msgid "Set Agent Name in CDR dstchannel"
-msgstr "CDR dstchannelにエージェント名を設定"
+#~ msgid "Include Hold Time"
+#~ msgstr "保留時間も含む"
 
-msgid ""
-"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
-"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
-"with an agent name, which is set if available at the login time with "
-"AddQueueMember membername parameter, or with static members."
-msgstr ""
-"ｷｭｰ: updatecdr, Asterisk 1.6以降でのみ有効です。このオプションは、"
-"AddQueueMEnberのメンバー名パラメーターとともに、もしくは静的メンバーとともに"
-"ログイン時に利用可能ならセットされるエージェント名つきのコールのCDR "
-"dstchannelフィールドを移入するchan_agentsの挙動を真似するように実装されていま"
-"す。"
+#~ msgid ""
+#~ "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
+#~ "monitor)"
+#~ msgstr ""
+#~ "エージェントへの着信呼が録音されます。(/var/spool/asterisk/monitorに保存さ"
+#~ "れます)"
 
-msgid "Use MixMonitor for Recordings"
-msgstr "録音にMixモニターを使用"
+#~ msgid "No Adjustment"
+#~ msgstr "調節なし"
 
-msgid ""
-"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-"application instead of Monitor so the concept of 'joining/mixing' the in/out "
-"files now goes away when this is enabled."
-msgstr ""
-"キュー: モニタータイプ = Mixモニター。.これを有効にすることにより、モニターの"
-"代わりにMixモニターアプリケーションが使用され、入/出力ファイルを'追加/ミック"
-"ス'するという概念が消えます。"
+#~ msgid "Recording Mode:"
+#~ msgstr "録音モード："
 
-msgid "Hide Queue No Answer Option"
-msgstr "キューを隠し応答しないオプション"
+#~ msgid "gsm"
+#~ msgstr "gsm"
 
-msgid ""
-"It is possible for a queue to NOT Answer a call and still enter callers to "
-"the queue. The normal behavior is that all  allers are answered before "
-"entering the queue. If the call is not answered, it is possible that some "
-"early media delivery would still allow callers to hear recordings, MoH, etc. "
-"but this can be inconsistent and vary. Because of the volatility of this "
-"option, it is not displayed by default. If a queue is set to not answer, the "
-"setting will be displayed for that queue regardless of this setting."
-msgstr ""
-"キューに対して、コールに応答しないようにし、さらにまだ発信者をキューに入れた"
-"状態にすることが可能です。通常の動作では、全ての発信者はキューに入る前に応答"
-"されます。コールに応答されない場合、いづれかの早いメディアが発信者に録音や、"
-"保留音等を聞かせるように運ぶことが可能です。しかし、これは一貫性がなく可変で"
-"す。このオプションは不安定なため、デフォルトでは表示されません。キューが応答"
-"しないように設定された場合、この設定にかかわらず、そのキューに対して設定が表"
-"示されます。"
+#~ msgid "wav"
+#~ msgstr "wav"
 
-msgid "Asterisk Queues Patch 15168 Installed"
-msgstr "Asterisk キューパッチ 15168 がインストールされました"
+#~ msgid "wav49"
+#~ msgstr "wav49"
 
-msgid ""
-"Setting this flag will generate the required dialplan to integrate with the "
-"following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</"
-"b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state "
-"is now standard and always used. This asterisk patch is only available on "
-"Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some "
-"queue behavior and should be avoided"
-msgstr ""
-"このフラグを設定することにより次のAsteriskパッチと統合するために要求されたダイヤルプランを生成します: <b>https://issues.as"
-"terisk.org/view.php?id=15168</b>この設定は、ヒントステートが標準となり常に利用されるAsterisk "
-"1.8以降では廃止されます。このasteriskパッチはAsterisk1.4のみで利用可能です、Asterisk "
-"1.6でこの設定を使用しようとすると、いくつかのキューの動作が壊れる為回避してください"
+#~ msgid ""
+#~ "ERROR: You have selected an IVR's that use Announcements created from "
+#~ "compound sound files. The Queue is not able to play these announcements. "
+#~ "This IVR's recording will be truncated to use only the first sound file. "
+#~ "You can correct the problem by selecting a different announcement for "
+#~ "this IVR that is not from a compound sound file. The IVR itself can play "
+#~ "such files, but the Queue subsystem can not"
+#~ msgstr ""
+#~ "エラー: 合成音声アナウンスのIVRを選択しています。キューは合成音声を再生す"
+#~ "ることができません。このIVR録音は最初の音声ファイルのみを使用するように切"
+#~ "り詰められます。このIVRへ合成音声でないアナウンスの選択で問題解決ができま"
+#~ "す。IVRシステムはファイル再生可能ですが、キューサブシステムがサポートして"
+#~ "いません"
 
-msgid "Agent Called Events Default"
-msgstr "標準エージェント・イベントコール"
+#~ msgid "Set Agent Name in CDR dstchannel"
+#~ msgstr "CDR dstchannelにエージェント名を設定"
 
-msgid ""
-"Default state for AMI emit events related to an agent's call. This setting "
-"will only affect the default for NEW queues, it won't change existing queues "
-"or enfore the option on in new ones."
-msgstr ""
-"エージェントの呼に関連するAMI emit eventのデフォルト。この設定は、新規キューのデフォルトのみを変更し、既存のキューの設定は変更しません。"
+#~ msgid ""
+#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
+#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
+#~ "field of a call with an agent name, which is set if available at the "
+#~ "login time with AddQueueMember membername parameter, or with static "
+#~ "members."
+#~ msgstr ""
+#~ "ｷｭｰ: updatecdr, Asterisk 1.6以降でのみ有効です。このオプションは、"
+#~ "AddQueueMEnberのメンバー名パラメーターとともに、もしくは静的メンバーととも"
+#~ "にログイン時に利用可能ならセットされるエージェント名つきのコールのCDR "
+#~ "dstchannelフィールドを移入するchan_agentsの挙動を真似するように実装されて"
+#~ "います。"
 
-msgid "Generate queuenum*/** Login/off Codes"
-msgstr "queuenum*/** Login/offのコードを生成する"
+#~ msgid "Asterisk Queues Patch 15168 Installed"
+#~ msgstr "Asterisk キューパッチ 15168 がインストールされました"
 
-msgid ""
-"Queue login and out codes were historically queunum* and queunum**. These "
-"have been largely replaced by the *45 queue toggle codes. The legacy codes "
-"are required to login or out a third party user that is not the extension "
-"dialing. These can be removed from the system by setting this to false."
-msgstr ""
-"キューログイン／ログアウトコードは、以前迄はqueunum*とqueunum**でしたが、ほぼ*45 キュートグルコードに切り替えられています。レガシー"
-"のコードは、第三者ユーザー（非発信者の内線）のログイン／ログアウトに必要です。falseに設定すると、これらのコードをシステムから削除することができます"
-"。"
-
-msgid "Memeber Status Event Default"
-msgstr "メンバーステータスイベントデフォルト"
-
-msgid ""
-"Default state for AMI to emit the QueueMemberStatus event. This setting will "
-"only affect the default for NEW queues, it won't change existing queues or "
-"enfore the option on in new ones."
-msgstr ""
-"AMIがQueueMemberStatusイベントを発行する際のデフォルトのステータス。この設定は、新規キューのデフォルトのみを変更し、既存のキューの設"
-"定は変更しません。"
+#~ msgid ""
+#~ "Setting this flag will generate the required dialplan to integrate with "
+#~ "the following Asterisk patch: <b>https://issues.asterisk.org/view.php?"
+#~ "id=15168</b>. This setting is obsolete on Asterisk 1.8+ systems where the "
+#~ "hint state is now standard and always used. This asterisk patch is only "
+#~ "available on Asterisk 1.4, trying to use this setting on Asterisk 1.6 "
+#~ "will break some queue behavior and should be avoided"
+#~ msgstr ""
+#~ "このフラグを設定することにより次のAsteriskパッチと統合するために要求された"
+#~ "ダイヤルプランを生成します: <b>https://issues.asterisk.org/view.php?"
+#~ "id=15168</b>この設定は、ヒントステートが標準となり常に利用されるAsterisk "
+#~ "1.8以降では廃止されます。このasteriskパッチはAsterisk1.4のみで利用可能で"
+#~ "す、Asterisk 1.6でこの設定を使用しようとすると、いくつかのキューの動作が壊"
+#~ "れる為回避してください"
 
 #~ msgid ""
 #~ "Music (or Commercial) played to the caller while they wait in line for an "
