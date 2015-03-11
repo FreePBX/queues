@@ -385,10 +385,11 @@ function queues_get($account, $queues_conf_only=false) {
 			$account = str_replace("'",'',$account);
 			//get dynamic members priority from astDB
 			$get = $astman->database_show('QPENALTY/'.$account.'/agents');
+
 			if($get){
 				foreach($get as $key => $value){
-					$key=explode('/',$key);
-					$mem[$key[4]]=$value;
+					$key1=explode('/',$key);
+					$mem[$key1[4]]=$value;
 				}
 				foreach($mem as $mem => $pnlty){
 					$dynmem[]=$mem.','.$pnlty;
