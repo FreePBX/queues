@@ -78,6 +78,9 @@ if (isset($_REQUEST["members"])) {
     case 'S':
       $exten_type = 'SIP';
       break;
+		case 'P':
+			$exten_type = 'PJSIP';
+			break;
     case 'X':
       $exten_type = 'IAX2';
       break;
@@ -109,6 +112,7 @@ if (isset($_REQUEST["members"])) {
       switch($exten_type) {
         case 'Agent':
         case 'SIP':
+				case 'PJSIP':
         case 'IAX2':
         case 'ZAP':
         case 'DAHDI':
@@ -203,7 +207,7 @@ if ($action == 'delete') {
 
   $mem_array = array();
   foreach ($member as $mem) {
-    if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
+    if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2|PJSIP)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
       switch ($matches[1]) {
         case 'Agent':
           $exten_prefix = 'A';
@@ -211,6 +215,9 @@ if ($action == 'delete') {
         case 'SIP':
           $exten_prefix = 'S';
           break;
+				case 'PJSIP':
+					$exten_prefix = 'P';
+					break;
         case 'IAX2':
           $exten_prefix = 'X';
           break;
