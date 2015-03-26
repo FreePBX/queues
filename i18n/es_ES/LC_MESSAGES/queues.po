@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo queues module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:52-0500\n"
-"PO-Revision-Date: 2015-03-26 08:50+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"PO-Revision-Date: 2015-03-26 09:13+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/queues/es_ES/>\n"
 "Language: es_ES\n"
@@ -287,7 +287,7 @@ msgstr "Autollenado:"
 
 #: functions.inc/geters_seters.php:37
 msgid "Bad Queue Number, can not be blank"
-msgstr "Número de cola no válido; no puede estar vacío."
+msgstr "Número de cola no válido; no puede estar vacío"
 
 #: page.queues.php:1073
 msgid "Break Out Type"
@@ -506,7 +506,7 @@ msgstr ""
 
 #: install.php:328
 msgid "ERROR were encountered"
-msgstr "Se han encontrado errores."
+msgstr "Se han encontrado errores"
 
 #: page.queues.php:1134
 msgid ""
@@ -528,20 +528,20 @@ msgstr ""
 #: install.php:207
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
-"ERROR: accediendo a la tabla de colas al obtener la información del "
-"contexto; abortando."
+"ERROR: accediendo a la tabla de colas al obtener la información del contexto;"
+" abortando"
 
 #: install.php:232
 msgid "ERROR: accessing queues table obtaining id list, aborting"
 msgstr ""
 "ERROR: accediendo a la tabla de colas al obtener el listado de "
-"identificadores; abortando."
+"identificadores; abortando"
 
 #: install.php:214
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr ""
 "ERROR: accediendo a la tabla de colas al obtener la información de 'rtone'; "
-"abortando."
+"abortando"
 
 #: install.php:101 install.php:195
 msgid "ERROR: could not create table"
@@ -549,8 +549,7 @@ msgstr "ERROR: no se pudo crear la tabla"
 
 #: install.php:119
 msgid "ERROR: could not migrate to queues_details"
-msgstr ""
-"ERROR: no se pudo migrar la tabla de detalles de colas (queues_details)."
+msgstr "ERROR: no se pudo migrar la tabla de detalles de colas (queues_details)"
 
 #: install.php:320
 #, php-format
@@ -563,7 +562,7 @@ msgid ""
 "changing this setting, it will no longer appear as an option"
 msgstr ""
 "Las versiones anteriores de este módulo permitían seleccionar este tipo de "
-"colas; una vez que se cambié este parámetro, ya no aparecerá como opción."
+"colas; una vez que se cambié este parámetro, ya no aparecerá como opción"
 
 #: page.queues.php:264
 msgid "Edit Queue"
@@ -830,7 +829,7 @@ msgid ""
 "monitor)"
 msgstr ""
 "Las llamadas entrantes a los agentes pueden ser grabadas (guardadas en el "
-"directorio /var/spool/asterisk/monitor)."
+"directorio /var/spool/asterisk/monitor)"
 
 #: queues.i18n.php:24
 msgid ""
@@ -904,7 +903,7 @@ msgstr "Tiempo máximo de espera:"
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr ""
 "Número máximo de usuarios que pueden estar esperando en la cola (indique 0 "
-"para no poner un límite)."
+"para no poner un límite)"
 
 #: views/cron.php:109
 msgid "May"
@@ -924,16 +923,15 @@ msgstr "Evento Estado de Miembro por defecto"
 
 #: page.queues.php:1114 page.queues.php:1119
 msgid "Menu ID "
-msgstr "Identificador de menú"
+msgstr "Identificador de menú "
 
 #: install.php:203
 msgid "Migrating data to queues_config.."
-msgstr ""
-"Migrando datos de la tabla de configuración de colas (queues_config)... "
+msgstr "Migrando datos de la tabla de configuración de colas (queues_config).."
 
 #: install.php:116
 msgid "Migrating to queues_details.."
-msgstr "Migrando tabla de detalles de colas(queues_details)... "
+msgstr "Migrando tabla de detalles de colas(queues_details).."
 
 #: views/cron.php:45
 msgid "Minutes"
@@ -984,7 +982,7 @@ msgstr "Clase de música en espera:"
 msgid "NO table found, no migration to do just create tables"
 msgstr ""
 "No se han encontrado tablas, no hace falta migración, simplemente crear las "
-"tablas."
+"tablas"
 
 #: views/cron.php:5
 msgid "Never"
@@ -1114,7 +1112,7 @@ msgstr "Cola no contesta:"
 
 #: page.queues.php:1335
 msgid "Queue Number must not be blank"
-msgstr "El número de la cola no puede estar vacío."
+msgstr "El número de la cola no puede estar vacío"
 
 #: page.queues.php:269
 msgid "Queue Number:"
@@ -1157,7 +1155,7 @@ msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr ""
 "El nombre de la cola no puede estar vacío y sólo puede contener caracteres "
-"alfanuméricos."
+"alfanuméricos"
 
 #: page.queues.php:245
 msgid "Queue:"
@@ -1317,7 +1315,7 @@ msgid ""
 msgstr ""
 "Indica si se debe anunciar al llamante el tiempo de espera aproximado. "
 "Seleccione 'Sí', 'No', o 'Sólo una vez'; el tiempo de espera no será "
-"anunciado si este es menor de 1 minuto."
+"anunciado si este es menor de 1 minuto"
 
 #: page.queues.php:509
 msgid "Skip Busy Agents:"
@@ -1653,11 +1651,11 @@ msgstr ""
 
 #: install.php:389
 msgid "adding agentannounce_id field.."
-msgstr "Añadiendo campo 'agentannounce_id'... "
+msgstr "Añadiendo campo 'agentannounce_id'.."
 
 #: install.php:398
 msgid "adding joinannounce_id field.."
-msgstr "Añadiendo campo 'joinannounce_id'... "
+msgstr "Añadiendo campo 'joinannounce_id'.."
 
 #: install.php:99 install.php:193 install.php:373 install.php:499
 #: install.php:514 install.php:529 install.php:544 install.php:559
@@ -1700,11 +1698,11 @@ msgstr ""
 
 #: install.php:361
 msgid "checking for qregex field.."
-msgstr "Comprobando campo 'qregex'... "
+msgstr "Comprobando campo 'qregex'.."
 
 #: install.php:487
 msgid "checking for queuewait field.."
-msgstr "Comprobando campo 'queuewait'... "
+msgstr "Comprobando campo 'queuewait'.."
 
 #: install.php:517
 msgid "checking for togglehint field.."
@@ -1728,11 +1726,11 @@ msgstr "eliminada."
 
 #: install.php:464
 msgid "dropping agentannounce field.."
-msgstr "Eliminando campo 'agentannounce'... "
+msgstr "Eliminando campo 'agentannounce'.."
 
 #: install.php:474
 msgid "dropping joinannounce field.."
-msgstr "Eliminando campo 'agentannounce'... "
+msgstr "Eliminando campo 'agentannounce'.."
 
 #: install.php:393 install.php:402 install.php:414 install.php:430
 #: install.php:440 install.php:456
@@ -1773,11 +1771,11 @@ msgstr ""
 
 #: install.php:410
 msgid "migrate agentannounce to ids.."
-msgstr "Migrando tabla 'agentannounce' a identificadores... "
+msgstr "Migrando tabla 'agentannounce' a identificadores.."
 
 #: install.php:436
 msgid "migrate joinannounce to ids.."
-msgstr "Migrando tabla 'joinannounce' a identificadores... "
+msgstr "Migrando tabla 'joinannounce' a identificadores.."
 
 #: install.php:434 install.php:460
 #, php-format
@@ -1798,11 +1796,11 @@ msgstr "minutos"
 
 #: install.php:470
 msgid "no agentannounce field???"
-msgstr "No existe el campo 'agentannounce'."
+msgstr "No existe el campo 'agentannounce'???"
 
 #: install.php:478
 msgid "no joinannounce field???"
-msgstr "No existe el campo joinannounce."
+msgstr "No existe el campo joinannounce???"
 
 #: page.queues.php:556
 msgid "none"
@@ -1824,27 +1822,27 @@ msgstr ""
 
 #: install.php:348
 msgid "removing queues data extensions table.."
-msgstr "Eliminando datos de la tabla de extensiones de colas... "
+msgstr "Eliminando datos de la tabla de extensiones de colas.."
 
 #: page.queues.php:466
 msgid "ring agent which was least recently called by this queue"
 msgstr ""
 "Hacer sonar el agente que menos recientemente contestó una llamada de esta "
-"cola."
+"cola"
 
 #: page.queues.php:458
 msgid "ring all available agents until one answers (default)"
 msgstr ""
 "Hacer sonar todos los agentes disponibles hasta que uno conteste (opción por "
-"defecto)."
+"defecto)"
 
 #: page.queues.php:468
 msgid "ring random agent"
-msgstr "Hacer sonar un agente aleatoriamente."
+msgstr "Hacer sonar un agente aleatoriamente"
 
 #: page.queues.php:467
 msgid "ring the agent with fewest completed calls from this queue"
-msgstr "Hacer sonar el agente que menos llamadas haya completado de esta cola."
+msgstr "Hacer sonar el agente que menos llamadas haya completado de esta cola"
 
 #: page.queues.php:458
 msgid "ringall"
@@ -1860,7 +1858,7 @@ msgstr ""
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr ""
 "Todos contra todos ('roundrobin') con memoria; recuerda donde se dejó la "
-"última llamada."
+"última llamada"
 
 #: page.queues.php:462
 msgid "roundrobin"
@@ -1890,9 +1888,10 @@ msgid "seconds"
 msgstr "segundos"
 
 #: page.queues.php:462
+#, fuzzy
 msgid "take turns ringing each available agent"
 msgstr ""
-"Todos contra todos o 'roundrobin' hace sonar todos los agentes por turnos."
+"Todos contra todos o 'roundrobin' hace sonar todos los agentes por turnos"
 
 #: page.queues.php:614
 msgid "wav"
