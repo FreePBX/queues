@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo queues module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:52-0500\n"
-"PO-Revision-Date: 2015-03-29 03:08+0200\n"
+"PO-Revision-Date: 2015-03-29 03:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/queues/es_ES/>\n"
@@ -123,7 +123,7 @@ msgstr "Anunciar posición:"
 
 #: page.queues.php:1037
 msgid "Announce position of caller in the queue?"
-msgstr "Indica si se debe anunciar la posición del llamante en la cola."
+msgstr "Indica si se debe anunciar la posición del llamante en la cola?"
 
 #: page.queues.php:339
 msgid ""
@@ -142,7 +142,7 @@ msgid ""
 msgstr ""
 "Anuncio que será reproducido a los llamantes una vez que hayan entrado en la "
 "cola.<br/><br/>Debe instalar el módulo de 'Grabaciones del sistema' para "
-"poder usar esta opción."
+"poder usar esta opción"
 
 #: page.queues.php:574
 msgid ""
@@ -182,10 +182,11 @@ msgid ""
 "from the Technical Support Queue\".<br><br>You must install and enable the "
 "\"Systems Recordings\" Module to edit this option"
 msgstr ""
-"Anuncio que será reproducido al agente antes de recibir al llamante.<br/><br/"
-">Por ejemplo: 'La siguiente llamada proviene de la cola de ventas' o 'Esta "
-"llamado proviene de la cola de soporte técnico'.<br/><br/>Debe instalar el "
-"módulo de 'Grabaciones del sistema' para poder usar esta opción."
+"Anuncio que será reproducido al agente antes de recibir al "
+"llamante.<br/><br/>Por ejemplo: 'La siguiente llamada proviene de la cola de "
+"ventas' o 'Esta llamado proviene de la cola de soporte técnico'.<br/><br/>"
+"Debe instalar el módulo de 'Grabaciones del sistema' para poder usar esta "
+"opción"
 
 #: page.queues.php:321
 msgid ""
@@ -2016,7 +2017,7 @@ msgstr "Con memoria"
 
 #: page.queues.php:470
 msgid "rrordered"
-msgstr "rrordered"
+msgstr "Rrordered"
 
 #: page.queues.php:470
 msgid ""
