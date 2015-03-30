@@ -51,6 +51,7 @@
 	<popovers>
 		<queues>
 			<display>queues</display>
+			<view>form</view>
 		</queues>
 	</popovers>
 	<supported>
