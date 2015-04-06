@@ -65,7 +65,7 @@ class queues_conf {
 		$ver16 = version_compare($ast_version, '1.6', 'ge');
 		$ast_ge_14_25 = version_compare($ast_version,'1.4.25','ge');
 		$ast_ge_18 = version_compare($ast_version,'1.8','ge');
-		
+		$ast_ge_120 = version_compare($ast_version,'12','ge');
 		// legacy but in case someone was using this we will leave it
 		//TODO: abstract getters/setters from business logic
 		$sql = "SELECT keyword,data FROM queues_details WHERE id='-1' AND keyword <> 'account'";
@@ -121,7 +121,15 @@ class queues_conf {
 			// done through sub-record-check
 			unset($results2['monitor-format']);
 			unset($results2['recording']);
-
+			//Unset Old commands Resolves FREEPBX-8610.
+			unset($results2['monitor-join']);
+			unset($results2['answered_elsewhere']);
+			unset($results2['skip_joinannounce']);
+			//These items still exist for backwards compatibility but are useless in 12+
+			if($ast_ge_120){
+				unset($results2['eventwhencalled']);
+				unset($results2['eventmemberstatus']);
+			}
 			foreach ($results2 as $keyword => $data) {
 				if (trim($data) == '' || substr($keyword, 0, 4) == "cron") {
 					// Skip anything that's empty or not required
@@ -135,6 +143,7 @@ class queues_conf {
 					case 'answered_elsewhere':
 					case 'skip_joinannounce':
 						continue;
+					break;
 				}
 
 				if ($keyword == "retry" && $data == "none") {
