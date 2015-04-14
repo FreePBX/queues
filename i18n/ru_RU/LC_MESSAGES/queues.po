@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 21:36-0400\n"
+"POT-Creation-Date: 2015-04-14 19:31-0400\n"
 "PO-Revision-Date: 2014-02-28 04:52+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://example.com/projects/freepbx-211/queues/ru/>\n"
@@ -297,7 +297,7 @@ msgstr "Проверка для старых таблиц очередей.."
 msgid "Checking if recordings need migration.."
 msgstr "Проверка нуждаются ли записи в перемещении.."
 
-#: functions.inc/queue_conf.php:215
+#: functions.inc/queue_conf.php:224
 msgid "Compound Recordings in Queues Detected"
 msgstr "Обнаружена составная запись, использованная в очереди."
 
@@ -842,7 +842,7 @@ msgstr "Очередь"
 msgid "Queue %s : %s"
 msgstr "Очередь %s : %s"
 
-#: functions.inc/queue_conf.php:213
+#: functions.inc/queue_conf.php:222
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Очередь - %s (%s): %s<br />"
@@ -1247,7 +1247,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Внимание! Внутренний номер"
 
-#: functions.inc/queue_conf.php:208
+#: functions.inc/queue_conf.php:217
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

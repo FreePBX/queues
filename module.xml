@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.1alpha2</version>
+	<version>13.0.1alpha3</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*13.0.1alpha3* Resolves FREEPBX-8610 and fixes the config aspect of FREEPBX-8216 that was overlooked. 
 		*13.0.1alpha2* Fix dialplan generation
 		*13.0.1alpha1* Visual Changes
 		*12.0.11* Reduce the number of hints/extensions generated for queues.

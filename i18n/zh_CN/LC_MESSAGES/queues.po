@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 21:36-0400\n"
+"POT-Creation-Date: 2015-04-14 19:31-0400\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
 "Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
@@ -264,7 +264,7 @@ msgstr "正在检查遗留的队列表格。。"
 msgid "Checking if recordings need migration.."
 msgstr "正在检查录音是否需要迁移。。。"
 
-#: functions.inc/queue_conf.php:215
+#: functions.inc/queue_conf.php:224
 msgid "Compound Recordings in Queues Detected"
 msgstr "在等待队列的配置中检测到了复合录音"
 
@@ -765,7 +765,7 @@ msgstr "等待队列"
 msgid "Queue %s : %s"
 msgstr "等待队列 %s：%s"
 
-#: functions.inc/queue_conf.php:213
+#: functions.inc/queue_conf.php:222
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "等待队列 - %s（%s）：%s<br />"
@@ -1128,7 +1128,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "警告！你的帐户无法使用分机"
 
-#: functions.inc/queue_conf.php:208
+#: functions.inc/queue_conf.php:217
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

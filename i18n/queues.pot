@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 21:36-0400\n"
+"POT-Creation-Date: 2015-04-14 19:31-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -264,7 +264,7 @@ msgstr ""
 msgid "Checking if recordings need migration.."
 msgstr ""
 
-#: functions.inc/queue_conf.php:215
+#: functions.inc/queue_conf.php:224
 msgid "Compound Recordings in Queues Detected"
 msgstr ""
 
@@ -794,7 +794,7 @@ msgstr ""
 msgid "Queue %s : %s"
 msgstr ""
 
-#: functions.inc/queue_conf.php:213
+#: functions.inc/queue_conf.php:222
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr ""
@@ -1156,7 +1156,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr ""
 
-#: functions.inc/queue_conf.php:208
+#: functions.inc/queue_conf.php:217
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
