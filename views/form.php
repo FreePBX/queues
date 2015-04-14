@@ -857,7 +857,7 @@ for ($i=15; $i <= 300; $i+=15) {
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<span id="alertinfo-help" class="help-block fpbx-help-block"><?php echo _("")?></span>
+					<span id="alertinfo-help" class="help-block fpbx-help-block"><?php echo _("Add an Alert-Info Header like Snom and other Phones need for Ring or Ringtone informations")?></span>
 				</div>
 			</div>
 		</div>

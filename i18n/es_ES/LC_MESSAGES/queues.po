@@ -24,6 +24,12 @@ msgstr ""
 msgid "Add Queue"
 msgstr ""
 
+#: views/form.php:860
+msgid ""
+"Add an Alert-Info Header like Snom and other Phones need for Ring or "
+"Ringtone informations"
+msgstr ""
+
 #: views/form.php:669
 msgid "Advanced Options"
 msgstr ""

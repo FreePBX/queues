@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 19:31-0400\n"
+"POT-Creation-Date: 2015-04-14 19:35-0400\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
 "Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
@@ -43,6 +43,12 @@ msgstr ""
 #: views/bootnav.php:2
 msgid "Add Queue"
 msgstr "添加等待队列"
+
+#: views/form.php:860
+msgid ""
+"Add an Alert-Info Header like Snom and other Phones need for Ring or "
+"Ringtone informations"
+msgstr ""
 
 #: views/form.php:669
 msgid "Advanced Options"
