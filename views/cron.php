@@ -11,24 +11,18 @@ $data = array(
 			'reboot'	=> _('Reboot'),
 			'custom'	=> _('Custom')
 );
-$txt = <<<EOM
-Select how often to reset queue stats. The following schedule will be followed for all but custom:<br/>
-Hourly &nbsp&nbspRun once an hour, beginning of hour<br/>
-Daily &nbsp&nbsp&nbsp&nbspRun once a day, at midnight<br/>
-Weekly &nbsp&nbspRun once a week, midnight on Sun<br/>
-Monthly &nbsp&nbspRun once a month, midnight, first of month<br/>
-Annually &nbspRun once a year, midnight, Jan. 1<br/>
-Reboot &nbsp&nbspRun at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)<br/>
-<br/>
-If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved
-<br/><br/>
-Never will never reset the queue stats automatically
-<br/><br/>
-If a custom schedule is selected, any section not specficed will be considered to be "any" (aka: wildcard).
-I.e. if Day of Month is set to 12 and Day of Week is not set, the queue stats will be reset on ANY 12th of
-the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the queue stats will be reset ONLY
- on a Monday, and ONLY if it's the 12th of the month.
-EOM;
+$txt = _("Select how often to reset queue stats. The following schedule will be followed for all but custom:")."<br/>";
+$txt .= "<ul>";
+$txt .= "<li>"._("Hourly   - Run once an hour, beginning of hour")."</li>";
+$txt .= "<li>"._("Daily    - Run once a day, at midnight")."</li>";
+$txt .= "<li>"._("Monthly  - Run once a month, midnight, first of month")."</li>";
+$txt .= "<li>"._("Annually - Run once a year, midnight, Jan. 1")."</li>";
+$txt .= "<li>"._("Reboot   - Run at startup of the server OR of the cron daemon (after every: service cron restart)")."</li>";
+$txt .= "</ul>";
+$txt .= _("If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved");
+$txt .= "<br/><br/>";
+$txt .= _("Never will never reset the queue stats automatically");
+$txt .= _("If a custom schedule is selected, any section not specficed will be considered to be 'any' (aka: wildcard). I.e. if Day of Month is set to 12 and Day of Week is not set, the queue stats will be reset on ANY 12th of the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the queue stats will be reset ONLY on a Monday, and ONLY if it's the 12th of the month.");
 $label = fpbx_label(_('Run'), _($txt));
 $html .= $label . ' ' . form_dropdown('cron_schedule', $data, $cron_schedule);
 $data = array(
@@ -38,7 +32,7 @@ $data = array(
 	'checked'	=> ($cron_random == 'true' ? true : false),
 );
 
-$html .= br() . form_label('Randomize', 'cron_random') . form_checkbox($data);
+$html .= br() . form_label(_('Randomize'), 'cron_random') . form_checkbox($data);
 
 $html .= '<div id="crondiv">';
 //minutes
