@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 13:47-0500\n"
+"POT-Creation-Date: 2015-04-20 13:18-0400\n"
 "PO-Revision-Date: 2014-02-28 04:52+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://example.com/projects/freepbx-211/queues/ru/>\n"
@@ -65,7 +65,7 @@ msgstr "Анонс агента"
 msgid "Agent Announcement:"
 msgstr "Приветствие агенту:"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:36
 msgid "Agent Called Events Default"
 msgstr ""
 
@@ -181,11 +181,15 @@ msgstr ""
 msgid "Annually"
 msgstr ""
 
+#: views/cron.php:19
+msgid "Annually - Run once a year, midnight, Jan. 1"
+msgstr ""
+
 #: queues.i18n.php:6 queues.i18n.php:12
 msgid "Applications"
 msgstr "Приложения"
 
-#: views/cron.php:108
+#: views/cron.php:102
 msgid "April"
 msgstr ""
 
@@ -216,7 +220,7 @@ msgstr ""
 "в случае когда в очереди операторов очень мало. Уровень доступности не будет "
 "изменяться если в очереди не более указанного количества операторов."
 
-#: views/cron.php:112
+#: views/cron.php:106
 msgid "August"
 msgstr ""
 
@@ -367,15 +371,19 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
-#: views/cron.php:132
+#: views/cron.php:17
+msgid "Daily    - Run once a day, at midnight"
+msgstr ""
+
+#: views/cron.php:126
 msgid "Day of Month"
 msgstr ""
 
-#: views/cron.php:77
+#: views/cron.php:71
 msgid "Day of Week"
 msgstr ""
 
-#: views/cron.php:116
+#: views/cron.php:110
 msgid "December"
 msgstr ""
 
@@ -383,14 +391,14 @@ msgstr ""
 msgid "Default"
 msgstr "По умолчанию"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:38
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
 
-#: queues.i18n.php:42
+#: queues.i18n.php:46
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -540,7 +548,7 @@ msgstr "Только внутренние абоненты"
 msgid "Fail Over Destination"
 msgstr "Назначение при неответе"
 
-#: views/cron.php:106
+#: views/cron.php:100
 msgid "February"
 msgstr ""
 
@@ -552,7 +560,7 @@ msgstr ""
 msgid "Frequency:"
 msgstr "Частота:"
 
-#: views/cron.php:85
+#: views/cron.php:79
 msgid "Friday"
 msgstr ""
 
@@ -564,7 +572,7 @@ msgstr "Общие параметры очереди"
 msgid "Generate Device Hints:"
 msgstr "Генерация оповещений устройств:"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:40
 msgid "Generate queuenum*/** Login/off Codes"
 msgstr "Формировать номер очереди*/** коды набора для входа-выхода операторов"
 
@@ -581,7 +589,7 @@ msgstr ""
 "приоритетом. Оператору будет подан звонок большим приоритетом очереди, если "
 "оператор обслуживаетс две и более очереди."
 
-#: queues.i18n.php:28
+#: queues.i18n.php:32
 msgid "Hide Queue No Answer Option"
 msgstr "Скрыть параметр Очереди 'No Answer'"
 
@@ -593,12 +601,16 @@ msgstr "Соблюдать уровни доступности"
 msgid "Honor Wrapup Time Across Queues"
 msgstr "Давать передышку оператору при работе в нескольких очередях"
 
-#: views/cron.php:61
+#: views/cron.php:55
 msgid "Hour"
 msgstr ""
 
 #: views/cron.php:6
 msgid "Hourly"
+msgstr ""
+
+#: views/cron.php:16
+msgid "Hourly   - Run once an hour, beginning of hour"
 msgstr ""
 
 #: page.queues.php:1129
@@ -633,6 +645,24 @@ msgstr ""
 #: page.queues.php:1049
 msgid "IVR Break Out Menu:"
 msgstr "Возможность выйти из Меню:"
+
+#: views/cron.php:22
+msgid ""
+"If Randomize is selcted, a similar frequency will be followed, only the "
+"exact times will be randomized (avoiding peak business hours, when "
+"possible). Please note: randomized schedules will be rescheduled (randomly) "
+"every time ANY backup is saved"
+msgstr ""
+
+#: views/cron.php:25
+msgid ""
+"If a custom schedule is selected, any section not specficed will be "
+"considered to be 'any' (aka: wildcard). I.e. if Day of Month is set to 12 "
+"and Day of Week is not set, the queue stats will be reset on ANY 12th of the "
+"month - regardless of the day of the week. If Day of Week is set to, say, "
+"Monday, the queue stats will be reset ONLY on a Monday, and ONLY if it's the "
+"12th of the month."
+msgstr ""
 
 #: page.queues.php:312
 msgid ""
@@ -741,7 +771,7 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
-#: queues.i18n.php:30
+#: queues.i18n.php:34
 msgid ""
 "It is possible for a queue to NOT Answer a call and still enter callers to "
 "the queue. The normal behavior is that all  allers are answered before "
@@ -752,7 +782,7 @@ msgid ""
 "setting will be displayed for that queue regardless of this setting."
 msgstr "Дает возможность не делать ответ на вызов, помещенный в очередь."
 
-#: views/cron.php:105
+#: views/cron.php:99
 msgid "January"
 msgstr ""
 
@@ -764,11 +794,11 @@ msgstr "Сообщение при попадании:"
 msgid "Join Empty:"
 msgstr "Попадать в пустую:"
 
-#: views/cron.php:111
+#: views/cron.php:105
 msgid "July"
 msgstr ""
 
-#: views/cron.php:110
+#: views/cron.php:104
 msgid "June"
 msgstr ""
 
@@ -781,7 +811,7 @@ msgstr "ВЫходить из пустой очереди:"
 msgid "Loose"
 msgstr "Неточный"
 
-#: views/cron.php:107
+#: views/cron.php:101
 msgid "March"
 msgstr ""
 
@@ -805,7 +835,7 @@ msgstr "Время ожидания, максимально:"
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "Максимально  число ожидающих в очереди (0 - неограничено)"
 
-#: views/cron.php:109
+#: views/cron.php:103
 msgid "May"
 msgstr ""
 
@@ -817,7 +847,7 @@ msgstr "Задержка оператора:"
 msgid "Member Status Event"
 msgstr ""
 
-#: queues.i18n.php:40
+#: queues.i18n.php:44
 msgid "Memeber Status Event Default"
 msgstr ""
 
@@ -833,7 +863,7 @@ msgstr "Перенос данных в queues_config.."
 msgid "Migrating to queues_details.."
 msgstr "Перенос queues_details.."
 
-#: views/cron.php:45
+#: views/cron.php:39
 msgid "Minutes"
 msgstr ""
 
@@ -841,16 +871,20 @@ msgstr ""
 msgid "MoH Only"
 msgstr ""
 
-#: views/cron.php:81
+#: views/cron.php:75
 msgid "Monday"
 msgstr ""
 
-#: views/cron.php:102
+#: views/cron.php:96
 msgid "Month"
 msgstr ""
 
 #: views/cron.php:9
 msgid "Monthly"
+msgstr ""
+
+#: views/cron.php:18
+msgid "Monthly  - Run once a month, midnight, first of month"
 msgstr ""
 
 #: page.queues.php:543
@@ -884,6 +918,10 @@ msgstr ""
 "Никогда не удалять вызов из очереди до истечения максимального времени "
 "ожидания."
 
+#: views/cron.php:24
+msgid "Never will never reset the queue stats automatically"
+msgstr ""
+
 #: page.queues.php:361 page.queues.php:433 page.queues.php:513
 #: page.queues.php:625 page.queues.php:708 page.queues.php:797
 #: page.queues.php:812 page.queues.php:829 page.queues.php:844
@@ -909,7 +947,7 @@ msgstr "Не повторять"
 msgid "None"
 msgstr "Нет"
 
-#: views/cron.php:115
+#: views/cron.php:109
 msgid "November"
 msgstr ""
 
@@ -921,7 +959,7 @@ msgstr ""
 msgid "OK"
 msgstr "ОК"
 
-#: views/cron.php:114
+#: views/cron.php:108
 msgid "October"
 msgstr ""
 
@@ -1026,7 +1064,7 @@ msgstr "Вес очереди"
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Только звонки очереди (ringinuse=no)"
 
-#: queues.i18n.php:38
+#: queues.i18n.php:42
 msgid ""
 "Queue login and out codes were historically queunum* and queunum**. These "
 "have been largely replaced by the *45 queue toggle codes. The legacy codes "
@@ -1070,7 +1108,7 @@ msgstr "Модуль очередей"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 
-#: queues.i18n.php:26
+#: queues.i18n.php:30
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -1097,8 +1135,26 @@ msgid ""
 "queue for a shared member."
 msgstr "Queues: shared_lastcall"
 
+#: queues.i18n.php:26
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
+msgstr "Queues: updatecdr"
+
+#: views/cron.php:35
+msgid "Randomize"
+msgstr ""
+
 #: views/cron.php:11
 msgid "Reboot"
+msgstr ""
+
+#: views/cron.php:20
+msgid ""
+"Reboot   - Run at startup of the server OR of the cron daemon (after every: "
+"service cron restart)"
 msgstr ""
 
 #: page.queues.php:1129
@@ -1139,7 +1195,7 @@ msgstr ""
 msgid "Ring Strategy:"
 msgstr "Стратегия дозвона:"
 
-#: views/cron.php:32
+#: views/cron.php:26
 msgid "Run"
 msgstr ""
 
@@ -1203,17 +1259,27 @@ msgstr ""
 "Такой же режим, как 'Да', но вызовы будут оставаться в очереди, даже если "
 "все операторы приостановлены, но могут стать активными."
 
-#: views/cron.php:86
+#: views/cron.php:80
 msgid "Saturday"
 msgstr ""
 
-#: views/cron.php:113
+#: views/cron.php:14
+msgid ""
+"Select how often to reset queue stats. The following schedule will be "
+"followed for all but custom:"
+msgstr ""
+
+#: views/cron.php:107
 msgid "September"
 msgstr ""
 
 #: page.queues.php:1217
 msgid "Service Level:"
 msgstr "Уровень сервиса:"
+
+#: queues.i18n.php:24
+msgid "Set Agent Name in CDR dstchannel"
+msgstr "Назначить имя оператора в поле dstchannel CDR"
 
 #: page.queues.php:1007
 msgid ""
@@ -1290,7 +1356,7 @@ msgstr "Ограничено"
 msgid "Submit Changes"
 msgstr "Применить изменения"
 
-#: views/cron.php:80
+#: views/cron.php:74
 msgid "Sunday"
 msgstr ""
 
@@ -1353,7 +1419,7 @@ msgid ""
 "no affect."
 msgstr ""
 
-#: views/cron.php:84
+#: views/cron.php:78
 msgid "Thursday"
 msgstr ""
 
@@ -1361,7 +1427,7 @@ msgstr ""
 msgid "Timing & Agent Options"
 msgstr "Параметры времени и операторов"
 
-#: views/cron.php:82
+#: views/cron.php:76
 msgid "Tuesday"
 msgstr ""
 
@@ -1374,7 +1440,7 @@ msgstr "Строго ограниченный"
 msgid "Unlimited"
 msgstr "Неограничено"
 
-#: queues.i18n.php:24
+#: queues.i18n.php:28
 msgid "Use MixMonitor for Recordings"
 msgstr "Использовать MixMonitor для записи разговоров"
 
@@ -1435,7 +1501,7 @@ msgstr ""
 "составная запись. В очереди такая запись будет урезана до первого "
 "звукогового файла. Вам надо устранить эту проблему.<br />Детали:<br /><br />"
 
-#: views/cron.php:83
+#: views/cron.php:77
 msgid "Wednesday"
 msgstr ""
 
@@ -1998,17 +2064,6 @@ msgstr "случайный-выбор"
 
 #~ msgid "Member Status Event:"
 #~ msgstr "События об изменениях состояния операторов:"
-
-#~ msgid "Set Agent Name in CDR dstchannel"
-#~ msgstr "Назначить имя оператора в поле dstchannel CDR"
-
-#~ msgid ""
-#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
-#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
-#~ "field of a call with an agent name, which is set if available at the "
-#~ "login time with AddQueueMember membername parameter, or with static "
-#~ "members."
-#~ msgstr "Queues: updatecdr"
 
 #~ msgid "Asterisk Queues Patch 15168 Installed"
 #~ msgstr "Установлено исправление 15168 для модуля Очереди"
