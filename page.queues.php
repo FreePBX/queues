@@ -78,6 +78,9 @@ if (isset($_REQUEST["members"])) {
     case 'S':
       $exten_type = 'SIP';
       break;
+    case 'P':
+     $exten_type = 'PJSIP';
+     break;
     case 'X':
       $exten_type = 'IAX2';
       break;
@@ -109,6 +112,7 @@ if (isset($_REQUEST["members"])) {
       switch($exten_type) {
         case 'Agent':
         case 'SIP':
+        case 'PJSIP':
         case 'IAX2':
         case 'ZAP':
         case 'DAHDI':
@@ -203,13 +207,16 @@ if ($action == 'delete') {
 
   $mem_array = array();
   foreach ($member as $mem) {
-    if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
+    if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2|PJSIP)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
       switch ($matches[1]) {
         case 'Agent':
           $exten_prefix = 'A';
           break;
         case 'SIP':
           $exten_prefix = 'S';
+          break;
+        case 'PJSIP':
+          $exten_prefix = 'P';
           break;
         case 'IAX2':
           $exten_prefix = 'X';
@@ -1145,7 +1152,7 @@ if ($ast_ge_16) {
 	/*
 	 * FREEPBX - 8216. As of Asterisk 12 eventmemberstatus and eventwhencalled are always true and
 	 * are not a user option. These fields will only show up if the user is running version 11 or lower.
-	 * TODO: Remove this code once we drop 11 support in the future 
+	 * TODO: Remove this code once we drop 11 support in the future
 	 */
 	if(!$ast_ge_120){
 		$label = fpbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));
@@ -1163,7 +1170,7 @@ if ($ast_ge_16) {
 			'id'		=> 'agentevents_false',
 			'value'		=> 'no'
 			);
-		$eventwhencalled = isset($eventwhencalled) && $eventwhencalled	
+		$eventwhencalled = isset($eventwhencalled) && $eventwhencalled
 							? $eventwhencalled
 							: $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT'];
 		if (in_array($eventwhencalled, array('yes', 1, true), true)) {
@@ -1179,7 +1186,7 @@ if ($ast_ge_16) {
 			. form_radio($agentevents_false) . $agentevents_false_label
 			. '</span>';
 		echo '</td></tr>';
-		
+
 		$label = fpbx_label(_("Member Status Event"), _("When set to YES, the following manager event will be generated: QueueMemberStatus"));
 		$memberevents_true_label = form_label(_('Enabled'), 'memberevents_true');
 		$memberevents_true = array(
