@@ -34,6 +34,9 @@ foreach ($member as $mem) {
 			case 'Agent':
 				$exten_prefix = 'A';
 			break;
+			case 'PJSIP':
+				$exten_prefix = 'P';
+			break;
 			case 'SIP':
 				$exten_prefix = 'S';
 			break;

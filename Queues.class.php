@@ -8,12 +8,12 @@ class Queues implements BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 	}
-    public function install() {}
-    public function uninstall() {}
-    public function backup() {}
-    public function restore($backup) {}
-    public function doConfigPageInit($page) {
-    	$request = $_REQUEST;
+		public function install() {}
+		public function uninstall() {}
+		public function backup() {}
+		public function restore($backup) {}
+		public function doConfigPageInit($page) {
+			$request = $_REQUEST;
 		isset($request['action'])?$action = $request['action']:$action='';
 		//the extension we are currently displaying
 		isset($request['extdisplay'])?$extdisplay=$request['extdisplay']:$extdisplay='';
@@ -71,27 +71,30 @@ class Queues implements BMO {
 
 				// check if an agent (starts with a or A)
 
-		    $exten_prefix = strtoupper(substr($members[$key],0,1));
+				$exten_prefix = strtoupper(substr($members[$key],0,1));
 				$this_member = preg_replace("/[^0-9#\,*]/", "", $members[$key]);
-		    switch ($exten_prefix) {
-		    case 'A':
-		      $exten_type = 'Agent';
-		      break;
-		    case 'S':
-		      $exten_type = 'SIP';
-		      break;
-		    case 'X':
-		      $exten_type = 'IAX2';
-		      break;
-		    case 'Z':
-		      $exten_type = 'ZAP';
-		      break;
-		    case 'D':
-		      $exten_type = 'DAHDI';
-		      break;
-		    default;
-		      $exten_type = 'Local';
-		    }
+				switch ($exten_prefix) {
+				case 'A':
+					$exten_type = 'Agent';
+					break;
+				case 'P':
+					$exten_type = 'PJSIP';
+					break;
+				case 'S':
+					$exten_type = 'SIP';
+					break;
+				case 'X':
+					$exten_type = 'IAX2';
+					break;
+				case 'Z':
+					$exten_type = 'ZAP';
+					break;
+				case 'D':
+					$exten_type = 'DAHDI';
+					break;
+				default;
+					$exten_type = 'Local';
+				}
 
 				$penalty_pos = strrpos($this_member, ",");
 				if ( $penalty_pos === false ) {
@@ -108,17 +111,18 @@ class Queues implements BMO {
 				if (empty($this_member))
 					unset($members[$key]);
 				else {
-		      switch($exten_type) {
-		        case 'Agent':
-		        case 'SIP':
-		        case 'IAX2':
-		        case 'ZAP':
-		        case 'DAHDI':
-					    $members[$key] = "$exten_type/$this_member,$penalty_val";
-		          break;
-		        case 'Local':
-					    $members[$key] = "$exten_type/$this_member@$exten_context/n,$penalty_val";
-		      }
+					switch($exten_type) {
+						case 'Agent':
+						case 'SIP':
+						case 'IAX2':
+						case 'PJSIP':
+						case 'ZAP':
+						case 'DAHDI':
+							$members[$key] = "$exten_type/$this_member,$penalty_val";
+							break;
+						case 'Local':
+							$members[$key] = "$exten_type/$this_member@$exten_context/n,$penalty_val";
+					}
 				}
 			}
 			// check for duplicates, and re-sequence
@@ -150,7 +154,7 @@ class Queues implements BMO {
 						} else {
 							queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
 							needreload();
-		          			$request['extdisplay'] = $account;
+										$request['extdisplay'] = $account;
 							$this_dest = queues_getdest($account);
 							fwmsg::set_dest($this_dest[0]);
 							redirect('config.php?display=queues&view=form&extdisplay='.urlencode($account));
@@ -170,8 +174,8 @@ class Queues implements BMO {
 				}
 			}
 		}
+	}
 
-    }
 	public function getActionBar($request){
 		switch($request['display']){
 			case 'queues':
@@ -191,15 +195,15 @@ class Queues implements BMO {
 						'id' => 'reset',
 						'value' => _('Reset')
 					)
-    			);
-    		break;
-    	}
-    	if (empty($request['extdisplay'])) {
-    		unset($buttons['delete']);
-    	}
-    	if($request['view'] != 'form'){
-    		unset($buttons);
-    	}
-    	return $buttons;
-    }
+				);
+			break;
+		}
+		if (empty($request['extdisplay'])) {
+			unset($buttons['delete']);
+		}
+		if($request['view'] != 'form'){
+			unset($buttons);
+		}
+		return $buttons;
+	}
 }

@@ -43,6 +43,10 @@ msgstr ""
 msgid "<b>ERROR</b>: You have selected an IVR that uses Announcements created from compound sound files. The Queue is not able to play these announcements. This IVRs recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not"
 msgstr ""
 
+#: page.queues.php:371
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr ""
+
 #: views/qgrid.php:13
 msgid "Actions"
 msgstr ""
@@ -128,6 +132,10 @@ msgstr ""
 msgid "Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>To add additional recordings please use the \"System Recordings\" MENU. Compound recordings composed of 2 or more sound files are not displayed as options since this feature can not accept such recordings."
 msgstr "הכרזה המושמעת לנציג השירות לפני קישורו אל המתקשר<br /><br />לדוגמא: \"השיחה הבאה מגיעה מתור המכירות\" או\"שיחה זו מגיעה מתור התמיכה הטכנית\".<br /><br />אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
 
+#: page.queues.php:320
+msgid "Announcement played to the Queue Member announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU."
+msgstr ""
+
 #: views/form.php:150
 msgid "Announcement played to the Queue Memeber announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU."
 msgstr ""
@@ -136,8 +144,16 @@ msgstr ""
 msgid "Annually"
 msgstr ""
 
+#: views/cron.php:19
+msgid "Annually - Run once a year, midnight, Jan. 1"
+msgstr ""
+
 #: queues.i18n.php:6 queues.i18n.php:12
 msgid "Applications"
+msgstr ""
+
+#: views/cron.php:102
+msgid "April"
 msgstr ""
 
 #: views/form.php:1240
@@ -148,12 +164,20 @@ msgstr ""
 msgid "Asterisk: penaltymemberslimit. A limit can be set to disregard penalty settings, allowing all members to be tried, when the queue has too few members.  No penalty will be weighed in if there are only X or fewer queue members."
 msgstr ""
 
+#: views/cron.php:106
+msgid "August"
+msgstr ""
+
 #: views/form.php:1416
 msgid "Auto Pause"
 msgstr ""
 
 #: views/form.php:1505
 msgid "Auto Pause Delay"
+msgstr ""
+
+#: page.queues.php:856
+msgid "Auto Pause Delay:"
 msgstr ""
 
 #: views/form.php:1435
@@ -164,8 +188,20 @@ msgstr ""
 msgid "Auto Pause on Busy"
 msgstr ""
 
+#: page.queues.php:824
+msgid "Auto Pause on Busy:"
+msgstr ""
+
 #: views/form.php:1476
 msgid "Auto Pause on Unavailable"
+msgstr ""
+
+#: page.queues.php:839
+msgid "Auto Pause on Unavailable:"
+msgstr ""
+
+#: page.queues.php:807
+msgid "Auto Pause:"
 msgstr ""
 
 #: views/form.php:1023
@@ -190,6 +226,10 @@ msgstr ""
 
 #: views/form.php:127
 msgid "Call Confirm Announce"
+msgstr ""
+
+#: page.queues.php:312
+msgid "Call Confirm:"
 msgstr ""
 
 #: views/form.php:1113
@@ -248,8 +288,28 @@ msgstr "יוצר הגדרות תורים"
 msgid "Creating queues_details.."
 msgstr "יוצר פרטים לתורים"
 
+#: views/cron.php:12
+msgid "Custom"
+msgstr ""
+
 #: views/cron.php:59
 msgid "Daily"
+msgstr ""
+
+#: views/cron.php:17
+msgid "Daily    - Run once a day, at midnight"
+msgstr ""
+
+#: views/cron.php:126
+msgid "Day of Month"
+msgstr ""
+
+#: views/cron.php:71
+msgid "Day of Week"
+msgstr ""
+
+#: views/cron.php:110
+msgid "December"
 msgstr ""
 
 #: views/form.php:135
@@ -281,6 +341,10 @@ msgstr ""
 msgid "Determines if new callers will be admitted to the Queue, if not, the failover destination will be immediately pursued. The options include:"
 msgstr ""
 
+#: page.queues.php:1159 page.queues.php:1191
+msgid "Disabled"
+msgstr ""
+
 #: views/form.php:1120
 msgid "Don't Care"
 msgstr ""
@@ -300,6 +364,10 @@ msgstr ""
 #: install.php:328
 msgid "ERROR were encountered"
 msgstr "המערכת נתקלה במספר שגיאות"
+
+#: page.queues.php:1091
+msgid "ERROR: You have selected an IVR that uses Announcements created from compound sound files. The Queue is not able to play these announcements. This IVRs recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not"
+msgstr ""
 
 #: install.php:207
 msgid "ERROR: accessing queues table obtaining context info, aborting"
@@ -334,12 +402,20 @@ msgstr ""
 msgid "Enable this task"
 msgstr ""
 
+#: page.queues.php:1152 page.queues.php:1184
+msgid "Enabled"
+msgstr ""
+
 #: views/form.php:1158
 msgid "Enabling this option, all calls are marked as 'answered elsewhere' when cancelled. The effect is that missed queue calls are *not* shown on the phone (if the phone supports it)"
 msgstr ""
 
 #: views/form.php:578
 msgid "Event When Called"
+msgstr ""
+
+#: page.queues.php:1143
+msgid "Events, Stats and Advanced"
 msgstr ""
 
 #: functions.inc/hook_core.php:59
@@ -355,12 +431,20 @@ msgstr "שלוחה בלבד"
 msgid "Fail Over Destination"
 msgstr "יעד שיש להיכשל אליו"
 
+#: views/cron.php:100
+msgid "February"
+msgstr ""
+
 #: views/form.php:1118
 msgid "Force"
 msgstr ""
 
 #: views/form.php:1658
 msgid "Frequency"
+msgstr ""
+
+#: views/cron.php:79
+msgid "Friday"
 msgstr ""
 
 #: views/form.php:649
@@ -396,8 +480,16 @@ msgstr ""
 msgid "Honor Wrapup Time Across Queues"
 msgstr ""
 
+#: views/cron.php:55
+msgid "Hour"
+msgstr ""
+
 #: views/cron.php:58
 msgid "Hourly"
+msgstr ""
+
+#: views/cron.php:16
+msgid "Hourly   - Run once an hour, beginning of hour"
 msgstr ""
 
 #: views/form.php:560
@@ -425,8 +517,24 @@ msgstr ""
 msgid "If Enabled, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number."
 msgstr ""
 
+#: views/cron.php:22
+msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
+msgstr ""
+
+#: views/cron.php:25
+msgid "If a custom schedule is selected, any section not specficed will be considered to be 'any' (aka: wildcard). I.e. if Day of Month is set to 12 and Day of Week is not set, the queue stats will be reset on ANY 12th of the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the queue stats will be reset ONLY on a Monday, and ONLY if it's the 12th of the month."
+msgstr ""
+
 #: views/form.php:783
 msgid "If checked, any queue member that is actually an outside telephone number, or any extensions Follow-Me or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered."
+msgstr ""
+
+#: page.queues.php:312
+msgid "If checked, any queue member that is actually an outside telephone number, or any extensions Follow-Me or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered.."
+msgstr ""
+
+#: page.queues.php:305
+msgid "If checked, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number."
 msgstr ""
 
 #: views/form.php:106
@@ -469,12 +577,24 @@ msgstr ""
 msgid "It is possible for a queue to NOT Answer a call and still enter callers to the queue. The normal behavior is that all  allers are answered before entering the queue. If the call is not answered, it is possible that some early media delivery would still allow callers to hear recordings, MoH, etc. but this can be inconsistent and vary. Because of the volatility of this option, it is not displayed by default. If a queue is set to not answer, the setting will be displayed for that queue regardless of this setting."
 msgstr ""
 
+#: views/cron.php:99
+msgid "January"
+msgstr ""
+
 #: views/form.php:164
 msgid "Join Announcement"
 msgstr ""
 
 #: views/form.php:1557
 msgid "Join Empty"
+msgstr ""
+
+#: views/cron.php:105
+msgid "July"
+msgstr ""
+
+#: views/cron.php:104
+msgid "June"
 msgstr ""
 
 #: views/form.php:1591
@@ -490,8 +610,16 @@ msgstr ""
 msgid "Loose"
 msgstr ""
 
+#: views/cron.php:101
+msgid "March"
+msgstr ""
+
 #: views/form.php:1142
 msgid "Mark calls answered elsewhere"
+msgstr ""
+
+#: page.queues.php:632
+msgid "Mark calls answered elsewhere:"
 msgstr ""
 
 #: views/form.php:1532
@@ -509,6 +637,10 @@ msgstr ""
 #: views/form.php:1545
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "מספר אנשים מקסימלי שיכולים להמתין בתור (0 ללא הגבלה)"
+
+#: views/cron.php:103
+msgid "May"
+msgstr ""
 
 #: views/form.php:1360
 msgid "Member Delay"
@@ -534,12 +666,28 @@ msgstr "מבצע שידרוג לנתונים"
 msgid "Migrating to queues_details.."
 msgstr "מבצעה שדרוג לטבלת התורים"
 
+#: views/cron.php:39
+msgid "Minutes"
+msgstr ""
+
 #: views/form.php:287
 msgid "MoH Only"
 msgstr ""
 
+#: views/cron.php:75
+msgid "Monday"
+msgstr ""
+
+#: views/cron.php:96
+msgid "Month"
+msgstr ""
+
 #: views/cron.php:61
 msgid "Monthly"
+msgstr ""
+
+#: views/cron.php:18
+msgid "Monthly  - Run once a month, midnight, first of month"
 msgstr ""
 
 #: views/form.php:298
@@ -562,6 +710,10 @@ msgstr ""
 msgid "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr ""
 
+#: views/cron.php:24
+msgid "Never will never reset the queue stats automatically"
+msgstr ""
+
 #: views/cron.php:21 views/cron.php:56 views/form.php:366 views/form.php:376
 #: views/form.php:586 views/form.php:618 views/form.php:748 views/form.php:775
 #: views/form.php:828 views/form.php:945 views/form.php:1030
@@ -576,6 +728,10 @@ msgstr "לא"
 msgid "No Follow-Me or Call Forward"
 msgstr ""
 
+#: page.queues.php:870
+msgid "No Max"
+msgstr ""
+
 #: views/form.php:343
 msgid "No Retry"
 msgstr "ללא ניסיון חוזר"
@@ -584,6 +740,10 @@ msgstr "ללא ניסיון חוזר"
 msgid "None"
 msgstr "אין"
 
+#: views/cron.php:109
+msgid "November"
+msgstr ""
+
 #: install.php:77 install.php:105 install.php:122 install.php:125
 #: install.php:199 install.php:326 install.php:332 install.php:345
 #: install.php:354 install.php:371 install.php:497 install.php:512
@@ -591,6 +751,10 @@ msgstr "אין"
 #: install.php:587 install.php:602 install.php:617 install.php:632
 msgid "OK"
 msgstr "תקין"
+
+#: views/cron.php:108
+msgid "October"
+msgstr ""
 
 #: views/form.php:1724
 msgid "Once"
@@ -602,6 +766,10 @@ msgstr ""
 
 #: views/form.php:1625
 msgid "Penalty Members Limit"
+msgstr ""
+
+#: page.queues.php:960
+msgid "Penalty Members Limit:"
 msgstr ""
 
 #: views/form.php:1740
@@ -735,6 +903,18 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
+#: views/cron.php:35
+msgid "Randomize"
+msgstr ""
+
+#: views/cron.php:11
+msgid "Reboot"
+msgstr ""
+
+#: views/cron.php:20
+msgid "Reboot   - Run at startup of the server OR of the cron daemon (after every: service cron restart)"
+msgstr ""
+
 #: views/form.php:546
 msgid "Repeat Frequency"
 msgstr ""
@@ -771,6 +951,10 @@ msgstr ""
 msgid "Ring Strategy"
 msgstr ""
 
+#: views/cron.php:26
+msgid "Run"
+msgstr ""
+
 #: views/form.php:367
 msgid "Same as No except Callers will be admitted if their are paused agents who could become available."
 msgstr ""
@@ -795,6 +979,18 @@ msgstr ""
 msgid "Same as Yes except Callers will remain in the Queue if their are paused agents who could become available."
 msgstr ""
 
+#: views/cron.php:80
+msgid "Saturday"
+msgstr ""
+
+#: views/cron.php:14
+msgid "Select how often to reset queue stats. The following schedule will be followed for all but custom:"
+msgstr ""
+
+#: views/cron.php:107
+msgid "September"
+msgstr ""
+
 #: views/form.php:1759
 msgid "Service Level"
 msgstr ""
@@ -815,12 +1011,20 @@ msgstr "האם אנו אמורים לכלול את זמן ההמתנה המשו�
 msgid "Skip Busy Agents"
 msgstr ""
 
+#: page.queues.php:501
+msgid "Starting with Asterisk 1.4, if this is checked, and multiple agents are available, Asterisk will send one call to each waiting agent (depending on the ring strategy). Otherwise, it will hold all calls while it tries to find an agent for the top call in the queue making other calls wait. This was the behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk documentation for more details of this feature."
+msgstr ""
+
 #: views/form.php:872
 msgid "Static Agents"
 msgstr "נציגים קבועים"
 
 #: views/form.php:893
 msgid "Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers). You can put a \",\" after the agent followed by a penalty value, see Asterisk documentation concerning penalties.<br /><br /> An advanced mode has been added which allows you to prefix an agent number with S, X, Z, D or A. This will force the agent number to be dialed as an Asterisk device of type SIP, IAX2, ZAP, DAHDi or Agent respectively. This mode is for advanced users and can cause known issues in FreePBX as you are by-passing the normal dialplan. If your 'Agent Restrictions' are not set to 'Extension Only' you will have problems with subsequent transfers to voicemail and other issues may also exist."
+msgstr ""
+
+#: page.queues.php:376
+msgid "Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers). You can put a \",\" after the agent followed by a penalty value, see Asterisk documentation concerning penalties.<br /><br /> An advanced mode has been added which allows you to prefix an agent number with S, X, Z, D or A. This will force the agent number to be dialed as an Asterisk device of type SIP, IAX2, ZAP, DAHDi or Agent respectively. This mode is for advanced users and can cause known issues in FreePBX as you are by-passing the normal dialplan. If your 'Agent Restrictions' are not set to 'Extension Only' you will have problems with subsequent transfers to voicemail and other issues may also exist. (Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)"
 msgstr ""
 
 #: views/cron.php:13
@@ -836,6 +1040,14 @@ msgstr "מוגבל"
 msgid "Submit"
 msgstr ""
 
+#: views/cron.php:74
+msgid "Sunday"
+msgstr ""
+
+#: page.queues.php:1298
+msgid "The Queue Name provided is too long."
+msgstr ""
+
 #: views/form.php:1211
 msgid "The maximum number of seconds a caller can wait in a queue before being pulled out.  (0 for unlimited)."
 msgstr "הזמן המקסימלי בשניות שהמשתמש יכול להמתין בתור לפני שהוא יוצא משם על ידי המערכת. (0 עבור ללא הגבלה)"
@@ -848,12 +1060,24 @@ msgstr ""
 msgid "The number of seconds we wait before trying all the phones again. Choosing \"No Retry\" will exit the Queue and go to the fail-over destination as soon as the first attempted agent times-out, additional agents will not be attempted."
 msgstr ""
 
+#: page.queues.php:284
+msgid "The password is only used when logging in with the legacy queueno* code. When using the toggle codes, you must use the Restrict Dynamic Agents option in conjunction with the Dynamic Members list to control access."
+msgstr ""
+
 #: views/form.php:1517
 msgid "This setting will delay the auto pause of an agent by auto pause delay seconds from when it last took a call. For example, if this were set to 120 seconds, and a new call is presented to the agent 90 seconds after they last took a call, they will not be auto paused if they don't answer the call. If presented with a call 120 seconds or later after answering the last call, they will then be auto paused. If they have taken no calls, this will have no affect."
 msgstr ""
 
+#: views/cron.php:78
+msgid "Thursday"
+msgstr ""
+
 #: views/form.php:654
 msgid "Timing & Agent Options"
+msgstr ""
+
+#: views/cron.php:76
+msgid "Tuesday"
 msgstr ""
 
 #: views/form.php:365 views/form.php:374 views/form.php:1567
@@ -902,6 +1126,10 @@ msgstr "אזהרה! שלוחה"
 #: functions.inc/queue_conf.php:217
 msgid "Warning, there are compound recordings configured in one or more Queue configurations. Queues can not play these so they have been truncated to the first sound file. You should correct this problem.<br />Details:<br /><br />"
 msgstr "הזהרה, ישנם הקלטות שמוגדרות להשמעה באחד או יותר מהתורים שמכילותמספר קבצי קול מחוברים, מודול התורים אינו יכול להשמיע את הקבצים האלוועליך ליצור הקלטות מערכת שאינן מכילות חיבור של מספר קבצי קול.<br />Details:<br /><br />"
+
+#: views/cron.php:77
+msgid "Wednesday"
+msgstr ""
 
 #: views/cron.php:60
 msgid "Weekly"
@@ -1219,237 +1447,6 @@ msgstr "שניות"
 msgid "wrandom"
 msgstr "אקראי עם התחשבות בעונש"
 
-#: page.queues.php:371
-msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
-msgstr ""
-
-#: page.queues.php:320
-msgid "Announcement played to the Queue Member announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU."
-msgstr ""
-
-#: views/cron.php:19
-msgid "Annually - Run once a year, midnight, Jan. 1"
-msgstr ""
-
-#: views/cron.php:102
-msgid "April"
-msgstr ""
-
-#: views/cron.php:106
-msgid "August"
-msgstr ""
-
-#: page.queues.php:856
-msgid "Auto Pause Delay:"
-msgstr ""
-
-#: page.queues.php:824
-msgid "Auto Pause on Busy:"
-msgstr ""
-
-#: page.queues.php:839
-msgid "Auto Pause on Unavailable:"
-msgstr ""
-
-#: page.queues.php:807
-msgid "Auto Pause:"
-msgstr ""
-
-#: page.queues.php:312
-msgid "Call Confirm:"
-msgstr ""
-
-#: views/cron.php:12
-msgid "Custom"
-msgstr ""
-
-#: views/cron.php:17
-msgid "Daily    - Run once a day, at midnight"
-msgstr ""
-
-#: views/cron.php:126
-msgid "Day of Month"
-msgstr ""
-
-#: views/cron.php:71
-msgid "Day of Week"
-msgstr ""
-
-#: views/cron.php:110
-msgid "December"
-msgstr ""
-
-#: page.queues.php:1159 page.queues.php:1191
-msgid "Disabled"
-msgstr ""
-
-#: page.queues.php:1091
-msgid "ERROR: You have selected an IVR that uses Announcements created from compound sound files. The Queue is not able to play these announcements. This IVRs recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not"
-msgstr ""
-
-#: page.queues.php:1152 page.queues.php:1184
-msgid "Enabled"
-msgstr ""
-
-#: page.queues.php:1143
-msgid "Events, Stats and Advanced"
-msgstr ""
-
-#: views/cron.php:100
-msgid "February"
-msgstr ""
-
-#: views/cron.php:79
-msgid "Friday"
-msgstr ""
-
-#: views/cron.php:55
-msgid "Hour"
-msgstr ""
-
-#: views/cron.php:16
-msgid "Hourly   - Run once an hour, beginning of hour"
-msgstr ""
-
-#: views/cron.php:22
-msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
-msgstr ""
-
-#: views/cron.php:25
-msgid "If a custom schedule is selected, any section not specficed will be considered to be 'any' (aka: wildcard). I.e. if Day of Month is set to 12 and Day of Week is not set, the queue stats will be reset on ANY 12th of the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the queue stats will be reset ONLY on a Monday, and ONLY if it's the 12th of the month."
-msgstr ""
-
-#: page.queues.php:312
-msgid "If checked, any queue member that is actually an outside telephone number, or any extensions Follow-Me or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered.."
-msgstr ""
-
-#: page.queues.php:305
-msgid "If checked, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number."
-msgstr ""
-
-#: views/cron.php:99
-msgid "January"
-msgstr ""
-
-#: views/cron.php:105
-msgid "July"
-msgstr ""
-
-#: views/cron.php:104
-msgid "June"
-msgstr ""
-
-#: views/cron.php:101
-msgid "March"
-msgstr ""
-
-#: page.queues.php:632
-msgid "Mark calls answered elsewhere:"
-msgstr ""
-
-#: views/cron.php:103
-msgid "May"
-msgstr ""
-
-#: views/cron.php:39
-msgid "Minutes"
-msgstr ""
-
-#: views/cron.php:75
-msgid "Monday"
-msgstr ""
-
-#: views/cron.php:96
-msgid "Month"
-msgstr ""
-
-#: views/cron.php:18
-msgid "Monthly  - Run once a month, midnight, first of month"
-msgstr ""
-
-#: views/cron.php:24
-msgid "Never will never reset the queue stats automatically"
-msgstr ""
-
-#: page.queues.php:870
-msgid "No Max"
-msgstr ""
-
-#: views/cron.php:109
-msgid "November"
-msgstr ""
-
-#: views/cron.php:108
-msgid "October"
-msgstr ""
-
-#: page.queues.php:960
-msgid "Penalty Members Limit:"
-msgstr ""
-
-#: views/cron.php:35
-msgid "Randomize"
-msgstr ""
-
-#: views/cron.php:11
-msgid "Reboot"
-msgstr ""
-
-#: views/cron.php:20
-msgid "Reboot   - Run at startup of the server OR of the cron daemon (after every: service cron restart)"
-msgstr ""
-
-#: views/cron.php:26
-msgid "Run"
-msgstr ""
-
-#: views/cron.php:80
-msgid "Saturday"
-msgstr ""
-
-#: views/cron.php:14
-msgid "Select how often to reset queue stats. The following schedule will be followed for all but custom:"
-msgstr ""
-
-#: views/cron.php:107
-msgid "September"
-msgstr ""
-
-#: page.queues.php:501
-msgid "Starting with Asterisk 1.4, if this is checked, and multiple agents are available, Asterisk will send one call to each waiting agent (depending on the ring strategy). Otherwise, it will hold all calls while it tries to find an agent for the top call in the queue making other calls wait. This was the behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk documentation for more details of this feature."
-msgstr ""
-
-#: page.queues.php:376
-msgid "Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers). You can put a \",\" after the agent followed by a penalty value, see Asterisk documentation concerning penalties.<br /><br /> An advanced mode has been added which allows you to prefix an agent number with S, X, Z, D or A. This will force the agent number to be dialed as an Asterisk device of type SIP, IAX2, ZAP, DAHDi or Agent respectively. This mode is for advanced users and can cause known issues in FreePBX as you are by-passing the normal dialplan. If your 'Agent Restrictions' are not set to 'Extension Only' you will have problems with subsequent transfers to voicemail and other issues may also exist. (Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)"
-msgstr ""
-
-#: views/cron.php:74
-msgid "Sunday"
-msgstr ""
-
-#: page.queues.php:1298
-msgid "The Queue Name provided is too long."
-msgstr ""
-
-#: page.queues.php:284
-msgid "The password is only used when logging in with the legacy queueno* code. When using the toggle codes, you must use the Restrict Dynamic Agents option in conjunction with the Dynamic Members list to control access."
-msgstr ""
-
-#: views/cron.php:78
-msgid "Thursday"
-msgstr ""
-
-#: views/cron.php:76
-msgid "Tuesday"
-msgstr ""
-
-#: views/cron.php:77
-msgid "Wednesday"
-msgstr ""
-
-#~ msgid "Repeat Frequency:"
-#~ msgstr "תדירות השמעה חוזרת"
-
 #~ msgid "(**) ERRORS"
 #~ msgstr "(**) ישנם מספר שגיאות"
 
@@ -1458,9 +1455,6 @@ msgstr ""
 
 #~ msgid "(pick extension)"
 #~ msgstr "(בחר שלוחה)"
-
-#~ msgid "After a successful call, how many seconds to wait before sending a potentially free agent another call (default is 0, or no delay)"
-#~ msgstr "אחרי שיחה מוצלחת, כמה שניות להמתין לפני ששולחים נציג פנוי באופן פוטנציאלי אל השיחה הבאה (ברירת המחדל היא 0, או ללא המתנה)"
 
 #~ msgid "Agent Announcement:"
 #~ msgstr "הכרזה לנציג:"
@@ -1472,10 +1466,6 @@ msgstr ""
 #~ msgid "Agent Timeout:"
 #~ msgstr "זמן מקסימלי לחיוג לנציג"
 
-#, fuzzy
-#~ msgid "Agent Volume Adjustment:"
-#~ msgstr "הכרזה לנציג:"
-
 #~ msgid "Announce Hold Time:"
 #~ msgstr "הכרז זמן המתנה:"
 
@@ -1485,10 +1475,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Announcement played to anyone using an external follow-me to receive the queue call.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option"
 #~ msgstr "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
-
-#, fuzzy
-#~ msgid "Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU"
-#~ msgstr "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />כדי להוסיף הקלטות נוספות, אנא השתמש <em>בתפריט</em> \"הקלטות מערכת\" שבצד שמאל"
 
 #~ msgid "Announcement played to callers once prior to joining the queue.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option"
 #~ msgstr "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
@@ -1550,16 +1536,6 @@ msgstr ""
 #~ msgid "IVR Break Out Menu:"
 #~ msgstr "נתב שיחות ליציאה מההמתנה בתור"
 
-#~ msgid "Inbound Call Control"
-#~ msgstr "זרימת שיחות נכנסות"
-
-#, fuzzy
-#~ msgid "Include Hold Time"
-#~ msgstr "הכרז זמן המתנה:"
-
-#~ msgid "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)"
-#~ msgstr "שיחות נכנסות לנציגים יכולות להיות מוקלטות. (נשמר ל /var/spool/asterisk/monitor)"
-
 #~ msgid "Join Announcement:"
 #~ msgstr "הכרזת הצטרפות:"
 
@@ -1584,10 +1560,6 @@ msgstr ""
 #~ msgid "Member Delay:"
 #~ msgstr "סטטוס bmhd:"
 
-#, fuzzy
-#~ msgid "Member Status Event:"
-#~ msgstr "סטטוס bmhd:"
-
 #~ msgid "Music on Hold Class:"
 #~ msgstr "קטגורית המוזיקה בהמתנה לתור זה:"
 
@@ -1607,9 +1579,8 @@ msgstr ""
 #~ msgid "Queue:"
 #~ msgstr "תור:"
 
-#, fuzzy
-#~ msgid "Recording Mode:"
-#~ msgstr "הקלטת השיחות"
+#~ msgid "Repeat Frequency:"
+#~ msgstr "תדירות השמעה חוזרת"
 
 #~ msgid "Report Hold Time:"
 #~ msgstr "דווח זמן המתנה:"
@@ -1619,9 +1590,6 @@ msgstr ""
 
 #~ msgid "Ring Strategy:"
 #~ msgstr "אסטרטגיית צלצול"
-
-#~ msgid "Ringing Instead of MoH:"
-#~ msgstr "צלצול במקום מוזיקה בהתנה"
 
 #~ msgid "Service Level:"
 #~ msgstr "רמת השרות"
@@ -1641,14 +1609,46 @@ msgstr ""
 #~ msgid "deleted"
 #~ msgstr "נמחק"
 
-#~ msgid "gsm"
-#~ msgstr "gsm"
-
 #~ msgid "roundrobin"
 #~ msgstr "סיבובי"
 
 #~ msgid "take turns ringing each available agent"
 #~ msgstr "עובר בצורה סיבובית בין כל הנציגים הזמינים"
+
+#~ msgid "After a successful call, how many seconds to wait before sending a potentially free agent another call (default is 0, or no delay)"
+#~ msgstr "אחרי שיחה מוצלחת, כמה שניות להמתין לפני ששולחים נציג פנוי באופן פוטנציאלי אל השיחה הבאה (ברירת המחדל היא 0, או ללא המתנה)"
+
+#, fuzzy
+#~ msgid "Agent Volume Adjustment:"
+#~ msgstr "הכרזה לנציג:"
+
+#, fuzzy
+#~ msgid "Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU"
+#~ msgstr "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />כדי להוסיף הקלטות נוספות, אנא השתמש <em>בתפריט</em> \"הקלטות מערכת\" שבצד שמאל"
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "זרימת שיחות נכנסות"
+
+#, fuzzy
+#~ msgid "Include Hold Time"
+#~ msgstr "הכרז זמן המתנה:"
+
+#~ msgid "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)"
+#~ msgstr "שיחות נכנסות לנציגים יכולות להיות מוקלטות. (נשמר ל /var/spool/asterisk/monitor)"
+
+#, fuzzy
+#~ msgid "Member Status Event:"
+#~ msgstr "סטטוס bmhd:"
+
+#, fuzzy
+#~ msgid "Recording Mode:"
+#~ msgstr "הקלטת השיחות"
+
+#~ msgid "Ringing Instead of MoH:"
+#~ msgstr "צלצול במקום מוזיקה בהתנה"
+
+#~ msgid "gsm"
+#~ msgstr "gsm"
 
 #~ msgid "wav"
 #~ msgstr "wav"

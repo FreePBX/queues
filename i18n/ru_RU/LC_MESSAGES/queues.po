@@ -115,6 +115,10 @@ msgstr ""
 msgid "Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>To add additional recordings please use the \"System Recordings\" MENU. Compound recordings composed of 2 or more sound files are not displayed as options since this feature can not accept such recordings."
 msgstr "Оповещение, воспроизводимое оператору, перед соединением с вызывающим абонентом <br><br>Для добавления оповещения используйте раздел 'Системные записи'."
 
+#: page.queues.php:320
+msgid "Announcement played to the Queue Member announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU."
+msgstr ""
+
 #: views/form.php:150
 msgid "Announcement played to the Queue Memeber announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU."
 msgstr "Сообщение будет воспроизведено оператору очереди для оповещении о поступлении звонка и будет запрошено подтверждение приема перед ответом. По умолчанию воспроизводится стандартное сообщение подтверждения (если оператор доступен не через сервис Follow-Me) или альтернативное сообщение, если оператор доступен через Follow-Me. Установленное здесь сообщение переопределяет все остальные. Для добавления сообщений используйте раздел 'Системные Сообщения'."
@@ -123,9 +127,17 @@ msgstr "Сообщение будет воспроизведено операт�
 msgid "Annually"
 msgstr ""
 
+#: views/cron.php:19
+msgid "Annually - Run once a year, midnight, Jan. 1"
+msgstr ""
+
 #: queues.i18n.php:6 queues.i18n.php:12
 msgid "Applications"
 msgstr "Приложения"
+
+#: views/cron.php:102
+msgid "April"
+msgstr ""
 
 #: views/form.php:1240
 msgid "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a caller is hit, they will be pulled out of the queue immediately. In 'Loose' mode, if a queue member is currently ringing with this call, then we will wait until the queue stops ringing this queue member or otherwise the call is rejected by the queue member before taking the caller out of the queue. This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + 'Agent Timeout' combined."
@@ -135,12 +147,20 @@ msgstr "Параметры таймаута звонка в очереди. В �
 msgid "Asterisk: penaltymemberslimit. A limit can be set to disregard penalty settings, allowing all members to be tried, when the queue has too few members.  No penalty will be weighed in if there are only X or fewer queue members."
 msgstr "Asterisk: penaltymemberslimit. Ограничение может быть установлено для отмены действия настройки уровня доступности, для работы всех операторов в очереди, в случае когда в очереди операторов очень мало. Уровень доступности не будет изменяться если в очереди не более указанного количества операторов."
 
+#: views/cron.php:106
+msgid "August"
+msgstr ""
+
 #: views/form.php:1416
 msgid "Auto Pause"
 msgstr ""
 
 #: views/form.php:1505
 msgid "Auto Pause Delay"
+msgstr ""
+
+#: page.queues.php:856
+msgid "Auto Pause Delay:"
 msgstr ""
 
 #: views/form.php:1435
@@ -151,8 +171,20 @@ msgstr ""
 msgid "Auto Pause on Busy"
 msgstr ""
 
+#: page.queues.php:824
+msgid "Auto Pause on Busy:"
+msgstr ""
+
 #: views/form.php:1476
 msgid "Auto Pause on Unavailable"
+msgstr ""
+
+#: page.queues.php:839
+msgid "Auto Pause on Unavailable:"
+msgstr ""
+
+#: page.queues.php:807
+msgid "Auto Pause:"
 msgstr ""
 
 #: views/form.php:1023
@@ -235,8 +267,28 @@ msgstr "Создаётся queues_config.."
 msgid "Creating queues_details.."
 msgstr "Создаются queues_details.."
 
+#: views/cron.php:12
+msgid "Custom"
+msgstr ""
+
 #: views/cron.php:59
 msgid "Daily"
+msgstr ""
+
+#: views/cron.php:17
+msgid "Daily    - Run once a day, at midnight"
+msgstr ""
+
+#: views/cron.php:126
+msgid "Day of Month"
+msgstr ""
+
+#: views/cron.php:71
+msgid "Day of Week"
+msgstr ""
+
+#: views/cron.php:110
+msgid "December"
 msgstr ""
 
 #: views/form.php:135
@@ -267,6 +319,10 @@ msgstr "Опреляет, что вызов должен быть преждев
 msgid "Determines if new callers will be admitted to the Queue, if not, the failover destination will be immediately pursued. The options include:"
 msgstr "Если установлено, новый вызов поступает в очередь, если нет - сразу используется направление перехода. Возможные значения: "
 
+#: page.queues.php:1159 page.queues.php:1191
+msgid "Disabled"
+msgstr ""
+
 #: views/form.php:1120
 msgid "Don't Care"
 msgstr ""
@@ -286,6 +342,10 @@ msgstr "Динамические агенты - это внутренние ил
 #: install.php:328
 msgid "ERROR were encountered"
 msgstr "Была обнаружена ОШИБКА"
+
+#: page.queues.php:1091
+msgid "ERROR: You have selected an IVR that uses Announcements created from compound sound files. The Queue is not able to play these announcements. This IVRs recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not"
+msgstr ""
 
 #: install.php:207
 msgid "ERROR: accessing queues table obtaining context info, aborting"
@@ -320,6 +380,10 @@ msgstr "Ранние версии этого модуля разрешали с�
 msgid "Enable this task"
 msgstr ""
 
+#: page.queues.php:1152 page.queues.php:1184
+msgid "Enabled"
+msgstr ""
+
 #: views/form.php:1158
 msgid "Enabling this option, all calls are marked as 'answered elsewhere' when cancelled. The effect is that missed queue calls are *not* shown on the phone (if the phone supports it)"
 msgstr "Данные параметр позволяет отмечать все звонки, поступившие в очередь, как обработанные. Таким образом пропущенные вызовы не будут отображены нв телефонах операторов (телефоны должен поддерживать данную функцию)"
@@ -340,12 +404,20 @@ msgstr "Только внутренние абоненты"
 msgid "Fail Over Destination"
 msgstr "Назначение при неответе"
 
+#: views/cron.php:100
+msgid "February"
+msgstr ""
+
 #: views/form.php:1118
 msgid "Force"
 msgstr ""
 
 #: views/form.php:1658
 msgid "Frequency"
+msgstr ""
+
+#: views/cron.php:79
+msgid "Friday"
 msgstr ""
 
 #: views/form.php:649
@@ -380,8 +452,16 @@ msgstr "Соблюдать уровни доступности"
 msgid "Honor Wrapup Time Across Queues"
 msgstr "Давать передышку оператору при работе в нескольких очередях"
 
+#: views/cron.php:55
+msgid "Hour"
+msgstr ""
+
 #: views/cron.php:58
 msgid "Hourly"
+msgstr ""
+
+#: views/cron.php:16
+msgid "Hourly   - Run once an hour, beginning of hour"
 msgstr ""
 
 #: views/form.php:560
@@ -407,6 +487,14 @@ msgstr ""
 
 #: views/form.php:756
 msgid "If Enabled, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number."
+msgstr ""
+
+#: views/cron.php:22
+msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
+msgstr ""
+
+#: views/cron.php:25
+msgid "If a custom schedule is selected, any section not specficed will be considered to be 'any' (aka: wildcard). I.e. if Day of Month is set to 12 and Day of Week is not set, the queue stats will be reset on ANY 12th of the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the queue stats will be reset ONLY on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 
 #: views/form.php:783
@@ -453,12 +541,24 @@ msgstr ""
 msgid "It is possible for a queue to NOT Answer a call and still enter callers to the queue. The normal behavior is that all  allers are answered before entering the queue. If the call is not answered, it is possible that some early media delivery would still allow callers to hear recordings, MoH, etc. but this can be inconsistent and vary. Because of the volatility of this option, it is not displayed by default. If a queue is set to not answer, the setting will be displayed for that queue regardless of this setting."
 msgstr "Дает возможность не делать ответ на вызов, помещенный в очередь."
 
+#: views/cron.php:99
+msgid "January"
+msgstr ""
+
 #: views/form.php:164
 msgid "Join Announcement"
 msgstr ""
 
 #: views/form.php:1557
 msgid "Join Empty"
+msgstr ""
+
+#: views/cron.php:105
+msgid "July"
+msgstr ""
+
+#: views/cron.php:104
+msgid "June"
 msgstr ""
 
 #: views/form.php:1591
@@ -473,6 +573,10 @@ msgstr ""
 #: views/form.php:1571 views/form.php:1605
 msgid "Loose"
 msgstr "Неточный"
+
+#: views/cron.php:101
+msgid "March"
+msgstr ""
 
 #: views/form.php:1142
 msgid "Mark calls answered elsewhere"
@@ -493,6 +597,10 @@ msgstr ""
 #: views/form.php:1545
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "Максимально  число ожидающих в очереди (0 - неограничено)"
+
+#: views/cron.php:103
+msgid "May"
+msgstr ""
 
 #: views/form.php:1360
 msgid "Member Delay"
@@ -518,12 +626,28 @@ msgstr "Перенос данных в queues_config.."
 msgid "Migrating to queues_details.."
 msgstr "Перенос queues_details.."
 
+#: views/cron.php:39
+msgid "Minutes"
+msgstr ""
+
 #: views/form.php:287
 msgid "MoH Only"
 msgstr ""
 
+#: views/cron.php:75
+msgid "Monday"
+msgstr ""
+
+#: views/cron.php:96
+msgid "Month"
+msgstr ""
+
 #: views/cron.php:61
 msgid "Monthly"
+msgstr ""
+
+#: views/cron.php:18
+msgid "Monthly  - Run once a month, midnight, first of month"
 msgstr ""
 
 #: views/form.php:298
@@ -545,6 +669,10 @@ msgstr ""
 #: views/form.php:376
 msgid "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr "Никогда не удалять вызов из очереди до истечения максимального времени ожидания."
+
+#: views/cron.php:24
+msgid "Never will never reset the queue stats automatically"
+msgstr ""
 
 #: views/cron.php:21 views/cron.php:56 views/form.php:366 views/form.php:376
 #: views/form.php:586 views/form.php:618 views/form.php:748 views/form.php:775
@@ -568,6 +696,10 @@ msgstr "Не повторять"
 msgid "None"
 msgstr "Нет"
 
+#: views/cron.php:109
+msgid "November"
+msgstr ""
+
 #: install.php:77 install.php:105 install.php:122 install.php:125
 #: install.php:199 install.php:326 install.php:332 install.php:345
 #: install.php:354 install.php:371 install.php:497 install.php:512
@@ -575,6 +707,10 @@ msgstr "Нет"
 #: install.php:587 install.php:602 install.php:617 install.php:632
 msgid "OK"
 msgstr "ОК"
+
+#: views/cron.php:108
+msgid "October"
+msgstr ""
 
 #: views/form.php:1724
 msgid "Once"
@@ -718,6 +854,18 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
+#: views/cron.php:35
+msgid "Randomize"
+msgstr ""
+
+#: views/cron.php:11
+msgid "Reboot"
+msgstr ""
+
+#: views/cron.php:20
+msgid "Reboot   - Run at startup of the server OR of the cron daemon (after every: service cron restart)"
+msgstr ""
+
 #: views/form.php:546
 msgid "Repeat Frequency"
 msgstr ""
@@ -754,6 +902,10 @@ msgstr ""
 msgid "Ring Strategy"
 msgstr ""
 
+#: views/cron.php:26
+msgid "Run"
+msgstr ""
+
 #: views/form.php:367
 msgid "Same as No except Callers will be admitted if their are paused agents who could become available."
 msgstr "Тоже самое, что и 'Нет', кроме наличия приостановленных операторов, которые могли бы стать активными."
@@ -777,6 +929,18 @@ msgstr "Такой же режим, как 'Да', но более ограни�
 #: views/form.php:375
 msgid "Same as Yes except Callers will remain in the Queue if their are paused agents who could become available."
 msgstr "Такой же режим, как 'Да', но вызовы будут оставаться в очереди, даже если все операторы приостановлены, но могут стать активными."
+
+#: views/cron.php:80
+msgid "Saturday"
+msgstr ""
+
+#: views/cron.php:14
+msgid "Select how often to reset queue stats. The following schedule will be followed for all but custom:"
+msgstr ""
+
+#: views/cron.php:107
+msgid "September"
+msgstr ""
 
 #: views/form.php:1759
 msgid "Service Level"
@@ -819,6 +983,14 @@ msgstr "Ограничено"
 msgid "Submit"
 msgstr ""
 
+#: views/cron.php:74
+msgid "Sunday"
+msgstr ""
+
+#: page.queues.php:1298
+msgid "The Queue Name provided is too long."
+msgstr ""
+
 #: views/form.php:1211
 msgid "The maximum number of seconds a caller can wait in a queue before being pulled out.  (0 for unlimited)."
 msgstr "Время в секундах, в течение которого дозвонившийся будет находится в очереди, прежде чем ему будет предложено перезвонить позднее. (0 - неограничено)"
@@ -835,9 +1007,17 @@ msgstr "Через сколько секунд будет повторена п�
 msgid "This setting will delay the auto pause of an agent by auto pause delay seconds from when it last took a call. For example, if this were set to 120 seconds, and a new call is presented to the agent 90 seconds after they last took a call, they will not be auto paused if they don't answer the call. If presented with a call 120 seconds or later after answering the last call, they will then be auto paused. If they have taken no calls, this will have no affect."
 msgstr ""
 
+#: views/cron.php:78
+msgid "Thursday"
+msgstr ""
+
 #: views/form.php:654
 msgid "Timing & Agent Options"
 msgstr "Параметры времени и операторов"
+
+#: views/cron.php:76
+msgid "Tuesday"
+msgstr ""
 
 #: views/form.php:365 views/form.php:374 views/form.php:1567
 #: views/form.php:1601
@@ -884,6 +1064,10 @@ msgstr "Внимание! Внутренний номер"
 #: functions.inc/queue_conf.php:217
 msgid "Warning, there are compound recordings configured in one or more Queue configurations. Queues can not play these so they have been truncated to the first sound file. You should correct this problem.<br />Details:<br /><br />"
 msgstr "Внимание, в конфигурации одной или более чем одной очереди используется составная запись. В очереди такая запись будет урезана до первого звукогового файла. Вам надо устранить эту проблему.<br />Детали:<br /><br />"
+
+#: views/cron.php:77
+msgid "Wednesday"
+msgstr ""
 
 #: views/cron.php:60
 msgid "Weekly"
@@ -1193,196 +1377,6 @@ msgstr "секунды"
 msgid "wrandom"
 msgstr "случайный-выбор"
 
-#: page.queues.php:320
-msgid "Announcement played to the Queue Member announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU."
-msgstr ""
-
-#: views/cron.php:19
-msgid "Annually - Run once a year, midnight, Jan. 1"
-msgstr ""
-
-#: views/cron.php:102
-msgid "April"
-msgstr ""
-
-#: views/cron.php:106
-msgid "August"
-msgstr ""
-
-#: page.queues.php:856
-msgid "Auto Pause Delay:"
-msgstr ""
-
-#: page.queues.php:824
-msgid "Auto Pause on Busy:"
-msgstr ""
-
-#: page.queues.php:839
-msgid "Auto Pause on Unavailable:"
-msgstr ""
-
-#: page.queues.php:807
-msgid "Auto Pause:"
-msgstr ""
-
-#: views/cron.php:12
-msgid "Custom"
-msgstr ""
-
-#: views/cron.php:17
-msgid "Daily    - Run once a day, at midnight"
-msgstr ""
-
-#: views/cron.php:126
-msgid "Day of Month"
-msgstr ""
-
-#: views/cron.php:71
-msgid "Day of Week"
-msgstr ""
-
-#: views/cron.php:110
-msgid "December"
-msgstr ""
-
-#: page.queues.php:1159 page.queues.php:1191
-msgid "Disabled"
-msgstr ""
-
-#: page.queues.php:1091
-msgid "ERROR: You have selected an IVR that uses Announcements created from compound sound files. The Queue is not able to play these announcements. This IVRs recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not"
-msgstr ""
-
-#: page.queues.php:1152 page.queues.php:1184
-msgid "Enabled"
-msgstr ""
-
-#: views/cron.php:100
-msgid "February"
-msgstr ""
-
-#: views/cron.php:79
-msgid "Friday"
-msgstr ""
-
-#: views/cron.php:55
-msgid "Hour"
-msgstr ""
-
-#: views/cron.php:16
-msgid "Hourly   - Run once an hour, beginning of hour"
-msgstr ""
-
-#: views/cron.php:22
-msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
-msgstr ""
-
-#: views/cron.php:25
-msgid "If a custom schedule is selected, any section not specficed will be considered to be 'any' (aka: wildcard). I.e. if Day of Month is set to 12 and Day of Week is not set, the queue stats will be reset on ANY 12th of the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the queue stats will be reset ONLY on a Monday, and ONLY if it's the 12th of the month."
-msgstr ""
-
-#: views/cron.php:99
-msgid "January"
-msgstr ""
-
-#: views/cron.php:105
-msgid "July"
-msgstr ""
-
-#: views/cron.php:104
-msgid "June"
-msgstr ""
-
-#: views/cron.php:101
-msgid "March"
-msgstr ""
-
-#: views/cron.php:103
-msgid "May"
-msgstr ""
-
-#: views/cron.php:39
-msgid "Minutes"
-msgstr ""
-
-#: views/cron.php:75
-msgid "Monday"
-msgstr ""
-
-#: views/cron.php:96
-msgid "Month"
-msgstr ""
-
-#: views/cron.php:18
-msgid "Monthly  - Run once a month, midnight, first of month"
-msgstr ""
-
-#: views/cron.php:24
-msgid "Never will never reset the queue stats automatically"
-msgstr ""
-
-#: views/cron.php:109
-msgid "November"
-msgstr ""
-
-#: views/cron.php:108
-msgid "October"
-msgstr ""
-
-#: views/cron.php:35
-msgid "Randomize"
-msgstr ""
-
-#: views/cron.php:11
-msgid "Reboot"
-msgstr ""
-
-#: views/cron.php:20
-msgid "Reboot   - Run at startup of the server OR of the cron daemon (after every: service cron restart)"
-msgstr ""
-
-#: views/cron.php:26
-msgid "Run"
-msgstr ""
-
-#: views/cron.php:80
-msgid "Saturday"
-msgstr ""
-
-#: views/cron.php:14
-msgid "Select how often to reset queue stats. The following schedule will be followed for all but custom:"
-msgstr ""
-
-#: views/cron.php:107
-msgid "September"
-msgstr ""
-
-#: views/cron.php:74
-msgid "Sunday"
-msgstr ""
-
-#: page.queues.php:1298
-msgid "The Queue Name provided is too long."
-msgstr ""
-
-#: views/cron.php:78
-msgid "Thursday"
-msgstr ""
-
-#: views/cron.php:76
-msgid "Tuesday"
-msgstr ""
-
-#: views/cron.php:77
-msgid "Wednesday"
-msgstr ""
-
-#~ msgid "If checked, any queue member that is actually an outside telephone number, or any extensions Follow-Me or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered.."
-#~ msgstr "Если установлено, для любого оператор очереди, который находится за пределами системы (номер переадресован, включено Follow-Me), будет принудительно включен режим подтверждения приёма звонка."
-
-#~ msgid "Repeat Frequency:"
-#~ msgstr "Частота повторений:"
-
 #~ msgid "(**) ERRORS"
 #~ msgstr "(**) ОШИБКИ"
 
@@ -1395,18 +1389,6 @@ msgstr ""
 #~ msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 #~ msgstr "Дополнительная информация ALERT_INFO может быть использования для распознавания адресата чтобы присвоить различный тип звонков на SIP устройствах."
 
-#~ msgid "Adjust the recording volume of the caller."
-#~ msgstr "Подстройка громкости записи."
-
-#~ msgid "Adjust the recording volume of the queue member (Agent)."
-#~ msgstr "Подстройка громкости записи оператора:"
-
-#~ msgid "After Answered"
-#~ msgstr "После ответа оператора"
-
-#~ msgid "After a successful call, how many seconds to wait before sending a potentially free agent another call (default is 0, or no delay)"
-#~ msgstr "Время в секундах, через которое будет послан следующий звонок из очереди после успешного звонка тому же оператору.(по умолчанию - 0, то есть - без передышки)"
-
 #~ msgid "Agent Announcement:"
 #~ msgstr "Приветствие агенту:"
 
@@ -1415,9 +1397,6 @@ msgstr ""
 
 #~ msgid "Agent Timeout:"
 #~ msgstr "Таймаут оператора:"
-
-#~ msgid "Agent Volume Adjustment:"
-#~ msgstr "Подстройка громкости оператора:"
 
 #~ msgid "Announce Hold Time:"
 #~ msgstr "Сообщения о времени ожидания:"
@@ -1428,23 +1407,11 @@ msgstr ""
 #~ msgid "Announcement played to anyone using an external follow-me to receive the queue call.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option"
 #~ msgstr "Сообщение будет воспроизведено оператору очереди для оповещении о поступлении звонка если оператор переадресован через Follow-Me .Для добавления сообщений используйте раздел 'Системные Сообщения'."
 
-#~ msgid "Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU"
-#~ msgstr "Сообщение, воспроизводимое позвонившему, перед помещением вызова в очередь. <br><br>Для добавления дополнительного сообщения, используйте раздел 'Системные Записи'."
-
-#~ msgid "Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left"
-#~ msgstr "Приветствие, которое будет воспроизведено один раз при попадании в очередь<br><br>Создать приветствие можно в секции Запись сообщений в меню слева."
-
 #~ msgid "Announcement played to callers once prior to joining the queue.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option"
 #~ msgstr "Приветствие,которое будет воспроизведено один раз при попадании в очередь<br><br>Нужно инсталлировать и активировать модуль Запись сообщений, чтобы изменять эту опцию."
 
-#~ msgid "Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left. Compound recordings composed of 2 or more sound files are not displayed as options since this feature can not accept such recordings."
-#~ msgstr "Приветствие, которое воспроизводится агенту (оператору), прежде чем тот соединится с позвонившим в очереди<br><br>Пример: \"Звонок из очереди Sales\" или \"Звонок из очереди к Службе поддержки\".<br><br>Для создания такого приветствия воспользуйтесь секцией Запись сообщение в меню слева. Соединение двух или более записей не отображается в этих опциях, следовательно такая возможность не поддерживается."
-
 #~ msgid "Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option"
 #~ msgstr "Приветствие, которое воспроизводится агенту (оператору), прежде чем тот соединится с позвонившим в очереди<br><br>Пример: \"Звонок из очереди Sales\" или \"Звонок из очереди к Службе поддержки\".<br><br>Нужно инсталлировать и активировать модуль Запись сообщений для изменения этой опции."
-
-#~ msgid "Asterisk Queues Patch 15168 Installed"
-#~ msgstr "Установлено исправление 15168 для модуля Очереди"
 
 #~ msgid "Autofill:"
 #~ msgstr "Автозаполнение:"
@@ -1467,17 +1434,11 @@ msgstr ""
 #~ msgid "Caller Position Announcements"
 #~ msgstr "Сообщения о номере в очереди"
 
-#~ msgid "Caller Volume Adjustment:"
-#~ msgstr "Подстройка громкости входяшего:"
-
 #~ msgid "Choose an extension to append to the end of the dynamic member list above."
 #~ msgstr "Выберите внутренний номер для добавления в список динамических операторов."
 
 #~ msgid "Choose an extension to append to the end of the static agents list above."
 #~ msgstr "Выберите внутренний номер для добавления в список."
-
-#~ msgid "Choose to 'Include Hold Time' in the recording so it starts as soon as they enter the queue, or to defer recording until 'After Answered' and the call is bridged with a queue member."
-#~ msgstr "Выберите 'Включая время ожидания' в записи для того, что бы разговор записывался с момента попадания в очередь, или 'После ответа оператора' для записи разговора, после ответа оператора очереди."
 
 #~ msgid "Conflicting Extensions"
 #~ msgstr "Конфликт внутренних номеров"
@@ -1488,17 +1449,8 @@ msgstr ""
 #~ msgid "Dynamic Members"
 #~ msgstr "Динамические агенты"
 
-#~ msgid "ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not"
-#~ msgstr "ОШИБКА: Выбрано Интерактивное меню, в котором используется составленное из нескольких звуковых файлов приветствие. Очередь не может воспроизводить такое приветствие. Составленное приветствие будет урезано до первого звукового файла. Вам нужно устранить эту проблему - выбрать другое (или перезаписать это) приветствие для этого Интерактивного меню, состоящее из одного звукового файла. В сценариях Интерактивного меню можно воспроизводить составные приветствия, но в модуле Очереди - нет."
-
 #~ msgid "Edit Queue"
 #~ msgstr "Изменить очередь"
-
-#~ msgid "Enabling this option make callers hear a ringing tone instead of Music on Hold.<br/>Enabling this ignores any Music on Hold Class selected as well as ignoring any configured periodic announcements configured."
-#~ msgstr "Эта опция посылает дозвонившемуся гудки вызова вместо Музыки в ожидании.<br/>Если эта опция задействована, две предидущие установки игнорируются."
-
-#~ msgid "Event When Called:"
-#~ msgstr "Событие, если звонят:"
 
 #~ msgid "Events, Stats and Advanced"
 #~ msgstr "События, Статистика и Допонительно"
@@ -1518,26 +1470,11 @@ msgstr ""
 #~ msgid "IVR Break Out Menu:"
 #~ msgstr "Возможность выйти из Меню:"
 
+#~ msgid "If checked, any queue member that is actually an outside telephone number, or any extensions Follow-Me or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered.."
+#~ msgstr "Если установлено, для любого оператор очереди, который находится за пределами системы (номер переадресован, включено Follow-Me), будет принудительно включен режим подтверждения приёма звонка."
+
 #~ msgid "If checked, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number."
 #~ msgstr "Если отмечено, будут генерироваться индивидуальные для каждого SIP и IAX2 устройства оповещения, которые можно использовать в очереди. Это используется например в сочетании с программируемыми кнопками BLF на телефонах, для подключения и отключения с их помощью к очереди и генерирации статуса BLF. Формат извещения <br /><br />*45ddd*qqq<br /><br />где *45 - код переключения, указанный в модуле Сервисные коды, ddd - номер устройства (обычно это всё тот же внутренний номер) и qqq - номер очереди."
-
-#~ msgid "If the call is subsequently transfered, the wait time will reflect the time since it first entered the queue or reset if the call is transfered to another queue with this feature set."
-#~ msgstr "Если звонок был перенаправлен, время ожидания будет отражать только время ожидания в этой очереди, и значение обнулится, если звонок будет перенаправлен в другую очередь."
-
-#~ msgid "If you wish to allow callers to join queues that currently have no agents, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members"
-#~ msgstr "Если разрешаете позвонившим попадать в очередь, которая не обслуживается ни одним агентом (оператором), установите флаг в 'Да'. Установить ограничение, если позвонившие не попадают в необслуживаемую никем очередь."
-
-#~ msgid "If you wish to remove callers from the queue if there are no agents present, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members"
-#~ msgstr "Если хотите удалять ожидающих из очереди, которая не обслуживается ни одним агентом (оператором), установите флаг в 'Да'. Установить ограничение, если позвонившие не попадают в необслуживаемую никем очередь."
-
-#~ msgid "Inbound Call Control"
-#~ msgstr "Контроль входящих вызовов"
-
-#~ msgid "Include Hold Time"
-#~ msgstr "Время время ожидания"
-
-#~ msgid "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)"
-#~ msgstr "Входящие разговоры для всех операторов можно записывать (сохраняются в /var/spool/asterisk/monitor)"
 
 #~ msgid "Join Announcement:"
 #~ msgstr "Сообщение при попадании:"
@@ -1547,9 +1484,6 @@ msgstr ""
 
 #~ msgid "Leave Empty:"
 #~ msgstr "ВЫходить из пустой очереди:"
-
-#~ msgid "Leave When Empty:"
-#~ msgstr "Покидать, если пустая"
 
 #~ msgid "Mark calls answered elsewhere:"
 #~ msgstr "Отмечать все вызовы как отвеченные:"
@@ -1566,23 +1500,8 @@ msgstr ""
 #~ msgid "Member Delay:"
 #~ msgstr "Задержка оператора:"
 
-#~ msgid "Member Status Event:"
-#~ msgstr "События об изменениях состояния операторов:"
-
-#~ msgid "Member Status:"
-#~ msgstr "Статус ожидающего"
-
-#~ msgid "Music (or Commercial) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" Menu to the left."
-#~ msgstr "Музыка или рекламное сообщение будет воспроизводится позвонившему, пока он ожидает в очереди. Выберите \"inherit\" \"наследовать\" если хотите использовать тот же класс Музыки в ожидании, который указан во Входящей маршрутизации.<br><br>Это определено в секции Музыка в ожидании в меню слева."
-
-#~ msgid "Music (or Commercial) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" Menu."
-#~ msgstr "Звуковое сопровождение воспроизводится позвонившему до появления свободного оператора. Выберите 'inherit' если вы хотите использовать звуковое сопровождение, установленное на входящем маршруте. Звуковое сопровождение определяется в разделе 'Музыка на удержании'."
-
 #~ msgid "Music on Hold Class:"
 #~ msgstr "Класс Музыки в ожидании:"
-
-#~ msgid "No Adjustment"
-#~ msgstr "Нет подстройки"
 
 #~ msgid "No Max"
 #~ msgstr "Максимальное число неограничено"
@@ -1599,17 +1518,14 @@ msgstr ""
 #~ msgid "Queue Number:"
 #~ msgstr "Номер очереди:"
 
-#~ msgid "Queue Options"
-#~ msgstr "Опции очереди"
-
 #~ msgid "Queue Password:"
 #~ msgstr "Пароль очереди:"
 
 #~ msgid "Queue:"
 #~ msgstr "Очередь:"
 
-#~ msgid "Recording Mode:"
-#~ msgstr "Режим записи разговоров: "
+#~ msgid "Repeat Frequency:"
+#~ msgstr "Частота повторений:"
 
 #~ msgid "Report Hold Time:"
 #~ msgstr "Сообщения о времени ожидания:"
@@ -1620,14 +1536,8 @@ msgstr ""
 #~ msgid "Ring Strategy:"
 #~ msgstr "Стратегия дозвона:"
 
-#~ msgid "Ringing Instead of MoH:"
-#~ msgstr "Просто гудок вызова"
-
 #~ msgid "Service Level:"
 #~ msgstr "Уровень сервиса:"
-
-#~ msgid "Setting this flag will generate the required dialplan to integrate with the following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state is now standard and always used. This asterisk patch is only available on Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some queue behavior and should be avoided"
-#~ msgstr "Установка этого флага вызовет генерацию необходимого плана набора лоя интеграции с исправлением 15168. Для Asterisk 1.8 и выше этот параметр является устаревшим."
 
 #~ msgid "Skip Busy Agents:"
 #~ msgstr "Пропускать занятых операторов"
@@ -1647,26 +1557,116 @@ msgstr ""
 #~ msgid "Wait Time Prefix:"
 #~ msgstr "Префикс индикации времени ожидания:"
 
-#~ msgid "When if this is option is set to YES, the following manager event will be generated: QueueMemberStatus"
-#~ msgstr "Если эта опция установлена в 'Да', в интерфейс менеджера будут генерироваться события: QueueMemberStatus"
-
 #~ msgid "Wrap-Up-Time:"
 #~ msgstr "Передышка:"
 
-#~ msgid "You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring."
-#~ msgstr "Опционально, можно использовать какой-то префикс для звонка в эту группу. Например, если это группа \"Sales:\", то, установив такой префикс для этой группы, можно видеть, если звонит John Doe, то мы увидим на дисплее Sales:John Doe."
-
 #~ msgid "deleted"
 #~ msgstr "удалено"
-
-#~ msgid "gsm"
-#~ msgstr "gsm"
 
 #~ msgid "roundrobin"
 #~ msgstr "roundrobin"
 
 #~ msgid "take turns ringing each available agent"
 #~ msgstr "звонок поступает любому доступному оператору"
+
+#~ msgid "Adjust the recording volume of the caller."
+#~ msgstr "Подстройка громкости записи."
+
+#~ msgid "Adjust the recording volume of the queue member (Agent)."
+#~ msgstr "Подстройка громкости записи оператора:"
+
+#~ msgid "After Answered"
+#~ msgstr "После ответа оператора"
+
+#~ msgid "After a successful call, how many seconds to wait before sending a potentially free agent another call (default is 0, or no delay)"
+#~ msgstr "Время в секундах, через которое будет послан следующий звонок из очереди после успешного звонка тому же оператору.(по умолчанию - 0, то есть - без передышки)"
+
+#~ msgid "Agent Volume Adjustment:"
+#~ msgstr "Подстройка громкости оператора:"
+
+#~ msgid "Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU"
+#~ msgstr "Сообщение, воспроизводимое позвонившему, перед помещением вызова в очередь. <br><br>Для добавления дополнительного сообщения, используйте раздел 'Системные Записи'."
+
+#~ msgid "Announcement played to callers once prior to joining the queue.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left"
+#~ msgstr "Приветствие, которое будет воспроизведено один раз при попадании в очередь<br><br>Создать приветствие можно в секции Запись сообщений в меню слева."
+
+#~ msgid "Announcement played to the Agent prior to bridging in the caller <br><br> Example: \"the Following call is from the Sales Queue\" or \"This call is from the Technical Support Queue\".<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left. Compound recordings composed of 2 or more sound files are not displayed as options since this feature can not accept such recordings."
+#~ msgstr "Приветствие, которое воспроизводится агенту (оператору), прежде чем тот соединится с позвонившим в очереди<br><br>Пример: \"Звонок из очереди Sales\" или \"Звонок из очереди к Службе поддержки\".<br><br>Для создания такого приветствия воспользуйтесь секцией Запись сообщение в меню слева. Соединение двух или более записей не отображается в этих опциях, следовательно такая возможность не поддерживается."
+
+#~ msgid "Asterisk Queues Patch 15168 Installed"
+#~ msgstr "Установлено исправление 15168 для модуля Очереди"
+
+#~ msgid "Caller Volume Adjustment:"
+#~ msgstr "Подстройка громкости входяшего:"
+
+#~ msgid "Choose to 'Include Hold Time' in the recording so it starts as soon as they enter the queue, or to defer recording until 'After Answered' and the call is bridged with a queue member."
+#~ msgstr "Выберите 'Включая время ожидания' в записи для того, что бы разговор записывался с момента попадания в очередь, или 'После ответа оператора' для записи разговора, после ответа оператора очереди."
+
+#~ msgid "ERROR: You have selected an IVR's that use Announcements created from compound sound files. The Queue is not able to play these announcements. This IVR's recording will be truncated to use only the first sound file. You can correct the problem by selecting a different announcement for this IVR that is not from a compound sound file. The IVR itself can play such files, but the Queue subsystem can not"
+#~ msgstr "ОШИБКА: Выбрано Интерактивное меню, в котором используется составленное из нескольких звуковых файлов приветствие. Очередь не может воспроизводить такое приветствие. Составленное приветствие будет урезано до первого звукового файла. Вам нужно устранить эту проблему - выбрать другое (или перезаписать это) приветствие для этого Интерактивного меню, состоящее из одного звукового файла. В сценариях Интерактивного меню можно воспроизводить составные приветствия, но в модуле Очереди - нет."
+
+#~ msgid "Enabling this option make callers hear a ringing tone instead of Music on Hold.<br/>Enabling this ignores any Music on Hold Class selected as well as ignoring any configured periodic announcements configured."
+#~ msgstr "Эта опция посылает дозвонившемуся гудки вызова вместо Музыки в ожидании.<br/>Если эта опция задействована, две предидущие установки игнорируются."
+
+#~ msgid "Event When Called:"
+#~ msgstr "Событие, если звонят:"
+
+#~ msgid "If the call is subsequently transfered, the wait time will reflect the time since it first entered the queue or reset if the call is transfered to another queue with this feature set."
+#~ msgstr "Если звонок был перенаправлен, время ожидания будет отражать только время ожидания в этой очереди, и значение обнулится, если звонок будет перенаправлен в другую очередь."
+
+#~ msgid "If you wish to allow callers to join queues that currently have no agents, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members"
+#~ msgstr "Если разрешаете позвонившим попадать в очередь, которая не обслуживается ни одним агентом (оператором), установите флаг в 'Да'. Установить ограничение, если позвонившие не попадают в необслуживаемую никем очередь."
+
+#~ msgid "If you wish to remove callers from the queue if there are no agents present, set this to yes. Set to strict if callers cannot join a queue with no members or only unavailable members"
+#~ msgstr "Если хотите удалять ожидающих из очереди, которая не обслуживается ни одним агентом (оператором), установите флаг в 'Да'. Установить ограничение, если позвонившие не попадают в необслуживаемую никем очередь."
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Контроль входящих вызовов"
+
+#~ msgid "Include Hold Time"
+#~ msgstr "Время время ожидания"
+
+#~ msgid "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/monitor)"
+#~ msgstr "Входящие разговоры для всех операторов можно записывать (сохраняются в /var/spool/asterisk/monitor)"
+
+#~ msgid "Leave When Empty:"
+#~ msgstr "Покидать, если пустая"
+
+#~ msgid "Member Status Event:"
+#~ msgstr "События об изменениях состояния операторов:"
+
+#~ msgid "Member Status:"
+#~ msgstr "Статус ожидающего"
+
+#~ msgid "Music (or Commercial) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" Menu to the left."
+#~ msgstr "Музыка или рекламное сообщение будет воспроизводится позвонившему, пока он ожидает в очереди. Выберите \"inherit\" \"наследовать\" если хотите использовать тот же класс Музыки в ожидании, который указан во Входящей маршрутизации.<br><br>Это определено в секции Музыка в ожидании в меню слева."
+
+#~ msgid "Music (or Commercial) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" Menu."
+#~ msgstr "Звуковое сопровождение воспроизводится позвонившему до появления свободного оператора. Выберите 'inherit' если вы хотите использовать звуковое сопровождение, установленное на входящем маршруте. Звуковое сопровождение определяется в разделе 'Музыка на удержании'."
+
+#~ msgid "No Adjustment"
+#~ msgstr "Нет подстройки"
+
+#~ msgid "Queue Options"
+#~ msgstr "Опции очереди"
+
+#~ msgid "Recording Mode:"
+#~ msgstr "Режим записи разговоров: "
+
+#~ msgid "Ringing Instead of MoH:"
+#~ msgstr "Просто гудок вызова"
+
+#~ msgid "Setting this flag will generate the required dialplan to integrate with the following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state is now standard and always used. This asterisk patch is only available on Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some queue behavior and should be avoided"
+#~ msgstr "Установка этого флага вызовет генерацию необходимого плана набора лоя интеграции с исправлением 15168. Для Asterisk 1.8 и выше этот параметр является устаревшим."
+
+#~ msgid "When if this is option is set to YES, the following manager event will be generated: QueueMemberStatus"
+#~ msgstr "Если эта опция установлена в 'Да', в интерфейс менеджера будут генерироваться события: QueueMemberStatus"
+
+#~ msgid "You can optionally prefix the Caller ID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring."
+#~ msgstr "Опционально, можно использовать какой-то префикс для звонка в эту группу. Например, если это группа \"Sales:\", то, установив такой префикс для этой группы, можно видеть, если звонит John Doe, то мы увидим на дисплее Sales:John Doe."
+
+#~ msgid "gsm"
+#~ msgstr "gsm"
 
 #~ msgid "wav"
 #~ msgstr "wav"
