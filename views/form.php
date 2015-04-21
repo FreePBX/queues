@@ -29,7 +29,7 @@ $ast_ge_120 = version_compare($astver, '12', 'ge');
 $ast_ge_130 = version_compare($astver, '13', 'ge');
 $mem_array = array();
 foreach ($member as $mem) {
-	if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
+	if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2|PJSIP)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
 		switch ($matches[1]) {
 			case 'Agent':
 				$exten_prefix = 'A';
