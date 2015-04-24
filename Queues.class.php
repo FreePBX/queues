@@ -206,4 +206,44 @@ class Queues implements BMO {
 		}
 		return $buttons;
 	}
+	public function hookTabs(){
+		$module_hook = \moduleHook::create();
+		$mods = $this->FreePBX->Hooks->processHooks();
+		$sections = array();
+		foreach($mods as $mod => $contents) {
+			if(empty($contents)) {
+				continue;
+			}
+			if(is_array($contents)) {
+				foreach($contents as $content) {
+					if(!isset($sections[$content['rawname']])) {
+						$sections[$content['rawname']] = array(
+							"title" => $content['title'],
+							"rawname" => $content['rawname'],
+							"content" => $content['content']
+						);
+					} else {
+						$sections[$content['rawname']]['content'] .= $content['content'];
+					}
+				}
+			} else {
+				if(!isset($sections[$mod])) {
+					$sections[$mod] = array(
+						"title" => ucfirst(strtolower($mod)),
+						"rawname" => $mod,
+						"content" => $contents
+					);
+				} else {
+					$sections[$mod]['content'] .= $contents;
+				}
+			}
+		}
+		foreach ($sections as $data) {
+			$hookTabs .= '<li role="presentation"><a href="#queuehook'.$data['rawname'].'" aria-controls="queuehook'.$data['rawname'].'" role="tab" data-toggle="tab">'.$data['title'].'</a></li>';
+			$hookcontent .= '<div role="tabpanel" class="tab-pane display" id="queuehook'.$data['rawname'].'">';
+			$hookcontent .=	 $data['content'];
+			$hookcontent .= '</div>';
+		}
+		return array("hookTabs" => $hookTabs, "hookContent" => $hookcontent, "oldHooks" => $module_hook->hookHtml);
+	}
 }

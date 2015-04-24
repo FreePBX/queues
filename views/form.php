@@ -638,7 +638,8 @@ $default = (isset($servicelevel) ? $servicelevel : 60);
 for ($i=15; $i <= 300; $i+=15) {
 	$slopts .= '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 }
-
+//hooks
+$hookdata = \FreePBX::Queues()->hookTabs();
 ?>
 <form class="fpbx-submit" autocomplete="off" name="editQ" action="config.php?display=queues&view=form" method="post" onsubmit="return checkQ(editQ);" data-fpbx-delete="config.php?display=queues&amp;account=<?php echo urlencode($extdisplay) ?>&amp;action=delete">
 <input type="hidden" name="display" value="queues">
@@ -672,14 +673,15 @@ for ($i=15; $i <= 300; $i+=15) {
 			<?php echo _("Advanced Options")?>
 		</a>
 	</li>
-	<li role="presentation" data-name="qother" class="change-tab">
-		<a href="#qother" aria-controls="qother" role="tab" data-toggle="tab">
-			<?php echo _("Other Options")?>
-		</a>
-	</li>
 	<li role="presentation" data-name="qresetstats" class="change-tab">
 		<a href="#qresetstats" aria-controls="qresetstats" role="tab" data-toggle="tab">
 			<?php echo _("Reset Queue Stats")?>
+		</a>
+	</li>
+	<?php echo $hookdata['hookTabs']?>
+	<li role="presentation" data-name="qother" class="change-tab <?php echo empty($hookdata['oldHooks'])?'hidden':''?>">
+		<a href="#qother" aria-controls="qother" role="tab" data-toggle="tab">
+			<?php echo _("Other Options")?>
 		</a>
 	</li>
 </ul>
@@ -1804,13 +1806,14 @@ for ($i=15; $i <= 300; $i+=15) {
 		<!--END Agent Regex Filter-->
 
 	</div>
+	<!--HOOKS-->
+	<?php echo $hookdata['hookContent'] ?>
 	<div role="tabpanel" id="qother" class="tab-pane">
 		<?php
-		// implementation of module hook
-		$module_hook = moduleHook::create();
-		echo $module_hook->hookHtml;
+		echo $hookdata['oldHooks']
 		?>
 	</div>
+	<!--END HOOKS-->
 	<div role="tabpanel" id="qresetstats" class="tab-pane">
 		<?php echo load_view(__DIR__ . '/cron.php', $cronVars); ?>
 	</div>
