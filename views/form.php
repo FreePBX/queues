@@ -238,7 +238,8 @@ if(function_exists('recordings_list')){
 };
 
 //Used for the agent quick select boxes.
-$results = core_users_list();
+//$results = core_users_list();
+$results = \FreePBX::Core()->listUsers();
 foreach($results as $result){
 	$qsagentlist .= "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
 }

@@ -1,6 +1,6 @@
 <?php
-
-class Queues implements BMO {
+namespace FreePBX\modules;
+class Queues implements \BMO {
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new Exception("Not given a FreePBX Object");
@@ -14,166 +14,165 @@ class Queues implements BMO {
 		public function restore($backup) {}
 		public function doConfigPageInit($page) {
 			$request = $_REQUEST;
-		isset($request['action'])?$action = $request['action']:$action='';
-		//the extension we are currently displaying
-		isset($request['extdisplay'])?$extdisplay=$request['extdisplay']:$extdisplay='';
-		isset($request['account'])?$account = $request['account']:$account='';
-		isset($request['name'])?$name = $request['name']:$name='';
-		isset($request['password'])?$password = $request['password']:$password='';
-		isset($request['agentannounce_id'])?$agentannounce_id = $request['agentannounce_id']:$agentannounce_id='';
-		isset($request['prefix'])?$prefix = $request['prefix']:$prefix='';
-		isset($request['alertinfo'])?$alertinfo = $request['alertinfo']:$alertinfo='';
-		isset($request['joinannounce_id'])?$joinannounce_id = $request['joinannounce_id']:$joinannounce_id='';
-		$maxwait = isset($request['maxwait'])?$request['maxwait']:'';
-		$cwignore = isset($request['cwignore'])?$request['cwignore']:'0';
-		$queuewait = isset($request['queuewait'])?$request['queuewait']:'0';
-		$rtone = isset($request['rtone'])?$request['rtone']:'0';
-		$qregex = isset($request['qregex'])?$request['qregex']:'';
-		$weight = isset($request['weight'])?$request['weight']:'0';
-		$autofill = isset($request['autofill'])?$request['autofill']:'no';
-		$togglehint = isset($request['togglehint'])?$request['togglehint']:'0';
-		$dynmemberonly = isset($request['dynmemberonly'])?$request['dynmemberonly']:'no';
-		$use_queue_context = isset($request['use_queue_context'])?$request['use_queue_context']:'0';
-		$exten_context = "from-queue";
-		$qnoanswer = isset($request['qnoanswer'])?$request['qnoanswer']:'0';
-		$callconfirm = isset($request['callconfirm'])?$request['callconfirm']:'0';
-		$callconfirm_id = isset($request['callconfirm_id'])?$request['callconfirm_id']:'';
-		$monitor_type = isset($request['monitor_type'])?$request['monitor_type']:'';
-		$monitor_heard = isset($request['monitor_heard'])?$request['monitor_heard']:'0';
-		$monitor_spoken = isset($request['monitor_spoken'])?$request['monitor_spoken']:'0';
-		$answered_elsewhere = isset($request['answered_elsewhere'])?$request['answered_elsewhere']:'0';
-		$skip_joinannounce = isset($request['skip_joinannounce'])?$request['skip_joinannounce']:'';
+			isset($request['action'])?$action = $request['action']:$action='';
+			//the extension we are currently displaying
+			isset($request['extdisplay'])?$extdisplay=$request['extdisplay']:$extdisplay='';
+			isset($request['account'])?$account = $request['account']:$account='';
+			isset($request['name'])?$name = $request['name']:$name='';
+			isset($request['password'])?$password = $request['password']:$password='';
+			isset($request['agentannounce_id'])?$agentannounce_id = $request['agentannounce_id']:$agentannounce_id='';
+			isset($request['prefix'])?$prefix = $request['prefix']:$prefix='';
+			isset($request['alertinfo'])?$alertinfo = $request['alertinfo']:$alertinfo='';
+			isset($request['joinannounce_id'])?$joinannounce_id = $request['joinannounce_id']:$joinannounce_id='';
+			$maxwait = isset($request['maxwait'])?$request['maxwait']:'';
+			$cwignore = isset($request['cwignore'])?$request['cwignore']:'0';
+			$queuewait = isset($request['queuewait'])?$request['queuewait']:'0';
+			$rtone = isset($request['rtone'])?$request['rtone']:'0';
+			$qregex = isset($request['qregex'])?$request['qregex']:'';
+			$weight = isset($request['weight'])?$request['weight']:'0';
+			$autofill = isset($request['autofill'])?$request['autofill']:'no';
+			$togglehint = isset($request['togglehint'])?$request['togglehint']:'0';
+			$dynmemberonly = isset($request['dynmemberonly'])?$request['dynmemberonly']:'no';
+			$use_queue_context = isset($request['use_queue_context'])?$request['use_queue_context']:'0';
+			$exten_context = "from-queue";
+			$qnoanswer = isset($request['qnoanswer'])?$request['qnoanswer']:'0';
+			$callconfirm = isset($request['callconfirm'])?$request['callconfirm']:'0';
+			$callconfirm_id = isset($request['callconfirm_id'])?$request['callconfirm_id']:'';
+			$monitor_type = isset($request['monitor_type'])?$request['monitor_type']:'';
+			$monitor_heard = isset($request['monitor_heard'])?$request['monitor_heard']:'0';
+			$monitor_spoken = isset($request['monitor_spoken'])?$request['monitor_spoken']:'0';
+			$answered_elsewhere = isset($request['answered_elsewhere'])?$request['answered_elsewhere']:'0';
+			$skip_joinannounce = isset($request['skip_joinannounce'])?$request['skip_joinannounce']:'';
 
-		//cron code
-		$cron_schedule = isset($request['cron_schedule'])?$request['cron_schedule']:'never';
-		$cron_minute = isset($request['cron_minute'])?$request['cron_minute']:'';
-		$cron_hour = isset($request['cron_hour'])?$request['cron_hour']:'';
-		$cron_dow = isset($request['cron_dow'])?$request['cron_dow']:'';
-		$cron_month = isset($request['cron_month'])?$request['cron_month']:'';
-		$cron_dom = isset($request['cron_dom'])?$request['cron_dom']:'';
-		$cron_random = isset($request['cron_random'])?$request['cron_random']:false;
+			//cron code
+			$cron_schedule = isset($request['cron_schedule'])?$request['cron_schedule']:'never';
+			$cron_minute = isset($request['cron_minute'])?$request['cron_minute']:'';
+			$cron_hour = isset($request['cron_hour'])?$request['cron_hour']:'';
+			$cron_dow = isset($request['cron_dow'])?$request['cron_dow']:'';
+			$cron_month = isset($request['cron_month'])?$request['cron_month']:'';
+			$cron_dom = isset($request['cron_dom'])?$request['cron_dom']:'';
+			$cron_random = isset($request['cron_random'])?$request['cron_random']:false;
 
-		if (isset($request['goto0']) && isset($request[$request['goto0']."0"])) {
-			$goto = $request[$request['goto0']."0"];
-		} else {
-			$goto = '';
-		}
-		if (isset($request["members"])) {
-			$members = explode("\n",$request["members"]);
+			if (isset($request['goto0']) && isset($request[$request['goto0']."0"])) {
+				$goto = $request[$request['goto0']."0"];
+			} else {
+				$goto = '';
+			}
+			if (isset($request["members"])) {
+				$members = explode("\n",$request["members"]);
 
-			if (!$members) {
-				$members = null;
+				if (!$members) {
+					$members = null;
+				}
+
+				foreach (array_keys($members) as $key) {
+					//trim it
+					$members[$key] = trim($members[$key]);
+
+					// check if an agent (starts with a or A)
+
+					$exten_prefix = strtoupper(substr($members[$key],0,1));
+					$this_member = preg_replace("/[^0-9#\,*]/", "", $members[$key]);
+					switch ($exten_prefix) {
+					case 'A':
+						$exten_type = 'Agent';
+						break;
+					case 'P':
+						$exten_type = 'PJSIP';
+						break;
+					case 'S':
+						$exten_type = 'SIP';
+						break;
+					case 'X':
+						$exten_type = 'IAX2';
+						break;
+					case 'Z':
+						$exten_type = 'ZAP';
+						break;
+					case 'D':
+						$exten_type = 'DAHDI';
+						break;
+					default;
+						$exten_type = 'Local';
+					}
+
+					$penalty_pos = strrpos($this_member, ",");
+					if ( $penalty_pos === false ) {
+							$penalty_val = 0;
+					} else {
+							$penalty_val = substr($this_member, $penalty_pos+1); // get penalty
+							$this_member = substr($this_member,0,$penalty_pos); // clean up ext
+							$this_member = preg_replace("/[^0-9#*]/", "", $this_member); //clean out other ,'s
+							$penalty_val = preg_replace("/[^0-9*]/", "", $penalty_val); // get rid of #'s if there
+							$penalty_val = ($penalty_val == "") ? 0 : $penalty_val;
+					}
+
+					// remove blanks // prefix with the channel
+					if (empty($this_member))
+						unset($members[$key]);
+					else {
+						switch($exten_type) {
+							case 'Agent':
+							case 'SIP':
+							case 'IAX2':
+							case 'PJSIP':
+							case 'ZAP':
+							case 'DAHDI':
+								$members[$key] = "$exten_type/$this_member,$penalty_val";
+								break;
+							case 'Local':
+								$members[$key] = "$exten_type/$this_member@$exten_context/n,$penalty_val";
+						}
+					}
+				}
+				// check for duplicates, and re-sequence
+				// $members = array_values(array_unique($members));
 			}
 
-			foreach (array_keys($members) as $key) {
-				//trim it
-				$members[$key] = trim($members[$key]);
-
-				// check if an agent (starts with a or A)
-
-				$exten_prefix = strtoupper(substr($members[$key],0,1));
-				$this_member = preg_replace("/[^0-9#\,*]/", "", $members[$key]);
-				switch ($exten_prefix) {
-				case 'A':
-					$exten_type = 'Agent';
-					break;
-				case 'P':
-					$exten_type = 'PJSIP';
-					break;
-				case 'S':
-					$exten_type = 'SIP';
-					break;
-				case 'X':
-					$exten_type = 'IAX2';
-					break;
-				case 'Z':
-					$exten_type = 'ZAP';
-					break;
-				case 'D':
-					$exten_type = 'DAHDI';
-					break;
-				default;
-					$exten_type = 'Local';
+			if (isset($request["dynmembers"])) {
+				$dynmembers=explode("\n",$request["dynmembers"]);
+				if (!$dynmembers) {
+					$dynmembers = null;
 				}
+			}
 
-				$penalty_pos = strrpos($this_member, ",");
-				if ( $penalty_pos === false ) {
-						$penalty_val = 0;
+
+			// do if we are submitting a form
+			if(isset($request['action'])){
+				//check if the extension is within range for this user
+				if (isset($account) && !checkRange($account)){
+					echo "<script>javascript:alert('"._("Warning! Extension")." $account "._("is not allowed for your account.")."');</script>";
 				} else {
-						$penalty_val = substr($this_member, $penalty_pos+1); // get penalty
-						$this_member = substr($this_member,0,$penalty_pos); // clean up ext
-						$this_member = preg_replace("/[^0-9#*]/", "", $this_member); //clean out other ,'s
-						$penalty_val = preg_replace("/[^0-9*]/", "", $penalty_val); // get rid of #'s if there
-						$penalty_val = ($penalty_val == "") ? 0 : $penalty_val;
-				}
 
-				// remove blanks // prefix with the channel
-				if (empty($this_member))
-					unset($members[$key]);
-				else {
-					switch($exten_type) {
-						case 'Agent':
-						case 'SIP':
-						case 'IAX2':
-						case 'PJSIP':
-						case 'ZAP':
-						case 'DAHDI':
-							$members[$key] = "$exten_type/$this_member,$penalty_val";
-							break;
-						case 'Local':
-							$members[$key] = "$exten_type/$this_member@$exten_context/n,$penalty_val";
+					//if submitting form, update database
+					switch ($action) {
+						case "add":
+							$conflict_url = array();
+							$usage_arr = framework_check_extension_usage($account);
+							if (!empty($usage_arr)) {
+								$conflict_url = framework_display_extension_usage_alert($usage_arr);
+							} else {
+								queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
+								needreload();
+								$this_dest = queues_getdest($account);
+								\fwmsg::set_dest($this_dest[0]);
+								$_REQUEST['extdisplay'] = $account;
+							}
+						break;
+						case "delete":
+							queues_del($account);
+							unset($_REQUEST['view']);
+							unset($_REQUEST['extdisplay']);
+							needreload();
+						break;
+						case "edit":  //just delete and re-add
+							queues_del($account);
+							queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
+							needreload();
+						break;
 					}
 				}
 			}
-			// check for duplicates, and re-sequence
-			// $members = array_values(array_unique($members));
-		}
-
-		if (isset($request["dynmembers"])) {
-			$dynmembers=explode("\n",$request["dynmembers"]);
-			if (!$dynmembers) {
-				$dynmembers = null;
-			}
-		}
-
-
-		// do if we are submitting a form
-		if(isset($request['action'])){
-			//check if the extension is within range for this user
-			if (isset($account) && !checkRange($account)){
-				echo "<script>javascript:alert('"._("Warning! Extension")." $account "._("is not allowed for your account.")."');</script>";
-			} else {
-
-				//if submitting form, update database
-				switch ($action) {
-					case "add":
-						$conflict_url = array();
-						$usage_arr = framework_check_extension_usage($account);
-						if (!empty($usage_arr)) {
-							$conflict_url = framework_display_extension_usage_alert($usage_arr);
-						} else {
-							queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
-							needreload();
-										$request['extdisplay'] = $account;
-							$this_dest = queues_getdest($account);
-							fwmsg::set_dest($this_dest[0]);
-							redirect('config.php?display=queues&view=form&extdisplay='.urlencode($account));
-						}
-					break;
-					case "delete":
-						queues_del($account);
-						needreload();
-						redirect_standard();
-					break;
-					case "edit":  //just delete and re-add
-						queues_del($account);
-						queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
-						needreload();
-						redirect_standard('view','extdisplay');
-					break;
-				}
-			}
-		}
 	}
 
 	public function getActionBar($request){
