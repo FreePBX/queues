@@ -450,7 +450,7 @@ function queues_get_config($engine) {
 							$ext->add($c, $que_pause_code . '*' . $device['id'] . '*' . $q, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$device['id']));
 							if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
 								if ($ast_ge_12) {
-									$hint = "Queue:$q_pause_Local/{$device['user']}@from-queue/n";
+									$hint = "Queue:{$q}_pause_Local/{$device['user']}@from-queue/n";
 								} else {
 									$hint = "qpause:$q:Local/{$device['user']}@from-queue/n";
 								}
