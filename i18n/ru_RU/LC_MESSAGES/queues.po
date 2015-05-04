@@ -8,42 +8,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 21:13-0400\n"
-"PO-Revision-Date: 2014-02-28 04:52+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Russian <http://example.com/projects/freepbx-211/queues/ru/>\n"
+"POT-Creation-Date: 2015-02-20 19:52-0500\n"
+"PO-Revision-Date: 2015-05-01 23:09+0200\n"
+"Last-Translator: Yuriy <alliancesko@gmail.com>\n"
+"Language-Team: Russian "
+"<http://weblate.freepbx.org/projects/freepbx/queues/ru_RU/>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
-#: page.queues.php:1094
+#: page.queues.php:1130
 msgid "(**) ERRORS"
 msgstr "(**) ОШИБКИ"
 
-#: page.queues.php:1094
+#: page.queues.php:1130
 msgid "(**) Warning Potential Errors"
 msgstr "(**) Внимание! Потенциальные ошибки"
 
-#: page.queues.php:399 page.queues.php:427
+#: page.queues.php:393 page.queues.php:421
 msgid "(pick extension)"
 msgstr "(выбрать внутренние номера)"
 
-#: page.queues.php:378
+#: page.queues.php:372
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
 "Дополнительная информация ALERT_INFO может быть использования для "
 "распознавания адресата чтобы присвоить различный тип звонков на SIP "
 "устройствах."
 
-#: page.queues.php:182 page.queues.php:255 page.queues.php:272
+#: page.queues.php:177 page.queues.php:247 page.queues.php:264
 msgid "Add Queue"
 msgstr "Добавить очередь"
 
-#: page.queues.php:737
+#: page.queues.php:635
+msgid "Adjust the recording volume of the caller."
+msgstr "Подстройка громкости записи."
+
+#: page.queues.php:652
+msgid "Adjust the recording volume of the queue member (Agent)."
+msgstr "Подстройка громкости записи члена очереди (Агента)."
+
+#: page.queues.php:628
+msgid "After Answered"
+msgstr "После ответа оператора"
+
+#: page.queues.php:773
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay) If using "
@@ -55,84 +68,89 @@ msgstr ""
 "очередного вызова из очереди. Если используете Asterisk 1.6 и выше, Вы также "
 "можете установить параметр 'Применить передышку для всех очередей' на "
 "странице 'Дополнительные настройки' и операторы, работающие в нескольких "
-"очередях будут иметь перерыв после вызова в любой очереди. "
+"очередях будут иметь перерыв после вызова в любой очереди."
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
 msgstr "Анонс агента"
 
-#: page.queues.php:769 page.queues.php:788
+#: page.queues.php:805 page.queues.php:824
 msgid "Agent Announcement:"
 msgstr "Приветствие агенту:"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:26
 msgid "Agent Called Events Default"
 msgstr ""
 
-#: page.queues.php:1238
+#: page.queues.php:1277
 msgid "Agent Regex Filter"
 msgstr "Фильтр регулярных выражений для операторов"
 
-#: page.queues.php:445
+#: page.queues.php:439
 msgid "Agent Restrictions"
 msgstr "Ограничения агентов"
 
-#: page.queues.php:571
+#: page.queues.php:565
 msgid "Agent Ringing"
 msgstr ""
 
-#: page.queues.php:709
+#: page.queues.php:745
 msgid "Agent Timeout Restart:"
 msgstr "Задержка возврата оператора:"
 
-#: page.queues.php:694
+#: page.queues.php:730
 msgid "Agent Timeout:"
 msgstr "Таймаут оператора:"
 
-#: page.queues.php:378
+#: page.queues.php:652
+msgid "Agent Volume Adjustment:"
+msgstr "Подстройка громкости оператора:"
+
+#: page.queues.php:372
 msgid "Alert Info"
 msgstr "Дополнительная информация"
 
-#: page.queues.php:595
+#: page.queues.php:589
 msgid "Always"
 msgstr ""
 
-#: page.queues.php:889
+#: page.queues.php:925
 msgid "Always allows the caller to join the Queue."
 msgstr "Вызов всегда поступает в очередь."
 
-#: page.queues.php:1014
+#: page.queues.php:1050
 msgid "Announce Hold Time:"
 msgstr "Сообщения о времени ожидания:"
 
-#: page.queues.php:1001
+#: page.queues.php:1037
 msgid "Announce Position:"
 msgstr "Сообщать номер в очереди:"
 
-#: page.queues.php:1001
+#: page.queues.php:1037
 msgid "Announce position of caller in the queue?"
 msgstr "Сообщать ожидающему его номере в очереди?"
 
-#: page.queues.php:345
+#: page.queues.php:339
 msgid ""
 "Announcement played to anyone using an external follow-me to receive the "
 "queue call.<br><br>You must install and enable the \"Systems Recordings\" "
 "Module to edit this option"
 msgstr ""
 "Сообщение будет воспроизведено оператору очереди для оповещении о "
-"поступлении звонка если оператор переадресован через Follow-Me .Для "
-"добавления сообщений используйте раздел 'Системные Сообщения'."
+"поступлении звонка, если оператор переадресован через Follow-Me. <br><br> Вы "
+"должны установить и включить модуль \"Записи в системе\" для изменения этой "
+"настройки"
 
-#: page.queues.php:603
+#: page.queues.php:597
 msgid ""
 "Announcement played to callers once prior to joining the queue.<br><br>You "
 "must install and enable the \"Systems Recordings\" Module to edit this option"
 msgstr ""
 "Приветствие,которое будет воспроизведено один раз при попадании в "
 "очередь<br><br>Нужно инсталлировать и активировать модуль Запись сообщений, "
-"чтобы изменять эту опцию."
+"чтобы изменять эту опцию"
 
-#: page.queues.php:580
+#: page.queues.php:574
 msgid ""
 "Announcement played to callers prior to joining the queue. This can be "
 "skipped if there are agents ready to answer a call (meaning they still may "
@@ -141,7 +159,7 @@ msgid ""
 "Recordings\" MENU."
 msgstr ""
 
-#: page.queues.php:769
+#: page.queues.php:805
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -154,7 +172,7 @@ msgstr ""
 "абонентом <br><br>Для добавления оповещения используйте раздел 'Системные "
 "записи'."
 
-#: page.queues.php:788
+#: page.queues.php:824
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -162,13 +180,13 @@ msgid ""
 "\"Systems Recordings\" Module to edit this option"
 msgstr ""
 "Приветствие, которое воспроизводится агенту (оператору), прежде чем тот "
-"соединится с позвонившим в очереди<br><br>Пример: \"Звонок из очереди Sales"
-"\" или \"Звонок из очереди к Службе поддержки\".<br><br>Нужно инсталлировать "
-"и активировать модуль Запись сообщений для изменения этой опции."
+"соединится с позвонившим в очереди<br><br>Пример: \"Звонок из очереди Sales\""
+" или \"Звонок из очереди к Службе поддержки\".<br><br>Нужно инсталлировать и "
+"активировать модуль Запись сообщений для изменения этой опции"
 
-#: page.queues.php:327
+#: page.queues.php:321
 msgid ""
-"Announcement played to the Queue Member announcing the Queue call and "
+"Announcement played to the Queue Memeber announcing the Queue call and "
 "requesting confirmation prior to answering. If set to default, the standard "
 "call confirmation default message will be played unless the member is "
 "reached through a Follow-Me and there is an alternate message provided in "
@@ -176,24 +194,27 @@ msgid ""
 "<br><br>To add additional recordings please use the \"System Recordings\" "
 "MENU."
 msgstr ""
+"Сообщение будет воспроизведено оператору очереди для оповещении о "
+"поступлении звонка и будет запрошено подтверждение приема перед ответом. По "
+"умолчанию воспроизводится стандартное сообщение подтверждения (если оператор "
+"доступен не через сервис Follow-Me) или альтернативное сообщение, если "
+"оператор доступен через Follow-Me. Установленное здесь сообщение "
+"переопределяет все остальные. Для добавления сообщений используйте раздел "
+"'Системные Сообщения'."
 
 #: views/cron.php:10
 msgid "Annually"
 msgstr ""
 
-#: views/cron.php:19
-msgid "Annually - Run once a year, midnight, Jan. 1"
-msgstr ""
-
-#: queues.i18n.php:6 queues.i18n.php:12
+#: queues.i18n.php:4
 msgid "Applications"
 msgstr "Приложения"
 
-#: views/cron.php:102
+#: views/cron.php:108
 msgid "April"
 msgstr ""
 
-#: page.queues.php:679
+#: page.queues.php:715
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
 "caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
@@ -208,7 +229,7 @@ msgstr ""
 "режиме 'Неточный' текущий оператор будет вызван, пока истечет таймаут вызова "
 "оператора в очереди, после этого вызов будет извлечен из очереди."
 
-#: page.queues.php:967
+#: page.queues.php:1003
 msgid ""
 "Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
 "settings, allowing all members to be tried, when the queue has too few "
@@ -220,15 +241,15 @@ msgstr ""
 "в случае когда в очереди операторов очень мало. Уровень доступности не будет "
 "изменяться если в очереди не более указанного количества операторов."
 
-#: views/cron.php:106
+#: views/cron.php:112
 msgid "August"
 msgstr ""
 
-#: page.queues.php:863
+#: page.queues.php:899
 msgid "Auto Pause Delay:"
 msgstr ""
 
-#: page.queues.php:814
+#: page.queues.php:850
 msgid ""
 "Auto Pause an agent in this queue (or all queues they are a member of) if "
 "they don't answer a call. Specific behavior can be modified by the Auto "
@@ -236,63 +257,67 @@ msgid ""
 "this version of Asterisk."
 msgstr ""
 
-#: page.queues.php:831
+#: page.queues.php:867
 msgid "Auto Pause on Busy:"
 msgstr ""
 
-#: page.queues.php:846
+#: page.queues.php:882
 msgid "Auto Pause on Unavailable:"
 msgstr ""
 
-#: page.queues.php:814
+#: page.queues.php:850
 msgid "Auto Pause:"
 msgstr ""
 
-#: page.queues.php:508
+#: page.queues.php:502
 msgid "Autofill:"
 msgstr "Автозаполнение:"
 
-#: functions.inc/geters_seters.php:39
+#: functions.inc/geters_seters.php:37
 msgid "Bad Queue Number, can not be blank"
 msgstr "Неверный номер очереди, он не может быть пустым"
 
-#: page.queues.php:1037
+#: page.queues.php:1073
 msgid "Break Out Type"
 msgstr ""
 
-#: page.queues.php:358
+#: page.queues.php:352
 msgid "CID Name Prefix:"
 msgstr "Префикс для ИД имени:"
 
-#: page.queues.php:327
+#: page.queues.php:321
 msgid "Call Confirm Announce:"
 msgstr "Сообщение перед поступлением вызова для подтверждения:"
 
-#: page.queues.php:345
+#: page.queues.php:339
 msgid "Call Confirm Announcement:"
 msgstr "Сообщение перед поступлением вызова для подтверждения:"
 
-#: page.queues.php:319
+#: page.queues.php:313
 msgid "Call Confirm:"
-msgstr "Подтверждение приёма звонка: "
+msgstr "Подтверждение звонка:"
 
-#: page.queues.php:626
+#: page.queues.php:608
 msgid "Call Recording:"
 msgstr "Запись разговоров:"
 
-#: page.queues.php:450
+#: page.queues.php:444
 msgid "Call as Dialed"
 msgstr "Звонить как набрано"
 
-#: page.queues.php:1116
+#: page.queues.php:1152
 msgid "Callback to use when caller presses 1."
 msgstr ""
 
-#: page.queues.php:984
+#: page.queues.php:1020
 msgid "Caller Position Announcements"
 msgstr "Сообщения о номере в очереди"
 
-#: page.queues.php:928
+#: page.queues.php:635
+msgid "Caller Volume Adjustment:"
+msgstr "Подстройка громкости входяшего:"
+
+#: page.queues.php:964
 msgid ""
 "Callers will exit if all agents are paused, show an invalid state for their "
 "device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
@@ -303,7 +328,7 @@ msgstr ""
 "QUEUE_MAX_PENALTY. На текущий момент не устанавливается в номерном плане "
 "FreePBX."
 
-#: page.queues.php:894
+#: page.queues.php:930
 msgid ""
 "Callers will not be admitted if all agents are paused, show an invalid state "
 "for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
@@ -314,7 +339,7 @@ msgstr ""
 "меньше, чем QUEUE_MAX_PENALTY. На текущий момент не устанавливается в "
 "номерном плане FreePBX."
 
-#: page.queues.php:869
+#: page.queues.php:905
 msgid "Capacity Options"
 msgstr "Параметры ёмкости очереди"
 
@@ -326,26 +351,36 @@ msgstr "Проверка для старых таблиц очередей.."
 msgid "Checking if recordings need migration.."
 msgstr "Проверка нуждаются ли записи в перемещении.."
 
-#: page.queues.php:421
+#: page.queues.php:415
 msgid ""
 "Choose an extension to append to the end of the dynamic member list above."
 msgstr ""
 "Выберите внутренний номер для добавления в список динамических операторов."
 
-#: page.queues.php:393
+#: page.queues.php:387
 msgid ""
 "Choose an extension to append to the end of the static agents list above."
 msgstr "Выберите внутренний номер для добавления в список."
 
-#: functions.inc/queue_conf.php:215
-msgid "Compound Recordings in Queues Detected"
-msgstr "Обнаружена составная запись, использованная в очереди."
+#: page.queues.php:623
+msgid ""
+"Choose to 'Include Hold Time' in the recording so it starts as soon as they "
+"enter the queue, or to defer recording until 'After Answered' and the call "
+"is bridged with a queue member."
+msgstr ""
+"Выберите 'Включая время ожидания' в записи для того, что бы разговор "
+"записывался с момента попадания в очередь, или 'После ответа оператора' для "
+"записи разговора, после ответа оператора очереди."
 
-#: page.queues.php:248
+#: functions.inc/queue_conf.php:235
+msgid "Compound Recordings in Queues Detected"
+msgstr "Обнаружена составная запись, использованная в очереди"
+
+#: page.queues.php:240
 msgid "Conflicting Extensions"
 msgstr "Конфликт внутренних номеров"
 
-#: queues.i18n.php:8
+#: queues.i18n.php:5
 msgid ""
 "Creates a queue where calls are placed on hold and answered on a first-in, "
 "first-out basis. Many options are available, including ring strategy for "
@@ -371,45 +406,41 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
-#: views/cron.php:17
-msgid "Daily    - Run once a day, at midnight"
-msgstr ""
-
-#: views/cron.php:126
+#: views/cron.php:132
 msgid "Day of Month"
 msgstr ""
 
-#: views/cron.php:71
+#: views/cron.php:77
 msgid "Day of Week"
 msgstr ""
 
-#: views/cron.php:110
+#: views/cron.php:116
 msgid "December"
 msgstr ""
 
-#: page.queues.php:333
+#: page.queues.php:327
 msgid "Default"
 msgstr "По умолчанию"
 
-#: queues.i18n.php:38
+#: queues.i18n.php:28
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
 
-#: queues.i18n.php:46
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
 "enfore the option on in new ones."
 msgstr ""
 
-#: page.queues.php:243
+#: page.queues.php:235
 msgid "Delete Queue"
 msgstr "Удалить очередь"
 
-#: page.queues.php:926
+#: page.queues.php:962
 msgid ""
 "Determines if callers should be exited prematurely from the queue in "
 "situations where it appears no one is currently available to take the call. "
@@ -419,31 +450,27 @@ msgstr ""
 "осталось свободных операторов, способных обработать звонокПараметр может "
 "принимать значения:"
 
-#: page.queues.php:887
+#: page.queues.php:923
 msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
 "failover destination will be immediately pursued. The options include:"
 msgstr ""
 "Если установлено, новый вызов поступает в очередь, если нет - сразу "
-"используется направление перехода. Возможные значения: "
+"используется направление перехода. Возможные значения:"
 
-#: page.queues.php:1166 page.queues.php:1198
+#: page.queues.php:1201 page.queues.php:1238
 msgid "Disabled"
-msgstr ""
-
-#: page.queues.php:631
-msgid "Don't Care"
 msgstr ""
 
 #: install.php:339
 msgid "Dropping old queues table.."
 msgstr "Сброс старых таблиц очередей.."
 
-#: page.queues.php:411
+#: page.queues.php:405
 msgid "Dynamic Members"
 msgstr "Динамические агенты"
 
-#: page.queues.php:411
+#: page.queues.php:405
 msgid ""
 "Dynamic Members are extensions or callback numbers that can log in and out "
 "of the queue. When a member logs in to a queue, their penalty in the queue "
@@ -457,7 +484,7 @@ msgstr ""
 msgid "ERROR were encountered"
 msgstr "Была обнаружена ОШИБКА"
 
-#: page.queues.php:1098
+#: page.queues.php:1134
 msgid ""
 "ERROR: You have selected an IVR that uses Announcements created from "
 "compound sound files. The Queue is not able to play these announcements. "
@@ -491,30 +518,30 @@ msgstr "ОШИБКА: невозможно создать таблицу"
 
 #: install.php:119
 msgid "ERROR: could not migrate to queues_details"
-msgstr "ОШИБКА: невозможно перенести queues_details.."
+msgstr "ОШИБКА: невозможно перенести queues_details"
 
 #: install.php:320
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
 msgstr "ОШИБКА: вставка данных для ряда %s: %s.."
 
-#: page.queues.php:1098
+#: page.queues.php:1134
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
 "Ранние версии этого модуля разрешали сделать выбор в такой очереди, но когда "
-"выбор сделан, опция переставала быть видимой."
+"выбор сделан, опция переставала быть видимой"
 
-#: page.queues.php:272
+#: page.queues.php:264
 msgid "Edit Queue"
 msgstr "Изменить очередь"
 
-#: page.queues.php:1159 page.queues.php:1191
+#: page.queues.php:1192 page.queues.php:1229
 msgid "Enabled"
 msgstr ""
 
-#: page.queues.php:639
+#: page.queues.php:672
 msgid ""
 "Enabling this option, all calls are marked as 'answered elsewhere' when "
 "cancelled. The effect is that missed queue calls are *not* shown on the "
@@ -524,11 +551,11 @@ msgstr ""
 "обработанные. Таким образом пропущенные вызовы не будут отображены нв "
 "телефонах операторов (телефоны должен поддерживать данную функцию)"
 
-#: page.queues.php:1158
+#: page.queues.php:1189
 msgid "Event When Called"
 msgstr ""
 
-#: page.queues.php:1150
+#: page.queues.php:1186
 msgid "Events, Stats and Advanced"
 msgstr "События, Статистика и Допонительно"
 
@@ -536,51 +563,47 @@ msgstr "События, Статистика и Допонительно"
 msgid "Extension Options"
 msgstr ""
 
-#: page.queues.php:391 page.queues.php:419
+#: page.queues.php:385 page.queues.php:413
 msgid "Extension Quick Pick"
 msgstr "Выбрать номера"
 
-#: page.queues.php:452
+#: page.queues.php:446
 msgid "Extensions Only"
 msgstr "Только внутренние абоненты"
 
-#: page.queues.php:1247
+#: page.queues.php:1286
 msgid "Fail Over Destination"
 msgstr "Назначение при неответе"
 
-#: views/cron.php:100
+#: views/cron.php:106
 msgid "February"
 msgstr ""
 
-#: page.queues.php:629
-msgid "Force"
-msgstr ""
-
-#: page.queues.php:987
+#: page.queues.php:1023
 msgid "Frequency:"
 msgstr "Частота:"
 
-#: views/cron.php:79
+#: views/cron.php:85
 msgid "Friday"
 msgstr ""
 
-#: page.queues.php:458
+#: page.queues.php:452
 msgid "General Queue Options"
 msgstr "Общие параметры очереди"
 
-#: page.queues.php:312
+#: page.queues.php:305
 msgid "Generate Device Hints:"
 msgstr "Генерация оповещений устройств:"
 
-#: queues.i18n.php:40
+#: queues.i18n.php:30
 msgid "Generate queuenum*/** Login/off Codes"
 msgstr "Формировать номер очереди*/** коды набора для входа-выхода операторов"
 
-#: page.queues.php:283
+#: page.queues.php:275
 msgid "Give this queue a brief name to help you identify it."
 msgstr "Присвоить для очереди короткое название для идентификации."
 
-#: page.queues.php:534
+#: page.queues.php:528
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
@@ -589,19 +612,19 @@ msgstr ""
 "приоритетом. Оператору будет подан звонок большим приоритетом очереди, если "
 "оператор обслуживаетс две и более очереди."
 
-#: queues.i18n.php:32
+#: queues.i18n.php:22
 msgid "Hide Queue No Answer Option"
 msgstr "Скрыть параметр Очереди 'No Answer'"
 
-#: page.queues.php:972
+#: page.queues.php:1008
 msgid "Honor Penalties"
 msgstr "Соблюдать уровни доступности"
 
-#: queues.i18n.php:20
+#: queues.i18n.php:14
 msgid "Honor Wrapup Time Across Queues"
 msgstr "Давать передышку оператору при работе в нескольких очередях"
 
-#: views/cron.php:55
+#: views/cron.php:61
 msgid "Hour"
 msgstr ""
 
@@ -609,11 +632,7 @@ msgstr ""
 msgid "Hourly"
 msgstr ""
 
-#: views/cron.php:16
-msgid "Hourly   - Run once an hour, beginning of hour"
-msgstr ""
-
-#: page.queues.php:1136
+#: page.queues.php:1172
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
@@ -621,7 +640,7 @@ msgstr ""
 "Как часто предлагать Интерактивное меню ожидающему в очереди (0 - "
 "деактивировать сообщение)."
 
-#: page.queues.php:987
+#: page.queues.php:1023
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
@@ -638,33 +657,15 @@ msgstr "ИСПОЛЬЗУЕТСЯ"
 msgid "IVR Announce: %s"
 msgstr "Анонс Интерактивного меню: %s"
 
-#: page.queues.php:1040
+#: page.queues.php:1076
 msgid "IVR Break Out Menu"
 msgstr ""
 
-#: page.queues.php:1056
+#: page.queues.php:1092
 msgid "IVR Break Out Menu:"
 msgstr "Возможность выйти из Меню:"
 
-#: views/cron.php:22
-msgid ""
-"If Randomize is selcted, a similar frequency will be followed, only the "
-"exact times will be randomized (avoiding peak business hours, when "
-"possible). Please note: randomized schedules will be rescheduled (randomly) "
-"every time ANY backup is saved"
-msgstr ""
-
-#: views/cron.php:25
-msgid ""
-"If a custom schedule is selected, any section not specficed will be "
-"considered to be 'any' (aka: wildcard). I.e. if Day of Month is set to 12 "
-"and Day of Week is not set, the queue stats will be reset on ANY 12th of the "
-"month - regardless of the day of the week. If Day of Week is set to, say, "
-"Monday, the queue stats will be reset ONLY on a Monday, and ONLY if it's the "
-"12th of the month."
-msgstr ""
-
-#: page.queues.php:319
+#: page.queues.php:313
 msgid ""
 "If checked, any queue member that is actually an outside telephone number, "
 "or any extensions Follow-Me or call forwarding that are pursued and leave "
@@ -675,7 +676,7 @@ msgstr ""
 "пределами системы (номер переадресован, включено Follow-Me), будет "
 "принудительно включен режим подтверждения приёма звонка."
 
-#: page.queues.php:312
+#: page.queues.php:305
 msgid ""
 "If checked, individual hints and dialplan will be generated for each SIP and "
 "IAX2 device that could be part of this queue. These are used in conjunction "
@@ -693,7 +694,7 @@ msgstr ""
 "код переключения, указанный в модуле Сервисные коды, ddd - номер устройства "
 "(обычно это всё тот же внутренний номер) и qqq - номер очереди."
 
-#: page.queues.php:302
+#: page.queues.php:294
 msgid ""
 "If checked, the queue will not answer the call. Under most circumstance you "
 "should always have the queue answering calls. If not, then it's possible "
@@ -710,7 +711,7 @@ msgstr ""
 "случаях, это может быть использовано, например если нужен моментальный ответ "
 "свободного оператора или выход из очереди если моментальный ответ невозможен."
 
-#: page.queues.php:363
+#: page.queues.php:357
 msgid ""
 "If the call is subsequently transferred, the wait time will reflect the time "
 "since it first entered the queue or reset if the call is transferred to "
@@ -734,7 +735,7 @@ msgid ""
 "SHOULD BE set to 'Use State'."
 msgstr ""
 
-#: page.queues.php:709
+#: page.queues.php:745
 msgid ""
 "If timeoutrestart is set to yes, then the time out for an agent to answer is "
 "reset if a BUSY or CONGESTION is received. This can be useful if agents are "
@@ -744,7 +745,7 @@ msgstr ""
 "оказался принять звонок из очереди. Это может быть полезно, если операторы "
 "очереди имеют возможность отказа приема вызова из очереди."
 
-#: page.queues.php:754
+#: page.queues.php:790
 msgid ""
 "If you wish to have a delay before the member is connected to the caller (or "
 "before the member hears any announcement messages), set this to the number "
@@ -753,7 +754,7 @@ msgstr ""
 "Данный параметр позволяет установить задержку в секундах между ответом "
 "оператора и соединением с вызывающим абонентом (или оповещением)."
 
-#: page.queues.php:799
+#: page.queues.php:835
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
 "connected to the caller, set this to yes."
@@ -765,13 +766,19 @@ msgstr ""
 msgid "Ignore State"
 msgstr ""
 
-#: page.queues.php:626
-msgid ""
-"Incoming calls to agents can be recorded. If 'never' is selected, then in-"
-"call on demand recording is blocked."
-msgstr ""
+#: page.queues.php:627
+msgid "Include Hold Time"
+msgstr "Время время ожидания"
 
-#: queues.i18n.php:34
+#: page.queues.php:608
+msgid ""
+"Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
+"monitor)"
+msgstr ""
+"Входящие разговоры для всех операторов можно записывать (сохраняются в /var/"
+"spool/asterisk/monitor)"
+
+#: queues.i18n.php:24
 msgid ""
 "It is possible for a queue to NOT Answer a call and still enter callers to "
 "the queue. The normal behavior is that all  allers are answered before "
@@ -782,78 +789,78 @@ msgid ""
 "setting will be displayed for that queue regardless of this setting."
 msgstr "Дает возможность не делать ответ на вызов, помещенный в очередь."
 
-#: views/cron.php:99
+#: views/cron.php:105
 msgid "January"
 msgstr ""
 
-#: page.queues.php:580 page.queues.php:603
+#: page.queues.php:574 page.queues.php:597
 msgid "Join Announcement:"
 msgstr "Сообщение при попадании:"
 
-#: page.queues.php:901
+#: page.queues.php:937
 msgid "Join Empty:"
 msgstr "Попадать в пустую:"
 
-#: views/cron.php:105
+#: views/cron.php:111
 msgid "July"
 msgstr ""
 
-#: views/cron.php:104
+#: views/cron.php:110
 msgid "June"
 msgstr ""
 
-#: page.queues.php:940
+#: page.queues.php:976
 msgid "Leave Empty:"
 msgstr "ВЫходить из пустой очереди:"
 
-#: page.queues.php:685 page.queues.php:896 page.queues.php:914
-#: page.queues.php:934 page.queues.php:952
+#: page.queues.php:721 page.queues.php:932 page.queues.php:950
+#: page.queues.php:970 page.queues.php:988
 msgid "Loose"
 msgstr "Неточный"
 
-#: views/cron.php:101
+#: views/cron.php:107
 msgid "March"
 msgstr ""
 
-#: page.queues.php:639
+#: page.queues.php:672
 msgid "Mark calls answered elsewhere:"
 msgstr "Отмечать все вызовы как отвеченные:"
 
-#: page.queues.php:872
+#: page.queues.php:908
 msgid "Max Callers:"
 msgstr "Позвонивших, максимально:"
 
-#: page.queues.php:679
+#: page.queues.php:715
 msgid "Max Wait Time Mode:"
 msgstr "Режим времени максимального ожидания:"
 
-#: page.queues.php:648
+#: page.queues.php:684
 msgid "Max Wait Time:"
 msgstr "Время ожидания, максимально:"
 
-#: page.queues.php:872
+#: page.queues.php:908
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "Максимально  число ожидающих в очереди (0 - неограничено)"
 
-#: views/cron.php:103
+#: views/cron.php:109
 msgid "May"
 msgstr ""
 
-#: page.queues.php:754
+#: page.queues.php:790
 msgid "Member Delay:"
 msgstr "Задержка оператора:"
 
-#: page.queues.php:1190
+#: page.queues.php:1226
 msgid "Member Status Event"
 msgstr ""
 
-#: queues.i18n.php:44
+#: queues.i18n.php:34
 msgid "Memeber Status Event Default"
 msgstr ""
 
-#: page.queues.php:1078 page.queues.php:1083
+#: page.queues.php:1114 page.queues.php:1119
 msgid "Menu ID "
-msgstr "ИД меню"
+msgstr "ИД меню "
 
 #: install.php:203
 msgid "Migrating data to queues_config.."
@@ -863,19 +870,19 @@ msgstr "Перенос данных в queues_config.."
 msgid "Migrating to queues_details.."
 msgstr "Перенос queues_details.."
 
-#: views/cron.php:39
+#: views/cron.php:45
 msgid "Minutes"
 msgstr ""
 
-#: page.queues.php:570
+#: page.queues.php:564
 msgid "MoH Only"
 msgstr ""
 
-#: views/cron.php:75
+#: views/cron.php:81
 msgid "Monday"
 msgstr ""
 
-#: views/cron.php:96
+#: views/cron.php:102
 msgid "Month"
 msgstr ""
 
@@ -883,11 +890,7 @@ msgstr ""
 msgid "Monthly"
 msgstr ""
 
-#: views/cron.php:18
-msgid "Monthly  - Run once a month, midnight, first of month"
-msgstr ""
-
-#: page.queues.php:550
+#: page.queues.php:544
 msgid ""
 "Music (MoH) played to the caller while they wait in line for an available "
 "agent. Choose \"inherit\" if you want the MoH class to be what is currently "
@@ -899,7 +902,7 @@ msgid ""
 "This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
 
-#: page.queues.php:550
+#: page.queues.php:544
 msgid "Music on Hold Class:"
 msgstr "Класс Музыки в ожидании:"
 
@@ -907,47 +910,47 @@ msgstr "Класс Музыки в ожидании:"
 msgid "NO table found, no migration to do just create tables"
 msgstr "Не обнаружено таблиц, будут созданы новые таблицы вместо переноса"
 
-#: page.queues.php:633 views/cron.php:5
+#: views/cron.php:5
 msgid "Never"
 msgstr ""
 
-#: page.queues.php:936
+#: page.queues.php:972
 msgid ""
 "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr ""
 "Никогда не удалять вызов из очереди до истечения максимального времени "
 "ожидания."
 
-#: views/cron.php:24
-msgid "Never will never reset the queue stats automatically"
-msgstr ""
-
-#: page.queues.php:368 page.queues.php:440 page.queues.php:520
-#: page.queues.php:632 page.queues.php:715 page.queues.php:804
-#: page.queues.php:819 page.queues.php:836 page.queues.php:851
-#: page.queues.php:894 page.queues.php:912 page.queues.php:936
-#: page.queues.php:954 page.queues.php:1007 page.queues.php:1020
+#: page.queues.php:362 page.queues.php:434 page.queues.php:514
+#: page.queues.php:616 page.queues.php:751 page.queues.php:840
+#: page.queues.php:855 page.queues.php:872 page.queues.php:887
+#: page.queues.php:930 page.queues.php:948 page.queues.php:972
+#: page.queues.php:990 page.queues.php:1043 page.queues.php:1056
 msgid "No"
 msgstr "Нет"
 
-#: page.queues.php:451
+#: page.queues.php:642 page.queues.php:659
+msgid "No Adjustment"
+msgstr "Нет подстройки"
+
+#: page.queues.php:445
 msgid "No Follow-Me or Call Forward"
 msgstr "Без функций Следуйте сюда или Перенаправление'"
 
-#: page.queues.php:877
+#: page.queues.php:913
 msgid "No Max"
 msgstr "Максимальное число неограничено"
 
-#: page.queues.php:727
+#: page.queues.php:763
 msgid "No Retry"
 msgstr "Не повторять"
 
-#: page.queues.php:586 page.queues.php:776 page.queues.php:1062
-#: page.queues.php:1119
+#: page.queues.php:580 page.queues.php:812 page.queues.php:1098
+#: page.queues.php:1155
 msgid "None"
 msgstr "Нет"
 
-#: views/cron.php:109
+#: views/cron.php:115
 msgid "November"
 msgstr ""
 
@@ -959,27 +962,27 @@ msgstr ""
 msgid "OK"
 msgstr "ОК"
 
-#: views/cron.php:108
+#: views/cron.php:114
 msgid "October"
 msgstr ""
 
-#: page.queues.php:1021
+#: page.queues.php:1057
 msgid "Once"
 msgstr "Один раз"
 
-#: page.queues.php:967
+#: page.queues.php:1003
 msgid "Penalty Members Limit:"
 msgstr "Органичение уровня доступности оператора:"
 
-#: page.queues.php:1027
+#: page.queues.php:1063
 msgid "Periodic Announcements"
 msgstr "Периодичность сообщений"
 
-#: queues.i18n.php:14
+#: queues.i18n.php:8
 msgid "Persistent Members"
 msgstr "Постоянные операторы"
 
-#: page.queues.php:1238
+#: page.queues.php:1277
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
 "callback number. If the callback number does not pass the regex filter then "
@@ -993,16 +996,16 @@ msgid ""
 msgstr ""
 "Даёт возможность создавать фильтр регулярных выражений для ограничения "
 "обратных звонков операторами. Если номер обратного звонка не попадает в "
-"описаный фильтр он будет обработан как неверный. Это может использоваться "
+"описанный фильтр, он будет обработан как неверный. Это может использоваться "
 "для ограничения операторов к доступу групп номеров, или ограничить "
 "использование наборов сервисных кодов через звёздочку (*), или ещё какое "
 "нибудь полезное применение. Например:<br />^([2-4][0-9]{3})$<br />Этот "
-"фильтр ограничивает доступ операторов на внутренние номера 2000-4999. Или "
-"<br />^([0-9]+)$ разрешит доступ на все номера любой длины, но запретит "
-"использование звездочки (*). ВНИМАНИЕ: будьте уверены в том, что понимаете "
-"то, что делаете, в противном случае оставьте это поле пустым."
+"фильтр ограничивает доступ операторов на внутренние номера 2000-4999. Или <"
+"br />^([0-9]+)$ разрешит доступ на все номера любой длины, но запретит "
+"использование звездочки (*).<br /> ВНИМАНИЕ: будьте уверены в том, что "
+"понимаете то, что делаете, в противном случае оставьте это поле пустым!"
 
-#: page.queues.php:193
+#: page.queues.php:188
 msgid "Queue"
 msgstr "Очередь"
 
@@ -1011,12 +1014,12 @@ msgstr "Очередь"
 msgid "Queue %s : %s"
 msgstr "Очередь %s : %s"
 
-#: functions.inc/queue_conf.php:213
+#: functions.inc/queue_conf.php:233
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Очередь - %s (%s): %s<br />"
 
-#: page.queues.php:1041 page.queues.php:1116
+#: page.queues.php:1077 page.queues.php:1152
 msgid "Queue Callback"
 msgstr ""
 
@@ -1024,23 +1027,23 @@ msgstr ""
 msgid "Queue Callers"
 msgstr ""
 
-#: page.queues.php:283
+#: page.queues.php:275
 msgid "Queue Name:"
 msgstr "Название очереди:"
 
-#: page.queues.php:302
+#: page.queues.php:294
 msgid "Queue No Answer:"
 msgstr "Отсутствие ответа в очереди:"
 
-#: page.queues.php:1296
+#: page.queues.php:1335
 msgid "Queue Number must not be blank"
 msgstr "Номер очереди не может быть пустым"
 
-#: page.queues.php:277
+#: page.queues.php:269
 msgid "Queue Number:"
 msgstr "Номер очереди:"
 
-#: page.queues.php:291
+#: page.queues.php:283
 msgid "Queue Password:"
 msgstr "Пароль очереди:"
 
@@ -1056,15 +1059,15 @@ msgstr ""
 msgid "Queue Toggle"
 msgstr ""
 
-#: page.queues.php:534
+#: page.queues.php:528
 msgid "Queue Weight"
 msgstr "Вес очереди"
 
-#: page.queues.php:523
+#: page.queues.php:517
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Только звонки очереди (ringinuse=no)"
 
-#: queues.i18n.php:42
+#: queues.i18n.php:32
 msgid ""
 "Queue login and out codes were historically queunum* and queunum**. These "
 "have been largely replaced by the *45 queue toggle codes. The legacy codes "
@@ -1075,12 +1078,14 @@ msgstr ""
 "заменены на *45 коды переключения. Старые коды могу понадобиться для "
 "сторонего программного обеспечения или телефонов."
 
-#: page.queues.php:1309
+#: page.queues.php:1348
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
-msgstr "Название очереди не может быть пустым и должно содержать только буквы."
+msgstr ""
+"Название очереди не может быть пустым и должно содержать только буквенно-"
+"цифровые символы"
 
-#: page.queues.php:253
+#: page.queues.php:245
 msgid "Queue:"
 msgstr "Очередь:"
 
@@ -1096,11 +1101,11 @@ msgstr "Очередь: %s"
 msgid "Queue: %s (%s)"
 msgstr "Очередь: %s (%s)"
 
-#: queues.i18n.php:4 queues.i18n.php:10
+#: queues.i18n.php:3 queues.i18n.php:6
 msgid "Queues"
 msgstr "Очереди"
 
-#: queues.i18n.php:16
+#: queues.i18n.php:10
 msgid "Queues Module"
 msgstr "Модуль очередей"
 
@@ -1108,16 +1113,18 @@ msgstr "Модуль очередей"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 
-#: queues.i18n.php:30
+#: queues.i18n.php:20
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now goes away when this is enabled."
 msgstr ""
-"Если установлено для записи разговоров будет использование приложение "
-"MixMonitor"
+"Queues: monitor-type = MixMonitor. Если установлено для записи разговоров "
+"будет использование приложение MixMonitor вместо Monitor, таким образом, "
+"понятие 'присоединения/смешивания' в/из файлы(ов) теперь уйдет, когда это "
+"включено."
 
-#: queues.i18n.php:18
+#: queues.i18n.php:12
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
@@ -1127,53 +1134,40 @@ msgstr ""
 "сохраняется в базе данных asterisk что бы очереди были корректно "
 "восстановлены в случае перезапуска Asterisk."
 
-#: queues.i18n.php:22
+#: queues.i18n.php:16
+#, fuzzy
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
 "queue. This is useful to make the queue respect the wrapuptime of another "
 "queue for a shared member."
-msgstr "Queues: shared_lastcall"
-
-#: queues.i18n.php:26
-msgid ""
-"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
-"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
-"with an agent name, which is set if available at the login time with "
-"AddQueueMember membername parameter, or with static members."
-msgstr "Queues: updatecdr"
-
-#: views/cron.php:35
-msgid "Randomize"
-msgstr ""
+msgstr "Queues: shared_lastcall, действительны только с Астериск выше 1.6."
 
 #: views/cron.php:11
 msgid "Reboot"
 msgstr ""
 
-#: views/cron.php:20
-msgid ""
-"Reboot   - Run at startup of the server OR of the cron daemon (after every: "
-"service cron restart)"
-msgstr ""
+#: page.queues.php:623
+msgid "Recording Mode:"
+msgstr "Режим записи:"
 
-#: page.queues.php:1136
+#: page.queues.php:1172
 msgid "Repeat Frequency:"
 msgstr "Частота повторений:"
 
-#: page.queues.php:799
+#: page.queues.php:835
 msgid "Report Hold Time:"
 msgstr "Сообщения о времени ожидания:"
 
-#: page.queues.php:1254
+#: page.queues.php:1293
 msgid "Reset Queue Stats"
 msgstr ""
 
-#: page.queues.php:439
+#: page.queues.php:433
 msgid "Restrict Dynamic Agents"
 msgstr "Ограничения динамических агентов"
 
-#: page.queues.php:439
+#: page.queues.php:433
 msgid ""
 "Restrict dynamic queue member logins to only those listed in the Dynamic "
 "Members list above. When set to Yes, members not listed will be DENIED "
@@ -1183,23 +1177,23 @@ msgstr ""
 "агентов выше. Если установлено в Да, то агенты не указанные в списке  будут "
 "получать ответ Доступ запрещён в эту очередь."
 
-#: page.queues.php:722
+#: page.queues.php:758
 msgid "Retry:"
 msgstr "Повторить:"
 
-#: page.queues.php:572
+#: page.queues.php:566
 msgid "Ring Only"
 msgstr ""
 
-#: page.queues.php:462
+#: page.queues.php:456
 msgid "Ring Strategy:"
 msgstr "Стратегия дозвона:"
 
-#: views/cron.php:26
+#: views/cron.php:32
 msgid "Run"
 msgstr ""
 
-#: page.queues.php:896
+#: page.queues.php:932
 msgid ""
 "Same as No except Callers will be admitted if their are paused agents who "
 "could become available."
@@ -1207,7 +1201,7 @@ msgstr ""
 "Тоже самое, что и 'Нет', кроме наличия приостановленных операторов, которые "
 "могли бы стать активными."
 
-#: page.queues.php:892
+#: page.queues.php:928
 msgid ""
 "Same as Strict plus a queue member must be able to answer the phone 'now' to "
 "let them in. Simply speaking, any 'available' agents that could answer but "
@@ -1218,7 +1212,7 @@ msgstr ""
 "доступные операторы. Операторы, занятые другими вызовами, считаются "
 "недоступными. Если доступных оперторов нет, звонок в очередь не поступает."
 
-#: page.queues.php:931
+#: page.queues.php:967
 msgid ""
 "Same as Strict plus a queue member must be able to answer the phone 'now' to "
 "let them remain. Simply speaking, any 'available' agents that could answer "
@@ -1229,7 +1223,7 @@ msgstr ""
 "способных сразу обработать вызов. Операторы, занятые обработкой других "
 "вызовов считаются как недоступные."
 
-#: page.queues.php:890
+#: page.queues.php:926
 msgid ""
 "Same as Yes but more strict.  Simply speaking, if no agent could answer the "
 "phone then don't admit them. If agents are inuse or ringing someone else, "
@@ -1240,7 +1234,7 @@ msgstr ""
 "очереди, то вызов поступает в очередь, даже если операторы заняты и не могут "
 "принять вызов непосредственно."
 
-#: page.queues.php:929
+#: page.queues.php:965
 msgid ""
 "Same as Yes but more strict.  Simply speaking, if no agent could answer the "
 "phone then have them leave the queue. If agents are inuse or ringing someone "
@@ -1251,7 +1245,7 @@ msgstr ""
 "имеются в очереди, то вызов поступает в очередь, даже если операторы заняты "
 "и не могут принять вызов непосредственно."
 
-#: page.queues.php:934
+#: page.queues.php:970
 msgid ""
 "Same as Yes except Callers will remain in the Queue if their are paused "
 "agents who could become available."
@@ -1259,42 +1253,32 @@ msgstr ""
 "Такой же режим, как 'Да', но вызовы будут оставаться в очереди, даже если "
 "все операторы приостановлены, но могут стать активными."
 
-#: views/cron.php:80
+#: views/cron.php:86
 msgid "Saturday"
 msgstr ""
 
-#: views/cron.php:14
-msgid ""
-"Select how often to reset queue stats. The following schedule will be "
-"followed for all but custom:"
-msgstr ""
-
-#: views/cron.php:107
+#: views/cron.php:113
 msgid "September"
 msgstr ""
 
-#: page.queues.php:1224
+#: page.queues.php:1263
 msgid "Service Level:"
 msgstr "Уровень сервиса:"
 
-#: queues.i18n.php:24
-msgid "Set Agent Name in CDR dstchannel"
-msgstr "Назначить имя оператора в поле dstchannel CDR"
-
-#: page.queues.php:1014
+#: page.queues.php:1050
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
 msgstr ""
 "Нужно ли включать в сообщения ожидаемое время в ожидании? Возможные варианты "
-"- Да, Нет, Один раз. Время в ожидании не объявляется, если оно меньше 1 "
-"минуты."
+"- Да, Нет, Только раз. Время в ожидании не объявляется, если оно меньше 1 "
+"минуты"
 
-#: page.queues.php:515
+#: page.queues.php:509
 msgid "Skip Busy Agents:"
-msgstr "Пропускать занятых операторов"
+msgstr "Пропускать занятых операторов:"
 
-#: page.queues.php:508
+#: page.queues.php:502
 msgid ""
 "Starting with Asterisk 1.4, if this is checked, and multiple agents are "
 "available, Asterisk will send one call to each waiting agent (depending on "
@@ -1310,11 +1294,11 @@ msgstr ""
 "1.2, поэтому задействовать эту возможность не удастся, если у вас 1.2. "
 "Смотрите документацию для более детального понимания этой опции."
 
-#: page.queues.php:383
+#: page.queues.php:377
 msgid "Static Agents"
 msgstr "Статичные агенты"
 
-#: page.queues.php:383
+#: page.queues.php:377
 msgid ""
 "Static agents are extensions that are assumed to always be on the queue.  "
 "Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
@@ -1347,33 +1331,33 @@ msgstr ""
 "переводами соединений на голосовую почту и другие подобные вещи. (Канал "
 "Agent уже устарел в Asterisk 1.4 и отсутствует в 1.6 и выше)"
 
-#: page.queues.php:684 page.queues.php:890 page.queues.php:908
-#: page.queues.php:929 page.queues.php:947
+#: page.queues.php:720 page.queues.php:926 page.queues.php:944
+#: page.queues.php:965 page.queues.php:983
 msgid "Strict"
 msgstr "Ограничено"
 
-#: page.queues.php:1262
+#: page.queues.php:1301
 msgid "Submit Changes"
 msgstr "Применить изменения"
 
-#: views/cron.php:74
+#: views/cron.php:80
 msgid "Sunday"
 msgstr ""
 
-#: page.queues.php:1305
+#: page.queues.php:1344
 msgid "The Queue Name provided is too long."
 msgstr ""
 
-#: page.queues.php:648
+#: page.queues.php:684
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr ""
 "Время в секундах, в течение которого дозвонившийся будет находится в "
 "очереди, прежде чем ему будет предложено перезвонить позднее. (0 - "
-"неограничено)"
+"неограничено)."
 
-#: page.queues.php:694
+#: page.queues.php:730
 msgid ""
 "The number of seconds an agent's phone can ring before we consider it a "
 "timeout. Unlimited or other timeout values may still be limited by system "
@@ -1385,7 +1369,7 @@ msgstr ""
 "значениями времени вызова по умолчанию, или индивидуальными для "
 "пользователей."
 
-#: page.queues.php:722
+#: page.queues.php:758
 msgid ""
 "The number of seconds we wait before trying all the phones again. Choosing "
 "\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
@@ -1397,7 +1381,7 @@ msgstr ""
 "очереди по назначению при неответе. Звонок перенаправится туда после тайм-"
 "аута у первого оператора, переход на второго оператора не произойдёт."
 
-#: page.queues.php:291
+#: page.queues.php:283
 msgid ""
 "The password is only used when logging in with the legacy queueno* code. "
 "When using the toggle codes, you must use the Restrict Dynamic Agents option "
@@ -1408,7 +1392,7 @@ msgstr ""
 "Динамических Операторов' совместно со списком Динамических операторов для "
 "ограничения доступа в очередь."
 
-#: page.queues.php:863
+#: page.queues.php:899
 msgid ""
 "This setting will delay the auto pause of an agent by auto pause delay "
 "seconds from when it last took a call. For example, if this were set to 120 "
@@ -1419,28 +1403,28 @@ msgid ""
 "no affect."
 msgstr ""
 
-#: views/cron.php:78
+#: views/cron.php:84
 msgid "Thursday"
 msgstr ""
 
-#: page.queues.php:645
+#: page.queues.php:681
 msgid "Timing & Agent Options"
 msgstr "Параметры времени и операторов"
 
-#: views/cron.php:76
+#: views/cron.php:82
 msgid "Tuesday"
 msgstr ""
 
-#: page.queues.php:892 page.queues.php:910 page.queues.php:931
-#: page.queues.php:949
+#: page.queues.php:928 page.queues.php:946 page.queues.php:967
+#: page.queues.php:985
 msgid "Ultra Strict"
 msgstr "Строго ограниченный"
 
-#: page.queues.php:655 page.queues.php:699
+#: page.queues.php:691 page.queues.php:735
 msgid "Unlimited"
 msgstr "Неограничено"
 
-#: queues.i18n.php:28
+#: queues.i18n.php:18
 msgid "Use MixMonitor for Recordings"
 msgstr "Использовать MixMonitor для записи разговоров"
 
@@ -1448,7 +1432,7 @@ msgstr "Использовать MixMonitor для записи разговор
 msgid "Use State"
 msgstr ""
 
-#: page.queues.php:277
+#: page.queues.php:269
 msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
 "to put them into the queue.<br><br>Agents will dial this queue number plus * "
@@ -1462,7 +1446,7 @@ msgstr ""
 "же номер и '**' чтобы отключиться.<br><br>Например, если номер очереди 123:"
 "<br><b>123* = подключиться <br>123** = отключиться</b>"
 
-#: page.queues.php:1224
+#: page.queues.php:1263
 msgid ""
 "Used for service level statistics (calls answered within service level time "
 "frame)"
@@ -1470,28 +1454,28 @@ msgstr ""
 "Используется для обработки статистики вызовов (отвеченные в течение "
 "гарантированного времени вызовы)"
 
-#: page.queues.php:1285
+#: page.queues.php:1324
 msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
 msgstr ""
-"Использование филтров регулярныых выражений горячо приветствуется, но "
-"подвердите, что понимаете то, что вы делаете, или оставьте это поле пустым."
+"Использование фильтров регулярных выражений горячо приветствуется, но "
+"подтвердите, что понимаете то, что вы делаете, или оставьте это поле пустым"
 
 #: install.php:343 install.php:352
 #, php-format
 msgid "WARNING FAILED %s"
 msgstr "ВНИМАНИЕ - неудалось %s"
 
-#: page.queues.php:363
+#: page.queues.php:357
 msgid "Wait Time Prefix:"
 msgstr "Префикс индикации времени ожидания:"
 
-#: page.queues.php:142
+#: page.queues.php:137
 msgid "Warning! Extension"
 msgstr "Внимание! Внутренний номер"
 
-#: functions.inc/queue_conf.php:208
+#: functions.inc/queue_conf.php:228
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1501,7 +1485,7 @@ msgstr ""
 "составная запись. В очереди такая запись будет урезана до первого "
 "звукогового файла. Вам надо устранить эту проблему.<br />Детали:<br /><br />"
 
-#: views/cron.php:77
+#: views/cron.php:83
 msgid "Wednesday"
 msgstr ""
 
@@ -1509,15 +1493,15 @@ msgstr ""
 msgid "Weekly"
 msgstr ""
 
-#: page.queues.php:596
+#: page.queues.php:590
 msgid "When No Free Agents"
 msgstr ""
 
-#: page.queues.php:597
+#: page.queues.php:591
 msgid "When No Ready Agents"
 msgstr ""
 
-#: page.queues.php:445
+#: page.queues.php:439
 msgid ""
 "When set to 'Call as Dialed' the queue will call an extension just as if the "
 "queue were another user. Any Follow-Me or Call Forward states active on the "
@@ -1538,8 +1522,8 @@ msgstr ""
 "вызов так, как будто бы это просто другой пользователь. Но тогда все "
 "установки Следуйте сюда и Перенаправление звонка актуальные для этого "
 "внутреннего номера будут уводить все вызовы из очереди согласно этим "
-"значениям. Это поведение является стандартным для последних версий FreePBX."
-"<br />Если установлено в значение 'Без функций Следуйте сюда или "
+"значениям. Это поведение является стандартным для последних версий FreePBX.<"
+"br />Если установлено в значение 'Без функций Следуйте сюда или "
 "Перенаправление' то все агенты (внутренние номера в системе) будут "
 "ограничены только внутренним номером. Установки Следуйте сюда и "
 "Перенаправление звонка будут игнорироваться. Другие же агенты будут "
@@ -1551,9 +1535,9 @@ msgstr ""
 "проверки на логические ошибки, если указан номер в качестве статического или "
 "динамического агента. Вызов из очереди будет просто блокироваться, если "
 "такое будет происходить. Для динамических агентов смотрите 'Фильтр "
-"регулярных выражений для операторов' для создания разрешительных шаблонов"
+"регулярных выражений для операторов' для создания разрешительных шаблонов."
 
-#: page.queues.php:515
+#: page.queues.php:509
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
 "the line were returning busy. This means that Call Waiting or multi-line "
@@ -1580,48 +1564,48 @@ msgstr ""
 "если их внутренний Caller IDу, что использование методов ожидания и приёма "
 "второго звонка у многоканальных телефонов затрудняет использование различных "
 "сценариев серийного поиска свободных операторов в стратегиях звонков когда "
-"выполняется попытка поиска свободного оператора.<br />Если установлено в Да "
-"+ () то для очереди применится опция 'звонки в обработке=нет', то есть "
+"выполняется попытка поиска свободного оператора.<br />Если установлено в Да +"
+" () то для очереди применится опция 'звонки в обработке=нет', то есть "
 "проверяется статус телефонов операторов очереди. Таким образом отслеживаются "
 "удалённые операторы очереди (например на мобильных или домашних телефонах, "
 "подключеных к городской телефонной сети, или с использованием опции Следуйте "
 "сюда) так же, как локальные операторы очереди, таким образом FreePBX не "
 "будет посылать удалённому оператору вызов из очереди, если обнаруживает "
-"текущее соединение. <br />Если установлено в значение Только звонки очереди "
-"(звонки в обработке=нет), то для очереди также применится опция 'звонки в "
+"текущее соединение. <br />Если установлено в значение Только звонки очереди ("
+"звонки в обработке=нет), то для очереди также применится опция 'звонки в "
 "обработке=нет', но статус телефонов операторов очереди не проверяется. Это "
 "поведение ограничивает возможности операторов, обслуживающих более, чем одну "
 "очередь по приёму только одного звонка. Если, например, оператор совершает "
 "исходящий звонок, то очередь предполагает, что оператор свободен, и всё "
-"равно направляет звонок ему, так как статус телефонов не мониторится.<br /"
-"><br />ВНИМАНИЕ: если установлено в Только звонки очереди (звонки в "
+"равно направляет звонок ему, так как статус телефонов не мониторится.<br /><"
+"br />ВНИМАНИЕ: если установлено в Только звонки очереди (звонки в "
 "обработке=нет) то чаще это даёт негативный эффект. Оператор, делающий "
 "перевод звонка например, будет оставаться недоступным для всех вызовов "
 "очереди до тех пор, пока входящий вызов будет завершён, потому что он "
 "выглядит для очереди действующим КРОМЕ случая, когда значение Ограничения "
-"агентов установлено в 'Только внутренние номера'"
+"агентов установлено в 'Только внутренние номера'."
 
-#: page.queues.php:1190
+#: page.queues.php:1226
 msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
 msgstr "Если установлено, будут генерироваться события AMI 'QueueMemberStatus'"
 
-#: page.queues.php:831
+#: page.queues.php:867
 msgid ""
 "When set to Yes agents devices that report busy upon a call attempt will be "
 "considered as a missed call and auto paused immediately or after the auto "
 "pause delay if configured"
 msgstr ""
 
-#: page.queues.php:846
+#: page.queues.php:882
 msgid ""
 "When set to Yes agents devices that report congestion upon a call attempt "
 "will be considered as a missed call and auto paused immediately or after the "
 "auto pause delay if configured"
 msgstr ""
 
-#: page.queues.php:363
+#: page.queues.php:357
 msgid ""
 "When set to Yes, the CID Name will be prefixed with the total wait time in "
 "the queue so the answering agent is aware how long they have waited. It will "
@@ -1633,7 +1617,7 @@ msgstr ""
 "предупрежден заранее - как долго ожидал абонент. Сумма округляется до целых "
 "минут в форме Mnn: где nn - количество минут."
 
-#: page.queues.php:1158
+#: page.queues.php:1189
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
@@ -1642,48 +1626,48 @@ msgstr ""
 "генерироваться следующие события: AgentCalled, AgentDump, AgentConnect and "
 "AgentComplete."
 
-#: page.queues.php:1037
+#: page.queues.php:1073
 msgid ""
 "Whether this queue uses an IVR Break Out Menu or a Queue Callback.  Queue "
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
 msgstr ""
 
-#: page.queues.php:737
+#: page.queues.php:773
 msgid "Wrap-Up-Time:"
 msgstr "Передышка:"
 
-#: page.queues.php:368 page.queues.php:440 page.queues.php:521
-#: page.queues.php:630 page.queues.php:714 page.queues.php:804
-#: page.queues.php:836 page.queues.php:851 page.queues.php:889
-#: page.queues.php:907 page.queues.php:928 page.queues.php:946
-#: page.queues.php:1006 page.queues.php:1019
+#: page.queues.php:362 page.queues.php:434 page.queues.php:515
+#: page.queues.php:750 page.queues.php:840 page.queues.php:872
+#: page.queues.php:887 page.queues.php:925 page.queues.php:943
+#: page.queues.php:964 page.queues.php:982 page.queues.php:1042
+#: page.queues.php:1055
 msgid "Yes"
 msgstr "Да"
 
-#: page.queues.php:522
+#: page.queues.php:516
 msgid "Yes + (ringinuse=no)"
 msgstr "Да + (ringinuse=no)"
 
-#: page.queues.php:819
+#: page.queues.php:855
 msgid "Yes in all queues"
 msgstr ""
 
-#: page.queues.php:819
+#: page.queues.php:855
 msgid "Yes in this queue only"
 msgstr ""
 
-#: page.queues.php:358
+#: page.queues.php:352
 msgid ""
 "You can optionally prefix the CallerID name of callers to the queue. ie: If "
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
 "Вы можете установить префикс в CID имени звонка в очереди. Если Вы "
-"установили префикс: 'Продажи', то вызов от абонента 'Иван Сидоров' будет "
-"отображен как 'Продажи: Иван Сидоров'"
+"установили префикс: 'Продажи:', то вызов от абонента 'Иван Сидоров' будет "
+"отображен как 'Продажи: Иван Сидоров'."
 
-#: page.queues.php:1056
+#: page.queues.php:1092
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
 "<br><br>This IVR must only contain single-digit 'dialed options'. The "
@@ -1695,7 +1679,7 @@ msgstr ""
 "1, 2. Параметры воспроизведения этого меню устанавливаются в пункте Частота "
 "повторений ниже."
 
-#: page.queues.php:291
+#: page.queues.php:283
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
@@ -1770,11 +1754,11 @@ msgstr "проверка поля use_queue_context.."
 msgid "day"
 msgstr "день"
 
-#: page.queues.php:563
+#: page.queues.php:557
 msgid "default"
 msgstr "по умолчанию"
 
-#: page.queues.php:193
+#: page.queues.php:188
 msgid "deleted"
 msgstr "удалено"
 
@@ -1791,9 +1775,13 @@ msgstr "сброс значения поля joinannounce.."
 msgid "fatal error"
 msgstr "неустранимая ошибка"
 
-#: page.queues.php:473
+#: page.queues.php:467
 msgid "fewestcalls"
 msgstr "менее-организованному"
+
+#: page.queues.php:615
+msgid "gsm"
+msgstr "GSM"
 
 #: functions.inc.php:32
 msgid "hour"
@@ -1803,19 +1791,19 @@ msgstr "час"
 msgid "hours"
 msgstr "часы"
 
-#: page.queues.php:561
+#: page.queues.php:555
 msgid "inherit"
 msgstr "унаследованный"
 
-#: page.queues.php:142
+#: page.queues.php:137
 msgid "is not allowed for your account."
 msgstr "не разрешен к использованию в вашем аккаунте."
 
-#: page.queues.php:472
+#: page.queues.php:466
 msgid "leastrecent"
 msgstr "самому-незанятому"
 
-#: page.queues.php:480
+#: page.queues.php:474
 msgid "linear"
 msgstr "линейное"
 
@@ -1852,7 +1840,7 @@ msgstr "отсутствует поле agentannounce??"
 msgid "no joinannounce field???"
 msgstr "отсутствует поле joinannounce??"
 
-#: page.queues.php:562
+#: page.queues.php:556
 msgid "none"
 msgstr "нет"
 
@@ -1860,71 +1848,71 @@ msgstr "нет"
 msgid "ok"
 msgstr "ok"
 
-#: page.queues.php:474
+#: page.queues.php:468
 msgid "random"
 msgstr "случайный-выбор"
 
-#: page.queues.php:481
+#: page.queues.php:475
 msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
 "случайный выбор использует занятость агентов как вес в качестве приоритета "
-"выбора, см. документацию Астериск для более детальной информации."
+"выбора, см. документацию Астериск для более детальной информации"
 
 #: install.php:348
 msgid "removing queues data extensions table.."
 msgstr "удаляется данные таблицы очереди внутренних номеров.."
 
-#: page.queues.php:472
+#: page.queues.php:466
 msgid "ring agent which was least recently called by this queue"
 msgstr "звонок поступает наименее занятому оператору в этой очереди"
 
-#: page.queues.php:464
+#: page.queues.php:458
 msgid "ring all available agents until one answers (default)"
 msgstr ""
 "звонят сразу все телефоны у всех операторов, пока кто либо один не ответит "
 "(по умолчанию)"
 
-#: page.queues.php:474
+#: page.queues.php:468
 msgid "ring random agent"
 msgstr "звонок поступает любому оператору случайным образом"
 
-#: page.queues.php:473
+#: page.queues.php:467
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr "звонок поступает оператору с наименьшим числом законченых разговоров"
 
-#: page.queues.php:464
+#: page.queues.php:458
 msgid "ringall"
 msgstr "звонят-все"
 
-#: page.queues.php:480
+#: page.queues.php:474
 msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
 msgstr ""
 "звонок поступает агентам в том порядке, в котором они перечислены. Для "
-"динамических агентов - в том порядке, в котором они регистрировались."
+"динамических агентов - в том порядке, в котором они регистрировались"
 
-#: page.queues.php:475
+#: page.queues.php:469
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr ""
 "звонок поступает любому доступному оператору, но с учётом того, кто отвечал "
-"на последний звонок."
+"на последний звонок"
 
-#: page.queues.php:468
+#: page.queues.php:462
 msgid "roundrobin"
-msgstr "roundrobin"
+msgstr "круговой"
 
-#: page.queues.php:475
+#: page.queues.php:469
 msgid "rrmemory"
-msgstr "rrmemory"
+msgstr "RRMEMORY"
 
-#: page.queues.php:476
+#: page.queues.php:470
 msgid "rrordered"
-msgstr "rrordered"
+msgstr "RRORDERED"
 
-#: page.queues.php:476
+#: page.queues.php:470
 msgid ""
 "same as rrmemory, except the queue member order from config file is preserved"
 msgstr "такой же порядок, как и rrmemory, но сохранен порядок из конфигурации"
@@ -1933,85 +1921,27 @@ msgstr "такой же порядок, как и rrmemory, но сохране�
 msgid "second"
 msgstr "секунд"
 
-#: functions.inc.php:17 functions.inc.php:34 page.queues.php:657
-#: page.queues.php:660 page.queues.php:729 page.queues.php:743
-#: page.queues.php:760
+#: functions.inc.php:17 functions.inc.php:34 page.queues.php:693
+#: page.queues.php:696 page.queues.php:765 page.queues.php:779
+#: page.queues.php:796
 msgid "seconds"
 msgstr "секунды"
 
-#: page.queues.php:468
+#: page.queues.php:462
 msgid "take turns ringing each available agent"
 msgstr "звонок поступает любому доступному оператору"
 
-#: page.queues.php:481
+#: page.queues.php:614
+msgid "wav"
+msgstr "WAV"
+
+#: page.queues.php:613
+msgid "wav49"
+msgstr "WAV49"
+
+#: page.queues.php:475
 msgid "wrandom"
 msgstr "случайный-выбор"
-
-#~ msgid "Adjust the recording volume of the caller."
-#~ msgstr "Подстройка громкости записи."
-
-#~ msgid "Adjust the recording volume of the queue member (Agent)."
-#~ msgstr "Подстройка громкости записи оператора:"
-
-#~ msgid "After Answered"
-#~ msgstr "После ответа оператора"
-
-#~ msgid "Agent Volume Adjustment:"
-#~ msgstr "Подстройка громкости оператора:"
-
-#~ msgid ""
-#~ "Announcement played to the Queue Memeber announcing the Queue call and "
-#~ "requesting confirmation prior to answering. If set to default, the "
-#~ "standard call confirmation default message will be played unless the "
-#~ "member is reached through a Follow-Me and there is an alternate message "
-#~ "provided in the Follow-Me. This message will override any other message "
-#~ "specified..<br><br>To add additional recordings please use the \"System "
-#~ "Recordings\" MENU."
-#~ msgstr ""
-#~ "Сообщение будет воспроизведено оператору очереди для оповещении о "
-#~ "поступлении звонка и будет запрошено подтверждение приема перед ответом. "
-#~ "По умолчанию воспроизводится стандартное сообщение подтверждения (если "
-#~ "оператор доступен не через сервис Follow-Me) или альтернативное "
-#~ "сообщение, если оператор доступен через Follow-Me. Установленное здесь "
-#~ "сообщение переопределяет все остальные. Для добавления сообщений "
-#~ "используйте раздел 'Системные Сообщения'."
-
-#~ msgid "Caller Volume Adjustment:"
-#~ msgstr "Подстройка громкости входяшего:"
-
-#~ msgid ""
-#~ "Choose to 'Include Hold Time' in the recording so it starts as soon as "
-#~ "they enter the queue, or to defer recording until 'After Answered' and "
-#~ "the call is bridged with a queue member."
-#~ msgstr ""
-#~ "Выберите 'Включая время ожидания' в записи для того, что бы разговор "
-#~ "записывался с момента попадания в очередь, или 'После ответа оператора' "
-#~ "для записи разговора, после ответа оператора очереди."
-
-#~ msgid "Include Hold Time"
-#~ msgstr "Время время ожидания"
-
-#~ msgid ""
-#~ "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
-#~ "monitor)"
-#~ msgstr ""
-#~ "Входящие разговоры для всех операторов можно записывать (сохраняются в /"
-#~ "var/spool/asterisk/monitor)"
-
-#~ msgid "No Adjustment"
-#~ msgstr "Нет подстройки"
-
-#~ msgid "Recording Mode:"
-#~ msgstr "Режим записи разговоров: "
-
-#~ msgid "gsm"
-#~ msgstr "gsm"
-
-#~ msgid "wav"
-#~ msgstr "wav"
-
-#~ msgid "wav49"
-#~ msgstr "wav49"
 
 #~ msgid ""
 #~ "Music (or Commercial) played to the caller while they wait in line for an "
@@ -2064,6 +1994,17 @@ msgstr "случайный-выбор"
 
 #~ msgid "Member Status Event:"
 #~ msgstr "События об изменениях состояния операторов:"
+
+#~ msgid "Set Agent Name in CDR dstchannel"
+#~ msgstr "Назначить имя оператора в поле dstchannel CDR"
+
+#~ msgid ""
+#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
+#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
+#~ "field of a call with an agent name, which is set if available at the "
+#~ "login time with AddQueueMember membername parameter, or with static "
+#~ "members."
+#~ msgstr "Queues: updatecdr"
 
 #~ msgid "Asterisk Queues Patch 15168 Installed"
 #~ msgstr "Установлено исправление 15168 для модуля Очереди"
