@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 21:13-0400\n"
+"POT-Creation-Date: 2015-05-04 14:26+0000\n"
 "PO-Revision-Date: 2015-02-19 09:37+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -91,7 +91,7 @@ msgstr "エージェントアナウンスメッセージ"
 msgid "Agent Announcement:"
 msgstr "エージェントアナウンス："
 
-#: queues.i18n.php:36
+#: queues.i18n.php:32
 msgid "Agent Called Events Default"
 msgstr "標準エージェント・イベントコール"
 
@@ -424,7 +424,7 @@ msgstr "12月"
 msgid "Default"
 msgstr "デフォルト"
 
-#: queues.i18n.php:38
+#: queues.i18n.php:34
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -433,7 +433,7 @@ msgstr ""
 "エージェントの呼に関連するAMI emit eventのデフォルト。この設定は、新規キュー"
 "のデフォルトのみを変更し、既存のキューの設定は変更しません。"
 
-#: queues.i18n.php:46
+#: queues.i18n.php:42
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -606,7 +606,7 @@ msgstr "一般キューオプション"
 msgid "Generate Device Hints:"
 msgstr "デバイスヒントを生成する："
 
-#: queues.i18n.php:40
+#: queues.i18n.php:36
 msgid "Generate queuenum*/** Login/off Codes"
 msgstr "queuenum*/** Login/offのコードを生成する"
 
@@ -623,7 +623,7 @@ msgstr ""
 "ているコールが運ばれることを保証するために、キューに'ウェイト'オプションを提"
 "供します。"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:28
 msgid "Hide Queue No Answer Option"
 msgstr "キューを隠し応答しないオプション"
 
@@ -819,7 +819,7 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
-#: queues.i18n.php:34
+#: queues.i18n.php:30
 msgid ""
 "It is possible for a queue to NOT Answer a call and still enter callers to "
 "the queue. The normal behavior is that all  allers are answered before "
@@ -902,7 +902,7 @@ msgstr "メンバーディレイ："
 msgid "Member Status Event"
 msgstr "メンバーステータスイベント"
 
-#: queues.i18n.php:44
+#: queues.i18n.php:40
 msgid "Memeber Status Event Default"
 msgstr "メンバーステータスイベントデフォルト"
 
@@ -1121,7 +1121,7 @@ msgstr "キューの重みづけ"
 msgid "Queue calls only (ringinuse=no)"
 msgstr "キューコールオンリー (使用中着信=no)"
 
-#: queues.i18n.php:42
+#: queues.i18n.php:38
 msgid ""
 "Queue login and out codes were historically queunum* and queunum**. These "
 "have been largely replaced by the *45 queue toggle codes. The legacy codes "
@@ -1167,7 +1167,7 @@ msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 "キューのモジュールが見つからない、または無効になっているため終了します！"
 
-#: queues.i18n.php:30
+#: queues.i18n.php:26
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -1197,19 +1197,6 @@ msgstr ""
 "キュー: shared_lastcall, Asterisk 1.6以降でのみ有効です。これにより最後のコー"
 "ルと受信したコールを１つ以上のキューにログインしたメンバー内で同じにします。"
 "これは、共有メンバーで他のキューのラップアップタイムを尊重するのに便利です。"
-
-#: queues.i18n.php:26
-msgid ""
-"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
-"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
-"with an agent name, which is set if available at the login time with "
-"AddQueueMember membername parameter, or with static members."
-msgstr ""
-"ｷｭｰ: updatecdr, Asterisk 1.6以降でのみ有効です。このオプションは、"
-"AddQueueMEnberのメンバー名パラメーターとともに、もしくは静的メンバーとともに"
-"ログイン時に利用可能ならセットされるエージェント名つきのコールのCDR "
-"dstchannelフィールドを移入するchan_agentsの挙動を真似するように実装されていま"
-"す。"
 
 #: views/cron.php:35
 msgid "Randomize"
@@ -1345,10 +1332,6 @@ msgstr "9月"
 #: page.queues.php:1224
 msgid "Service Level:"
 msgstr "サービスレベル："
-
-#: queues.i18n.php:24
-msgid "Set Agent Name in CDR dstchannel"
-msgstr "CDR dstchannelにエージェント名を設定"
 
 #: page.queues.php:1014
 msgid ""
@@ -1506,7 +1489,7 @@ msgstr "非常に厳密"
 msgid "Unlimited"
 msgstr "無制限"
 
-#: queues.i18n.php:28
+#: queues.i18n.php:24
 msgid "Use MixMonitor for Recordings"
 msgstr "録音にMixモニターを使用"
 
@@ -2007,6 +1990,22 @@ msgstr "利用可能な各エージェントを順番に着信させる"
 #: page.queues.php:481
 msgid "wrandom"
 msgstr "wrandom"
+
+#~ msgid ""
+#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
+#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
+#~ "field of a call with an agent name, which is set if available at the "
+#~ "login time with AddQueueMember membername parameter, or with static "
+#~ "members."
+#~ msgstr ""
+#~ "ｷｭｰ: updatecdr, Asterisk 1.6以降でのみ有効です。このオプションは、"
+#~ "AddQueueMEnberのメンバー名パラメーターとともに、もしくは静的メンバーととも"
+#~ "にログイン時に利用可能ならセットされるエージェント名つきのコールのCDR "
+#~ "dstchannelフィールドを移入するchan_agentsの挙動を真似するように実装されて"
+#~ "います。"
+
+#~ msgid "Set Agent Name in CDR dstchannel"
+#~ msgstr "CDR dstchannelにエージェント名を設定"
 
 #~ msgid "Adjust the recording volume of the caller."
 #~ msgstr "発信者側の録音音量を調節。"
