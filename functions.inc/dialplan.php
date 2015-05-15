@@ -85,6 +85,7 @@ function queues_get_config($engine) {
 			$from_queue_exten_internal = 'from-queue-exten-internal';
 
 			$qmembers = array();
+			$hint_hash = array();
 			foreach($qlist as $item) {
 				$exten = $item[0];
 				$q = queues_get($exten);
@@ -340,15 +341,30 @@ function queues_get_config($engine) {
 					} else {
 						fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 					}
+					$exten_str_len = strlen($exten);
+					$exten_str_tmp = str_repeat('X', $exten_str_len);
+					$que_code_len = strlen($que_code);
 					foreach ($device_list as $device) {
 						if (
 							(!$dynmemberonly || $device['devicetype'] == 'adhoc' || isset($mem[$device['user']]))
-							&& ($device['tech'] == 'sip' || $device['tech'] == 'iax2')
+							&& ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip')
 							) {
-							$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUENO',$exten));
-							$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUEUSER',$device['id']));
-							$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_goto('start','s','app-queue-toggle'));
-							$ext->addHint($c, $que_code.$device['id'].'*'.$exten, "Custom:QUEUE".$device['id'].'*'.$exten);
+								$dev_len = strlen($device['id']);
+								$dev_len_tmp = str_repeat('X', $dev_len);
+								$exten_pat = '_'.$que_code.$dev_len_tmp.'*'.$exten_str_tmp;
+								if (!in_array($exten_pat, $hint_hash)) {
+									$hint_hash[] = $exten_pat;
+									$ext->add($c, $exten_pat, '', new ext_setvar('QUEUENO','${EXTEN:'.($que_code_len+$dev_len+1).":$exten_str_len}"));
+									$ext->add($c, $exten_pat, '', new ext_setvar('QUEUEUSER','${EXTEN:'."$que_code_len:$dev_len".'}'));
+									$ext->add($c, $exten_pat, '', new ext_goto('start','s','app-queue-toggle'));
+									$ext->addHint($c, $exten_pat, "Custom:QUEUE".'${EXTEN:'."$que_code_len}");
+									/*
+									$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUENO',$exten));
+									$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUEUSER',$device['id']));
+									$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_goto('start','s','app-queue-toggle'));
+									$ext->addHint($c, $que_code.$device['id'].'*'.$exten, "Custom:QUEUE".$device['id'].'*'.$exten);
+									 */
+							}
 						}
 					}
 				}
@@ -411,9 +427,21 @@ function queues_get_config($engine) {
 				if ($amp_conf['DYNAMICHINTS']) {
 					$ext->addExec($c,$amp_conf['AMPBIN'].'/generate_queue_hints.php '.$que_code);
 				} else {
+					$que_code_len = strlen($que_code);
 					foreach ($device_list as $device) {
-						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
-							$ext->add($c, $que_code . '*' . $device['id'], '', new ext_goto('start','s','app-all-queue-toggle'));
+						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip') {
+
+							$dev_len = strlen($device['id']);
+							$dev_len_tmp = str_repeat('X', $dev_len);
+							$exten_pat = "_$que_code*$dev_len_tmp";
+							if (!in_array($exten_pat, $hint_hash)) {
+								$hint_hash[] = $exten_pat;
+								$ext->add($c, $exten_pat, '', new ext_goto('start','s','app-all-queue-toggle'));
+							}
+							//$ext->add($c, $que_code . '*' . $device['id'], '', new ext_goto('start','s','app-all-queue-toggle'));
+
+							// TODO: to make this a pattern we'll have to store the state info in AstDB since each device can be different
+							//
 							if ($device['user'] != '' &&  isset($qc[$device['user']])) {
 								$hlist = 'Custom:QUEUE' . $device['id'] . '*' . implode('&Custom:QUEUE' . $device['id'] . '*', $qc[$device['user']]);
 								$ext->addHint($c, $que_code . '*' . $device['id'], $hlist);
@@ -443,22 +471,59 @@ function queues_get_config($engine) {
 				//
 				$ext->add($c, '_' . $que_pause_code . '*X.', '', new ext_goto('1','s','app-all-queue-pause-toggle'));
 
+				// TODO: There's a bug here $q_pause_Local isn't initialized and shoudl be something.
+				//       Currently this can't be made into a pattern since it's the $device['user']] but the hint has the device
+				//
+				$q_pause_len = strlen($que_pause_code);
 				foreach ($device_list as $device) {
 					if ($device['user'] != '') {
 						$pause_all_hints = array();
 						if (isset($qc[$device['user']])) foreach($qc[$device['user']] as $q) {
-							$ext->add($c, $que_pause_code . '*' . $device['id'] . '*' . $q, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$device['id']));
-							if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+							if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+
+								// Do the real hints for below
+								//
 								if ($ast_ge_12) {
-									$hint = "Queue:$q_pause_Local/{$device['user']}@from-queue/n";
+									$hint = "Queue:{$q}_pause_Local/{$device['user']}@from-queue/n";
 								} else {
 									$hint = "qpause:$q:Local/{$device['user']}@from-queue/n";
 								}
-								$ext->addHint($c, $que_pause_code . '*' . $device['id'] . '*' . $q, $hint);
 								$pause_all_hints[] = $hint;
+
+								$dev_len = strlen($device['id']);
+								$dev_len_tmp = str_repeat('X', $dev_len);
+								$exten_pat = "_$que_pause_code*$dev_len_tmp*$q";
+								if (!in_array($exten_pat, $hint_hash)) {
+									$hint_hash[] = $exten_pat;
+
+									/*
+									exten => *46*1999*90000,1,Gosub(app-queue-pause-toggle,s,1(90000,1999))
+									exten => *46*1999*90000,hint,Queue:90000_pause_Local/1999@from-queue/n
+									${DB(DEVICE/${EXTEN:4:4}/user)}
+									 */
+									$q_tmp = '${EXTEN:' . ($q_pause_len+$dev_len+2) . '}';
+									$d_tmp = '${DB(DEVICE/${EXTEN:' . ($q_pause_len+1) . ":$dev_len}/user)}";
+
+									if ($ast_ge_12) {
+										$hint = "Queue:{$q_tmp}_pause_Local/{$d_tmp}@from-queue/n";
+									} else {
+										$hint = "qpause:$q_tmp:Local/{$d_tmp}@from-queue/n";
+									}
+									$ext->add($c, $exten_pat, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$device['id']));
+									$ext->addHint($c, $exten_pat, $hint);
+								}
+							} else {
+								$ext->add($c, $que_pause_code . '*' . $device['id'] . '*' . $q, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$device['id']));
 							}
 						}
-						$ext->add($c, $que_pause_code . '*' . $device['id'], '', new ext_goto('1','s','app-all-queue-pause-toggle'));
+						$dev_len = strlen($device['id']);
+						$dev_len_tmp = str_repeat('X', $dev_len);
+						$exten_pat = "_$que_pause_code*$dev_len_tmp";
+						if (!in_array($exten_pat, $hint_hash)) {
+							$hint_hash[] = $exten_pat;
+							$ext->add($c, $exten_pat, '', new ext_goto('1','s','app-all-queue-pause-toggle'));
+						}
+						//$ext->add($c, $que_pause_code . '*' . $device['id'], '', new ext_goto('1','s','app-all-queue-pause-toggle'));
 						if (!empty($pause_all_hints)) {
 							$ext->addHint($c, $que_pause_code . '*' . $device['id'], implode('&', $pause_all_hints));
 						}
@@ -522,22 +587,59 @@ function queues_get_config($engine) {
 							if (isset($qc[$device['user']]) && in_array($item[0], $qc[$device['user']], true)) {
 								$callers_all[] = $item[0];
 
-								$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_gosub('1', 's', 'app-queue-caller-count', $item[0]));
-								$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_hangup());
+								// TODO: do we pair this down too?
+								//
+								//$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_gosub('1', 's', 'app-queue-caller-count', $item[0]));
+								//$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_hangup());
 
-								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+								/*
+								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
 									$hint = "Queue:$item[0]";
 									$ext->addHint($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], $hint);
 									$callers_all_hints[] = $hint;
+								}
+								 */
+								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+									$hint = "Queue:$item[0]";
+									$callers_all_hints[] = $hint;
+
+									$qcode_len = strlen($que_callers_code); // this should be pulled out
+									$device_len = strlen($device['id']);
+									$device_tmp = str_repeat('X', $device_len);
+									$item_len = strlen($item[0]);
+									$item_tmp = str_repeat('X', $item_len);
+
+									$exten_pat = "_$que_callers_code*$device_tmp*$item_tmp";
+									if (!in_array($exten_pat, $hint_hash)) {
+										$hint_hash[] = $exten_pat;
+										$ext->add($c, $exten_pat, '', new ext_gosub('1', 's', 'app-queue-caller-count', '${EXTEN:' .($qcode_len+$device_len+3). '}'));
+										$ext->add($c, $exten_pat, '', new ext_hangup());
+										$ext->addHint($c, $exten_pat, 'Queue:${EXTEN:' . ($qcode_len+$device_len+2) .'}');
+										//$ext->addHint($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], $hint);
+									}
 								}
 							}
 						}
 
 						if (!empty($callers_all_hints)) {
+
+							$qcode_len = strlen($que_callers_code); // this should be pulled out
+							$device_len = strlen($device['id']);
+							$device_tmp = str_repeat('X', $device_len);
+							$exten_pat = "_$que_callers_code*$device_tmp";
+							$exten_pat = "_$que_callers_code*$device_tmp*$item_tmp";
+							if (!in_array($exten_pat, $hint_hash)) {
+								$hint_hash[] = $exten_pat;
+								$ext->add($c, $exten_pat, '', new ext_gosub('1', 's', 'app-queue-caller-count', implode('&', $callers_all)));
+								$ext->add($c, $exten_pat, '', new ext_hangup());
+								$ext->addHint($c, $exten_pat, implode('&', $callers_all_hints));
+							}
+
+							/*
 							$ext->add($c, $que_callers_code . '*' . $device['id'], '', new ext_gosub('1', 's', 'app-queue-caller-count', implode('&', $callers_all)));
 							$ext->add($c, $que_callers_code . '*' . $device['id'], '', new ext_hangup());
-
 							$ext->addHint($c, $que_callers_code . '*' . $device['id'], implode('&', $callers_all_hints));
+							 */
 						}
 					}
 				}
