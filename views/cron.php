@@ -1,6 +1,7 @@
 <?php
 //Default to disabled:
 $cron_schedule = $cron_schedule?$cron_schedule:'never';
+$disablecron = isset($disablecron)?$disablecron:'';
 ?>
 <script type="text/javascript" src="modules/queues/assets/js/jquery-cron.js"></script>
 <!--Disable CRON-->
@@ -227,4 +228,3 @@ $("#cron_schedule_select").change(function(){
 });
 
 </script>
-

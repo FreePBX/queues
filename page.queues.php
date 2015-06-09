@@ -7,7 +7,8 @@ $dispnum = 'queues';
 $heading = _("Queues");
 //get unique queues
 $queues = queues_list();
-switch($request["view"]){
+$view = isset($request['view'])?$request["view"]:'';
+switch($view){
 	case "form":
 		if($request['extdisplay']){
 			$heading .= _(" Edit: ");
@@ -37,7 +38,7 @@ switch($request["view"]){
 			</div>
 			<div class="col-sm-3 hidden-xs bootnav <?php echo $fw_popover?'hidden':''?>">
 				<div class="list-group">
-					<?php echo load_view(__DIR__.'/views/bootnav.php', array('request' => $request));?>
+					<?php echo load_view(__DIR__.'/views/bootnav.php', array('request' => $request, 'view' => $view));?>
 				</div>
 			</div>
 		</div>

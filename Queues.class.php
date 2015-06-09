@@ -200,8 +200,9 @@ class Queues implements \BMO {
 		if (empty($request['extdisplay'])) {
 			unset($buttons['delete']);
 		}
-		if($request['view'] != 'form'){
-			unset($buttons);
+		$view = isset($request['view'] )?$request['view']:'';
+		if($view != 'form'){
+			$buttons = array();
 		}
 		return $buttons;
 	}
@@ -237,6 +238,8 @@ class Queues implements \BMO {
 				}
 			}
 		}
+		$hookTabs = '';
+		$hookcontent = '';
 		foreach ($sections as $data) {
 			$hookTabs .= '<li role="presentation"><a href="#queuehook'.$data['rawname'].'" aria-controls="queuehook'.$data['rawname'].'" role="tab" data-toggle="tab">'.$data['title'].'</a></li>';
 			$hookcontent .= '<div role="tabpanel" class="tab-pane display" id="queuehook'.$data['rawname'].'">';
