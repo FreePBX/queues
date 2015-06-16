@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.1alpha5</version>
+	<version>13.0.1alpha6</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*13.0.1alpha6* FREEPBX-9467 Update search hooks			
 		*13.0.1alpha5* FREEPBX-9434 Error page on queue edit / create
 		*13.0.1alpha4* Add dynamic tab hooking to support BMO hooks and maintain backwards compatibility
 		*13.0.1alpha3* Resolves FREEPBX-8610 and fixes the config aspect of FREEPBX-8216 that was overlooked. 

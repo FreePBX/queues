@@ -175,6 +175,26 @@ class Queues implements \BMO {
 			}
 	}
 
+	public function search($query, &$results) {
+		if(!ctype_digit($query)) {
+			$sql = "SELECT * FROM queues_config WHERE descr LIKE ?";
+			$sth = $this->db->prepare($sql);
+			$sth->execute(array("%".$query."%"));
+			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			foreach($rows as $row) {
+				$results[] = array("text" => _("Queue")." ".$row['extension'], "type" => "get", "dest" => "?display=queues&view=form&extdisplay=".$row['extension']);
+			}
+		} else {
+			$sql = "SELECT * FROM queues_config WHERE extension LIKE ?";
+			$sth = $this->db->prepare($sql);
+			$sth->execute(array("%".$query."%"));
+			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			foreach($rows as $row) {
+				$results[] = array("text" => $row['descr'] . " (".$row['extension'].")", "type" => "get", "dest" => "?display=queues&view=form&extdisplay=".$row['extension']);
+			}
+		}
+	}
+
 	public function getActionBar($request){
 		switch($request['display']){
 			case 'queues':
