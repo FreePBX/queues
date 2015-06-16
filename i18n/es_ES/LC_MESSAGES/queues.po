@@ -671,7 +671,7 @@ msgid ""
 "leave this blank!"
 msgstr ""
 
-#: Queues.class.php:185 views/qgrid.php:12
+#: Queues.class.php:193 views/qgrid.php:12
 msgid "Queue"
 msgstr ""
 

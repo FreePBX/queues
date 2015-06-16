@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 21:10-0400\n"
+"POT-Creation-Date: 2015-06-15 21:26-0400\n"
 "PO-Revision-Date: 2015-02-19 09:37+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -825,7 +825,7 @@ msgstr ""
 "号でも許可されますが、*キーを制限します。<br />警告: 自分が使用としていること"
 "を理解しているかを確認し、さもなくば空白のままにしておいてください!"
 
-#: Queues.class.php:185 views/qgrid.php:12
+#: Queues.class.php:193 views/qgrid.php:12
 msgid "Queue"
 msgstr "キュー"
 
