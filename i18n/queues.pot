@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-09 15:18-0400\n"
+"POT-Creation-Date: 2015-06-15 21:10-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -281,7 +281,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: Queues.class.php:185
+#: Queues.class.php:205
 msgid "Delete"
 msgstr ""
 
@@ -730,6 +730,7 @@ msgid ""
 "leave this blank!"
 msgstr ""
 
+#: Queues.class.php:185
 #: views/qgrid.php:12
 msgid "Queue"
 msgstr ""
@@ -834,7 +835,7 @@ msgstr ""
 msgid "Report Hold Time"
 msgstr ""
 
-#: Queues.class.php:195
+#: Queues.class.php:215
 msgid "Reset"
 msgstr ""
 
@@ -958,7 +959,7 @@ msgstr ""
 msgid "Strict"
 msgstr ""
 
-#: Queues.class.php:190
+#: Queues.class.php:210
 msgid "Submit"
 msgstr ""
 

@@ -262,7 +262,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: Queues.class.php:185
+#: Queues.class.php:205
 msgid "Delete"
 msgstr ""
 
@@ -671,7 +671,7 @@ msgid ""
 "leave this blank!"
 msgstr ""
 
-#: views/qgrid.php:12
+#: Queues.class.php:185 views/qgrid.php:12
 msgid "Queue"
 msgstr ""
 
@@ -774,7 +774,7 @@ msgstr ""
 msgid "Report Hold Time"
 msgstr ""
 
-#: Queues.class.php:195
+#: Queues.class.php:215
 msgid "Reset"
 msgstr ""
 
@@ -895,7 +895,7 @@ msgstr ""
 msgid "Strict"
 msgstr ""
 
-#: Queues.class.php:190
+#: Queues.class.php:210
 msgid "Submit"
 msgstr ""
 
