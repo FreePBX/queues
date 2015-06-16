@@ -182,7 +182,7 @@ class Queues implements \BMO {
 			$sth->execute(array("%".$query."%"));
 			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
 			foreach($rows as $row) {
-				$results[] = array("text" => _("Queue")." ".$row['extension'], "type" => "get", "dest" => "?display=queues&view=form&extdisplay=".$row['extension']);
+				$results[] = array("text" => $row['descr'] . " (".$row['extension'].")", "type" => "get", "dest" => "?display=queues&view=form&extdisplay=".$row['extension']);
 			}
 		} else {
 			$sql = "SELECT * FROM queues_config WHERE extension LIKE ?";
@@ -190,7 +190,7 @@ class Queues implements \BMO {
 			$sth->execute(array("%".$query."%"));
 			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
 			foreach($rows as $row) {
-				$results[] = array("text" => $row['descr'] . " (".$row['extension'].")", "type" => "get", "dest" => "?display=queues&view=form&extdisplay=".$row['extension']);
+				$results[] = array("text" => _("Queue")." ".$row['extension'], "type" => "get", "dest" => "?display=queues&view=form&extdisplay=".$row['extension']);
 			}
 		}
 	}
