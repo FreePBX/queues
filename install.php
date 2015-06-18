@@ -12,21 +12,21 @@ if (false) {
 
 // Add Feature Codes for Toggle Queues - Using *45
 $fcc = new featurecode('queues', 'que_toggle');
-$fcc->setDescription('Queue Toggle');
+$fcc->setDescription(_('Allow Dynamic Members of a Queue to login or logout. See the Queues Module for how to assign a Dynamic Member to a Queue.'));
 $fcc->setDefault('*45');
 $fcc->update();
 unset($fcc);
 
 // Add Feature Codes for Toggle Queue Pause- Using *46
 $fcc = new featurecode('queues', 'que_pause_toggle');
-$fcc->setDescription('Queue Pause Toggle');
+$fcc->setDescription(_('Queue Pause Toggle'));
 $fcc->setDefault('*46');
 $fcc->update();
 unset($fcc);
 
 // Add Feature Codes for Queue Callers - Using *47
 $fcc = new featurecode('queues', 'que_callers');
-$fcc->setDescription('Queue Callers');
+$fcc->setDescription(_('Playback Queue Caller Count'));
 $fcc->setDefault('*47');
 $fcc->update();
 unset($fcc);
