@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 21:26-0400\n"
+"POT-Creation-Date: 2015-06-19 12:02-0400\n"
 "PO-Revision-Date: 2015-02-19 09:37+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -75,17 +75,17 @@ msgstr ""
 msgid "Add Queue"
 msgstr "キューを追加"
 
-#: views/form.php:880
+#: views/form.php:881
 msgid ""
 "Add an Alert-Info Header like Snom and other Phones need for Ring or "
 "Ringtone informations"
 msgstr ""
 
-#: views/form.php:688
+#: views/form.php:689
 msgid "Advanced Options"
 msgstr ""
 
-#: views/form.php:1368
+#: views/form.php:1369
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay) If using "
@@ -107,11 +107,11 @@ msgstr "エージェントアナウンスメッセージ"
 msgid "Agent Announcement"
 msgstr ""
 
-#: views/form.php:1805
+#: views/form.php:1806
 msgid "Agent Regex Filter"
 msgstr "エージェント正規表現フィルター"
 
-#: views/form.php:985
+#: views/form.php:986
 msgid "Agent Restrictions"
 msgstr "エージェントを制限"
 
@@ -119,17 +119,23 @@ msgstr "エージェントを制限"
 msgid "Agent Ringing"
 msgstr "エージェントをリング時"
 
-#: views/form.php:1272
+#: views/form.php:1273
 msgid "Agent Timeout"
 msgstr ""
 
-#: views/form.php:1298
+#: views/form.php:1299
 msgid "Agent Timeout Restart"
 msgstr ""
 
-#: views/form.php:868
+#: views/form.php:869
 msgid "Alert Info"
 msgstr "アラートインフォ"
+
+#: install.php:15
+msgid ""
+"Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
+"for how to assign a Dynamic Member to a Queue."
+msgstr ""
 
 #: views/form.php:182
 msgid "Always"
@@ -139,15 +145,15 @@ msgstr "常に"
 msgid "Always allows the caller to join the Queue."
 msgstr "発信者がキューに参加するのを常に許可。"
 
-#: views/form.php:1733
+#: views/form.php:1734
 msgid "Announce Hold Time"
 msgstr ""
 
-#: views/form.php:1704
+#: views/form.php:1705
 msgid "Announce Position"
 msgstr ""
 
-#: views/form.php:1721
+#: views/form.php:1722
 msgid "Announce position of caller in the queue?"
 msgstr "発信者の通話待ちの順番をアナウンスしますか？"
 
@@ -199,7 +205,7 @@ msgstr ""
 msgid "Annually"
 msgstr "毎年"
 
-#: views/form.php:1260
+#: views/form.php:1261
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
 "caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
@@ -216,7 +222,7 @@ msgstr ""
 "キューメンバーによって拒否されます。これは、'最大待ち時間'は '最大待ち時間' "
 "+ 'エージェントタイムアウト'の合計の長さになる可能性があることを意味します。"
 
-#: views/form.php:1659
+#: views/form.php:1660
 msgid ""
 "Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
 "settings, allowing all members to be tried, when the queue has too few "
@@ -228,15 +234,15 @@ msgstr ""
 "うになります。X人やそれ以下のキューメンバーしかいない時に、ペナルティのウェイ"
 "トが計算されなくなります。"
 
-#: views/form.php:1436
+#: views/form.php:1437
 msgid "Auto Pause"
 msgstr ""
 
-#: views/form.php:1525
+#: views/form.php:1526
 msgid "Auto Pause Delay"
 msgstr ""
 
-#: views/form.php:1455
+#: views/form.php:1456
 msgid ""
 "Auto Pause an agent in this queue (or all queues they are a member of) if "
 "they don't answer a call. Specific behavior can be modified by the Auto "
@@ -248,15 +254,15 @@ msgstr ""
 "バージョンによって、具体的な動作は「オートポーズディレイ」、又は「利用不可能"
 "時にオートポーズ」などの設定で変更できます。"
 
-#: views/form.php:1467
+#: views/form.php:1468
 msgid "Auto Pause on Busy"
 msgstr ""
 
-#: views/form.php:1496
+#: views/form.php:1497
 msgid "Auto Pause on Unavailable"
 msgstr ""
 
-#: views/form.php:1043
+#: views/form.php:1044
 msgid "Autofill"
 msgstr ""
 
@@ -268,11 +274,11 @@ msgstr "不正なキュー番号、空白は許可されません"
 msgid "Break Out Type"
 msgstr ""
 
-#: views/form.php:816
+#: views/form.php:817
 msgid "CID Name Prefix"
 msgstr ""
 
-#: views/form.php:788
+#: views/form.php:789
 msgid "Call Confirm"
 msgstr ""
 
@@ -280,23 +286,23 @@ msgstr ""
 msgid "Call Confirm Announce"
 msgstr ""
 
-#: views/form.php:1133
+#: views/form.php:1134
 msgid "Call Recording"
 msgstr ""
 
-#: views/form.php:993
+#: views/form.php:994
 msgid "Call as Dialed"
 msgstr "ダイヤルされたかのように呼び出す"
 
-#: views/form.php:539
+#: views/form.php:540
 msgid "Callback to use when caller presses 1."
 msgstr ""
 
-#: views/form.php:683
+#: views/form.php:684
 msgid "Caller Anouncements"
 msgstr ""
 
-#: views/form.php:1668
+#: views/form.php:1669
 msgid "Caller Position"
 msgstr ""
 
@@ -320,7 +326,7 @@ msgstr ""
 "る場合または、 QUEUE_MAX_PENALTY の値よりも少ないペナルティ値をもつ場合に発信"
 "者は入ることが許可されません。"
 
-#: views/form.php:678
+#: views/form.php:679
 msgid "Capacity Options"
 msgstr "キャパシティーオプション"
 
@@ -378,7 +384,7 @@ msgstr ""
 "なかった場合は続いてフェイルオーバー宛先に移動します。オプションは次を含みま"
 "す:"
 
-#: views/form.php:1140
+#: views/form.php:1141
 msgid "Don't Care"
 msgstr ""
 
@@ -386,11 +392,11 @@ msgstr ""
 msgid "Dropping old queues table.."
 msgstr "古い queues テーブルをドロップ中.."
 
-#: views/form.php:925
+#: views/form.php:926
 msgid "Dynamic Agents"
 msgstr ""
 
-#: views/form.php:946
+#: views/form.php:947
 msgid ""
 "Dynamic Members are extensions or callback numbers that can log in and out "
 "of the queue. When a member logs in to a queue, their penalty in the queue "
@@ -444,7 +450,7 @@ msgstr ""
 msgid "Enable this task"
 msgstr ""
 
-#: views/form.php:1178
+#: views/form.php:1179
 msgid ""
 "Enabling this option, all calls are marked as 'answered elsewhere' when "
 "cancelled. The effect is that missed queue calls are *not* shown on the "
@@ -454,7 +460,7 @@ msgstr ""
 "てマークされます。また受電されなかった呼は電話機に表示されません（電話機がサ"
 "ポートしている場合）"
 
-#: views/form.php:595
+#: views/form.php:596
 msgid "Event When Called"
 msgstr "着信時イベント"
 
@@ -462,35 +468,35 @@ msgstr "着信時イベント"
 msgid "Extension Options"
 msgstr "内線オプション"
 
-#: views/form.php:997
+#: views/form.php:998
 msgid "Extensions Only"
 msgstr "内線のみ"
 
-#: views/form.php:1190
+#: views/form.php:1191
 msgid "Fail Over Destination"
 msgstr "キューオーバー時の宛先"
 
-#: views/form.php:1138
+#: views/form.php:1139
 msgid "Force"
 msgstr ""
 
-#: views/form.php:1678
+#: views/form.php:1679
 msgid "Frequency"
 msgstr ""
 
-#: views/form.php:668
+#: views/form.php:669
 msgid "General Settings"
 msgstr ""
 
-#: views/form.php:761
+#: views/form.php:762
 msgid "Generate Device Hints"
 msgstr ""
 
-#: views/form.php:748
+#: views/form.php:749
 msgid "Give this queue a brief name to help you identify it."
 msgstr "このキューを識別するために簡潔な名前を付けます。"
 
-#: views/form.php:1119
+#: views/form.php:1120
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
@@ -507,14 +513,14 @@ msgstr "ペナルティを与える"
 msgid "Hourly"
 msgstr "毎時間"
 
-#: views/form.php:577
+#: views/form.php:578
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
 "発信者に対してどの間隔でボイスメニューをアナウンスするか(アナウンス無効は0)。"
 
-#: views/form.php:1692
+#: views/form.php:1693
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
@@ -535,7 +541,7 @@ msgstr "IVR アナウンス: %s"
 msgid "IVR Break Out Menu"
 msgstr ""
 
-#: views/form.php:776
+#: views/form.php:777
 msgid ""
 "If Enabled, individual hints and dialplan will be generated for each SIP and "
 "IAX2 device that could be part of this queue. These are used in conjunction "
@@ -546,7 +552,7 @@ msgid ""
 "number) and qqq is this queue's number."
 msgstr ""
 
-#: views/form.php:803
+#: views/form.php:804
 msgid ""
 "If checked, any queue member that is actually an outside telephone number, "
 "or any extensions Follow-Me or call forwarding that are pursued and leave "
@@ -572,7 +578,7 @@ msgstr ""
 "シーを使用するときには、コールに応答しないように望まれるかもしれないいくつか"
 "のケースがあります。"
 
-#: views/form.php:856
+#: views/form.php:857
 msgid ""
 "If the call is subsequently transferred, the wait time will reflect the time "
 "since it first entered the queue or reset if the call is transferred to "
@@ -608,7 +614,7 @@ msgstr ""
 "に起因してこのルートが選択された場合には、特定の側面に影響を与える可能性があ"
 "ります。たいていの場合では、'状態を使用する'に設定するべきです。"
 
-#: views/form.php:1058
+#: views/form.php:1059
 msgid ""
 "If this is Enabled, and multiple agents are available, Asterisk will send "
 "one call to each waiting agent (depending on the ring strategy). Otherwise, "
@@ -616,7 +622,7 @@ msgid ""
 "the queue making other calls wait."
 msgstr ""
 
-#: views/form.php:1316
+#: views/form.php:1317
 msgid ""
 "If timeoutrestart is set to yes, then the time out for an agent to answer is "
 "reset if a BUSY or CONGESTION is received. This can be useful if agents are "
@@ -626,7 +632,7 @@ msgstr ""
 "エージェントへの応答タイムアウトはリセットされます。これは、エージェントがリ"
 "ジェクト等を使用してコールをキャンセルすることができるときに役立ちます。"
 
-#: views/form.php:1394
+#: views/form.php:1395
 msgid ""
 "If you wish to have a delay before the member is connected to the caller (or "
 "before the member hears any announcement messages), set this to the number "
@@ -636,7 +642,7 @@ msgstr ""
 "聞く前)にディレイを持たせたい場合は、これをディレイする秒数に設定してくださ"
 "い。"
 
-#: views/form.php:1424
+#: views/form.php:1425
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
 "connected to the caller, set this to yes."
@@ -648,7 +654,7 @@ msgstr ""
 msgid "Ignore State"
 msgstr "状態を無視する"
 
-#: views/form.php:1150
+#: views/form.php:1151
 msgid ""
 "Incoming calls to agents can be recorded. If 'never' is selected, then in-"
 "call on demand recording is blocked."
@@ -658,11 +664,11 @@ msgstr ""
 msgid "Join Announcement"
 msgstr ""
 
-#: views/form.php:1577
+#: views/form.php:1578
 msgid "Join Empty"
 msgstr ""
 
-#: views/form.php:1611
+#: views/form.php:1612
 msgid "Leave Empty"
 msgstr ""
 
@@ -670,36 +676,36 @@ msgstr ""
 msgid "List Queues"
 msgstr ""
 
-#: views/form.php:378 views/form.php:386 views/form.php:1252
-#: views/form.php:1591 views/form.php:1625
+#: views/form.php:378 views/form.php:386 views/form.php:1253
+#: views/form.php:1592 views/form.php:1626
 msgid "Loose"
 msgstr "ルーズ"
 
-#: views/form.php:1162
+#: views/form.php:1163
 msgid "Mark calls answered elsewhere"
 msgstr ""
 
-#: views/form.php:1552
+#: views/form.php:1553
 msgid "Max Callers"
 msgstr ""
 
-#: views/form.php:1217
+#: views/form.php:1218
 msgid "Max Wait Time"
 msgstr ""
 
-#: views/form.php:1243
+#: views/form.php:1244
 msgid "Max Wait Time Mode"
 msgstr ""
 
-#: views/form.php:1565
+#: views/form.php:1566
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "キューの中で待ちとなる最大人数(無制限の場合は0)"
 
-#: views/form.php:1380
+#: views/form.php:1381
 msgid "Member Delay"
 msgstr ""
 
-#: views/form.php:627
+#: views/form.php:628
 msgid "Member Status Event"
 msgstr "メンバーステータスイベント"
 
@@ -749,7 +755,7 @@ msgstr ""
 msgid "NO table found, no migration to do just create tables"
 msgstr "テーブルが見つかりません、移行は行わずテーブルのみが作成されます"
 
-#: views/form.php:1142
+#: views/form.php:1143
 msgid "Never"
 msgstr "ブロック"
 
@@ -759,16 +765,16 @@ msgid ""
 msgstr "最大待機時間が経過するまで、発信者をキューを残しません。"
 
 #: views/cron.php:22 views/cron.php:57 views/form.php:377 views/form.php:387
-#: views/form.php:603 views/form.php:635 views/form.php:768 views/form.php:795
-#: views/form.php:848 views/form.php:965 views/form.php:1050
-#: views/form.php:1077 views/form.php:1141 views/form.php:1170
-#: views/form.php:1307 views/form.php:1416 views/form.php:1442
-#: views/form.php:1476 views/form.php:1505 views/form.php:1589
-#: views/form.php:1623 views/form.php:1713 views/form.php:1742
+#: views/form.php:604 views/form.php:636 views/form.php:769 views/form.php:796
+#: views/form.php:849 views/form.php:966 views/form.php:1051
+#: views/form.php:1078 views/form.php:1142 views/form.php:1171
+#: views/form.php:1308 views/form.php:1417 views/form.php:1443
+#: views/form.php:1477 views/form.php:1506 views/form.php:1590
+#: views/form.php:1624 views/form.php:1714 views/form.php:1743
 msgid "No"
 msgstr "いいえ"
 
-#: views/form.php:995
+#: views/form.php:996
 msgid "No Follow-Me or Call Forward"
 msgstr "フォローミーやコール転送しない"
 
@@ -788,23 +794,27 @@ msgstr "なし"
 msgid "OK"
 msgstr "OK"
 
-#: views/form.php:1744
+#: views/form.php:1745
 msgid "Once"
 msgstr "一回のみ"
 
-#: views/form.php:699
+#: views/form.php:700
 msgid "Other Options"
 msgstr ""
 
-#: views/form.php:1645
+#: views/form.php:1646
 msgid "Penalty Members Limit"
 msgstr ""
 
-#: views/form.php:1760
+#: views/form.php:1761
 msgid "Periodic Announcements"
 msgstr "定期的なアナウンス"
 
-#: views/form.php:1817
+#: install.php:29
+msgid "Playback Queue Caller Count"
+msgstr ""
+
+#: views/form.php:1818
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
 "callback number. If the callback number does not pass the regex filter then "
@@ -847,7 +857,7 @@ msgstr ""
 msgid "Queue Callers"
 msgstr ""
 
-#: views/form.php:736
+#: views/form.php:737
 msgid "Queue Name"
 msgstr ""
 
@@ -855,7 +865,7 @@ msgstr ""
 msgid "Queue No Answer"
 msgstr ""
 
-#: views/form.php:712
+#: views/form.php:713
 msgid "Queue Number"
 msgstr ""
 
@@ -867,7 +877,7 @@ msgstr "キュー番号を空にすることはできません"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9
+#: install.php:9 install.php:22
 msgid "Queue Pause Toggle"
 msgstr "キューポーズトグル"
 
@@ -879,11 +889,11 @@ msgstr "キューステート検知"
 msgid "Queue Toggle"
 msgstr "キュートグル"
 
-#: views/form.php:1106
+#: views/form.php:1107
 msgid "Queue Weight"
 msgstr "キューの重みづけ"
 
-#: views/form.php:1080
+#: views/form.php:1081
 msgid "Queue calls only (ringinuse=no)"
 msgstr "キューコールオンリー (使用中着信=no)"
 
@@ -921,11 +931,11 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: views/form.php:563
+#: views/form.php:564
 msgid "Repeat Frequency"
 msgstr ""
 
-#: views/form.php:1407
+#: views/form.php:1408
 msgid "Report Hold Time"
 msgstr ""
 
@@ -933,15 +943,15 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: views/form.php:693
+#: views/form.php:694
 msgid "Reset Queue Stats"
 msgstr "キューの統計をリセット"
 
-#: views/form.php:958
+#: views/form.php:959
 msgid "Restrict Dynamic Agents"
 msgstr "ダイナミックエージェントを制限"
 
-#: views/form.php:973
+#: views/form.php:974
 msgid ""
 "Restrict dynamic queue member logins to only those listed in the Dynamic "
 "Members list above. When set to Yes, members not listed will be DENIED "
@@ -951,7 +961,7 @@ msgstr ""
 "ンバーのみに制限します。「はい」に設定した場合、リストアップされていないメン"
 "バーはキューへのアクセスが拒否されます。"
 
-#: views/form.php:1328
+#: views/form.php:1329
 msgid "Retry"
 msgstr ""
 
@@ -959,7 +969,7 @@ msgstr ""
 msgid "Ring Only"
 msgstr "着信音のみ"
 
-#: views/form.php:1017
+#: views/form.php:1018
 msgid "Ring Strategy"
 msgstr ""
 
@@ -1024,7 +1034,7 @@ msgstr ""
 "利用可能になることができる一時停止中のエージェントがいる場合に、発信者が"
 "キューに残る以外、「はい」と同じです。"
 
-#: views/form.php:1779
+#: views/form.php:1780
 msgid "Service Level"
 msgstr ""
 
@@ -1032,7 +1042,7 @@ msgstr ""
 msgid "Set this task to happen at random"
 msgstr ""
 
-#: views/form.php:1752
+#: views/form.php:1753
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
@@ -1040,15 +1050,15 @@ msgstr ""
 "待ち順のアナウンスに想定待ち時間を含めますか？　はい／いいえ、一回のみどちら"
 "の選択でも、1分以下の場合は待ち時間のアナウンスは流れません"
 
-#: views/form.php:1070
+#: views/form.php:1071
 msgid "Skip Busy Agents"
 msgstr ""
 
-#: views/form.php:892
+#: views/form.php:893
 msgid "Static Agents"
 msgstr "静的エージェント"
 
-#: views/form.php:913
+#: views/form.php:914
 msgid ""
 "Static agents are extensions that are assumed to always be on the queue.  "
 "Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
@@ -1069,8 +1079,8 @@ msgstr ""
 msgid "Stats Reset"
 msgstr ""
 
-#: views/form.php:375 views/form.php:384 views/form.php:1250
-#: views/form.php:1585 views/form.php:1619
+#: views/form.php:375 views/form.php:384 views/form.php:1251
+#: views/form.php:1586 views/form.php:1620
 msgid "Strict"
 msgstr "厳密"
 
@@ -1078,13 +1088,13 @@ msgstr "厳密"
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:1231
+#: views/form.php:1232
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr "発信者の呼が待ち呼としてキューに滞在できる最大秒数 (無制限は0)。"
 
-#: views/form.php:1286
+#: views/form.php:1287
 msgid ""
 "The number of seconds an agent's phone can ring before we consider it a "
 "timeout. Unlimited or other timeout values may still be limited by system "
@@ -1094,7 +1104,7 @@ msgstr ""
 "アウト値はまだシステムのリングタイムや個人の内線デフォルトによって制限されま"
 "す。"
 
-#: views/form.php:1342
+#: views/form.php:1343
 msgid ""
 "The number of seconds we wait before trying all the phones again. Choosing "
 "\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
@@ -1105,7 +1115,7 @@ msgstr ""
 "試みられたエージェントがタイムアウトしたらすぐにキューを出てフェイルオーバー"
 "の宛先に移動し、追加のエージェントへは試みません。"
 
-#: views/form.php:1537
+#: views/form.php:1538
 msgid ""
 "This setting will delay the auto pause of an agent by auto pause delay "
 "seconds from when it last took a call. For example, if this were set to 120 "
@@ -1120,12 +1130,12 @@ msgstr ""
 "合は、自動的にオートポーズになります。着信が全く無い場合は、この設定は無視さ"
 "れます。"
 
-#: views/form.php:673
+#: views/form.php:674
 msgid "Timing & Agent Options"
 msgstr "タイミング & エージェントオプション"
 
-#: views/form.php:376 views/form.php:385 views/form.php:1587
-#: views/form.php:1621
+#: views/form.php:376 views/form.php:385 views/form.php:1588
+#: views/form.php:1622
 msgid "Ultra Strict"
 msgstr "非常に厳密"
 
@@ -1137,7 +1147,7 @@ msgstr "無制限"
 msgid "Use State"
 msgstr "状態を使用する"
 
-#: views/form.php:724
+#: views/form.php:725
 msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
 "to put them into the queue.<br><br>Agents will dial this queue number plus * "
@@ -1151,7 +1161,7 @@ msgstr ""
 "トします。<br><br>例えば、キュー番号が123の場合:<br><br><b>123* = ログイン"
 "<br>123** = ログアウト</b>"
 
-#: views/form.php:1793
+#: views/form.php:1794
 msgid ""
 "Used for service level statistics (calls answered within service level time "
 "frame)"
@@ -1172,7 +1182,7 @@ msgstr ""
 msgid "WARNING FAILED %s"
 msgstr "警告 失敗 %s"
 
-#: views/form.php:840
+#: views/form.php:841
 msgid "Wait Time Prefix"
 msgstr ""
 
@@ -1202,7 +1212,7 @@ msgstr "Freeエージェントがいない場合"
 msgid "When No Ready Agents"
 msgstr "Readyエージェントがいない場合"
 
-#: views/form.php:1005
+#: views/form.php:1006
 msgid ""
 "When set to 'Call as Dialed' the queue will call an extension just as if the "
 "queue were another user. Any Follow-Me or Call Forward states active on the "
@@ -1235,7 +1245,7 @@ msgstr ""
 "にコールがブロックされます。動的エージェントになんらかの検証を提供するに"
 "は、'エージェント Regex フィルター'を確認してください。"
 
-#: views/form.php:1094
+#: views/form.php:1095
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
 "the line were returning busy. This means that Call Waiting or multi-line "
@@ -1280,7 +1290,7 @@ msgstr ""
 "に対して '使用中' に見えてしまうため、そのコールが切断されるまで利用不可能な"
 "ままになってしまいます。"
 
-#: views/form.php:643
+#: views/form.php:644
 msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
@@ -1288,7 +1298,7 @@ msgstr ""
 "「はい」に設定された場合、次のマネージャーイベントが生成されます: "
 "QueueMemberStatus"
 
-#: views/form.php:1484
+#: views/form.php:1485
 msgid ""
 "When set to Yes agents devices that report busy upon a call attempt will be "
 "considered as a missed call and auto paused immediately or after the auto "
@@ -1297,7 +1307,7 @@ msgstr ""
 "Yesに設定すると、話中となりエージェントへの着信は、不在着信として判断され、"
 "エージェントはオートポーズディレイ後にオートポーズします"
 
-#: views/form.php:1513
+#: views/form.php:1514
 msgid ""
 "When set to Yes agents devices that report congestion upon a call attempt "
 "will be considered as a missed call and auto paused immediately or after the "
@@ -1306,7 +1316,7 @@ msgstr ""
 "Yesに設定すると、混雑を報告するエージェントへの着信は不在着信と判断され、エー"
 "ジェントはオートポーズディレイ後にオートポーズします"
 
-#: views/form.php:856
+#: views/form.php:857
 msgid ""
 "When set to Yes, the CID Name will be prefixed with the total wait time in "
 "the queue so the answering agent is aware how long they have waited. It will "
@@ -1317,7 +1327,7 @@ msgstr ""
 "るため、応答したエージェントは彼らがどれぐらい待っているかに気づきます。Mnnと"
 "いう形式で、最も近い分に切り上げられます。nnは分を表す数字です。"
 
-#: views/form.php:611
+#: views/form.php:612
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
@@ -1330,7 +1340,7 @@ msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
 
-#: views/form.php:1202
+#: views/form.php:1203
 msgid "Where calls should fail to"
 msgstr ""
 
@@ -1341,33 +1351,33 @@ msgid ""
 "configuration."
 msgstr ""
 
-#: views/form.php:1354
+#: views/form.php:1355
 msgid "Wrap-Up-Time"
 msgstr ""
 
 #: views/cron.php:20 views/cron.php:55 views/form.php:374 views/form.php:383
-#: views/form.php:601 views/form.php:633 views/form.php:766 views/form.php:793
-#: views/form.php:846 views/form.php:963 views/form.php:1048
-#: views/form.php:1078 views/form.php:1139 views/form.php:1168
-#: views/form.php:1305 views/form.php:1414 views/form.php:1474
-#: views/form.php:1503 views/form.php:1583 views/form.php:1617
-#: views/form.php:1711 views/form.php:1740
+#: views/form.php:602 views/form.php:634 views/form.php:767 views/form.php:794
+#: views/form.php:847 views/form.php:964 views/form.php:1049
+#: views/form.php:1079 views/form.php:1140 views/form.php:1169
+#: views/form.php:1306 views/form.php:1415 views/form.php:1475
+#: views/form.php:1504 views/form.php:1584 views/form.php:1618
+#: views/form.php:1712 views/form.php:1741
 msgid "Yes"
 msgstr "はい"
 
-#: views/form.php:1079
+#: views/form.php:1080
 msgid "Yes + (ringinuse=no)"
 msgstr "はい + (使用中着信=no)"
 
-#: views/form.php:1442
+#: views/form.php:1443
 msgid "Yes in all queues"
 msgstr "はい、全てのキューで"
 
-#: views/form.php:1442
+#: views/form.php:1443
 msgid "Yes in this queue only"
 msgstr "はい、このキューだけで"
 
-#: views/form.php:828
+#: views/form.php:829
 msgid ""
 "You can optionally prefix the CallerID name of callers to the queue. ie: If "
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
