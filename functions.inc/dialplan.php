@@ -557,10 +557,12 @@ function queues_get_config($engine) {
 
 
 				$userQueues = array();
-				if ($bmo && $bmo->Cos && $bmo->Cos->isLicensed()) {
-					$cos = $bmo->Cos;
+				if (FreePBX::Modules()->checkStatus("cos") && FreePBX::Cos()->isLicensed()) {
+					$cos = FreePBX::Create()->Cos;
 				} else if (function_exists('cos_islicenced') && cos_islicenced()) {
 					$cos = Cos::create();
+				} else {
+					$cos = false;
 				}
 
 				if ($cos) {

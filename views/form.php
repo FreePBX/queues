@@ -662,45 +662,50 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 <input type="hidden" name="extdisplay" value="<?php echo $extdisplay ?>">
 <input type="hidden" name="view" value="form">
 <input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
-
-<ul class="nav nav-tabs" role="tablist">
-	<li role="presentation" data-name="qgeneral" class="active">
-		<a href="#qgeneral" aria-controls="qgeneral" role="tab" data-toggle="tab">
-			<?php echo _("General Settings")?>
-		</a>
-	</li>
-	<li role="presentation" data-name="qagent" class="change-tab">
-		<a href="#qagent" aria-controls="qagent" role="tab" data-toggle="tab">
-			<?php echo _("Timing & Agent Options")?>
-		</a>
-	</li>
-	<li role="presentation" data-name="qcallercap" class="change-tab">
-		<a href="#qcallercap" aria-controls="qcallercap" role="tab" data-toggle="tab">
-			<?php echo _("Capacity Options")?>
-		</a>
-	</li>
-	<li role="presentation" data-name="qcallerannounce" class="change-tab">
-		<a href="#qcallerannounce" aria-controls="qcallerannounce" role="tab" data-toggle="tab">
-			<?php echo _("Caller Anouncements")?>
-		</a>
-	</li>
-	<li role="presentation" data-name="qadvanced" class="change-tab">
-		<a href="#qadvanced" aria-controls="qadvanced" role="tab" data-toggle="tab">
-			<?php echo _("Advanced Options")?>
-		</a>
-	</li>
-	<li role="presentation" data-name="qresetstats" class="change-tab">
-		<a href="#qresetstats" aria-controls="qresetstats" role="tab" data-toggle="tab">
-			<?php echo _("Reset Queue Stats")?>
-		</a>
-	</li>
-	<?php echo $hookdata['hookTabs']?>
-	<li role="presentation" data-name="qother" class="change-tab <?php echo empty($hookdata['oldHooks'])?'hidden':''?>">
-		<a href="#qother" aria-controls="qother" role="tab" data-toggle="tab">
-			<?php echo _("Other Options")?>
-		</a>
-	</li>
-</ul>
+<div class="nav-container">
+	<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
+	<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+	<div class="wrapper">
+		<ul class="nav nav-tabs list" role="tablist">
+			<li role="presentation" data-name="qgeneral" class="active">
+				<a href="#qgeneral" aria-controls="qgeneral" role="tab" data-toggle="tab">
+					<?php echo _("General Settings")?>
+				</a>
+			</li>
+			<li role="presentation" data-name="qagent" class="change-tab">
+				<a href="#qagent" aria-controls="qagent" role="tab" data-toggle="tab">
+					<?php echo _("Timing & Agent Options")?>
+				</a>
+			</li>
+			<li role="presentation" data-name="qcallercap" class="change-tab">
+				<a href="#qcallercap" aria-controls="qcallercap" role="tab" data-toggle="tab">
+					<?php echo _("Capacity Options")?>
+				</a>
+			</li>
+			<li role="presentation" data-name="qcallerannounce" class="change-tab">
+				<a href="#qcallerannounce" aria-controls="qcallerannounce" role="tab" data-toggle="tab">
+					<?php echo _("Caller Anouncements")?>
+				</a>
+			</li>
+			<li role="presentation" data-name="qadvanced" class="change-tab">
+				<a href="#qadvanced" aria-controls="qadvanced" role="tab" data-toggle="tab">
+					<?php echo _("Advanced Options")?>
+				</a>
+			</li>
+			<li role="presentation" data-name="qresetstats" class="change-tab">
+				<a href="#qresetstats" aria-controls="qresetstats" role="tab" data-toggle="tab">
+					<?php echo _("Reset Queue Stats")?>
+				</a>
+			</li>
+			<?php echo $hookdata['hookTabs']?>
+			<li role="presentation" data-name="qother" class="change-tab <?php echo empty($hookdata['oldHooks'])?'hidden':''?>">
+				<a href="#qother" aria-controls="qother" role="tab" data-toggle="tab">
+					<?php echo _("Other Options")?>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
 <div class="tab-content display">
 	<div role="tabpanel" id="qgeneral" class="tab-pane active">
 		<!--Queue Number-->
