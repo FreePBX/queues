@@ -448,12 +448,12 @@ if(function_exists('ivr_get_details')) {
 	$unique_aas = ivr_get_details();
 	$compound_recordings = false;
 	$is_error = false;
+	$ivrboopts = '';
 	if (isset($unique_aas) && is_array($unique_aas)) {
 		foreach ($unique_aas as $unique_aa) {
 			$menu_id = $unique_aa['id'];
 			$menu_name = $unique_aa['name'] ? $unique_aa['name'] : 'IVR ' . $unique_aa['id'];
 			$unique_aa['announcement'] = recordings_get_file($unique_aa['announcement']);
-			$ivrboopts = '';
 			if (strpos($unique_aa['announcement'],"&") === false) {
 				$ivrboopts .= '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)."</option>\n";
 			}else {
