@@ -1,5 +1,5 @@
 <?php
-extract($request);
+extract($request, EXTR_SKIP);
 $member = array();
 //Name is a text box on add or text on edit.
 if(isset($extdisplay) && $extdisplay != ''){
@@ -672,6 +672,11 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 					<?php echo _("General Settings")?>
 				</a>
 			</li>
+			<li role="presentation" data-name="qagentlist">
+				<a href="#qagentlist" aria-controls="qagentlist" role="tab" data-toggle="tab">
+					<?php echo _("Queue Agents")?>
+				</a>
+			</li>
 			<li role="presentation" data-name="qagent" class="change-tab">
 				<a href="#qagent" aria-controls="qagent" role="tab" data-toggle="tab">
 					<?php echo _("Timing & Agent Options")?>
@@ -888,72 +893,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</div>
 		</div>
 		<!--END Alert Info-->
-		<!--Static Agents-->
-		<div class="element-container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
-							<div class="col-md-3">
-								<label class="control-label" for="members"><?php echo _("Static Agents") ?></label>
-								<i class="fa fa-question-circle fpbx-help-icon" data-for="members"></i>
-							</div>
-							<div class="col-md-9">
-								<div class="input-group">
-									<textarea id="members" class="form-control autosize" cols="15" rows="<?php  $rows = count($mem_array)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" ><?php echo implode("\n",$mem_array) ?></textarea>
-									<span class="input-group-addon">
-										<label for="qsagents1"><strong><?php echo("Agent Quick Select")?></strong></label>
-										<select id="qsagents1" class="form-control" data-for="members">
-											<option SELECTED>
-											<?php echo $qsagentlist ?>
-										</select>
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<span id="members-help" class="help-block fpbx-help-block"><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers). You can put a \",\" after the agent followed by a penalty value, see Asterisk documentation concerning penalties.<br /><br /> An advanced mode has been added which allows you to prefix an agent number with S, X, Z, D or A. This will force the agent number to be dialed as an Asterisk device of type SIP, IAX2, ZAP, DAHDi or Agent respectively. This mode is for advanced users and can cause known issues in FreePBX as you are by-passing the normal dialplan. If your 'Agent Restrictions' are not set to 'Extension Only' you will have problems with subsequent transfers to voicemail and other issues may also exist.")?></span>
-				</div>
-			</div>
-		</div>
-		<!--END Static Agents-->
-		<!--Dynamic Agents-->
-		<div class="element-container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
-							<div class="col-md-3">
-								<label class="control-label" for="dynmembers"><?php echo _("Dynamic Agents") ?></label>
-								<i class="fa fa-question-circle fpbx-help-icon" data-for="dynmembers"></i>
-							</div>
-							<div class="col-md-9">
-								<div class="input-group">
-									<textarea id="dynmembers" class="form-control autosize" cols="15" rows="<?php  $rows = count(explode("\n",$dynmembers)) + 1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" ><?php echo $dynmembers ?></textarea>
-									<span class="input-group-addon">
-										<label for="qsagents2"><strong><?php echo("Agent Quick Select")?></strong></label>
-										<select id="qsagents2" class="form-control" data-for="dynmembers">
-											<option SELECTED>
-											<?php echo $qsagentlist ?>
-										</select>
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<span id="dynmembers-help" class="help-block fpbx-help-block"><?php echo _("Dynamic Members are extensions or callback numbers that can log in and out of the queue. When a member logs in to a queue, their penalty in the queue will be as specified here. Extensions included here will NOT automatically be logged in to the queue.")?></span>
-				</div>
-			</div>
-		</div>
-		<!--END Dynamic Agents-->
 		<!--Restrict Dynamic Agents-->
 		<div class="element-container">
 			<div class="row">
@@ -1212,6 +1151,75 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<!--END Fail Over Destination-->
 	</div>
 	<!--End of General Tab -->
+	<div role="tabpanel" id="qagentlist" class="tab-pane">
+		<!--Static Agents-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="members"><?php echo _("Static Agents") ?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="members"></i>
+							</div>
+							<div class="col-md-9">
+								<div class="input-group">
+									<textarea id="members" class="form-control" cols="15" rows="<?php  $rows = count($mem_array)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" ><?php echo implode("\n",$mem_array) ?></textarea>
+									<span class="input-group-addon">
+										<label for="qsagents1"><strong><?php echo("Agent Quick Select")?></strong></label>
+										<select id="qsagents1" class="form-control" data-for="members">
+											<option SELECTED>
+											<?php echo $qsagentlist ?>
+										</select>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="members-help" class="help-block fpbx-help-block"><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers). You can put a \",\" after the agent followed by a penalty value, see Asterisk documentation concerning penalties.<br /><br /> An advanced mode has been added which allows you to prefix an agent number with S, X, Z, D or A. This will force the agent number to be dialed as an Asterisk device of type SIP, IAX2, ZAP, DAHDi or Agent respectively. This mode is for advanced users and can cause known issues in FreePBX as you are by-passing the normal dialplan. If your 'Agent Restrictions' are not set to 'Extension Only' you will have problems with subsequent transfers to voicemail and other issues may also exist.")?></span>
+				</div>
+			</div>
+		</div>
+		<!--END Static Agents-->
+		<!--Dynamic Agents-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="dynmembers"><?php echo _("Dynamic Agents") ?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="dynmembers"></i>
+							</div>
+							<div class="col-md-9">
+								<div class="input-group">
+									<textarea id="dynmembers" class="form-control" cols="15" rows="<?php  $rows = count(explode("\n",$dynmembers)) + 1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" ><?php echo $dynmembers ?></textarea>
+									<span class="input-group-addon">
+										<label for="qsagents2"><strong><?php echo("Agent Quick Select")?></strong></label>
+										<select id="qsagents2" class="form-control" data-for="dynmembers">
+											<option SELECTED>
+											<?php echo $qsagentlist ?>
+										</select>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="dynmembers-help" class="help-block fpbx-help-block"><?php echo _("Dynamic Members are extensions or callback numbers that can log in and out of the queue. When a member logs in to a queue, their penalty in the queue will be as specified here. Extensions included here will NOT automatically be logged in to the queue.")?></span>
+				</div>
+			</div>
+		</div>
+		<!--END Dynamic Agents-->
+	</div>
+	<!--End of Agent List-->
 	<div role="tabpanel" id="qagent" class="tab-pane">
 		<!--Max Wait Time-->
 		<div class="element-container">
