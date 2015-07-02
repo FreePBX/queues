@@ -1136,7 +1136,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="goto0"></i>
 							</div>
 							<div class="col-md-9">
-								<?php echo drawselects($goto,0); ?>
+								<?php echo drawselects($goto,0,false,true,'',true); ?>
 							</div>
 						</div>
 					</div>
