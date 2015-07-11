@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:52-0500\n"
-"PO-Revision-Date: 2015-05-01 23:09+0200\n"
+"PO-Revision-Date: 2015-07-11 12:59+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian "
 "<http://weblate.freepbx.org/projects/freepbx/queues/ru_RU/>\n"
@@ -112,7 +112,7 @@ msgstr "Дополнительная информация"
 
 #: page.queues.php:589
 msgid "Always"
-msgstr ""
+msgstr "Всегда"
 
 #: page.queues.php:925
 msgid "Always allows the caller to join the Queue."
@@ -204,7 +204,7 @@ msgstr ""
 
 #: views/cron.php:10
 msgid "Annually"
-msgstr ""
+msgstr "Ежегодно"
 
 #: queues.i18n.php:4
 msgid "Applications"
@@ -212,7 +212,7 @@ msgstr "Приложения"
 
 #: views/cron.php:108
 msgid "April"
-msgstr ""
+msgstr "Апрель"
 
 #: page.queues.php:715
 msgid ""
@@ -243,7 +243,7 @@ msgstr ""
 
 #: views/cron.php:112
 msgid "August"
-msgstr ""
+msgstr "Август"
 
 #: page.queues.php:899
 msgid "Auto Pause Delay:"
@@ -400,23 +400,23 @@ msgstr "Создаются queues_details.."
 
 #: views/cron.php:12
 msgid "Custom"
-msgstr ""
+msgstr "Особое"
 
 #: views/cron.php:7
 msgid "Daily"
-msgstr ""
+msgstr "Ежедневно"
 
 #: views/cron.php:132
 msgid "Day of Month"
-msgstr ""
+msgstr "День месяца"
 
 #: views/cron.php:77
 msgid "Day of Week"
-msgstr ""
+msgstr "День недели"
 
 #: views/cron.php:116
 msgid "December"
-msgstr ""
+msgstr "Декабрь"
 
 #: page.queues.php:327
 msgid "Default"
@@ -460,7 +460,7 @@ msgstr ""
 
 #: page.queues.php:1201 page.queues.php:1238
 msgid "Disabled"
-msgstr ""
+msgstr "Выключен"
 
 #: install.php:339
 msgid "Dropping old queues table.."
@@ -539,7 +539,7 @@ msgstr "Изменить очередь"
 
 #: page.queues.php:1192 page.queues.php:1229
 msgid "Enabled"
-msgstr ""
+msgstr "Включен"
 
 #: page.queues.php:672
 msgid ""
@@ -561,7 +561,7 @@ msgstr "События, Статистика и Допонительно"
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
-msgstr ""
+msgstr "Опции внутреннего номера"
 
 #: page.queues.php:385 page.queues.php:413
 msgid "Extension Quick Pick"
@@ -577,7 +577,7 @@ msgstr "Назначение при неответе"
 
 #: views/cron.php:106
 msgid "February"
-msgstr ""
+msgstr "Февраль"
 
 #: page.queues.php:1023
 msgid "Frequency:"
@@ -585,7 +585,7 @@ msgstr "Частота:"
 
 #: views/cron.php:85
 msgid "Friday"
-msgstr ""
+msgstr "Пятница"
 
 #: page.queues.php:452
 msgid "General Queue Options"
@@ -626,7 +626,7 @@ msgstr "Давать передышку оператору при работе �
 
 #: views/cron.php:61
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 #: views/cron.php:6
 msgid "Hourly"
@@ -791,7 +791,7 @@ msgstr "Дает возможность не делать ответ на выз
 
 #: views/cron.php:105
 msgid "January"
-msgstr ""
+msgstr "Январь"
 
 #: page.queues.php:574 page.queues.php:597
 msgid "Join Announcement:"
@@ -803,11 +803,11 @@ msgstr "Попадать в пустую:"
 
 #: views/cron.php:111
 msgid "July"
-msgstr ""
+msgstr "Июль"
 
 #: views/cron.php:110
 msgid "June"
-msgstr ""
+msgstr "Июнь"
 
 #: page.queues.php:976
 msgid "Leave Empty:"
@@ -820,7 +820,7 @@ msgstr "Неточный"
 
 #: views/cron.php:107
 msgid "March"
-msgstr ""
+msgstr "Март"
 
 #: page.queues.php:672
 msgid "Mark calls answered elsewhere:"
@@ -844,7 +844,7 @@ msgstr "Максимально  число ожидающих в очереди 
 
 #: views/cron.php:109
 msgid "May"
-msgstr ""
+msgstr "Май"
 
 #: page.queues.php:790
 msgid "Member Delay:"
@@ -872,7 +872,7 @@ msgstr "Перенос queues_details.."
 
 #: views/cron.php:45
 msgid "Minutes"
-msgstr ""
+msgstr "Минуты"
 
 #: page.queues.php:564
 msgid "MoH Only"
@@ -880,15 +880,15 @@ msgstr ""
 
 #: views/cron.php:81
 msgid "Monday"
-msgstr ""
+msgstr "Понедельник"
 
 #: views/cron.php:102
 msgid "Month"
-msgstr ""
+msgstr "Месяц"
 
 #: views/cron.php:9
 msgid "Monthly"
-msgstr ""
+msgstr "Ежемесячно"
 
 #: page.queues.php:544
 msgid ""
@@ -912,7 +912,7 @@ msgstr "Не обнаружено таблиц, будут созданы нов
 
 #: views/cron.php:5
 msgid "Never"
-msgstr ""
+msgstr "Никогда"
 
 #: page.queues.php:972
 msgid ""
@@ -952,7 +952,7 @@ msgstr "Нет"
 
 #: views/cron.php:115
 msgid "November"
-msgstr ""
+msgstr "Ноябрь"
 
 #: install.php:77 install.php:105 install.php:122 install.php:125
 #: install.php:199 install.php:326 install.php:332 install.php:345
@@ -964,7 +964,7 @@ msgstr "ОК"
 
 #: views/cron.php:114
 msgid "October"
-msgstr ""
+msgstr "Октябрь"
 
 #: page.queues.php:1057
 msgid "Once"
@@ -1145,7 +1145,7 @@ msgstr "Queues: shared_lastcall, действительны только с Ас
 
 #: views/cron.php:11
 msgid "Reboot"
-msgstr ""
+msgstr "Перезагрузка"
 
 #: page.queues.php:623
 msgid "Recording Mode:"
@@ -1255,11 +1255,11 @@ msgstr ""
 
 #: views/cron.php:86
 msgid "Saturday"
-msgstr ""
+msgstr "Суббота"
 
 #: views/cron.php:113
 msgid "September"
-msgstr ""
+msgstr "Сентябрь"
 
 #: page.queues.php:1263
 msgid "Service Level:"
@@ -1342,7 +1342,7 @@ msgstr "Применить изменения"
 
 #: views/cron.php:80
 msgid "Sunday"
-msgstr ""
+msgstr "Воскресенье"
 
 #: page.queues.php:1344
 msgid "The Queue Name provided is too long."
@@ -1405,7 +1405,7 @@ msgstr ""
 
 #: views/cron.php:84
 msgid "Thursday"
-msgstr ""
+msgstr "Четверг"
 
 #: page.queues.php:681
 msgid "Timing & Agent Options"
@@ -1413,7 +1413,7 @@ msgstr "Параметры времени и операторов"
 
 #: views/cron.php:82
 msgid "Tuesday"
-msgstr ""
+msgstr "Вторник"
 
 #: page.queues.php:928 page.queues.php:946 page.queues.php:967
 #: page.queues.php:985
@@ -1487,11 +1487,11 @@ msgstr ""
 
 #: views/cron.php:83
 msgid "Wednesday"
-msgstr ""
+msgstr "Среда"
 
 #: views/cron.php:8
 msgid "Weekly"
-msgstr ""
+msgstr "Еженедельно"
 
 #: page.queues.php:590
 msgid "When No Free Agents"
