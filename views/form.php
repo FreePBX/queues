@@ -1598,7 +1598,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<input type="radio" name="joinempty" id="joinemptystrict" value="strict" <?php echo ($default == "strict"?"CHECKED":"") ?>>
 								<label for="joinemptystrict"><?php echo _("Strict");?></label>
 								<input type="radio" name="joinempty" id="joinemptyultra" value="penalty,paused,invalid,unavailable,inuse,ringing" <?php echo ($default == "penalty,paused,invalid,unavailable,inuse,ringing"?"CHECKED":"") ?>>
-								<label for="joinemptyno"><?php echo _("Ultra Strict");?></label>
+								<label for="joinemptyultra"><?php echo _("Ultra Strict");?></label>
 								<input type="radio" name="joinempty" id="joinemptyno" value="no" <?php echo ($default == "no"?"CHECKED":"") ?>>
 								<label for="joinemptyno"><?php echo _("No");?></label>
 								<input type="radio" name="joinempty" id="joinemptyloose" value="loose" <?php echo ($default == "loose"?"CHECKED":"") ?>>
@@ -1632,7 +1632,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<input type="radio" name="leavewhenempty" id="leavewhenemptystrict" value="strict" <?php echo ($default == "strict"?"CHECKED":"") ?>>
 								<label for="leavewhenemptystrict"><?php echo _("Strict");?></label>
 								<input type="radio" name="leavewhenempty" id="leavewhenemptyultra" value="penalty,paused,invalid,unavailable,inuse,ringing" <?php echo ($default == "penalty,paused,invalid,unavailable,inuse,ringing"?"CHECKED":"") ?>>
-								<label for="leavewhenemptyno"><?php echo _("Ultra Strict");?></label>
+								<label for="leavewhenemptyultra"><?php echo _("Ultra Strict");?></label>
 								<input type="radio" name="leavewhenempty" id="leavewhenemptyno" value="no" <?php echo ($default == "no"?"CHECKED":"") ?>>
 								<label for="leavewhenemptyno"><?php echo _("No");?></label>
 								<input type="radio" name="leavewhenempty" id="leavewhenemptyloose" value="loose" <?php echo ($default == "loose"?"CHECKED":"") ?>>
