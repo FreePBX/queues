@@ -697,6 +697,9 @@ function queues_get_config($engine) {
 			if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
 
 			$c = 'macro-agent-add';
+			// for i18n playback in multiple languages
+			$ext->add($c, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+			$ext->add($c, 'lang-playback', '', new ext_return());
 			$exten = 's';
 
 			$ext->add($c, $exten, '', new ext_wait(1));
@@ -727,12 +730,21 @@ function queues_get_config($engine) {
 			$ext->add($c, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})}'));
 			$ext->add($c, $exten, '', new ext_userevent('Agentlogin', 'Agent: ${CALLBACKNUM}'));
 			$ext->add($c, $exten, '', new ext_wait(1));
-			$ext->add($c, $exten, '', new ext_playback('agent-loginok&with&extension'));
-			$ext->add($c, $exten, '', new ext_saydigits('${CALLBACKNUM}'));
+			$ext->add($c, $exten, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 			$ext->add($c, $exten, '', new ext_hangup());
 			$ext->add($c, $exten, '', new ext_macroexit());
 			$ext->add($c, $exten, 'invalid', new ext_playback('pbx-invalid'));
 			$ext->add($c, $exten, '', new ext_goto('a3'));
+
+			$lang = 'en'; // English
+		        $ext->add($c, $lang, 'hook_0', new ext_playback('agent-loginok&with&extension'));
+			$ext->add($c, $lang, '', new ext_saydigits('${CALLBACKNUM}'));
+		        $ext->add($c, $lang, '', new ext_return());
+			$lang = 'ja'; // Japanese
+		        $ext->add($c, $lang, 'hook_0', new ext_playback('extension'));
+			$ext->add($c, $lang, '', new ext_saydigits('${CALLBACKNUM}'));
+		        $ext->add($c, $lang, '', new ext_playback('jp-kara&agent-loginok'));
+		        $ext->add($c, $lang, '', new ext_return());
 
 			/*
 			 * Removes a dynamic agent/member from a Queue
