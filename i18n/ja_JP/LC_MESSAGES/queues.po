@@ -38,7 +38,7 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:52-0500\n"
-"PO-Revision-Date: 2015-07-30 14:57+0200\n"
+"PO-Revision-Date: 2015-09-18 15:56+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/ja_JP/>\n"
@@ -55,15 +55,15 @@ msgstr "(**) エラー"
 
 #: page.queues.php:1130
 msgid "(**) Warning Potential Errors"
-msgstr "(**) 警告 潜在的なエラー"
+msgstr "(**) 警告 エラーの可能性あり"
 
 #: page.queues.php:393 page.queues.php:421
 msgid "(pick extension)"
-msgstr "内線をピックアップ"
+msgstr "内線を選択"
 
 #: page.queues.php:372
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
-msgstr "ALERT_INFOは、SIPデバイスと着信音に使用することができます。"
+msgstr "ALERT_INFOを使用することで、一部のSIPデバイスの着信音を変えることができます。"
 
 #: page.queues.php:177 page.queues.php:247 page.queues.php:264
 msgid "Add Queue"
@@ -88,12 +88,7 @@ msgid ""
 "Asterisk 1.6+, you can also set the 'Honor Wrapup Time Across Queues' "
 "setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
 "this is honored across queues for members logged on to multiple queues."
-msgstr ""
-"コールが成功した後に、潜在的にフリーなエージェントへ他のコールを送信する前に"
-"何秒間待つか。(デフォルトは0, またはディレイなし)もしAsterisk 1.6以降を使用し"
-"ている場合は、複数のキューログインしているメンバーのためにキューをまたいで尊"
-"重されるように、'高度な設定ページでキューをまたいでまとめた時間を尊重する'を"
-"設定することもできます。"
+msgstr "コールが成功した後に、空いているエージェントに他の呼を繋ぐ前に待つ秒数。デフォルト設定は「0」(待たない)。"
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
@@ -101,7 +96,7 @@ msgstr "エージェントアナウンスメッセージ"
 
 #: page.queues.php:805 page.queues.php:824
 msgid "Agent Announcement:"
-msgstr "エージェントアナウンス："
+msgstr "エージェント事前アナウンス："
 
 #: queues.i18n.php:26
 msgid "Agent Called Events Default"
@@ -113,23 +108,23 @@ msgstr "エージェント正規表現フィルター"
 
 #: page.queues.php:439
 msgid "Agent Restrictions"
-msgstr "エージェントを制限"
+msgstr "エージェントの制限"
 
 #: page.queues.php:565
 msgid "Agent Ringing"
-msgstr "エージェントをリング時"
+msgstr "エージェントを呼出中"
 
 #: page.queues.php:745
 msgid "Agent Timeout Restart:"
-msgstr "エージェントタイムアウト再開："
+msgstr "エージェントタイムアウト再開:"
 
 #: page.queues.php:730
 msgid "Agent Timeout:"
-msgstr "エージェントタイムアウト："
+msgstr "エージェントタイムアウト:"
 
 #: page.queues.php:652
 msgid "Agent Volume Adjustment:"
-msgstr "エージェント音量調節："
+msgstr "エージェント音量調節:"
 
 #: page.queues.php:372
 msgid "Alert Info"
@@ -145,11 +140,11 @@ msgstr "発信者がキューに参加するのを常に許可。"
 
 #: page.queues.php:1050
 msgid "Announce Hold Time:"
-msgstr "待ち時間アナウンス："
+msgstr "待ち時間を知らせる:"
 
 #: page.queues.php:1037
 msgid "Announce Position:"
-msgstr "待ち順アナウンス："
+msgstr "待ち順を知らせる:"
 
 #: page.queues.php:1037
 msgid "Announce position of caller in the queue?"
@@ -161,18 +156,16 @@ msgid ""
 "queue call.<br><br>You must install and enable the \"Systems Recordings\" "
 "Module to edit this option"
 msgstr ""
-"キュー内の呼を受信するため外部フォローミー機能を使用する人に対し、再生される"
-"メッセージです。<br><br>このオプションを編集するには、\"システム録音\"モ"
-"ジュールをインストールし有効にしなければなりません"
+"キュー内の呼を受信するため外部フォローミー機能を使用する人に対し、再生されるメッセージです。<br><br>このオプションを編集するには、\""
+"システム録音\"モジュールをインストールして有効にする必要があります。"
 
 #: page.queues.php:597
 msgid ""
 "Announcement played to callers once prior to joining the queue.<br><br>You "
 "must install and enable the \"Systems Recordings\" Module to edit this option"
 msgstr ""
-"キューに参加する前に一回のみ発信者に再生されるアナウンス。<br><br>このオプ"
-"ションを編集するには\"システム録音\"モジュールをインストールし有効にする必要"
-"があります"
+"発信者がキューに入る前に、一回のみ再生するアナウンス。<br><br>このオプションを編集するには\"システム録音\""
+"モジュールをインストールして有効にする必要があります。"
 
 #: page.queues.php:574
 msgid ""
@@ -182,9 +175,8 @@ msgid ""
 "call right now. To add additional recordings please use the \"System "
 "Recordings\" MENU."
 msgstr ""
-"キューに参加する前に再生するアナウンス。対応可能なエージェント（ACWエージェン"
-"トを含む）がいる場合は、スキップすることができます。アナウンスを追加する場合"
-"は、\"システム音声\"メニューを使用してください。"
+"発信者がキューに入る前に再生するアナウンス。対応可能なエージェント（ACWエージェントを含む）がいる場合は、このアナウンスは再生しません。アナウンスの音声"
+"を追加したい場合は、「システム音声」を利用してください。"
 
 #: page.queues.php:805
 msgid ""
@@ -195,11 +187,9 @@ msgid ""
 "or more sound files are not displayed as options since this feature can not "
 "accept such recordings."
 msgstr ""
-"発信者のブリッジの前にエージェントに再生されるアナウンス<br><br>例:\"次のコー"
-"ルは営業キューからのものです\" や \"このコールはテクニカルサポートキューから"
-"のものです。\"<br><br>録音を追加するには、\"システム録音\"メニューを使用して"
-"ください。2つ以上の音声ファイルから構成された合成録音は、この機能ではそのよう"
-"な録音を受け付けられないため、オプションとして表示されません。"
+"発信者をエージェントに繋ぐ前に、エージェントに対して再生するアナウンス。<br><br>例:「営業キューからの着信です\"」や 「テクニカルサポートキュー"
+"からです」。<br><br>アナウンスの音声を追加するには、「システム録音」を利用してください。2つ以上の音声ファイルから構成されたアナウンスは、この機能"
+"ではそのような音声を受け付けられないため、一覧には表示されません。"
 
 #: page.queues.php:824
 msgid ""
@@ -208,9 +198,8 @@ msgid ""
 "from the Technical Support Queue\".<br><br>You must install and enable the "
 "\"Systems Recordings\" Module to edit this option"
 msgstr ""
-"発信者との接続前にエージェントに流れるアナウンス<br><br>例：\"営業に関するお"
-"問合せ\" や \"テクニカルサポートに関するお問合せ\"。<br><br>このオプションは"
-"\"システム録音\"モジュールをインストールし有効にしてください"
+"発信者をエージェントに繋ぐ前に、エージェントに対して再生するアナウンス<br><br>例:「営業キューからの着信です\"」や "
+"「テクニカルサポートキューからです」。<br><br>アナウンスの音声を追加するには、「システム録音」を利用してください。"
 
 #: page.queues.php:321
 msgid ""
@@ -222,12 +211,9 @@ msgid ""
 "<br><br>To add additional recordings please use the \"System Recordings\" "
 "MENU."
 msgstr ""
-"キューメンバーに対してキューコールを通知し、応答前に確認を要求するアナウンス"
-"を再生します。デフォルトに設定された場合、メンバーがフォローミー経由で到着さ"
-"れたり、フォローミーで提供される代わりのメッセージがある場合を除き、標準の"
-"コール確認デフォルトメッセージが再生されます。このメッセージは他のいかなる指"
-"定されたメッセージを上書きします。..<br><br>録音を追加する場合は\"システム録"
-"音\"メニューを使用してください。"
+"キューのメンバー (エージェント) に対して、キューからの着信があることを知らせて、応答前に確認を要求するアナウンスを再生します。デフォルトの設定では、標"
+"準のコール確認アナウンスを強制的に再生します。※フォローミー経由で着信した場合、且つフォローミーにて他のメッセージが設定された場合を除く。<br><br>"
+"アナウンスの音声を追加するには、「システム録音」を利用してください。"
 
 #: views/cron.php:10
 msgid "Annually"
@@ -251,12 +237,10 @@ msgid ""
 "This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
 "'Agent Timeout' combined."
 msgstr ""
-"Asterisk タイムアウト優先度。'厳密'モードでは、発信者の'最大待ち時間'がヒット"
-"した時には即座にキューから出されます。'ルーズ'モードでは、もしキューメンバー"
-"が現在このコールを着信させている場合、キューがこのキューメンバーを着信をス"
-"トップする間待ちます、さもなくば、発信者をキューの外へ連れて行く前にコールは"
-"キューメンバーによって拒否されます。これは、'最大待ち時間'は '最大待ち時間' "
-"+ 'エージェントタイムアウト'の合計の長さになる可能性があることを意味します。"
+"Asteriskのtimeoutpriorityを設定します。「厳密 (Strict) "
+"」モードでは、発信者の「最大待ち時間」を超えた場合には即座に発信者をキューから出します。「ルーズ (Loose)」モードでは、もし現在この呼がエージェント"
+"に着信している場合、鳴り終わる、またはエージェントに拒否などされるまで待機してから発信者をキューから出します。その場合は、「最大待ち時間」は実質的には「"
+"最大待ち時間 + エージェントタイムアウト」の合計時間になるため、設定するときに注意が必要です。"
 
 #: page.queues.php:1003
 msgid ""
@@ -265,10 +249,8 @@ msgid ""
 "members.  No penalty will be weighed in if there are only X or fewer queue "
 "members."
 msgstr ""
-"Asterisk: ペナルティメンバーリミット。キューのメンバーが非常に少ない時に、リ"
-"ミットはペナルティ設定を無視するように設定でき、全てのメンバーが試みられるよ"
-"うになります。X人やそれ以下のキューメンバーしかいない時に、ペナルティのウェイ"
-"トが計算されなくなります。"
+"Asteriskのpenaltymemberslimitを設定します。キューのメンバーが非常に少ない時に、リミットはペナルティ設定を無視するように設定でき"
+"、全てのメンバーが試みられるようになります。X人やそれ以下のキューメンバーしかいない時に、ペナルティのウェイトが計算されなくなります。"
 
 #: views/cron.php:112
 msgid "August"
@@ -276,7 +258,7 @@ msgstr "8月"
 
 #: page.queues.php:899
 msgid "Auto Pause Delay:"
-msgstr "オートポーズディレイ："
+msgstr "オートポーズディレイ:"
 
 #: page.queues.php:850
 msgid ""
@@ -292,27 +274,27 @@ msgstr ""
 
 #: page.queues.php:867
 msgid "Auto Pause on Busy:"
-msgstr "オートポーズビジー："
+msgstr "オートポーズビジー:"
 
 #: page.queues.php:882
 msgid "Auto Pause on Unavailable:"
-msgstr "利用不可能時にオートポーズ："
+msgstr "利用不可能時にオートポーズ:"
 
 #: page.queues.php:850
 msgid "Auto Pause:"
-msgstr "オートポーズ："
+msgstr "オートポーズ:"
 
 #: page.queues.php:502
 msgid "Autofill:"
-msgstr "Autofill："
+msgstr "オートフィル:"
 
 #: functions.inc/geters_seters.php:37
 msgid "Bad Queue Number, can not be blank"
-msgstr "不正なキュー番号、空白は許可されません"
+msgstr "無効なキュー番号が入力されました。この設定は空にできません。"
 
 #: page.queues.php:1073
 msgid "Break Out Type"
-msgstr ""
+msgstr "ブレイクアウトの種類"
 
 #: page.queues.php:352
 msgid "CID Name Prefix:"
@@ -320,19 +302,19 @@ msgstr "発信者ID名プリフィックス："
 
 #: page.queues.php:321
 msgid "Call Confirm Announce:"
-msgstr "コール確認アナウンス："
+msgstr "コール確認のアナウンス:"
 
 #: page.queues.php:339
 msgid "Call Confirm Announcement:"
-msgstr "コール確認のアナウンス："
+msgstr "コール確認のアナウンス:"
 
 #: page.queues.php:313
 msgid "Call Confirm:"
-msgstr "コール確認："
+msgstr "コール確認:"
 
 #: page.queues.php:608
 msgid "Call Recording:"
-msgstr "通話録音："
+msgstr "通話録音:"
 
 #: page.queues.php:444
 msgid "Call as Dialed"
@@ -340,15 +322,15 @@ msgstr "ダイヤルされたかのように呼び出す"
 
 #: page.queues.php:1152
 msgid "Callback to use when caller presses 1."
-msgstr ""
+msgstr "発信者が「1」を押した場合に使うコールバックを設定します。"
 
 #: page.queues.php:1020
 msgid "Caller Position Announcements"
-msgstr "発信者の待ち順アナウンス"
+msgstr "待ち順のアナウンス"
 
 #: page.queues.php:635
 msgid "Caller Volume Adjustment:"
-msgstr "発信者音量調節："
+msgstr "発信者音量調節:"
 
 #: page.queues.php:964
 msgid ""
@@ -596,7 +578,7 @@ msgstr "内線オプション"
 
 #: page.queues.php:385 page.queues.php:413
 msgid "Extension Quick Pick"
-msgstr "内線クイックピックアップ"
+msgstr "内線を選択する"
 
 #: page.queues.php:446
 msgid "Extensions Only"
@@ -612,7 +594,7 @@ msgstr "2月"
 
 #: page.queues.php:1023
 msgid "Frequency:"
-msgstr "頻度："
+msgstr "頻度:"
 
 #: views/cron.php:85
 msgid "Friday"
@@ -620,11 +602,11 @@ msgstr "金曜日"
 
 #: page.queues.php:452
 msgid "General Queue Options"
-msgstr "一般キューオプション"
+msgstr "一般設定"
 
 #: page.queues.php:305
 msgid "Generate Device Hints:"
-msgstr "デバイスヒントを生成する："
+msgstr "デバイスヒントを生成する:"
 
 #: queues.i18n.php:30
 msgid "Generate queuenum*/** Login/off Codes"
@@ -632,16 +614,14 @@ msgstr "queuenum*/** Login/offのコードを生成する"
 
 #: page.queues.php:275
 msgid "Give this queue a brief name to help you identify it."
-msgstr "このキューを識別するために簡潔な名前を付けます。"
+msgstr "このキューを識別するために分かりやすい名前を付けます。"
 
 #: page.queues.php:528
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
-"どちらのキューにも共通なエージェントがいる場合に、より高い優先度キューで待っ"
-"ているコールが運ばれることを保証するために、キューに'ウェイト'オプションを提"
-"供します。"
+"複数のキューに同じエージェントがいる場合に、より高い優先度を持つキューで待っている呼が先に着信することを保証するために、キューに「重み付け」を設定します。"
 
 #: queues.i18n.php:22
 msgid "Hide Queue No Answer Option"
