@@ -422,7 +422,13 @@ function queues_get($account, $queues_conf_only=false) {
 		if (function_exists('vqplus_callback_get')) {
 			$results['context'] = "queuecallback-".$config['callback_id'];
 			$arr = vqplus_callback_get($config['callback_id']);
-			if( isset($arr['announcement']) && $arr['announcement'] != '') {
+
+			if (isset($arr[0]) && is_array($arr[0])) {
+				/* Vqplus 13 moved to BMO, which made the return value format different. */
+				$arr = $arr[0];
+			}
+
+			if (isset($arr['announcement']) && $arr['announcement'] != '') {
 				$periodic = recordings_get_file($arr['announcement']);
 				// We need to strip off all but the first sound file of any compound sound files
 				$periodic_arr = explode("&", $periodic);
