@@ -346,6 +346,7 @@ function queues_get_config($engine) {
 					$exten_str_len = strlen($exten);
 					$exten_str_tmp = str_repeat('X', $exten_str_len);
 					$que_code_len = strlen($que_code);
+					$device_list = !empty($device_list) ? $device_list : array();
 					foreach ($device_list as $device) {
 						if (
 							(!$dynmemberonly || $device['devicetype'] == 'adhoc' || isset($mem[$device['user']]))
