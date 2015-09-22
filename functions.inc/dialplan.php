@@ -86,6 +86,7 @@ function queues_get_config($engine) {
 
 			$qmembers = array();
 			$hint_hash = array();
+			$qlist = is_array($qlist)?$qlist:array();
 			foreach($qlist as $item) {
 				$exten = $item[0];
 				$q = queues_get($exten);
@@ -326,11 +327,12 @@ function queues_get_config($engine) {
 				if ($q['togglehint'] && $que_code != '') {
 					if (!isset($device_list)) {
 				  	$device_list = core_devices_list("all", 'full', true);
+						$device_list = is_array($device_list)?$device_list:array();
 					}
 					if ($astman) {
 						if (($dynmemberonly = strtolower($astman->database_get('QPENALTY/'.$exten,'dynmemberonly')) == 'yes') == true) {
 							$get=$astman->database_show('QPENALTY/'.$exten.'/agents');
-							if($get){
+							if(is_array($get)){
 								$mem = array();
 								foreach($get as $key => $value){
 									$key=explode('/',$key);
@@ -385,7 +387,7 @@ function queues_get_config($engine) {
 						break;
 				}
 				$ext->add('from-queue', $exten, '', new ext_goto('1','${QAGENT}',$agent_context));
-
+				$q['member'] = is_array($q['member'])?$q['member']:array();
 				foreach ($q['member'] as $qm) {
 					if (strtoupper(substr($qm,0,1)) == 'L') {
 						$tm = preg_replace("/[^0-9#\,*]/", "", $qm);
@@ -409,6 +411,7 @@ function queues_get_config($engine) {
 				//
 				if (!isset($device_list)) {
 					$device_list = core_devices_list("all", 'full', true);
+					$device_list = is_array($device_list)?$device_list:array();
 				}
 			}
 
@@ -453,6 +456,7 @@ function queues_get_config($engine) {
 
 			// Add the static members now since so far it only has dynamic members
 			foreach ($qmembers as $q => $mems) {
+				$mems = is_array($mems)?$mems:array();
 				foreach ($mems as $m) {
 					// If $m is not in qc already then add them, thus avoiding duplicates
 					if (!isset($qc[$m]) || !in_array($q, $qc[$m])) {
@@ -567,20 +571,20 @@ function queues_get_config($engine) {
 
 				if ($cos) {
 					$allCos = $cos->getAllCos();
+					$allCos = is_array($allCos)?$allCos:array();
 					foreach ($allCos as $cos_name) {
 						$all = $cos->getAll($cos_name);
-
+						$all['members'] = is_array($all['members'])?$all['members']:array();
 						foreach ($all['members'] as $key => $val) {
 							$userQueues[$key] = ($userQueues[$key] ? $userQueues[$key] + $all['queuesallow'] : $all['queuesallow']);
 						}
 					}
 				}
-
 				foreach ($device_list as $device) {
 					if ($device['user'] != '') {
 						$callers_all = array();
 						$callers_all_hints = array();
-
+						$qlist = is_array($qlist)?$qlist:array();
 						foreach ($qlist as $item) {
 							if (count($userQueues) > 1 && (!isset($userQueues[$device['user']]) || !isset($userQueues[$device['user']][$item[0]]))) {
 								continue;
