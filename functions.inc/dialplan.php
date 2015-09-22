@@ -581,6 +581,7 @@ function queues_get_config($engine) {
 						}
 					}
 				}
+				$device_list = is_array($device_list)?$device_list:array();
 				foreach ($device_list as $device) {
 					if ($device['user'] != '') {
 						$callers_all = array();
