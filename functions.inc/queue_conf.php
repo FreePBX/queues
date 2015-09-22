@@ -29,7 +29,7 @@ class queues_conf {
 			);
 		return $files;
 	}
-	
+
 	// return the output that goes in each of the files
 	function generateConf($file) {
 		global $version;
@@ -136,13 +136,16 @@ class queues_conf {
 					continue;
 				}
 
-				// Some old commands have been removed. Make sure we 
+				// Some old commands have been removed. Make sure we
 				// don't add them.
 				switch($keyword){
 					case 'monitor-join':
 					case 'answered_elsewhere':
 					case 'skip_joinannounce':
 						continue;
+					break;
+					case 'music':
+						$keyword = 'musicclass';
 					break;
 				}
 
@@ -151,7 +154,8 @@ class queues_conf {
 				}
 				$output .= $keyword."=".$data."\n";
 			}
-			
+
+
 			// Now pull out all the memebers, one line for each
 			//
 			if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
@@ -160,7 +164,7 @@ class queues_conf {
 					if (isset($matches[1]) && isset($users[$matches[1]])) {
 						$name = $users[$matches[1]];
 						str_replace(',','\,',$name);
-            
+
 						$qnostate = queues_get_qnostate($matches[1]);
 						if ($qnostate == 'ignorestate') {
 							freepbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
@@ -237,4 +241,3 @@ class queues_conf {
 		return $output;
 	}
 }
-
