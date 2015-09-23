@@ -248,7 +248,7 @@ msgstr ""
 msgid "Checking if recordings need migration.."
 msgstr ""
 
-#: functions.inc/queue_conf.php:224
+#: functions.inc/queue_conf.php:228
 msgid "Compound Recordings in Queues Detected"
 msgstr ""
 
@@ -690,7 +690,7 @@ msgstr ""
 msgid "Queue %s : %s"
 msgstr ""
 
-#: functions.inc/queue_conf.php:222
+#: functions.inc/queue_conf.php:226
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr ""
@@ -997,7 +997,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr ""
 
-#: functions.inc/queue_conf.php:217
+#: functions.inc/queue_conf.php:221
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

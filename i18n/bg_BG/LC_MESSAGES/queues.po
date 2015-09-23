@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 10:06-0700\n"
+"POT-Creation-Date: 2015-09-23 09:51-0700\n"
 "PO-Revision-Date: 2014-07-22 13:12+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/queues/bg/"
@@ -272,7 +272,7 @@ msgstr "Проверка за останали таблици на опашки 
 msgid "Checking if recordings need migration.."
 msgstr "Проверка дали записите имат нужда от преместване.."
 
-#: functions.inc/queue_conf.php:224
+#: functions.inc/queue_conf.php:228
 msgid "Compound Recordings in Queues Detected"
 msgstr "Намерени са Съединени Записи в Опашките"
 
@@ -735,7 +735,7 @@ msgstr "Опашка"
 msgid "Queue %s : %s"
 msgstr "Опашка %s : %s"
 
-#: functions.inc/queue_conf.php:222
+#: functions.inc/queue_conf.php:226
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Опашка - %s (%s): %s<br />"
@@ -1063,7 +1063,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Внимание! Вътрешна Линия"
 
-#: functions.inc/queue_conf.php:217
+#: functions.inc/queue_conf.php:221
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

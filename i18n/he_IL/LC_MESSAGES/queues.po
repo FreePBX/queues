@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 10:06-0700\n"
+"POT-Creation-Date: 2015-09-23 09:51-0700\n"
 "PO-Revision-Date: 2011-09-25 12:15+0200\n"
 "Last-Translator: Moshe Brevda <mbrevda => gmail ! com>\n"
 "Language-Team: \n"
@@ -285,7 +285,7 @@ msgstr "בודק האם ישנה טבלה ישנה..."
 msgid "Checking if recordings need migration.."
 msgstr "בודק האם הקלטות המערכת צריכות לעבור שדרוג"
 
-#: functions.inc/queue_conf.php:224
+#: functions.inc/queue_conf.php:228
 msgid "Compound Recordings in Queues Detected"
 msgstr "אותרו הקלטות מערכת מחוברות"
 
@@ -729,7 +729,7 @@ msgstr "תור"
 msgid "Queue %s : %s"
 msgstr "תור %s : %s"
 
-#: functions.inc/queue_conf.php:222
+#: functions.inc/queue_conf.php:226
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr ""
@@ -1046,7 +1046,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "אזהרה! שלוחה"
 
-#: functions.inc/queue_conf.php:217
+#: functions.inc/queue_conf.php:221
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
