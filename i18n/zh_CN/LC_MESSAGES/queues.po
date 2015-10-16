@@ -8,23 +8,27 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-23 09:51-0700\n"
-"PO-Revision-Date: 2011-04-02 23:37+0200\n"
-"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
-"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"PO-Revision-Date: 2015-10-16 14:06+0200\n"
+"Last-Translator: james <zhulizhong@gmail.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://weblate.freepbx.org/projects/freepbx/queues/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: page.queues.php:17
 msgid " Add Queue"
-msgstr ""
+msgstr " 添加队列"
 
 #: page.queues.php:14
 msgid " Edit: "
-msgstr ""
+msgstr " 编辑: "
 
 #: views/form.php:472
 msgid ""
@@ -38,7 +42,7 @@ msgstr ""
 
 #: views/qgrid.php:16
 msgid "Actions"
-msgstr ""
+msgstr "命令"
 
 #: views/qgrid.php:9
 msgid "Add Queue"
@@ -52,7 +56,7 @@ msgstr ""
 
 #: views/form.php:697
 msgid "Advanced Options"
-msgstr ""
+msgstr "高级选项"
 
 #: views/form.php:1382
 msgid ""
@@ -69,7 +73,7 @@ msgstr "坐席公告消息"
 
 #: views/form.php:216
 msgid "Agent Announcement"
-msgstr ""
+msgstr "坐席播报"
 
 #: views/form.php:1819
 msgid "Agent Regex Filter"
@@ -85,11 +89,11 @@ msgstr "坐席振铃"
 
 #: views/form.php:1286
 msgid "Agent Timeout"
-msgstr ""
+msgstr "坐席超时"
 
 #: views/form.php:1312
 msgid "Agent Timeout Restart"
-msgstr ""
+msgstr "坐席超时重启"
 
 #: views/form.php:879
 msgid "Alert Info"
@@ -99,7 +103,7 @@ msgstr "警告信息"
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
-msgstr ""
+msgstr "支持动态队列成员登录或退出。参考队列模块如何设置动态队列成员。"
 
 #: views/form.php:182
 msgid "Always"
@@ -107,15 +111,15 @@ msgstr "总是"
 
 #: views/form.php:374
 msgid "Always allows the caller to join the Queue."
-msgstr ""
+msgstr "总是允许呼叫方加入队列。"
 
 #: views/form.php:1747
 msgid "Announce Hold Time"
-msgstr ""
+msgstr "播报音乐等待"
 
 #: views/form.php:1718
 msgid "Announce Position"
-msgstr ""
+msgstr "播报等待位置"
 
 #: views/form.php:1735
 msgid "Announce position of caller in the queue?"
@@ -153,7 +157,7 @@ msgstr ""
 
 #: views/cron.php:63
 msgid "Annually"
-msgstr ""
+msgstr "手动"
 
 #: views/form.php:1274
 msgid ""
@@ -176,11 +180,11 @@ msgstr ""
 
 #: views/form.php:1450
 msgid "Auto Pause"
-msgstr ""
+msgstr "自动暂停"
 
 #: views/form.php:1539
 msgid "Auto Pause Delay"
-msgstr ""
+msgstr "自动暂停延迟"
 
 #: views/form.php:1469
 msgid ""
@@ -192,15 +196,15 @@ msgstr ""
 
 #: views/form.php:1481
 msgid "Auto Pause on Busy"
-msgstr ""
+msgstr "自动暂停忙"
 
 #: views/form.php:1510
 msgid "Auto Pause on Unavailable"
-msgstr ""
+msgstr "自动暂停无效"
 
 #: views/form.php:988
 msgid "Autofill"
-msgstr ""
+msgstr "自动填入"
 
 #: functions.inc/geters_seters.php:39
 msgid "Bad Queue Number, can not be blank"
