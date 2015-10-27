@@ -480,6 +480,7 @@ function queues_get_config($engine) {
 				//       Currently this can't be made into a pattern since it's the $device['user']] but the hint has the device
 				//
 				$q_pause_len = strlen($que_pause_code);
+				$device_list = (isset($device_list) && is_array($device_list))?$device_list:array();
 				foreach ($device_list as $device) {
 					if ($device['user'] != '') {
 						$pause_all_hints = array();
