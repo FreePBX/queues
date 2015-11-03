@@ -268,4 +268,58 @@ class Queues implements \BMO {
 		}
 		return array("hookTabs" => $hookTabs, "hookContent" => $hookcontent, "oldHooks" => $module_hook->hookHtml);
 	}
+	public function getRightNav($request) {
+		if($request['view']=="form"){
+			return load_view(__DIR__."/views/bootnav.php",array());
+		}
+	}
+	public function ajaxRequest($req, &$setting) {
+       switch ($req) {
+           case 'getJSON':
+               return true;
+           break;
+           default:
+               return false;
+           break;
+       }
+   }
+   public function ajaxHandler(){
+       switch ($_REQUEST['command']) {
+           case 'getJSON':
+               switch ($_REQUEST['jdata']) {
+                   case 'grid':
+									 	$ret = array();
+                     foreach($this->listQueues(true) as $q){
+											 $ret[] = array("extension" => $q[0], "description" => $q[1]);
+										 }
+										 return $ret;
+                   break;
+
+                   default:
+                       return false;
+                   break;
+               }
+           break;
+
+           default:
+               return false;
+           break;
+       }
+   }
+	 public function listQueues($listall=false){
+		 $sql = "SELECT extension, descr FROM queues_config ORDER BY extension";
+		 $stmt = $this->db->prepare($sql);
+		 $stmt->execute();
+		 $results = $stmt->fetchall(\PDO::FETCH_BOTH);
+		 foreach($results as $result){
+			 if ($listall || checkRange($result[0])){
+				 $extens[] = array($result[0],$result[1]);
+			 }
+		 }
+		 if (isset($extens)) {
+			 return $extens;
+		 } else {
+			 return array();
+		 }
+	 }
 }
