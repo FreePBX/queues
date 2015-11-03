@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 09:51-0700\n"
+"POT-Creation-Date: 2015-11-03 15:09-0800\n"
 "PO-Revision-Date: 2011-09-25 12:15+0200\n"
 "Last-Translator: Moshe Brevda <mbrevda => gmail ! com>\n"
 "Language-Team: \n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/qgrid.php:9
+#: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
 msgstr "הוסף תור"
 
@@ -571,7 +571,7 @@ msgstr ""
 msgid "Leave Empty"
 msgstr ""
 
-#: views/bootnav.php:1
+#: views/bootnav.php:2
 msgid "List Queues"
 msgstr ""
 
@@ -720,7 +720,7 @@ msgid ""
 "leave this blank!"
 msgstr ""
 
-#: Queues.class.php:193 views/qgrid.php:14
+#: Queues.class.php:193 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "תור"
 

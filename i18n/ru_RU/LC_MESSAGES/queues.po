@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 09:51-0700\n"
+"POT-Creation-Date: 2015-11-03 15:09-0800\n"
 "PO-Revision-Date: 2015-05-01 23:09+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -43,7 +43,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/qgrid.php:9
+#: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
 msgstr "Добавить очередь"
 
@@ -626,7 +626,7 @@ msgstr ""
 msgid "Leave Empty"
 msgstr ""
 
-#: views/bootnav.php:1
+#: views/bootnav.php:2
 msgid "List Queues"
 msgstr ""
 
@@ -787,7 +787,7 @@ msgstr ""
 "использование звездочки (*).<br /> ВНИМАНИЕ: будьте уверены в том, что "
 "понимаете то, что делаете, в противном случае оставьте это поле пустым!"
 
-#: Queues.class.php:193 views/qgrid.php:14
+#: Queues.class.php:193 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "Очередь"
 

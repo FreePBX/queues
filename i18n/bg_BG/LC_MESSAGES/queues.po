@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 09:51-0700\n"
+"POT-Creation-Date: 2015-11-03 15:09-0800\n"
 "PO-Revision-Date: 2014-07-22 13:12+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/queues/bg/"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/qgrid.php:9
+#: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
 msgstr "Добави Опашка"
 
@@ -568,7 +568,7 @@ msgstr ""
 msgid "Leave Empty"
 msgstr ""
 
-#: views/bootnav.php:1
+#: views/bootnav.php:2
 msgid "List Queues"
 msgstr ""
 
@@ -726,7 +726,7 @@ msgstr ""
 "номер с всякаква дължина, но ще забрани * бутона.<br />ВНИМАНИЕ: Убедете се "
 "че знаете какво правите или оставете празно!"
 
-#: Queues.class.php:193 views/qgrid.php:14
+#: Queues.class.php:193 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "Опашка"
 

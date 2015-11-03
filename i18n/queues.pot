@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 09:51-0700\n"
+"POT-Creation-Date: 2015-11-03 15:09-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,6 +39,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
+#: views/bootnav.php:3
 #: views/qgrid.php:9
 msgid "Add Queue"
 msgstr ""
@@ -553,7 +554,7 @@ msgstr ""
 msgid "Leave Empty"
 msgstr ""
 
-#: views/bootnav.php:1
+#: views/bootnav.php:2
 msgid "List Queues"
 msgstr ""
 
@@ -741,6 +742,7 @@ msgid ""
 msgstr ""
 
 #: Queues.class.php:193
+#: views/bootnav.php:9
 #: views/qgrid.php:14
 msgid "Queue"
 msgstr ""
