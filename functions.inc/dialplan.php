@@ -432,6 +432,7 @@ function queues_get_config($engine) {
 					$ext->addExec($c,$amp_conf['AMPBIN'].'/generate_queue_hints.php '.$que_code);
 				} else {
 					$que_code_len = strlen($que_code);
+					$device_list = is_array($device_list)?$device_list:array();
 					foreach ($device_list as $device) {
 						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip') {
 
@@ -480,6 +481,7 @@ function queues_get_config($engine) {
 				//       Currently this can't be made into a pattern since it's the $device['user']] but the hint has the device
 				//
 				$q_pause_len = strlen($que_pause_code);
+				$device_list = is_array($device_list)?$device_list:array();
 				foreach ($device_list as $device) {
 					if ($device['user'] != '') {
 						$pause_all_hints = array();

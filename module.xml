@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.9</version>
+	<version>13.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*13.0.10* FREEPBX-10655 Invalid array argument
 		*13.0.9* FREEPBX-10277 Fix musiconhold
 		*13.0.8* FREEPBX-10294 Correctly set periodic-announce option when using Queue Callback
 		*13.0.7* FREEPBX-9896 FREEPBX-10300 Array validation. Update tooltip for PJSIP
@@ -18,10 +19,10 @@
 		*13.0.3* FREEPBX-9511 Queue Breakout IVRs not selectable
 		*13.0.2* Version bump Beta
 		*13.0.1alpha8* FREEPBX-9482 Display issue with Periodic Announcements in Queues
-		*13.0.1alpha6* FREEPBX-9467 Update search hooks			
+		*13.0.1alpha6* FREEPBX-9467 Update search hooks
 		*13.0.1alpha5* FREEPBX-9434 Error page on queue edit / create
 		*13.0.1alpha4* Add dynamic tab hooking to support BMO hooks and maintain backwards compatibility
-		*13.0.1alpha3* Resolves FREEPBX-8610 and fixes the config aspect of FREEPBX-8216 that was overlooked. 
+		*13.0.1alpha3* Resolves FREEPBX-8610 and fixes the config aspect of FREEPBX-8216 that was overlooked.
 		*13.0.1alpha2* Fix dialplan generation
 		*13.0.1alpha1* Visual Changes
 		*12.0.11* Reduce the number of hints/extensions generated for queues.
