@@ -12,6 +12,9 @@
 </table>
 <script type="text/javascript">
   function qrnavformatter(r,v){
-    return '<a href="?display=queues&view=form&extdisplay='+v.extension+'">'+v.description+' ('+v.extension+')</a>';
+    return v.description+' ('+v.extension+')';
   }
+  $("#table-all-side").on('click-row.bs.table',function(e,row,elem){
+    window.location = '?display=queues&view=form&extdisplay='+row['extension'];
+  })
 </script>
