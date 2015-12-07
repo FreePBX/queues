@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX queues\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 15:09-0800\n"
+"POT-Creation-Date: 2015-12-07 13:03-0800\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -165,6 +165,10 @@ msgstr ""
 msgid "Annually"
 msgstr ""
 
+#: queues.i18n.php:6 queues.i18n.php:12
+msgid "Applications"
+msgstr ""
+
 #: views/form.php:1274
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
@@ -281,6 +285,13 @@ msgstr "Kontrollerar om inspelningar behöver migreras.."
 #: functions.inc/queue_conf.php:228
 msgid "Compound Recordings in Queues Detected"
 msgstr "Upptäckte sammanslagen inspelning i kö "
+
+#: queues.i18n.php:8
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
 
 #: install.php:188
 msgid "Creating queues_config.."
@@ -821,7 +832,7 @@ msgstr "Kö: %s"
 msgid "Queue: %s (%s)"
 msgstr "Kö: %s (%s)"
 
-#: page.queues.php:7
+#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
 msgstr "Köer"
 

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 15:09-0800\n"
+"POT-Creation-Date: 2015-12-07 13:03-0800\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -165,6 +165,10 @@ msgstr ""
 msgid "Annually"
 msgstr ""
 
+#: queues.i18n.php:6 queues.i18n.php:12
+msgid "Applications"
+msgstr ""
+
 #: views/form.php:1274
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
@@ -281,6 +285,13 @@ msgstr "Teste si les enregistrements doivent être migrés..."
 #: functions.inc/queue_conf.php:228
 msgid "Compound Recordings in Queues Detected"
 msgstr "Enregistrements composés détectés dans les Files d'attente"
+
+#: queues.i18n.php:8
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
 
 #: install.php:188
 msgid "Creating queues_config.."
@@ -829,7 +840,7 @@ msgstr "File d'Attente : %s"
 msgid "Queue: %s (%s)"
 msgstr "File d'attente : %s (%s)"
 
-#: page.queues.php:7
+#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
 msgstr "Files d'Attente"
 

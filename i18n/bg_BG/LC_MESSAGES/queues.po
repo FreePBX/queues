@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 15:09-0800\n"
+"POT-Creation-Date: 2015-12-07 13:03-0800\n"
 "PO-Revision-Date: 2014-07-22 13:12+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/queues/bg/"
@@ -159,6 +159,10 @@ msgstr ""
 msgid "Annually"
 msgstr ""
 
+#: queues.i18n.php:6 queues.i18n.php:12
+msgid "Applications"
+msgstr ""
+
 #: views/form.php:1274
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
@@ -275,6 +279,13 @@ msgstr "Проверка дали записите имат нужда от пр
 #: functions.inc/queue_conf.php:228
 msgid "Compound Recordings in Queues Detected"
 msgstr "Намерени са Съединени Записи в Опашките"
+
+#: queues.i18n.php:8
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
 
 #: install.php:188
 msgid "Creating queues_config.."
@@ -811,7 +822,7 @@ msgstr "Опашка: %s"
 msgid "Queue: %s (%s)"
 msgstr "Опашка: %s (%s)"
 
-#: page.queues.php:7
+#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
 msgstr "Опашки"
 

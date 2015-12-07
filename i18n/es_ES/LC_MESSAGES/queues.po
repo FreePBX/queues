@@ -135,6 +135,10 @@ msgstr ""
 msgid "Annually"
 msgstr ""
 
+#: queues.i18n.php:6 queues.i18n.php:12
+msgid "Applications"
+msgstr ""
+
 #: views/form.php:1274
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
@@ -250,6 +254,13 @@ msgstr ""
 
 #: functions.inc/queue_conf.php:228
 msgid "Compound Recordings in Queues Detected"
+msgstr ""
+
+#: queues.i18n.php:8
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
 msgstr ""
 
 #: install.php:188
@@ -764,7 +775,7 @@ msgstr ""
 msgid "Queue: %s (%s)"
 msgstr ""
 
-#: page.queues.php:7
+#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
 msgstr ""
 
