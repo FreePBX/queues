@@ -63,7 +63,7 @@ function queues_add(
 		array($account,'recording',($_REQUEST['recording'])?$_REQUEST['recording']:'dontcare',0),
 		array($account,'monitor-join','yes',0),
 		array($account,'weight',(isset($_REQUEST['weight']))?$_REQUEST['weight']:'0',0),
-		array($account,'autofill',(isset($_REQUEST['autofill']))?'yes':'no',0),
+		array($account,'autofill',(!empty($_REQUEST['autofill']))?'yes':'no',0),
 		array($account,'ringinuse',($cwignore == 2 || $cwignore == 3)?'no':'yes',0),
 		array($account,'reportholdtime',(isset($_REQUEST['reportholdtime']))?$_REQUEST['reportholdtime']:'no',0),
 		array($account,'autopause',(isset($_REQUEST['autopause']))?$_REQUEST['autopause']:'no',0),

@@ -1111,7 +1111,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<span class="radioset">
 								<input type="radio" name="answered_elsewhere" id="answered_elsewhereyes" value="1" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ?"CHECKED":"") ?>>
 								<label for="answered_elsewhereyes"><?php echo _("Yes");?></label>
-								<input type="radio" name="answered_elsewhere" id="answered_elsewhereno" value="" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ?"":"CHECKED") ?>>
+								<input type="radio" name="answered_elsewhere" id="answered_elsewhereno" value="0" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ?"":"CHECKED") ?>>
 								<label for="answered_elsewhereno"><?php echo _("No");?></label>
 							</div>
 						</div>
