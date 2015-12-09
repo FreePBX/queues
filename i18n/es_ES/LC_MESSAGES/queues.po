@@ -3,14 +3,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-08 23:34+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2015-12-08 23:36+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/queues/es_ES/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
-"X-Generator: Translate Toolkit 1.11.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: page.queues.php:17
 msgid " Add Queue"
@@ -1465,11 +1467,11 @@ msgstr "Añadiendo campo 'joinannounce_id'.."
 #: install.php:574 install.php:589 install.php:604 install.php:619
 #: install.php:634
 msgid "already exists"
-msgstr "Ya existe."
+msgstr "Ya existe"
 
 #: install.php:483
 msgid "already migrated"
-msgstr "Ya migrado."
+msgstr "Ya migrado"
 
 #: install.php:622
 msgid "checking for callback_id field.."
@@ -1575,7 +1577,7 @@ msgstr "Migrando tabla 'joinannounce' a identificadores.."
 #: install.php:434 install.php:460
 #, php-format
 msgid "migrated %s entries"
-msgstr "Migrados %s elementos."
+msgstr "Migrados %s elementos"
 
 #: install.php:388
 msgid "migrating"
