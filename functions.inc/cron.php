@@ -60,7 +60,7 @@ function queues_set_backup_cron() {
 				case 'monthly':
 					$cron['dom']		= rand(1, 31);
 				case 'weekly':
-					if(!in_array(array('annually', 'monthly'), $q['cron_schedule'])) {
+					if(!in_array($q['cron_schedule'], array('annually', 'monthly'))) {
 						$cron['dow']	= rand(0, 6);
 					}
 				case 'daily':
