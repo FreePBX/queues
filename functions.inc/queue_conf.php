@@ -162,8 +162,9 @@ class queues_conf {
 				foreach ($members as $member) {
 					preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
 					if (isset($matches[1]) && isset($users[$matches[1]])) {
-						$name = $users[$matches[1]];
-						str_replace(',','\,',$name);
+						$name = sprintf('"%s"',$users[$matches[1]]);
+
+						//str_replace(',','\,',$name);
 
 						$qnostate = queues_get_qnostate($matches[1]);
 						if ($qnostate == 'ignorestate') {
@@ -180,8 +181,8 @@ class queues_conf {
 				foreach ($members as $member) {
 					preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
 					if (isset($matches[1]) && isset($devices[$matches[1]])) {
-						$name = $users[$matches[1]];
-						str_replace(',','\,',$name);
+						$name = sprintf('"%s"',$users[$matches[1]]);
+						//str_replace(',','\,',$name);
 						$qnostate = queues_get_qnostate($matches[1]);
 						if ($qnostate == 'ignorestate') {
 							freepbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
