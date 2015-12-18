@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-07 13:03-0800\n"
+"POT-Creation-Date: 2015-12-18 11:50-0800\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -282,7 +282,7 @@ msgstr "Vérification des tables d'héritage des files d'attente"
 msgid "Checking if recordings need migration.."
 msgstr "Teste si les enregistrements doivent être migrés..."
 
-#: functions.inc/queue_conf.php:228
+#: functions.inc/queue_conf.php:229
 msgid "Compound Recordings in Queues Detected"
 msgstr "Enregistrements composés détectés dans les Files d'attente"
 
@@ -764,7 +764,7 @@ msgstr "File d'Attente"
 msgid "Queue %s : %s"
 msgstr "File d'attente %s : %s"
 
-#: functions.inc/queue_conf.php:226
+#: functions.inc/queue_conf.php:227
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "File d'attente - %s (%s) : %s<br />"
@@ -1096,7 +1096,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Attention ! l'Extension"
 
-#: functions.inc/queue_conf.php:221
+#: functions.inc/queue_conf.php:222
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

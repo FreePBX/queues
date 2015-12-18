@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-07 13:03-0800\n"
+"POT-Creation-Date: 2015-12-18 11:50-0800\n"
 "PO-Revision-Date: 2015-12-08 23:36+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -318,7 +318,7 @@ msgstr "Comprobando tablas antiguas de colas..."
 msgid "Checking if recordings need migration.."
 msgstr "Comprobando si las grabaciones necesitan migrarse..."
 
-#: functions.inc/queue_conf.php:228
+#: functions.inc/queue_conf.php:229
 msgid "Compound Recordings in Queues Detected"
 msgstr "Se han detectado grabaciones compuestas en las colas"
 
@@ -860,7 +860,7 @@ msgstr "Cola"
 msgid "Queue %s : %s"
 msgstr "Cola %s: %s"
 
-#: functions.inc/queue_conf.php:226
+#: functions.inc/queue_conf.php:227
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Cola - %s (%s): %s<br/>"
@@ -1223,7 +1223,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Aviso: La extensión"
 
-#: functions.inc/queue_conf.php:221
+#: functions.inc/queue_conf.php:222
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

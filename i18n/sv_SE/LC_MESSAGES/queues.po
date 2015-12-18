@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX queues\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-07 13:03-0800\n"
+"POT-Creation-Date: 2015-12-18 11:50-0800\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -282,7 +282,7 @@ msgstr "Kontrollerar ärvda kötabeller.."
 msgid "Checking if recordings need migration.."
 msgstr "Kontrollerar om inspelningar behöver migreras.."
 
-#: functions.inc/queue_conf.php:228
+#: functions.inc/queue_conf.php:229
 msgid "Compound Recordings in Queues Detected"
 msgstr "Upptäckte sammanslagen inspelning i kö "
 
@@ -758,7 +758,7 @@ msgstr "Kö"
 msgid "Queue %s : %s"
 msgstr "Kö %s : %s"
 
-#: functions.inc/queue_conf.php:226
+#: functions.inc/queue_conf.php:227
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Kö - %s (%s): %s<br>"
@@ -1090,7 +1090,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Varning! Anknytning"
 
-#: functions.inc/queue_conf.php:221
+#: functions.inc/queue_conf.php:222
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-07 13:03-0800\n"
+"POT-Creation-Date: 2015-12-18 11:50-0800\n"
 "PO-Revision-Date: 2015-12-14 01:20+0200\n"
 "Last-Translator: Matthias <it@mitterhuemer.at>\n"
-"Language-Team: German "
-"<http://weblate.freepbx.org/projects/freepbx/queues/de_DE/>\n"
-"Language: de_DE\n"
+"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/queues/"
+"de_DE/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -275,7 +275,7 @@ msgstr ""
 msgid "Checking if recordings need migration.."
 msgstr ""
 
-#: functions.inc/queue_conf.php:228
+#: functions.inc/queue_conf.php:229
 msgid "Compound Recordings in Queues Detected"
 msgstr ""
 
@@ -724,7 +724,7 @@ msgstr ""
 msgid "Queue %s : %s"
 msgstr ""
 
-#: functions.inc/queue_conf.php:226
+#: functions.inc/queue_conf.php:227
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr ""
@@ -1031,7 +1031,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr ""
 
-#: functions.inc/queue_conf.php:221
+#: functions.inc/queue_conf.php:222
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
