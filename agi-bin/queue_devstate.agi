@@ -13,7 +13,7 @@
 	 * ARG3: queue
 	 *
 	 */
-	
+
 	$agi = new AGI();
 
 	// get manager credentials out of the channel
@@ -21,6 +21,7 @@
 	$ampmgruser   = get_var( "AMPMGRUSER" );
 	$ampmgrpass   = get_var( "AMPMGRPASS" );
 	$astspooldir  = get_var( "ASTSPOOLDIR" );
+	$astmgrhost   = get_var( "ASTMANAGERHOST" );
 	$ast_version  = get_var("ASTVERSION");
 
 	$ast_version14 = version_compare($ast_version, "1.4", "ge");
@@ -29,12 +30,12 @@
 	$ampmgruser  = 'admin';
 	$ampmgrpass  = 'amp111';
 	*/
-	$astman = new AGI_AsteriskManager( );	
+	$astman = new AGI_AsteriskManager( );
 	$queues=array();
 	$logged_agents_array=array();
 	$static_agents_array=array();
-	
-	if (!$astman->connect("127.0.0.1", $ampmgruser , $ampmgrpass)) {
+
+	if (!$astman->connect(!empty($astmgrhost) ? $astmgrhost : "127.0.0.1", $ampmgruser , $ampmgrpass)) {
 		exit (1);
 	}
 
@@ -170,14 +171,14 @@
 					$loggedagent=$matches[2][0];
 					$item1='ADD';
 				}
-					
+
 				switch ($item1) {
 				case '':
 					break;
 
 				case '\n':
 					break;
-				
+
 				case 'No Members':
 					debug("Queue $inqueue has no one logged in");
 					$inqueue='false';
@@ -208,7 +209,7 @@
 					debug("No Matches");
 
 				}
-			}	
+			}
 		}
 		debug("Finished sorting");
 	}
