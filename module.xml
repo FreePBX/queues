@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.15</version>
+	<version>13.0.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*13.0.16* Support Alert info drop down
 		*13.0.15* FREEPBX-10450
 		*13.0.14* FREEPBX-11033
 		*13.0.13* FREEPBX-10938
@@ -30,37 +31,9 @@
 		*13.0.1alpha3* Resolves FREEPBX-8610 and fixes the config aspect of FREEPBX-8216 that was overlooked.
 		*13.0.1alpha2* Fix dialplan generation
 		*13.0.1alpha1* Visual Changes
-		*12.0.11* Reduce the number of hints/extensions generated for queues.
-		*12.0.10* Redo module_hook calls to use static obj
-		*12.0.9* ?
-		*12.0.8* Add support for vqplus Callback Queues
-		*12.0.7* Dont initalize these settings anymore
-		*12.0.6* Don't check for devstate anymore, it's always enabled
-		*12.0.5* Add variables to store which queue a call is joining.
-		*12.0.4* FREEPBX-1953
-		*12.0.3* Add hints for callers in queues.
-		*12.0.2* Forgot one label.
-		*12.0.1* Fix label ordering in a radioset, #7215 -- __construct missing.
-		*12.0.0* FREEPBX-7119 hide depreciated settings and set the to true
-		*2.11.0.15* #7202 MoH not being set properly
-		*2.11.0.14* #6957
-		*2.11.0.13* Added ::create() call
-		*2.11.0.12* #7011
-		*2.11.0.11* #6991
-		*2.11.0.10* #6836, #6881, #6927
-		*2.11.0.9* #6744
-		*2.11.0.8* #6703
-		*2.11.0.7* Added better granularity and range to some Queue time options
-		*2.11.0.6* Fixes #6446, queue recording
-		*2.11.0.5* mis-formed html
-		*2.11.0.4* #6333, adds advanced settings for default starting Queue Event values.
-		*2.11.0.3* add gotodest splicing label
-		*2.11.0.2* remove some dialplan warnings
-		*2.11.0.1* #4767, #6084, #5895, #6092
-		*2.11.0.0* #6051
 	</changelog>
 	<depends>
-		<version>12.0.1rc16</version>
+		<version>13.0.42</version>
 		<module>recordings ge 3.3.8</module>
 		<module>core ge 13.0.22</module>
 	</depends>

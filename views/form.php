@@ -880,7 +880,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="alertinfo"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="text" name="alertinfo" id="alertinfo" class="form-control" value="<?php echo (isset($alertinfo)?$alertinfo:'') ?>" >
+								<?php echo FreePBX::View()->alertInfoDrawSelect("alertinfo",(isset($alertinfo)?$alertinfo:''));?>
 							</div>
 						</div>
 					</div>
