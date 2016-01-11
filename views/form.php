@@ -85,6 +85,7 @@ if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']){
 	';
 }
 //Queue No Answer
+$qnoahtml = '';
 if ($qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER']) {
 	$qnoahtml = '
 	<!--Queue No Answer-->
@@ -98,7 +99,10 @@ if ($qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER']) {
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="qnoanswerw"></i>
 						</div>
 						<div class="col-md-9 radioset">
-							<input name="qnoanswer" id="qnoanswer" type="checkbox" value="1" '.(isset($qnoanswer) && $qnoanswer == '1' ? 'checked' : '').'/>
+							<input type="radio" name="qnoanswer" id="qnoansweryes" value="1" '. (isset($qnoanswer) && $qnoanswer == '1' ? 'checked' : '') .' >
+							<label for="qnoansweryes">'. _("Yes") .'</label>
+							<input type="radio" name="qnoanswer" id="qnoanswerno" value="0" '. (isset($qnoanswer) && $qnoanswer == '1' ? '' : 'checked') .' >
+							<label for="qnoanswerno">'. _("No").'</label>
 						</div>
 					</div>
 				</div>
@@ -761,7 +765,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</div>
 		</div>
 		<!--END Queue Name-->
-		<?php echo $glqchtml //if $qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER'])?>
+		<?php echo $glqchtml //if amp_conf['GENERATE_LEGACY_QUEUE_CODES']?>
+		<?php echo $qnoahtml //if $qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER'])?>
 		<!--Generate Device Hints-->
 		<div class="element-container">
 			<div class="row">
