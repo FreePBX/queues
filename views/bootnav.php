@@ -6,14 +6,12 @@
 <table data-url="ajax.php?module=queues&amp;command=getJSON&amp;jdata=grid" data-toolbar="#toolbar-qrnav" data-cache="false" data-toggle="table" data-search="true" class="table" id="table-all-side">
     <thead>
         <tr>
-            <th data-sortable="true" data-field="extension" data-formatter="qrnavformatter"><?php echo _('Queue')?></th>
+            <th data-sortable="true" data-field="extension"><?php echo _('Queue')?></th>
+            <th data-sortable="true" data-field="description"><?php echo _("Description")?></th>
         </tr>
     </thead>
 </table>
 <script type="text/javascript">
-  function qrnavformatter(r,v){
-    return v.description+' ('+v.extension+')';
-  }
   $("#table-all-side").on('click-row.bs.table',function(e,row,elem){
     window.location = '?display=queues&view=form&extdisplay='+row['extension'];
   })
