@@ -4,15 +4,15 @@
 function queues_destinations() {
 	//get the list of all exisiting
 	$results = queues_list(true);
-	
+
 	//return an associative array with destination and description
 	if (isset($results)) {
 		foreach($results as $result){
-				$extens[] = array('destination' => 'ext-queues,'.$result['0'].',1', 'description' => $result['1'].' <'.$result['0'].'>');
+				$extens[] = array('destination' => 'ext-queues,'.$result['0'].',1', 'description' => $result['0'].' '.$result['1']);
 		}
 	}
-	
-	if (isset($extens)) 
+
+	if (isset($extens))
 		return $extens;
 	else
 		return null;
