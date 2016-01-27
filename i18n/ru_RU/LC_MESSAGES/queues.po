@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 11:51-0800\n"
+"POT-Creation-Date: 2016-01-26 16:29-0800\n"
 "PO-Revision-Date: 2015-05-01 23:09+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -77,6 +77,10 @@ msgstr "Анонс агента"
 
 #: views/form.php:220
 msgid "Agent Announcement"
+msgstr ""
+
+#: queues.i18n.php:44
+msgid "Agent Called Events Default"
 msgstr ""
 
 #: views/form.php:1824
@@ -336,6 +340,20 @@ msgstr "Ежедневно"
 msgid "Default"
 msgstr "По умолчанию"
 
+#: queues.i18n.php:48
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr ""
+
+#: queues.i18n.php:60
+msgid ""
+"Default state for AMI to emit the QueueMemberStatus event. This setting will "
+"only affect the default for NEW queues, it won't change existing queues or "
+"enfore the option on in new ones."
+msgstr ""
+
 #: Queues.class.php:205
 msgid "Delete"
 msgstr ""
@@ -473,6 +491,10 @@ msgstr ""
 msgid "Generate Device Hints"
 msgstr ""
 
+#: queues.i18n.php:50
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "Формировать номер очереди*/** коды набора для входа-выхода операторов"
+
 #: views/form.php:763
 msgid "Give this queue a brief name to help you identify it."
 msgstr "Присвоить для очереди короткое название для идентификации."
@@ -486,9 +508,17 @@ msgstr ""
 "приоритетом. Оператору будет подан звонок большим приоритетом очереди, если "
 "оператор обслуживаетс две и более очереди."
 
+#: queues.i18n.php:38
+msgid "Hide Queue No Answer Option"
+msgstr "Скрыть параметр Очереди 'No Answer'"
+
 #: views/form.php:395
 msgid "Honor Penalties"
 msgstr "Соблюдать уровни доступности"
+
+#: queues.i18n.php:20
+msgid "Honor Wrapup Time Across Queues"
+msgstr "Давать передышку оператору при работе в нескольких очередях"
 
 #: views/cron.php:59
 msgid "Hourly"
@@ -628,6 +658,17 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
+#: queues.i18n.php:42
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr "Дает возможность не делать ответ на вызов, помещенный в очередь."
+
 #: views/form.php:171
 msgid "Join Announcement"
 msgstr ""
@@ -675,6 +716,10 @@ msgstr ""
 
 #: views/form.php:632
 msgid "Member Status Event"
+msgstr ""
+
+#: queues.i18n.php:56
+msgid "Member Status Event Default"
 msgstr ""
 
 #: views/form.php:462 views/form.php:466
@@ -775,6 +820,10 @@ msgstr ""
 msgid "Periodic Announcements"
 msgstr "Периодичность сообщений"
 
+#: queues.i18n.php:14
+msgid "Persistent Members"
+msgstr "Постоянные операторы"
+
 #: install.php:29
 msgid "Playback Queue Caller Count"
 msgstr ""
@@ -868,6 +917,17 @@ msgstr "Вес очереди"
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Только звонки очереди (ringinuse=no)"
 
+#: queues.i18n.php:54
+msgid ""
+"Queue login and out codes were historically queunum* and queunum**. These "
+"have been largely replaced by the *45 queue toggle codes. The legacy codes "
+"are required to login or out a third party user that is not the extension "
+"dialing. These can be removed from the system by setting this to false."
+msgstr ""
+"Коды входа-выхода в очередь были номер очереди* и номер очереди**. Они были "
+"заменены на *45 коды переключения. Старые коды могу понадобиться для "
+"сторонего программного обеспечения или телефонов."
+
 #: assets/js/queues.js:53
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
@@ -891,9 +951,52 @@ msgstr "Очередь: %s (%s)"
 msgid "Queues"
 msgstr "Очереди"
 
+#: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
+#: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
+msgid "Queues Module"
+msgstr "Модуль очередей"
+
 #: bin/queue_reset_stats.php:14
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
+
+#: queues.i18n.php:36
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+"Queues: monitor-type = MixMonitor. Если установлено для записи разговоров "
+"будет использование приложение MixMonitor вместо Monitor, таким образом, "
+"понятие 'присоединения/смешивания' в/из файлы(ов) теперь уйдет, когда это "
+"включено."
+
+#: queues.i18n.php:18
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+"Queues: persistentmembers. Каждый динамический оператор каждой очереди "
+"сохраняется в базе данных asterisk что бы очереди были корректно "
+"восстановлены в случае перезапуска Asterisk."
+
+#: queues.i18n.php:24
+#, fuzzy
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr "Queues: shared_lastcall, действительны только с Астериск выше 1.6."
+
+#: queues.i18n.php:30
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
+msgstr "Queues: updatecdr"
 
 #: views/cron.php:84
 msgid "RUN"
@@ -1009,6 +1112,10 @@ msgstr ""
 msgid "Service Level"
 msgstr ""
 
+#: queues.i18n.php:26
+msgid "Set Agent Name in CDR dstchannel"
+msgstr "Назначить имя оператора в поле dstchannel CDR"
+
 #: views/cron.php:72
 msgid "Set this task to happen at random"
 msgstr ""
@@ -1117,6 +1224,10 @@ msgstr "Строго ограниченный"
 #: views/form.php:332 views/form.php:350
 msgid "Unlimited"
 msgstr "Неограничено"
+
+#: queues.i18n.php:32
+msgid "Use MixMonitor for Recordings"
+msgstr "Использовать MixMonitor для записи разговоров"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
@@ -1911,16 +2022,6 @@ msgstr "случайный-выбор"
 #~ msgid "Generate Device Hints:"
 #~ msgstr "Генерация оповещений устройств:"
 
-#~ msgid "Generate queuenum*/** Login/off Codes"
-#~ msgstr ""
-#~ "Формировать номер очереди*/** коды набора для входа-выхода операторов"
-
-#~ msgid "Hide Queue No Answer Option"
-#~ msgstr "Скрыть параметр Очереди 'No Answer'"
-
-#~ msgid "Honor Wrapup Time Across Queues"
-#~ msgstr "Давать передышку оператору при работе в нескольких очередях"
-
 #~ msgid "IVR Break Out Menu:"
 #~ msgstr "Возможность выйти из Меню:"
 
@@ -1992,17 +2093,6 @@ msgstr "случайный-выбор"
 #~ "Входящие разговоры для всех операторов можно записывать (сохраняются в /"
 #~ "var/spool/asterisk/monitor)"
 
-#~ msgid ""
-#~ "It is possible for a queue to NOT Answer a call and still enter callers "
-#~ "to the queue. The normal behavior is that all  allers are answered before "
-#~ "entering the queue. If the call is not answered, it is possible that some "
-#~ "early media delivery would still allow callers to hear recordings, MoH, "
-#~ "etc. but this can be inconsistent and vary. Because of the volatility of "
-#~ "this option, it is not displayed by default. If a queue is set to not "
-#~ "answer, the setting will be displayed for that queue regardless of this "
-#~ "setting."
-#~ msgstr "Дает возможность не делать ответ на вызов, помещенный в очередь."
-
 #~ msgid "Join Announcement:"
 #~ msgstr "Сообщение при попадании:"
 
@@ -2071,9 +2161,6 @@ msgstr "случайный-выбор"
 #~ msgid "Penalty Members Limit:"
 #~ msgstr "Органичение уровня доступности оператора:"
 
-#~ msgid "Persistent Members"
-#~ msgstr "Постоянные операторы"
-
 #~ msgid "Queue Name:"
 #~ msgstr "Название очереди:"
 
@@ -2089,57 +2176,8 @@ msgstr "случайный-выбор"
 #~ msgid "Queue Password:"
 #~ msgstr "Пароль очереди:"
 
-#~ msgid ""
-#~ "Queue login and out codes were historically queunum* and queunum**. These "
-#~ "have been largely replaced by the *45 queue toggle codes. The legacy "
-#~ "codes are required to login or out a third party user that is not the "
-#~ "extension dialing. These can be removed from the system by setting this "
-#~ "to false."
-#~ msgstr ""
-#~ "Коды входа-выхода в очередь были номер очереди* и номер очереди**. Они "
-#~ "были заменены на *45 коды переключения. Старые коды могу понадобиться для "
-#~ "сторонего программного обеспечения или телефонов."
-
 #~ msgid "Queue:"
 #~ msgstr "Очередь:"
-
-#~ msgid "Queues Module"
-#~ msgstr "Модуль очередей"
-
-#~ msgid ""
-#~ "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-#~ "application instead of Monitor so the concept of 'joining/mixing' the in/"
-#~ "out files now goes away when this is enabled."
-#~ msgstr ""
-#~ "Queues: monitor-type = MixMonitor. Если установлено для записи разговоров "
-#~ "будет использование приложение MixMonitor вместо Monitor, таким образом, "
-#~ "понятие 'присоединения/смешивания' в/из файлы(ов) теперь уйдет, когда это "
-#~ "включено."
-
-#~ msgid ""
-#~ "Queues: persistentmembers. Store each dynamic member in each queue in the "
-#~ "astdb so that when asterisk is restarted, each member will be "
-#~ "automatically read into their recorded queues."
-#~ msgstr ""
-#~ "Queues: persistentmembers. Каждый динамический оператор каждой очереди "
-#~ "сохраняется в базе данных asterisk что бы очереди были корректно "
-#~ "восстановлены в случае перезапуска Asterisk."
-
-#, fuzzy
-#~ msgid ""
-#~ "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make "
-#~ "the lastcall and calls received be the same in members logged in more "
-#~ "than one queue. This is useful to make the queue respect the wrapuptime "
-#~ "of another queue for a shared member."
-#~ msgstr "Queues: shared_lastcall, действительны только с Астериск выше 1.6."
-
-#~ msgid ""
-#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
-#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
-#~ "field of a call with an agent name, which is set if available at the "
-#~ "login time with AddQueueMember membername parameter, or with static "
-#~ "members."
-#~ msgstr "Queues: updatecdr"
 
 #~ msgid "Recording Mode:"
 #~ msgstr "Режим записи:"
@@ -2161,9 +2199,6 @@ msgstr "случайный-выбор"
 
 #~ msgid "Service Level:"
 #~ msgstr "Уровень сервиса:"
-
-#~ msgid "Set Agent Name in CDR dstchannel"
-#~ msgstr "Назначить имя оператора в поле dstchannel CDR"
 
 #~ msgid ""
 #~ "Setting this flag will generate the required dialplan to integrate with "
@@ -2242,9 +2277,6 @@ msgstr "случайный-выбор"
 #~ "пользуетесь кодами переключения, Вы должны использовать параметр "
 #~ "'Ограничить Динамических Операторов' совместно со списком Динамических "
 #~ "операторов для ограничения доступа в очередь."
-
-#~ msgid "Use MixMonitor for Recordings"
-#~ msgstr "Использовать MixMonitor для записи разговоров"
 
 #~ msgid "Wait Time Prefix:"
 #~ msgstr "Префикс индикации времени ожидания:"

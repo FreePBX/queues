@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 11:51-0800\n"
+"POT-Creation-Date: 2016-01-26 16:29-0800\n"
 "PO-Revision-Date: 2015-09-18 15:56+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -103,6 +103,10 @@ msgstr "エージェントアナウンスメッセージ"
 #: views/form.php:220
 msgid "Agent Announcement"
 msgstr ""
+
+#: queues.i18n.php:44
+msgid "Agent Called Events Default"
+msgstr "標準エージェント・イベントコール"
 
 #: views/form.php:1824
 msgid "Agent Regex Filter"
@@ -368,6 +372,24 @@ msgstr "毎日"
 msgid "Default"
 msgstr "デフォルト"
 
+#: queues.i18n.php:48
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr ""
+"エージェントの呼に関連するAMI emit eventのデフォルト。この設定は、新規キュー"
+"のデフォルトのみを変更し、既存のキューの設定は変更しません。"
+
+#: queues.i18n.php:60
+msgid ""
+"Default state for AMI to emit the QueueMemberStatus event. This setting will "
+"only affect the default for NEW queues, it won't change existing queues or "
+"enfore the option on in new ones."
+msgstr ""
+"AMIがQueueMemberStatusイベントを発行する際のデフォルトのステータス。この設定"
+"は、新規キューのデフォルトのみを変更し、既存のキューの設定は変更しません。"
+
 #: Queues.class.php:205
 msgid "Delete"
 msgstr ""
@@ -502,6 +524,10 @@ msgstr ""
 msgid "Generate Device Hints"
 msgstr ""
 
+#: queues.i18n.php:50
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "queuenum*/** Login/offのコードを生成する"
+
 #: views/form.php:763
 msgid "Give this queue a brief name to help you identify it."
 msgstr "このキューを識別するために分かりやすい名前を付けます。"
@@ -515,9 +541,17 @@ msgstr ""
 "ている呼が先に着信することを保証するために、キューに「重み付け」を設定しま"
 "す。"
 
+#: queues.i18n.php:38
+msgid "Hide Queue No Answer Option"
+msgstr "キューを隠し応答しないオプション"
+
 #: views/form.php:395
 msgid "Honor Penalties"
 msgstr "ペナルティを与える"
+
+#: queues.i18n.php:20
+msgid "Honor Wrapup Time Across Queues"
+msgstr "キューをまたいでまとめた時間を尊重する"
 
 #: views/cron.php:59
 msgid "Hourly"
@@ -670,6 +704,24 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
+#: queues.i18n.php:42
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr ""
+"キューに対して、コールに応答しないようにし、さらにまだ発信者をキューに入れた"
+"状態にすることが可能です。通常の動作では、全ての発信者はキューに入る前に応答"
+"されます。コールに応答されない場合、いづれかの早いメディアが発信者に録音や、"
+"保留音等を聞かせるように運ぶことが可能です。しかし、これは一貫性がなく可変で"
+"す。このオプションは不安定なため、デフォルトでは表示されません。キューが応答"
+"しないように設定された場合、この設定にかかわらず、そのキューに対して設定が表"
+"示されます。"
+
 #: views/form.php:171
 msgid "Join Announcement"
 msgstr ""
@@ -718,6 +770,10 @@ msgstr ""
 #: views/form.php:632
 msgid "Member Status Event"
 msgstr "メンバーステータスイベント"
+
+#: queues.i18n.php:56
+msgid "Member Status Event Default"
+msgstr ""
 
 #: views/form.php:462 views/form.php:466
 msgid "Menu ID "
@@ -821,6 +877,10 @@ msgstr ""
 msgid "Periodic Announcements"
 msgstr "定期的なアナウンス"
 
+#: queues.i18n.php:14
+msgid "Persistent Members"
+msgstr "永続的なメンバー"
+
 #: install.php:29
 msgid "Playback Queue Caller Count"
 msgstr ""
@@ -912,6 +972,18 @@ msgstr "キューの重みづけ"
 msgid "Queue calls only (ringinuse=no)"
 msgstr "キューコールオンリー (使用中着信=no)"
 
+#: queues.i18n.php:54
+msgid ""
+"Queue login and out codes were historically queunum* and queunum**. These "
+"have been largely replaced by the *45 queue toggle codes. The legacy codes "
+"are required to login or out a third party user that is not the extension "
+"dialing. These can be removed from the system by setting this to false."
+msgstr ""
+"キューログイン／ログアウトコードは、以前迄はqueunum*とqueunum**でしたが、ほぼ"
+"*45 キュートグルコードに切り替えられています。レガシーのコードは、第三者ユー"
+"ザー（非発信者の内線）のログイン／ログアウトに必要です。falseに設定すると、こ"
+"れらのコードをシステムから削除することができます。"
+
 #: assets/js/queues.js:53
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
@@ -933,10 +1005,59 @@ msgstr "キュー: %s (%s)"
 msgid "Queues"
 msgstr "キュー"
 
+#: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
+#: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
+msgid "Queues Module"
+msgstr "キューモジュール"
+
 #: bin/queue_reset_stats.php:14
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 "キューのモジュールが見つからない、または無効になっているため終了します！"
+
+#: queues.i18n.php:36
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+"キュー: モニタータイプ = Mixモニター。.これを有効にすることにより、モニターの"
+"代わりにMixモニターアプリケーションが使用され、入/出力ファイルを'追加/ミック"
+"ス'するという概念が消えます。"
+
+#: queues.i18n.php:18
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+"キュー：persistentmembers。asteriskが再起動されたときに、自動的に記録された"
+"キューに読み込まれるように、各キューに入っている各動的メンバーをastdb内に格納"
+"します。"
+
+#: queues.i18n.php:24
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr ""
+"キュー: shared_lastcall, Asterisk 1.6以降でのみ有効です。これにより最後のコー"
+"ルと受信したコールを１つ以上のキューにログインしたメンバー内で同じにします。"
+"これは、共有メンバーで他のキューのラップアップタイムを尊重するのに便利です。"
+
+#: queues.i18n.php:30
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
+msgstr ""
+"ｷｭｰ: updatecdr, Asterisk 1.6以降でのみ有効です。このオプションは、"
+"AddQueueMEnberのメンバー名パラメーターとともに、もしくは静的メンバーとともに"
+"ログイン時に利用可能ならセットされるエージェント名つきのコールのCDR "
+"dstchannelフィールドを移入するchan_agentsの挙動を真似するように実装されていま"
+"す。"
 
 #: views/cron.php:84
 msgid "RUN"
@@ -1053,6 +1174,10 @@ msgstr ""
 msgid "Service Level"
 msgstr ""
 
+#: queues.i18n.php:26
+msgid "Set Agent Name in CDR dstchannel"
+msgstr "CDR dstchannelにエージェント名を設定"
+
 #: views/cron.php:72
 msgid "Set this task to happen at random"
 msgstr ""
@@ -1158,6 +1283,10 @@ msgstr "非常に厳密"
 #: views/form.php:332 views/form.php:350
 msgid "Unlimited"
 msgstr "無制限"
+
+#: queues.i18n.php:32
+msgid "Use MixMonitor for Recordings"
+msgstr "録音にMixモニターを使用"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
@@ -1677,9 +1806,6 @@ msgstr "wrandom"
 #~ msgid "Agent Announcement:"
 #~ msgstr "エージェント事前アナウンス："
 
-#~ msgid "Agent Called Events Default"
-#~ msgstr "標準エージェント・イベントコール"
-
 #~ msgid "Agent Timeout Restart:"
 #~ msgstr "エージェントタイムアウト再開:"
 
@@ -1800,23 +1926,6 @@ msgstr "wrandom"
 #~ msgid "December"
 #~ msgstr "12月"
 
-#~ msgid ""
-#~ "Default state for AMI emit events related to an agent's call. This "
-#~ "setting will only affect the default for NEW queues, it won't change "
-#~ "existing queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "エージェントの呼に関連するAMI emit eventのデフォルト。この設定は、新規"
-#~ "キューのデフォルトのみを変更し、既存のキューの設定は変更しません。"
-
-#~ msgid ""
-#~ "Default state for AMI to emit the QueueMemberStatus event. This setting "
-#~ "will only affect the default for NEW queues, it won't change existing "
-#~ "queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "AMIがQueueMemberStatusイベントを発行する際のデフォルトのステータス。この設"
-#~ "定は、新規キューのデフォルトのみを変更し、既存のキューの設定は変更しませ"
-#~ "ん。"
-
 #~ msgid "Delete Queue"
 #~ msgstr "キューを削除"
 
@@ -1852,15 +1961,6 @@ msgstr "wrandom"
 
 #~ msgid "Generate Device Hints:"
 #~ msgstr "デバイスヒントを生成する:"
-
-#~ msgid "Generate queuenum*/** Login/off Codes"
-#~ msgstr "queuenum*/** Login/offのコードを生成する"
-
-#~ msgid "Hide Queue No Answer Option"
-#~ msgstr "キューを隠し応答しないオプション"
-
-#~ msgid "Honor Wrapup Time Across Queues"
-#~ msgstr "キューをまたいでまとめた時間を尊重する"
 
 #~ msgid "Hour"
 #~ msgstr "時"
@@ -1905,24 +2005,6 @@ msgstr "wrandom"
 #~ msgstr ""
 #~ "エージェントへの着信呼が録音されます。(/var/spool/asterisk/monitorに保存さ"
 #~ "れます)"
-
-#~ msgid ""
-#~ "It is possible for a queue to NOT Answer a call and still enter callers "
-#~ "to the queue. The normal behavior is that all  allers are answered before "
-#~ "entering the queue. If the call is not answered, it is possible that some "
-#~ "early media delivery would still allow callers to hear recordings, MoH, "
-#~ "etc. but this can be inconsistent and vary. Because of the volatility of "
-#~ "this option, it is not displayed by default. If a queue is set to not "
-#~ "answer, the setting will be displayed for that queue regardless of this "
-#~ "setting."
-#~ msgstr ""
-#~ "キューに対して、コールに応答しないようにし、さらにまだ発信者をキューに入れ"
-#~ "た状態にすることが可能です。通常の動作では、全ての発信者はキューに入る前に"
-#~ "応答されます。コールに応答されない場合、いづれかの早いメディアが発信者に録"
-#~ "音や、保留音等を聞かせるように運ぶことが可能です。しかし、これは一貫性がな"
-#~ "く可変です。このオプションは不安定なため、デフォルトでは表示されません。"
-#~ "キューが応答しないように設定された場合、この設定にかかわらず、そのキューに"
-#~ "対して設定が表示されます。"
 
 #~ msgid "January"
 #~ msgstr "1月"
@@ -1993,9 +2075,6 @@ msgstr "wrandom"
 #~ msgid "Penalty Members Limit:"
 #~ msgstr "ペナルティメンバーリミット："
 
-#~ msgid "Persistent Members"
-#~ msgstr "永続的なメンバー"
-
 #~ msgid "Queue Name:"
 #~ msgstr "キュー名："
 
@@ -2008,52 +2087,8 @@ msgstr "wrandom"
 #~ msgid "Queue Password:"
 #~ msgstr "キューパスワード："
 
-#~ msgid ""
-#~ "Queue login and out codes were historically queunum* and queunum**. These "
-#~ "have been largely replaced by the *45 queue toggle codes. The legacy "
-#~ "codes are required to login or out a third party user that is not the "
-#~ "extension dialing. These can be removed from the system by setting this "
-#~ "to false."
-#~ msgstr ""
-#~ "キューログイン／ログアウトコードは、以前迄はqueunum*とqueunum**でしたが、"
-#~ "ほぼ*45 キュートグルコードに切り替えられています。レガシーのコードは、第三"
-#~ "者ユーザー（非発信者の内線）のログイン／ログアウトに必要です。falseに設定"
-#~ "すると、これらのコードをシステムから削除することができます。"
-
 #~ msgid "Queue:"
 #~ msgstr "キュー："
-
-#~ msgid "Queues Module"
-#~ msgstr "キューモジュール"
-
-#~ msgid ""
-#~ "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-#~ "application instead of Monitor so the concept of 'joining/mixing' the in/"
-#~ "out files now goes away when this is enabled."
-#~ msgstr ""
-#~ "キュー: モニタータイプ = Mixモニター。.これを有効にすることにより、モニ"
-#~ "ターの代わりにMixモニターアプリケーションが使用され、入/出力ファイルを'追"
-#~ "加/ミックス'するという概念が消えます。"
-
-#~ msgid ""
-#~ "Queues: persistentmembers. Store each dynamic member in each queue in the "
-#~ "astdb so that when asterisk is restarted, each member will be "
-#~ "automatically read into their recorded queues."
-#~ msgstr ""
-#~ "キュー：persistentmembers。asteriskが再起動されたときに、自動的に記録され"
-#~ "たキューに読み込まれるように、各キューに入っている各動的メンバーをastdb内"
-#~ "に格納します。"
-
-#~ msgid ""
-#~ "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make "
-#~ "the lastcall and calls received be the same in members logged in more "
-#~ "than one queue. This is useful to make the queue respect the wrapuptime "
-#~ "of another queue for a shared member."
-#~ msgstr ""
-#~ "キュー: shared_lastcall, Asterisk 1.6以降でのみ有効です。これにより最後の"
-#~ "コールと受信したコールを１つ以上のキューにログインしたメンバー内で同じにし"
-#~ "ます。これは、共有メンバーで他のキューのラップアップタイムを尊重するのに便"
-#~ "利です。"
 
 #~ msgid "Reboot"
 #~ msgstr "再起動"
@@ -2159,9 +2194,6 @@ msgstr "wrandom"
 #~ msgid "Tuesday"
 #~ msgstr "火曜日"
 
-#~ msgid "Use MixMonitor for Recordings"
-#~ msgstr "録音にMixモニターを使用"
-
 #~ msgid "Wait Time Prefix:"
 #~ msgstr "待ち時間プリフィックス："
 
@@ -2202,22 +2234,6 @@ msgstr "wrandom"
 #~ "り詰められます。このIVRへ合成音声でないアナウンスの選択で問題解決ができま"
 #~ "す。IVRシステムはファイル再生可能ですが、キューサブシステムがサポートして"
 #~ "いません"
-
-#~ msgid "Set Agent Name in CDR dstchannel"
-#~ msgstr "CDR dstchannelにエージェント名を設定"
-
-#~ msgid ""
-#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
-#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
-#~ "field of a call with an agent name, which is set if available at the "
-#~ "login time with AddQueueMember membername parameter, or with static "
-#~ "members."
-#~ msgstr ""
-#~ "ｷｭｰ: updatecdr, Asterisk 1.6以降でのみ有効です。このオプションは、"
-#~ "AddQueueMEnberのメンバー名パラメーターとともに、もしくは静的メンバーととも"
-#~ "にログイン時に利用可能ならセットされるエージェント名つきのコールのCDR "
-#~ "dstchannelフィールドを移入するchan_agentsの挙動を真似するように実装されて"
-#~ "います。"
 
 #~ msgid "Asterisk Queues Patch 15168 Installed"
 #~ msgstr "Asterisk キューパッチ 15168 がインストールされました"
