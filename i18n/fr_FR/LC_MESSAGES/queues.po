@@ -15,18 +15,21 @@
 #
 # Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-15 11:51-0800\n"
-"PO-Revision-Date: 2011-04-02 23:37+0200\n"
-"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
-"Language-Team: Français <LL@li.org>\n"
+"PO-Revision-Date: 2016-01-22 08:26+0200\n"
+"Last-Translator: Nicolas <forums@riendeau.org>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/queues/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: page.queues.php:17
 msgid " Add Queue"
@@ -103,7 +106,7 @@ msgstr ""
 
 #: views/form.php:884
 msgid "Alert Info"
-msgstr "Infos sur les Alertes"
+msgstr "Infos sur les alertes"
 
 #: install.php:15
 msgid ""
@@ -276,7 +279,7 @@ msgstr ""
 
 #: install.php:68
 msgid "Checking for legacy queues table.."
-msgstr "Vérification des tables d'héritage des files d'attente"
+msgstr "Vérification des tables d'héritage des files d'attente..."
 
 #: install.php:382
 msgid "Checking if recordings need migration.."
@@ -336,7 +339,7 @@ msgstr ""
 
 #: install.php:339
 msgid "Dropping old queues table.."
-msgstr "Suppression de l'ancienne table de files d'attente"
+msgstr "Suppression de l'ancienne table de files d'attente..."
 
 #: views/form.php:1200
 msgid "Dynamic Agents"
@@ -394,7 +397,7 @@ msgid ""
 msgstr ""
 "Les versions précédentes de ce module autorisaient le choix de telles files "
 "d'attente. Lorsque cette option est modifiée, cela n'apparaîtra plus comme "
-"une option."
+"une option"
 
 #: views/cron.php:31
 msgid "Enable this task"
@@ -631,7 +634,7 @@ msgstr ""
 
 #: views/form.php:462 views/form.php:466
 msgid "Menu ID "
-msgstr "Menu Identfiants"
+msgstr "Menu Identfiants "
 
 #: install.php:203
 msgid "Migrating data to queues_config.."
