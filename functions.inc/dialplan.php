@@ -705,7 +705,7 @@ function queues_get_config($engine) {
 
 			$c = 'macro-agent-add';
 			// for i18n playback in multiple languages
-			$ext->add($c, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+			$ext->add($c, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$c.',${CHANNEL(language)})}]', $c.',${CHANNEL(language)},${ARG1}', $c.',en,${ARG1}'));
 			$ext->add($c, 'lang-playback', '', new ext_return());
 			$exten = 's';
 
@@ -737,7 +737,7 @@ function queues_get_config($engine) {
 			$ext->add($c, $exten, '', new ext_execif('$[${DB_EXISTS(AMPUSER/${CALLBACKNUM}/cidname)} = 0]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})}'));
 			$ext->add($c, $exten, '', new ext_userevent('Agentlogin', 'Agent: ${CALLBACKNUM}'));
 			$ext->add($c, $exten, '', new ext_wait(1));
-			$ext->add($c, $exten, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
+			$ext->add($c, $exten, '', new ext_gosub('1', 'lang-playback', $c, 'hook_0'));
 			$ext->add($c, $exten, '', new ext_hangup());
 			$ext->add($c, $exten, '', new ext_macroexit());
 			$ext->add($c, $exten, 'invalid', new ext_playback('pbx-invalid'));
