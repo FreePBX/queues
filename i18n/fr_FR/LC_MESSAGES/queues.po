@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-26 16:29-0800\n"
-"PO-Revision-Date: 2016-02-01 03:15+0200\n"
+"PO-Revision-Date: 2016-02-02 07:52+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/queues/fr_FR/>\n"
@@ -33,11 +33,11 @@ msgstr ""
 
 #: page.queues.php:17
 msgid " Add Queue"
-msgstr ""
+msgstr " Ajouter une queue"
 
 #: page.queues.php:14
 msgid " Edit: "
-msgstr ""
+msgstr " Éditer "
 
 #: views/form.php:476
 msgid ""
@@ -51,7 +51,7 @@ msgstr ""
 
 #: views/qgrid.php:16
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
@@ -65,7 +65,7 @@ msgstr ""
 
 #: views/form.php:701
 msgid "Advanced Options"
-msgstr ""
+msgstr "Options avancées"
 
 #: views/form.php:1387
 msgid ""
@@ -120,7 +120,7 @@ msgstr ""
 
 #: views/form.php:186
 msgid "Always"
-msgstr ""
+msgstr "Toujours"
 
 #: views/form.php:378
 msgid "Always allows the caller to join the Queue."
@@ -128,11 +128,11 @@ msgstr ""
 
 #: views/form.php:1752
 msgid "Announce Hold Time"
-msgstr ""
+msgstr "Annoncer le temps d'attente"
 
 #: views/form.php:1723
 msgid "Announce Position"
-msgstr ""
+msgstr "Annoncer la position"
 
 #: views/form.php:1740
 msgid "Announce position of caller in the queue?"
@@ -170,11 +170,11 @@ msgstr ""
 
 #: views/cron.php:63
 msgid "Annually"
-msgstr ""
+msgstr "Annuellement"
 
 #: queues.i18n.php:6 queues.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "Applications"
 
 #: views/form.php:1279
 msgid ""
@@ -197,11 +197,11 @@ msgstr ""
 
 #: views/form.php:1455
 msgid "Auto Pause"
-msgstr ""
+msgstr "Pause automatique"
 
 #: views/form.php:1544
 msgid "Auto Pause Delay"
-msgstr ""
+msgstr "Délai de pause automatique"
 
 #: views/form.php:1474
 msgid ""
@@ -237,15 +237,15 @@ msgstr ""
 
 #: views/form.php:804
 msgid "Call Confirm"
-msgstr ""
+msgstr "Confirmation d'appel"
 
 #: views/form.php:134
 msgid "Call Confirm Announce"
-msgstr ""
+msgstr "Annonce de confirmation d'appel"
 
 #: views/form.php:1083
 msgid "Call Recording"
-msgstr ""
+msgstr "Enregistrer l'appel"
 
 #: views/form.php:943
 msgid "Call as Dialed"
@@ -279,7 +279,7 @@ msgstr ""
 
 #: views/form.php:691
 msgid "Capacity Options"
-msgstr ""
+msgstr "Options de capacité"
 
 #: install.php:68
 msgid "Checking for legacy queues table.."
@@ -310,11 +310,11 @@ msgstr "Création des queues_details (details de files d'attente)..."
 
 #: views/cron.php:60
 msgid "Daily"
-msgstr ""
+msgstr "Journalier"
 
 #: views/form.php:142
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 #: queues.i18n.php:48
 msgid ""
@@ -332,11 +332,11 @@ msgstr ""
 
 #: Queues.class.php:205
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: views/bootnav.php:10 views/qgrid.php:15
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: views/form.php:385
 msgid ""
@@ -605,7 +605,7 @@ msgstr ""
 
 #: functions.inc/hook_core.php:37
 msgid "Ignore State"
-msgstr ""
+msgstr "Ignorer l'état"
 
 #: views/form.php:1100
 msgid ""
@@ -638,7 +638,7 @@ msgstr ""
 
 #: views/bootnav.php:2
 msgid "List Queues"
-msgstr ""
+msgstr "Liste des queues"
 
 #: views/form.php:382 views/form.php:390 views/form.php:1271
 #: views/form.php:1610 views/form.php:1644
@@ -697,7 +697,7 @@ msgstr ""
 
 #: views/cron.php:62
 msgid "Monthly"
-msgstr ""
+msgstr "Mensuellement"
 
 #: views/form.php:310
 msgid ""
@@ -723,7 +723,7 @@ msgstr ""
 
 #: views/form.php:1092
 msgid "Never"
-msgstr ""
+msgstr "Jamais"
 
 #: views/form.php:391
 msgid ""
