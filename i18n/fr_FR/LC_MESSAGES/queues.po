@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-26 16:29-0800\n"
-"PO-Revision-Date: 2016-02-02 07:52+0200\n"
+"PO-Revision-Date: 2016-02-02 18:06+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/queues/fr_FR/>\n"
@@ -767,7 +767,7 @@ msgstr "Une seule fois"
 
 #: views/form.php:712
 msgid "Other Options"
-msgstr ""
+msgstr "Autres options"
 
 #: views/form.php:1664
 msgid "Penalty Members Limit"
@@ -775,11 +775,11 @@ msgstr ""
 
 #: views/form.php:1779
 msgid "Periodic Announcements"
-msgstr "Annonces Périodiques"
+msgstr "Annonces périodiques"
 
 #: queues.i18n.php:14
 msgid "Persistent Members"
-msgstr ""
+msgstr "Membres persistants"
 
 #: install.php:29
 msgid "Playback Queue Caller Count"
