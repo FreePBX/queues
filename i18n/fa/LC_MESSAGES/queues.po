@@ -1,43 +1,29 @@
 # This file is part of FreePBX.
 #
-#    FreePBX is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 2 of the License, or
-#    (at your option) any later version.
+# For licensing information, please see the file named LICENSE located in the module directory
 #
-#    FreePBX is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
-#
-# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+# FreePBX language template for queues
+# Copyright (C) 2008-2016 Sangoma, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-26 16:29-0800\n"
-"PO-Revision-Date: 2016-02-02 18:06+0200\n"
-"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
-"Language-Team: French "
-"<http://weblate.freepbx.org/projects/freepbx/queues/fr_FR/>\n"
-"Language: fr_FR\n"
+"PO-Revision-Date: 2016-01-26 16:29-0800\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
 
 #: page.queues.php:17
 msgid " Add Queue"
-msgstr " Ajouter une queue"
+msgstr ""
 
 #: page.queues.php:14
 msgid " Edit: "
-msgstr " Éditer "
+msgstr ""
 
 #: views/form.php:476
 msgid ""
@@ -51,11 +37,11 @@ msgstr ""
 
 #: views/qgrid.php:16
 msgid "Actions"
-msgstr "Actions"
+msgstr ""
 
 #: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
-msgstr "Ajouter une File d'Attente"
+msgstr ""
 
 #: views/form.php:896
 msgid ""
@@ -65,7 +51,7 @@ msgstr ""
 
 #: views/form.php:701
 msgid "Advanced Options"
-msgstr "Options avancées"
+msgstr ""
 
 #: views/form.php:1387
 msgid ""
@@ -78,7 +64,7 @@ msgstr ""
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
-msgstr "Message d'annonce de l'agent"
+msgstr ""
 
 #: views/form.php:220
 msgid "Agent Announcement"
@@ -90,7 +76,7 @@ msgstr ""
 
 #: views/form.php:1824
 msgid "Agent Regex Filter"
-msgstr "Filtre Regex sur l'Agent"
+msgstr ""
 
 #: views/form.php:935
 msgid "Agent Restrictions"
@@ -110,7 +96,7 @@ msgstr ""
 
 #: views/form.php:884
 msgid "Alert Info"
-msgstr "Infos sur les alertes"
+msgstr ""
 
 #: install.php:15
 msgid ""
@@ -120,7 +106,7 @@ msgstr ""
 
 #: views/form.php:186
 msgid "Always"
-msgstr "Toujours"
+msgstr ""
 
 #: views/form.php:378
 msgid "Always allows the caller to join the Queue."
@@ -128,15 +114,15 @@ msgstr ""
 
 #: views/form.php:1752
 msgid "Announce Hold Time"
-msgstr "Annoncer le temps d'attente"
+msgstr ""
 
 #: views/form.php:1723
 msgid "Announce Position"
-msgstr "Annoncer la position"
+msgstr ""
 
 #: views/form.php:1740
 msgid "Announce position of caller in the queue?"
-msgstr "Annoncer la position de l'appelant dans la file d'attente ?"
+msgstr ""
 
 #: views/form.php:197
 msgid ""
@@ -170,11 +156,11 @@ msgstr ""
 
 #: views/cron.php:63
 msgid "Annually"
-msgstr "Annuellement"
+msgstr ""
 
 #: queues.i18n.php:6 queues.i18n.php:12
 msgid "Applications"
-msgstr "Applications"
+msgstr ""
 
 #: views/form.php:1279
 msgid ""
@@ -197,11 +183,11 @@ msgstr ""
 
 #: views/form.php:1455
 msgid "Auto Pause"
-msgstr "Pause automatique"
+msgstr ""
 
 #: views/form.php:1544
 msgid "Auto Pause Delay"
-msgstr "Délai de pause automatique"
+msgstr ""
 
 #: views/form.php:1474
 msgid ""
@@ -225,7 +211,7 @@ msgstr ""
 
 #: functions.inc/geters_seters.php:39
 msgid "Bad Queue Number, can not be blank"
-msgstr "Numéro de File d'Attente incorrect, ne peut être vide"
+msgstr ""
 
 #: views/form.php:420
 msgid "Break Out Type"
@@ -237,15 +223,15 @@ msgstr ""
 
 #: views/form.php:804
 msgid "Call Confirm"
-msgstr "Confirmation d'appel"
+msgstr ""
 
 #: views/form.php:134
 msgid "Call Confirm Announce"
-msgstr "Annonce de confirmation d'appel"
+msgstr ""
 
 #: views/form.php:1083
 msgid "Call Recording"
-msgstr "Enregistrer l'appel"
+msgstr ""
 
 #: views/form.php:943
 msgid "Call as Dialed"
@@ -279,19 +265,19 @@ msgstr ""
 
 #: views/form.php:691
 msgid "Capacity Options"
-msgstr "Options de capacité"
+msgstr ""
 
 #: install.php:68
 msgid "Checking for legacy queues table.."
-msgstr "Vérification des tables d'héritage des files d'attente..."
+msgstr ""
 
 #: install.php:382
 msgid "Checking if recordings need migration.."
-msgstr "Teste si les enregistrements doivent être migrés..."
+msgstr ""
 
 #: functions.inc/queue_conf.php:229
 msgid "Compound Recordings in Queues Detected"
-msgstr "Enregistrements composés détectés dans les Files d'attente"
+msgstr ""
 
 #: queues.i18n.php:8
 msgid ""
@@ -302,19 +288,19 @@ msgstr ""
 
 #: install.php:188
 msgid "Creating queues_config.."
-msgstr "Création de queues_config (configuration des files d'attente)..."
+msgstr ""
 
 #: install.php:94
 msgid "Creating queues_details.."
-msgstr "Création des queues_details (details de files d'attente)..."
+msgstr ""
 
 #: views/cron.php:60
 msgid "Daily"
-msgstr "Journalier"
+msgstr ""
 
 #: views/form.php:142
 msgid "Default"
-msgstr "Par défaut"
+msgstr ""
 
 #: queues.i18n.php:48
 msgid ""
@@ -332,11 +318,11 @@ msgstr ""
 
 #: Queues.class.php:205
 msgid "Delete"
-msgstr "Supprimer"
+msgstr ""
 
 #: views/bootnav.php:10 views/qgrid.php:15
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #: views/form.php:385
 msgid ""
@@ -357,7 +343,7 @@ msgstr ""
 
 #: install.php:339
 msgid "Dropping old queues table.."
-msgstr "Suppression de l'ancienne table de files d'attente..."
+msgstr ""
 
 #: views/form.php:1200
 msgid "Dynamic Agents"
@@ -373,53 +359,42 @@ msgstr ""
 
 #: install.php:328
 msgid "ERROR were encountered"
-msgstr "ERREURS rencontrées"
+msgstr ""
 
 #: install.php:207
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
-"ERREUR lors de l'accès à la table des files d'attente et de l'obtention des "
-"infos contextuelles, abandon"
 
 #: install.php:232
 msgid "ERROR: accessing queues table obtaining id list, aborting"
 msgstr ""
-"ERREUR lors de l'accès à la table des files d'attente et de l'obtention des "
-"listes d'identifiants, abandon"
 
 #: install.php:214
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr ""
-"ERREUR lors de l'accès à la table des files d'attente et de l'obtention des "
-"infos rtone, abandon"
 
 #: install.php:101 install.php:195
 msgid "ERROR: could not create table"
-msgstr "ERREUR : impossible de créer la table"
+msgstr ""
 
 #: install.php:119
 msgid "ERROR: could not migrate to queues_details"
 msgstr ""
-"ERREUR : impossible de migrer vers queues_details (détails de files "
-"d'attente)"
 
 #: install.php:320
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
-msgstr "ERREUR lors de l'insertion de données à la ligne %s: %s..."
+msgstr ""
 
 #: views/form.php:476
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
-"Les versions précédentes de ce module autorisaient le choix de telles files "
-"d'attente. Lorsque cette option est modifiée, cela n'apparaîtra plus comme "
-"une option"
 
 #: views/cron.php:31
 msgid "Enable this task"
-msgstr "Activer cette tâche"
+msgstr ""
 
 #: views/form.php:1128
 msgid ""
@@ -434,27 +409,27 @@ msgstr ""
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
-msgstr "Options de poste"
+msgstr ""
 
 #: views/form.php:947
 msgid "Extensions Only"
-msgstr "Postes seulement"
+msgstr ""
 
 #: views/form.php:1140
 msgid "Fail Over Destination"
-msgstr "Destination d'échec (Fail Over)"
+msgstr ""
 
 #: views/form.php:1088
 msgid "Force"
-msgstr "Forcer"
+msgstr ""
 
 #: views/form.php:1697
 msgid "Frequency"
-msgstr "Fréquence"
+msgstr ""
 
 #: views/form.php:676
 msgid "General Settings"
-msgstr "Paramètres généraux"
+msgstr ""
 
 #: views/form.php:777
 msgid "Generate Device Hints"
@@ -467,16 +442,12 @@ msgstr ""
 #: views/form.php:763
 msgid "Give this queue a brief name to help you identify it."
 msgstr ""
-"Donnez à cette file d'attente un nom court pour l'identifier rapidement."
 
 #: views/form.php:1069
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
-"Donne une option de 'poids' aux Files d'Attentes, pour s'assurer que les "
-"appels qui patientent dans une file d'attente avec une priorité haute seront "
-"délivrés en priorité si il y a des agents communs aux deux files."
 
 #: queues.i18n.php:38
 msgid "Hide Queue No Answer Option"
@@ -484,7 +455,7 @@ msgstr ""
 
 #: views/form.php:395
 msgid "Honor Penalties"
-msgstr "Honorer les pénalités"
+msgstr ""
 
 #: queues.i18n.php:20
 msgid "Honor Wrapup Time Across Queues"
@@ -499,25 +470,21 @@ msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
-"La fréquence à laquelle un menu vocal est proposé à l'appelant (0 pour "
-"Désactiver les Annonces)."
 
 #: views/form.php:1711
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 msgstr ""
-"Fréquence à laquelle on annonce la position dans la file d'attente et le "
-"temps d'attente estimé (0 pour Désactiver les Annonces)."
 
 #: functions.inc/destination_registry.php:98
 msgid "INUSE"
-msgstr "UTILISÉ"
+msgstr ""
 
 #: functions.inc.php:75
 #, php-format
 msgid "IVR Announce: %s"
-msgstr "Annonce IVR : %s"
+msgstr ""
 
 #: views/form.php:425 views/form.php:488
 msgid "IVR Break Out Menu"
@@ -605,7 +572,7 @@ msgstr ""
 
 #: functions.inc/hook_core.php:37
 msgid "Ignore State"
-msgstr "Ignorer l'état"
+msgstr ""
 
 #: views/form.php:1100
 msgid ""
@@ -638,7 +605,7 @@ msgstr ""
 
 #: views/bootnav.php:2
 msgid "List Queues"
-msgstr "Liste des queues"
+msgstr ""
 
 #: views/form.php:382 views/form.php:390 views/form.php:1271
 #: views/form.php:1610 views/form.php:1644
@@ -663,7 +630,7 @@ msgstr ""
 
 #: views/form.php:1584
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
-msgstr "Nombre maximum de gens qui attendent dans la file (0 pour illimité)"
+msgstr ""
 
 #: views/form.php:1399
 msgid "Member Delay"
@@ -679,17 +646,15 @@ msgstr ""
 
 #: views/form.php:462 views/form.php:466
 msgid "Menu ID "
-msgstr "Menu Identfiants "
+msgstr ""
 
 #: install.php:203
 msgid "Migrating data to queues_config.."
 msgstr ""
-"Migration des données vers queues_config (configuration des files "
-"d'attente)..."
 
 #: install.php:116
 msgid "Migrating to queues_details.."
-msgstr "Migration vers queues_details (détails de files d'attente)..."
+msgstr ""
 
 #: views/form.php:299
 msgid "MoH Only"
@@ -697,7 +662,7 @@ msgstr ""
 
 #: views/cron.php:62
 msgid "Monthly"
-msgstr "Mensuellement"
+msgstr ""
 
 #: views/form.php:310
 msgid ""
@@ -718,12 +683,10 @@ msgstr ""
 #: install.php:72
 msgid "NO table found, no migration to do just create tables"
 msgstr ""
-"AUCUNE table trouvée, pas de migration à effectuer, créez seulement les "
-"tables"
 
 #: views/form.php:1092
 msgid "Never"
-msgstr "Jamais"
+msgstr ""
 
 #: views/form.php:391
 msgid ""
@@ -739,7 +702,7 @@ msgstr ""
 #: views/form.php:1608 views/form.php:1642 views/form.php:1732
 #: views/form.php:1761
 msgid "No"
-msgstr "Non"
+msgstr ""
 
 #: views/form.php:945
 msgid "No Follow-Me or Call Forward"
@@ -747,11 +710,11 @@ msgstr ""
 
 #: views/form.php:356
 msgid "No Retry"
-msgstr "Pas de Nouvel Essai"
+msgstr ""
 
 #: views/form.php:178 views/form.php:206 views/form.php:493 views/form.php:534
 msgid "None"
-msgstr "Aucun"
+msgstr ""
 
 #: install.php:77 install.php:105 install.php:122 install.php:125
 #: install.php:199 install.php:326 install.php:332 install.php:345
@@ -759,15 +722,15 @@ msgstr "Aucun"
 #: install.php:527 install.php:542 install.php:557 install.php:572
 #: install.php:587 install.php:602 install.php:617 install.php:632
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 #: views/form.php:1763
 msgid "Once"
-msgstr "Une seule fois"
+msgstr ""
 
 #: views/form.php:712
 msgid "Other Options"
-msgstr "Autres options"
+msgstr ""
 
 #: views/form.php:1664
 msgid "Penalty Members Limit"
@@ -775,11 +738,11 @@ msgstr ""
 
 #: views/form.php:1779
 msgid "Periodic Announcements"
-msgstr "Annonces périodiques"
+msgstr ""
 
 #: queues.i18n.php:14
 msgid "Persistent Members"
-msgstr "Membres persistants"
+msgstr ""
 
 #: install.php:29
 msgid "Playback Queue Caller Count"
@@ -797,30 +760,20 @@ msgid ""
 "key.<br />WARNING: make sure you understand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
-"Propose une expression regex optionnelle qui sera appliquée sur le numéro de "
-"rappel de l'agent. Si le numéro de rappel ne passe pas le filtre regex alors "
-"il sera considéré comme invalide. Cela peut être utilisé pour restreindre "
-"les agents à des extensions d'un certain rang, ne pas autoriser les rappels "
-"à inclure des touches telles que *, ou tout autre usage qui pourrait être "
-"approprié. Voici un exemple : <br />^([2-4][0-9]{3})$<br />Cela "
-"restreindrait les agents aux extensions 2000-4999. Ou bien <br />^([0-9]+)$ "
-"autoriserait tout numéro, de n'importe quelle longueur, mais restreindrait "
-"la touche *.<br />ATTENTION : assurez-vous de savoir ce que vous faites, "
-"sinon ne remplissez pas cette section."
 
 #: Queues.class.php:193 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
-msgstr "File d'Attente"
+msgstr ""
 
 #: functions.inc/destination_registry.php:36
 #, php-format
 msgid "Queue %s : %s"
-msgstr "File d'attente %s : %s"
+msgstr ""
 
 #: functions.inc/queue_conf.php:227
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
-msgstr "File d'attente - %s (%s) : %s<br />"
+msgstr ""
 
 #: views/form.php:681
 msgid "Queue Agents"
@@ -848,7 +801,7 @@ msgstr ""
 
 #: assets/js/queues.js:40
 msgid "Queue Number must not be blank"
-msgstr "Le numéro de File d\\'Attente ne doit pas être vide"
+msgstr ""
 
 #: views/form.php:68
 msgid "Queue Password"
@@ -868,7 +821,7 @@ msgstr ""
 
 #: views/form.php:1056
 msgid "Queue Weight"
-msgstr "Poids de File d'Attente"
+msgstr ""
 
 #: views/form.php:1030
 msgid "Queue calls only (ringinuse=no)"
@@ -886,24 +839,22 @@ msgstr ""
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr ""
-"Le nom de la File d\\'Attente ne doit pas être vide et doit contenir des "
-"caractères alpha-numériques uniquement"
 
 #: functions.inc/destination_registry.php:56
 #: functions.inc/destination_registry.php:73
 #: functions.inc/destination_registry.php:97
 #, php-format
 msgid "Queue: %s"
-msgstr "File d'Attente : %s"
+msgstr ""
 
 #: functions.inc/destination_registry.php:126
 #, php-format
 msgid "Queue: %s (%s)"
-msgstr "File d'attente : %s (%s)"
+msgstr ""
 
 #: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
-msgstr "Files d'Attente"
+msgstr ""
 
 #: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
 #: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
@@ -1050,9 +1001,6 @@ msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
 msgstr ""
-"Doit-on inclure le temps d'attente estimé dans les annonces de position ? "
-"Oui, non, ou une seule fois; le temps d'attente ne sera pas annoncé si il "
-"est inférieur à 1 minute"
 
 #: views/form.php:1020
 msgid "Skip Busy Agents"
@@ -1060,7 +1008,7 @@ msgstr ""
 
 #: views/form.php:1167
 msgid "Static Agents"
-msgstr "Agents Statiques"
+msgstr ""
 
 #: views/form.php:1188
 msgid ""
@@ -1087,7 +1035,7 @@ msgstr ""
 #: views/form.php:379 views/form.php:388 views/form.php:1269
 #: views/form.php:1604 views/form.php:1638
 msgid "Strict"
-msgstr "Strict"
+msgstr ""
 
 #: Queues.class.php:210
 msgid "Submit"
@@ -1098,8 +1046,6 @@ msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr ""
-"Le nombre maximum de secondes qu'un appelant peut attendre dans une file "
-"d'attente avant d'en être éliminé. (O pour illimité)."
 
 #: views/form.php:1305
 msgid ""
@@ -1107,10 +1053,6 @@ msgid ""
 "timeout. Unlimited or other timeout values may still be limited by system "
 "ringtime or individual extension defaults."
 msgstr ""
-"Le nombre de secondes que peut sonner le téléphone d'un agent avant que l'on "
-"considère que le délai maximum est atteint. Les valeurs du timeout sont "
-"susceptibles d'être limitées par le temps de sonnerie du système ou les "
-"valeurs par défaut de l'extension."
 
 #: views/form.php:1361
 msgid ""
@@ -1119,11 +1061,6 @@ msgid ""
 "as the first attempted agent times-out, additional agents will not be "
 "attempted."
 msgstr ""
-"Le nombre de secondes que l'on attend avant d'essayer tous les téléphones à "
-"nouveau. Choisir \"Pas de Nouvel Essai\" quittera la file d'attente et ira à "
-"la destination de fail-over aussitôt que le délai de sonnerie maximum pour "
-"l'agent qu'on essaye de joindre est atteint. Les autres agents ne seront pas "
-"sollicités."
 
 #: views/form.php:1556
 msgid ""
@@ -1147,7 +1084,7 @@ msgstr ""
 
 #: views/form.php:332 views/form.php:350
 msgid "Unlimited"
-msgstr "Illimité"
+msgstr ""
 
 #: queues.i18n.php:32
 msgid "Use MixMonitor for Recordings"
@@ -1165,13 +1102,6 @@ msgid ""
 "<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
 "in<br>123** = log out</b>"
 msgstr ""
-"Utilisez ce numéro pour composer dans la file d'attente, ou pour transférer "
-"les appelants vers ce numéro pour les placer en file d'attente.<br><br>Les "
-"agents composeront ce numéro de file d'attente suivi de * pour s'inscrire "
-"dans la file d'attente, et ce numéro de file d'attente suivi de ** pour se "
-"désinscrire de la file d'attente.<br><br>Par exemple, si le numéro de la "
-"file d'attente est 123 : <br><br><br>123* = s'inscrire<br>123** = se "
-"désinscrire</b>"
 
 #: views/form.php:1812
 msgid ""
@@ -1184,13 +1114,11 @@ msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
 msgstr ""
-"Utiliser un filtre Regex est plutôt avancé, veuillez confirmer que vous "
-"savez ce que vous faites ou laissez vide"
 
 #: install.php:343 install.php:352
 #, php-format
 msgid "WARNING FAILED %s"
-msgstr "L'AVERTISSEMENT A ECHOUE %s"
+msgstr ""
 
 #: views/form.php:856
 msgid "Wait Time Prefix"
@@ -1198,7 +1126,7 @@ msgstr ""
 
 #: Queues.class.php:144
 msgid "Warning! Extension"
-msgstr "Attention ! l'Extension"
+msgstr ""
 
 #: functions.inc/queue_conf.php:222
 msgid ""
@@ -1206,8 +1134,6 @@ msgid ""
 "configurations. Queues can not play these so they have been truncated to the "
 "first sound file. You should correct this problem.<br />Details:<br /><br />"
 msgstr ""
-"Attention, il y a des enregistrements composés configurés dans une ou "
-"plusieurs configurations de file d'attente."
 
 #: views/cron.php:61
 msgid "Weekly"
@@ -1290,19 +1216,12 @@ msgid ""
 "be rounded to the nearest minute, in the form of Mnn: where nn is the number "
 "of minutes."
 msgstr ""
-"Lorsque fixé à Oui, le Nom du CID sera préfixé par le temps d'attente total "
-"dans la file d'attente de sorte que l'agent qui répond sache combien de "
-"temps ils ont attendu. Le temps sera arrondi à la minute près, sous la forme "
-"Mnn : où nn est le nombre de minutes."
 
 #: views/form.php:616
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
-"Lorsque cette option est fixée à OUI, les évenements d'administration "
-"suivants seront générés : AgentCalled, AgentDump, AgentConnect and "
-"AgentComplete."
 
 #: views/cron.php:96
 msgid ""
@@ -1332,7 +1251,7 @@ msgstr ""
 #: views/form.php:1522 views/form.php:1602 views/form.php:1636
 #: views/form.php:1730 views/form.php:1759
 msgid "Yes"
-msgstr "Oui"
+msgstr ""
 
 #: views/form.php:1029
 msgid "Yes + (ringinuse=no)"
@@ -1360,38 +1279,31 @@ msgid ""
 "Recording set for the IVR will be played at intervals specified in 'Repeat "
 "Frequency', below."
 msgstr ""
-"Vous pouvez optionnellement présenter un IVR existant sous forme de menu "
-"'éclaté'.<br><br>Cet IVR doit uniquement contenir des 'options composées' à "
-"un seul chiffre. Le jeu d'enregistrement pour l'IVR sera joué aux "
-"intervalles spécifiés dans 'Fréquence de Répétition', ci-dessous."
 
 #: views/form.php:80
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
 msgstr ""
-"Vous pouvez obliger les agents à entrer un mot de passe avant qu'ils ne "
-"puissent s'inscrire dans cette file d'attente.<br><br>Ce paramètre est "
-"optionnel."
 
 #: install.php:389
 msgid "adding agentannounce_id field.."
-msgstr "ajout du champ agentannounce_id..."
+msgstr ""
 
 #: install.php:398
 msgid "adding joinannounce_id field.."
-msgstr "ajout du champ joinannounce_id..."
+msgstr ""
 
 #: install.php:99 install.php:193 install.php:373 install.php:499
 #: install.php:514 install.php:529 install.php:544 install.php:559
 #: install.php:574 install.php:589 install.php:604 install.php:619
 #: install.php:634
 msgid "already exists"
-msgstr "existe déjà"
+msgstr ""
 
 #: install.php:483
 msgid "already migrated"
-msgstr "déjà migré"
+msgstr ""
 
 #: install.php:622
 msgid "checking for callback_id field.."
@@ -1423,11 +1335,11 @@ msgstr ""
 
 #: install.php:361
 msgid "checking for qregex field.."
-msgstr "contrôle du champ qregex..."
+msgstr ""
 
 #: install.php:487
 msgid "checking for queuewait field.."
-msgstr "contrôle du champ queuewait..."
+msgstr ""
 
 #: install.php:517
 msgid "checking for togglehint field.."
@@ -1439,48 +1351,48 @@ msgstr ""
 
 #: functions.inc.php:31
 msgid "day"
-msgstr "jour"
+msgstr ""
 
 #: views/form.php:293
 msgid "default"
-msgstr "par défaut"
+msgstr ""
 
 #: install.php:464
 msgid "dropping agentannounce field.."
-msgstr "suppression du champ agentannounce..."
+msgstr ""
 
 #: install.php:474
 msgid "dropping joinannounce field.."
-msgstr "suppression du champ joinannounce..."
+msgstr ""
 
 #: install.php:393 install.php:402 install.php:414 install.php:430
 #: install.php:440 install.php:456
 msgid "fatal error"
-msgstr "erreur fatale"
+msgstr ""
 
 #: views/form.php:256
 msgid "fewestcalls"
-msgstr "Le Moins d'Appels"
+msgstr ""
 
 #: functions.inc.php:32
 msgid "hour"
-msgstr "heure"
+msgstr ""
 
 #: functions.inc.php:32
 msgid "hours"
-msgstr "heures"
+msgstr ""
 
 #: views/form.php:291
 msgid "inherit"
-msgstr "hériter"
+msgstr ""
 
 #: Queues.class.php:144
 msgid "is not allowed for your account."
-msgstr "n'est pas autorisée pour votre compte."
+msgstr ""
 
 #: views/form.php:255
 msgid "leastrecent"
-msgstr "Moins Récent"
+msgstr ""
 
 #: views/form.php:260
 msgid "linear"
@@ -1488,48 +1400,48 @@ msgstr ""
 
 #: install.php:410
 msgid "migrate agentannounce to ids.."
-msgstr "migration d'agentannounce vers ids..."
+msgstr ""
 
 #: install.php:436
 msgid "migrate joinannounce to ids.."
-msgstr "migration de joinannounce vers ids..."
+msgstr ""
 
 #: install.php:434 install.php:460
 #, php-format
 msgid "migrated %s entries"
-msgstr "%s entrées migrées"
+msgstr ""
 
 #: install.php:388
 msgid "migrating"
-msgstr "migartion"
+msgstr ""
 
 #: functions.inc.php:33
 msgid "minute"
-msgstr "minute"
+msgstr ""
 
 #: functions.inc.php:33
 msgid "minutes"
-msgstr "minutes"
+msgstr ""
 
 #: install.php:470
 msgid "no agentannounce field???"
-msgstr "pas de champ agentannounce ???"
+msgstr ""
 
 #: install.php:478
 msgid "no joinannounce field???"
-msgstr "pas de champ joinannounce ???"
+msgstr ""
 
 #: views/form.php:292
 msgid "none"
-msgstr "aucun"
+msgstr ""
 
 #: install.php:396 install.php:405 install.php:472 install.php:480
 msgid "ok"
-msgstr "ok"
+msgstr ""
 
 #: views/form.php:257
 msgid "random"
-msgstr "Aléatoire"
+msgstr ""
 
 #: views/form.php:261
 msgid ""
@@ -1540,32 +1452,26 @@ msgstr ""
 #: install.php:348
 msgid "removing queues data extensions table.."
 msgstr ""
-"suppression de la table des extensions d'information des files d'attente..."
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
 msgstr ""
-"Sonne chez l'agent qui a récemment été le moins sollicité par cette file "
-"d'attente"
 
 #: views/form.php:254
 msgid "ring all available agents until one answers (default)"
 msgstr ""
-"Sonner chez tous les agents disponibles jusqu'à ce qu'un réponde (par défaut)"
 
 #: views/form.php:257
 msgid "ring random agent"
-msgstr "Sonne chez un agent au hasard"
+msgstr ""
 
 #: views/form.php:256
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr ""
-"Sonne chez l'agent ayant le plus faible nombre d'appels terminés de cette "
-"file d'attente"
 
 #: views/form.php:254
 msgid "ringall"
-msgstr "Sonner partout"
+msgstr ""
 
 #: views/form.php:260
 msgid ""
@@ -1576,11 +1482,10 @@ msgstr ""
 #: views/form.php:258
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr ""
-"Tour à tour avec mémoire, se souvient où nous avons stoppé le dernier tour"
 
 #: views/form.php:258
 msgid "rrmemory"
-msgstr "Mémoire Tour à Tour"
+msgstr ""
 
 #: views/form.php:259
 msgid "rrordered"
@@ -1593,298 +1498,13 @@ msgstr ""
 
 #: functions.inc.php:34
 msgid "second"
-msgstr "seonde"
+msgstr ""
 
 #: functions.inc.php:17 functions.inc.php:34 views/form.php:334
 #: views/form.php:337 views/form.php:358 views/form.php:364 views/form.php:373
 msgid "seconds"
-msgstr "secondes"
+msgstr ""
 
 #: views/form.php:261
 msgid "wrandom"
 msgstr ""
-
-#~ msgid "(**) ERRORS"
-#~ msgstr "(**) ERREURS"
-
-#~ msgid "(**) Warning Potential Errors"
-#~ msgstr "(**) Avertissements d'Erreurs Potentielles"
-
-#~ msgid "(pick extension)"
-#~ msgstr "(choisissez une extension)"
-
-#~ msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
-#~ msgstr ""
-#~ "ALERT_INFO peut être utilisé pour les sonneries distinctes avec les "
-#~ "services SIP."
-
-#~ msgid "Agent Announcement:"
-#~ msgstr "Annonce de l'Agent :"
-
-#~ msgid "Agent Timeout:"
-#~ msgstr "Timeout de l'Agent :"
-
-#~ msgid "Announce Hold Time:"
-#~ msgstr "Annoncer le Temps d'Attente :"
-
-#~ msgid "Announce Position:"
-#~ msgstr "Annoncer la Position :"
-
-#~ msgid ""
-#~ "Announcement played to callers once prior to joining the queue."
-#~ "<br><br>You must install and enable the \"Systems Recordings\" Module to "
-#~ "edit this option"
-#~ msgstr ""
-#~ "Annonce jouée aux appelants avant qu'ils ne soient placés en file "
-#~ "d'attente.<br><br>Vous devez installer et activer le Module "
-#~ "\"Enregistrements Systèmes\" pour éditer cette option"
-
-#~ msgid ""
-#~ "Announcement played to the Agent prior to bridging in the caller <br><br> "
-#~ "Example: \"the Following call is from the Sales Queue\" or \"This call is "
-#~ "from the Technical Support Queue\".<br><br>You must install and enable "
-#~ "the \"Systems Recordings\" Module to edit this option"
-#~ msgstr ""
-#~ "Annonce jouée à l'agent avant de le mettre en liaison avec l'appelant "
-#~ "<br><br> Exemple : \"l'appel suivant provient de la File d'Attente des "
-#~ "Ventes\" ou \"Cet appel provient de la File d'Attente du Support Technique"
-#~ "\".<br><br>Vous devez installer et activer le Module \"Enregistrements "
-#~ "Systèmes\" pour éditer cette option"
-
-#~ msgid "Autofill:"
-#~ msgstr "Remplissage Automatique :"
-
-#~ msgid "CID Name Prefix:"
-#~ msgstr "Nom du Préfixe CID :"
-
-#~ msgid "Call Recording:"
-#~ msgstr "Enregistrement des Appels :"
-
-#~ msgid "Caller Position Announcements"
-#~ msgstr "Annonces de Position de l'Appelant"
-
-#~ msgid ""
-#~ "Choose an extension to append to the end of the static agents list above."
-#~ msgstr ""
-#~ "Choisissez une extension pour placer à la fin de la liste des agents "
-#~ "statiques ci-dessous."
-
-#~ msgid "Conflicting Extensions"
-#~ msgstr "Extensions Conflictuelles"
-
-#~ msgid "Delete Queue"
-#~ msgstr "Supprimer File d'Attente"
-
-#~ msgid "Edit Queue"
-#~ msgstr "Editer File d'Attente"
-
-#~ msgid "Extension Quick Pick"
-#~ msgstr "Extension Sélection Rapide"
-
-#~ msgid "Frequency:"
-#~ msgstr "Fréquence :"
-
-#~ msgid "IVR Break Out Menu:"
-#~ msgstr "Menu IVR Eclaté :"
-
-#~ msgid "Join Announcement:"
-#~ msgstr "Annonce d'Accueil : "
-
-#~ msgid "Join Empty:"
-#~ msgstr "Rejoindre si Vide :"
-
-#~ msgid "Max Callers:"
-#~ msgstr "Appelants Max :"
-
-#~ msgid "Max Wait Time:"
-#~ msgstr "Temps d'Attente Max :"
-
-#~ msgid "Music on Hold Class:"
-#~ msgstr "Classe Musique d'Attente :"
-
-#~ msgid "Queue Name:"
-#~ msgstr "Nom de la File d'Attente :"
-
-#~ msgid "Queue Number:"
-#~ msgstr "Numéro de la File d'Attente"
-
-#~ msgid "Queue Password:"
-#~ msgstr "Mot de passe de la File d'Attente :"
-
-#~ msgid "Queue:"
-#~ msgstr "File d'Attente :"
-
-#~ msgid "Repeat Frequency:"
-#~ msgstr "Fréquence de Répétition :"
-
-#~ msgid "Retry:"
-#~ msgstr "Nouvel essai :"
-
-#~ msgid "Ring Strategy:"
-#~ msgstr "Stratégie de Sonnerie :"
-
-#~ msgid "Skip Busy Agents:"
-#~ msgstr "Passer les Agents Occupés :"
-
-#~ msgid ""
-#~ "Starting with Asterisk 1.4, if this is checked, and multiple agents are "
-#~ "available, Asterisk will send one call to each waiting agent (depending "
-#~ "on the ring strategy). Otherwise, it will hold all calls while it tries "
-#~ "to find an agent for the top call in the queue making other calls wait. "
-#~ "This was the behavior in Asterisk 1.2 and has no effect in 1.2. See "
-#~ "Asterisk documentation for more details of this feature."
-#~ msgstr ""
-#~ "A partir d'Asterisk 1.4, si cette option est cochée, et si plusieurs "
-#~ "agents sont disponibles, Asterisk enverra un appel à chaque agent (dépend "
-#~ "de la stratégie de sonnerie). Sinon, tous les appels seront retenus "
-#~ "pendant qu'Asterisk essayera de trouver un agent pour répondre à l'appel "
-#~ "prioritaire de la file d'attente et placera les autres en attente. "
-#~ "C'était le comportement d'Asterisk 1.2 et cela n'a donc pas d'effet dans "
-#~ "la version 1.2. Référez vous à la documentation d'Asterisk pour plus de "
-#~ "détails à propos de cette fonctionnalité."
-
-#~ msgid "Submit Changes"
-#~ msgstr "Appliquer les Modifications"
-
-#~ msgid "Wait Time Prefix:"
-#~ msgstr "Préfixe de Temps d'Attente :"
-
-#~ msgid "deleted"
-#~ msgstr "supprimé"
-
-#~ msgid "roundrobin"
-#~ msgstr "Tour à tour"
-
-#~ msgid "take turns ringing each available agent"
-#~ msgstr "Sonne tour à tour chez chaque agent disponible"
-
-#~ msgid ""
-#~ "After a successful call, how many seconds to wait before sending a "
-#~ "potentially free agent another call (default is 0, or no delay)"
-#~ msgstr ""
-#~ "Après un appel réussi, délai d'attente en secondes avant d'attribuer un "
-#~ "autre appel à un agent potentiellement disponible. Valeur par défaut = 0."
-
-#~ msgid ""
-#~ "Announcement played to callers once prior to joining the queue.<br><br>To "
-#~ "add additional recordings please use the \"System Recordings\" MENU to "
-#~ "the left"
-#~ msgstr ""
-#~ "Annonce jouée aux appelants avant qu'ils ne soient placés en file "
-#~ "d'attente.<br><br>Pour ajouter des enregistrements additionnels, veuillez "
-#~ "utiliser le MENU \"Enregistrements Systèmes\" sur la gauche"
-
-#~ msgid ""
-#~ "Announcement played to the Agent prior to bridging in the caller <br><br> "
-#~ "Example: \"the Following call is from the Sales Queue\" or \"This call is "
-#~ "from the Technical Support Queue\".<br><br>To add additional recordings "
-#~ "please use the \"System Recordings\" MENU to the left. Compound "
-#~ "recordings composed of 2 or more sound files are not displayed as options "
-#~ "since this feature can not accept such recordings."
-#~ msgstr ""
-#~ "Annonce jouée à l'agent avant de le mettre en liaison avec l'appelant "
-#~ "<br><br> Exemple : \"l'appel suivant provient de la File d'Attente des "
-#~ "Ventes\" ou \"Cet appel provient de la File d'Attente du Support Technique"
-#~ "\".<br><br>Pour ajouter des enregistrements supplémentaires, veuillez "
-#~ "utiliser le MENU \"Enregistrements Système\" sur la gauche. Les "
-#~ "enregistrements composés de deux ou plusieurs fichiers sonores ne sont "
-#~ "pas affichés en tant qu'options car cette fonctionnalité ne peut pas "
-#~ "accepter de tels enregistrements."
-
-#~ msgid ""
-#~ "ERROR: You have selected an IVR's that use Announcements created from "
-#~ "compound sound files. The Queue is not able to play these announcements. "
-#~ "This IVR's recording will be truncated to use only the first sound file. "
-#~ "You can correct the problem by selecting a different announcement for "
-#~ "this IVR that is not from a compound sound file. The IVR itself can play "
-#~ "such files, but the Queue subsystem can not"
-#~ msgstr ""
-#~ "ERREUR : Vous avez sélectionné un IVR qui utilise les annonces créées à "
-#~ "partir de fichiers sons composés. La file d'attente ne peut pas jouer ces "
-#~ "annonces. Cet enregistrement IVR sera tronqué pour utiliser uniquement le "
-#~ "premier fichier son. Vous pouvez corriger le problème en sélectionnant "
-#~ "une annonce différente pour cet IVR, qui ne provient pas d'un fichier son "
-#~ "composé. L'IVR lui-même peut jouer de tels fichiers, mais le sous-système "
-#~ "de File d'Attente ne peut pas."
-
-#~ msgid "Event When Called:"
-#~ msgstr "Evènement sur Appel :"
-
-#~ msgid ""
-#~ "If the call is subsequently transfered, the wait time will reflect the "
-#~ "time since it first entered the queue or reset if the call is transfered "
-#~ "to another queue with this feature set."
-#~ msgstr ""
-#~ "Si par la suite l'appel est transféré, le temps d'attente reflètera le "
-#~ "temps écoulé depuis qu'il a été placé pour la première fois dans la file "
-#~ "d'attente ou bien il sera remis à zéro si l'appel est transféré vers une "
-#~ "autre file d'attente dont cette fonctionnalité est activée."
-
-#~ msgid ""
-#~ "If you wish to allow callers to join queues that currently have no "
-#~ "agents, set this to yes. Set to strict if callers cannot join a queue "
-#~ "with no members or only unavailable members"
-#~ msgstr ""
-#~ "Si vous voulez autoriser les appelants à rejoindre les files d'attentes "
-#~ "qui n'ont actuellement pas d'agents, fixez la valeur à 'oui'. Fixez la "
-#~ "valeur à 'strict' si les appelants ne peuvent pas rejoindre une file "
-#~ "d'attente ne comportant pas de membres ou comportant uniquement des "
-#~ "membres indisponibles."
-
-#~ msgid ""
-#~ "If you wish to remove callers from the queue if there are no agents "
-#~ "present, set this to yes. Set to strict if callers cannot join a queue "
-#~ "with no members or only unavailable members"
-#~ msgstr ""
-#~ "Si vous voulez retirer les appelants de la file d'attente lorsqu'il n'y a "
-#~ "pas d'agents présents, fixez cette valeur à 'oui'. Fixez la valeur à "
-#~ "'strict' si les appelants ne peuvent pas rejoindre une file d'attente ne "
-#~ "comportant pas de membres ou comportant uniquement des membres "
-#~ "indisponibles."
-
-#~ msgid ""
-#~ "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
-#~ "monitor)"
-#~ msgstr ""
-#~ "Les appels que reçoivent les agents peuvent être enregistrés. "
-#~ "(sauvegardés dans /var/spool/asterisk/monitor)"
-
-#~ msgid "Leave When Empty:"
-#~ msgstr "Quitter Quand Vide :"
-
-#~ msgid "Member Status:"
-#~ msgstr "Statut du Membre :"
-
-#~ msgid ""
-#~ "Music (or Commercial) played to the caller while they wait in line for an "
-#~ "available agent. Choose \"inherit\" if you want the MoH class to be what "
-#~ "is currently selected, such as by the inbound route.<br><br>  This music "
-#~ "is defined in the \"Music on Hold\" Menu to the left."
-#~ msgstr ""
-#~ "La Musique (ou Pub) qui est jouée à l'appelant pendant qu'il patiente en "
-#~ "ligne pour un agent disponible. Choisissez \"hériter\" si vous voulez que "
-#~ "la classe Musique d'Attente soit ce qui est actuellement déjà "
-#~ "sélectionné, par exemple par la route entrante.<br><br> Cette musique est "
-#~ "définie dans le Menu \"Musique d'Attente\" sur la gauche."
-
-#~ msgid "Queue Options"
-#~ msgstr "Options de File d'Attente"
-
-#~ msgid "Ringing Instead of MoH:"
-#~ msgstr "Tonalité à la place de Musique d'Attente :"
-
-#~ msgid ""
-#~ "When if this is option is set to YES, the following manager event will be "
-#~ "generated: QueueMemberStatus"
-#~ msgstr ""
-#~ "Si cette option est fixée à OUI, les évenements d'administration suivants "
-#~ "seront générés : QueueMemberStatus"
-
-#~ msgid ""
-#~ "You can optionally prefix the Caller ID name of callers to the queue. ie: "
-#~ "If you prefix with \"Sales:\", a call from John Doe would display as "
-#~ "\"Sales:John Doe\" on the extensions that ring."
-#~ msgstr ""
-#~ "Vous pouvez optionnellement préfixer le nom du CID à la file d'attente. "
-#~ "Par exemple, si vous préfixez avec \"Ventes :\", un appel de John Doe "
-#~ "sera affiché \"Ventes : John Doe\" sur les extensions qui sonnent."
