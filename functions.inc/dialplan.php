@@ -636,7 +636,6 @@ function queues_get_config($engine) {
 							$device_len = strlen($device['id']);
 							$device_tmp = str_repeat('X', $device_len);
 							$exten_pat = "_$que_callers_code*$device_tmp";
-							$exten_pat = "_$que_callers_code*$device_tmp*$item_tmp";
 							if (!in_array($exten_pat, $hint_hash)) {
 								$hint_hash[] = $exten_pat;
 								$ext->add($c, $exten_pat, '', new ext_gosub('1', 's', 'app-queue-caller-count', implode('&', $callers_all)));
