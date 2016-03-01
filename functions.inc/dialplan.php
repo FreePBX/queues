@@ -689,7 +689,7 @@ function queues_get_config($engine) {
 					} else {
 						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
 					}
-					$ext->add($from_queue_exten_only, $item[0], '', new ext_gotoif('$["${CALLER_DEST}"!=""]','${CUT(CALLER_DEST,^,1)},${CUT(CALLER_DEST,^,2)},${CUT(CALLER_DEST,^,3)}'));
+					$ext->add($from_queue_exten_only, $item[0], '', new ext_gotoif('$["${CALLER_DEST}"!=""&&"${DIALSTATUS}"="ANSWER"]','${CUT(CALLER_DEST,^,1)},${CUT(CALLER_DEST,^,2)},${CUT(CALLER_DEST,^,3)}'));
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_hangup());
 				}
  				$ext->add($from_queue_exten_only, 'h', '', new ext_macro('hangupcall'));
