@@ -402,6 +402,12 @@ $qafreqopts = '';
 for ($i=0; $i <= 1200; $i+=15) {
 	$qafreqopts .= '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 }
+//Queue Minimum Announce Frequency
+$default = (isset($thisQ['min-announce-frequency']) ? $thisQ['min-announce-frequency'] : 15);
+$qminfreqopts = '';
+for ($i=0; $i <= 1200; $i+=15) {
+	$qminfreqopts .= '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+}
 //VQPlus
 if(function_exists('vqplus_callback_get') && function_exists('ivr_get_details')) {
 	if (isset($callback) && $callback != 'none') {
@@ -1708,11 +1714,35 @@ $hookdata = \FreePBX::Queues()->hookTabs();
    				</div>
    				<div class="row">
    					<div class="col-md-12">
-   						<span id="announcefreq-help" class="help-block fpbx-help-block"><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")?></span>
+   						<span id="announcefreq-help" class="help-block fpbx-help-block"><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")."<br/>"._("This value is ignored if the caller's position changes")?></span>
    					</div>
    				</div>
    			</div>
    			<!--END Frequency-->
+				<!--Minimum Announcement Interval-->
+				<div class="element-container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-3">
+										<label class="control-label" for="min-announce"><?php echo _("Minimum Announcement Interval") ?></label>
+										<i class="fa fa-question-circle fpbx-help-icon" data-for="min-announce"></i>
+									</div>
+									<div class="col-md-9">
+										<select id="min-announce" name="min-announce" class="form-control"><?php echo $qminfreqopts?></select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<span id="min-announce-help" class="help-block fpbx-help-block"><?php echo _("The absolute minimum time between the start of each queue position and/or estimated holdtime announcement")?></span>
+						</div>
+					</div>
+				</div>
+				<!--END Minimum Announcement Interval-->
    			<!--Announce Position-->
    			<div class="element-container">
    				<div class="row">

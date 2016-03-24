@@ -53,6 +53,7 @@ function queues_add(
 		array($account,'retry',(isset($_REQUEST['retry']) && $_REQUEST['retry'] != '')?$_REQUEST['retry']:'5',0),
 		array($account,'wrapuptime',($_REQUEST['wrapuptime'])?$_REQUEST['wrapuptime']:'0',0),
 		array($account,'announce-frequency',($_REQUEST['announcefreq'])?$_REQUEST['announcefreq']:'0',0),
+		array($account,'min-announce-frequency',($_REQUEST['min-announce'])?$_REQUEST['min-announce']:'15',0),
 		array($account,'announce-holdtime',($_REQUEST['announceholdtime'])?$_REQUEST['announceholdtime']:'no',0),
 		array($account,'announce-position',($_REQUEST['announceposition'])?$_REQUEST['announceposition']:'no',0),
 		array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'silence/1':'queue-youarenext',0),  //if no, play no sound
