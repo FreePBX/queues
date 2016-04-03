@@ -10,21 +10,24 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-26 16:29-0800\n"
-"PO-Revision-Date: 2016-03-15 04:14+0300\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-04-02 20:45+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/queues/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: page.queues.php:17
 msgid " Add Queue"
-msgstr "افزودن صف"
+msgstr " افزودن صف"
 
 #: page.queues.php:14
 msgid " Edit: "
-msgstr "ویرایش:"
+msgstr " ویرایش: "
 
 #: views/form.php:476
 msgid ""
@@ -236,7 +239,7 @@ msgstr "ضبط کردن تماس"
 
 #: views/form.php:943
 msgid "Call as Dialed"
-msgstr " پاسخ به تماس های گرفته شده"
+msgstr "پاسخ به تماس های گرفته شده"
 
 #: views/form.php:544
 msgid "Callback to use when caller presses 1."
@@ -647,7 +650,7 @@ msgstr "رویداد پیشفرض وضعیت عضو"
 
 #: views/form.php:462 views/form.php:466
 msgid "Menu ID "
-msgstr "شناسه منو"
+msgstr "شناسه منو "
 
 #: install.php:203
 msgid "Migrating data to queues_config.."
@@ -851,7 +854,7 @@ msgstr "صف: %s"
 #: functions.inc/destination_registry.php:126
 #, php-format
 msgid "Queue: %s (%s)"
-msgstr "صف: %%s (%s)"
+msgstr "صف: %s (%s)"
 
 #: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
