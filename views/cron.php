@@ -1,7 +1,6 @@
 <?php
 //Default to disabled:
 $cron_schedule = $cron_schedule?$cron_schedule:'never';
-$disablecron = isset($disablecron)?$disablecron:'';
 ?>
 <script type="text/javascript" src="modules/queues/assets/js/jquery-cron.js"></script>
 <!--Disable CRON-->
@@ -16,9 +15,9 @@ $disablecron = isset($disablecron)?$disablecron:'';
 					</div>
 					<div class="col-md-9 radioset">
 						<span class="radioset">
-						<input type="radio" name="disablecron" id="disablecronyes" value="" <?php echo ($disablecron == "never"?"":"CHECKED") ?>>
+						<input type="radio" name="disablecron" id="disablecronyes" value="" <?php echo ($cron_schedule == "never"?"":"CHECKED") ?>>
 						<label for="disablecronyes"><?php echo _("Yes");?></label>
-						<input type="radio" name="disablecron" id="disablecronno" value="never" <?php echo ($disablecron == "never"?"CHECKED":"") ?>>
+						<input type="radio" name="disablecron" id="disablecronno" value="never" <?php echo ($cron_schedule == "never"?"CHECKED":"") ?>>
 						<label for="disablecronno"><?php echo _("No");?></label>
 						</span>
 					</div>
@@ -35,11 +34,11 @@ $disablecron = isset($disablecron)?$disablecron:'';
 <!--END Disable CRON-->
 <link type="text/css" href="modules/queues/assets/css/jquery-cron.css" rel="stylesheet" />
 <input type="hidden" name="cron_schedule" id="cron_schedule" value="<?php echo $cron_schedule?>">
-<input type="hidden" name="cron_minute" id="cron_minute" value="<?php echo $cron_minute?>" <?php ($cron_schedule == 'never'? 'disabled':'') ?>>
-<input type="hidden" name="cron_hour" id="cron_hour" value="<?php echo $cron_hour?>" <?php ($cron_schedule == 'never'? 'disabled':'') ?>>
-<input type="hidden" name="cron_dow" id="cron_dow" value="<?php echo $cron_dow ?>" <?php ($cron_schedule == 'never'? 'disabled':'') ?>>
-<input type="hidden" name="cron_month" id="cron_month" value="<?php echo $cron_month ?>" <?php ($cron_schedule == 'never'? 'disabled':'') ?>>
-<input type="hidden" name="cron_dom" id="cron_dom" value="<?php echo $cron_dom?>" <?php ($cron_schedule == 'never'? 'disabled':'') ?>>
+<input type="hidden" name="cron_minute" id="cron_minute" value="<?php echo $cron_minute?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
+<input type="hidden" name="cron_hour" id="cron_hour" value="<?php echo $cron_hour?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
+<input type="hidden" name="cron_dow" id="cron_dow" value="<?php echo $cron_dow ?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
+<input type="hidden" name="cron_month" id="cron_month" value="<?php echo $cron_month ?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
+<input type="hidden" name="cron_dom" id="cron_dom" value="<?php echo $cron_dom?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
 <!--RANDOM-->
 <div class="element-container <?php echo ($cron_schedule == 'never' ? 'hidden':'')?>" id="randominput">
 	<div class="row">
@@ -187,14 +186,18 @@ $('input[name="disablecron"]').on('change',function(){
 		$('#runinput').addClass('hidden');
 		$('#randominput').addClass('hidden');
 		$('#cron_random').attr('disabled', true);
+		$('#cron_schedule').val('never');
 	}else{
-		if(!$('#cron_random').is(':checked')){
+		if($('input[name="cron_random"]').val() == 'false'){
 			$('#cron_minute').attr('disabled', false);
 			$('#cron_hour').attr('disabled', false);
 			$('#cron_dow').attr('disabled', false);
 			$('#cron_month').attr('disabled', false);
 			$('#cron_dom').attr('disabled', false);
 			$('#runinput').removeClass('hidden');
+			$('#cron_schedule').val($('#cron_schedule_select').val());
+		}else{
+			$('#cron_schedule').val('custom');
 		}
 		$('#randominput').removeClass('hidden');
 		$('#cron_random').attr('disabled', false);
@@ -219,7 +222,6 @@ $('input[name="cron_random"]').on('change',function(){
 		$('#cron_month').attr('disabled', false);
 		$('#cron_dom').attr('disabled', false);
 		$('#runinput').removeClass('hidden');
-
 	}
 });
 //Schedule Select
