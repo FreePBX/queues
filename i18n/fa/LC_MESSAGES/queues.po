@@ -10,20 +10,24 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-26 16:29-0800\n"
-"PO-Revision-Date: 2016-01-26 16:29-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-04-02 20:45+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/queues/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: page.queues.php:17
 msgid " Add Queue"
-msgstr ""
+msgstr " افزودن صف"
 
 #: page.queues.php:14
 msgid " Edit: "
-msgstr ""
+msgstr " ویرایش: "
 
 #: views/form.php:476
 msgid ""
@@ -37,11 +41,11 @@ msgstr ""
 
 #: views/qgrid.php:16
 msgid "Actions"
-msgstr ""
+msgstr "عملیات"
 
 #: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
-msgstr ""
+msgstr "افزودن صف"
 
 #: views/form.php:896
 msgid ""
@@ -51,7 +55,7 @@ msgstr ""
 
 #: views/form.php:701
 msgid "Advanced Options"
-msgstr ""
+msgstr "گزینه های حرفه ای"
 
 #: views/form.php:1387
 msgid ""
@@ -64,39 +68,39 @@ msgstr ""
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
-msgstr ""
+msgstr "پیام عامل آگهی"
 
 #: views/form.php:220
 msgid "Agent Announcement"
-msgstr ""
+msgstr "اطلاعیه عامل"
 
 #: queues.i18n.php:44
 msgid "Agent Called Events Default"
-msgstr ""
+msgstr "پیشفرض رویدادهای تماس عامل"
 
 #: views/form.php:1824
 msgid "Agent Regex Filter"
-msgstr ""
+msgstr "فیلتر Regex  عامل"
 
 #: views/form.php:935
 msgid "Agent Restrictions"
-msgstr ""
+msgstr "محدودیتهای عامل"
 
 #: views/form.php:300
 msgid "Agent Ringing"
-msgstr ""
+msgstr "زنگ خوردن عامل"
 
 #: views/form.php:1291
 msgid "Agent Timeout"
-msgstr ""
+msgstr "وقفه عامل"
 
 #: views/form.php:1317
 msgid "Agent Timeout Restart"
-msgstr ""
+msgstr "راه اندازی مجدد وقفه عامل"
 
 #: views/form.php:884
 msgid "Alert Info"
-msgstr ""
+msgstr "اطلاعات هشدار"
 
 #: install.php:15
 msgid ""
@@ -106,23 +110,23 @@ msgstr ""
 
 #: views/form.php:186
 msgid "Always"
-msgstr ""
+msgstr "همیشه"
 
 #: views/form.php:378
 msgid "Always allows the caller to join the Queue."
-msgstr ""
+msgstr "مجوز همیشگی به تماس گیرنده برای پیوستن به صف."
 
 #: views/form.php:1752
 msgid "Announce Hold Time"
-msgstr ""
+msgstr "زمان نگه داشتن آگهی"
 
 #: views/form.php:1723
 msgid "Announce Position"
-msgstr ""
+msgstr "موقعیت آگهی"
 
 #: views/form.php:1740
 msgid "Announce position of caller in the queue?"
-msgstr ""
+msgstr "اعلان جایگاه تماس گیرنده در صف؟"
 
 #: views/form.php:197
 msgid ""
@@ -156,11 +160,11 @@ msgstr ""
 
 #: views/cron.php:63
 msgid "Annually"
-msgstr ""
+msgstr "سالانه"
 
 #: queues.i18n.php:6 queues.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "درخواست"
 
 #: views/form.php:1279
 msgid ""
@@ -183,11 +187,11 @@ msgstr ""
 
 #: views/form.php:1455
 msgid "Auto Pause"
-msgstr ""
+msgstr "توقف خودکار"
 
 #: views/form.php:1544
 msgid "Auto Pause Delay"
-msgstr ""
+msgstr "تاخیر در توقف خودکار"
 
 #: views/form.php:1474
 msgid ""
@@ -199,23 +203,23 @@ msgstr ""
 
 #: views/form.php:1486
 msgid "Auto Pause on Busy"
-msgstr ""
+msgstr "توقف خودکار در مشغولی"
 
 #: views/form.php:1515
 msgid "Auto Pause on Unavailable"
-msgstr ""
+msgstr "توقف خودکار در عدم دسترس"
 
 #: views/form.php:993
 msgid "Autofill"
-msgstr ""
+msgstr "جاگذاری خودکار"
 
 #: functions.inc/geters_seters.php:39
 msgid "Bad Queue Number, can not be blank"
-msgstr ""
+msgstr "شماره صف نادرست، شماره صف نمیتواند خالی باشد"
 
 #: views/form.php:420
 msgid "Break Out Type"
-msgstr ""
+msgstr "نوع وقفه"
 
 #: views/form.php:832
 msgid "CID Name Prefix"
@@ -223,19 +227,19 @@ msgstr ""
 
 #: views/form.php:804
 msgid "Call Confirm"
-msgstr ""
+msgstr "تایید تماس"
 
 #: views/form.php:134
 msgid "Call Confirm Announce"
-msgstr ""
+msgstr "اعلان تایید تماس"
 
 #: views/form.php:1083
 msgid "Call Recording"
-msgstr ""
+msgstr "ضبط کردن تماس"
 
 #: views/form.php:943
 msgid "Call as Dialed"
-msgstr ""
+msgstr "پاسخ به تماس های گرفته شده"
 
 #: views/form.php:544
 msgid "Callback to use when caller presses 1."
@@ -243,11 +247,11 @@ msgstr ""
 
 #: views/form.php:696
 msgid "Caller Anouncements"
-msgstr ""
+msgstr "اعلانهای تماس گیرنده"
 
 #: views/form.php:1687
 msgid "Caller Position"
-msgstr ""
+msgstr "موقعیت تماس گیرنده"
 
 #: views/form.php:387
 msgid ""
@@ -265,15 +269,15 @@ msgstr ""
 
 #: views/form.php:691
 msgid "Capacity Options"
-msgstr ""
+msgstr "گزینه های ظرفیت"
 
 #: install.php:68
 msgid "Checking for legacy queues table.."
-msgstr ""
+msgstr "بررسی وراثت برای جدول صف ها.."
 
 #: install.php:382
 msgid "Checking if recordings need migration.."
-msgstr ""
+msgstr "بررسی لزوم انتقال تماسهای ضبط شده.."
 
 #: functions.inc/queue_conf.php:229
 msgid "Compound Recordings in Queues Detected"
@@ -288,19 +292,19 @@ msgstr ""
 
 #: install.php:188
 msgid "Creating queues_config.."
-msgstr ""
+msgstr "تهیه تنظیمات صف.."
 
 #: install.php:94
 msgid "Creating queues_details.."
-msgstr ""
+msgstr "تهیه جزییات صف.."
 
 #: views/cron.php:60
 msgid "Daily"
-msgstr ""
+msgstr "روزانه"
 
 #: views/form.php:142
 msgid "Default"
-msgstr ""
+msgstr "پیشفرض"
 
 #: queues.i18n.php:48
 msgid ""
@@ -318,11 +322,11 @@ msgstr ""
 
 #: Queues.class.php:205
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 #: views/bootnav.php:10 views/qgrid.php:15
 msgid "Description"
-msgstr ""
+msgstr "توضیح"
 
 #: views/form.php:385
 msgid ""
@@ -339,15 +343,15 @@ msgstr ""
 
 #: views/form.php:1090
 msgid "Don't Care"
-msgstr ""
+msgstr "مهم نیست"
 
 #: install.php:339
 msgid "Dropping old queues table.."
-msgstr ""
+msgstr "حذف جدول صف های قدیمی.."
 
 #: views/form.php:1200
 msgid "Dynamic Agents"
-msgstr ""
+msgstr "عوامل پویا"
 
 #: views/form.php:1221
 msgid ""
@@ -359,7 +363,7 @@ msgstr ""
 
 #: install.php:328
 msgid "ERROR were encountered"
-msgstr ""
+msgstr "محل وقوع خطا"
 
 #: install.php:207
 msgid "ERROR: accessing queues table obtaining context info, aborting"
@@ -375,7 +379,7 @@ msgstr ""
 
 #: install.php:101 install.php:195
 msgid "ERROR: could not create table"
-msgstr ""
+msgstr "خطا:عدم توانایی ساخت جدول"
 
 #: install.php:119
 msgid "ERROR: could not migrate to queues_details"
@@ -394,7 +398,7 @@ msgstr ""
 
 #: views/cron.php:31
 msgid "Enable this task"
-msgstr ""
+msgstr "فعال کردن این عملیات"
 
 #: views/form.php:1128
 msgid ""
@@ -405,31 +409,31 @@ msgstr ""
 
 #: views/form.php:600
 msgid "Event When Called"
-msgstr ""
+msgstr "رویداد هنگام تماس"
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
-msgstr ""
+msgstr "گزینه های داخلی"
 
 #: views/form.php:947
 msgid "Extensions Only"
-msgstr ""
+msgstr "فقط داخلی"
 
 #: views/form.php:1140
 msgid "Fail Over Destination"
-msgstr ""
+msgstr "خطا در مقصد"
 
 #: views/form.php:1088
 msgid "Force"
-msgstr ""
+msgstr "اجبار"
 
 #: views/form.php:1697
 msgid "Frequency"
-msgstr ""
+msgstr "فرکانس"
 
 #: views/form.php:676
 msgid "General Settings"
-msgstr ""
+msgstr "تنظیمات عمومی"
 
 #: views/form.php:777
 msgid "Generate Device Hints"
@@ -451,7 +455,7 @@ msgstr ""
 
 #: queues.i18n.php:38
 msgid "Hide Queue No Answer Option"
-msgstr ""
+msgstr "مخفی کردن گزینه بدون جواب برای صف"
 
 #: views/form.php:395
 msgid "Honor Penalties"
@@ -463,7 +467,7 @@ msgstr ""
 
 #: views/cron.php:59
 msgid "Hourly"
-msgstr ""
+msgstr "ساعتی"
 
 #: views/form.php:582
 msgid ""
@@ -479,7 +483,7 @@ msgstr ""
 
 #: functions.inc/destination_registry.php:98
 msgid "INUSE"
-msgstr ""
+msgstr "در حال استفاده"
 
 #: functions.inc.php:75
 #, php-format
@@ -572,7 +576,7 @@ msgstr ""
 
 #: functions.inc/hook_core.php:37
 msgid "Ignore State"
-msgstr ""
+msgstr "لغو وضعیت"
 
 #: views/form.php:1100
 msgid ""
@@ -593,40 +597,40 @@ msgstr ""
 
 #: views/form.php:171
 msgid "Join Announcement"
-msgstr ""
+msgstr "افزودن اطلاعیه"
 
 #: views/form.php:1596
 msgid "Join Empty"
-msgstr ""
+msgstr "افزودن خالی"
 
 #: views/form.php:1630
 msgid "Leave Empty"
-msgstr ""
+msgstr "خالی بگذارید"
 
 #: views/bootnav.php:2
 msgid "List Queues"
-msgstr ""
+msgstr "فهرست صف ها"
 
 #: views/form.php:382 views/form.php:390 views/form.php:1271
 #: views/form.php:1610 views/form.php:1644
 msgid "Loose"
-msgstr ""
+msgstr "آزاد"
 
 #: views/form.php:1112
 msgid "Mark calls answered elsewhere"
-msgstr ""
+msgstr "مشخص کردن تماسهای پاسخ داده شده در جای دیگر"
 
 #: views/form.php:1571
 msgid "Max Callers"
-msgstr ""
+msgstr "بیشترین تماس گیرنده ها"
 
 #: views/form.php:1236
 msgid "Max Wait Time"
-msgstr ""
+msgstr "بیشترین زمان انتظار"
 
 #: views/form.php:1262
 msgid "Max Wait Time Mode"
-msgstr ""
+msgstr "حالت بیشترین زمان انتظار"
 
 #: views/form.php:1584
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
@@ -634,35 +638,35 @@ msgstr ""
 
 #: views/form.php:1399
 msgid "Member Delay"
-msgstr ""
+msgstr "تاخیر اعضا"
 
 #: views/form.php:632
 msgid "Member Status Event"
-msgstr ""
+msgstr "رویداد وضعیت عضو"
 
 #: queues.i18n.php:56
 msgid "Member Status Event Default"
-msgstr ""
+msgstr "رویداد پیشفرض وضعیت عضو"
 
 #: views/form.php:462 views/form.php:466
 msgid "Menu ID "
-msgstr ""
+msgstr "شناسه منو "
 
 #: install.php:203
 msgid "Migrating data to queues_config.."
-msgstr ""
+msgstr "انتقال اطلاعات به تنظیمات صف.."
 
 #: install.php:116
 msgid "Migrating to queues_details.."
-msgstr ""
+msgstr "انتقال به جزییات صف.."
 
 #: views/form.php:299
 msgid "MoH Only"
-msgstr ""
+msgstr "فقط موزیک انتظار"
 
 #: views/cron.php:62
 msgid "Monthly"
-msgstr ""
+msgstr "ماهانه"
 
 #: views/form.php:310
 msgid ""
@@ -686,7 +690,7 @@ msgstr ""
 
 #: views/form.php:1092
 msgid "Never"
-msgstr ""
+msgstr "هرگز"
 
 #: views/form.php:391
 msgid ""
@@ -702,7 +706,7 @@ msgstr ""
 #: views/form.php:1608 views/form.php:1642 views/form.php:1732
 #: views/form.php:1761
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 #: views/form.php:945
 msgid "No Follow-Me or Call Forward"
@@ -710,11 +714,11 @@ msgstr ""
 
 #: views/form.php:356
 msgid "No Retry"
-msgstr ""
+msgstr "بدون تلاش مجدد"
 
 #: views/form.php:178 views/form.php:206 views/form.php:493 views/form.php:534
 msgid "None"
-msgstr ""
+msgstr "هیچ"
 
 #: install.php:77 install.php:105 install.php:122 install.php:125
 #: install.php:199 install.php:326 install.php:332 install.php:345
@@ -722,15 +726,15 @@ msgstr ""
 #: install.php:527 install.php:542 install.php:557 install.php:572
 #: install.php:587 install.php:602 install.php:617 install.php:632
 msgid "OK"
-msgstr ""
+msgstr "تایید"
 
 #: views/form.php:1763
 msgid "Once"
-msgstr ""
+msgstr "یکبار"
 
 #: views/form.php:712
 msgid "Other Options"
-msgstr ""
+msgstr "ذیگر گزینه ها"
 
 #: views/form.php:1664
 msgid "Penalty Members Limit"
@@ -738,15 +742,15 @@ msgstr ""
 
 #: views/form.php:1779
 msgid "Periodic Announcements"
-msgstr ""
+msgstr "اطلاعیه های دوره ای"
 
 #: queues.i18n.php:14
 msgid "Persistent Members"
-msgstr ""
+msgstr "اعضای مداوم"
 
 #: install.php:29
 msgid "Playback Queue Caller Count"
-msgstr ""
+msgstr "تعداد دفعات پخش مجدد برای تماس گیرنده های صف"
 
 #: views/form.php:1836
 msgid ""
@@ -763,12 +767,12 @@ msgstr ""
 
 #: Queues.class.php:193 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
-msgstr ""
+msgstr "صف"
 
 #: functions.inc/destination_registry.php:36
 #, php-format
 msgid "Queue %s : %s"
-msgstr ""
+msgstr "صف %s : %s"
 
 #: functions.inc/queue_conf.php:227
 #, php-format
@@ -777,55 +781,55 @@ msgstr ""
 
 #: views/form.php:681
 msgid "Queue Agents"
-msgstr ""
+msgstr "عوامل صف"
 
 #: views/form.php:426 views/form.php:529
 msgid "Queue Callback"
-msgstr ""
+msgstr "تماس برگشتی صف"
 
 #: install.php:10
 msgid "Queue Callers"
-msgstr ""
+msgstr "تماس گیرنده های صف"
 
 #: views/form.php:751
 msgid "Queue Name"
-msgstr ""
+msgstr "نام صف"
 
 #: views/form.php:98
 msgid "Queue No Answer"
-msgstr ""
+msgstr "صف بی پاسخ"
 
 #: views/form.php:727
 msgid "Queue Number"
-msgstr ""
+msgstr "شماره صف"
 
 #: assets/js/queues.js:40
 msgid "Queue Number must not be blank"
-msgstr ""
+msgstr "شماره صف نباید خالی باشد"
 
 #: views/form.php:68
 msgid "Queue Password"
-msgstr ""
+msgstr "کلمه عبور صف"
 
 #: install.php:9 install.php:22
 msgid "Queue Pause Toggle"
-msgstr ""
+msgstr "تغییر توقف صف"
 
 #: functions.inc/hook_core.php:64
 msgid "Queue State Detection"
-msgstr ""
+msgstr "تشخیص آمار صف"
 
 #: install.php:8
 msgid "Queue Toggle"
-msgstr ""
+msgstr "تغییر صف"
 
 #: views/form.php:1056
 msgid "Queue Weight"
-msgstr ""
+msgstr "وزن صف"
 
 #: views/form.php:1030
 msgid "Queue calls only (ringinuse=no)"
-msgstr ""
+msgstr "فقط تماس های صف (استفاده از زنگ=خیر)"
 
 #: queues.i18n.php:54
 msgid ""
@@ -845,21 +849,21 @@ msgstr ""
 #: functions.inc/destination_registry.php:97
 #, php-format
 msgid "Queue: %s"
-msgstr ""
+msgstr "صف: %s"
 
 #: functions.inc/destination_registry.php:126
 #, php-format
 msgid "Queue: %s (%s)"
-msgstr ""
+msgstr "صف: %s (%s)"
 
 #: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
-msgstr ""
+msgstr "صف ها"
 
 #: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
 #: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
 msgid "Queues Module"
-msgstr ""
+msgstr "ماژول صف"
 
 #: bin/queue_reset_stats.php:14
 msgid "Queues module not found or is disabled. Aborting!"
@@ -897,31 +901,31 @@ msgstr ""
 
 #: views/cron.php:84
 msgid "RUN"
-msgstr ""
+msgstr "اجرا"
 
 #: views/cron.php:50
 msgid "Random"
-msgstr ""
+msgstr "تصادفی"
 
 #: views/form.php:568
 msgid "Repeat Frequency"
-msgstr ""
+msgstr "فرکانس تکرار"
 
 #: views/form.php:1426
 msgid "Report Hold Time"
-msgstr ""
+msgstr "گزارش زمان توقف"
 
 #: Queues.class.php:215
 msgid "Reset"
-msgstr ""
+msgstr "بازنشانی"
 
 #: views/form.php:706
 msgid "Reset Queue Stats"
-msgstr ""
+msgstr "بازنشانی آمار صف"
 
 #: views/form.php:908
 msgid "Restrict Dynamic Agents"
-msgstr ""
+msgstr "محدود کردن عوامل پویا"
 
 #: views/form.php:923
 msgid ""
@@ -932,15 +936,15 @@ msgstr ""
 
 #: views/form.php:1347
 msgid "Retry"
-msgstr ""
+msgstr "تلاش مجدد"
 
 #: views/form.php:301
 msgid "Ring Only"
-msgstr ""
+msgstr "فقط زنگ"
 
 #: views/form.php:967
 msgid "Ring Strategy"
-msgstr ""
+msgstr "چگونگی زنگ"
 
 #: views/form.php:382
 msgid ""
@@ -986,7 +990,7 @@ msgstr ""
 
 #: views/form.php:1798
 msgid "Service Level"
-msgstr ""
+msgstr "مرحله سرویس"
 
 #: queues.i18n.php:26
 msgid "Set Agent Name in CDR dstchannel"
@@ -1004,11 +1008,11 @@ msgstr ""
 
 #: views/form.php:1020
 msgid "Skip Busy Agents"
-msgstr ""
+msgstr "لغو عوامل اشغال"
 
 #: views/form.php:1167
 msgid "Static Agents"
-msgstr ""
+msgstr "آمار عوامل"
 
 #: views/form.php:1188
 msgid ""
@@ -1030,16 +1034,16 @@ msgstr ""
 
 #: views/cron.php:14
 msgid "Stats Reset"
-msgstr ""
+msgstr "بازنشانی آمار"
 
 #: views/form.php:379 views/form.php:388 views/form.php:1269
 #: views/form.php:1604 views/form.php:1638
 msgid "Strict"
-msgstr ""
+msgstr "محدودیت"
 
 #: Queues.class.php:210
 msgid "Submit"
-msgstr ""
+msgstr "ارسال"
 
 #: views/form.php:1250
 msgid ""
@@ -1075,24 +1079,24 @@ msgstr ""
 
 #: views/form.php:686
 msgid "Timing & Agent Options"
-msgstr ""
+msgstr "زمانبندی و گزینه های عامل"
 
 #: views/form.php:380 views/form.php:389 views/form.php:1606
 #: views/form.php:1640
 msgid "Ultra Strict"
-msgstr ""
+msgstr "محدودیت جزیی"
 
 #: views/form.php:332 views/form.php:350
 msgid "Unlimited"
-msgstr ""
+msgstr "نامحدود"
 
 #: queues.i18n.php:32
 msgid "Use MixMonitor for Recordings"
-msgstr ""
+msgstr "استفاده از MixMonitor برای ضبط تماسها"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
-msgstr ""
+msgstr "استفاده از آمار"
 
 #: views/form.php:739
 msgid ""
@@ -1122,11 +1126,11 @@ msgstr ""
 
 #: views/form.php:856
 msgid "Wait Time Prefix"
-msgstr ""
+msgstr "زمان انتظار پیش شماره"
 
 #: Queues.class.php:144
 msgid "Warning! Extension"
-msgstr ""
+msgstr "هشدار! داخلی"
 
 #: functions.inc/queue_conf.php:222
 msgid ""
@@ -1137,15 +1141,15 @@ msgstr ""
 
 #: views/cron.php:61
 msgid "Weekly"
-msgstr ""
+msgstr "هفتگی"
 
 #: views/form.php:187
 msgid "When No Free Agents"
-msgstr ""
+msgstr "هنگامی که هیچ عاملی آزاد نباشد"
 
 #: views/form.php:188
 msgid "When No Ready Agents"
-msgstr ""
+msgstr "هنگامی که هیچ عاملی آماده نباشد"
 
 #: views/form.php:955
 msgid ""
@@ -1230,7 +1234,7 @@ msgstr ""
 
 #: views/form.php:1152
 msgid "Where calls should fail to"
-msgstr ""
+msgstr "جایی که تماس های ناموفق به آنجا میرود"
 
 #: views/form.php:435
 msgid ""
@@ -1241,7 +1245,7 @@ msgstr ""
 
 #: views/form.php:1373
 msgid "Wrap-Up-Time"
-msgstr ""
+msgstr "خلاصه وقت"
 
 #: views/cron.php:20 views/cron.php:55 views/form.php:103 views/form.php:378
 #: views/form.php:387 views/form.php:606 views/form.php:638 views/form.php:782
@@ -1251,19 +1255,19 @@ msgstr ""
 #: views/form.php:1522 views/form.php:1602 views/form.php:1636
 #: views/form.php:1730 views/form.php:1759
 msgid "Yes"
-msgstr ""
+msgstr "بله"
 
 #: views/form.php:1029
 msgid "Yes + (ringinuse=no)"
-msgstr ""
+msgstr "بله + (استفاده از زنگ=خیر)"
 
 #: views/form.php:1461
 msgid "Yes in all queues"
-msgstr ""
+msgstr "بله در تمام صف ها"
 
 #: views/form.php:1461
 msgid "Yes in this queue only"
-msgstr ""
+msgstr "بله فقط در این صف"
 
 #: views/form.php:844
 msgid ""
@@ -1299,23 +1303,23 @@ msgstr ""
 #: install.php:574 install.php:589 install.php:604 install.php:619
 #: install.php:634
 msgid "already exists"
-msgstr ""
+msgstr "در حال حاضر موجود است"
 
 #: install.php:483
 msgid "already migrated"
-msgstr ""
+msgstr "در حال حاضر منتقل شده"
 
 #: install.php:622
 msgid "checking for callback_id field.."
-msgstr ""
+msgstr "بررسی فیلد شناسه تماس برگشتی.."
 
 #: install.php:547
 msgid "checking for callconfirm field.."
-msgstr ""
+msgstr "بررسی فیلد تایید تماس.."
 
 #: install.php:562
 msgid "checking for callconfirm_id field.."
-msgstr ""
+msgstr "بررسی فیلد شناسه تایید تماس.."
 
 #: install.php:592
 msgid "checking for monitor_heard field.."
@@ -1331,7 +1335,7 @@ msgstr ""
 
 #: install.php:532
 msgid "checking for qnoanswer field.."
-msgstr ""
+msgstr "بررسی فیلد صف بدون جواب.."
 
 #: install.php:361
 msgid "checking for qregex field.."
@@ -1339,7 +1343,7 @@ msgstr ""
 
 #: install.php:487
 msgid "checking for queuewait field.."
-msgstr ""
+msgstr "بررسی فیلد صف انتظار.."
 
 #: install.php:517
 msgid "checking for togglehint field.."
@@ -1351,11 +1355,11 @@ msgstr ""
 
 #: functions.inc.php:31
 msgid "day"
-msgstr ""
+msgstr "روز"
 
 #: views/form.php:293
 msgid "default"
-msgstr ""
+msgstr "پیشفرض"
 
 #: install.php:464
 msgid "dropping agentannounce field.."
@@ -1368,7 +1372,7 @@ msgstr ""
 #: install.php:393 install.php:402 install.php:414 install.php:430
 #: install.php:440 install.php:456
 msgid "fatal error"
-msgstr ""
+msgstr "خطای سیستمی"
 
 #: views/form.php:256
 msgid "fewestcalls"
@@ -1376,19 +1380,19 @@ msgstr ""
 
 #: functions.inc.php:32
 msgid "hour"
-msgstr ""
+msgstr "ساعت"
 
 #: functions.inc.php:32
 msgid "hours"
-msgstr ""
+msgstr "ساعات"
 
 #: views/form.php:291
 msgid "inherit"
-msgstr ""
+msgstr "ارثی"
 
 #: Queues.class.php:144
 msgid "is not allowed for your account."
-msgstr ""
+msgstr "برای حساب شما مجاز نیست."
 
 #: views/form.php:255
 msgid "leastrecent"
@@ -1413,15 +1417,15 @@ msgstr ""
 
 #: install.php:388
 msgid "migrating"
-msgstr ""
+msgstr "انتقال"
 
 #: functions.inc.php:33
 msgid "minute"
-msgstr ""
+msgstr "دقیقه"
 
 #: functions.inc.php:33
 msgid "minutes"
-msgstr ""
+msgstr "دقایق"
 
 #: install.php:470
 msgid "no agentannounce field???"
@@ -1433,15 +1437,15 @@ msgstr ""
 
 #: views/form.php:292
 msgid "none"
-msgstr ""
+msgstr "هیچ"
 
 #: install.php:396 install.php:405 install.php:472 install.php:480
 msgid "ok"
-msgstr ""
+msgstr "تایید"
 
 #: views/form.php:257
 msgid "random"
-msgstr ""
+msgstr "تصادفی"
 
 #: views/form.php:261
 msgid ""
@@ -1471,7 +1475,7 @@ msgstr ""
 
 #: views/form.php:254
 msgid "ringall"
-msgstr ""
+msgstr "زنگ برای همه"
 
 #: views/form.php:260
 msgid ""
@@ -1498,12 +1502,12 @@ msgstr ""
 
 #: functions.inc.php:34
 msgid "second"
-msgstr ""
+msgstr "ثانیه"
 
 #: functions.inc.php:17 functions.inc.php:34 views/form.php:334
 #: views/form.php:337 views/form.php:358 views/form.php:364 views/form.php:373
 msgid "seconds"
-msgstr ""
+msgstr "ثانیه ها"
 
 #: views/form.php:261
 msgid "wrandom"
