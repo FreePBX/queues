@@ -361,12 +361,6 @@ function queues_get_config($engine) {
 									$ext->add($c, $exten_pat, '', new ext_setvar('QUEUEUSER','${EXTEN:'."$que_code_len:$dev_len".'}'));
 									$ext->add($c, $exten_pat, '', new ext_goto('start','s','app-queue-toggle'));
 									$ext->addHint($c, $exten_pat, "Custom:QUEUE".'${EXTEN:'."$que_code_len}");
-									/*
-									$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUENO',$exten));
-									$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUEUSER',$device['id']));
-									$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_goto('start','s','app-queue-toggle'));
-									$ext->addHint($c, $que_code.$device['id'].'*'.$exten, "Custom:QUEUE".$device['id'].'*'.$exten);
-									 */
 							}
 						}
 					}
@@ -560,97 +554,6 @@ function queues_get_config($engine) {
 				$ext->add($id, 's', '', new ext_saynumber('${COUNT}'));
 				$ext->add($id, 's', '', new ext_playback('queue-quantity2'));
 				$ext->add($id, 's', '', new ext_return());
-
-
-				$userQueues = array();
-				if (FreePBX::Modules()->checkStatus("cos") && FreePBX::Cos()->isLicensed()) {
-					$cos = FreePBX::Create()->Cos;
-				} else if (function_exists('cos_islicenced') && cos_islicenced()) {
-					$cos = Cos::create();
-				} else {
-					$cos = false;
-				}
-
-				if ($cos) {
-					$allCos = $cos->getAllCos();
-					$allCos = is_array($allCos)?$allCos:array();
-					foreach ($allCos as $cos_name) {
-						$all = $cos->getAll($cos_name);
-						$all['members'] = is_array($all['members'])?$all['members']:array();
-						foreach ($all['members'] as $key => $val) {
-							$userQueues[$key] = ($userQueues[$key] ? $userQueues[$key] + $all['queuesallow'] : $all['queuesallow']);
-						}
-					}
-				}
-				$device_list = is_array($device_list)?$device_list:array();
-				foreach ($device_list as $device) {
-					if ($device['user'] != '') {
-						$callers_all = array();
-						$callers_all_hints = array();
-						$qlist = is_array($qlist)?$qlist:array();
-						foreach ($qlist as $item) {
-							if (count($userQueues) > 1 && (!isset($userQueues[$device['user']]) || !isset($userQueues[$device['user']][$item[0]]))) {
-								continue;
-							}
-
-							if (isset($qc[$device['user']]) && in_array($item[0], $qc[$device['user']], true)) {
-								$callers_all[] = $item[0];
-
-								// TODO: do we pair this down too?
-								//
-								//$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_gosub('1', 's', 'app-queue-caller-count', $item[0]));
-								//$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_hangup());
-
-								/*
-								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
-									$hint = "Queue:$item[0]";
-									$ext->addHint($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], $hint);
-									$callers_all_hints[] = $hint;
-								}
-								 */
-								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
-									$hint = "Queue:$item[0]";
-									$callers_all_hints[] = $hint;
-
-									$qcode_len = strlen($que_callers_code); // this should be pulled out
-									$device_len = strlen($device['id']);
-									$device_tmp = str_repeat('X', $device_len);
-									$item_len = strlen($item[0]);
-									$item_tmp = str_repeat('X', $item_len);
-
-									$exten_pat = "_$que_callers_code*$device_tmp*$item_tmp";
-									if (!in_array($exten_pat, $hint_hash)) {
-										$hint_hash[] = $exten_pat;
-										$ext->add($c, $exten_pat, '', new ext_gosub('1', 's', 'app-queue-caller-count', '${EXTEN:' .($qcode_len+$device_len+3). '}'));
-										$ext->add($c, $exten_pat, '', new ext_hangup());
-										$ext->addHint($c, $exten_pat, 'Queue:${EXTEN:' . ($qcode_len+$device_len+2) .'}');
-										//$ext->addHint($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], $hint);
-									}
-								}
-							}
-						}
-
-						if (!empty($callers_all_hints)) {
-
-							$qcode_len = strlen($que_callers_code); // this should be pulled out
-							$device_len = strlen($device['id']);
-							$device_tmp = str_repeat('X', $device_len);
-							$exten_pat = "_$que_callers_code*$device_tmp";
-							if (!in_array($exten_pat, $hint_hash)) {
-								$hint_hash[] = $exten_pat;
-								$ext->add($c, $exten_pat, '', new ext_gosub('1', 's', 'app-queue-caller-count', implode('&', $callers_all)));
-								$ext->add($c, $exten_pat, '', new ext_hangup());
-								$ext->addHint($c, $exten_pat, implode('&', $callers_all_hints));
-							}
-
-							/*
-							$ext->add($c, $que_callers_code . '*' . $device['id'], '', new ext_gosub('1', 's', 'app-queue-caller-count', implode('&', $callers_all)));
-							$ext->add($c, $que_callers_code . '*' . $device['id'], '', new ext_hangup());
-							$ext->addHint($c, $que_callers_code . '*' . $device['id'], implode('&', $callers_all_hints));
-							 */
-						}
-					}
-				}
 			}
 
 			// We need to have a hangup here, if call is ended by the caller during Playback it will end in the

@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.21</version>
+	<version>13.0.22</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*13.0.22* Remove all cos references to hints
 		*13.0.21* FREEPBX-11866 FREEPBX-11829
 		*13.0.20* FREEPBX-11525 Add dialstatus check
 		*13.0.19* FREEPBX-11505 *47 (Play the caller count) doesnt work
