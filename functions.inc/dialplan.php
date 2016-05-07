@@ -442,7 +442,7 @@ function queues_get_config($engine) {
 
 							if ($device['user'] != '' &&  isset($qc[$device['user']])) {
 								$hlist = 'Custom:QUEUE' . $device['id'] . '*' . implode('&Custom:QUEUE' . $device['id'] . '*', $qc[$device['user']]);
-								$astman->database_put("AMPUSER/".$device['id'],"queuehint",implode('&Custom:QUEUE' . $device['id'] . '*', $qc[$device['user']]));
+								$astman->database_put("AMPUSER/".$device['id'],"queuehint",$hlist);
 							}
 						}
 					}
