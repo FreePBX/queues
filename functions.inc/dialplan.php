@@ -361,6 +361,7 @@ function queues_get_config($engine) {
 									$ext->add($c, $exten_pat, '', new ext_setvar('QUEUEUSER','${EXTEN:'."$que_code_len:$dev_len".'}'));
 									$ext->add($c, $exten_pat, '', new ext_goto('start','s','app-queue-toggle'));
 									$ext->addHint($c, $exten_pat, "Custom:QUEUE".'${EXTEN:'."$que_code_len}");
+									//TODO: dynamic hints
 							}
 						}
 					}
@@ -426,7 +427,9 @@ function queues_get_config($engine) {
 					$ext->addExec($c,$amp_conf['AMPBIN'].'/generate_queue_hints.php '.$que_code);
 				} else {
 					$que_code_len = strlen($que_code);
+					$hlist = '';
 					foreach ($device_list as $device) {
+						$astman->database_del("AMPUSER/".$device['id'],"queuehint"); //cleanup
 						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip') {
 
 							$dev_len = strlen($device['id']);
@@ -436,15 +439,16 @@ function queues_get_config($engine) {
 								$hint_hash[] = $exten_pat;
 								$ext->add($c, $exten_pat, '', new ext_goto('start','s','app-all-queue-toggle'));
 							}
-							//$ext->add($c, $que_code . '*' . $device['id'], '', new ext_goto('start','s','app-all-queue-toggle'));
 
-							// TODO: to make this a pattern we'll have to store the state info in AstDB since each device can be different
-							//
 							if ($device['user'] != '' &&  isset($qc[$device['user']])) {
 								$hlist = 'Custom:QUEUE' . $device['id'] . '*' . implode('&Custom:QUEUE' . $device['id'] . '*', $qc[$device['user']]);
-								$ext->addHint($c, $que_code . '*' . $device['id'], $hlist);
+								$astman->database_put("AMPUSER/".$device['id'],"queuehint",implode('&Custom:QUEUE' . $device['id'] . '*', $qc[$device['user']]));
 							}
 						}
+					}
+					//make sure at least one hint was generated
+					if(!empty($hlist)) {
+						$ext->addHint($c, '_'.$que_code . '*' . 'X.', '${DB(AMPUSER/${EXTEN:'.strlen($que_code.'*').'}/queuehint)}');
 					}
 				}
 			}
@@ -471,11 +475,12 @@ function queues_get_config($engine) {
 				$ext->add($c, '_' . $que_pause_code . '*X.', '', new ext_goto('1','s','app-all-queue-pause-toggle'));
 
 				// TODO: There's a bug here $q_pause_Local isn't initialized and shoudl be something.
-				//       Currently this can't be made into a pattern since it's the $device['user']] but the hint has the device
+				//       Currently this can't be made into a pattern since it's the $device['user'] but the hint has the device
 				//
 				$q_pause_len = strlen($que_pause_code);
 				$device_list = (isset($device_list) && is_array($device_list))?$device_list:array();
 				foreach ($device_list as $device) {
+					$astman->database_del("AMPUSER/".$device['id'],"pausequeuehint");
 					if ($device['user'] != '') {
 						$pause_all_hints = array();
 						if (isset($qc[$device['user']])) foreach($qc[$device['user']] as $q) {
@@ -525,10 +530,11 @@ function queues_get_config($engine) {
 						}
 						//$ext->add($c, $que_pause_code . '*' . $device['id'], '', new ext_goto('1','s','app-all-queue-pause-toggle'));
 						if (!empty($pause_all_hints)) {
-							$ext->addHint($c, $que_pause_code . '*' . $device['id'], implode('&', $pause_all_hints));
+							$astman->database_put("AMPUSER/".$device['id'],"pausequeuehint",implode('&', $pause_all_hints));
 						}
 					}
 				}
+				$ext->addHint($c, '_'.$que_pause_code . '*X.', '${DB(AMPUSER/${EXTEN:'.strlen($que_pause_code . '*').'}/pausequeuehint)}');
 			}
 			// Create *47 codes/hints
 			//
@@ -859,5 +865,3 @@ function queue_agent_del_toggle() {
 	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${QUEUEUSERCIDNAME})}>0]?${QUEUEUSERCIDNAME}:${QUEUEUSER})}','REMOVEMEMBER'));
 	$ext->add($id, $c, '', new ext_macroexit());
 }
-
-?>
