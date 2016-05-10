@@ -111,6 +111,9 @@ class queues_conf {
 			//
 			$results2 = queues_get($result[0], true);
 
+			if(empty($results2['context'])) {
+				$results2['context'] = "";
+			}
 			// memebers is an array of members so we set it asside and remove it
 			// and then generate each later
 			//
@@ -131,7 +134,7 @@ class queues_conf {
 				unset($results2['eventmemberstatus']);
 			}
 			foreach ($results2 as $keyword => $data) {
-				if (trim($data) == '' || substr($keyword, 0, 4) == "cron") {
+				if ((trim($data) == '' && $keyword != "context") || substr($keyword, 0, 4) == "cron") {
 					// Skip anything that's empty or not required
 					continue;
 				}
