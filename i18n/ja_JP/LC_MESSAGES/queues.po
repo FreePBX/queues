@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 16:35-0700\n"
+"POT-Creation-Date: 2016-05-10 12:41-0700\n"
 "PO-Revision-Date: 2015-09-18 15:56+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -342,7 +342,7 @@ msgstr "レガシーのqueuesテーブルをチェック中.."
 msgid "Checking if recordings need migration.."
 msgstr "録音の移行が必要かチェック中.."
 
-#: functions.inc/queue_conf.php:229
+#: functions.inc/queue_conf.php:232
 msgid "Compound Recordings in Queues Detected"
 msgstr "キューに合成録音を検知しました"
 
@@ -919,7 +919,7 @@ msgstr "キュー"
 msgid "Queue %s : %s"
 msgstr "キュー %s : %s"
 
-#: functions.inc/queue_conf.php:227
+#: functions.inc/queue_conf.php:230
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "キュー - %s (%s): %s<br />"
@@ -1349,7 +1349,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "警告! 内線"
 
-#: functions.inc/queue_conf.php:222
+#: functions.inc/queue_conf.php:225
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

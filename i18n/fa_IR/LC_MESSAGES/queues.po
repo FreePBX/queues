@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 16:35-0700\n"
+"POT-Creation-Date: 2016-05-10 12:41-0700\n"
 "PO-Revision-Date: 2016-04-07 02:52+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -333,7 +333,7 @@ msgstr "بررسی وراثت برای جدول صف ها.."
 msgid "Checking if recordings need migration.."
 msgstr "بررسی لزوم انتقال تماسهای ضبط شده.."
 
-#: functions.inc/queue_conf.php:229
+#: functions.inc/queue_conf.php:232
 msgid "Compound Recordings in Queues Detected"
 msgstr "Compound  Recordings in Queues Detected"
 
@@ -933,7 +933,7 @@ msgstr "صف"
 msgid "Queue %s : %s"
 msgstr "صف %s : %s"
 
-#: functions.inc/queue_conf.php:227
+#: functions.inc/queue_conf.php:230
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "صف - %s (%s): %s<br />"
@@ -1380,7 +1380,7 @@ msgstr "زمان انتظار پیش شماره"
 msgid "Warning! Extension"
 msgstr "هشدار! داخلی"
 
-#: functions.inc/queue_conf.php:222
+#: functions.inc/queue_conf.php:225
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
