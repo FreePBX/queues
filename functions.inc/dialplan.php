@@ -574,34 +574,43 @@ function queues_get_config($engine) {
 			$ext->add('from-queue', '_.', '', new ext_setvar('QAGENT','${EXTEN}'));
 			$ext->add('from-queue', '_.', '', new ext_goto('1','${NODEST}'));
 
+			$ext->addInclude($from_queue_exten_only.'-x','from-internal');
+			$ext->add($from_queue_exten_only.'-x', 'foo', '', new ext_noop('bar'));
+
 			$ext->addInclude($from_queue_exten_internal,$from_queue_exten_only);
+			$ext->addInclude($from_queue_exten_internal,$from_queue_exten_only.'-x');
 			$ext->addInclude($from_queue_exten_internal,'from-internal');
 			$ext->add($from_queue_exten_internal, 'foo', '', new ext_noop('bar'));
 
 			/* create a context, from-queue-exten-only, that can be used for queues that want behavir similar to
 			 * ringgroup where only the agent's phone will be rung, no follow-me will be pursued.
 			 */
-			$userlist = core_users_list();
-			if (is_array($userlist)) {
-				foreach($userlist as $item) {
-					$ext->add($from_queue_exten_only, $item[0], '', new ext_set('RingGroupMethod', 'none'));
+			$sql = "SELECT LENGTH(extension) as len FROM users GROUP BY len";
+			$sth = FreePBX::Database()->prepare($sql);
+			$sth->execute();
+			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			foreach($rows as $row) {
+				//make sure exten exists
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/cidnum)} = 0]', $from_queue_exten_only.'-x,${EXTEN},1'));
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_set('RingGroupMethod', 'none'));
 
-					$ext->add($from_queue_exten_only, $item[0], '', new ext_set('QDOPTS', '${IF($["${CALLER_DEST}"!=""]?g)}${IF($["${AGENT_DEST}"!=""]?F(${AGENT_DEST}))}'));
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_set('QDOPTS', '${IF($["${CALLER_DEST}"!=""]?g)}${IF($["${AGENT_DEST}"!=""]?F(${AGENT_DEST}))}'));
 
-					$ext->add($from_queue_exten_only, $item[0], 'checkrecord', new ext_set('CALLTYPE_OVERRIDE', 'external')); // Make sure the call is tagged as external
-					// This means:
-					// If (!$fromexten) { if (!$nodest) { $fromexten = 'external' } else { $fromexten = $nodest } }
-					$ext->add($from_queue_exten_only, $item[0], '', new ext_execif('$[!${LEN(${FROMEXTEN})}]', 'Set', 'FROMEXTEN=${IF(${LEN(${NODEST})}?${NODEST}:external)}')); // Make sure the call is tagged as external
-					$ext->add($from_queue_exten_only, $item[0], '', new ext_gosub('1','s','sub-record-check',"exten,".$item[0].","));
-					if ($has_extension_state) {
-						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
-					} else {
-						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
-					}
-					$ext->add($from_queue_exten_only, $item[0], '', new ext_gotoif('$["${CALLER_DEST}"!=""&&"${DIALSTATUS}"="ANSWER"]','${CUT(CALLER_DEST,^,1)},${CUT(CALLER_DEST,^,2)},${CUT(CALLER_DEST,^,3)}'));
- 					$ext->add($from_queue_exten_only, $item[0], '', new ext_hangup());
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), 'checkrecord', new ext_set('CALLTYPE_OVERRIDE', 'external')); // Make sure the call is tagged as external
+				// This means:
+				// If (!$fromexten) { if (!$nodest) { $fromexten = 'external' } else { $fromexten = $nodest } }
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_execif('$[!${LEN(${FROMEXTEN})}]', 'Set', 'FROMEXTEN=${IF(${LEN(${NODEST})}?${NODEST}:external)}')); // Make sure the call is tagged as external
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gosub('1','s','sub-record-check','exten,${EXTEN},'));
+				if ($has_extension_state) {
+					$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_macro('dial-one',',${DIAL_OPTIONS}${QDOPTS},${EXTEN}'));
+				} else {
+					$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_macro('dial',',${DIAL_OPTIONS}${QDOPTS},${EXTEN}'));
 				}
- 				$ext->add($from_queue_exten_only, 'h', '', new ext_macro('hangupcall'));
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$["${CALLER_DEST}"!=""&&"${DIALSTATUS}"="ANSWER"]','${CUT(CALLER_DEST,^,1)},${CUT(CALLER_DEST,^,2)},${CUT(CALLER_DEST,^,3)}'));
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_hangup());
+			}
+			if(!empty($rows)) {
+				$ext->add($from_queue_exten_only, 'h', '', new ext_macro('hangupcall'));
 			}
 
 			/*
