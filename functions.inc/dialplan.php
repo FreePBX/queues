@@ -431,25 +431,13 @@ function queues_get_config($engine) {
 					foreach ($device_list as $device) {
 						$astman->database_del("AMPUSER/".$device['id'],"queuehint"); //cleanup
 						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip') {
-
-							$dev_len = strlen($device['id']);
-							$dev_len_tmp = str_repeat('X', $dev_len);
-							$exten_pat = "_$que_code*$dev_len_tmp";
-							if (!in_array($exten_pat, $hint_hash)) {
-								$hint_hash[] = $exten_pat;
-								$ext->add($c, $exten_pat, '', new ext_goto('start','s','app-all-queue-toggle'));
-							}
-
 							if ($device['user'] != '' &&  isset($qc[$device['user']])) {
 								$hlist = 'Custom:QUEUE' . $device['id'] . '*' . implode('&Custom:QUEUE' . $device['id'] . '*', $qc[$device['user']]);
 								$astman->database_put("AMPUSER/".$device['id'],"queuehint",$hlist);
 							}
 						}
 					}
-					//make sure at least one hint was generated
-					if(!empty($hlist)) {
-						$ext->addHint($c, '_'.$que_code . '*' . 'X.', '${DB(AMPUSER/${EXTEN:'.strlen($que_code.'*').'}/queuehint)}');
-					}
+					$ext->addHint($c, '_'.$que_code . '*' . 'X.', '${DB(AMPUSER/${EXTEN:'.strlen($que_code.'*').'}/queuehint)}');
 				}
 			}
 
@@ -521,13 +509,7 @@ function queues_get_config($engine) {
 								$ext->add($c, $que_pause_code . '*' . $device['id'] . '*' . $q, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$device['id']));
 							}
 						}
-						$dev_len = strlen($device['id']);
-						$dev_len_tmp = str_repeat('X', $dev_len);
-						$exten_pat = "_$que_pause_code*$dev_len_tmp";
-						if (!in_array($exten_pat, $hint_hash)) {
-							$hint_hash[] = $exten_pat;
-							$ext->add($c, $exten_pat, '', new ext_goto('1','s','app-all-queue-pause-toggle'));
-						}
+
 						//$ext->add($c, $que_pause_code . '*' . $device['id'], '', new ext_goto('1','s','app-all-queue-pause-toggle'));
 						if (!empty($pause_all_hints)) {
 							$astman->database_put("AMPUSER/".$device['id'],"pausequeuehint",implode('&', $pause_all_hints));
