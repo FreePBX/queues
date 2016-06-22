@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 12:41-0700\n"
+"POT-Creation-Date: 2016-06-22 16:03-0700\n"
 "PO-Revision-Date: 2015-05-01 23:09+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -79,7 +79,7 @@ msgstr "Анонс агента"
 msgid "Agent Announcement"
 msgstr ""
 
-#: queues.i18n.php:44
+#: queues.i18n.php:38
 msgid "Agent Called Events Default"
 msgstr ""
 
@@ -340,14 +340,14 @@ msgstr "Ежедневно"
 msgid "Default"
 msgstr "По умолчанию"
 
-#: queues.i18n.php:48
+#: queues.i18n.php:42
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
 
-#: queues.i18n.php:60
+#: queues.i18n.php:54
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -491,7 +491,7 @@ msgstr ""
 msgid "Generate Device Hints"
 msgstr ""
 
-#: queues.i18n.php:50
+#: queues.i18n.php:44
 msgid "Generate queuenum*/** Login/off Codes"
 msgstr "Формировать номер очереди*/** коды набора для входа-выхода операторов"
 
@@ -508,7 +508,7 @@ msgstr ""
 "приоритетом. Оператору будет подан звонок большим приоритетом очереди, если "
 "оператор обслуживаетс две и более очереди."
 
-#: queues.i18n.php:38
+#: queues.i18n.php:32
 msgid "Hide Queue No Answer Option"
 msgstr "Скрыть параметр Очереди 'No Answer'"
 
@@ -658,7 +658,7 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
-#: queues.i18n.php:42
+#: queues.i18n.php:36
 msgid ""
 "It is possible for a queue to NOT Answer a call and still enter callers to "
 "the queue. The normal behavior is that all  allers are answered before "
@@ -718,7 +718,7 @@ msgstr ""
 msgid "Member Status Event"
 msgstr ""
 
-#: queues.i18n.php:56
+#: queues.i18n.php:50
 msgid "Member Status Event Default"
 msgstr ""
 
@@ -921,7 +921,7 @@ msgstr "Вес очереди"
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Только звонки очереди (ringinuse=no)"
 
-#: queues.i18n.php:54
+#: queues.i18n.php:48
 msgid ""
 "Queue login and out codes were historically queunum* and queunum**. These "
 "have been largely replaced by the *45 queue toggle codes. The legacy codes "
@@ -956,7 +956,7 @@ msgid "Queues"
 msgstr "Очереди"
 
 #: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
-#: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
+#: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52
 msgid "Queues Module"
 msgstr "Модуль очередей"
 
@@ -964,7 +964,7 @@ msgstr "Модуль очередей"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 
-#: queues.i18n.php:36
+#: queues.i18n.php:30
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -993,14 +993,6 @@ msgid ""
 "queue. This is useful to make the queue respect the wrapuptime of another "
 "queue for a shared member."
 msgstr "Queues: shared_lastcall, действительны только с Астериск выше 1.6."
-
-#: queues.i18n.php:30
-msgid ""
-"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
-"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
-"with an agent name, which is set if available at the login time with "
-"AddQueueMember membername parameter, or with static members."
-msgstr "Queues: updatecdr"
 
 #: views/cron.php:83
 msgid "RUN"
@@ -1115,10 +1107,6 @@ msgstr ""
 #: views/form.php:1828
 msgid "Service Level"
 msgstr ""
-
-#: queues.i18n.php:26
-msgid "Set Agent Name in CDR dstchannel"
-msgstr "Назначить имя оператора в поле dstchannel CDR"
 
 #: views/cron.php:71
 msgid "Set this task to happen at random"
@@ -1239,7 +1227,7 @@ msgstr "Строго ограниченный"
 msgid "Unlimited"
 msgstr "Неограничено"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
 msgstr "Использовать MixMonitor для записи разговоров"
 
@@ -1739,6 +1727,17 @@ msgstr "секунды"
 #: views/form.php:261
 msgid "wrandom"
 msgstr "случайный-выбор"
+
+#~ msgid ""
+#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
+#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
+#~ "field of a call with an agent name, which is set if available at the "
+#~ "login time with AddQueueMember membername parameter, or with static "
+#~ "members."
+#~ msgstr "Queues: updatecdr"
+
+#~ msgid "Set Agent Name in CDR dstchannel"
+#~ msgstr "Назначить имя оператора в поле dstchannel CDR"
 
 #~ msgid "(**) ERRORS"
 #~ msgstr "(**) ОШИБКИ"
