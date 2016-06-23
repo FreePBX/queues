@@ -554,7 +554,15 @@ function queues_get_config($engine) {
 			// or indirectly through from-queue-exten-only to trap extension calls and avoid their follow-me, etc.
 			//
 			$ext->add('from-queue', '_.', '', new ext_setvar('QAGENT','${EXTEN}'));
+			$ext->add('from-queue', '_.', '', new ext_setvar('__FROMQ','true')); //see below comments
 			$ext->add('from-queue', '_.', '', new ext_goto('1','${NODEST}'));
+
+			//http://issues.freepbx.org/browse/FREEPBX-11871
+			//Because of local channel changes in Asterisk 12+ we end up losing track of our recording file
+			//This effectively "gives" back the recording file to the channel that answered the queue
+			if($ast_ge_12) {
+				$ext->splice('macro-auto-blkvm', 's', 1, new ext_execif('$["${FROMQ}" = "true"]', 'Set', 'CDR(recordingfile)=${CALLFILENAME}.${MON_FMT}'));
+			}
 
 			$ext->addInclude($from_queue_exten_only.'-x','from-internal');
 			$ext->add($from_queue_exten_only.'-x', 'foo', '', new ext_noop('bar'));
