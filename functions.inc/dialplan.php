@@ -561,7 +561,7 @@ function queues_get_config($engine) {
 			//Because of local channel changes in Asterisk 12+ we end up losing track of our recording file
 			//This effectively "gives" back the recording file to the channel that answered the queue
 			if($ast_ge_12) {
-				$ext->splice('macro-auto-blkvm', 's', 1, new ext_execif('$["${FROMQ}" = "true"]', 'Set', 'CDR(recordingfile)=${CALLFILENAME}.${MON_FMT}'));
+				$ext->splice('macro-auto-blkvm', 's', 1, new ext_execif('$["${FROMQ}" = "true" & "${CALLFILENAME}" != "" & "${CDR(recordingfile)}" = ""]', 'Set', 'CDR(recordingfile)=${CALLFILENAME}.${MON_FMT}'));
 			}
 
 			$ext->addInclude($from_queue_exten_only.'-x','from-internal');
