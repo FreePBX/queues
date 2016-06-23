@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-22 16:03-0700\n"
+"POT-Creation-Date: 2016-06-23 11:34-0700\n"
 "PO-Revision-Date: 2011-09-25 12:15+0200\n"
 "Last-Translator: Moshe Brevda <mbrevda => gmail ! com>\n"
 "Language-Team: \n"
@@ -84,7 +84,7 @@ msgstr "הודעה שתושמע לנציג"
 msgid "Agent Announcement"
 msgstr ""
 
-#: queues.i18n.php:38
+#: queues.i18n.php:44
 msgid "Agent Called Events Default"
 msgstr ""
 
@@ -321,14 +321,14 @@ msgstr ""
 msgid "Default"
 msgstr "ברירת מחדל"
 
-#: queues.i18n.php:42
+#: queues.i18n.php:48
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
 
-#: queues.i18n.php:54
+#: queues.i18n.php:60
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -455,7 +455,7 @@ msgstr ""
 msgid "Generate Device Hints"
 msgstr ""
 
-#: queues.i18n.php:44
+#: queues.i18n.php:50
 msgid "Generate queuenum*/** Login/off Codes"
 msgstr ""
 
@@ -469,7 +469,7 @@ msgid ""
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
 
-#: queues.i18n.php:32
+#: queues.i18n.php:38
 #, fuzzy
 msgid "Hide Queue No Answer Option"
 msgstr "אפשרויות תור"
@@ -601,7 +601,7 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
-#: queues.i18n.php:36
+#: queues.i18n.php:42
 msgid ""
 "It is possible for a queue to NOT Answer a call and still enter callers to "
 "the queue. The normal behavior is that all  allers are answered before "
@@ -661,7 +661,7 @@ msgstr ""
 msgid "Member Status Event"
 msgstr ""
 
-#: queues.i18n.php:50
+#: queues.i18n.php:56
 msgid "Member Status Event Default"
 msgstr ""
 
@@ -852,7 +852,7 @@ msgstr "משקל התור"
 msgid "Queue calls only (ringinuse=no)"
 msgstr ""
 
-#: queues.i18n.php:48
+#: queues.i18n.php:54
 msgid ""
 "Queue login and out codes were historically queunum* and queunum**. These "
 "have been largely replaced by the *45 queue toggle codes. The legacy codes "
@@ -882,7 +882,7 @@ msgid "Queues"
 msgstr "תורים"
 
 #: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
-#: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52
+#: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
 #, fuzzy
 msgid "Queues Module"
 msgstr "תורים"
@@ -891,7 +891,7 @@ msgstr "תורים"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 
-#: queues.i18n.php:30
+#: queues.i18n.php:36
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -911,6 +911,14 @@ msgid ""
 "lastcall and calls received be the same in members logged in more than one "
 "queue. This is useful to make the queue respect the wrapuptime of another "
 "queue for a shared member."
+msgstr ""
+
+#: queues.i18n.php:30
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
 msgstr ""
 
 #: views/cron.php:83
@@ -1004,6 +1012,10 @@ msgstr ""
 
 #: views/form.php:1828
 msgid "Service Level"
+msgstr ""
+
+#: queues.i18n.php:26
+msgid "Set Agent Name in CDR dstchannel"
 msgstr ""
 
 #: views/cron.php:71
@@ -1115,7 +1127,7 @@ msgstr "מוגבל"
 msgid "Unlimited"
 msgstr "ללא הגבלה"
 
-#: queues.i18n.php:26
+#: queues.i18n.php:32
 msgid "Use MixMonitor for Recordings"
 msgstr ""
 
