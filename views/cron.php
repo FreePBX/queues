@@ -175,6 +175,9 @@ $(document).ready(function() {
 
 		},
 	});
+	$(".form-control option[value='minute']").each(function() {
+    $(this).remove();
+});
 });
 //Disable Check box...
 $('input[name="disablecron"]').on('change',function(){
