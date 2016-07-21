@@ -3,6 +3,13 @@
 $cron_schedule = $cron_schedule?$cron_schedule:'never';
 ?>
 <script type="text/javascript" src="modules/queues/assets/js/jquery-cron.js"></script>
+<link type="text/css" href="modules/queues/assets/css/jquery-cron.css" rel="stylesheet" />
+<input type="hidden" name="cron_schedule" id="cron_schedule" value="<?php echo $cron_schedule?>">
+<input type="hidden" name="cron_minute" id="cron_minute" value="<?php echo $cron_minute?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
+<input type="hidden" name="cron_hour" id="cron_hour" value="<?php echo $cron_hour?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
+<input type="hidden" name="cron_dow" id="cron_dow" value="<?php echo $cron_dow ?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
+<input type="hidden" name="cron_month" id="cron_month" value="<?php echo $cron_month ?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
+<input type="hidden" name="cron_dom" id="cron_dom" value="<?php echo $cron_dom?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
 <!--Disable CRON-->
 <div class="element-container">
 	<div class="row">
@@ -32,13 +39,7 @@ $cron_schedule = $cron_schedule?$cron_schedule:'never';
 	</div>
 </div>
 <!--END Disable CRON-->
-<link type="text/css" href="modules/queues/assets/css/jquery-cron.css" rel="stylesheet" />
-<input type="hidden" name="cron_schedule" id="cron_schedule" value="<?php echo $cron_schedule?>">
-<input type="hidden" name="cron_minute" id="cron_minute" value="<?php echo $cron_minute?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
-<input type="hidden" name="cron_hour" id="cron_hour" value="<?php echo $cron_hour?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
-<input type="hidden" name="cron_dow" id="cron_dow" value="<?php echo $cron_dow ?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
-<input type="hidden" name="cron_month" id="cron_month" value="<?php echo $cron_month ?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
-<input type="hidden" name="cron_dom" id="cron_dom" value="<?php echo $cron_dom?>" <?php echo ($cron_schedule == 'never'? 'disabled':'') ?>>
+
 <!--RANDOM-->
 <div class="element-container <?php echo ($cron_schedule == 'never' ? 'hidden':'')?>" id="randominput">
 	<div class="row">
@@ -54,7 +55,7 @@ $cron_schedule = $cron_schedule?$cron_schedule:'never';
 						<label for="cron_randomyes"><?php echo _("Yes");?></label>
 						<input type="radio" name="cron_random" id="cron_randomno" value="false" <?php echo ($cron_random == "true"?"":"CHECKED") ?>>
 						<label for="cron_randomno"><?php echo _("No");?></label>
-						<select class="form-control" id="cron_schedule_select" <?php echo ($cron_random ? '':'disabled') ?>>
+						<select class="form-control <?php echo (($cron_random == "true")? '':'hidden') ?>" id="cron_schedule_select" <?php echo (($cron_random == "true")? '':'disabled') ?>>
 							<option value = "hourly" <?php echo ($cron_schedule == 'hourly'?'SELECTED':'')?>><?php echo _("Hourly")?></option>
 							<option value = "daily" <?php echo ($cron_schedule == 'daily'?'SELECTED':'')?>><?php echo _("Daily")?></option>
 							<option value = "weekly" <?php echo ($cron_schedule == 'weekly'?'SELECTED':'')?>><?php echo _("Weekly")?></option>
@@ -205,9 +206,9 @@ $('input[name="disablecron"]').on('change',function(){
 });
 //Random
 $('input[name="cron_random"]').on('change',function(){
-		console.log($(this).val());
 	if($(this).val() == "true"){
 		$('#cron_schedule_select').attr('disabled', false);
+		$('#cron_schedule_select').removeClass('hidden');
 		$('#cron_minute').attr('disabled', true);
 		$('#cron_hour').attr('disabled', true);
 		$('#cron_dow').attr('disabled', true);
@@ -216,6 +217,7 @@ $('input[name="cron_random"]').on('change',function(){
 		$('#runinput').addClass('hidden');
 	}else{
 		$('#cron_schedule_select').attr('disabled', true);
+		$('#cron_schedule_select').addClass('hidden');
 		$('#cron_minute').attr('disabled', false);
 		$('#cron_hour').attr('disabled', false);
 		$('#cron_dow').attr('disabled', false);
