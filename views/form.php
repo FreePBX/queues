@@ -699,7 +699,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</li>
 			<li role="presentation" data-name="qcallerannounce" class="change-tab">
 				<a href="#qcallerannounce" aria-controls="qcallerannounce" role="tab" data-toggle="tab">
-					<?php echo _("Caller Anouncements")?>
+					<?php echo _("Caller Announcements")?>
 				</a>
 			</li>
 			<li role="presentation" data-name="qadvanced" class="change-tab">
