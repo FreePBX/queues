@@ -18,9 +18,9 @@ function queues_add(
 	$use_queue_context='0',
 	$dynmembers = '',
 	$dynmemberonly = 'no',
-	$togglehint = '0',
+	$togglehint = 0,
 	$qnoanswer = '0',
-	$callconfirm = '0',
+	$callconfirm = 0,
 	$callconfirm_id = '',
 	$monitor_type = '',
 	$monitor_heard = '0',
@@ -42,7 +42,7 @@ function queues_add(
 
 	//add to extensions table
 	if (empty($agentannounce_id)) {
-		$agentannounce_id="";
+		$agentannounce_id=NULL;
 	}
 	$fields = array(
 		array($account,'maxlen',($_REQUEST['maxlen'])?$_REQUEST['maxlen']:'0',0),
@@ -160,9 +160,28 @@ function queues_add(
 	$descr			= isset($name) ? $db->escapeSimple($name):'';
 	$grppre			= isset($prefix) ? $db->escapeSimple($prefix):'';
 	$alertinfo		= isset($alertinfo) ? $db->escapeSimple($alertinfo):'';
-	//$joinannounce_id  = $joinannounce_id;
-	$ringing		= isset($_REQUEST['rtone']) ? $_REQUEST['rtone']:'';
-	//$agentannounce_id = $agentannounce_id;
+	if (isset($joinannounce_id)) {
+		if ($joinannounce_id == "None" || $joinannounce_id == "") {
+			$joinannounce_id = NULL;
+		}
+	} else {
+		$joinannounce_id = NULL;
+	}
+	$ringing		= isset($_REQUEST['rtone']) ? $_REQUEST['rtone']:0;
+	if (isset($agentannounce_id)) {
+		if ($agentannounce_id == "None" || $agentannounce_id == "") {
+			$agentannounce_id = NULL;
+		}
+	} else {
+		$agentannounce_id = NULL;
+	}
+	if (isset($callconfirm_id)) {
+		if ($callconfirm_id == "None" || $callconfirm_id == "") {
+			$callconfirm_id = NULL;
+		}
+	} else {
+		$joinannounce_id = NULL;
+	}
 	$maxwait		= isset($maxwait) ? $maxwait:'';
 	$password		= isset($password) ? $password:'';
 	$ivr_id			= isset($_REQUEST['announcemenu']) ? $_REQUEST['announcemenu']:'none';
@@ -177,62 +196,46 @@ function queues_add(
 	$queuewait		= isset($queuewait) ? $queuewait:'0';
 	$qregex			= isset($qregex) ? $db->escapeSimple($qregex):'';
 	$use_queue_context = isset($use_queue_context) ? $use_queue_context:'0';
-	$togglehint		= isset($togglehint) ? $togglehint:'0';
+	if (isset($togglehint) && $togglehint == "") {
+		$togglehint = 0;
+	} else {
+		$togglehint = 0;
+	}
+	if (isset($callconfirm) && $callconfirm == "") {
+		$callconfirm = 0;
+	} else {
+		$callconfirm = 0;
+	}
 	$qnoanswer		= isset($qnoanswer) ? $qnoanswer:'0';
-	$callconfirm	= isset($callconfirm) ? $callconfirm:'0';
 	$monitor_type	= isset($monitor_type) ? $monitor_type:'';
 	$monitor_heard	= isset($monitor_heard) ? $monitor_heard:'0';
 	$monitor_spoken	= isset($monitor_spoken) ? $monitor_spoken:'0';
 	// Assumes it has just been deleted
 	$sql = "INSERT INTO queues_config (
-				extension,
-				descr,
-				grppre,
-				alertinfo,
-				joinannounce_id,
-				ringing,
-				agentannounce_id,
-				maxwait,
-				password,
-				ivr_id,
-				callback_id,
-				dest,
-				cwignore,
-				qregex,
-				queuewait,
-				use_queue_context,
-				togglehint,
-				qnoanswer,
-				callconfirm,
-				callconfirm_id,
-				monitor_type,
-				monitor_heard,
-				monitor_spoken)
-         	VALUES (
-				'$extension',
-				'$descr',
-				'$grppre',
-				'$alertinfo',
-				'$joinannounce_id',
-				'$ringing',
-				'$agentannounce_id',
-				'$maxwait',
-				'$password',
-				'$ivr_id',
-				'$callback_id',
-				'$dest',
-				'$cwignore',
-				'$qregex',
-				'$queuewait',
-				'$use_queue_context',
-				'$togglehint',
-				'$qnoanswer',
-				'$callconfirm',
-				'$callconfirm_id',
-				'$monitor_type',
-				'$monitor_heard',
-				'$monitor_spoken')	";
-	$results = sql($sql);
+			extension, descr, grppre, alertinfo, joinannounce_id,
+			ringing, agentannounce_id, maxwait, password, ivr_id,
+			callback_id, dest, cwignore, qregex, queuewait,
+			use_queue_context, togglehint, qnoanswer, callconfirm,
+			callconfirm_id, monitor_type, monitor_heard,
+			monitor_spoken
+		) VALUES (
+			?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?,
+			?, ?, ?, ?,
+			?, ?, ?,
+			?
+		)";
+	$sth = $db->prepare($sql);
+	$values = array(
+		$extension, $descr, $grppre, $alertinfo, $joinannounce_id,
+		$ringing, $agentannounce_id, $maxwait, $password, $ivr_id,
+		$callback_id, $dest, $cwignore, $qregex, $queuewait,
+		$use_queue_context, $togglehint, $qnoanswer, $callconfirm,
+		$callconfirm_id, $monitor_type, $monitor_heard,
+		$monitor_spoken
+	);
+	$results = $sth->execute($values);
 
   // store dynamic member data in astDB
 	if ($astman) {
