@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-23 11:34-0700\n"
+"POT-Creation-Date: 2016-08-01 11:09-0700\n"
 "PO-Revision-Date: 2015-05-01 23:09+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -173,7 +173,7 @@ msgstr ""
 "переопределяет все остальные. Для добавления сообщений используйте раздел "
 "'Системные Сообщения'."
 
-#: views/cron.php:62
+#: views/cron.php:63
 msgid "Annually"
 msgstr "Ежегодно"
 
@@ -269,7 +269,7 @@ msgid "Callback to use when caller presses 1."
 msgstr ""
 
 #: views/form.php:702
-msgid "Caller Anouncements"
+msgid "Caller Announcements"
 msgstr ""
 
 #: views/form.php:1693
@@ -332,7 +332,7 @@ msgstr "Создаётся queues_config.."
 msgid "Creating queues_details.."
 msgstr "Создаются queues_details.."
 
-#: views/cron.php:59
+#: views/cron.php:60
 msgid "Daily"
 msgstr "Ежедневно"
 
@@ -445,7 +445,7 @@ msgstr ""
 "Ранние версии этого модуля разрешали сделать выбор в такой очереди, но когда "
 "выбор сделан, опция переставала быть видимой"
 
-#: views/cron.php:30
+#: views/cron.php:37
 msgid "Enable this task"
 msgstr ""
 
@@ -520,7 +520,7 @@ msgstr "Соблюдать уровни доступности"
 msgid "Honor Wrapup Time Across Queues"
 msgstr "Давать передышку оператору при работе в нескольких очередях"
 
-#: views/cron.php:58
+#: views/cron.php:59
 msgid "Hourly"
 msgstr ""
 
@@ -742,7 +742,7 @@ msgstr ""
 msgid "MoH Only"
 msgstr ""
 
-#: views/cron.php:61
+#: views/cron.php:62
 msgid "Monthly"
 msgstr "Ежемесячно"
 
@@ -777,7 +777,7 @@ msgstr ""
 "Никогда не удалять вызов из очереди до истечения максимального времени "
 "ожидания."
 
-#: views/cron.php:21 views/cron.php:56 views/form.php:105 views/form.php:381
+#: views/cron.php:28 views/cron.php:57 views/form.php:105 views/form.php:381
 #: views/form.php:391 views/form.php:614 views/form.php:646 views/form.php:790
 #: views/form.php:817 views/form.php:870 views/form.php:921
 #: views/form.php:1006 views/form.php:1033 views/form.php:1097
@@ -1002,11 +1002,11 @@ msgid ""
 "AddQueueMember membername parameter, or with static members."
 msgstr "Queues: updatecdr"
 
-#: views/cron.php:83
+#: views/cron.php:84
 msgid "RUN"
 msgstr ""
 
-#: views/cron.php:49
+#: views/cron.php:50
 msgid "Random"
 msgstr ""
 
@@ -1120,7 +1120,7 @@ msgstr ""
 msgid "Set Agent Name in CDR dstchannel"
 msgstr "Назначить имя оператора в поле dstchannel CDR"
 
-#: views/cron.php:71
+#: views/cron.php:72
 msgid "Set this task to happen at random"
 msgstr ""
 
@@ -1159,7 +1159,7 @@ msgid ""
 "may also exist."
 msgstr ""
 
-#: views/cron.php:13
+#: views/cron.php:20
 msgid "Stats Reset"
 msgstr ""
 
@@ -1300,7 +1300,7 @@ msgstr ""
 "составная запись. В очереди такая запись будет урезана до первого "
 "звукогового файла. Вам надо устранить эту проблему.<br />Детали:<br /><br />"
 
-#: views/cron.php:60
+#: views/cron.php:61
 msgid "Weekly"
 msgstr "Еженедельно"
 
@@ -1437,7 +1437,7 @@ msgstr ""
 "генерироваться следующие события: AgentCalled, AgentDump, AgentConnect and "
 "AgentComplete."
 
-#: views/cron.php:95
+#: views/cron.php:96
 msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
@@ -1457,7 +1457,7 @@ msgstr ""
 msgid "Wrap-Up-Time"
 msgstr ""
 
-#: views/cron.php:19 views/cron.php:54 views/form.php:103 views/form.php:378
+#: views/cron.php:26 views/cron.php:55 views/form.php:103 views/form.php:378
 #: views/form.php:387 views/form.php:612 views/form.php:644 views/form.php:788
 #: views/form.php:815 views/form.php:868 views/form.php:919
 #: views/form.php:1004 views/form.php:1034 views/form.php:1095
