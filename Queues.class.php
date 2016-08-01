@@ -31,7 +31,7 @@ class Queues implements \BMO {
 			$qregex = isset($request['qregex'])?$request['qregex']:'';
 			$weight = isset($request['weight'])?$request['weight']:'0';
 			$autofill = isset($request['autofill'])?$request['autofill']:'no';
-			$togglehint = isset($request['togglehint'])?$request['togglehint']:'0';
+			$togglehint = isset($request['togglehint'])?$request['togglehint']:0;
 			$dynmemberonly = isset($request['dynmemberonly'])?$request['dynmemberonly']:'no';
 			$use_queue_context = isset($request['use_queue_context'])?$request['use_queue_context']:'0';
 			$exten_context = "from-queue";
