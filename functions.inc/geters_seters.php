@@ -18,9 +18,9 @@ function queues_add(
 	$use_queue_context='0',
 	$dynmembers = '',
 	$dynmemberonly = 'no',
-	$togglehint = 0,
+	$togglehint = '0',
 	$qnoanswer = '0',
-	$callconfirm = 0,
+	$callconfirm = '0',
 	$callconfirm_id = '',
 	$monitor_type = '',
 	$monitor_heard = '0',
@@ -198,12 +198,8 @@ function queues_add(
 	$use_queue_context = isset($use_queue_context) ? $use_queue_context:'0';
 	if (isset($togglehint) && $togglehint == "") {
 		$togglehint = 0;
-	} else {
-		$togglehint = 0;
 	}
 	if (isset($callconfirm) && $callconfirm == "") {
-		$callconfirm = 0;
-	} else {
 		$callconfirm = 0;
 	}
 	$qnoanswer		= isset($qnoanswer) ? $qnoanswer:'0';
