@@ -502,7 +502,7 @@ function queues_get_config($engine) {
 									} else {
 										$hint = "qpause:$q_tmp:Local/{$d_tmp}@from-queue/n";
 									}
-									$ext->add($c, $exten_pat, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$device['id']));
+									$ext->add($c, $exten_pat, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$q_tmp));
 									$ext->addHint($c, $exten_pat, $hint);
 								}
 							} else {
