@@ -64,6 +64,33 @@
 	<supported>
 		<version>14.0</version>
 	</supported>
+	<database>
+	  <table name="queues_config">
+	    <field name="extension" type="string" length="20" default="" primaryKey="true"/>
+	    <field name="descr" type="string" length="35" default=""/>
+	    <field name="grppre" type="string" length="100" default=""/>
+	    <field name="alertinfo" type="string" length="254" default=""/>
+	    <field name="ringing" type="boolean" default="0"/>
+	    <field name="maxwait" type="string" length="8" default=""/>
+	    <field name="password" type="string" length="20" default=""/>
+	    <field name="ivr_id" type="string" length="8" default="0"/>
+	    <field name="dest" type="string" length="50" default=""/>
+	    <field name="cwignore" type="boolean" default="0"/>
+	    <field name="queuewait" type="boolean" default="0" notnull="false"/>
+	    <field name="use_queue_context" type="boolean" default="0" notnull="false"/>
+	    <field name="togglehint" type="boolean" default="0" notnull="false"/>
+	    <field name="qnoanswer" type="boolean" default="0" notnull="false"/>
+	    <field name="callconfirm" type="boolean" default="0" notnull="false"/>
+	    <field name="callconfirm_id" type="integer" notnull="false"/>
+	    <field name="qregex" type="string" length="255" notnull="false"/>
+	    <field name="agentannounce_id" type="integer" notnull="false"/>
+	    <field name="joinannounce_id" type="integer" notnull="false"/>
+	    <field name="monitor_type" type="string" length="5" notnull="false"/>
+	    <field name="monitor_heard" type="integer" notnull="false"/>
+	    <field name="monitor_spoken" type="integer" notnull="false"/>
+	    <field name="callback_id" type="string" length="8" default=""/>
+	  </table>
+	</database>
 	<location>release/2.11/queues-2.11.0.11.tgz</location>
 	<md5sum>71b1461cc558320b5f3ecf238d093da6</md5sum>
 </module>
