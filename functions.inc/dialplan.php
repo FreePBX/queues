@@ -16,29 +16,14 @@ function queues_get_config($engine) {
 
 			//set our reset cron
 			queues_set_backup_cron();
-
-			$ast_ge_14 = version_compare($version,'1.4','ge');
-			$ast_ge_16 = version_compare($version,'1.6','ge');
-			$ast_ge_14_25 = version_compare($version,'1.4.25','ge');
-			$ast_ge_18 = version_compare($version,'1.8','ge');
-			$ast_ge_11 = version_compare($version,'11','ge');
+			
 			$ast_ge_12 = version_compare($version,'12','ge');
-
-			$has_extension_state = $ast_ge_16;
-			if ($ast_ge_14 && !$ast_ge_16) {
-				$response = $astman->send_request('Command', array('Command' => 'module show like func_extstate'));
-				if (preg_match('/1 modules loaded/', $response['data'])) {
-					$has_extension_state = true;
-
-				}
-			}
 
 			if (isset($queues_conf) && is_a($queues_conf, "queues_conf")) {
 				$queues_conf->addQueuesGeneral('persistentmembers',$amp_conf['QUEUES_PESISTENTMEMBERS'] ? 'yes' : 'no');
-					if ($ast_ge_16) {
-					$queues_conf->addQueuesGeneral('shared_lastcall',$amp_conf['QUEUES_SHARED_LASTCALL'] ? 'yes' : 'no');
-					$queues_conf->addQueuesGeneral('updatecdr',$amp_conf['QUEUES_UPDATECDR'] ? 'yes' : 'no');
-				}
+				$queues_conf->addQueuesGeneral('shared_lastcall',$amp_conf['QUEUES_SHARED_LASTCALL'] ? 'yes' : 'no');
+				$queues_conf->addQueuesGeneral('updatecdr',$amp_conf['QUEUES_UPDATECDR'] ? 'yes' : 'no');
+
 				if ($amp_conf['QUEUES_MIX_MONITOR']) {
 					$queues_conf->addQueuesGeneral('monitor-type', 'MixMonitor');
 				}
@@ -591,11 +576,7 @@ function queues_get_config($engine) {
 				// If (!$fromexten) { if (!$nodest) { $fromexten = 'external' } else { $fromexten = $nodest } }
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_execif('$[!${LEN(${FROMEXTEN})}]', 'Set', 'FROMEXTEN=${IF(${LEN(${NODEST})}?${NODEST}:external)}')); // Make sure the call is tagged as external
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gosub('1','s','sub-record-check','exten,${EXTEN},'));
-				if ($has_extension_state) {
-					$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_macro('dial-one',',${DIAL_OPTIONS}${QDOPTS},${EXTEN}'));
-				} else {
-					$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_macro('dial',',${DIAL_OPTIONS}${QDOPTS},${EXTEN}'));
-				}
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_macro('dial',',${DIAL_OPTIONS}${QDOPTS},${EXTEN}'));
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$["${CALLER_DEST}"!=""&&"${DIALSTATUS}"="ANSWER"]','${CUT(CALLER_DEST,^,1)},${CUT(CALLER_DEST,^,2)},${CUT(CALLER_DEST,^,3)}'));
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_hangup());
 			}
@@ -651,14 +632,14 @@ function queues_get_config($engine) {
 			$ext->add($c, $exten, '', new ext_goto('a3'));
 
 			$lang = 'en'; // English
-		        $ext->add($c, $lang, 'hook_0', new ext_playback('agent-loginok&with&extension'));
+			$ext->add($c, $lang, 'hook_0', new ext_playback('agent-loginok&with&extension'));
 			$ext->add($c, $lang, '', new ext_saydigits('${CALLBACKNUM}'));
-		        $ext->add($c, $lang, '', new ext_return());
+			$ext->add($c, $lang, '', new ext_return());
 			$lang = 'ja'; // Japanese
-		        $ext->add($c, $lang, 'hook_0', new ext_playback('extension'));
+			$ext->add($c, $lang, 'hook_0', new ext_playback('extension'));
 			$ext->add($c, $lang, '', new ext_saydigits('${CALLBACKNUM}'));
-		        $ext->add($c, $lang, '', new ext_playback('jp-kara&agent-loginok'));
-		        $ext->add($c, $lang, '', new ext_return());
+			$ext->add($c, $lang, '', new ext_playback('jp-kara&agent-loginok'));
+			$ext->add($c, $lang, '', new ext_return());
 
 			/*
 			 * Removes a dynamic agent/member from a Queue
@@ -817,8 +798,6 @@ function queue_app_toggle() {
 function queue_agent_add_toggle() {
 	global $ext, $amp_conf, $version;
 
-	$ast_ge_14_25 = version_compare($version,'1.4.25','ge');
-	$ast_ge_18 = version_compare($version,'1.8','ge');
 	$id = "macro-toggle-add-agent"; // The context to be included
 
 	$c = 's';
@@ -828,17 +807,8 @@ function queue_agent_add_toggle() {
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSERCIDNAME','${DB(AMPUSER/${QUEUEUSER}/cidname)}'));
 	//TODO: check if it's not a user for some reason and abort?
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(QPENALTY/${QUEUENO}/dynmemberonly)}" = "yes" & ${DB_EXISTS(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})} != 1]', 'invalid'));
-	if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
-		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${QUEUEUSER}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${QUEUEUSER}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})},,${QUEUEUSERCIDNAME},hint:${QUEUEUSER}@ext-local'));
-		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${QUEUEUSER}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${QUEUEUSER}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})},,${QUEUEUSERCIDNAME}'));
-
-	} else if ($ast_ge_14_25) {
-		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${QUEUEUSER}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${QUEUEUSER}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})},,${QUEUEUSERCIDNAME},${DB(DEVICE/${REALCALLERIDNUM}/dial)}'));
-		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${QUEUEUSER}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${QUEUEUSER}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})},,${QUEUEUSERCIDNAME}'));
-	} else {
-		$ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${QUEUEUSER}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})}'));
-	}
-
+	$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${QUEUEUSER}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${QUEUEUSER}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})},,${QUEUEUSERCIDNAME},hint:${QUEUEUSER}@ext-local'));
+	$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${QUEUEUSER}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${QUEUEUSER}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})},,${QUEUEUSERCIDNAME}'));
 	$ext->add($id, $c, '', new ext_userevent('AgentLogin','Agent: ${QUEUEUSER}'));
 	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${QUEUEUSERCIDNAME})}>0]?${QUEUEUSERCIDNAME}:${QUEUEUSER})}','ADDMEMBER'));
 	$ext->add($id, $c, '', new ext_macroexit());

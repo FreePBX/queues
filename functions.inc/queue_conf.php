@@ -59,12 +59,6 @@ class queues_conf {
 
 		$additional = "";
 		$output = "";
-		// Asterisk 1.4 does not like blank assignments so just don't put them there
-		//
-		$ver12 = version_compare($ast_version, '1.4', 'lt');
-		$ver16 = version_compare($ast_version, '1.6', 'ge');
-		$ast_ge_14_25 = version_compare($ast_version,'1.4.25','ge');
-		$ast_ge_18 = version_compare($ast_version,'1.8','ge');
 		$ast_ge_120 = version_compare($ast_version,'12','ge');
 		// legacy but in case someone was using this we will leave it
 		//TODO: abstract getters/setters from business logic
@@ -80,28 +74,26 @@ class queues_conf {
 			$additional .= $result['keyword']."=".$result['data']."\n";
 		}
 
-		if ($ast_ge_14_25) {
-			$devices = array();
-			$device_results = core_devices_list('all','full',true);
-			if (is_array($device_results)) {
-				foreach ($device_results as $device) {
-					if (!isset($devices[$device['user']]) && $device['devicetype'] == 'fixed') {
-						$devices[$device['user']] = $device['dial'];
-					}
+		$devices = array();
+		$device_results = core_devices_list('all','full',true);
+		if (is_array($device_results)) {
+			foreach ($device_results as $device) {
+				if (!isset($devices[$device['user']]) && $device['devicetype'] == 'fixed') {
+					$devices[$device['user']] = $device['dial'];
 				}
-				unset($device_results);
 			}
+			unset($device_results);
 		}
-		if ($amp_conf['USEQUEUESTATE'] || $ast_ge_14_25) {
-			$users = array();
-			$user_results = core_users_list();
-			if (is_array($user_results)) {
-				foreach ($user_results as $user) {
-					$users[$user[0]] = $user[1];
-				}
-				unset($user_results);
+
+		$users = array();
+		$user_results = FreePBX::Core()->listUsers();
+		if (is_array($user_results)) {
+			foreach ($user_results as $user) {
+				$users[$user[0]] = $user[1];
 			}
- 		}
+			unset($user_results);
+		}
+
 		$results = queues_list(true);
 		foreach ($results as $result) {
 			$output .= "[".$result[0]."]\n";
@@ -161,44 +153,21 @@ class queues_conf {
 
 			// Now pull out all the memebers, one line for each
 			//
-			if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
-				foreach ($members as $member) {
-					preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
-					if (isset($matches[1]) && isset($users[$matches[1]])) {
-						$name = sprintf('"%s"',$users[$matches[1]]);
+			foreach ($members as $member) {
+				preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
+				if (isset($matches[1]) && isset($users[$matches[1]])) {
+					$name = sprintf('"%s"',$users[$matches[1]]);
 
-						//str_replace(',','\,',$name);
+					//str_replace(',','\,',$name);
 
-						$qnostate = queues_get_qnostate($matches[1]);
-						if ($qnostate == 'ignorestate') {
-							freepbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
-							$output .= "member=$member,$name\n";
-						} else {
-							$output .= "member=$member,$name,hint:".$matches[1]."@ext-local\n";
-						}
+					$qnostate = queues_get_qnostate($matches[1]);
+					if ($qnostate == 'ignorestate') {
+						freepbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
+						$output .= "member=$member,$name\n";
 					} else {
-						$output .= "member=".$member."\n";
+						$output .= "member=$member,$name,hint:".$matches[1]."@ext-local\n";
 					}
-				}
- 			} else if ($ast_ge_14_25) {
-				foreach ($members as $member) {
-					preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
-					if (isset($matches[1]) && isset($devices[$matches[1]])) {
-						$name = sprintf('"%s"',$users[$matches[1]]);
-						//str_replace(',','\,',$name);
-						$qnostate = queues_get_qnostate($matches[1]);
-						if ($qnostate == 'ignorestate') {
-							freepbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
-							$output .= "member=$member,$name\n";
-						} else {
-							$output .= "member=$member,$name,".$devices[$matches[1]]."\n";
-						}
-					} else {
-						$output .= "member=".$member."\n";
-					}
-				}
-			} else {
-				foreach ($members as $member) {
+				} else {
 					$output .= "member=".$member."\n";
 				}
 			}

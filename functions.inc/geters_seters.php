@@ -30,8 +30,6 @@ function queues_add(
 ) {
  	global $db,$astman,$amp_conf;
 
-	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
-	$ast_ge_18 = version_compare($amp_conf['ASTVERSION'] , '1.8', 'ge');
 	$ast_ge_11 = version_compare($amp_conf['ASTVERSION'] , '11', 'ge');
 	$ast_ge_120 = version_compare($amp_conf['ASTVERSION'] , '12', 'ge');
 
@@ -73,6 +71,10 @@ function queues_add(
 		array($account,'memberdelay',(isset($_REQUEST['memberdelay']))?$_REQUEST['memberdelay']:'0',0),
 		array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
 		array($account,'skip_joinannounce',(isset($_REQUEST['skip_joinannounce']))?$_REQUEST['skip_joinannounce']:'',0),
+		array($account,'answered_elsewhere',(isset($_REQUEST['answered_elsewhere']))?$_REQUEST['answered_elsewhere']:'0',0),
+		array($account,'timeoutpriority',(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',0),
+		array($account,'penaltymemberslimit',(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',0),
+
 	);
 
 	/*
@@ -110,26 +112,6 @@ function queues_add(
 	if ($ast_ge_11) {
 		$fields[] = array($account,'autopausebusy',(isset($_REQUEST['autopausebusy']))?$_REQUEST['autopausebusy']:'no',0);
 		$fields[] = array($account,'autopauseunavail',(isset($_REQUEST['autopauseunavail']))?$_REQUEST['autopauseunavail']:'no',0);
-	}
-
-	if($ast_ge_16) {
-		$fields[] = array(
-			$account,
-			'timeoutpriority',
-			(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',
-			0);
-		$fields[] = array(
-			$account,
-			'penaltymemberslimit',
-			(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',
-			0);
-	}
-	if($ast_ge_18) {
-		$fields[] = array(
-			$account,
-			'answered_elsewhere',
-			(isset($_REQUEST['answered_elsewhere']))?$_REQUEST['answered_elsewhere']:'0',
-			0);
 	}
 
 	if ($_REQUEST['music'] != 'inherit') {
