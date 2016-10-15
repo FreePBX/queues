@@ -667,10 +667,9 @@ for ($i=15; $i <= 300; $i+=15) {
 //hooks
 $hookdata = \FreePBX::Queues()->hookTabs();
 ?>
-<form class="fpbx-submit" autocomplete="off" name="editQ" action="config.php?display=queues&view=form" method="post" onsubmit="return checkQ(editQ);" data-fpbx-delete="config.php?display=queues&amp;account=<?php echo urlencode($extdisplay) ?>&amp;action=delete">
+<form class="fpbx-submit" autocomplete="off" name="editQ" action="config.php?display=queues" method="post" onsubmit="return checkQ(editQ);" data-fpbx-delete="config.php?display=queues&amp;account=<?php echo urlencode($extdisplay) ?>&amp;action=delete">
 <input type="hidden" name="display" value="queues">
 <input type="hidden" name="extdisplay" value="<?php echo $extdisplay ?>">
-<input type="hidden" name="view" value="form">
 <input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
 <div class="nav-container">
 	<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
@@ -773,33 +772,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<!--END Queue Name-->
 		<?php echo $glqchtml //if amp_conf['GENERATE_LEGACY_QUEUE_CODES']?>
 		<?php echo $qnoahtml //if $qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER'])?>
-		<!--Generate Device Hints-->
-		<div class="element-container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
-							<div class="col-md-3">
-								<label class="control-label" for="togglehintw"><?php echo _("Generate Device Hints") ?></label>
-								<i class="fa fa-question-circle fpbx-help-icon" data-for="togglehintw"></i>
-							</div>
-							<div class="col-md-9 radioset">
-								<input type="radio" name="togglehint" id="togglehintyes" value="1" <?php echo (isset($togglehint) && $togglehint == '1'?"CHECKED":"") ?>>
-								<label for="togglehintyes"><?php echo _("Yes");?></label>
-								<input type="radio" name="togglehint" id="togglehintno" value="" <?php echo (isset($togglehint) && $togglehint == '1'?"":"CHECKED") ?>>
-								<label for="togglehintno"><?php echo _("No");?></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<span id="togglehintw-help" class="help-block fpbx-help-block"><?php echo _("If Enabled, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number.")?></span>
-				</div>
-			</div>
-		</div>
-		<!--END Generate Device Hints-->
 		<!--Call Confirm-->
 		<div class="element-container">
 			<div class="row">
@@ -904,6 +876,33 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</div>
 		</div>
 		<!--END Alert Info-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="rvolume"><?php echo _("Ringer Volume Override") ?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="rvolume"></i>
+							</div>
+							<div class="col-md-9">
+								<select class="form-control" id="rvolume" name="rvolume">
+									<option value="0"><?php echo _("None")?></option>
+									<?php for($i = 1; $i <= 14; $i++) { ?>
+										<option value="<?php echo $i?>" <?php echo ($rvolume == $i) ? 'selected' : ''?>><?php echo $i?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="rvolume-help" class="help-block fpbx-help-block"><?php echo sprintf(_("Override the ringer volume. Note: This is only valid for %s phones at this time"),"Sangoma")?></span>
+				</div>
+			</div>
+		</div>
 		<!--Restrict Dynamic Agents-->
 		<div class="element-container">
 			<div class="row">

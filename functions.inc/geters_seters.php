@@ -26,7 +26,8 @@ function queues_add(
 	$monitor_heard = '0',
 	$monitor_spoken = '0',
 	$answered_elsewhere = '0',
-	$recording = 'dontcare'
+	$recording = 'dontcare',
+	$rvolume = ''
 ) {
  	global $db,$astman,$amp_conf;
 
@@ -73,6 +74,7 @@ function queues_add(
 		array($account,'memberdelay',(isset($_REQUEST['memberdelay']))?$_REQUEST['memberdelay']:'0',0),
 		array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
 		array($account,'skip_joinannounce',(isset($_REQUEST['skip_joinannounce']))?$_REQUEST['skip_joinannounce']:'',0),
+		array($account,'rvolume',(isset($_REQUEST['rvolume']))?$_REQUEST['rvolume']:'',0),
 	);
 
 	/*

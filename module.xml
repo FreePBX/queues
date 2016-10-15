@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.31</version>
+	<version>13.0.32</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*13.0.32* FREEPBX-13364 Ability to set ringer volume
 		*13.0.31* FREEPBX-12966 Errors in Queue pause dialplan
 		*13.0.30* FREEPBX-12906
 		*13.0.29* Fix adding of call queues with modern databases (FreePBX-12845) by lidl
@@ -48,9 +49,9 @@
 		*13.0.1alpha1* Visual Changes
 	</changelog>
 	<depends>
-		<version>13.0.42</version>
+		<module>core ge 13.0.114</module>
+		<module>framework ge 13.0.121</module>
 		<module>recordings ge 3.3.8</module>
-		<module>core ge 13.0.22</module>
 	</depends>
 	<menuitems>
 		<queues needsenginedb="yes">Queues</queues>
