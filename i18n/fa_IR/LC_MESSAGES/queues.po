@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 20:40-0700\n"
+"POT-Creation-Date: 2016-11-08 02:38+0000\n"
 "PO-Revision-Date: 2016-08-07 06:44+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
 "queues/fa_IR/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -261,7 +261,7 @@ msgstr "توقف خودکار در عدم دسترس"
 msgid "Autofill"
 msgstr "جاگذاری خودکار"
 
-#: functions.inc/geters_seters.php:40
+#: functions.inc/geters_seters.php:38
 msgid "Bad Queue Number, can not be blank"
 msgstr "شماره صف نادرست، شماره صف نمیتواند خالی باشد"
 
@@ -325,15 +325,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "گزینه های ظرفیت"
 
-#: install.php:68
-msgid "Checking for legacy queues table.."
-msgstr "بررسی وراثت برای جدول صف ها.."
-
-#: install.php:382
-msgid "Checking if recordings need migration.."
-msgstr "بررسی لزوم انتقال تماسهای ضبط شده.."
-
-#: functions.inc/queue_conf.php:232
+#: functions.inc/queue_conf.php:201
 msgid "Compound Recordings in Queues Detected"
 msgstr "Compound  Recordings in Queues Detected"
 
@@ -347,11 +339,7 @@ msgstr ""
 "first-out basis. Many options are available, including ring strategy for "
 "agents, caller announcements, max wait times, etc."
 
-#: install.php:188
-msgid "Creating queues_config.."
-msgstr "تهیه تنظیمات صف.."
-
-#: install.php:94
+#: install.php:67
 msgid "Creating queues_details.."
 msgstr "تهیه جزییات صف.."
 
@@ -413,10 +401,6 @@ msgstr ""
 msgid "Don't Care"
 msgstr "مهم نیست"
 
-#: install.php:339
-msgid "Dropping old queues table.."
-msgstr "حذف جدول صف های قدیمی.."
-
 #: views/form.php:1205
 msgid "Dynamic Agents"
 msgstr "عوامل پویا"
@@ -433,34 +417,13 @@ msgstr ""
 "will be as specified here. Extensions included here will NOT automatically "
 "be logged in to the queue."
 
-#: install.php:328
-msgid "ERROR were encountered"
-msgstr "محل وقوع خطا"
-
-#: install.php:207
-msgid "ERROR: accessing queues table obtaining context info, aborting"
-msgstr "ERROR: accessing  queues table obtaining context info, aborting"
-
-#: install.php:232
-msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr "ERROR: accessing  queues table obtaining id list, aborting"
-
-#: install.php:214
-msgid "ERROR: accessing queues table obtaining rtone info, aborting"
-msgstr "ERROR: accessing  queues table obtaining rtone info, aborting"
-
-#: install.php:101 install.php:195
+#: install.php:74
 msgid "ERROR: could not create table"
 msgstr "خطا:عدم توانایی ساخت جدول"
 
-#: install.php:119
+#: install.php:92
 msgid "ERROR: could not migrate to queues_details"
 msgstr "ERROR: could  not migrate to queues_details"
-
-#: install.php:320
-#, php-format
-msgid "ERROR: inserting data for row %s: %s.."
-msgstr "خطا： ورود دیتا از ردیف %s: %s.."
 
 #: views/form.php:482
 msgid ""
@@ -767,11 +730,7 @@ msgstr "رویداد پیشفرض وضعیت عضو"
 msgid "Menu ID "
 msgstr "شناسه منو "
 
-#: install.php:203
-msgid "Migrating data to queues_config.."
-msgstr "انتقال اطلاعات به تنظیمات صف.."
-
-#: install.php:116
+#: install.php:89
 msgid "Migrating to queues_details.."
 msgstr "انتقال به جزییات صف.."
 
@@ -811,10 +770,6 @@ msgstr ""
 msgid "Music on Hold Class"
 msgstr "کلاس آهنگ انتظار"
 
-#: install.php:72
-msgid "NO table found, no migration to do just create tables"
-msgstr "جدولی یافت نشد, انتقالی برای ایجاد جداول نبود"
-
 #: views/form.php:1097
 msgid "Never"
 msgstr "هرگز"
@@ -848,11 +803,7 @@ msgstr "بدون تلاش مجدد"
 msgid "None"
 msgstr "هیچ"
 
-#: install.php:77 install.php:105 install.php:122 install.php:125
-#: install.php:199 install.php:326 install.php:332 install.php:345
-#: install.php:354 install.php:371 install.php:497 install.php:512
-#: install.php:527 install.php:542 install.php:557 install.php:572
-#: install.php:587 install.php:602 install.php:617 install.php:632
+#: install.php:78 install.php:95 install.php:98
 msgid "OK"
 msgstr "تایید"
 
@@ -893,9 +844,9 @@ msgid ""
 "callback number. If the callback number does not pass the regex filter then "
 "it will be treated as invalid. This can be used to restrict agents to "
 "extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^([2-"
-"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"any other use that may be appropriate. An example input might be:<br /"
+">^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. "
+"Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * "
 "key.<br />WARNING: make sure you understand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
@@ -903,9 +854,9 @@ msgstr ""
 "callback number. If the callback number does not pass the regex filter then "
 "it will be treated as invalid. This can be used to restrict agents to "
 "extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^([2-"
-"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"any other use that may be appropriate. An example input might be:<br /"
+">^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. "
+"Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * "
 "key.<br />WARNING: make sure you understand what  you are doing or otherwise "
 "leave this blank!"
 
@@ -918,7 +869,7 @@ msgstr "صف"
 msgid "Queue %s : %s"
 msgstr "صف %s : %s"
 
-#: functions.inc/queue_conf.php:230
+#: functions.inc/queue_conf.php:199
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "صف - %s (%s): %s<br />"
@@ -1356,11 +1307,6 @@ msgstr ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or  leave this blank"
 
-#: install.php:343 install.php:352
-#, php-format
-msgid "WARNING FAILED %s"
-msgstr "هشدار شکست %s"
-
 #: views/form.php:834
 msgid "Wait Time Prefix"
 msgstr "زمان انتظار پیش شماره"
@@ -1369,7 +1315,7 @@ msgstr "زمان انتظار پیش شماره"
 msgid "Warning! Extension"
 msgstr "هشدار! داخلی"
 
-#: functions.inc/queue_conf.php:225
+#: functions.inc/queue_conf.php:194
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1589,68 +1535,9 @@ msgstr ""
 "شما میتوانید بخواهید قبل از ورود به صف کلمه عبور را وارد کنند. <br><br> این "
 "تنظیمات اختیاری است."
 
-#: install.php:389
-msgid "adding agentannounce_id field.."
-msgstr "افزودن فیلد agentannounce_id.."
-
-#: install.php:398
-msgid "adding joinannounce_id field.."
-msgstr "افزودن فیلد joinannounce_id.."
-
-#: install.php:99 install.php:193 install.php:373 install.php:499
-#: install.php:514 install.php:529 install.php:544 install.php:559
-#: install.php:574 install.php:589 install.php:604 install.php:619
-#: install.php:634
+#: install.php:72
 msgid "already exists"
 msgstr "در حال حاضر موجود است"
-
-#: install.php:483
-msgid "already migrated"
-msgstr "در حال حاضر منتقل شده"
-
-#: install.php:622
-msgid "checking for callback_id field.."
-msgstr "بررسی فیلد شناسه تماس برگشتی.."
-
-#: install.php:547
-msgid "checking for callconfirm field.."
-msgstr "بررسی فیلد تایید تماس.."
-
-#: install.php:562
-msgid "checking for callconfirm_id field.."
-msgstr "بررسی فیلد شناسه تایید تماس.."
-
-#: install.php:592
-msgid "checking for monitor_heard field.."
-msgstr "بررسی برای فیلد monitor_heard.."
-
-#: install.php:607
-msgid "checking for monitor_spoken field.."
-msgstr "بررسی برای فیلد monitor_spoken.."
-
-#: install.php:577
-msgid "checking for monitor_type field.."
-msgstr "بررسی برای فیلد monitor_type.."
-
-#: install.php:532
-msgid "checking for qnoanswer field.."
-msgstr "بررسی فیلد صف بدون جواب.."
-
-#: install.php:361
-msgid "checking for qregex field.."
-msgstr "بررسی برای فیلد qregex.."
-
-#: install.php:487
-msgid "checking for queuewait field.."
-msgstr "بررسی فیلد صف انتظار.."
-
-#: install.php:517
-msgid "checking for togglehint field.."
-msgstr "بررسی برای فیلد togglehint.."
-
-#: install.php:502
-msgid "checking for use_queue_context field.."
-msgstr "بررسی برای فیلد use_queue_context.."
 
 #: functions.inc.php:31
 msgid "day"
@@ -1659,19 +1546,6 @@ msgstr "روز"
 #: views/form.php:293
 msgid "default"
 msgstr "پیشفرض"
-
-#: install.php:464
-msgid "dropping agentannounce field.."
-msgstr "لغو فیلد agentannounce.."
-
-#: install.php:474
-msgid "dropping joinannounce field.."
-msgstr "لغو فیلد joinannounce.."
-
-#: install.php:393 install.php:402 install.php:414 install.php:430
-#: install.php:440 install.php:456
-msgid "fatal error"
-msgstr "خطای سیستمی"
 
 #: views/form.php:256
 msgid "fewestcalls"
@@ -1701,23 +1575,6 @@ msgstr "حداقل اخیر"
 msgid "linear"
 msgstr "خطی"
 
-#: install.php:410
-msgid "migrate agentannounce to ids.."
-msgstr "انتقال عامل اعلان به شناسه ها.."
-
-#: install.php:436
-msgid "migrate joinannounce to ids.."
-msgstr "انتقال اعلان پیوستن به شناسه ها.."
-
-#: install.php:434 install.php:460
-#, php-format
-msgid "migrated %s entries"
-msgstr "ورودی های %s منتقل شد"
-
-#: install.php:388
-msgid "migrating"
-msgstr "انتقال"
-
 #: functions.inc.php:33
 msgid "minute"
 msgstr "دقیقه"
@@ -1726,21 +1583,9 @@ msgstr "دقیقه"
 msgid "minutes"
 msgstr "دقایق"
 
-#: install.php:470
-msgid "no agentannounce field???"
-msgstr "بدون فیلد اعلام اعلان؟؟؟"
-
-#: install.php:478
-msgid "no joinannounce field???"
-msgstr "بدون فیلد اعلان پیوستن؟؟؟"
-
 #: views/form.php:292
 msgid "none"
 msgstr "هیچ"
-
-#: install.php:396 install.php:405 install.php:472 install.php:480
-msgid "ok"
-msgstr "تایید"
 
 #: views/form.php:257
 msgid "random"
@@ -1753,10 +1598,6 @@ msgid ""
 msgstr ""
 "random using the member's penalty as a weighting  factor, see asterisk "
 "documentation for specifics"
-
-#: install.php:348
-msgid "removing queues data extensions table.."
-msgstr "حذف جدول  صف دیتا داخلی ها.."
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
@@ -1817,6 +1658,117 @@ msgstr "ثانیه ها"
 #: views/form.php:261
 msgid "wrandom"
 msgstr "w random"
+
+#~ msgid "Checking for legacy queues table.."
+#~ msgstr "بررسی وراثت برای جدول صف ها.."
+
+#~ msgid "Checking if recordings need migration.."
+#~ msgstr "بررسی لزوم انتقال تماسهای ضبط شده.."
+
+#~ msgid "Creating queues_config.."
+#~ msgstr "تهیه تنظیمات صف.."
+
+#~ msgid "Dropping old queues table.."
+#~ msgstr "حذف جدول صف های قدیمی.."
+
+#~ msgid "ERROR were encountered"
+#~ msgstr "محل وقوع خطا"
+
+#~ msgid "ERROR: accessing queues table obtaining context info, aborting"
+#~ msgstr "ERROR: accessing  queues table obtaining context info, aborting"
+
+#~ msgid "ERROR: accessing queues table obtaining id list, aborting"
+#~ msgstr "ERROR: accessing  queues table obtaining id list, aborting"
+
+#~ msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+#~ msgstr "ERROR: accessing  queues table obtaining rtone info, aborting"
+
+#~ msgid "ERROR: inserting data for row %s: %s.."
+#~ msgstr "خطا： ورود دیتا از ردیف %s: %s.."
+
+#~ msgid "Migrating data to queues_config.."
+#~ msgstr "انتقال اطلاعات به تنظیمات صف.."
+
+#~ msgid "NO table found, no migration to do just create tables"
+#~ msgstr "جدولی یافت نشد, انتقالی برای ایجاد جداول نبود"
+
+#~ msgid "WARNING FAILED %s"
+#~ msgstr "هشدار شکست %s"
+
+#~ msgid "adding agentannounce_id field.."
+#~ msgstr "افزودن فیلد agentannounce_id.."
+
+#~ msgid "adding joinannounce_id field.."
+#~ msgstr "افزودن فیلد joinannounce_id.."
+
+#~ msgid "already migrated"
+#~ msgstr "در حال حاضر منتقل شده"
+
+#~ msgid "checking for callback_id field.."
+#~ msgstr "بررسی فیلد شناسه تماس برگشتی.."
+
+#~ msgid "checking for callconfirm field.."
+#~ msgstr "بررسی فیلد تایید تماس.."
+
+#~ msgid "checking for callconfirm_id field.."
+#~ msgstr "بررسی فیلد شناسه تایید تماس.."
+
+#~ msgid "checking for monitor_heard field.."
+#~ msgstr "بررسی برای فیلد monitor_heard.."
+
+#~ msgid "checking for monitor_spoken field.."
+#~ msgstr "بررسی برای فیلد monitor_spoken.."
+
+#~ msgid "checking for monitor_type field.."
+#~ msgstr "بررسی برای فیلد monitor_type.."
+
+#~ msgid "checking for qnoanswer field.."
+#~ msgstr "بررسی فیلد صف بدون جواب.."
+
+#~ msgid "checking for qregex field.."
+#~ msgstr "بررسی برای فیلد qregex.."
+
+#~ msgid "checking for queuewait field.."
+#~ msgstr "بررسی فیلد صف انتظار.."
+
+#~ msgid "checking for togglehint field.."
+#~ msgstr "بررسی برای فیلد togglehint.."
+
+#~ msgid "checking for use_queue_context field.."
+#~ msgstr "بررسی برای فیلد use_queue_context.."
+
+#~ msgid "dropping agentannounce field.."
+#~ msgstr "لغو فیلد agentannounce.."
+
+#~ msgid "dropping joinannounce field.."
+#~ msgstr "لغو فیلد joinannounce.."
+
+#~ msgid "fatal error"
+#~ msgstr "خطای سیستمی"
+
+#~ msgid "migrate agentannounce to ids.."
+#~ msgstr "انتقال عامل اعلان به شناسه ها.."
+
+#~ msgid "migrate joinannounce to ids.."
+#~ msgstr "انتقال اعلان پیوستن به شناسه ها.."
+
+#~ msgid "migrated %s entries"
+#~ msgstr "ورودی های %s منتقل شد"
+
+#~ msgid "migrating"
+#~ msgstr "انتقال"
+
+#~ msgid "no agentannounce field???"
+#~ msgstr "بدون فیلد اعلام اعلان؟؟؟"
+
+#~ msgid "no joinannounce field???"
+#~ msgstr "بدون فیلد اعلان پیوستن؟؟؟"
+
+#~ msgid "ok"
+#~ msgstr "تایید"
+
+#~ msgid "removing queues data extensions table.."
+#~ msgstr "حذف جدول  صف دیتا داخلی ها.."
 
 #~ msgid "Generate Device Hints"
 #~ msgstr "ایجاد شکارهای وسیله"

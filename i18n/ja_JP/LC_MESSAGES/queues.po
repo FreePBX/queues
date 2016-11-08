@@ -37,15 +37,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 20:40-0700\n"
+"POT-Creation-Date: 2016-11-08 02:38+0000\n"
 "PO-Revision-Date: 2015-09-18 15:56+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
 "ja_JP/>\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -270,7 +270,7 @@ msgstr ""
 msgid "Autofill"
 msgstr ""
 
-#: functions.inc/geters_seters.php:40
+#: functions.inc/geters_seters.php:38
 msgid "Bad Queue Number, can not be blank"
 msgstr "無効なキュー番号が入力されました。この設定は空にできません。"
 
@@ -334,15 +334,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "キャパシティーオプション"
 
-#: install.php:68
-msgid "Checking for legacy queues table.."
-msgstr "レガシーのqueuesテーブルをチェック中.."
-
-#: install.php:382
-msgid "Checking if recordings need migration.."
-msgstr "録音の移行が必要かチェック中.."
-
-#: functions.inc/queue_conf.php:232
+#: functions.inc/queue_conf.php:201
 msgid "Compound Recordings in Queues Detected"
 msgstr "キューに合成録音を検知しました"
 
@@ -356,11 +348,7 @@ msgstr ""
 "エージェントへのリングストラテジー、発信者アナウンス、最大待ち時間等を含む多"
 "くのオプションを利用できます。"
 
-#: install.php:188
-msgid "Creating queues_config.."
-msgstr "queues_configを作成中.."
-
-#: install.php:94
+#: install.php:67
 msgid "Creating queues_details.."
 msgstr "queues_detailsを作成中.."
 
@@ -420,10 +408,6 @@ msgstr ""
 msgid "Don't Care"
 msgstr ""
 
-#: install.php:339
-msgid "Dropping old queues table.."
-msgstr "古い queues テーブルをドロップ中.."
-
 #: views/form.php:1205
 msgid "Dynamic Agents"
 msgstr ""
@@ -440,35 +424,13 @@ msgstr ""
 "で指定された通りとなります。ここにふくまれた内線は自動的にキューにはログイン"
 "しません。"
 
-#: install.php:328
-msgid "ERROR were encountered"
-msgstr "エラーに遭遇しました"
-
-#: install.php:207
-msgid "ERROR: accessing queues table obtaining context info, aborting"
-msgstr ""
-"エラー: context情報を取得するためにqueues テーブルへアクセス、中止します"
-
-#: install.php:232
-msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr "エラー: idリストを取得するためにqueuesテーブルへアクセス、中止します"
-
-#: install.php:214
-msgid "ERROR: accessing queues table obtaining rtone info, aborting"
-msgstr "エラー: rtone情報を取得するためにqueuesテーブルへアクセス、中止します"
-
-#: install.php:101 install.php:195
+#: install.php:74
 msgid "ERROR: could not create table"
 msgstr "エラー: テーブルの作成ができませんでした"
 
-#: install.php:119
+#: install.php:92
 msgid "ERROR: could not migrate to queues_details"
 msgstr "エラー: queues_detailsに移行できませんでした"
-
-#: install.php:320
-#, php-format
-msgid "ERROR: inserting data for row %s: %s.."
-msgstr "エラー:行 %s へデータのインサート中: %s.."
 
 #: views/form.php:482
 msgid ""
@@ -764,11 +726,7 @@ msgstr ""
 msgid "Menu ID "
 msgstr "メニューID "
 
-#: install.php:203
-msgid "Migrating data to queues_config.."
-msgstr "データをqueues_configに移行中.."
-
-#: install.php:116
+#: install.php:89
 msgid "Migrating to queues_details.."
 msgstr "queues_detailsに移行.."
 
@@ -806,10 +764,6 @@ msgstr ""
 msgid "Music on Hold Class"
 msgstr ""
 
-#: install.php:72
-msgid "NO table found, no migration to do just create tables"
-msgstr "テーブルが見つかりません、移行は行わずテーブルのみが作成されます"
-
 #: views/form.php:1097
 msgid "Never"
 msgstr "ブロック"
@@ -842,11 +796,7 @@ msgstr "リトライなし"
 msgid "None"
 msgstr "なし"
 
-#: install.php:77 install.php:105 install.php:122 install.php:125
-#: install.php:199 install.php:326 install.php:332 install.php:345
-#: install.php:354 install.php:371 install.php:497 install.php:512
-#: install.php:527 install.php:542 install.php:557 install.php:572
-#: install.php:587 install.php:602 install.php:617 install.php:632
+#: install.php:78 install.php:95 install.php:98
 msgid "OK"
 msgstr "OK"
 
@@ -887,9 +837,9 @@ msgid ""
 "callback number. If the callback number does not pass the regex filter then "
 "it will be treated as invalid. This can be used to restrict agents to "
 "extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^([2-"
-"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"any other use that may be appropriate. An example input might be:<br /"
+">^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. "
+"Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * "
 "key.<br />WARNING: make sure you understand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
@@ -911,7 +861,7 @@ msgstr "キュー"
 msgid "Queue %s : %s"
 msgstr "キュー %s : %s"
 
-#: functions.inc/queue_conf.php:230
+#: functions.inc/queue_conf.php:199
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "キュー - %s (%s): %s<br />"
@@ -1332,11 +1282,6 @@ msgstr ""
 "正規表現フィルタを使用は非常に高度です、何を使用としているのかを確認してくだ"
 "さい、でなければ空欄にします"
 
-#: install.php:343 install.php:352
-#, php-format
-msgid "WARNING FAILED %s"
-msgstr "警告 失敗 %s"
-
 #: views/form.php:834
 msgid "Wait Time Prefix"
 msgstr ""
@@ -1345,7 +1290,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "警告! 内線"
 
-#: functions.inc/queue_conf.php:225
+#: functions.inc/queue_conf.php:194
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1561,68 +1506,9 @@ msgstr ""
 "エージェントがこのキューにログインする前にパスワードを入力させることができま"
 "す。<br><br>この設定はオプションです。"
 
-#: install.php:389
-msgid "adding agentannounce_id field.."
-msgstr "agentannounce_idフィールドを追加中.."
-
-#: install.php:398
-msgid "adding joinannounce_id field.."
-msgstr "joinannounce_idフィールドを追加中.."
-
-#: install.php:99 install.php:193 install.php:373 install.php:499
-#: install.php:514 install.php:529 install.php:544 install.php:559
-#: install.php:574 install.php:589 install.php:604 install.php:619
-#: install.php:634
+#: install.php:72
 msgid "already exists"
 msgstr "既存します"
-
-#: install.php:483
-msgid "already migrated"
-msgstr "移行済み"
-
-#: install.php:622
-msgid "checking for callback_id field.."
-msgstr ""
-
-#: install.php:547
-msgid "checking for callconfirm field.."
-msgstr "callconfirm フィールドをチェック中.."
-
-#: install.php:562
-msgid "checking for callconfirm_id field.."
-msgstr "callconfirm_id フィールドをチェック中.."
-
-#: install.php:592
-msgid "checking for monitor_heard field.."
-msgstr "monitor_heard フィールドをチェック中.."
-
-#: install.php:607
-msgid "checking for monitor_spoken field.."
-msgstr "monitor_spoken フィールドをチェック中.."
-
-#: install.php:577
-msgid "checking for monitor_type field.."
-msgstr "monitor_type フィールドをチェック中.."
-
-#: install.php:532
-msgid "checking for qnoanswer field.."
-msgstr "qnoanswer フィールドをチェック中.."
-
-#: install.php:361
-msgid "checking for qregex field.."
-msgstr "qregex フィールドをチェック中.."
-
-#: install.php:487
-msgid "checking for queuewait field.."
-msgstr "queuewait フィールドをチェック中.."
-
-#: install.php:517
-msgid "checking for togglehint field.."
-msgstr "togglehint フィールドをチェック中.."
-
-#: install.php:502
-msgid "checking for use_queue_context field.."
-msgstr "use_queue_context フィールドをチェック中.."
 
 #: functions.inc.php:31
 msgid "day"
@@ -1631,19 +1517,6 @@ msgstr "日"
 #: views/form.php:293
 msgid "default"
 msgstr "デフォルト"
-
-#: install.php:464
-msgid "dropping agentannounce field.."
-msgstr "agentannounce フィールドをドロップ中.."
-
-#: install.php:474
-msgid "dropping joinannounce field.."
-msgstr "joinannounce フィールドをドロップ中.."
-
-#: install.php:393 install.php:402 install.php:414 install.php:430
-#: install.php:440 install.php:456
-msgid "fatal error"
-msgstr "致命的なエラー"
 
 #: views/form.php:256
 msgid "fewestcalls"
@@ -1673,23 +1546,6 @@ msgstr "leastrecent"
 msgid "linear"
 msgstr "リニア"
 
-#: install.php:410
-msgid "migrate agentannounce to ids.."
-msgstr "idsにagentannounceを移行.."
-
-#: install.php:436
-msgid "migrate joinannounce to ids.."
-msgstr "joinannounce を idsに移行.."
-
-#: install.php:434 install.php:460
-#, php-format
-msgid "migrated %s entries"
-msgstr "%sエントリーを移行する"
-
-#: install.php:388
-msgid "migrating"
-msgstr "移行中"
-
 #: functions.inc.php:33
 msgid "minute"
 msgstr "分"
@@ -1698,21 +1554,9 @@ msgstr "分"
 msgid "minutes"
 msgstr "分"
 
-#: install.php:470
-msgid "no agentannounce field???"
-msgstr "agentannounce フィールドがありません???"
-
-#: install.php:478
-msgid "no joinannounce field???"
-msgstr "joinannounce フィールドがありません???"
-
 #: views/form.php:292
 msgid "none"
 msgstr "なし"
-
-#: install.php:396 install.php:405 install.php:472 install.php:480
-msgid "ok"
-msgstr "ok"
 
 #: views/form.php:257
 msgid "random"
@@ -1725,10 +1569,6 @@ msgid ""
 msgstr ""
 "ウェイト要素としてメンバーのペナルティをランダムに使用する、仕様に関しては"
 "Asteriskのドキュメントを確認してください"
-
-#: install.php:348
-msgid "removing queues data extensions table.."
-msgstr "queuesデータ extensionsテーブルを削除中.."
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
@@ -1789,6 +1629,117 @@ msgstr "秒"
 #: views/form.php:261
 msgid "wrandom"
 msgstr "wrandom"
+
+#~ msgid "Checking for legacy queues table.."
+#~ msgstr "レガシーのqueuesテーブルをチェック中.."
+
+#~ msgid "Checking if recordings need migration.."
+#~ msgstr "録音の移行が必要かチェック中.."
+
+#~ msgid "Creating queues_config.."
+#~ msgstr "queues_configを作成中.."
+
+#~ msgid "Dropping old queues table.."
+#~ msgstr "古い queues テーブルをドロップ中.."
+
+#~ msgid "ERROR were encountered"
+#~ msgstr "エラーに遭遇しました"
+
+#~ msgid "ERROR: accessing queues table obtaining context info, aborting"
+#~ msgstr ""
+#~ "エラー: context情報を取得するためにqueues テーブルへアクセス、中止します"
+
+#~ msgid "ERROR: accessing queues table obtaining id list, aborting"
+#~ msgstr ""
+#~ "エラー: idリストを取得するためにqueuesテーブルへアクセス、中止します"
+
+#~ msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+#~ msgstr ""
+#~ "エラー: rtone情報を取得するためにqueuesテーブルへアクセス、中止します"
+
+#~ msgid "ERROR: inserting data for row %s: %s.."
+#~ msgstr "エラー:行 %s へデータのインサート中: %s.."
+
+#~ msgid "Migrating data to queues_config.."
+#~ msgstr "データをqueues_configに移行中.."
+
+#~ msgid "NO table found, no migration to do just create tables"
+#~ msgstr "テーブルが見つかりません、移行は行わずテーブルのみが作成されます"
+
+#~ msgid "WARNING FAILED %s"
+#~ msgstr "警告 失敗 %s"
+
+#~ msgid "adding agentannounce_id field.."
+#~ msgstr "agentannounce_idフィールドを追加中.."
+
+#~ msgid "adding joinannounce_id field.."
+#~ msgstr "joinannounce_idフィールドを追加中.."
+
+#~ msgid "already migrated"
+#~ msgstr "移行済み"
+
+#~ msgid "checking for callconfirm field.."
+#~ msgstr "callconfirm フィールドをチェック中.."
+
+#~ msgid "checking for callconfirm_id field.."
+#~ msgstr "callconfirm_id フィールドをチェック中.."
+
+#~ msgid "checking for monitor_heard field.."
+#~ msgstr "monitor_heard フィールドをチェック中.."
+
+#~ msgid "checking for monitor_spoken field.."
+#~ msgstr "monitor_spoken フィールドをチェック中.."
+
+#~ msgid "checking for monitor_type field.."
+#~ msgstr "monitor_type フィールドをチェック中.."
+
+#~ msgid "checking for qnoanswer field.."
+#~ msgstr "qnoanswer フィールドをチェック中.."
+
+#~ msgid "checking for qregex field.."
+#~ msgstr "qregex フィールドをチェック中.."
+
+#~ msgid "checking for queuewait field.."
+#~ msgstr "queuewait フィールドをチェック中.."
+
+#~ msgid "checking for togglehint field.."
+#~ msgstr "togglehint フィールドをチェック中.."
+
+#~ msgid "checking for use_queue_context field.."
+#~ msgstr "use_queue_context フィールドをチェック中.."
+
+#~ msgid "dropping agentannounce field.."
+#~ msgstr "agentannounce フィールドをドロップ中.."
+
+#~ msgid "dropping joinannounce field.."
+#~ msgstr "joinannounce フィールドをドロップ中.."
+
+#~ msgid "fatal error"
+#~ msgstr "致命的なエラー"
+
+#~ msgid "migrate agentannounce to ids.."
+#~ msgstr "idsにagentannounceを移行.."
+
+#~ msgid "migrate joinannounce to ids.."
+#~ msgstr "joinannounce を idsに移行.."
+
+#~ msgid "migrated %s entries"
+#~ msgstr "%sエントリーを移行する"
+
+#~ msgid "migrating"
+#~ msgstr "移行中"
+
+#~ msgid "no agentannounce field???"
+#~ msgstr "agentannounce フィールドがありません???"
+
+#~ msgid "no joinannounce field???"
+#~ msgstr "joinannounce フィールドがありません???"
+
+#~ msgid "ok"
+#~ msgstr "ok"
+
+#~ msgid "removing queues data extensions table.."
+#~ msgstr "queuesデータ extensionsテーブルを削除中.."
 
 #~ msgid "(**) ERRORS"
 #~ msgstr "(**) エラー"

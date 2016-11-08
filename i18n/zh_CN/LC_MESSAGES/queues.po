@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 20:40-0700\n"
+"POT-Creation-Date: 2016-11-08 02:38+0000\n"
 "PO-Revision-Date: 2015-11-12 12:43+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
 "freepbx/queues/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Chinese\n"
@@ -214,7 +214,7 @@ msgstr "自动暂停无效"
 msgid "Autofill"
 msgstr "自动填入"
 
-#: functions.inc/geters_seters.php:40
+#: functions.inc/geters_seters.php:38
 msgid "Bad Queue Number, can not be blank"
 msgstr "错误的队列号，队列号不可以为空"
 
@@ -272,15 +272,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "处理能力选项"
 
-#: install.php:68
-msgid "Checking for legacy queues table.."
-msgstr "正在检查遗留的队列表格。。"
-
-#: install.php:382
-msgid "Checking if recordings need migration.."
-msgstr "正在检查录音是否需要迁移。。。"
-
-#: functions.inc/queue_conf.php:232
+#: functions.inc/queue_conf.php:201
 msgid "Compound Recordings in Queues Detected"
 msgstr "在等待队列的配置中检测到了复合录音"
 
@@ -291,11 +283,7 @@ msgid ""
 "agents, caller announcements, max wait times, etc."
 msgstr ""
 
-#: install.php:188
-msgid "Creating queues_config.."
-msgstr "正在创建队列配置。。"
-
-#: install.php:94
+#: install.php:67
 msgid "Creating queues_details.."
 msgstr "正在创建队列细节。。"
 
@@ -346,10 +334,6 @@ msgstr ""
 msgid "Don't Care"
 msgstr ""
 
-#: install.php:339
-msgid "Dropping old queues table.."
-msgstr "正在删除旧的等待队列表格。"
-
 #: views/form.php:1205
 msgid "Dynamic Agents"
 msgstr ""
@@ -362,34 +346,13 @@ msgid ""
 "be logged in to the queue."
 msgstr ""
 
-#: install.php:328
-msgid "ERROR were encountered"
-msgstr "遇到了错误"
-
-#: install.php:207
-msgid "ERROR: accessing queues table obtaining context info, aborting"
-msgstr "错误：在访问队列表格和上下文信息时出错，操作终止"
-
-#: install.php:232
-msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr "错误：在访问队列表格和id列表时出错，操作终止"
-
-#: install.php:214
-msgid "ERROR: accessing queues table obtaining rtone info, aborting"
-msgstr "错误：在访问队列表格和rtone信息时出错，操作终止"
-
-#: install.php:101 install.php:195
+#: install.php:74
 msgid "ERROR: could not create table"
 msgstr "错误：无法创建表格"
 
-#: install.php:119
+#: install.php:92
 msgid "ERROR: could not migrate to queues_details"
 msgstr "错误：无法迁移队列细节"
-
-#: install.php:320
-#, php-format
-msgid "ERROR: inserting data for row %s: %s.."
-msgstr "错误：在向行插入数据时发生错误。%s：%s。。"
 
 #: views/form.php:482
 msgid ""
@@ -644,11 +607,7 @@ msgstr ""
 msgid "Menu ID "
 msgstr "菜单ID.. "
 
-#: install.php:203
-msgid "Migrating data to queues_config.."
-msgstr "正在数据迁移到队列配置.."
-
-#: install.php:116
+#: install.php:89
 msgid "Migrating to queues_details.."
 msgstr "正在迁移队列细节。。"
 
@@ -679,10 +638,6 @@ msgstr ""
 #: views/form.php:278
 msgid "Music on Hold Class"
 msgstr ""
-
-#: install.php:72
-msgid "NO table found, no migration to do just create tables"
-msgstr "没有找到任何遗留的队列表格信息，不需要进行迁移，只需要创建新的队列表格"
 
 #: views/form.php:1097
 msgid "Never"
@@ -716,11 +671,7 @@ msgstr "无重试"
 msgid "None"
 msgstr "无"
 
-#: install.php:77 install.php:105 install.php:122 install.php:125
-#: install.php:199 install.php:326 install.php:332 install.php:345
-#: install.php:354 install.php:371 install.php:497 install.php:512
-#: install.php:527 install.php:542 install.php:557 install.php:572
-#: install.php:587 install.php:602 install.php:617 install.php:632
+#: install.php:78 install.php:95 install.php:98
 msgid "OK"
 msgstr "确定"
 
@@ -761,9 +712,9 @@ msgid ""
 "callback number. If the callback number does not pass the regex filter then "
 "it will be treated as invalid. This can be used to restrict agents to "
 "extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^([2-"
-"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"any other use that may be appropriate. An example input might be:<br /"
+">^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. "
+"Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * "
 "key.<br />WARNING: make sure you understand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
@@ -782,7 +733,7 @@ msgstr "等待队列"
 msgid "Queue %s : %s"
 msgstr "等待队列 %s：%s"
 
-#: functions.inc/queue_conf.php:230
+#: functions.inc/queue_conf.php:199
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "等待队列 - %s（%s）：%s<br />"
@@ -1152,11 +1103,6 @@ msgid ""
 msgstr ""
 "正则表达式过滤器是相当高级的功能，请确认你知道自己在做什么，否则请留空此项"
 
-#: install.php:343 install.php:352
-#, php-format
-msgid "WARNING FAILED %s"
-msgstr "警告：%s失败"
-
 #: views/form.php:834
 msgid "Wait Time Prefix"
 msgstr ""
@@ -1165,7 +1111,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "警告！你的帐户无法使用分机"
 
-#: functions.inc/queue_conf.php:225
+#: functions.inc/queue_conf.php:194
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1332,68 +1278,9 @@ msgid ""
 "queue.<br><br>This setting is optional."
 msgstr "你可以要求坐席在登录这个等待队列时输入密码。<br /><br />密码是可选的。"
 
-#: install.php:389
-msgid "adding agentannounce_id field.."
-msgstr "正在添加agentannounce_id字段。。。"
-
-#: install.php:398
-msgid "adding joinannounce_id field.."
-msgstr "正在添加joinannounce_id字段。。。"
-
-#: install.php:99 install.php:193 install.php:373 install.php:499
-#: install.php:514 install.php:529 install.php:544 install.php:559
-#: install.php:574 install.php:589 install.php:604 install.php:619
-#: install.php:634
+#: install.php:72
 msgid "already exists"
 msgstr "已存在"
-
-#: install.php:483
-msgid "already migrated"
-msgstr "已经迁移过了"
-
-#: install.php:622
-msgid "checking for callback_id field.."
-msgstr ""
-
-#: install.php:547
-msgid "checking for callconfirm field.."
-msgstr ""
-
-#: install.php:562
-msgid "checking for callconfirm_id field.."
-msgstr ""
-
-#: install.php:592
-msgid "checking for monitor_heard field.."
-msgstr ""
-
-#: install.php:607
-msgid "checking for monitor_spoken field.."
-msgstr ""
-
-#: install.php:577
-msgid "checking for monitor_type field.."
-msgstr ""
-
-#: install.php:532
-msgid "checking for qnoanswer field.."
-msgstr ""
-
-#: install.php:361
-msgid "checking for qregex field.."
-msgstr "正在检查qregex字段。。。"
-
-#: install.php:487
-msgid "checking for queuewait field.."
-msgstr "正在检查queuewait字段。。。"
-
-#: install.php:517
-msgid "checking for togglehint field.."
-msgstr "检查触发的选项。。"
-
-#: install.php:502
-msgid "checking for use_queue_context field.."
-msgstr "检查用户队列context 内容.."
 
 #: functions.inc.php:31
 msgid "day"
@@ -1402,19 +1289,6 @@ msgstr "天"
 #: views/form.php:293
 msgid "default"
 msgstr "默认"
-
-#: install.php:464
-msgid "dropping agentannounce field.."
-msgstr "正在删除agentannounce字段。。。"
-
-#: install.php:474
-msgid "dropping joinannounce field.."
-msgstr "正在删除joinannounce字段。。。"
-
-#: install.php:393 install.php:402 install.php:414 install.php:430
-#: install.php:440 install.php:456
-msgid "fatal error"
-msgstr "致命错误"
 
 #: views/form.php:256
 msgid "fewestcalls"
@@ -1444,23 +1318,6 @@ msgstr "最久未呼叫的坐席"
 msgid "linear"
 msgstr ""
 
-#: install.php:410
-msgid "migrate agentannounce to ids.."
-msgstr "把agentannounce迁移到ids。。。"
-
-#: install.php:436
-msgid "migrate joinannounce to ids.."
-msgstr "把joinannounce迁移到ids。。。"
-
-#: install.php:434 install.php:460
-#, php-format
-msgid "migrated %s entries"
-msgstr "迁移了%s个项目"
-
-#: install.php:388
-msgid "migrating"
-msgstr "正在迁移"
-
 #: functions.inc.php:33
 msgid "minute"
 msgstr "分钟"
@@ -1469,21 +1326,9 @@ msgstr "分钟"
 msgid "minutes"
 msgstr "分钟"
 
-#: install.php:470
-msgid "no agentannounce field???"
-msgstr "agentannounce字段不存在？"
-
-#: install.php:478
-msgid "no joinannounce field???"
-msgstr "joinannounce字段不存在？"
-
 #: views/form.php:292
 msgid "none"
 msgstr "无"
-
-#: install.php:396 install.php:405 install.php:472 install.php:480
-msgid "ok"
-msgstr "完成"
 
 #: views/form.php:257
 msgid "random"
@@ -1494,10 +1339,6 @@ msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
-
-#: install.php:348
-msgid "removing queues data extensions table.."
-msgstr "正在删除队列分机数据表格。。"
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
@@ -1554,6 +1395,97 @@ msgstr "秒"
 #: views/form.php:261
 msgid "wrandom"
 msgstr ""
+
+#~ msgid "Checking for legacy queues table.."
+#~ msgstr "正在检查遗留的队列表格。。"
+
+#~ msgid "Checking if recordings need migration.."
+#~ msgstr "正在检查录音是否需要迁移。。。"
+
+#~ msgid "Creating queues_config.."
+#~ msgstr "正在创建队列配置。。"
+
+#~ msgid "Dropping old queues table.."
+#~ msgstr "正在删除旧的等待队列表格。"
+
+#~ msgid "ERROR were encountered"
+#~ msgstr "遇到了错误"
+
+#~ msgid "ERROR: accessing queues table obtaining context info, aborting"
+#~ msgstr "错误：在访问队列表格和上下文信息时出错，操作终止"
+
+#~ msgid "ERROR: accessing queues table obtaining id list, aborting"
+#~ msgstr "错误：在访问队列表格和id列表时出错，操作终止"
+
+#~ msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+#~ msgstr "错误：在访问队列表格和rtone信息时出错，操作终止"
+
+#~ msgid "ERROR: inserting data for row %s: %s.."
+#~ msgstr "错误：在向行插入数据时发生错误。%s：%s。。"
+
+#~ msgid "Migrating data to queues_config.."
+#~ msgstr "正在数据迁移到队列配置.."
+
+#~ msgid "NO table found, no migration to do just create tables"
+#~ msgstr ""
+#~ "没有找到任何遗留的队列表格信息，不需要进行迁移，只需要创建新的队列表格"
+
+#~ msgid "WARNING FAILED %s"
+#~ msgstr "警告：%s失败"
+
+#~ msgid "adding agentannounce_id field.."
+#~ msgstr "正在添加agentannounce_id字段。。。"
+
+#~ msgid "adding joinannounce_id field.."
+#~ msgstr "正在添加joinannounce_id字段。。。"
+
+#~ msgid "already migrated"
+#~ msgstr "已经迁移过了"
+
+#~ msgid "checking for qregex field.."
+#~ msgstr "正在检查qregex字段。。。"
+
+#~ msgid "checking for queuewait field.."
+#~ msgstr "正在检查queuewait字段。。。"
+
+#~ msgid "checking for togglehint field.."
+#~ msgstr "检查触发的选项。。"
+
+#~ msgid "checking for use_queue_context field.."
+#~ msgstr "检查用户队列context 内容.."
+
+#~ msgid "dropping agentannounce field.."
+#~ msgstr "正在删除agentannounce字段。。。"
+
+#~ msgid "dropping joinannounce field.."
+#~ msgstr "正在删除joinannounce字段。。。"
+
+#~ msgid "fatal error"
+#~ msgstr "致命错误"
+
+#~ msgid "migrate agentannounce to ids.."
+#~ msgstr "把agentannounce迁移到ids。。。"
+
+#~ msgid "migrate joinannounce to ids.."
+#~ msgstr "把joinannounce迁移到ids。。。"
+
+#~ msgid "migrated %s entries"
+#~ msgstr "迁移了%s个项目"
+
+#~ msgid "migrating"
+#~ msgstr "正在迁移"
+
+#~ msgid "no agentannounce field???"
+#~ msgstr "agentannounce字段不存在？"
+
+#~ msgid "no joinannounce field???"
+#~ msgstr "joinannounce字段不存在？"
+
+#~ msgid "ok"
+#~ msgstr "完成"
+
+#~ msgid "removing queues data extensions table.."
+#~ msgstr "正在删除队列分机数据表格。。"
 
 #~ msgid "(**) ERRORS"
 #~ msgstr "（**）错误"

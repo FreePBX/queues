@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 20:40-0700\n"
+"POT-Creation-Date: 2016-11-08 02:38+0000\n"
 "PO-Revision-Date: 2016-07-07 11:27+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com.com>\n"
-"Language-Team: Russian "
-"<http://weblate.postmet.com/freepbx/trunkbalance/ru_RU/>\n"
+"Language-Team: Russian <http://weblate.postmet.com/freepbx/trunkbalance/"
+"ru_RU/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: page.queues.php:17
@@ -258,7 +258,7 @@ msgstr "Автопауза по Недоступен"
 msgid "Autofill"
 msgstr "Автозаполнение"
 
-#: functions.inc/geters_seters.php:40
+#: functions.inc/geters_seters.php:38
 msgid "Bad Queue Number, can not be blank"
 msgstr "Неверный номер очереди, он не может быть пустым"
 
@@ -324,15 +324,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Параметры ёмкости очереди"
 
-#: install.php:68
-msgid "Checking for legacy queues table.."
-msgstr "Проверка для старых таблиц очередей.."
-
-#: install.php:382
-msgid "Checking if recordings need migration.."
-msgstr "Проверка нуждаются ли записи в перемещении.."
-
-#: functions.inc/queue_conf.php:232
+#: functions.inc/queue_conf.php:201
 msgid "Compound Recordings in Queues Detected"
 msgstr "Обнаружена составная запись, использованная в очереди"
 
@@ -346,11 +338,7 @@ msgstr ""
 "(FIFO). Большинство опций доступны, включая стратегии вызовов для "
 "операторов, приветствия для позвонивших, максимальное время ожидания, и т.д."
 
-#: install.php:188
-msgid "Creating queues_config.."
-msgstr "Создаётся queues_config.."
-
-#: install.php:94
+#: install.php:67
 msgid "Creating queues_details.."
 msgstr "Создаются queues_details.."
 
@@ -412,10 +400,6 @@ msgstr ""
 msgid "Don't Care"
 msgstr "Не обращать внимание"
 
-#: install.php:339
-msgid "Dropping old queues table.."
-msgstr "Сброс старых таблиц очередей.."
-
 #: views/form.php:1205
 msgid "Dynamic Agents"
 msgstr "Динамические агенты"
@@ -430,40 +414,13 @@ msgstr ""
 "Динамические агенты - это внутренние или внешние номера, которые могут "
 "подключаться к очереди. Когда агент подключается к очереди."
 
-#: install.php:328
-msgid "ERROR were encountered"
-msgstr "Была обнаружена ОШИБКА"
-
-#: install.php:207
-msgid "ERROR: accessing queues table obtaining context info, aborting"
-msgstr ""
-"ОШИБКА: при доступе в таблицы очереде - полученная информация о контексте, "
-"прервано"
-
-#: install.php:232
-msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr ""
-"ОШИБКА: при доступе в таблицы очередей - полученная информация список ИД, "
-"прервано"
-
-#: install.php:214
-msgid "ERROR: accessing queues table obtaining rtone info, aborting"
-msgstr ""
-"ОШИБКА: при доступе в таблицы очередей - полученная информация rtone, "
-"прервано"
-
-#: install.php:101 install.php:195
+#: install.php:74
 msgid "ERROR: could not create table"
 msgstr "ОШИБКА: невозможно создать таблицу"
 
-#: install.php:119
+#: install.php:92
 msgid "ERROR: could not migrate to queues_details"
 msgstr "ОШИБКА: невозможно перенести queues_details"
-
-#: install.php:320
-#, php-format
-msgid "ERROR: inserting data for row %s: %s.."
-msgstr "ОШИБКА: вставка данных для ряда %s: %s.."
 
 #: views/form.php:482
 msgid ""
@@ -635,11 +592,10 @@ msgstr ""
 "номера при определении следует ли вызывать данного члена очереди. В "
 "некоторых случаях,как например с функцией \"Следуй за мной\" на логический "
 "номер, или в некоторых сценариях с виртуальными внутренними номерами, эта "
-"информация  о статусе будет сообщать о недоступности данного члена "
-"очереди.Установка  значения в  \"Игнорировать\" заставит очередь "
-"игнорировать всякую статусную информацию, тем самым пытаться найти контакт с "
-"любым участником очереди. В большинстве случаев СЛЕДУЕТ устанавливать \""
-"Использовать статус\"."
+"информация  о статусе будет сообщать о недоступности данного члена очереди."
+"Установка  значения в  \"Игнорировать\" заставит очередь игнорировать всякую "
+"статусную информацию, тем самым пытаться найти контакт с любым участником "
+"очереди. В большинстве случаев СЛЕДУЕТ устанавливать \"Использовать статус\"."
 
 #: views/form.php:1013
 msgid ""
@@ -760,11 +716,7 @@ msgstr "Событие по умолчанию Статуса участника
 msgid "Menu ID "
 msgstr "ИД меню "
 
-#: install.php:203
-msgid "Migrating data to queues_config.."
-msgstr "Перенос данных в queues_config.."
-
-#: install.php:116
+#: install.php:89
 msgid "Migrating to queues_details.."
 msgstr "Перенос queues_details.."
 
@@ -791,8 +743,8 @@ msgid ""
 "any MoH Class selected as well as any configured periodic announcements. "
 "This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
-"Мелодия, воспроизводимая при ожидании доступного оператора . Выберите \""
-"наследовать\" если Вы хотите использовать текущий класс MoH . \"Только "
+"Мелодия, воспроизводимая при ожидании доступного оператора . Выберите "
+"\"наследовать\" если Вы хотите использовать текущий класс MoH . \"Только "
 "Музыка на удержании\" будет воспроизводить  мелодию до тех пор пока оператор "
 "не ответит. \"При вызове оператора\" - пока оператор вызывается. Если "
 "оператор не отвечает, будет снова воспроизводится мелодия при удержании.  "
@@ -803,10 +755,6 @@ msgstr ""
 #: views/form.php:278
 msgid "Music on Hold Class"
 msgstr "Класс музыки на удержании"
-
-#: install.php:72
-msgid "NO table found, no migration to do just create tables"
-msgstr "Не обнаружено таблиц, будут созданы новые таблицы вместо переноса"
 
 #: views/form.php:1097
 msgid "Never"
@@ -842,11 +790,7 @@ msgstr "Не повторять"
 msgid "None"
 msgstr "Нет"
 
-#: install.php:77 install.php:105 install.php:122 install.php:125
-#: install.php:199 install.php:326 install.php:332 install.php:345
-#: install.php:354 install.php:371 install.php:497 install.php:512
-#: install.php:527 install.php:542 install.php:557 install.php:572
-#: install.php:587 install.php:602 install.php:617 install.php:632
+#: install.php:78 install.php:95 install.php:98
 msgid "OK"
 msgstr "ОК"
 
@@ -887,9 +831,9 @@ msgid ""
 "callback number. If the callback number does not pass the regex filter then "
 "it will be treated as invalid. This can be used to restrict agents to "
 "extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^([2-"
-"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"any other use that may be appropriate. An example input might be:<br /"
+">^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. "
+"Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * "
 "key.<br />WARNING: make sure you understand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
@@ -913,7 +857,7 @@ msgstr "Очередь"
 msgid "Queue %s : %s"
 msgstr "Очередь %s : %s"
 
-#: functions.inc/queue_conf.php:230
+#: functions.inc/queue_conf.php:199
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Очередь - %s (%s): %s<br />"
@@ -1214,8 +1158,8 @@ msgstr ""
 "находящимися в очереди.Статическим агентам нет необходимости "
 "регистрироваться в очереди,и они не могут выйти из очереди.<br><br>Список "
 "внутренних номеров,которые будут звонить, один на линию<br><br>Вы можете "
-"включить внутренний номер,находящийся  удалённой системе, или внешний номер ("
-"В исходящих маршрутах должен содержаться работоспособный роут до внешнего "
+"включить внутренний номер,находящийся  удалённой системе, или внешний номер "
+"(В исходящих маршрутах должен содержаться работоспособный роут до внешнего "
 "номера). Вы можете вставить \",\" после  агента со значением коэффициента "
 "неответов, см.документаци. <br></br>Добавлен расширенный режим ,который "
 "позволяет установить префикс S, P, X, Z, D или  A  для номера агента. Это "
@@ -1290,11 +1234,11 @@ msgid ""
 msgstr ""
 "Эта установка продлит  паузу  для агента с момента когда он в последний раз "
 "обработал вызов.Например,если было установлено в 120 сек,и новый вызов "
-"поступил  на агента через  90 секунд с момента обработки последнего "
-"вызова,то агент не будет поставлен на паузу если он не может ответить на "
-"вызов. Если вызов поступил через 120 или более секунд,то агент будет "
-"поставлен на паузу .Если агент не обрабатывал вызовы, то эта установка "
-"эффекта иметь не будет."
+"поступил  на агента через  90 секунд с момента обработки последнего вызова,"
+"то агент не будет поставлен на паузу если он не может ответить на вызов. "
+"Если вызов поступил через 120 или более секунд,то агент будет поставлен на "
+"паузу .Если агент не обрабатывал вызовы, то эта установка эффекта иметь не "
+"будет."
 
 #: views/form.php:1716
 msgid "This value is ignored if the caller's position changes"
@@ -1351,11 +1295,6 @@ msgstr ""
 "Использование фильтров регулярных выражений горячо приветствуется, но "
 "подтвердите, что понимаете то, что вы делаете, или оставьте это поле пустым"
 
-#: install.php:343 install.php:352
-#, php-format
-msgid "WARNING FAILED %s"
-msgstr "ВНИМАНИЕ - неудалось %s"
-
 #: views/form.php:834
 msgid "Wait Time Prefix"
 msgstr "Префикс времени ожидания"
@@ -1364,7 +1303,7 @@ msgstr "Префикс времени ожидания"
 msgid "Warning! Extension"
 msgstr "Внимание! Внутренний номер"
 
-#: functions.inc/queue_conf.php:225
+#: functions.inc/queue_conf.php:194
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1596,68 +1535,9 @@ msgstr ""
 "Можно ограничить доступ в очередь для абонентов и операторов Call центра "
 "паролем.<br><br>Эта опция необязательна."
 
-#: install.php:389
-msgid "adding agentannounce_id field.."
-msgstr "добавляется роле agentannounce_id.."
-
-#: install.php:398
-msgid "adding joinannounce_id field.."
-msgstr "добавляется поле joinannounce_id.."
-
-#: install.php:99 install.php:193 install.php:373 install.php:499
-#: install.php:514 install.php:529 install.php:544 install.php:559
-#: install.php:574 install.php:589 install.php:604 install.php:619
-#: install.php:634
+#: install.php:72
 msgid "already exists"
 msgstr "уже существуют"
-
-#: install.php:483
-msgid "already migrated"
-msgstr "уже перенесено"
-
-#: install.php:622
-msgid "checking for callback_id field.."
-msgstr "проверка поля callback_id field.."
-
-#: install.php:547
-msgid "checking for callconfirm field.."
-msgstr "проверка поля callconfirm.."
-
-#: install.php:562
-msgid "checking for callconfirm_id field.."
-msgstr "проверка поля callconfirm_id.."
-
-#: install.php:592
-msgid "checking for monitor_heard field.."
-msgstr "проверка поля monitor_heard.."
-
-#: install.php:607
-msgid "checking for monitor_spoken field.."
-msgstr "проверка поля monitor_spoken.."
-
-#: install.php:577
-msgid "checking for monitor_type field.."
-msgstr "проверка поля monitor_type.."
-
-#: install.php:532
-msgid "checking for qnoanswer field.."
-msgstr "проверка поля qnoanswer.."
-
-#: install.php:361
-msgid "checking for qregex field.."
-msgstr "проверка поля qregex.."
-
-#: install.php:487
-msgid "checking for queuewait field.."
-msgstr "проверка поля queuewait.."
-
-#: install.php:517
-msgid "checking for togglehint field.."
-msgstr "проверка поля togglehint.."
-
-#: install.php:502
-msgid "checking for use_queue_context field.."
-msgstr "проверка поля use_queue_context.."
 
 #: functions.inc.php:31
 msgid "day"
@@ -1666,19 +1546,6 @@ msgstr "день"
 #: views/form.php:293
 msgid "default"
 msgstr "по умолчанию"
-
-#: install.php:464
-msgid "dropping agentannounce field.."
-msgstr "сброс значений поля agentannounce.."
-
-#: install.php:474
-msgid "dropping joinannounce field.."
-msgstr "сброс значения поля joinannounce.."
-
-#: install.php:393 install.php:402 install.php:414 install.php:430
-#: install.php:440 install.php:456
-msgid "fatal error"
-msgstr "неустранимая ошибка"
 
 #: views/form.php:256
 msgid "fewestcalls"
@@ -1708,23 +1575,6 @@ msgstr "самому-незанятому"
 msgid "linear"
 msgstr "линейное"
 
-#: install.php:410
-msgid "migrate agentannounce to ids.."
-msgstr "перенос agentannounce в ИД.."
-
-#: install.php:436
-msgid "migrate joinannounce to ids.."
-msgstr "перенос joinannounce в ИД.."
-
-#: install.php:434 install.php:460
-#, php-format
-msgid "migrated %s entries"
-msgstr "перемещено %s записей"
-
-#: install.php:388
-msgid "migrating"
-msgstr "перемещение"
-
 #: functions.inc.php:33
 msgid "minute"
 msgstr "минут"
@@ -1733,21 +1583,9 @@ msgstr "минут"
 msgid "minutes"
 msgstr "минуты"
 
-#: install.php:470
-msgid "no agentannounce field???"
-msgstr "отсутствует поле agentannounce??"
-
-#: install.php:478
-msgid "no joinannounce field???"
-msgstr "отсутствует поле joinannounce??"
-
 #: views/form.php:292
 msgid "none"
 msgstr "нет"
-
-#: install.php:396 install.php:405 install.php:472 install.php:480
-msgid "ok"
-msgstr "ok"
 
 #: views/form.php:257
 msgid "random"
@@ -1760,10 +1598,6 @@ msgid ""
 msgstr ""
 "случайный выбор использует занятость агентов как вес в качестве приоритета "
 "выбора, см. документацию Астериск для более детальной информации"
-
-#: install.php:348
-msgid "removing queues data extensions table.."
-msgstr "удаляется данные таблицы очереди внутренних номеров.."
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
@@ -1826,6 +1660,123 @@ msgstr "секунды"
 #: views/form.php:261
 msgid "wrandom"
 msgstr "случайный-выбор"
+
+#~ msgid "Checking for legacy queues table.."
+#~ msgstr "Проверка для старых таблиц очередей.."
+
+#~ msgid "Checking if recordings need migration.."
+#~ msgstr "Проверка нуждаются ли записи в перемещении.."
+
+#~ msgid "Creating queues_config.."
+#~ msgstr "Создаётся queues_config.."
+
+#~ msgid "Dropping old queues table.."
+#~ msgstr "Сброс старых таблиц очередей.."
+
+#~ msgid "ERROR were encountered"
+#~ msgstr "Была обнаружена ОШИБКА"
+
+#~ msgid "ERROR: accessing queues table obtaining context info, aborting"
+#~ msgstr ""
+#~ "ОШИБКА: при доступе в таблицы очереде - полученная информация о "
+#~ "контексте, прервано"
+
+#~ msgid "ERROR: accessing queues table obtaining id list, aborting"
+#~ msgstr ""
+#~ "ОШИБКА: при доступе в таблицы очередей - полученная информация список ИД, "
+#~ "прервано"
+
+#~ msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+#~ msgstr ""
+#~ "ОШИБКА: при доступе в таблицы очередей - полученная информация rtone, "
+#~ "прервано"
+
+#~ msgid "ERROR: inserting data for row %s: %s.."
+#~ msgstr "ОШИБКА: вставка данных для ряда %s: %s.."
+
+#~ msgid "Migrating data to queues_config.."
+#~ msgstr "Перенос данных в queues_config.."
+
+#~ msgid "NO table found, no migration to do just create tables"
+#~ msgstr "Не обнаружено таблиц, будут созданы новые таблицы вместо переноса"
+
+#~ msgid "WARNING FAILED %s"
+#~ msgstr "ВНИМАНИЕ - неудалось %s"
+
+#~ msgid "adding agentannounce_id field.."
+#~ msgstr "добавляется роле agentannounce_id.."
+
+#~ msgid "adding joinannounce_id field.."
+#~ msgstr "добавляется поле joinannounce_id.."
+
+#~ msgid "already migrated"
+#~ msgstr "уже перенесено"
+
+#~ msgid "checking for callback_id field.."
+#~ msgstr "проверка поля callback_id field.."
+
+#~ msgid "checking for callconfirm field.."
+#~ msgstr "проверка поля callconfirm.."
+
+#~ msgid "checking for callconfirm_id field.."
+#~ msgstr "проверка поля callconfirm_id.."
+
+#~ msgid "checking for monitor_heard field.."
+#~ msgstr "проверка поля monitor_heard.."
+
+#~ msgid "checking for monitor_spoken field.."
+#~ msgstr "проверка поля monitor_spoken.."
+
+#~ msgid "checking for monitor_type field.."
+#~ msgstr "проверка поля monitor_type.."
+
+#~ msgid "checking for qnoanswer field.."
+#~ msgstr "проверка поля qnoanswer.."
+
+#~ msgid "checking for qregex field.."
+#~ msgstr "проверка поля qregex.."
+
+#~ msgid "checking for queuewait field.."
+#~ msgstr "проверка поля queuewait.."
+
+#~ msgid "checking for togglehint field.."
+#~ msgstr "проверка поля togglehint.."
+
+#~ msgid "checking for use_queue_context field.."
+#~ msgstr "проверка поля use_queue_context.."
+
+#~ msgid "dropping agentannounce field.."
+#~ msgstr "сброс значений поля agentannounce.."
+
+#~ msgid "dropping joinannounce field.."
+#~ msgstr "сброс значения поля joinannounce.."
+
+#~ msgid "fatal error"
+#~ msgstr "неустранимая ошибка"
+
+#~ msgid "migrate agentannounce to ids.."
+#~ msgstr "перенос agentannounce в ИД.."
+
+#~ msgid "migrate joinannounce to ids.."
+#~ msgstr "перенос joinannounce в ИД.."
+
+#~ msgid "migrated %s entries"
+#~ msgstr "перемещено %s записей"
+
+#~ msgid "migrating"
+#~ msgstr "перемещение"
+
+#~ msgid "no agentannounce field???"
+#~ msgstr "отсутствует поле agentannounce??"
+
+#~ msgid "no joinannounce field???"
+#~ msgstr "отсутствует поле joinannounce??"
+
+#~ msgid "ok"
+#~ msgstr "ok"
+
+#~ msgid "removing queues data extensions table.."
+#~ msgstr "удаляется данные таблицы очереди внутренних номеров.."
 
 #~ msgid "(**) ERRORS"
 #~ msgstr "(**) ОШИБКИ"

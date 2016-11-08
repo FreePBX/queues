@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 20:40-0700\n"
+"POT-Creation-Date: 2016-11-08 02:38+0000\n"
 "PO-Revision-Date: 2015-12-14 01:20+0200\n"
 "Last-Translator: Matthias <it@mitterhuemer.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/queues/"
 "de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Autofill"
 msgstr ""
 
-#: functions.inc/geters_seters.php:40
+#: functions.inc/geters_seters.php:38
 msgid "Bad Queue Number, can not be blank"
 msgstr ""
 
@@ -271,15 +271,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr ""
 
-#: install.php:68
-msgid "Checking for legacy queues table.."
-msgstr ""
-
-#: install.php:382
-msgid "Checking if recordings need migration.."
-msgstr ""
-
-#: functions.inc/queue_conf.php:232
+#: functions.inc/queue_conf.php:201
 msgid "Compound Recordings in Queues Detected"
 msgstr ""
 
@@ -290,11 +282,7 @@ msgid ""
 "agents, caller announcements, max wait times, etc."
 msgstr ""
 
-#: install.php:188
-msgid "Creating queues_config.."
-msgstr ""
-
-#: install.php:94
+#: install.php:67
 msgid "Creating queues_details.."
 msgstr ""
 
@@ -345,10 +333,6 @@ msgstr ""
 msgid "Don't Care"
 msgstr ""
 
-#: install.php:339
-msgid "Dropping old queues table.."
-msgstr ""
-
 #: views/form.php:1205
 msgid "Dynamic Agents"
 msgstr ""
@@ -361,33 +345,12 @@ msgid ""
 "be logged in to the queue."
 msgstr ""
 
-#: install.php:328
-msgid "ERROR were encountered"
-msgstr ""
-
-#: install.php:207
-msgid "ERROR: accessing queues table obtaining context info, aborting"
-msgstr ""
-
-#: install.php:232
-msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr ""
-
-#: install.php:214
-msgid "ERROR: accessing queues table obtaining rtone info, aborting"
-msgstr ""
-
-#: install.php:101 install.php:195
+#: install.php:74
 msgid "ERROR: could not create table"
 msgstr ""
 
-#: install.php:119
+#: install.php:92
 msgid "ERROR: could not migrate to queues_details"
-msgstr ""
-
-#: install.php:320
-#, php-format
-msgid "ERROR: inserting data for row %s: %s.."
 msgstr ""
 
 #: views/form.php:482
@@ -637,11 +600,7 @@ msgstr ""
 msgid "Menu ID "
 msgstr ""
 
-#: install.php:203
-msgid "Migrating data to queues_config.."
-msgstr ""
-
-#: install.php:116
+#: install.php:89
 msgid "Migrating to queues_details.."
 msgstr ""
 
@@ -671,10 +630,6 @@ msgstr ""
 
 #: views/form.php:278
 msgid "Music on Hold Class"
-msgstr ""
-
-#: install.php:72
-msgid "NO table found, no migration to do just create tables"
 msgstr ""
 
 #: views/form.php:1097
@@ -709,11 +664,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: install.php:77 install.php:105 install.php:122 install.php:125
-#: install.php:199 install.php:326 install.php:332 install.php:345
-#: install.php:354 install.php:371 install.php:497 install.php:512
-#: install.php:527 install.php:542 install.php:557 install.php:572
-#: install.php:587 install.php:602 install.php:617 install.php:632
+#: install.php:78 install.php:95 install.php:98
 msgid "OK"
 msgstr ""
 
@@ -754,9 +705,9 @@ msgid ""
 "callback number. If the callback number does not pass the regex filter then "
 "it will be treated as invalid. This can be used to restrict agents to "
 "extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^([2-"
-"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"any other use that may be appropriate. An example input might be:<br /"
+">^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. "
+"Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * "
 "key.<br />WARNING: make sure you understand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
@@ -770,7 +721,7 @@ msgstr ""
 msgid "Queue %s : %s"
 msgstr ""
 
-#: functions.inc/queue_conf.php:230
+#: functions.inc/queue_conf.php:199
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr ""
@@ -1129,11 +1080,6 @@ msgid ""
 "are doing or leave this blank"
 msgstr ""
 
-#: install.php:343 install.php:352
-#, php-format
-msgid "WARNING FAILED %s"
-msgstr ""
-
 #: views/form.php:834
 msgid "Wait Time Prefix"
 msgstr ""
@@ -1142,7 +1088,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr ""
 
-#: functions.inc/queue_conf.php:225
+#: functions.inc/queue_conf.php:194
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1300,67 +1246,8 @@ msgid ""
 "queue.<br><br>This setting is optional."
 msgstr ""
 
-#: install.php:389
-msgid "adding agentannounce_id field.."
-msgstr ""
-
-#: install.php:398
-msgid "adding joinannounce_id field.."
-msgstr ""
-
-#: install.php:99 install.php:193 install.php:373 install.php:499
-#: install.php:514 install.php:529 install.php:544 install.php:559
-#: install.php:574 install.php:589 install.php:604 install.php:619
-#: install.php:634
+#: install.php:72
 msgid "already exists"
-msgstr ""
-
-#: install.php:483
-msgid "already migrated"
-msgstr ""
-
-#: install.php:622
-msgid "checking for callback_id field.."
-msgstr ""
-
-#: install.php:547
-msgid "checking for callconfirm field.."
-msgstr ""
-
-#: install.php:562
-msgid "checking for callconfirm_id field.."
-msgstr ""
-
-#: install.php:592
-msgid "checking for monitor_heard field.."
-msgstr ""
-
-#: install.php:607
-msgid "checking for monitor_spoken field.."
-msgstr ""
-
-#: install.php:577
-msgid "checking for monitor_type field.."
-msgstr ""
-
-#: install.php:532
-msgid "checking for qnoanswer field.."
-msgstr ""
-
-#: install.php:361
-msgid "checking for qregex field.."
-msgstr ""
-
-#: install.php:487
-msgid "checking for queuewait field.."
-msgstr ""
-
-#: install.php:517
-msgid "checking for togglehint field.."
-msgstr ""
-
-#: install.php:502
-msgid "checking for use_queue_context field.."
 msgstr ""
 
 #: functions.inc.php:31
@@ -1369,19 +1256,6 @@ msgstr ""
 
 #: views/form.php:293
 msgid "default"
-msgstr ""
-
-#: install.php:464
-msgid "dropping agentannounce field.."
-msgstr ""
-
-#: install.php:474
-msgid "dropping joinannounce field.."
-msgstr ""
-
-#: install.php:393 install.php:402 install.php:414 install.php:430
-#: install.php:440 install.php:456
-msgid "fatal error"
 msgstr ""
 
 #: views/form.php:256
@@ -1412,23 +1286,6 @@ msgstr ""
 msgid "linear"
 msgstr ""
 
-#: install.php:410
-msgid "migrate agentannounce to ids.."
-msgstr ""
-
-#: install.php:436
-msgid "migrate joinannounce to ids.."
-msgstr ""
-
-#: install.php:434 install.php:460
-#, php-format
-msgid "migrated %s entries"
-msgstr ""
-
-#: install.php:388
-msgid "migrating"
-msgstr ""
-
 #: functions.inc.php:33
 msgid "minute"
 msgstr ""
@@ -1437,20 +1294,8 @@ msgstr ""
 msgid "minutes"
 msgstr ""
 
-#: install.php:470
-msgid "no agentannounce field???"
-msgstr ""
-
-#: install.php:478
-msgid "no joinannounce field???"
-msgstr ""
-
 #: views/form.php:292
 msgid "none"
-msgstr ""
-
-#: install.php:396 install.php:405 install.php:472 install.php:480
-msgid "ok"
 msgstr ""
 
 #: views/form.php:257
@@ -1461,10 +1306,6 @@ msgstr ""
 msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
-msgstr ""
-
-#: install.php:348
-msgid "removing queues data extensions table.."
 msgstr ""
 
 #: views/form.php:255
