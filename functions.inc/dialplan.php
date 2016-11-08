@@ -79,6 +79,7 @@ function queues_get_config($engine) {
 
 				$grppre = (isset($q['prefix'])?$q['prefix']:'');
 				$alertinfo = (isset($q['alertinfo'])?$q['alertinfo']:'');
+				$rvolume = (isset($q['rvolume'])?$q['rvolume']:'');
 
 				// Not sure why someone would ever have a ; in the regex, but since Asterisk has problems with them
 				// it would need to be escaped
@@ -123,6 +124,9 @@ function queues_get_config($engine) {
 				$ainfo = $alertinfo != '' ? str_replace(';', '\;', $alertinfo) : ' ';
 				$ext->add($c, $exten, '', new ext_set('QAINFO', '${IF($[${LEN(${VQ_AINFO})}>0]?${VQ_AINFO}:' . $ainfo . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_AINFO', ''));
+				if(!empty($rvolume)) {
+					$ext->add($c, $exten, '', new ext_set('RVOL', $rvolume));
+				}
 				$ext->add($c, $exten, '', new ext_execif('$["${QAINFO}"!=""]', 'Set', '__ALERT_INFO=${QAINFO}'));
 
 				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
@@ -309,7 +313,7 @@ function queues_get_config($engine) {
 				/* Trial Devstate */
 				// Create Hints for Devices and Add Astentries for Users
 				// Clean up the Members array
-				if ($q['togglehint'] && $que_code != '') {
+				if ($que_code != '') {
 					if (!isset($device_list)) {
 				  	$device_list = core_devices_list("all", 'full', true);
 						$device_list = is_array($device_list)?$device_list:array();

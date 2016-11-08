@@ -26,7 +26,8 @@ function queues_add(
 	$monitor_heard = '0',
 	$monitor_spoken = '0',
 	$answered_elsewhere = '0',
-	$recording = 'dontcare'
+	$recording = 'dontcare',
+	$rvolume = ''
 ) {
  	global $db,$astman,$amp_conf;
 
@@ -74,7 +75,7 @@ function queues_add(
 		array($account,'answered_elsewhere',(isset($_REQUEST['answered_elsewhere']))?$_REQUEST['answered_elsewhere']:'0',0),
 		array($account,'timeoutpriority',(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',0),
 		array($account,'penaltymemberslimit',(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',0),
-
+		array($account,'rvolume',(isset($_REQUEST['rvolume']))?$_REQUEST['rvolume']:'',0),
 	);
 
 	/*
