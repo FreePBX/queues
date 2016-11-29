@@ -3,9 +3,7 @@
 //include bootstrap
 $restrict_mods = array('queues' => true);
 $bootstrap_settings['freepbx_auth'] = false;
-if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-	include_once('/etc/asterisk/freepbx.conf');
-}
+include '/etc/freepbx.conf';
 
 if (isset($argv[1])) {
 	$queue_toggle_code = $argv[1];
