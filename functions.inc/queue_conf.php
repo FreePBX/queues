@@ -145,6 +145,7 @@ class queues_conf {
 					case 'monitor-join':
 					case 'answered_elsewhere':
 					case 'skip_joinannounce':
+					case 'rvolume':
 						continue;
 					break;
 					case 'music':
