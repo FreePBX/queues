@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2016-12-09 21:59+0200\n"
+"PO-Revision-Date: 2016-12-09 22:34+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/queues/es_ES/>\n"
@@ -547,7 +547,7 @@ msgstr "Honrar Penalidades"
 
 #: queues.i18n.php:20
 msgid "Honor Wrapup Time Across Queues"
-msgstr ""
+msgstr "Respetar el Tiempo de Conclusión a lo largo de todas las colas"
 
 #: views/cron.php:59
 msgid "Hourly"
@@ -589,6 +589,11 @@ msgid ""
 "the PBX will be forced into Call Confirmation mode where the member must "
 "acknowledge the call before it is answered and delivered."
 msgstr ""
+"Si está marcado, cualquier miembro de la cola que sea realmente un número de "
+"teléfono externo o cualquier extensión de SigueMe o reenvío de llamada que "
+"se persiga y salga de la PBX será forzado en el modo de Confirmación de "
+"Llamada donde el miembro debe reconocer la llamada antes de ser contestada y "
+"entregada ."
 
 #: views/form.php:113
 msgid ""
@@ -655,6 +660,10 @@ msgid ""
 "it will hold all calls while it tries to find an agent for the top call in "
 "the queue making other calls wait."
 msgstr ""
+"Si está activado y varios agentes están disponibles, Asterisk enviará una "
+"llamada a cada agente en espera (dependiendo de la estrategia de anillo). De "
+"lo contrario, mantendrá todas las llamadas mientras intenta encontrar un "
+"agente para la llamada en el tope de la cola haciendo otras llamadas esperar."
 
 #: views/form.php:1340
 msgid ""
@@ -695,6 +704,8 @@ msgid ""
 "Incoming calls to agents can be recorded. If 'never' is selected, then in-"
 "call on demand recording is blocked."
 msgstr ""
+"Se pueden grabar llamadas entrantes a agentes. Si se selecciona \"nunca\", "
+"se bloquea la grabación en llamada en demanda."
 
 #: queues.i18n.php:42
 msgid ""
@@ -706,22 +717,31 @@ msgid ""
 "option, it is not displayed by default. If a queue is set to not answer, the "
 "setting will be displayed for that queue regardless of this setting."
 msgstr ""
+"Es posible que una cola NO conteste una llamada y sigan ingresando a "
+"llamantes a la cola. El comportamiento normal es que todos los llamantes se "
+"respondan antes de entrar en la cola. Si no se responde a la llamada, es "
+"posible que algunos medios de comunicación tempranos todavía permitan a los "
+"llamantes escuchar grabaciones, MoH, etc, pero esto puede ser inconsistente "
+"y variar. Debido a la volatilidad de esta opción, no se muestra de forma "
+"predeterminada. Si una cola está configurada para no responder, la "
+"configuración se mostrará para esa cola independientemente de esta "
+"configuración."
 
 #: views/form.php:171
 msgid "Join Announcement"
-msgstr ""
+msgstr "Anuncio de Uniéndose"
 
 #: views/form.php:1601
 msgid "Join Empty"
-msgstr ""
+msgstr "Uniéndose Vacio"
 
 #: views/form.php:1635
 msgid "Leave Empty"
-msgstr ""
+msgstr "Saliendo Vacio"
 
 #: views/bootnav.php:2
 msgid "List Queues"
-msgstr ""
+msgstr "Listar Colas"
 
 #: views/form.php:382 views/form.php:390 views/form.php:1276
 #: views/form.php:1615 views/form.php:1649
@@ -730,19 +750,19 @@ msgstr "Soltar"
 
 #: views/form.php:1117
 msgid "Mark calls answered elsewhere"
-msgstr ""
+msgstr "Marcar llamadas como contestadas en otro sitio"
 
 #: views/form.php:1576
 msgid "Max Callers"
-msgstr ""
+msgstr "Máximo Llamantes"
 
 #: views/form.php:1241
 msgid "Max Wait Time"
-msgstr ""
+msgstr "Tiempo máximo de Espera"
 
 #: views/form.php:1267
 msgid "Max Wait Time Mode"
-msgstr ""
+msgstr "Modo de tiempo Máximo de Espera"
 
 #: views/form.php:1589
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
@@ -752,7 +772,7 @@ msgstr ""
 
 #: views/form.php:1404
 msgid "Member Delay"
-msgstr ""
+msgstr "Retraso del Miembro"
 
 #: views/form.php:638
 msgid "Member Status Event"
@@ -760,7 +780,7 @@ msgstr "Evento Estado de Miembro"
 
 #: queues.i18n.php:56
 msgid "Member Status Event Default"
-msgstr ""
+msgstr "Valor predeterminado de Evento Estado del miembro"
 
 #: views/form.php:468 views/form.php:472
 msgid "Menu ID "
@@ -776,7 +796,7 @@ msgstr "Migrando tabla de detalles de colas(queues_details).."
 
 #: views/form.php:1728
 msgid "Minimum Announcement Interval"
-msgstr ""
+msgstr "Intervalo mínimo de Anuncio"
 
 #: views/form.php:299
 msgid "MoH Only"
@@ -809,7 +829,7 @@ msgstr ""
 
 #: views/form.php:278
 msgid "Music on Hold Class"
-msgstr ""
+msgstr "Clase de Música en Espera"
 
 #: install.php:72
 msgid "NO table found, no migration to do just create tables"
@@ -865,7 +885,7 @@ msgstr "Sólo una vez"
 
 #: views/form.php:717
 msgid "Other Options"
-msgstr ""
+msgstr "Otras Opciones"
 
 #: views/form.php:902
 #, php-format
@@ -873,10 +893,12 @@ msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
+"Anular el volumen del timbre. Nota: esto sólo es válido para los teléfonos %"
+"s en este momento"
 
 #: views/form.php:1669
 msgid "Penalty Members Limit"
-msgstr ""
+msgstr "Limite de Penalidad de Miembro"
 
 #: views/form.php:1808
 msgid "Periodic Announcements"
@@ -884,11 +906,11 @@ msgstr "Anuncios periódicos"
 
 #: queues.i18n.php:14
 msgid "Persistent Members"
-msgstr ""
+msgstr "Miembros Persistentes"
 
 #: install.php:29
 msgid "Playback Queue Caller Count"
-msgstr ""
+msgstr "Reproducir conteo de llamantes en cola"
 
 #: views/form.php:1865
 msgid ""
@@ -930,7 +952,7 @@ msgstr "Cola - %s (%s): %s<br/>"
 
 #: views/form.php:686
 msgid "Queue Agents"
-msgstr ""
+msgstr "Agentes de Cola"
 
 #: views/form.php:432 views/form.php:535
 msgid "Queue Callback"
@@ -942,15 +964,15 @@ msgstr "Cola de Llamantes"
 
 #: views/form.php:756
 msgid "Queue Name"
-msgstr ""
+msgstr "Nombre de Cola"
 
 #: views/form.php:98
 msgid "Queue No Answer"
-msgstr ""
+msgstr "Cola no Contesta"
 
 #: views/form.php:732
 msgid "Queue Number"
-msgstr ""
+msgstr "Numero de la Cola"
 
 #: assets/js/queues.js:40
 msgid "Queue Number must not be blank"
@@ -958,7 +980,7 @@ msgstr "El número de la cola no puede estar vacío"
 
 #: views/form.php:68
 msgid "Queue Password"
-msgstr ""
+msgstr "Contraseña de la Cola"
 
 #: install.php:9 install.php:22
 msgid "Queue Pause Toggle"
@@ -987,6 +1009,11 @@ msgid ""
 "are required to login or out a third party user that is not the extension "
 "dialing. These can be removed from the system by setting this to false."
 msgstr ""
+"Los códigos de entrada y salida de la cola eran históricamente queunum* y "
+"queunum**. Éstos han sido reemplazados en gran parte por los códigos de "
+"toggle de la cola *45. Los códigos legados son necesarios para iniciar "
+"sesión o salir de un usuario de terceros que no es la extensión de marcado. "
+"Éstos se pueden quitar del sistema estableciendo esto en falso."
 
 #: assets/js/queues.js:53
 msgid ""
@@ -1014,7 +1041,7 @@ msgstr "Colas"
 #: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
 #: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
 msgid "Queues Module"
-msgstr ""
+msgstr "Modulo de Colas"
 
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
@@ -1026,6 +1053,9 @@ msgid ""
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now goes away when this is enabled."
 msgstr ""
+"Colas: monitor-type = MixMonitor. Configurado en \"true\" utilizará la "
+"aplicación MixMonitor en lugar de Monitor para que el concepto de 'unir/"
+"mezclar' los archivos de entrada/salida desaparezca cuando esté habilitado."
 
 #: queues.i18n.php:18
 msgid ""
@@ -1033,6 +1063,9 @@ msgid ""
 "astdb so that when asterisk is restarted, each member will be automatically "
 "read into their recorded queues."
 msgstr ""
+"Colas: miembros persistentes. Almacene cada miembro dinámico en cada cola en "
+"el astdb de modo que cuando se reinicie el asterisk, cada miembro será leído "
+"automáticamente en sus colas registradas."
 
 #: queues.i18n.php:24
 msgid ""
@@ -1041,6 +1074,10 @@ msgid ""
 "queue. This is useful to make the queue respect the wrapuptime of another "
 "queue for a shared member."
 msgstr ""
+"Colas: shared_lastcall, sólo válido con Asterisk 1.6+. Esto hará que la "
+"última llamada y las llamadas recibidas sean las mismas en los miembros "
+"registrados en más de una cola. Esto es útil para hacer que la cola respete "
+"el wrapuptime de otra cola para un miembro compartido."
 
 #: queues.i18n.php:30
 msgid ""
@@ -1049,26 +1086,31 @@ msgid ""
 "with an agent name, which is set if available at the login time with "
 "AddQueueMember membername parameter, or with static members."
 msgstr ""
+"Colas: updatecdr, sólo válido con Asterisk 1.6+. Esta opción se implementa "
+"para imitar el comportamiento de chan_agents de llenar el campo dstchannel "
+"CDR de una llamada con un nombre de agente, que se establece si está "
+"disponible en la hora de inicio de sesión con el parámetro AddQueueMember "
+"membername o con miembros estáticos."
 
 #: views/cron.php:84
 msgid "RUN"
-msgstr ""
+msgstr "CORRER"
 
 #: views/cron.php:50
 msgid "Random"
-msgstr ""
+msgstr "Aleatorio"
 
 #: views/form.php:574
 msgid "Repeat Frequency"
-msgstr ""
+msgstr "Frecuencia de repetición"
 
 #: views/form.php:1431
 msgid "Report Hold Time"
-msgstr ""
+msgstr "Reporte de Tiempos de Espera"
 
 #: Queues.class.php:215
 msgid "Reset"
-msgstr ""
+msgstr "Reiniciar"
 
 #: views/form.php:711
 msgid "Reset Queue Stats"
@@ -1090,7 +1132,7 @@ msgstr ""
 
 #: views/form.php:1352
 msgid "Retry"
-msgstr ""
+msgstr "Reintentar"
 
 #: views/form.php:301
 msgid "Ring Only"
@@ -1098,11 +1140,11 @@ msgstr "Timbrar Solo"
 
 #: views/form.php:972
 msgid "Ring Strategy"
-msgstr ""
+msgstr "Estrategia de Timbrado"
 
 #: views/form.php:885
 msgid "Ringer Volume Override"
-msgstr ""
+msgstr "Anulación del volumen del timbrado"
 
 #: views/form.php:382
 msgid ""
@@ -1169,15 +1211,15 @@ msgstr ""
 
 #: views/form.php:1827
 msgid "Service Level"
-msgstr ""
+msgstr "Nivel de Servicio"
 
 #: queues.i18n.php:26
 msgid "Set Agent Name in CDR dstchannel"
-msgstr ""
+msgstr "Establecer nombre de agente en CDR dstchannel"
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
-msgstr ""
+msgstr "Establezca esta tarea para que suceda al azar"
 
 #: views/form.php:1800
 msgid ""
@@ -1190,7 +1232,7 @@ msgstr ""
 
 #: views/form.php:1025
 msgid "Skip Busy Agents"
-msgstr ""
+msgstr "Omitir Agentes Ocupados"
 
 #: views/form.php:1172
 msgid "Static Agents"
@@ -1213,10 +1255,26 @@ msgid ""
 "will have problems with subsequent transfers to voicemail and other issues "
 "may also exist."
 msgstr ""
+"Los agentes estáticos son extensiones que se supone que siempre están en la "
+"cola. Los agentes estáticos no necesitan \"iniciar sesión\" en la cola y no "
+"pueden \"cerrar sesión\" de la cola. <br><br> Listar extensiones de llamada, "
+"una por línea. <br><br> Puede incluir una extensión En un sistema remoto o "
+"un número externo (el Enrutamiento de salida debe contener una ruta válida "
+"para números externos). Usted puede poner un \",\" después de que el agente "
+"seguido por un valor de la penalidad, vea la documentación del asterisk "
+"referente a penalizaciones. <br/><br/> Se ha agregado un modo avanzado que "
+"le permite prefijar un número del agente con S, P, X , Z, D o A. Esto "
+"obligará al número de agente a marcarse como un dispositivo Asterisk de tipo "
+"SIP, PJSIP, IAX2, ZAP, DAHDi o Agente, respectivamente. Este modo es para "
+"usuarios avanzados y puede causar problemas conocidos en FreePBX mientras "
+"está pasando el plan de marcado normal. Si sus \"Restricciones de agente\" "
+"no están establecidas en \"Sólo extensión\", tendrá problemas con las "
+"transferencias posteriores al correo de voz y también pueden existir otros "
+"problemas."
 
 #: views/cron.php:20
 msgid "Stats Reset"
-msgstr ""
+msgstr "Reiniciar Estadísticas"
 
 #: views/form.php:379 views/form.php:388 views/form.php:1274
 #: views/form.php:1609 views/form.php:1643
@@ -1225,13 +1283,15 @@ msgstr "Estricto"
 
 #: Queues.class.php:210
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: views/form.php:1740
 msgid ""
 "The absolute minimum time between the start of each queue position and/or "
 "estimated holdtime announcement"
 msgstr ""
+"El tiempo mínimo absoluto entre el inicio de cada posición de cola y / o el "
+"anuncio estimado de tiempo de espera"
 
 #: views/form.php:1255
 msgid ""
@@ -1284,7 +1344,7 @@ msgstr ""
 
 #: views/form.php:1716
 msgid "This value is ignored if the caller's position changes"
-msgstr ""
+msgstr "Este valor es ignorado si la posición del llamante cambia"
 
 #: views/form.php:691
 msgid "Timing & Agent Options"
@@ -1301,7 +1361,7 @@ msgstr "Sin límite"
 
 #: queues.i18n.php:32
 msgid "Use MixMonitor for Recordings"
-msgstr ""
+msgstr "Usar MisMonitor para Grabaciones"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
@@ -1345,7 +1405,7 @@ msgstr "AVISO DE FALLO %s"
 
 #: views/form.php:834
 msgid "Wait Time Prefix"
-msgstr ""
+msgstr "Prefijo Tiempo de Espera"
 
 #: Queues.class.php:144
 msgid "Warning! Extension"
@@ -1511,10 +1571,12 @@ msgstr ""
 msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
+"Cuándo programar este trabajo. La habilitación de notas 'Aleatorio' "
+"reemplaza estos ajustes"
 
 #: views/form.php:1157
 msgid "Where calls should fail to"
-msgstr ""
+msgstr "Donde las llamadas deben fallar"
 
 #: views/form.php:441
 msgid ""
@@ -1528,7 +1590,7 @@ msgstr ""
 
 #: views/form.php:1378
 msgid "Wrap-Up-Time"
-msgstr ""
+msgstr "Tiempo-de-Conclusion"
 
 #: views/cron.php:26 views/cron.php:55 views/form.php:103 views/form.php:378
 #: views/form.php:387 views/form.php:612 views/form.php:644 views/form.php:787
