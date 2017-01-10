@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-01-10 12:57+0200\n"
+"PO-Revision-Date: 2017-01-10 15:09+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/queues/de_DE/>\n"
@@ -219,7 +219,7 @@ msgstr ""
 
 #: views/form.php:426
 msgid "Break Out Type"
-msgstr ""
+msgstr "Unterbrechungstyp"
 
 #: views/form.php:810
 msgid "CID Name Prefix"
@@ -227,7 +227,7 @@ msgstr ""
 
 #: views/form.php:782
 msgid "Call Confirm"
-msgstr ""
+msgstr "Anruf bestätigen"
 
 #: views/form.php:134
 msgid "Call Confirm Announce"
@@ -235,7 +235,7 @@ msgstr ""
 
 #: views/form.php:1088
 msgid "Call Recording"
-msgstr ""
+msgstr "Anrufaufzeichnung"
 
 #: views/form.php:948
 msgid "Call as Dialed"
@@ -247,11 +247,11 @@ msgstr ""
 
 #: views/form.php:701
 msgid "Caller Announcements"
-msgstr ""
+msgstr "Anruferbenachrichtungen"
 
 #: views/form.php:1692
 msgid "Caller Position"
-msgstr ""
+msgstr "Anruferposition"
 
 #: views/form.php:387
 msgid ""
@@ -269,7 +269,7 @@ msgstr ""
 
 #: views/form.php:696
 msgid "Capacity Options"
-msgstr ""
+msgstr "Kapazitätsoptionen"
 
 #: install.php:68
 msgid "Checking for legacy queues table.."
@@ -300,11 +300,11 @@ msgstr ""
 
 #: views/cron.php:60
 msgid "Daily"
-msgstr ""
+msgstr "Täglich"
 
 #: views/form.php:142
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: queues.i18n.php:48
 msgid ""
@@ -322,11 +322,11 @@ msgstr ""
 
 #: Queues.class.php:205
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: views/bootnav.php:10 views/qgrid.php:15
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: views/form.php:385
 msgid ""
@@ -343,7 +343,7 @@ msgstr ""
 
 #: views/form.php:1095
 msgid "Don't Care"
-msgstr ""
+msgstr "Nicht gepflegt"
 
 #: install.php:339
 msgid "Dropping old queues table.."
@@ -351,7 +351,7 @@ msgstr ""
 
 #: views/form.php:1205
 msgid "Dynamic Agents"
-msgstr ""
+msgstr "Dynamische Agenten"
 
 #: views/form.php:1226
 msgid ""
@@ -398,7 +398,7 @@ msgstr ""
 
 #: views/cron.php:37
 msgid "Enable this task"
-msgstr ""
+msgstr "Aktivieren Sie diese Aufgabe"
 
 #: views/form.php:1133
 msgid ""
@@ -425,15 +425,15 @@ msgstr ""
 
 #: views/form.php:1093
 msgid "Force"
-msgstr ""
+msgstr "Zwang"
 
 #: views/form.php:1702
 msgid "Frequency"
-msgstr ""
+msgstr "Häufigkeit"
 
 #: views/form.php:681
 msgid "General Settings"
-msgstr ""
+msgstr "Allgemeine Einstellungen"
 
 #: queues.i18n.php:50
 msgid "Generate queuenum*/** Login/off Codes"
@@ -463,19 +463,23 @@ msgstr ""
 
 #: views/cron.php:59
 msgid "Hourly"
-msgstr ""
+msgstr "Stündlich"
 
 #: views/form.php:588
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
+"Wie oft ein Sprachmenü für den Anrufer angesagt werden soll (0 zum "
+"Deaktivieren der Benachrichtigung)."
 
 #: views/form.php:1716
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 msgstr ""
+"Wie oft die Warteschlangenposition und die geschätzte Wartezeit angesagt "
+"werden soll (0 zum Deaktivieren der Benachrichtigung)."
 
 #: functions.inc/destination_registry.php:98
 msgid "INUSE"
@@ -561,7 +565,7 @@ msgstr ""
 
 #: functions.inc/hook_core.php:37
 msgid "Ignore State"
-msgstr ""
+msgstr "Status ignorieren"
 
 #: views/form.php:1105
 msgid ""
@@ -594,7 +598,7 @@ msgstr ""
 
 #: views/bootnav.php:2
 msgid "List Queues"
-msgstr ""
+msgstr "Warteschlangen auflisten"
 
 #: views/form.php:382 views/form.php:390 views/form.php:1276
 #: views/form.php:1615 views/form.php:1649
@@ -603,23 +607,25 @@ msgstr ""
 
 #: views/form.php:1117
 msgid "Mark calls answered elsewhere"
-msgstr ""
+msgstr "Anrufe als beantwortet markieren"
 
 #: views/form.php:1576
 msgid "Max Callers"
-msgstr ""
+msgstr "Max. Anrufer"
 
 #: views/form.php:1241
 msgid "Max Wait Time"
-msgstr ""
+msgstr "Max. Wartezeit"
 
 #: views/form.php:1267
 msgid "Max Wait Time Mode"
-msgstr ""
+msgstr "Max. Wartezeitmodus"
 
 #: views/form.php:1589
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr ""
+"Maximale Anzahl von Personen, die in der Warteschlange warten können (0 für "
+"unbegrenzt)."
 
 #: views/form.php:1404
 msgid "Member Delay"
@@ -635,7 +641,7 @@ msgstr ""
 
 #: views/form.php:468 views/form.php:472
 msgid "Menu ID "
-msgstr ""
+msgstr "Menü ID "
 
 #: install.php:203
 msgid "Migrating data to queues_config.."
@@ -655,7 +661,7 @@ msgstr ""
 
 #: views/cron.php:62
 msgid "Monthly"
-msgstr ""
+msgstr "Monatlich"
 
 #: views/form.php:310
 msgid ""
@@ -679,7 +685,7 @@ msgstr ""
 
 #: views/form.php:1097
 msgid "Never"
-msgstr ""
+msgstr "Niemals"
 
 #: views/form.php:391
 msgid ""
@@ -694,20 +700,20 @@ msgstr ""
 #: views/form.php:1500 views/form.php:1529 views/form.php:1613
 #: views/form.php:1647 views/form.php:1761 views/form.php:1790
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: views/form.php:950
 msgid "No Follow-Me or Call Forward"
-msgstr ""
+msgstr "Kein Folge mir oder Anrufweiterleitung"
 
 #: views/form.php:356
 msgid "No Retry"
-msgstr ""
+msgstr "Keine Wiederholung"
 
 #: views/form.php:178 views/form.php:206 views/form.php:499 views/form.php:540
 #: views/form.php:890
 msgid "None"
-msgstr ""
+msgstr "keine"
 
 #: install.php:77 install.php:105 install.php:122 install.php:125
 #: install.php:199 install.php:326 install.php:332 install.php:345
@@ -715,15 +721,15 @@ msgstr ""
 #: install.php:527 install.php:542 install.php:557 install.php:572
 #: install.php:587 install.php:602 install.php:617 install.php:632
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: views/form.php:1792
 msgid "Once"
-msgstr ""
+msgstr "Einmal"
 
 #: views/form.php:717
 msgid "Other Options"
-msgstr ""
+msgstr "weitere Optionen"
 
 #: views/form.php:902
 #, php-format
@@ -738,11 +744,11 @@ msgstr ""
 
 #: views/form.php:1808
 msgid "Periodic Announcements"
-msgstr ""
+msgstr "Regelmäßige Benachtichtigung"
 
 #: queues.i18n.php:14
 msgid "Persistent Members"
-msgstr ""
+msgstr "Dauerhafte Mitglieder"
 
 #: install.php:29
 msgid "Playback Queue Caller Count"
@@ -763,21 +769,21 @@ msgstr ""
 
 #: Queues.class.php:193 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
-msgstr ""
+msgstr "Warteschlange"
 
 #: functions.inc/destination_registry.php:36
 #, php-format
 msgid "Queue %s : %s"
-msgstr ""
+msgstr "Warteschlange %s : %s"
 
 #: functions.inc/queue_conf.php:231
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
-msgstr ""
+msgstr "Warteschlange - %s (%s): %s<br />"
 
 #: views/form.php:686
 msgid "Queue Agents"
-msgstr ""
+msgstr "Warteschlange Agenten"
 
 #: views/form.php:432 views/form.php:535
 msgid "Queue Callback"
@@ -785,11 +791,11 @@ msgstr ""
 
 #: install.php:10
 msgid "Queue Callers"
-msgstr ""
+msgstr "Warteschlangenanrufer"
 
 #: views/form.php:756
 msgid "Queue Name"
-msgstr ""
+msgstr "Warteschlangenname"
 
 #: views/form.php:98
 msgid "Queue No Answer"
@@ -797,19 +803,19 @@ msgstr ""
 
 #: views/form.php:732
 msgid "Queue Number"
-msgstr ""
+msgstr "Warteschlangennummer"
 
 #: assets/js/queues.js:40
 msgid "Queue Number must not be blank"
-msgstr ""
+msgstr "Die Warteschlangennummer darf nicht leer sein"
 
 #: views/form.php:68
 msgid "Queue Password"
-msgstr ""
+msgstr "Warteschlangenpasswort"
 
 #: install.php:9 install.php:22
 msgid "Queue Pause Toggle"
-msgstr ""
+msgstr "Warteschlange Pause Umschalten"
 
 #: functions.inc/hook_core.php:64
 msgid "Queue State Detection"
@@ -817,7 +823,7 @@ msgstr ""
 
 #: install.php:8
 msgid "Queue Toggle"
-msgstr ""
+msgstr "Warteschlange umschalten"
 
 #: views/form.php:1061
 msgid "Queue Weight"
@@ -845,12 +851,12 @@ msgstr ""
 #: functions.inc/destination_registry.php:97
 #, php-format
 msgid "Queue: %s"
-msgstr ""
+msgstr "Warteschlange: %s"
 
 #: functions.inc/destination_registry.php:126
 #, php-format
 msgid "Queue: %s (%s)"
-msgstr ""
+msgstr "Warteschlange: %s (%s)"
 
 #: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
@@ -859,7 +865,7 @@ msgstr "Warteschlangen"
 #: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
 #: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
 msgid "Queues Module"
-msgstr ""
+msgstr "Warteschlangenmodule"
 
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
@@ -901,7 +907,7 @@ msgstr ""
 
 #: views/cron.php:50
 msgid "Random"
-msgstr ""
+msgstr "Zufällig"
 
 #: views/form.php:574
 msgid "Repeat Frequency"
@@ -913,11 +919,11 @@ msgstr ""
 
 #: Queues.class.php:215
 msgid "Reset"
-msgstr ""
+msgstr "Zurücksetzen"
 
 #: views/form.php:711
 msgid "Reset Queue Stats"
-msgstr ""
+msgstr "Warteschlangenstatistik zurücksetzen"
 
 #: views/form.php:913
 msgid "Restrict Dynamic Agents"
@@ -932,7 +938,7 @@ msgstr ""
 
 #: views/form.php:1352
 msgid "Retry"
-msgstr ""
+msgstr "Wiederholen"
 
 #: views/form.php:301
 msgid "Ring Only"
@@ -1034,7 +1040,7 @@ msgstr ""
 
 #: views/cron.php:20
 msgid "Stats Reset"
-msgstr ""
+msgstr "Statistik zurücksetzen"
 
 #: views/form.php:379 views/form.php:388 views/form.php:1274
 #: views/form.php:1609 views/form.php:1643
@@ -1043,7 +1049,7 @@ msgstr ""
 
 #: Queues.class.php:210
 msgid "Submit"
-msgstr ""
+msgstr "Bestätigen"
 
 #: views/form.php:1740
 msgid ""
@@ -1098,7 +1104,7 @@ msgstr ""
 
 #: views/form.php:332 views/form.php:350
 msgid "Unlimited"
-msgstr ""
+msgstr "Unbegrenzt"
 
 #: queues.i18n.php:32
 msgid "Use MixMonitor for Recordings"
@@ -1151,11 +1157,11 @@ msgstr ""
 
 #: views/cron.php:61
 msgid "Weekly"
-msgstr ""
+msgstr "Wöchentlich"
 
 #: views/form.php:187
 msgid "When No Free Agents"
-msgstr ""
+msgstr "Wenn keine freien Agenten"
 
 #: views/form.php:188
 msgid "When No Ready Agents"
@@ -1265,7 +1271,7 @@ msgstr ""
 #: views/form.php:1527 views/form.php:1607 views/form.php:1641
 #: views/form.php:1759 views/form.php:1788
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: views/form.php:1034
 msgid "Yes + (ringinuse=no)"
@@ -1273,11 +1279,11 @@ msgstr ""
 
 #: views/form.php:1466
 msgid "Yes in all queues"
-msgstr ""
+msgstr "Ja in allen Wartenschlangen"
 
 #: views/form.php:1466
 msgid "Yes in this queue only"
-msgstr ""
+msgstr "Ja nur in dieser Warteschlange"
 
 #: views/form.php:822
 msgid ""
@@ -1313,11 +1319,11 @@ msgstr ""
 #: install.php:574 install.php:589 install.php:604 install.php:619
 #: install.php:634
 msgid "already exists"
-msgstr ""
+msgstr "bereits vorhanden"
 
 #: install.php:483
 msgid "already migrated"
-msgstr ""
+msgstr "bereits migriert"
 
 #: install.php:622
 msgid "checking for callback_id field.."
@@ -1365,11 +1371,11 @@ msgstr ""
 
 #: functions.inc.php:31
 msgid "day"
-msgstr ""
+msgstr "Tag"
 
 #: views/form.php:293
 msgid "default"
-msgstr ""
+msgstr "Standard"
 
 #: install.php:464
 msgid "dropping agentannounce field.."
@@ -1382,7 +1388,7 @@ msgstr ""
 #: install.php:393 install.php:402 install.php:414 install.php:430
 #: install.php:440 install.php:456
 msgid "fatal error"
-msgstr ""
+msgstr "schwerwiegender Fehler"
 
 #: views/form.php:256
 msgid "fewestcalls"
@@ -1390,15 +1396,15 @@ msgstr ""
 
 #: functions.inc.php:32
 msgid "hour"
-msgstr ""
+msgstr "Stunde"
 
 #: functions.inc.php:32
 msgid "hours"
-msgstr ""
+msgstr "Stunden"
 
 #: views/form.php:291
 msgid "inherit"
-msgstr ""
+msgstr "Erben"
 
 #: Queues.class.php:144
 msgid "is not allowed for your account."
@@ -1427,15 +1433,15 @@ msgstr ""
 
 #: install.php:388
 msgid "migrating"
-msgstr ""
+msgstr "migrieren"
 
 #: functions.inc.php:33
 msgid "minute"
-msgstr ""
+msgstr "Minute"
 
 #: functions.inc.php:33
 msgid "minutes"
-msgstr ""
+msgstr "Minuten"
 
 #: install.php:470
 msgid "no agentannounce field???"
@@ -1447,15 +1453,15 @@ msgstr ""
 
 #: views/form.php:292
 msgid "none"
-msgstr ""
+msgstr "keine"
 
 #: install.php:396 install.php:405 install.php:472 install.php:480
 msgid "ok"
-msgstr ""
+msgstr "Ok"
 
 #: views/form.php:257
 msgid "random"
-msgstr ""
+msgstr "zufällig"
 
 #: views/form.php:261
 msgid ""
@@ -1473,11 +1479,11 @@ msgstr ""
 
 #: views/form.php:254
 msgid "ring all available agents until one answers (default)"
-msgstr ""
+msgstr "Klingel bei allen verfügbaren Agenten bis einer Antwortet (Standard)"
 
 #: views/form.php:257
 msgid "ring random agent"
-msgstr ""
+msgstr "Klingel bei zufälligen Agenten"
 
 #: views/form.php:256
 msgid "ring the agent with fewest completed calls from this queue"
@@ -1512,12 +1518,12 @@ msgstr ""
 
 #: functions.inc.php:34
 msgid "second"
-msgstr ""
+msgstr "Sekunde"
 
 #: functions.inc.php:17 functions.inc.php:34 views/form.php:334
 #: views/form.php:337 views/form.php:358 views/form.php:364 views/form.php:373
 msgid "seconds"
-msgstr ""
+msgstr "Sekunden"
 
 #: views/form.php:261
 msgid "wrandom"
