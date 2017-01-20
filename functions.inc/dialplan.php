@@ -477,19 +477,23 @@ function queues_get_config($engine) {
 						$pause_all_hints = array();
 						if (isset($qc[$device['user']])) foreach($qc[$device['user']] as $q) {
 							if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+								$dev_len = strlen($device['id']);
+								$dev_len_tmp = str_repeat('X', $dev_len);
+								$exten_pat = "_$que_pause_code*$dev_len_tmp*$q";
 
 								// Do the real hints for below
 								//
+								$q_tmp = '${EXTEN:' . ($q_pause_len+1) . ":".$dev_len.'}';
+								$d_tmp = '${DB(DEVICE/${EXTEN:' . ($q_pause_len+1) . ":".$dev_len."}/user)}";
+								/*
 								if ($ast_ge_12) {
 									$hint = "Queue:{$q}_pause_Local/{$device['user']}@from-queue/n";
 								} else {
 									$hint = "qpause:$q:Local/{$device['user']}@from-queue/n";
 								}
 								$pause_all_hints[] = $hint;
+								*/
 
-								$dev_len = strlen($device['id']);
-								$dev_len_tmp = str_repeat('X', $dev_len);
-								$exten_pat = "_$que_pause_code*$dev_len_tmp*$q";
 								if (!in_array($exten_pat, $hint_hash)) {
 									$hint_hash[] = $exten_pat;
 
@@ -498,14 +502,13 @@ function queues_get_config($engine) {
 									exten => *46*1999*90000,hint,Queue:90000_pause_Local/1999@from-queue/n
 									${DB(DEVICE/${EXTEN:4:4}/user)}
 									 */
-									$q_tmp = '${EXTEN:' . ($q_pause_len+$dev_len+2) . '}';
-									$d_tmp = '${DB(DEVICE/${EXTEN:' . ($q_pause_len+1) . ":$dev_len}/user)}";
 
 									if ($ast_ge_12) {
 										$hint = "Queue:{$q_tmp}_pause_Local/{$d_tmp}@from-queue/n";
 									} else {
 										$hint = "qpause:$q_tmp:Local/{$d_tmp}@from-queue/n";
 									}
+									$pause_all_hints[] = $hint;
 									$ext->add($c, $exten_pat, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$q_tmp));
 									$ext->addHint($c, $exten_pat, $hint);
 								}
