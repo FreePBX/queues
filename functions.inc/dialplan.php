@@ -140,7 +140,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('QAINFO', '${IF($[${LEN(${VQ_AINFO})}>0]?${VQ_AINFO}:' . $ainfo . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_AINFO', ''));
 				if(!empty($rvolume)) {
-					$ext->add($c, $exten, '', new ext_set('RVOL', $rvolume));
+					$ext->add($c, $exten, '', new ext_set('__RVOL', $rvolume));
 				}
 				$ext->add($c, $exten, '', new ext_execif('$["${QAINFO}"!=""]', 'Set', '__ALERT_INFO=${QAINFO}'));
 
