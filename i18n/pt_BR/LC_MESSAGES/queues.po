@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-01-26 17:53+0200\n"
+"PO-Revision-Date: 2017-01-27 17:59+0200\n"
 "Last-Translator: Suporte <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -54,16 +54,20 @@ msgid "Add Queue"
 msgstr "Adicionar Fila"
 
 #: views/form.php:874
+#, fuzzy
 msgid ""
 "Add an Alert-Info Header like Snom and other Phones need for Ring or "
 "Ringtone informations"
 msgstr ""
+"Adiciona um cabeçalho com alerta que alguns telefones necessitam para "
+"informações sobre tipos de toque"
 
 #: views/form.php:706
 msgid "Advanced Options"
 msgstr "Opções Avançadas"
 
 #: views/form.php:1392
+#, fuzzy
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay) If using "
@@ -71,6 +75,12 @@ msgid ""
 "setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
 "this is honored across queues for members logged on to multiple queues."
 msgstr ""
+"Após uma chamada bem sucedida, quantos segundos aguardar antes de enviar "
+"outra chamada a um agente livre (padrão é 0, ou sem atraso) usando Asterisk "
+"1.6+, você também pode configurar o 'Honor Wrapup Time Across Queues' "
+"configuração (Asterisk: shared_lastcall) na página Configurações Avançadas "
+"para que seja respeitada em filas para membros que estejam conectados a "
+"várias filas."
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
