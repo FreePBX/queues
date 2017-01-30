@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-01-27 17:59+0200\n"
+"PO-Revision-Date: 2017-01-30 17:33+0200\n"
 "Last-Translator: Suporte <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -136,7 +136,7 @@ msgstr "Sempre permitir o chamador juntar-se a Fila."
 
 #: views/form.php:1781
 msgid "Announce Hold Time"
-msgstr ""
+msgstr "Anunciar Tempo de Espera"
 
 #: views/form.php:1752
 msgid "Announce Position"
