@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-01-30 17:33+0200\n"
+"PO-Revision-Date: 2017-01-30 20:33+0200\n"
 "Last-Translator: Suporte <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -208,11 +208,11 @@ msgstr ""
 
 #: views/form.php:1460
 msgid "Auto Pause"
-msgstr ""
+msgstr "Pausa Automática"
 
 #: views/form.php:1549
 msgid "Auto Pause Delay"
-msgstr ""
+msgstr "Atraso da pausa automática"
 
 #: views/form.php:1479
 msgid ""
@@ -221,22 +221,26 @@ msgid ""
 "Pause Delay as well as Auto Pause Busy/Unavailable settings if supported on "
 "this version of Asterisk."
 msgstr ""
+"Pausar automaticamente um agente nesta fila (ou em todas as quais ele é "
+"membro) se eles não atenderem chamadas. Um comportamento específico pode ser "
+"determinado pelas configurações Atraso de Pausa Automática bem como Pausa "
+"Automática Ocupado/Indisponível, se suportado nesta versão do Asterisk."
 
 #: views/form.php:1491
 msgid "Auto Pause on Busy"
-msgstr ""
+msgstr "Pausa Automática em Ocupado"
 
 #: views/form.php:1520
 msgid "Auto Pause on Unavailable"
-msgstr ""
+msgstr "Pausa Automática em Indisponível"
 
 #: views/form.php:998
 msgid "Autofill"
-msgstr ""
+msgstr "Autocompletar"
 
 #: functions.inc/geters_seters.php:40
 msgid "Bad Queue Number, can not be blank"
-msgstr ""
+msgstr "Mau Número de fila, não pode estar em branco"
 
 #: views/form.php:426
 msgid "Break Out Type"
