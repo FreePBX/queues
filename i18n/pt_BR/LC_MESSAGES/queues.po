@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-01-30 20:33+0200\n"
+"PO-Revision-Date: 2017-02-03 18:52+0200\n"
 "Last-Translator: Suporte <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -54,12 +54,11 @@ msgid "Add Queue"
 msgstr "Adicionar Fila"
 
 #: views/form.php:874
-#, fuzzy
 msgid ""
 "Add an Alert-Info Header like Snom and other Phones need for Ring or "
 "Ringtone informations"
 msgstr ""
-"Adiciona um cabeçalho com alerta que alguns telefones necessitam para "
+"Adiciona um cabeçalho de Alert-Info que alguns telefones necessitam para "
 "informações sobre tipos de toque"
 
 #: views/form.php:706
@@ -67,7 +66,6 @@ msgid "Advanced Options"
 msgstr "Opções Avançadas"
 
 #: views/form.php:1392
-#, fuzzy
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay) If using "
@@ -76,9 +74,9 @@ msgid ""
 "this is honored across queues for members logged on to multiple queues."
 msgstr ""
 "Após uma chamada bem sucedida, quantos segundos aguardar antes de enviar "
-"outra chamada a um agente livre (padrão é 0, ou sem atraso) usando Asterisk "
-"1.6+, você também pode configurar o 'Honor Wrapup Time Across Queues' "
-"configuração (Asterisk: shared_lastcall) na página Configurações Avançadas "
+"outra chamada a um agente livre (padrão é 0, ou sem atraso) . Se estiver "
+"usando Asterisk 1.6+, você também pode configurar o 'Honor Wrapup Time "
+"Across Queues' (Asterisk: shared_lastcall) na página Configurações Avançadas "
 "para que seja respeitada em filas para membros que estejam conectados a "
 "várias filas."
 
@@ -92,7 +90,7 @@ msgstr "Anúncio do Agente"
 
 #: queues.i18n.php:44
 msgid "Agent Called Events Default"
-msgstr ""
+msgstr "Padrão de Eventos do Agente Chamado"
 
 #: views/form.php:1853
 msgid "Agent Regex Filter"
@@ -167,6 +165,12 @@ msgid ""
 "or more sound files are not displayed as options since this feature can not "
 "accept such recordings."
 msgstr ""
+"Anúncio tocado ao Agente antes de conectar com o chamador <br><br> Exemplo: "
+"\"A chamada Seguinte é da Fila de Vendas\" ou \"Esta chamada é da Fila de "
+"Suporte Técnico\".<br><br>Para adicionar outras gravações por favor use o "
+"menu \"Gravações do Sistema\". Compor gravações compostas de 2 ou mais "
+"arquivos de som não é exibido como opção pois esta funcionalidade não pode "
+"aceitar tais gravações."
 
 #: views/form.php:157
 msgid ""
@@ -178,6 +182,13 @@ msgid ""
 "<br><br>To add additional recordings please use the \"System Recordings\" "
 "MENU."
 msgstr ""
+"Anúncio reproduzido para o Membro da Fila anunciando a chamada de Fila e "
+"solicitando confirmação antes de atender. Se definido como padrão, a "
+"mensagem padrão de confirmação de chamada será reproduzida, a menos que o "
+"membro seja acessado através de um Siga-Me e haja uma mensagem alternativa "
+"fornecida no Siga-Me. Esta mensagem substituirá qualquer outra mensagem "
+"especificada. <br> <br> Para adicionar gravações, use o menu \"Gravações do "
+"Sistema\"."
 
 #: views/cron.php:63
 msgid "Annually"
@@ -197,6 +208,14 @@ msgid ""
 "This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
 "'Agent Timeout' combined."
 msgstr ""
+"Asterisk timeoutpriority. No modo 'Estrito', quando o 'Tempo de Espera "
+"Máximo' de um chamador é atingido, eles serão removidos da fila "
+"imediatamente. No modo \"Solto\", se um membro da fila estiver tocando "
+"atualmente com esta chamada, então esperaremos até que a fila pare de tocar "
+"nesse membro ou então a chamada seja rejeitada pelo membro da fila antes de "
+"tirar o chamador da fila. Isto significa que o 'Tempo Máximo de Espera' pode "
+"ser tão longo quanto 'Tempo Máximo de Espera' + 'Tempo Limite do Agente' "
+"combinados."
 
 #: views/form.php:1683
 msgid ""
@@ -205,6 +224,10 @@ msgid ""
 "members.  No penalty will be weighed in if there are only X or fewer queue "
 "members."
 msgstr ""
+"Asterisk: penaltymemberslimit. Um limite pode ser definido para ignorar as "
+"configurações de penalidade, permitindo que todos os membros sejam tentados, "
+"quando a fila tiver poucos membros. Nenhuma penalidade será pesada se houver "
+"apenas X ou menos fila membros."
 
 #: views/form.php:1460
 msgid "Auto Pause"
@@ -243,40 +266,41 @@ msgid "Bad Queue Number, can not be blank"
 msgstr "Mau Número de fila, não pode estar em branco"
 
 #: views/form.php:426
+#, fuzzy
 msgid "Break Out Type"
-msgstr ""
+msgstr "Tipo de Parada"
 
 #: views/form.php:810
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Prefixo do Nome CID"
 
 #: views/form.php:782
 msgid "Call Confirm"
-msgstr ""
+msgstr "Confirmação de Chamada"
 
 #: views/form.php:134
 msgid "Call Confirm Announce"
-msgstr ""
+msgstr "Anúncio de Confirmação de Chamada"
 
 #: views/form.php:1088
 msgid "Call Recording"
-msgstr ""
+msgstr "Gravação de Chamada"
 
 #: views/form.php:948
 msgid "Call as Dialed"
-msgstr ""
+msgstr "Chamar como Discado"
 
 #: views/form.php:550
 msgid "Callback to use when caller presses 1."
-msgstr ""
+msgstr "Utilizar Retorno de Chamada quando chamador pressionar 1."
 
 #: views/form.php:701
 msgid "Caller Announcements"
-msgstr ""
+msgstr "Anúncio de Chamador"
 
 #: views/form.php:1692
 msgid "Caller Position"
-msgstr ""
+msgstr "Posição do Chamador"
 
 #: views/form.php:387
 msgid ""
@@ -284,6 +308,9 @@ msgid ""
 "device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
 "in FreePBX dialplan).."
 msgstr ""
+"Chamadores irão sair se todos os agentes estiverem pausados, estiverem com "
+"estado de inválido para seu dispositivo ou ter valores de penalidade menor "
+"que QUEUE_MAX_PENALTY (atualmente não configurado no dialplan FreePBX."
 
 #: views/form.php:381
 msgid ""
@@ -291,22 +318,25 @@ msgid ""
 "for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
 "currently set in FreePBX dialplan)."
 msgstr ""
+"Chamadores não serão admitidos se todos os agentes estão pausados, estiverem "
+"com estado de inválido para seu dispositivo, ou tem valor de penalidade "
+"menor que QUEUE_MAX_PENALTY (atualmente não configurado no dialplan FreePBX)."
 
 #: views/form.php:696
 msgid "Capacity Options"
-msgstr ""
+msgstr "Opções de Capacidade"
 
 #: install.php:68
 msgid "Checking for legacy queues table.."
-msgstr ""
+msgstr "Verificando a tabela de filas legadas."
 
 #: install.php:382
 msgid "Checking if recordings need migration.."
-msgstr ""
+msgstr "Verificando se gravações precisam de migração."
 
 #: functions.inc/queue_conf.php:233
 msgid "Compound Recordings in Queues Detected"
-msgstr ""
+msgstr "Gravações Compostas em Fila Detectado"
 
 #: queues.i18n.php:8
 msgid ""
@@ -314,22 +344,26 @@ msgid ""
 "first-out basis. Many options are available, including ring strategy for "
 "agents, caller announcements, max wait times, etc."
 msgstr ""
+"Cria uma fila onde chamadas são colocadas em espera e atendidas na regra "
+"primeiro-a-entrar, primeiro-a-sair. Muitas opções estão disponíveis, "
+"incluindo estratégias de toque para agentes, anúncios para chamadores, tempo "
+"máximo de espera, etc."
 
 #: install.php:188
 msgid "Creating queues_config.."
-msgstr ""
+msgstr "Criando queues_config."
 
 #: install.php:94
 msgid "Creating queues_details.."
-msgstr ""
+msgstr "Criando queues_details."
 
 #: views/cron.php:60
 msgid "Daily"
-msgstr ""
+msgstr "Diariamente"
 
 #: views/form.php:142
 msgid "Default"
-msgstr ""
+msgstr "Padrão"
 
 #: queues.i18n.php:48
 msgid ""
@@ -337,6 +371,9 @@ msgid ""
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
+"Estado padrão para emitir eventos AMI relacionados a uma chamada de agente. "
+"Esta configuração irá apenas afetar NOVAS filas, isto não modifica filas "
+"existentes ou atualiza a opção em filas existentes."
 
 #: queues.i18n.php:60
 msgid ""
@@ -344,14 +381,17 @@ msgid ""
 "only affect the default for NEW queues, it won't change existing queues or "
 "enfore the option on in new ones."
 msgstr ""
+"Estado padrão para emitir eventos AMI QueueMemberStatus. Esta configuração "
+"irá apenas afetar NOVAS filas, isto não modifica filas existentes ou "
+"atualiza a opção em filas existentes."
 
 #: Queues.class.php:205
 msgid "Delete"
-msgstr ""
+msgstr "Apagar"
 
 #: views/bootnav.php:10 views/qgrid.php:15
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: views/form.php:385
 msgid ""
@@ -359,24 +399,29 @@ msgid ""
 "situations where it appears no one is currently available to take the call. "
 "The options include:"
 msgstr ""
+"Determina se chamadores poderão sair prematuramente  de uma fila em "
+"situações onde não há ninguém disponível para atender a chamada. As opções "
+"incluem:"
 
 #: views/form.php:376
 msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
 "failover destination will be immediately pursued. The options include:"
 msgstr ""
+"Determina se novos chamadores irão ser admitidos na Fila, se não, o destino "
+"de falha será imediatamente acionado. As opções incluem:"
 
 #: views/form.php:1095
 msgid "Don't Care"
-msgstr ""
+msgstr "Não se Importe"
 
 #: install.php:339
 msgid "Dropping old queues table.."
-msgstr ""
+msgstr "Apagando tabelas de filas antigas."
 
 #: views/form.php:1205
 msgid "Dynamic Agents"
-msgstr ""
+msgstr "Agentes Dinâmicos"
 
 #: views/form.php:1226
 msgid ""
@@ -385,14 +430,20 @@ msgid ""
 "will be as specified here. Extensions included here will NOT automatically "
 "be logged in to the queue."
 msgstr ""
+"Membros Dinâmicos são ramais ou números callback que podem entrar e sair da "
+"fila. Quando um membro entra em uma fila, sua penalidade na fila será "
+"especificada aqui. Ramais inclusos aqui NÃO irão automaticamente entrar na "
+"fila."
 
 #: install.php:328
 msgid "ERROR were encountered"
-msgstr ""
+msgstr "ERRO foi encontrado"
 
 #: install.php:207
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
+"ERRO: acessando tabelas de filas para obter informações de contexto, "
+"abortando"
 
 #: install.php:232
 msgid "ERROR: accessing queues table obtaining id list, aborting"
