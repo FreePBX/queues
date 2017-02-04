@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-02-03 18:52+0200\n"
+"PO-Revision-Date: 2017-02-03 23:34+0200\n"
 "Last-Translator: Suporte <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -447,11 +447,12 @@ msgstr ""
 
 #: install.php:232
 msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr ""
+msgstr "ERRO: acessando tabela de filas para obter lista de id, abortando"
 
 #: install.php:214
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr ""
+"ERRO: acessando tabela de filas para obter informações de rtone, abortando"
 
 #: install.php:101 install.php:195
 msgid "ERROR: could not create table"
