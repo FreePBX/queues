@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-02-03 23:34+0200\n"
+"PO-Revision-Date: 2017-02-06 20:35+0200\n"
 "Last-Translator: Suporte <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -456,26 +456,28 @@ msgstr ""
 
 #: install.php:101 install.php:195
 msgid "ERROR: could not create table"
-msgstr ""
+msgstr "ERRO: não foi possível criar tabela"
 
 #: install.php:119
 msgid "ERROR: could not migrate to queues_details"
-msgstr ""
+msgstr "ERRO: não foi possível migrar para queues_details"
 
 #: install.php:320
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
-msgstr ""
+msgstr "ERRO: inserindo dados na linha %s: %s.."
 
 #: views/form.php:482
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
+"Versões anteriores deste módulo permitiram que filas fossem escolhidas, uma "
+"vez modificada esta configuração, não aparecerá mais como opção"
 
 #: views/cron.php:37
 msgid "Enable this task"
-msgstr ""
+msgstr "Habilitar esta tarefa"
 
 #: views/form.php:1133
 msgid ""
@@ -483,42 +485,45 @@ msgid ""
 "cancelled. The effect is that missed queue calls are *not* shown on the "
 "phone (if the phone supports it)"
 msgstr ""
+"Habilitando esta opção, todas as chamadas são marcadas como 'atendidas em "
+"outro lugar' quando canceladas. O efeito é que as chamadas perdidas da fila "
+"não são mostradas  no telefone (se o telefone suportar tal função)"
 
 #: views/form.php:606
 msgid "Event When Called"
-msgstr ""
+msgstr "Evento quando chamado"
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
-msgstr ""
+msgstr "Opções do ramal"
 
 #: views/form.php:952
 msgid "Extensions Only"
-msgstr ""
+msgstr "Somente ramais"
 
 #: views/form.php:1145
 msgid "Fail Over Destination"
-msgstr ""
+msgstr "Destino em caso de falha"
 
 #: views/form.php:1093
 msgid "Force"
-msgstr ""
+msgstr "Forçar"
 
 #: views/form.php:1702
 msgid "Frequency"
-msgstr ""
+msgstr "Frequência"
 
 #: views/form.php:681
 msgid "General Settings"
-msgstr ""
+msgstr "Opções Gerais"
 
 #: queues.i18n.php:50
 msgid "Generate queuenum*/** Login/off Codes"
-msgstr ""
+msgstr "Gerar queuenum*/* Códigos Login/off"
 
 #: views/form.php:768
 msgid "Give this queue a brief name to help you identify it."
-msgstr ""
+msgstr "Dê um breve nome a esta fila para ajudá-lo a identificá-la."
 
 #: views/form.php:1074
 msgid ""
