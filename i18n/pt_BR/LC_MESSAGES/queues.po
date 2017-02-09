@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-02-06 20:35+0200\n"
-"Last-Translator: Suporte <suporte@kingvoice.com.br>\n"
+"PO-Revision-Date: 2017-02-09 17:45+0200\n"
+"Last-Translator: Luis <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -530,47 +530,57 @@ msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
+"Dá às filas uma opção 'peso', para garantir que as chamadas em espera em uma "
+"fila de prioridade mais alta entreguem suas chamadas primeiro se houver "
+"agentes comuns em ambas as filas."
 
 #: queues.i18n.php:38
+#, fuzzy
 msgid "Hide Queue No Answer Option"
-msgstr ""
+msgstr "Ocultar opção de fila sem resposta"
 
 #: views/form.php:395
+#, fuzzy
 msgid "Honor Penalties"
-msgstr ""
+msgstr "Respeitar penalidades"
 
 #: queues.i18n.php:20
 msgid "Honor Wrapup Time Across Queues"
-msgstr ""
+msgstr "Respeitar tempo em filas"
 
 #: views/cron.php:59
 msgid "Hourly"
-msgstr ""
+msgstr "De hora em hora"
 
 #: views/form.php:588
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
+"Frequência para anunciar um menu de voz para o chamador (0 para desabilitar "
+"Anúncios)."
 
 #: views/form.php:1716
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 msgstr ""
+"Frequência para anunciar posição na fila e tempo estimado de espera (0 para "
+"Desabilitar Anúncios)."
 
 #: functions.inc/destination_registry.php:98
 msgid "INUSE"
-msgstr ""
+msgstr "EM USO"
 
 #: functions.inc.php:75
 #, php-format
 msgid "IVR Announce: %s"
-msgstr ""
+msgstr "Anunciar URA: %s"
 
 #: views/form.php:431 views/form.php:494
+#, fuzzy
 msgid "IVR Break Out Menu"
-msgstr ""
+msgstr "Menu de parada URA"
 
 #: views/form.php:797
 msgid ""
@@ -579,6 +589,10 @@ msgid ""
 "the PBX will be forced into Call Confirmation mode where the member must "
 "acknowledge the call before it is answered and delivered."
 msgstr ""
+"Se selecionado, membros da fila que sejam números externos, ramais com Figa-"
+"me ou encaminhamento de chamadas que saiam do PABX serão levados ao modo de "
+"Confirmação de Chamadas, no qual os membros devem reconhecer a chamada antes "
+"desta ser atendida e entregue."
 
 #: views/form.php:113
 msgid ""
@@ -590,6 +604,12 @@ msgid ""
 "where the caller will not be admitted to the queue unless there is a queue "
 "member immediately available to take the call."
 msgstr ""
+"Se selecionado, a fila não atenderá a chamada. Na maioria das circunstâncias "
+"a fila sempre deve atender a chamada. Se não, é possível que gravações e "
+"música em espera não serão ouvidos pelos chamadores em espera. Casos nos "
+"quais é desejado não atender uma chamada é quando a política Join Empty: "
+"Strict é utilizada, onde o chamador não será admitido na fila, a menos que "
+"haja um membro da fila imediatamente disponível para atender a chamada."
 
 #: views/form.php:850
 msgid ""
@@ -597,6 +617,9 @@ msgid ""
 "since it first entered the queue or reset if the call is transferred to "
 "another queue with this feature set."
 msgstr ""
+"Se a chamada for posteriormente transferida, o tempo de espera vai refletir "
+"o tempo desde a primeira entrada na fila ou reiniciado se a chamada é "
+"transferida para outra fila com esta função habilitada."
 
 #: functions.inc/hook_core.php:65
 msgid ""
@@ -612,6 +635,18 @@ msgid ""
 "member as busy until the original call is terminated. In most cases, this "
 "SHOULD BE set to 'Use State'."
 msgstr ""
+"Se este ramal é membro de uma fila, então a fila irá tentar obter "
+"informações sobre o estado do ramal ou estado do dispositivo para determinar "
+"se este membro da fila deve receber chamadas. Casos incomuns como Siga-me "
+"sem dispositivos físicos, ou cenários de ramais virtuais, as informações "
+"sobre estados indicarão que este membro não está disponível quando na "
+"verdade está. Habilitando \"Ignorar Estado\" fará com que a fila ignore "
+"todas as informações de estado, portanto, sempre tentando entrar em contato "
+"com este membro. Alguns efeitos colaterais podem ocorrer com rotas devido a "
+"natureza como as filas manipulam chamadas locais, como posteriores "
+"transferências que continuarão mostrando um membro como ocupado até a "
+"chamada original ser terminada. Na maioria dos casos, esta funcionalidade "
+"DEVE ser configurada como 'Usar Estado'."
 
 #: views/form.php:1013
 msgid ""
