@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-02-10 19:02+0200\n"
+"PO-Revision-Date: 2017-02-10 23:36+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -1286,6 +1286,8 @@ msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr ""
+"O número máximo de segundos que um chamador pode esperar em uma fila antes "
+"de ser puxado para fora. (0 para ilimitado)."
 
 #: views/form.php:1310
 msgid ""
@@ -1293,6 +1295,10 @@ msgid ""
 "timeout. Unlimited or other timeout values may still be limited by system "
 "ringtime or individual extension defaults."
 msgstr ""
+"O número de segundos que o telefone de um agente pode tocar antes de "
+"considerar um tempo limite. Os valores ilimitados ou outros valores de tempo "
+"limite ainda podem ser limitados pelo tempo de timbre do sistema ou pelos "
+"padrões de extensão individuais."
 
 #: views/form.php:1366
 msgid ""
@@ -1301,6 +1307,10 @@ msgid ""
 "as the first attempted agent times-out, additional agents will not be "
 "attempted."
 msgstr ""
+"O número de segundos que esperamos antes de tentar todos os telefones "
+"novamente. Escolhendo \"No Retry\" irá sair da Fila e ir para o destino de "
+"transbordo, assim que a primeira tentativa de agente de tempo limite, "
+"agentes adicionais não serão tentados."
 
 #: views/form.php:1561
 msgid ""
@@ -1312,31 +1322,39 @@ msgid ""
 "they will then be auto paused. If they have taken no calls, this will have "
 "no affect."
 msgstr ""
+"Esta configuração atrasará a pausa automática de um agente por segundos de "
+"espera de pausa automática a partir da última vez em que tomou uma chamada. "
+"Por exemplo, se isso foi definido como 120 segundos e uma nova chamada é "
+"apresentada ao agente 90 segundos após a última vez que tomou uma chamada, "
+"eles não serão pausados automaticamente se eles não atender a chamada. Se "
+"for apresentado com uma chamada 120 segundos ou mais tarde depois de atender "
+"a última chamada, eles serão automaticamente pausados. Se eles não fizeram "
+"nenhuma chamada, isso não terá nenhum efeito."
 
 #: views/form.php:1716
 msgid "This value is ignored if the caller's position changes"
-msgstr ""
+msgstr "Esse valor é ignorado se a posição do chamador mudar"
 
 #: views/form.php:691
 msgid "Timing & Agent Options"
-msgstr ""
+msgstr "Duração & Opções Agente"
 
 #: views/form.php:380 views/form.php:389 views/form.php:1611
 #: views/form.php:1645
 msgid "Ultra Strict"
-msgstr ""
+msgstr "Ultra Restrito"
 
 #: views/form.php:332 views/form.php:350
 msgid "Unlimited"
-msgstr ""
+msgstr "Ilimitado"
 
 #: queues.i18n.php:32
 msgid "Use MixMonitor for Recordings"
-msgstr ""
+msgstr "Use MixMonitor para gravações"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
-msgstr ""
+msgstr "Estado de Uso"
 
 #: views/form.php:744
 msgid ""
@@ -1346,31 +1364,40 @@ msgid ""
 "<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
 "in<br>123** = log out</b>"
 msgstr ""
+"Use esse número para discar para a fila ou transfira os chamadores para esse "
+"número para colocá-los na fila. Os agentes marcarão este número de fila mais "
+"* para fazer login na fila e esse número de fila mais ** para logout fora da "
+"fila. <br> <br> Por exemplo, se o número da fila é 123:<br><br><b>123* = log "
+"in<br>123** = log out</b>"
 
 #: views/form.php:1841
 msgid ""
 "Used for service level statistics (calls answered within service level time "
 "frame)"
 msgstr ""
+"Usado para estatísticas de nível de serviço (chamadas atendidas dentro do "
+"intervalo de tempo do nível de serviço)"
 
 #: assets/js/queues.js:29
 msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
 msgstr ""
+"Usar um filtro Regex é bastante avançado, confirme que você sabe o que está "
+"fazendo ou deixe este em branco"
 
 #: install.php:343 install.php:352
 #, php-format
 msgid "WARNING FAILED %s"
-msgstr ""
+msgstr "AVISO DE FALHA %s"
 
 #: views/form.php:834
 msgid "Wait Time Prefix"
-msgstr ""
+msgstr "Prefixo do tempo de espera"
 
 #: Queues.class.php:144
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Atenção! Extensão"
 
 #: functions.inc/queue_conf.php:226
 msgid ""
@@ -1378,18 +1405,22 @@ msgid ""
 "configurations. Queues can not play these so they have been truncated to the "
 "first sound file. You should correct this problem.<br />Details:<br /><br />"
 msgstr ""
+"Atenção, existem gravações compostas configuradas em uma ou mais "
+"configurações de Fila. As filas não podem ser reproduzidas assim que elas "
+"foram truncadas para o primeiro arquivo de som. Você deve corrigir esse "
+"problema. <br /> Detalhes: <br /> <br />"
 
 #: views/cron.php:61
 msgid "Weekly"
-msgstr ""
+msgstr "Semanal"
 
 #: views/form.php:187
 msgid "When No Free Agents"
-msgstr ""
+msgstr "Sem Agentes Livres"
 
 #: views/form.php:188
 msgid "When No Ready Agents"
-msgstr ""
+msgstr "Sem agentes prontos"
 
 #: views/form.php:960
 msgid ""
@@ -1408,6 +1439,23 @@ msgid ""
 "the call will simply be blocked when the queue tries to call it. For dynamic "
 "agents, see the 'Agent Regex Filter' to provide some validation."
 msgstr ""
+"Quando definido como 'Chamada como discado', a fila chama uma extensão como "
+"se a fila fosse outro usuário. Quaisquer estados Siga-Me ou Encaminhamento "
+"de chamada ativos no ramal resultará na chamada de fila seguindo esses "
+"caminhos de chamada. Esse comportamento tem sido o comportamento de fila "
+"padrão em versões anteriores do FreePBX. <br /> Quando definido como 'Não "
+"Seguir-Me ou Encaminhamento de chamada', todos os agentes que são extensões "
+"no sistema serão limitados a tocar somente suas extensões. Siga-me e as "
+"configurações de encaminhamento de chamada serão ignoradas. Qualquer outro "
+"agente será chamado como discado. Esse comportamento é semelhante a como as "
+"extensões são discadas em grupos de toque. <br /> Quando configurado para "
+"'Extensions Only', a fila discará Extensões como descrito para 'Não Seguir-"
+"Me ou Encaminhar'. Qualquer outro número inserido para um agente que NÃO "
+"seja uma extensão válida será ignorado. Nenhuma verificação de erro é "
+"fornecida ao inserir um agente estático ou ao fazer logon como um agente "
+"dinâmico, a chamada será simplesmente bloqueada quando a fila tenta chamá-"
+"lo. Para agentes dinâmicos, consulte o 'Agent Regex Filter' para fornecer "
+"alguma validação."
 
 #: views/form.php:1049
 msgid ""
@@ -1432,12 +1480,38 @@ msgid ""
 "until that call is terminated as the call still appears as 'inuse' to the "
 "queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
 msgstr ""
+"Quando definido como 'Sim', os agentes que estão em um telefone ocupado "
+"serão ignorados como se a linha estivesse voltando ocupada. Isso significa "
+"que Chamada em espera ou telefones com várias linhas não serão apresentados "
+"com a chamada e nas várias estratégias de toque de estilo de busca, o "
+"próximo agente será tentado. <br /> Quando definido como 'Sim + (ringinuse = "
+"no)', o sinalizador de configuração da fila 'ringinuse = no' está definido "
+"para esta fila além do status do dispositivo do telefone que está sendo "
+"monitorado. Isso resulta na fila de rastreamento de agentes remotos (agentes "
+"que são um telefone remoto PSTN, chamado através de Siga-Me, e outros meios)"
+", bem como PBX conectados agentes, para que a fila não tentará enviar outra "
+"chamada se eles já estão em um Chamada de qualquer fila. <br /> Quando "
+"definido como 'Apenas chamadas de fila (ringinuse = no)', o sinalizador de "
+"configuração da fila 'ringinuse = no' está definido para esta fila também, "
+"mas o estado do dispositivo de agentes localmente conectados não é "
+"monitorado. O comportamento é limitar um agente que pertence a uma ou mais "
+"filas a uma chamada de fila única. Se eles estiverem ocupados a partir de "
+"outras chamadas, tais como chamadas de saída que iniciaram, a fila considerá"
+"-los-ão disponíveis e os tocarão porque o estado do dispositivo não é "
+"monitorado com esta opção. <br /> <br /> AVISO: Ao usar as configurações que "
+"definem o sinalizador 'ringinuse = no', há um efeito secundário NEGATIVO. Um "
+"agente que transfere uma chamada de fila permanece indisponível por qualquer "
+"fila até que a chamada seja encerrada como a chamada ainda aparece como "
+"'inuse' para a fila, A MENOS que 'Restrições do Agente' esteja definido como "
+"'Apenas Extensões'."
 
 #: views/form.php:654
 msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
 msgstr ""
+"Quando definido como SIM, o seguinte evento do gerenciador será gerado: "
+"Status do Membro da Fila"
 
 #: views/form.php:1508
 msgid ""
@@ -1445,6 +1519,10 @@ msgid ""
 "considered as a missed call and auto paused immediately or after the auto "
 "pause delay if configured"
 msgstr ""
+"Quando definido como Sim, os dispositivos que relatam ocupado após uma "
+"tentativa de chamada serão considerados como uma chamada não atendida e "
+"automaticamente pausados imediatamente ou após o atraso da pausa automática, "
+"se configurados"
 
 #: views/form.php:1537
 msgid ""
@@ -1452,6 +1530,10 @@ msgid ""
 "will be considered as a missed call and auto paused immediately or after the "
 "auto pause delay if configured"
 msgstr ""
+"Quando definido como Sim, os dispositivos que relatam congestionamento após "
+"uma tentativa de chamada serão considerados como uma chamada perdida e a "
+"pausa automática será imediatamente ou após o atraso da pausa automática, se "
+"configurada"
 
 #: views/form.php:850
 msgid ""
@@ -1460,21 +1542,29 @@ msgid ""
 "be rounded to the nearest minute, in the form of Mnn: where nn is the number "
 "of minutes."
 msgstr ""
+"Quando definido como Sim, o nome do CID será prefixado com o tempo total de "
+"espera na fila para que o agente de atendimento esteja ciente quanto tempo "
+"esperaram. Ele será arredondado para o minuto mais próximo, na forma de Mnn: "
+"onde nn é o número de minutos."
 
 #: views/form.php:622
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
+"Quando essa opção é definida como YES, os seguintes eventos do gerenciador "
+"serão gerados: AgentCalled, AgentDump, AgentConnect e AgentComplete."
 
 #: views/cron.php:96
 msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
+"Quando agendar este trabalho. Nota a ativação de 'Aleatório' substitui essas "
+"configurações"
 
 #: views/form.php:1157
 msgid "Where calls should fail to"
-msgstr ""
+msgstr "Onde as chamadas devem falhar"
 
 #: views/form.php:441
 msgid ""
@@ -1482,10 +1572,13 @@ msgid ""
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
 msgstr ""
+"Se essa fila usa um IVR Break Out Menu ou uma chamada de retorno de fila. "
+"Queue Callbacks também pode ser alcançado através de um IVR, mas requer "
+"configuração extra."
 
 #: views/form.php:1378
 msgid "Wrap-Up-Time"
-msgstr ""
+msgstr "Tempo de Envolvimento"
 
 #: views/cron.php:26 views/cron.php:55 views/form.php:103 views/form.php:378
 #: views/form.php:387 views/form.php:612 views/form.php:644 views/form.php:787
@@ -1495,19 +1588,19 @@ msgstr ""
 #: views/form.php:1527 views/form.php:1607 views/form.php:1641
 #: views/form.php:1759 views/form.php:1788
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: views/form.php:1034
 msgid "Yes + (ringinuse=no)"
-msgstr ""
+msgstr "Sim + (ringinuse=no)"
 
 #: views/form.php:1466
 msgid "Yes in all queues"
-msgstr ""
+msgstr "Sim em todas as filas"
 
 #: views/form.php:1466
 msgid "Yes in this queue only"
-msgstr ""
+msgstr "Sim apenas nesta fila"
 
 #: views/form.php:822
 msgid ""
@@ -1515,6 +1608,9 @@ msgid ""
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
+"Você pode opcionalmente prefixar o nome CallerID dos chamadores para a fila. "
+"Ou seja: Se você prefixar com \"Vendas:\", uma chamada de John Doe iria "
+"mostrar como \"Vendas: John Doe\" sobre as extensões que tocam."
 
 #: views/form.php:509
 msgid ""
@@ -1523,96 +1619,102 @@ msgid ""
 "Recording set for the IVR will be played at intervals specified in 'Repeat "
 "Frequency', below."
 msgstr ""
+"Você pode opcionalmente apresentar um IVR existente como um \"break out\" "
+"menu. <br> <br> Este IVR deve conter apenas um dígito 'opções discadas'. O "
+"conjunto de gravação para o IVR será reproduzido em intervalos especificados "
+"em 'Repeat Frequency', abaixo."
 
 #: views/form.php:80
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
 msgstr ""
+"Você pode exigir que os agentes digitem uma senha antes de poderem fazer "
+"login nessa fila. <br> <br> Esta configuração é opcional."
 
 #: install.php:389
 msgid "adding agentannounce_id field.."
-msgstr ""
+msgstr "Adicionando campo agentannounce_id .."
 
 #: install.php:398
 msgid "adding joinannounce_id field.."
-msgstr ""
+msgstr "Adicionando campo joinannounce_id field.."
 
 #: install.php:99 install.php:193 install.php:373 install.php:499
 #: install.php:514 install.php:529 install.php:544 install.php:559
 #: install.php:574 install.php:589 install.php:604 install.php:619
 #: install.php:634
 msgid "already exists"
-msgstr ""
+msgstr "já existe"
 
 #: install.php:483
 msgid "already migrated"
-msgstr ""
+msgstr "Já migrou"
 
 #: install.php:622
 msgid "checking for callback_id field.."
-msgstr ""
+msgstr "Verificar o campo callback_id .."
 
 #: install.php:547
 msgid "checking for callconfirm field.."
-msgstr ""
+msgstr "Verificando o campo callconfirm.."
 
 #: install.php:562
 msgid "checking for callconfirm_id field.."
-msgstr ""
+msgstr "Verificando o campo callconfirm_id.."
 
 #: install.php:592
 msgid "checking for monitor_heard field.."
-msgstr ""
+msgstr "Verificando o campo monitor_heard.."
 
 #: install.php:607
 msgid "checking for monitor_spoken field.."
-msgstr ""
+msgstr "Verificando o campo monitor_spoken.."
 
 #: install.php:577
 msgid "checking for monitor_type field.."
-msgstr ""
+msgstr "Verificando o campo monitor_type.."
 
 #: install.php:532
 msgid "checking for qnoanswer field.."
-msgstr ""
+msgstr "Verificando o campo qnoanswer.."
 
 #: install.php:361
 msgid "checking for qregex field.."
-msgstr ""
+msgstr "Verificando o campo qregex.."
 
 #: install.php:487
 msgid "checking for queuewait field.."
-msgstr ""
+msgstr "Verificando o campo queuewait.."
 
 #: install.php:517
 msgid "checking for togglehint field.."
-msgstr ""
+msgstr "Verificando o campo togglehint.."
 
 #: install.php:502
 msgid "checking for use_queue_context field.."
-msgstr ""
+msgstr "Verificando o campo use_queue_context.."
 
 #: functions.inc.php:31
 msgid "day"
-msgstr ""
+msgstr "dia"
 
 #: views/form.php:293
 msgid "default"
-msgstr ""
+msgstr "padrão"
 
 #: install.php:464
 msgid "dropping agentannounce field.."
-msgstr ""
+msgstr "apagando o campo agentannounce.."
 
 #: install.php:474
 msgid "dropping joinannounce field.."
-msgstr ""
+msgstr "apagando o campo joinannounce.."
 
 #: install.php:393 install.php:402 install.php:414 install.php:430
 #: install.php:440 install.php:456
 msgid "fatal error"
-msgstr ""
+msgstr "erro fatal"
 
 #: views/form.php:256
 msgid "fewestcalls"
