@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-29 11:17-0800\n"
-"PO-Revision-Date: 2017-02-09 23:26+0200\n"
+"PO-Revision-Date: 2017-02-10 18:53+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -669,7 +669,7 @@ msgid ""
 msgstr ""
 "Se timeoutrestart for definido como sim, então o tempo limite para um agente "
 "responder será redefinido se um BUSY ou CONGESTION for recebido. Isso pode "
-"ser útil se os agentes são capazes de cancelar uma chamada com rejeição ou "
+"ser útil caso agentes sejam capazes de cancelar uma chamada com rejeição ou "
 "similar."
 
 #: views/form.php:1418
@@ -715,11 +715,11 @@ msgstr ""
 "É possível para uma fila não atender uma chamada e ainda inserir chamadores "
 "para a fila. O comportamento normal é que todos os chamadores são "
 "respondidos antes de entrar na fila. Se a chamada não for atendida, é "
-"possível que alguns meios de comunicação precoce ainda permitiria que os "
-"chamadores ouvissem gravações, MoH, etc., mas isso pode ser inconsistente e "
-"variar. Devido à volatilidade desta opção, ela não é exibida por padrão. Se "
-"uma fila estiver configurada para não atender, a configuração será exibida "
-"para essa fila independentemente dessa configuração."
+"possível que os chamadores ainda consigam ouvir gravações, música de espera, "
+"etc., mas isso pode ser inconsistente e variar. Devido à volatilidade desta "
+"opção, ela não é exibida por padrão. Se uma fila estiver configurada para "
+"não atender, a configuração será exibida para essa fila independentemente "
+"dessa configuração."
 
 #: views/form.php:171
 msgid "Join Announcement"
@@ -727,15 +727,15 @@ msgstr "Anúncio de Entrada"
 
 #: views/form.php:1601
 msgid "Join Empty"
-msgstr "Entrar Caso Vazio"
+msgstr "Entrar se Vazio"
 
 #: views/form.php:1635
 msgid "Leave Empty"
-msgstr "Sair Caso Vazio"
+msgstr "Sair se Vazio"
 
 #: views/bootnav.php:2
 msgid "List Queues"
-msgstr "Filas de lista"
+msgstr "Listar Filas"
 
 #: views/form.php:382 views/form.php:390 views/form.php:1276
 #: views/form.php:1615 views/form.php:1649
@@ -768,11 +768,11 @@ msgstr "Atraso do Membro"
 
 #: views/form.php:638
 msgid "Member Status Event"
-msgstr "Evento de Status de Membro"
+msgstr "Status de evento do Membro"
 
 #: queues.i18n.php:56
 msgid "Member Status Event Default"
-msgstr "Status do Membro Evento Padrão"
+msgstr "Status padrão de evento do membro"
 
 #: views/form.php:468 views/form.php:472
 msgid "Menu ID "
@@ -796,7 +796,7 @@ msgstr "Apenas MoH"
 
 #: views/cron.php:62
 msgid "Monthly"
-msgstr "Por mês"
+msgstr "Mensalmente"
 
 #: views/form.php:310
 msgid ""
@@ -809,24 +809,25 @@ msgid ""
 "any MoH Class selected as well as any configured periodic announcements. "
 "This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
-"Música (MoH) tocada para o chamador enquanto eles esperam na fila para um "
-"agente disponível. Escolha \"inherit\" se você quiser que a classe MoH seja "
-"o que está selecionado atualmente, como a rota de entrada. MoH somente irá "
-"tocar música até que o agente responda. O toque do agente reproduzirá o MoH "
-"até que o telefone do agente seja apresentado com a chamada e esteja "
-"tocando. Se eles não responderem, o MS retornará. Somente toque faz com que "
-"os chamadores ouvem um tom de toque em vez de MoH ignorar qualquer Classe "
-"MoH selecionada, bem como quaisquer anúncios periódicos configurados. Esta "
-"música é definida no menu \"Music on Hold\"."
+"Música em Espera (MoH) tocada para o chamador enquanto eles aguardam na fila "
+"por um agente disponível. Escolha \"inherit\" se você quiser que a classe "
+"MoH seja a que está selecionado atualmente, como na rota de entrada. A "
+"música será tocada  apenas até que o agente responda. O Toque do Agente "
+"reproduzirá  MoH até que o telefone do agente seja apresentado com a chamada "
+"e esteja tocando. Se eles não responderem, a música reiniciará. Somente "
+"Toque faz com que os chamadores ouçam um tom de chamando ao invés da música "
+"de espera, ignorando qualquer Classe MoH selecionada, bem como quaisquer "
+"anúncios periódicos configurados. Esta música é definida no menu \"Music on "
+"Hold\"."
 
 #: views/form.php:278
 msgid "Music on Hold Class"
-msgstr "Música em espera"
+msgstr "Classe da Música em Espera"
 
 #: install.php:72
 msgid "NO table found, no migration to do just create tables"
 msgstr ""
-"Nenhuma tabela encontrada, nenhuma migração para fazer apenas criar tabelas"
+"Nenhuma tabela encontrada, nenhuma migração a fazer apenas criar tabelas"
 
 #: views/form.php:1097
 msgid "Never"
@@ -855,7 +856,7 @@ msgstr "Sem Siga-me e Direcionamento de Chamadas"
 
 #: views/form.php:356
 msgid "No Retry"
-msgstr "Sem Repetir"
+msgstr "Não tentar novamente"
 
 #: views/form.php:178 views/form.php:206 views/form.php:499 views/form.php:540
 #: views/form.php:890
@@ -888,6 +889,7 @@ msgstr ""
 "telefones %s neste momento"
 
 #: views/form.php:1669
+#, fuzzy
 msgid "Penalty Members Limit"
 msgstr "Limite de Membros de Penalidade"
 
