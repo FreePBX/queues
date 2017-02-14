@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for queues
-# Copyright (C) 2008-2017 Sangoma, Inc.
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-20 11:46-0800\n"
+"POT-Creation-Date: 2017-02-14 14:42-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Agent Announcement"
 msgstr ""
 
-#: queues.i18n.php:44
+#: queues.i18n.php:34
 msgid "Agent Called Events Default"
 msgstr ""
 
@@ -100,6 +100,7 @@ msgid "Alert Info"
 msgstr ""
 
 #: install.php:15
+#: queues.i18n.php:50
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -160,7 +161,6 @@ msgid "Annually"
 msgstr ""
 
 #: queues.i18n.php:6
-#: queues.i18n.php:12
 msgid "Applications"
 msgstr ""
 
@@ -304,14 +304,14 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: queues.i18n.php:48
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
 
-#: queues.i18n.php:60
+#: queues.i18n.php:44
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -435,7 +435,7 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: queues.i18n.php:50
+#: queues.i18n.php:38
 msgid "Generate queuenum*/** Login/off Codes"
 msgstr ""
 
@@ -449,7 +449,7 @@ msgid ""
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
 
-#: queues.i18n.php:38
+#: queues.i18n.php:30
 msgid "Hide Queue No Answer Option"
 msgstr ""
 
@@ -457,7 +457,7 @@ msgstr ""
 msgid "Honor Penalties"
 msgstr ""
 
-#: queues.i18n.php:20
+#: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
 msgstr ""
 
@@ -570,7 +570,7 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
-#: queues.i18n.php:42
+#: queues.i18n.php:32
 msgid ""
 "It is possible for a queue to NOT Answer a call and still enter callers to "
 "the queue. The normal behavior is that all  allers are answered before "
@@ -633,7 +633,7 @@ msgstr ""
 msgid "Member Status Event"
 msgstr ""
 
-#: queues.i18n.php:56
+#: queues.i18n.php:42
 msgid "Member Status Event Default"
 msgstr ""
 
@@ -779,11 +779,12 @@ msgstr ""
 msgid "Periodic Announcements"
 msgstr ""
 
-#: queues.i18n.php:14
+#: queues.i18n.php:12
 msgid "Persistent Members"
 msgstr ""
 
 #: install.php:29
+#: queues.i18n.php:46
 msgid "Playback Queue Caller Count"
 msgstr ""
 
@@ -851,6 +852,7 @@ msgstr ""
 
 #: install.php:9
 #: install.php:22
+#: queues.i18n.php:48
 msgid "Queue Pause Toggle"
 msgstr ""
 
@@ -870,7 +872,7 @@ msgstr ""
 msgid "Queue calls only (ringinuse=no)"
 msgstr ""
 
-#: queues.i18n.php:54
+#: queues.i18n.php:40
 msgid ""
 "Queue login and out codes were historically queunum* and queunum**. These "
 "have been largely replaced by the *45 queue toggle codes. The legacy codes "
@@ -901,14 +903,7 @@ msgstr ""
 msgid "Queues"
 msgstr ""
 
-#: queues.i18n.php:16
-#: queues.i18n.php:22
-#: queues.i18n.php:28
-#: queues.i18n.php:34
-#: queues.i18n.php:40
-#: queues.i18n.php:46
-#: queues.i18n.php:52
-#: queues.i18n.php:58
+#: queues.i18n.php:14
 msgid "Queues Module"
 msgstr ""
 
@@ -916,21 +911,21 @@ msgstr ""
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 
-#: queues.i18n.php:36
+#: queues.i18n.php:28
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now goes away when this is enabled."
 msgstr ""
 
-#: queues.i18n.php:18
+#: queues.i18n.php:16
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
 "read into their recorded queues."
 msgstr ""
 
-#: queues.i18n.php:24
+#: queues.i18n.php:20
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -938,7 +933,7 @@ msgid ""
 "queue for a shared member."
 msgstr ""
 
-#: queues.i18n.php:30
+#: queues.i18n.php:24
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -1043,7 +1038,7 @@ msgstr ""
 msgid "Service Level"
 msgstr ""
 
-#: queues.i18n.php:26
+#: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
 msgstr ""
 
@@ -1157,7 +1152,7 @@ msgstr ""
 msgid "Unlimited"
 msgstr ""
 
-#: queues.i18n.php:32
+#: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
 msgstr ""
 

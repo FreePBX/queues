@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 11:17-0800\n"
+"POT-Creation-Date: 2017-02-14 14:42-0800\n"
 "PO-Revision-Date: 2016-08-07 06:44+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -87,7 +87,7 @@ msgstr "پیام عامل آگهی"
 msgid "Agent Announcement"
 msgstr "اطلاعیه عامل"
 
-#: queues.i18n.php:44
+#: queues.i18n.php:34
 msgid "Agent Called Events Default"
 msgstr "پیشفرض رویدادهای تماس عامل"
 
@@ -115,7 +115,7 @@ msgstr "راه اندازی مجدد وقفه عامل"
 msgid "Alert Info"
 msgstr "اطلاعات هشدار"
 
-#: install.php:15
+#: install.php:15 queues.i18n.php:50
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -195,7 +195,7 @@ msgstr ""
 msgid "Annually"
 msgstr "سالانه"
 
-#: queues.i18n.php:6 queues.i18n.php:12
+#: queues.i18n.php:6
 msgid "Applications"
 msgstr "درخواست"
 
@@ -363,7 +363,7 @@ msgstr "روزانه"
 msgid "Default"
 msgstr "پیشفرض"
 
-#: queues.i18n.php:48
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -373,7 +373,7 @@ msgstr ""
 "will only affect the default for NEW queues, it  won't change existing "
 "queues or enfore the option on in new ones."
 
-#: queues.i18n.php:60
+#: queues.i18n.php:44
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -512,7 +512,7 @@ msgstr "فرکانس"
 msgid "General Settings"
 msgstr "تنظیمات عمومی"
 
-#: queues.i18n.php:50
+#: queues.i18n.php:38
 msgid "Generate queuenum*/** Login/off Codes"
 msgstr "Generate  queuenum*/** Login/off Codes"
 
@@ -529,7 +529,7 @@ msgstr ""
 "priority queue will deliver its calls first if there are agents common to "
 "both queues."
 
-#: queues.i18n.php:38
+#: queues.i18n.php:30
 msgid "Hide Queue No Answer Option"
 msgstr "مخفی کردن گزینه بدون جواب برای صف"
 
@@ -537,7 +537,7 @@ msgstr "مخفی کردن گزینه بدون جواب برای صف"
 msgid "Honor Penalties"
 msgstr "مجازات افتخار"
 
-#: queues.i18n.php:20
+#: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
 msgstr "Honor Wrapup  Time Across Queues"
 
@@ -692,7 +692,7 @@ msgstr ""
 "Incoming calls to agents can be recorded. If 'never' is selected, then in-"
 "call on demand  recording is blocked."
 
-#: queues.i18n.php:42
+#: queues.i18n.php:32
 msgid ""
 "It is possible for a queue to NOT Answer a call and still enter callers to "
 "the queue. The normal behavior is that all  allers are answered before "
@@ -759,7 +759,7 @@ msgstr "تاخیر اعضا"
 msgid "Member Status Event"
 msgstr "رویداد وضعیت عضو"
 
-#: queues.i18n.php:56
+#: queues.i18n.php:42
 msgid "Member Status Event Default"
 msgstr "رویداد پیشفرض وضعیت عضو"
 
@@ -879,11 +879,11 @@ msgstr "محدودیت اعضا"
 msgid "Periodic Announcements"
 msgstr "اطلاعیه های دوره ای"
 
-#: queues.i18n.php:14
+#: queues.i18n.php:12
 msgid "Persistent Members"
 msgstr "اعضای مداوم"
 
-#: install.php:29
+#: install.php:29 queues.i18n.php:46
 msgid "Playback Queue Caller Count"
 msgstr "تعداد دفعات پخش مجدد برای تماس گیرنده های صف"
 
@@ -955,7 +955,7 @@ msgstr "شماره صف نباید خالی باشد"
 msgid "Queue Password"
 msgstr "کلمه عبور صف"
 
-#: install.php:9 install.php:22
+#: install.php:9 install.php:22 queues.i18n.php:48
 msgid "Queue Pause Toggle"
 msgstr "تغییر توقف صف"
 
@@ -975,7 +975,7 @@ msgstr "وزن صف"
 msgid "Queue calls only (ringinuse=no)"
 msgstr "فقط تماس های صف (استفاده از زنگ=خیر)"
 
-#: queues.i18n.php:54
+#: queues.i18n.php:40
 msgid ""
 "Queue login and out codes were historically queunum* and queunum**. These "
 "have been largely replaced by the *45 queue toggle codes. The legacy codes "
@@ -1008,8 +1008,7 @@ msgstr "صف: %s (%s)"
 msgid "Queues"
 msgstr "صف ها"
 
-#: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
-#: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
+#: queues.i18n.php:14
 msgid "Queues Module"
 msgstr "ماژول صف"
 
@@ -1017,7 +1016,7 @@ msgstr "ماژول صف"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "ماژول صف یافت نشد یا غیرفعال است. شکست!"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:28
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -1027,7 +1026,7 @@ msgstr ""
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now  goes away when this is enabled."
 
-#: queues.i18n.php:18
+#: queues.i18n.php:16
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
@@ -1037,7 +1036,7 @@ msgstr ""
 "astdb so that when asterisk is restarted, each member will be automatically "
 "read into  their recorded queues."
 
-#: queues.i18n.php:24
+#: queues.i18n.php:20
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -1049,7 +1048,7 @@ msgstr ""
 "queue. This is useful to make the queue respect the wrapuptime of another "
 "queue for a  shared member."
 
-#: queues.i18n.php:30
+#: queues.i18n.php:24
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -1179,7 +1178,7 @@ msgstr ""
 msgid "Service Level"
 msgstr "مرحله سرویس"
 
-#: queues.i18n.php:26
+#: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
 msgstr "Set Agent Name  in CDR dstchannel"
 
@@ -1320,7 +1319,7 @@ msgstr "محدودیت جزیی"
 msgid "Unlimited"
 msgstr "نامحدود"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
 msgstr "استفاده از MixMonitor برای ضبط تماسها"
 

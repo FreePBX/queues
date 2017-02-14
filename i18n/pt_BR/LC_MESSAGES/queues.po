@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 11:17-0800\n"
+"POT-Creation-Date: 2017-02-14 14:42-0800\n"
 "PO-Revision-Date: 2017-02-14 17:38+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
+"freepbx/queues/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -88,7 +88,7 @@ msgstr "Msg de Anúncio do Agente"
 msgid "Agent Announcement"
 msgstr "Anúncio do Agente"
 
-#: queues.i18n.php:44
+#: queues.i18n.php:34
 msgid "Agent Called Events Default"
 msgstr "Padrão de Eventos do Agente Chamado"
 
@@ -116,7 +116,7 @@ msgstr "Reiniciar Timeout do Agente"
 msgid "Alert Info"
 msgstr "Alerta"
 
-#: install.php:15
+#: install.php:15 queues.i18n.php:50
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -194,7 +194,7 @@ msgstr ""
 msgid "Annually"
 msgstr "Anualmente"
 
-#: queues.i18n.php:6 queues.i18n.php:12
+#: queues.i18n.php:6
 msgid "Applications"
 msgstr "Aplicações"
 
@@ -365,7 +365,7 @@ msgstr "Diariamente"
 msgid "Default"
 msgstr "Padrão"
 
-#: queues.i18n.php:48
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -375,7 +375,7 @@ msgstr ""
 "Esta configuração irá apenas afetar NOVAS filas, isto não modifica filas "
 "existentes ou atualiza a opção em filas existentes."
 
-#: queues.i18n.php:60
+#: queues.i18n.php:44
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -517,7 +517,7 @@ msgstr "Frequência"
 msgid "General Settings"
 msgstr "Opções Gerais"
 
-#: queues.i18n.php:50
+#: queues.i18n.php:38
 msgid "Generate queuenum*/** Login/off Codes"
 msgstr "Gerar queuenum*/* Códigos Login/off"
 
@@ -534,7 +534,7 @@ msgstr ""
 "fila de prioridade mais alta entreguem suas chamadas primeiro se houver "
 "agentes comuns em ambas as filas."
 
-#: queues.i18n.php:38
+#: queues.i18n.php:30
 #, fuzzy
 msgid "Hide Queue No Answer Option"
 msgstr "Ocultar opção de fila sem resposta"
@@ -544,7 +544,7 @@ msgstr "Ocultar opção de fila sem resposta"
 msgid "Honor Penalties"
 msgstr "Respeitar penalidades"
 
-#: queues.i18n.php:20
+#: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
 msgstr "Respeitar tempo em filas"
 
@@ -702,7 +702,7 @@ msgstr ""
 "As chamadas de entrada para agentes podem ser gravadas. Se \"nunca\" for "
 "selecionado, a gravação em chamada em demanda será bloqueada."
 
-#: queues.i18n.php:42
+#: queues.i18n.php:32
 msgid ""
 "It is possible for a queue to NOT Answer a call and still enter callers to "
 "the queue. The normal behavior is that all  allers are answered before "
@@ -770,7 +770,7 @@ msgstr "Atraso do Membro"
 msgid "Member Status Event"
 msgstr "Status de evento do Membro"
 
-#: queues.i18n.php:56
+#: queues.i18n.php:42
 msgid "Member Status Event Default"
 msgstr "Status padrão de evento do membro"
 
@@ -897,11 +897,11 @@ msgstr "Limite de Membros de Penalidade"
 msgid "Periodic Announcements"
 msgstr "Anúncios Periódicos"
 
-#: queues.i18n.php:14
+#: queues.i18n.php:12
 msgid "Persistent Members"
 msgstr "Membros Persistentes"
 
-#: install.php:29
+#: install.php:29 queues.i18n.php:46
 msgid "Playback Queue Caller Count"
 msgstr "Contagem de chamadas da fila de reprodução"
 
@@ -924,8 +924,8 @@ msgstr ""
 "de chamada para incluir teclas como *, ou qualquer outro uso que possa ser "
 "apropriado. Um exemplo pode ser: <br /> ^ ([2-4] [0-9] {3}) $ <br /> Isso "
 "restringiria os agentes às extensões 2000-4999. Ou <br /> ^ ([0-9] +) $ "
-"permitiria qualquer número de qualquer comprimento, mas restringir a tecla *"
-". <br /> AVISO: certifique-se de entender o que você está fazendo ou deixe "
+"permitiria qualquer número de qualquer comprimento, mas restringir a tecla "
+"*. <br /> AVISO: certifique-se de entender o que você está fazendo ou deixe "
 "este espaço em branco!"
 
 #: Queues.class.php:193 views/bootnav.php:9 views/qgrid.php:14
@@ -975,7 +975,7 @@ msgstr "O número da fila não pode ficar em branco"
 msgid "Queue Password"
 msgstr "Senha da Fila"
 
-#: install.php:9 install.php:22
+#: install.php:9 install.php:22 queues.i18n.php:48
 msgid "Queue Pause Toggle"
 msgstr "Alternar Pausa da Fila"
 
@@ -995,7 +995,7 @@ msgstr "Peso da Fila"
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Apenas chamadas em fila (ringinuse = no)"
 
-#: queues.i18n.php:54
+#: queues.i18n.php:40
 msgid ""
 "Queue login and out codes were historically queunum* and queunum**. These "
 "have been largely replaced by the *45 queue toggle codes. The legacy codes "
@@ -1031,8 +1031,7 @@ msgstr "Fila: %s (%s)"
 msgid "Queues"
 msgstr "Filas"
 
-#: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
-#: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
+#: queues.i18n.php:14
 msgid "Queues Module"
 msgstr "Módulo de Filas"
 
@@ -1040,7 +1039,7 @@ msgstr "Módulo de Filas"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "O módulo filas não foi encontrado ou está desativado. Abortando!"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:28
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -1051,7 +1050,7 @@ msgstr ""
 "misturar\" os arquivos de entrada/saída agora desaparece quando isso estiver "
 "ativado."
 
-#: queues.i18n.php:18
+#: queues.i18n.php:16
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
@@ -1061,7 +1060,7 @@ msgstr ""
 "astdb para que, quando o Asterisk seja reiniciado, cada membro será "
 "automaticamente lido em suas filas."
 
-#: queues.i18n.php:24
+#: queues.i18n.php:20
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -1073,7 +1072,7 @@ msgstr ""
 "registrados em mais de uma fila. Isso é útil para fazer com que a fila "
 "respeite o wrapuptime de outra fila para um membro compartilhado."
 
-#: queues.i18n.php:30
+#: queues.i18n.php:24
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -1156,8 +1155,8 @@ msgid ""
 "are currently on the phone or ringing on behalf of another caller will be "
 "considered unavailable."
 msgstr ""
-"O mesmo que Strict, um membro da fila deve ser capaz de atender o telefone \""
-"agora\". De forma simples, qualquer agente 'disponível' que poderia "
+"O mesmo que Strict, um membro da fila deve ser capaz de atender o telefone "
+"\"agora\". De forma simples, qualquer agente 'disponível' que poderia "
 "responder, mas está atualmente no telefone ou tocando prestes a receber "
 "outra chamada será considerado indisponível ."
 
@@ -1207,7 +1206,7 @@ msgstr ""
 msgid "Service Level"
 msgstr "Nível de Serviço"
 
-#: queues.i18n.php:26
+#: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
 msgstr "Definir o nome do agente no campo dstchannel no CDR"
 
@@ -1250,19 +1249,20 @@ msgid ""
 "may also exist."
 msgstr ""
 "Agentes estáticos são ramais que vão sempre estar na fila. Os agentes "
-"estáticos não precisam fazer login na fila e não podem sair da fila.<br><br>"
-"Listar ramais para tocar, um por linha.<br><br>Você pode incluir um ramal em "
-"um sistema remoto, ou um número externo (Rotas de Saída deve conter uma rota "
-"válida para números externos). Você pode colocar um \",\" após o agente "
-"seguido de um valor de penalidade, consulte a documentação do Asterisk sobre "
-"penalidades. <br /> <br /> Um modo avançado foi adicionado que lhe permite "
-"por um prefixo no número de agente com S, P, X , Z, D ou A. Isto forçará o "
-"número de agente a ser marcado como um dispositivo do tipo SIP, PJSIP, IAX2, "
-"ZAP, DAHDi ou Agente, respectivamente. Este modo é para usuários avançados e "
-"pode causar problemas conhecidos no FreePBX pois você está ignorando o "
-"dialplan normal. Se suas \"Restrições de Agente\" não estiverem definidas "
-"como \"Apenas Ramais\", você terá problemas com as transferências "
-"subsequentes para o correio de voz e outros problemas também podem existir."
+"estáticos não precisam fazer login na fila e não podem sair da fila."
+"<br><br>Listar ramais para tocar, um por linha.<br><br>Você pode incluir um "
+"ramal em um sistema remoto, ou um número externo (Rotas de Saída deve conter "
+"uma rota válida para números externos). Você pode colocar um \",\" após o "
+"agente seguido de um valor de penalidade, consulte a documentação do "
+"Asterisk sobre penalidades. <br /> <br /> Um modo avançado foi adicionado "
+"que lhe permite por um prefixo no número de agente com S, P, X , Z, D ou A. "
+"Isto forçará o número de agente a ser marcado como um dispositivo do tipo "
+"SIP, PJSIP, IAX2, ZAP, DAHDi ou Agente, respectivamente. Este modo é para "
+"usuários avançados e pode causar problemas conhecidos no FreePBX pois você "
+"está ignorando o dialplan normal. Se suas \"Restrições de Agente\" não "
+"estiverem definidas como \"Apenas Ramais\", você terá problemas com as "
+"transferências subsequentes para o correio de voz e outros problemas também "
+"podem existir."
 
 #: views/cron.php:20
 msgid "Stats Reset"
@@ -1352,7 +1352,7 @@ msgstr "Ultra Restrito"
 msgid "Unlimited"
 msgstr "Ilimitado"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
 msgstr "Use MixMonitor para gravações"
 
@@ -1492,16 +1492,16 @@ msgstr ""
 "no)', o sinalizador de configuração da fila 'ringinuse = no' está definido "
 "para esta fila além do status do dispositivo do telefone que está sendo "
 "monitorado. Isso resulta na fila de rastreamento de agentes remotos (agentes "
-"que são um telefone remoto PSTN, chamado através de Siga-Me, e outros meios)"
-", bem como PBX conectados agentes, para que a fila não tentará enviar outra "
-"chamada se eles já estão em um Chamada de qualquer fila. <br /> Quando "
+"que são um telefone remoto PSTN, chamado através de Siga-Me, e outros "
+"meios), bem como PBX conectados agentes, para que a fila não tentará enviar "
+"outra chamada se eles já estão em um Chamada de qualquer fila. <br /> Quando "
 "definido como 'Apenas chamadas de fila (ringinuse = no)', o sinalizador de "
 "configuração da fila 'ringinuse = no' está definido para esta fila também, "
 "mas o estado do dispositivo de agentes localmente conectados não é "
 "monitorado. O comportamento é limitar um agente que pertence a uma ou mais "
 "filas a uma chamada de fila única. Se eles estiverem ocupados a partir de "
-"outras chamadas, tais como chamadas de saída que iniciaram, a fila considerá"
-"-los-ão disponíveis e os tocarão porque o estado do dispositivo não é "
+"outras chamadas, tais como chamadas de saída que iniciaram, a fila considerá-"
+"los-ão disponíveis e os tocarão porque o estado do dispositivo não é "
 "monitorado com esta opção. <br /> <br /> AVISO: Ao usar as configurações que "
 "definem o sinalizador 'ringinuse = no', há um efeito secundário NEGATIVO. Um "
 "agente que transfere uma chamada de fila permanece indisponível por qualquer "
