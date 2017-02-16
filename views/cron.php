@@ -1,6 +1,6 @@
 <?php
 //Default to disabled:
-$cron_schedule = $cron_schedule?$cron_schedule:'never';
+$cron_schedule = isset($cron_schedule)?$cron_schedule:'never';
 ?>
 <script type="text/javascript" src="modules/queues/assets/js/jquery-cron.js"></script>
 <link type="text/css" href="modules/queues/assets/css/jquery-cron.css" rel="stylesheet" />
@@ -177,11 +177,16 @@ $(document).ready(function() {
 	});
 	$(".form-control option[value='minute']").each(function() {
     $(this).remove();
-});
+	});
+	if($('input[name="disablecron"]:checked').val() == 'never'){
+		$('#cron').prop('disabled':true);
+		$('#cron_schedule').val("never");
+	}
 });
 //Disable Check box...
 $('input[name="disablecron"]').on('change',function(){
 	if($(this).val() == 'never'){
+		$('#cron').prop('disabled':true);
 		$('#cron_minute').attr('disabled', true);
 		$('#cron_hour').attr('disabled', true);
 		$('#cron_dow').attr('disabled', true);
@@ -193,6 +198,7 @@ $('input[name="disablecron"]').on('change',function(){
 		$('#cron_schedule').val('never');
 	}else{
 		if($('input[name="cron_random"]').val() == 'false'){
+			$('#cron').prop('disabled':false);
 			$('#cron_minute').attr('disabled', false);
 			$('#cron_hour').attr('disabled', false);
 			$('#cron_dow').attr('disabled', false);
