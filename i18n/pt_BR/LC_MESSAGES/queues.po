@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-14 14:42-0800\n"
-"PO-Revision-Date: 2017-02-16 17:38+0200\n"
+"PO-Revision-Date: 2017-02-17 18:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -1521,10 +1521,9 @@ msgid ""
 "considered as a missed call and auto paused immediately or after the auto "
 "pause delay if configured"
 msgstr ""
-"Quando definido como Sim, os dispositivos que relatam ocupado após uma "
-"tentativa de chamada serão considerados como uma chamada não atendida e "
-"automaticamente pausados imediatamente ou após o atraso da pausa automática, "
-"se configurados"
+"Quando definido como Sim, os dispositivos que retornam ocupado após uma "
+"tentativa de chamada serão considerados como chamada perdida e a pausa "
+"automática será imediata ou após o atraso da pausa automática, se configurada"
 
 #: views/form.php:1537
 msgid ""
@@ -1533,9 +1532,8 @@ msgid ""
 "auto pause delay if configured"
 msgstr ""
 "Quando definido como Sim, os dispositivos que relatam congestionamento após "
-"uma tentativa de chamada serão considerados como uma chamada perdida e a "
-"pausa automática será imediatamente ou após o atraso da pausa automática, se "
-"configurada"
+"uma tentativa de chamada serão considerados como  chamada perdida e a pausa "
+"automática será imediata ou após o atraso da pausa automática, se configurada"
 
 #: views/form.php:850
 msgid ""
@@ -1545,24 +1543,24 @@ msgid ""
 "of minutes."
 msgstr ""
 "Quando definido como Sim, o nome do CID será prefixado com o tempo total de "
-"espera na fila para que o agente de atendimento esteja ciente quanto tempo "
-"esperaram. Ele será arredondado para o minuto mais próximo, na forma de Mnn: "
-"onde nn é o número de minutos."
+"espera na fila para que o atendente esteja ciente de quanto tempo esperaram. "
+"Ele será arredondado para o minuto mais próximo, na forma Mnn: onde nn é o "
+"número de minutos."
 
 #: views/form.php:622
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
-"Quando essa opção é definida como YES, os seguintes eventos do gerenciador "
+"Quando essa opção é definida como SIM, os seguintes eventos do gerenciador "
 "serão gerados: AgentCalled, AgentDump, AgentConnect e AgentComplete."
 
 #: views/cron.php:96
 msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
-"Quando agendar este trabalho. Nota a ativação de 'Aleatório' substitui essas "
-"configurações"
+"Quando agendar este trabalho. Note que ativando 'Aleatório' substituirá "
+"essas configurações"
 
 #: views/form.php:1157
 msgid "Where calls should fail to"
@@ -1574,11 +1572,11 @@ msgid ""
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
 msgstr ""
-"Se essa fila usa um IVR Break Out Menu ou uma chamada de retorno de fila. "
-"Queue Callbacks também pode ser alcançado através de um IVR, mas requer "
-"configuração extra."
+"Se essa fila usa URA Break Out Menu ou  Queue Callback. Queue Callbacks "
+"também pode ser alcançado através da URA, mas requer configuração extra."
 
 #: views/form.php:1378
+#, fuzzy
 msgid "Wrap-Up-Time"
 msgstr "Tempo de Envolvimento"
 
@@ -1610,9 +1608,9 @@ msgid ""
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
-"Você pode opcionalmente prefixar o nome CallerID dos chamadores para a fila. "
-"Ou seja: Se você prefixar com \"Vendas:\", uma chamada de John Doe iria "
-"mostrar como \"Vendas: John Doe\" sobre as extensões que tocam."
+"Você pode opcionalmente prefixar o nome do chamador para a fila. Por exemplo:"
+" Se você prefixar com \"Vendas:\", uma chamada de John Doe será mostrada "
+"como \"Vendas: John Doe\" nos ramais que tocam."
 
 #: views/form.php:509
 msgid ""
@@ -1621,26 +1619,26 @@ msgid ""
 "Recording set for the IVR will be played at intervals specified in 'Repeat "
 "Frequency', below."
 msgstr ""
-"Você pode opcionalmente apresentar um IVR existente como um \"break out\" "
-"menu. <br> <br> Este IVR deve conter apenas um dígito 'opções discadas'. O "
-"conjunto de gravação para o IVR será reproduzido em intervalos especificados "
-"em 'Repeat Frequency', abaixo."
+"Você pode opcionalmente apresentar uma URA existente como um menu \"break "
+"out\". <br><br> Esta URA deve conter apenas um dígito para 'opções "
+"discadas'. O conjunto de gravação da URA será reproduzido em intervalos "
+"especificados em 'Frequência de Repetição', abaixo."
 
 #: views/form.php:80
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
 msgstr ""
-"Você pode exigir que os agentes digitem uma senha antes de poderem fazer "
-"login nessa fila. <br> <br> Esta configuração é opcional."
+"Você pode exigir que os agentes digitem uma senha antes de realizar login "
+"nessa fila.<br><br> Esta configuração é opcional."
 
 #: install.php:389
 msgid "adding agentannounce_id field.."
-msgstr "Adicionando campo agentannounce_id .."
+msgstr "Adicionando campo agentannounce_id.."
 
 #: install.php:398
 msgid "adding joinannounce_id field.."
-msgstr "Adicionando campo joinannounce_id field.."
+msgstr "Adicionando campo joinannounce_id.."
 
 #: install.php:99 install.php:193 install.php:373 install.php:499
 #: install.php:514 install.php:529 install.php:544 install.php:559
@@ -1655,7 +1653,7 @@ msgstr "Já migrou"
 
 #: install.php:622
 msgid "checking for callback_id field.."
-msgstr "Verificar o campo callback_id .."
+msgstr "Verificando o campo callback_id.."
 
 #: install.php:547
 msgid "checking for callconfirm field.."
@@ -1720,138 +1718,146 @@ msgstr "erro fatal"
 
 #: views/form.php:256
 msgid "fewestcalls"
-msgstr ""
+msgstr "poucaschamadas"
 
 #: functions.inc.php:32
 msgid "hour"
-msgstr ""
+msgstr "hora"
 
 #: functions.inc.php:32
 msgid "hours"
-msgstr ""
+msgstr "horas"
 
 #: views/form.php:291
+#, fuzzy
 msgid "inherit"
-msgstr ""
+msgstr "herdado"
 
 #: Queues.class.php:144
 msgid "is not allowed for your account."
-msgstr ""
+msgstr "não é permitido para sua conta."
 
 #: views/form.php:255
 msgid "leastrecent"
-msgstr ""
+msgstr "menosrecente"
 
 #: views/form.php:260
 msgid "linear"
-msgstr ""
+msgstr "sequencial"
 
 #: install.php:410
 msgid "migrate agentannounce to ids.."
-msgstr ""
+msgstr "migrando agentannounce para ids.."
 
 #: install.php:436
 msgid "migrate joinannounce to ids.."
-msgstr ""
+msgstr "migrando joinannounce para ids.."
 
 #: install.php:434 install.php:460
 #, php-format
 msgid "migrated %s entries"
-msgstr ""
+msgstr "migradas %s entradas"
 
 #: install.php:388
 msgid "migrating"
-msgstr ""
+msgstr "migrando"
 
 #: functions.inc.php:33
 msgid "minute"
-msgstr ""
+msgstr "minuto"
 
 #: functions.inc.php:33
 msgid "minutes"
-msgstr ""
+msgstr "minutos"
 
 #: install.php:470
 msgid "no agentannounce field???"
-msgstr ""
+msgstr "sem campo agentannounce???"
 
 #: install.php:478
 msgid "no joinannounce field???"
-msgstr ""
+msgstr "sem campo joinannounce???"
 
 #: views/form.php:292
 msgid "none"
-msgstr ""
+msgstr "nenhum"
 
 #: install.php:396 install.php:405 install.php:472 install.php:480
 msgid "ok"
-msgstr ""
+msgstr "ok"
 
 #: views/form.php:257
 msgid "random"
-msgstr ""
+msgstr "aleatório"
 
 #: views/form.php:261
 msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
+"aleatório usa penalidade do membro como fator de peso, veja a documentação "
+"do asterisk para mais detalhes"
 
 #: install.php:348
 msgid "removing queues data extensions table.."
-msgstr ""
+msgstr "removendo dados de ramais da tabela de filas.."
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
-msgstr ""
+msgstr "tocar agente que recentemente foi menos chamado por esta fila"
 
 #: views/form.php:254
 msgid "ring all available agents until one answers (default)"
-msgstr ""
+msgstr "tocar todos os gentes disponíveis até um responder (padrão)"
 
 #: views/form.php:257
 msgid "ring random agent"
-msgstr ""
+msgstr "tocar agente aleatoriamente"
 
 #: views/form.php:256
 msgid "ring the agent with fewest completed calls from this queue"
-msgstr ""
+msgstr "tocar agente com poucas chamadas completadas para esta fila"
 
 #: views/form.php:254
 msgid "ringall"
-msgstr ""
+msgstr "tocartodos"
 
 #: views/form.php:260
 msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
 msgstr ""
+"toca agentes na ordem específica, para agentes dinâmicos na ordem em que "
+"realizaram login"
 
 #: views/form.php:258
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr ""
+"round robin com memória, lembra qual foi a última posição que tocou na fila"
 
 #: views/form.php:258
 msgid "rrmemory"
-msgstr ""
+msgstr "rrmemoria"
 
 #: views/form.php:259
 msgid "rrordered"
-msgstr ""
+msgstr "rrordenado"
 
 #: views/form.php:259
 msgid ""
 "same as rrmemory, except the queue member order from config file is preserved"
 msgstr ""
+"mesmo que rrmemoria, exceto que a ordem do membro da fila no arquivo de "
+"configuração é preservada"
 
 #: functions.inc.php:34
 msgid "second"
-msgstr ""
+msgstr "segundo"
 
 #: functions.inc.php:17 functions.inc.php:34 views/form.php:334
 #: views/form.php:337 views/form.php:358 views/form.php:364 views/form.php:373
 msgid "seconds"
-msgstr ""
+msgstr "segundos"
 
 #: views/form.php:261
 msgid "wrandom"
