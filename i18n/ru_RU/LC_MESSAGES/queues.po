@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-08 02:38+0000\n"
+"POT-Creation-Date: 2017-02-20 20:37-0800\n"
 "PO-Revision-Date: 2016-07-07 11:27+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com.com>\n"
 "Language-Team: Russian <http://weblate.postmet.com/freepbx/trunkbalance/"
@@ -88,7 +88,7 @@ msgstr "Анонс агента"
 msgid "Agent Announcement"
 msgstr "Агент оповещения"
 
-#: queues.i18n.php:44
+#: queues.i18n.php:34
 msgid "Agent Called Events Default"
 msgstr "События Вызываемого Агента по умолчанию"
 
@@ -116,7 +116,7 @@ msgstr "Перезапуск таймаута агента"
 msgid "Alert Info"
 msgstr "Дополнительная информация"
 
-#: install.php:15
+#: install.php:15 queues.i18n.php:50
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -194,7 +194,7 @@ msgstr ""
 msgid "Annually"
 msgstr "Ежегодно"
 
-#: queues.i18n.php:6 queues.i18n.php:12
+#: queues.i18n.php:6
 msgid "Applications"
 msgstr "Приложения"
 
@@ -324,7 +324,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Параметры ёмкости очереди"
 
-#: functions.inc/queue_conf.php:201
+#: functions.inc/queue_conf.php:202
 msgid "Compound Recordings in Queues Detected"
 msgstr "Обнаружена составная запись, использованная в очереди"
 
@@ -350,7 +350,7 @@ msgstr "Ежедневно"
 msgid "Default"
 msgstr "По умолчанию"
 
-#: queues.i18n.php:48
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -360,7 +360,7 @@ msgstr ""
 "установка влияет только на установки по умолчанию для НОВОЙ очереди. Эта "
 "установка не меняет существующую очередь."
 
-#: queues.i18n.php:60
+#: queues.i18n.php:44
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -472,7 +472,7 @@ msgstr "Частота"
 msgid "General Settings"
 msgstr "Общие настройки"
 
-#: queues.i18n.php:50
+#: queues.i18n.php:38
 msgid "Generate queuenum*/** Login/off Codes"
 msgstr "Формировать номер очереди*/** коды набора для входа-выхода операторов"
 
@@ -489,7 +489,7 @@ msgstr ""
 "приоритетом. Оператору будет подан звонок большим приоритетом очереди, если "
 "оператор обслуживаетс две и более очереди."
 
-#: queues.i18n.php:38
+#: queues.i18n.php:30
 msgid "Hide Queue No Answer Option"
 msgstr "Скрыть параметр Очереди 'No Answer'"
 
@@ -497,7 +497,7 @@ msgstr "Скрыть параметр Очереди 'No Answer'"
 msgid "Honor Penalties"
 msgstr "Соблюдать уровни доступности"
 
-#: queues.i18n.php:20
+#: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
 msgstr "Давать передышку оператору при работе в нескольких очередях"
 
@@ -648,7 +648,7 @@ msgstr ""
 "Входящие вызовы операторам должны быть записаны.Если выбрано \"никогда\", "
 "запись вызова по требованию блокирована."
 
-#: queues.i18n.php:42
+#: queues.i18n.php:32
 msgid ""
 "It is possible for a queue to NOT Answer a call and still enter callers to "
 "the queue. The normal behavior is that all  allers are answered before "
@@ -708,7 +708,7 @@ msgstr "Задержка участника"
 msgid "Member Status Event"
 msgstr "Событие статуса участника"
 
-#: queues.i18n.php:56
+#: queues.i18n.php:42
 msgid "Member Status Event Default"
 msgstr "Событие по умолчанию Статуса участника"
 
@@ -817,11 +817,11 @@ msgstr "Максимальное количество отброшенных у�
 msgid "Periodic Announcements"
 msgstr "Периодичность сообщений"
 
-#: queues.i18n.php:14
+#: queues.i18n.php:12
 msgid "Persistent Members"
 msgstr "Постоянные операторы"
 
-#: install.php:29
+#: install.php:29 queues.i18n.php:46
 msgid "Playback Queue Caller Count"
 msgstr "Воспроизвести количество вызывающих в очереди"
 
@@ -857,7 +857,7 @@ msgstr "Очередь"
 msgid "Queue %s : %s"
 msgstr "Очередь %s : %s"
 
-#: functions.inc/queue_conf.php:199
+#: functions.inc/queue_conf.php:200
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Очередь - %s (%s): %s<br />"
@@ -894,7 +894,7 @@ msgstr "Номер очереди не может быть пустым"
 msgid "Queue Password"
 msgstr "Пароль очереди"
 
-#: install.php:9 install.php:22
+#: install.php:9 install.php:22 queues.i18n.php:48
 msgid "Queue Pause Toggle"
 msgstr "Переключить паузу очереди"
 
@@ -914,7 +914,7 @@ msgstr "Вес очереди"
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Только звонки очереди (ringinuse=no)"
 
-#: queues.i18n.php:54
+#: queues.i18n.php:40
 msgid ""
 "Queue login and out codes were historically queunum* and queunum**. These "
 "have been largely replaced by the *45 queue toggle codes. The legacy codes "
@@ -948,16 +948,15 @@ msgstr "Очередь: %s (%s)"
 msgid "Queues"
 msgstr "Очереди"
 
-#: queues.i18n.php:16 queues.i18n.php:22 queues.i18n.php:28 queues.i18n.php:34
-#: queues.i18n.php:40 queues.i18n.php:46 queues.i18n.php:52 queues.i18n.php:58
+#: queues.i18n.php:14
 msgid "Queues Module"
 msgstr "Модуль очередей"
 
-#: bin/queue_reset_stats.php:14
+#: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "Модуль очереди не найден или отключён. Завершено!"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:28
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -968,7 +967,7 @@ msgstr ""
 "понятие 'присоединения/смешивания' в/из файлы(ов) теперь уйдет, когда это "
 "включено."
 
-#: queues.i18n.php:18
+#: queues.i18n.php:16
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
@@ -978,7 +977,7 @@ msgstr ""
 "сохраняется в базе данных asterisk что бы очереди были корректно "
 "восстановлены в случае перезапуска Asterisk."
 
-#: queues.i18n.php:24
+#: queues.i18n.php:20
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -986,7 +985,7 @@ msgid ""
 "queue for a shared member."
 msgstr "Queues: shared_lastcall, действительны только с Астериск выше 1.6."
 
-#: queues.i18n.php:30
+#: queues.i18n.php:24
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -1112,7 +1111,7 @@ msgstr ""
 msgid "Service Level"
 msgstr "Уровень сервиса"
 
-#: queues.i18n.php:26
+#: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
 msgstr "Назначить имя оператора в поле dstchannel CDR"
 
@@ -1257,7 +1256,7 @@ msgstr "Строго ограниченный"
 msgid "Unlimited"
 msgstr "Неограничено"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
 msgstr "Использовать MixMonitor для записи разговоров"
 
@@ -1303,7 +1302,7 @@ msgstr "Префикс времени ожидания"
 msgid "Warning! Extension"
 msgstr "Внимание! Внутренний номер"
 
-#: functions.inc/queue_conf.php:194
+#: functions.inc/queue_conf.php:195
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-14 14:42-0800\n"
+"POT-Creation-Date: 2017-02-20 20:37-0800\n"
 "PO-Revision-Date: 2017-02-20 18:07+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
+"freepbx/queues/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -261,7 +261,7 @@ msgstr "Pausa Automática em Indisponível"
 msgid "Autofill"
 msgstr "Autocompletar"
 
-#: functions.inc/geters_seters.php:40
+#: functions.inc/geters_seters.php:38
 msgid "Bad Queue Number, can not be blank"
 msgstr "Mau Número de fila, não pode estar em branco"
 
@@ -325,15 +325,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Opções de Capacidade"
 
-#: install.php:68
-msgid "Checking for legacy queues table.."
-msgstr "Verificando a tabela de filas legadas."
-
-#: install.php:382
-msgid "Checking if recordings need migration.."
-msgstr "Verificando se gravações precisam de migração."
-
-#: functions.inc/queue_conf.php:233
+#: functions.inc/queue_conf.php:202
 msgid "Compound Recordings in Queues Detected"
 msgstr "Gravações Compostas em Fila Detectado"
 
@@ -348,11 +340,7 @@ msgstr ""
 "incluindo estratégias de toque para agentes, anúncios para chamadores, tempo "
 "máximo de espera, etc."
 
-#: install.php:188
-msgid "Creating queues_config.."
-msgstr "Criando queues_config."
-
-#: install.php:94
+#: install.php:67
 msgid "Creating queues_details.."
 msgstr "Criando queues_details."
 
@@ -414,10 +402,6 @@ msgstr ""
 msgid "Don't Care"
 msgstr "Não se Importe"
 
-#: install.php:339
-msgid "Dropping old queues table.."
-msgstr "Apagando tabelas de filas antigas."
-
 #: views/form.php:1205
 msgid "Dynamic Agents"
 msgstr "Agentes Dinâmicos"
@@ -434,37 +418,13 @@ msgstr ""
 "especificada aqui. Ramais inclusos aqui NÃO irão automaticamente entrar na "
 "fila."
 
-#: install.php:328
-msgid "ERROR were encountered"
-msgstr "ERRO foi encontrado"
-
-#: install.php:207
-msgid "ERROR: accessing queues table obtaining context info, aborting"
-msgstr ""
-"ERRO: acessando tabelas de filas para obter informações de contexto, "
-"abortando"
-
-#: install.php:232
-msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr "ERRO: acessando tabela de filas para obter lista de id, abortando"
-
-#: install.php:214
-msgid "ERROR: accessing queues table obtaining rtone info, aborting"
-msgstr ""
-"ERRO: acessando tabela de filas para obter informações de rtone, abortando"
-
-#: install.php:101 install.php:195
+#: install.php:74
 msgid "ERROR: could not create table"
 msgstr "ERRO: não foi possível criar tabela"
 
-#: install.php:119
+#: install.php:92
 msgid "ERROR: could not migrate to queues_details"
 msgstr "ERRO: não foi possível migrar para queues_details"
-
-#: install.php:320
-#, php-format
-msgid "ERROR: inserting data for row %s: %s.."
-msgstr "ERRO: inserindo dados na linha %s: %s.."
 
 #: views/form.php:482
 msgid ""
@@ -774,11 +734,7 @@ msgstr "Status padrão de evento do membro"
 msgid "Menu ID "
 msgstr "ID do Menu "
 
-#: install.php:203
-msgid "Migrating data to queues_config.."
-msgstr "Migrando dados para queues_config .."
-
-#: install.php:116
+#: install.php:89
 msgid "Migrating to queues_details.."
 msgstr "Migrando para queues_details .."
 
@@ -820,11 +776,6 @@ msgstr ""
 msgid "Music on Hold Class"
 msgstr "Classe da Música em Espera"
 
-#: install.php:72
-msgid "NO table found, no migration to do just create tables"
-msgstr ""
-"Nenhuma tabela encontrada, nenhuma migração a fazer apenas criar tabelas"
-
 #: views/form.php:1097
 msgid "Never"
 msgstr "Nunca"
@@ -859,11 +810,7 @@ msgstr "Não tentar novamente"
 msgid "None"
 msgstr "Nenhum"
 
-#: install.php:77 install.php:105 install.php:122 install.php:125
-#: install.php:199 install.php:326 install.php:332 install.php:345
-#: install.php:354 install.php:371 install.php:497 install.php:512
-#: install.php:527 install.php:542 install.php:557 install.php:572
-#: install.php:587 install.php:602 install.php:617 install.php:632
+#: install.php:78 install.php:95 install.php:98
 msgid "OK"
 msgstr "OK"
 
@@ -906,9 +853,9 @@ msgid ""
 "callback number. If the callback number does not pass the regex filter then "
 "it will be treated as invalid. This can be used to restrict agents to "
 "extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^([2-"
-"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"any other use that may be appropriate. An example input might be:<br /"
+">^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. "
+"Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * "
 "key.<br />WARNING: make sure you understand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
@@ -932,7 +879,7 @@ msgstr "FIla"
 msgid "Queue %s : %s"
 msgstr "Fila %s : %s"
 
-#: functions.inc/queue_conf.php:231
+#: functions.inc/queue_conf.php:200
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "FIla - %s (%s): %s<br />"
@@ -1381,11 +1328,6 @@ msgstr ""
 "O uso de um filtro Regex é bastante avançado, confirme que você sabe o que "
 "está fazendo ou deixe em branco"
 
-#: install.php:343 install.php:352
-#, php-format
-msgid "WARNING FAILED %s"
-msgstr "AVISO DE FALHA %s"
-
 #: views/form.php:834
 msgid "Wait Time Prefix"
 msgstr "Prefixo do tempo de espera"
@@ -1394,7 +1336,7 @@ msgstr "Prefixo do tempo de espera"
 msgid "Warning! Extension"
 msgstr "Atenção! Ramal"
 
-#: functions.inc/queue_conf.php:226
+#: functions.inc/queue_conf.php:195
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1402,8 +1344,8 @@ msgid ""
 msgstr ""
 "Atenção, existem gravações compostas configuradas em uma ou mais Filas. As "
 "filas não podem ser reproduzir estes sons então eles foram truncados ao "
-"primeiro arquivo de som. Você deve corrigir esse problema.<br />Detalhes: <"
-"br /><br />"
+"primeiro arquivo de som. Você deve corrigir esse problema.<br />Detalhes: "
+"<br /><br />"
 
 #: views/cron.php:61
 msgid "Weekly"
@@ -1484,8 +1426,8 @@ msgstr ""
 "rastreando agentes remotos (agentes que são um telefone remoto PSTN, chamado "
 "através de Siga-Me, e outros meios), bem como agentes conectados ao PBX, "
 "então a fila não tentará enviar outra chamada se eles já estão em um chamada "
-"de qualquer fila. <br /> Quando definido como 'Apenas chamadas de fila ("
-"ringinuse = no)', a flag de configuração da fila 'ringinuse = no' está "
+"de qualquer fila. <br /> Quando definido como 'Apenas chamadas de fila "
+"(ringinuse = no)', a flag de configuração da fila 'ringinuse = no' está "
 "definida para esta fila também, mas o estado do dispositivo de agentes "
 "localmente conectados não é monitorado. O comportamento é limitar um agente "
 "que pertence a uma ou mais filas a uma chamada de uma única fila. Se eles "
@@ -1598,9 +1540,9 @@ msgid ""
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
-"Você pode opcionalmente prefixar o nome do chamador para a fila. Por exemplo:"
-" Se você prefixar com \"Vendas:\", uma chamada de John Doe será mostrada "
-"como \"Vendas: John Doe\" nos ramais que tocam."
+"Você pode opcionalmente prefixar o nome do chamador para a fila. Por "
+"exemplo: Se você prefixar com \"Vendas:\", uma chamada de John Doe será "
+"mostrada como \"Vendas: John Doe\" nos ramais que tocam."
 
 #: views/form.php:509
 msgid ""
@@ -1609,10 +1551,10 @@ msgid ""
 "Recording set for the IVR will be played at intervals specified in 'Repeat "
 "Frequency', below."
 msgstr ""
-"Você pode opcionalmente apresentar uma URA existente como um menu \"break "
-"out\". <br><br> Esta URA deve conter apenas um dígito para 'opções "
-"discadas'. O conjunto de gravação da URA será reproduzido em intervalos "
-"especificados em 'Frequência de Repetição', abaixo."
+"Você pode opcionalmente apresentar uma URA existente como um menu \"break out"
+"\". <br><br> Esta URA deve conter apenas um dígito para 'opções discadas'. O "
+"conjunto de gravação da URA será reproduzido em intervalos especificados em "
+"'Frequência de Repetição', abaixo."
 
 #: views/form.php:80
 msgid ""
@@ -1622,68 +1564,9 @@ msgstr ""
 "Você pode exigir que os agentes digitem uma senha antes de realizar login "
 "nessa fila.<br><br> Esta configuração é opcional."
 
-#: install.php:389
-msgid "adding agentannounce_id field.."
-msgstr "Adicionando campo agentannounce_id.."
-
-#: install.php:398
-msgid "adding joinannounce_id field.."
-msgstr "Adicionando campo joinannounce_id.."
-
-#: install.php:99 install.php:193 install.php:373 install.php:499
-#: install.php:514 install.php:529 install.php:544 install.php:559
-#: install.php:574 install.php:589 install.php:604 install.php:619
-#: install.php:634
+#: install.php:72
 msgid "already exists"
 msgstr "já existe"
-
-#: install.php:483
-msgid "already migrated"
-msgstr "Já migrou"
-
-#: install.php:622
-msgid "checking for callback_id field.."
-msgstr "Verificando o campo callback_id.."
-
-#: install.php:547
-msgid "checking for callconfirm field.."
-msgstr "Verificando o campo callconfirm.."
-
-#: install.php:562
-msgid "checking for callconfirm_id field.."
-msgstr "Verificando o campo callconfirm_id.."
-
-#: install.php:592
-msgid "checking for monitor_heard field.."
-msgstr "Verificando o campo monitor_heard.."
-
-#: install.php:607
-msgid "checking for monitor_spoken field.."
-msgstr "Verificando o campo monitor_spoken.."
-
-#: install.php:577
-msgid "checking for monitor_type field.."
-msgstr "Verificando o campo monitor_type.."
-
-#: install.php:532
-msgid "checking for qnoanswer field.."
-msgstr "Verificando o campo qnoanswer.."
-
-#: install.php:361
-msgid "checking for qregex field.."
-msgstr "Verificando o campo qregex.."
-
-#: install.php:487
-msgid "checking for queuewait field.."
-msgstr "Verificando o campo queuewait.."
-
-#: install.php:517
-msgid "checking for togglehint field.."
-msgstr "Verificando o campo togglehint.."
-
-#: install.php:502
-msgid "checking for use_queue_context field.."
-msgstr "Verificando o campo use_queue_context.."
 
 #: functions.inc.php:31
 msgid "day"
@@ -1692,19 +1575,6 @@ msgstr "dia"
 #: views/form.php:293
 msgid "default"
 msgstr "padrão"
-
-#: install.php:464
-msgid "dropping agentannounce field.."
-msgstr "apagando o campo agentannounce.."
-
-#: install.php:474
-msgid "dropping joinannounce field.."
-msgstr "apagando o campo joinannounce.."
-
-#: install.php:393 install.php:402 install.php:414 install.php:430
-#: install.php:440 install.php:456
-msgid "fatal error"
-msgstr "erro fatal"
 
 #: views/form.php:256
 msgid "fewestcalls"
@@ -1734,23 +1604,6 @@ msgstr "menosrecente"
 msgid "linear"
 msgstr "sequencial"
 
-#: install.php:410
-msgid "migrate agentannounce to ids.."
-msgstr "migrando agentannounce para ids.."
-
-#: install.php:436
-msgid "migrate joinannounce to ids.."
-msgstr "migrando joinannounce para ids.."
-
-#: install.php:434 install.php:460
-#, php-format
-msgid "migrated %s entries"
-msgstr "migradas %s entradas"
-
-#: install.php:388
-msgid "migrating"
-msgstr "migrando"
-
 #: functions.inc.php:33
 msgid "minute"
 msgstr "minuto"
@@ -1759,21 +1612,9 @@ msgstr "minuto"
 msgid "minutes"
 msgstr "minutos"
 
-#: install.php:470
-msgid "no agentannounce field???"
-msgstr "sem campo agentannounce???"
-
-#: install.php:478
-msgid "no joinannounce field???"
-msgstr "sem campo joinannounce???"
-
 #: views/form.php:292
 msgid "none"
 msgstr "nenhum"
-
-#: install.php:396 install.php:405 install.php:472 install.php:480
-msgid "ok"
-msgstr "ok"
 
 #: views/form.php:257
 msgid "random"
@@ -1786,10 +1627,6 @@ msgid ""
 msgstr ""
 "aleatório usa penalidade do membro como fator de peso, veja a documentação "
 "do asterisk para mais detalhes"
-
-#: install.php:348
-msgid "removing queues data extensions table.."
-msgstr "removendo dados de ramais da tabela de filas.."
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
@@ -1851,3 +1688,118 @@ msgstr "segundos"
 #: views/form.php:261
 msgid "wrandom"
 msgstr ""
+
+#~ msgid "Checking for legacy queues table.."
+#~ msgstr "Verificando a tabela de filas legadas."
+
+#~ msgid "Checking if recordings need migration.."
+#~ msgstr "Verificando se gravações precisam de migração."
+
+#~ msgid "Creating queues_config.."
+#~ msgstr "Criando queues_config."
+
+#~ msgid "Dropping old queues table.."
+#~ msgstr "Apagando tabelas de filas antigas."
+
+#~ msgid "ERROR were encountered"
+#~ msgstr "ERRO foi encontrado"
+
+#~ msgid "ERROR: accessing queues table obtaining context info, aborting"
+#~ msgstr ""
+#~ "ERRO: acessando tabelas de filas para obter informações de contexto, "
+#~ "abortando"
+
+#~ msgid "ERROR: accessing queues table obtaining id list, aborting"
+#~ msgstr "ERRO: acessando tabela de filas para obter lista de id, abortando"
+
+#~ msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+#~ msgstr ""
+#~ "ERRO: acessando tabela de filas para obter informações de rtone, abortando"
+
+#~ msgid "ERROR: inserting data for row %s: %s.."
+#~ msgstr "ERRO: inserindo dados na linha %s: %s.."
+
+#~ msgid "Migrating data to queues_config.."
+#~ msgstr "Migrando dados para queues_config .."
+
+#~ msgid "NO table found, no migration to do just create tables"
+#~ msgstr ""
+#~ "Nenhuma tabela encontrada, nenhuma migração a fazer apenas criar tabelas"
+
+#~ msgid "WARNING FAILED %s"
+#~ msgstr "AVISO DE FALHA %s"
+
+#~ msgid "adding agentannounce_id field.."
+#~ msgstr "Adicionando campo agentannounce_id.."
+
+#~ msgid "adding joinannounce_id field.."
+#~ msgstr "Adicionando campo joinannounce_id.."
+
+#~ msgid "already migrated"
+#~ msgstr "Já migrou"
+
+#~ msgid "checking for callback_id field.."
+#~ msgstr "Verificando o campo callback_id.."
+
+#~ msgid "checking for callconfirm field.."
+#~ msgstr "Verificando o campo callconfirm.."
+
+#~ msgid "checking for callconfirm_id field.."
+#~ msgstr "Verificando o campo callconfirm_id.."
+
+#~ msgid "checking for monitor_heard field.."
+#~ msgstr "Verificando o campo monitor_heard.."
+
+#~ msgid "checking for monitor_spoken field.."
+#~ msgstr "Verificando o campo monitor_spoken.."
+
+#~ msgid "checking for monitor_type field.."
+#~ msgstr "Verificando o campo monitor_type.."
+
+#~ msgid "checking for qnoanswer field.."
+#~ msgstr "Verificando o campo qnoanswer.."
+
+#~ msgid "checking for qregex field.."
+#~ msgstr "Verificando o campo qregex.."
+
+#~ msgid "checking for queuewait field.."
+#~ msgstr "Verificando o campo queuewait.."
+
+#~ msgid "checking for togglehint field.."
+#~ msgstr "Verificando o campo togglehint.."
+
+#~ msgid "checking for use_queue_context field.."
+#~ msgstr "Verificando o campo use_queue_context.."
+
+#~ msgid "dropping agentannounce field.."
+#~ msgstr "apagando o campo agentannounce.."
+
+#~ msgid "dropping joinannounce field.."
+#~ msgstr "apagando o campo joinannounce.."
+
+#~ msgid "fatal error"
+#~ msgstr "erro fatal"
+
+#~ msgid "migrate agentannounce to ids.."
+#~ msgstr "migrando agentannounce para ids.."
+
+#~ msgid "migrate joinannounce to ids.."
+#~ msgstr "migrando joinannounce para ids.."
+
+#~ msgid "migrated %s entries"
+#~ msgstr "migradas %s entradas"
+
+#~ msgid "migrating"
+#~ msgstr "migrando"
+
+#~ msgid "no agentannounce field???"
+#~ msgstr "sem campo agentannounce???"
+
+#~ msgid "no joinannounce field???"
+#~ msgstr "sem campo joinannounce???"
+
+#~ msgid "ok"
+#~ msgstr "ok"
+
+#~ msgid "removing queues data extensions table.."
+#~ msgstr "removendo dados de ramais da tabela de filas.."
