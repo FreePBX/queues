@@ -39,9 +39,6 @@ function queues_set_backup_cron() {
 				case 'weekly':
 				case 'monthly':
 				case 'annually':
-				case 'reboot':
-					$cron['event']		= $q['cron_schedule'];
-					break;
 				case 'custom':
 					$cron['minute']		= isset($q['cron_minute'])	? implode(',', $q['cron_minute'])	: '*';
 					$cron['dom']		= isset($q['cron_dom'])		? implode(',', $q['cron_dom'])		: '*';

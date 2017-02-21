@@ -3,9 +3,7 @@
 //include bootstrap
 $restrict_mods = array('queues' => true);
 $bootstrap_settings['freepbx_auth'] = false;
-if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-	include_once('/etc/asterisk/freepbx.conf');
-}
+include '/etc/freepbx.conf';
 
 if (isset($argv[1])) {
 	$queue_toggle_code = $argv[1];
@@ -28,6 +26,8 @@ if ($queue_pause_code == '' && $queue_toggle_code == '') {
 }
 
 $var = $astman->database_show('AMPUSER');
+$var = is_array($var) ? $var : array();
+$user_hash = array();
 foreach ($var as $key => $value) {
 	$myvar = explode('/',trim($key,'/'));
 	$user_hash[$myvar[1]] = true;
@@ -42,6 +42,7 @@ foreach (array_keys($user_hash) as $user) {
 }
 
 $qpenalty=$astman->database_show('QPENALTY');
+$qpenalty = is_array($qpenalty) ? $qpenalty : array();
 $qc = array();
 foreach(array_keys($qpenalty) as $key) {
 	$key = explode('/', $key);
@@ -67,6 +68,7 @@ if ($queue_toggle_code == '') {
 // generate device hash
 //
 $var = $astman->database_show('DEVICE');
+$var = is_array($var) ? $var : aerray();
 foreach ($var as $key => $value) {
 	$myvar = explode('/',trim($key,'/'));
 	$dev_hash[$myvar[1]][$myvar[2]] = $value;
@@ -77,6 +79,7 @@ foreach ($var as $key => $value) {
 // already there.
 //
 $qmr = queues_get_static_members();
+$qmr = is_array($qmr) ? $qmr : array();
 foreach ($qmr as $q => $qmg) {
 	foreach ($qmg as $qm) {
 		if (strtoupper(substr($qm,0,1)) == 'L') {
@@ -98,11 +101,13 @@ foreach ($qmr as $q => $qmg) {
  *           [user] => 89222
  *         )
  */
+$dev_hash = is_array($dev_hash) ? $dev_hash : array();
 foreach ($dev_hash as $id => $device) {
 	$tech = explode('/',$device['dial'],2);
 	$tech = strtolower($tech[0]);
 	if ($device['user'] != '' && ($tech == 'sip' || $tech == 'iax2')) {
 		$pause_all_hints = array();
+		$qc[$device['user']] = is_array($qc[$device['user']]) ? $qc[$device['user']] : array();
 		foreach($qc[$device['user']] as $q) {
 			$hint = "qpause:$q:Local/{$device['user']}@from-queue/n";
 			$pause_all_hints[] = $hint;
