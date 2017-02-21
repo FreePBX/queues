@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-14 14:42-0800\n"
-"PO-Revision-Date: 2017-02-17 18:15+0200\n"
+"PO-Revision-Date: 2017-02-20 18:07+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/queues/pt_BR/>\n"
@@ -266,9 +266,8 @@ msgid "Bad Queue Number, can not be blank"
 msgstr "Mau Número de fila, não pode estar em branco"
 
 #: views/form.php:426
-#, fuzzy
 msgid "Break Out Type"
-msgstr "Tipo de Parada"
+msgstr ""
 
 #: views/form.php:810
 msgid "CID Name Prefix"
@@ -535,12 +534,10 @@ msgstr ""
 "agentes comuns em ambas as filas."
 
 #: queues.i18n.php:30
-#, fuzzy
 msgid "Hide Queue No Answer Option"
 msgstr "Ocultar opção de fila sem resposta"
 
 #: views/form.php:395
-#, fuzzy
 msgid "Honor Penalties"
 msgstr "Respeitar penalidades"
 
@@ -578,9 +575,8 @@ msgid "IVR Announce: %s"
 msgstr "Anunciar URA: %s"
 
 #: views/form.php:431 views/form.php:494
-#, fuzzy
 msgid "IVR Break Out Menu"
-msgstr "Menu de parada URA"
+msgstr "Menu URA Break Out"
 
 #: views/form.php:797
 msgid ""
@@ -889,9 +885,8 @@ msgstr ""
 "telefones %s neste momento"
 
 #: views/form.php:1669
-#, fuzzy
 msgid "Penalty Members Limit"
-msgstr "Limite de Membros de Penalidade"
+msgstr "Limite de Penalidade de membros"
 
 #: views/form.php:1808
 msgid "Periodic Announcements"
@@ -947,7 +942,6 @@ msgid "Queue Agents"
 msgstr "Agentes da Fila"
 
 #: views/form.php:432 views/form.php:535
-#, fuzzy
 msgid "Queue Callback"
 msgstr "Chamada de retorno de fila"
 
@@ -1140,13 +1134,12 @@ msgid "Ringer Volume Override"
 msgstr "Sobrepor volume da campainha"
 
 #: views/form.php:382
-#, fuzzy
 msgid ""
 "Same as No except Callers will be admitted if their are paused agents who "
 "could become available."
 msgstr ""
-"O mesmo que Não Exceto Chamadores serão admitidos se eles são  agentes "
-"pausados que poderiam estar disponíveis."
+"O mesmo que Não Exceto Chamadores, serão admitidos se são agentes pausados "
+"que poderiam estar disponíveis."
 
 #: views/form.php:380
 msgid ""
@@ -1161,7 +1154,6 @@ msgstr ""
 "outra chamada será considerado indisponível ."
 
 #: views/form.php:389
-#, fuzzy
 msgid ""
 "Same as Strict plus a queue member must be able to answer the phone 'now' to "
 "let them remain. Simply speaking, any 'available' agents that could answer "
@@ -1169,9 +1161,9 @@ msgid ""
 "be considered unavailable."
 msgstr ""
 "O mesmo que Strict mais um membro da fila deve ser capaz de atender o "
-"telefone 'agora' para deixá-los permanecer. Simplesmente falando, qualquer "
-"'disponível' agentes que poderiam responder, mas estão atualmente no "
-"telefone ou tocando em nome de outro chamador será considerado indisponível."
+"telefone 'agora'. Qualquer agente 'disponível'  que poderia responder, mas "
+"está atualmente no telefone ou tocando em nome de outro chamador será "
+"considerado indisponível."
 
 #: views/form.php:379
 msgid ""
@@ -1194,13 +1186,12 @@ msgstr ""
 "uso ou tocando, o chamador ainda será mantido."
 
 #: views/form.php:390
-#, fuzzy
 msgid ""
 "Same as Yes except Callers will remain in the Queue if their are paused "
 "agents who could become available."
 msgstr ""
-"O mesmo que Sim Exceto Chamadores que permanecerão na fila se seus agentes "
-"em pausa puderem se tornar disponíveis."
+"O mesmo que Sim Exceto Chamadores, vão permanecer na fila se são agentes em "
+"pausa que poderiam se tornar disponíveis."
 
 #: views/form.php:1827
 msgid "Service Level"
@@ -1576,9 +1567,8 @@ msgstr ""
 "também pode ser alcançado através da URA, mas requer configuração extra."
 
 #: views/form.php:1378
-#, fuzzy
 msgid "Wrap-Up-Time"
-msgstr "Tempo de Envolvimento"
+msgstr ""
 
 #: views/cron.php:26 views/cron.php:55 views/form.php:103 views/form.php:378
 #: views/form.php:387 views/form.php:612 views/form.php:644 views/form.php:787
@@ -1729,7 +1719,6 @@ msgid "hours"
 msgstr "horas"
 
 #: views/form.php:291
-#, fuzzy
 msgid "inherit"
 msgstr "herdado"
 
