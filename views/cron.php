@@ -179,14 +179,14 @@ $(document).ready(function() {
     $(this).remove();
 	});
 	if($('input[name="disablecron"]:checked').val() == 'never'){
-		$('#cron').prop('disabled':true);
+		$('#cron').prop('disabled',true);
 		$('#cron_schedule').val("never");
 	}
 });
 //Disable Check box...
 $('input[name="disablecron"]').on('change',function(){
 	if($(this).val() == 'never'){
-		$('#cron').prop('disabled':true);
+		$('#cron').prop('disabled',true);
 		$('#cron_minute').attr('disabled', true);
 		$('#cron_hour').attr('disabled', true);
 		$('#cron_dow').attr('disabled', true);
@@ -198,7 +198,7 @@ $('input[name="disablecron"]').on('change',function(){
 		$('#cron_schedule').val('never');
 	}else{
 		if($('input[name="cron_random"]').val() == 'false'){
-			$('#cron').prop('disabled':false);
+			$('#cron').prop('disabled',false);
 			$('#cron_minute').attr('disabled', false);
 			$('#cron_hour').attr('disabled', false);
 			$('#cron_dow').attr('disabled', false);
