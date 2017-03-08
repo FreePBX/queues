@@ -138,7 +138,7 @@ class queues_conf {
 					case 'answered_elsewhere':
 					case 'skip_joinannounce':
 					case 'rvolume':
-						continue;
+						continue(2);
 					break;
 					case 'music':
 						$keyword = 'musicclass';
