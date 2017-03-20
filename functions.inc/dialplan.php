@@ -483,16 +483,7 @@ function queues_get_config($engine) {
 
 								// Do the real hints for below
 								//
-								$q_tmp = '${EXTEN:' . ($q_pause_len+1) . ":".$dev_len.'}';
 								$d_tmp = '${DB(DEVICE/${EXTEN:' . ($q_pause_len+1) . ":".$dev_len."}/user)}";
-								/*
-								if ($ast_ge_12) {
-									$hint = "Queue:{$q}_pause_Local/{$device['user']}@from-queue/n";
-								} else {
-									$hint = "qpause:$q:Local/{$device['user']}@from-queue/n";
-								}
-								$pause_all_hints[] = $hint;
-								*/
 
 								if (!in_array($exten_pat, $hint_hash)) {
 									$hint_hash[] = $exten_pat;
@@ -500,16 +491,15 @@ function queues_get_config($engine) {
 									/*
 									exten => *46*1999*90000,1,Gosub(app-queue-pause-toggle,s,1(90000,1999))
 									exten => *46*1999*90000,hint,Queue:90000_pause_Local/1999@from-queue/n
-									${DB(DEVICE/${EXTEN:4:4}/user)}
 									 */
 
 									if ($ast_ge_12) {
-										$hint = "Queue:{$q_tmp}_pause_Local/{$d_tmp}@from-queue/n";
+										$hint = "Queue:{$q}_pause_Local/{$d_tmp}@from-queue/n";
 									} else {
-										$hint = "qpause:$q_tmp:Local/{$d_tmp}@from-queue/n";
+										$hint = "qpause:{$q}:Local/{$d_tmp}@from-queue/n";
 									}
 									$pause_all_hints[] = $hint;
-									$ext->add($c, $exten_pat, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$q_tmp));
+									$ext->add($c, $exten_pat, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$d_tmp));
 									$ext->addHint($c, $exten_pat, $hint);
 								}
 							} else {
@@ -517,7 +507,6 @@ function queues_get_config($engine) {
 							}
 						}
 
-						//$ext->add($c, $que_pause_code . '*' . $device['id'], '', new ext_goto('1','s','app-all-queue-pause-toggle'));
 						if (!empty($pause_all_hints)) {
 							$astman->database_put("AMPUSER/".$device['id'],"pausequeuehint",implode('&', $pause_all_hints));
 						}
