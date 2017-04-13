@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-14 14:42-0800\n"
+"POT-Creation-Date: 2017-04-13 14:02-0400\n"
 "PO-Revision-Date: 2011-09-25 12:15+0200\n"
 "Last-Translator: Moshe Brevda <mbrevda => gmail ! com>\n"
 "Language-Team: \n"
@@ -285,11 +285,11 @@ msgstr ""
 msgid "Capacity Options"
 msgstr ""
 
-#: install.php:68
+#: install.php:39
 msgid "Checking for legacy queues table.."
 msgstr "בודק האם ישנה טבלה ישנה..."
 
-#: install.php:382
+#: install.php:355
 msgid "Checking if recordings need migration.."
 msgstr "בודק האם הקלטות המערכת צריכות לעבור שדרוג"
 
@@ -304,11 +304,11 @@ msgid ""
 "agents, caller announcements, max wait times, etc."
 msgstr ""
 
-#: install.php:188
+#: install.php:159
 msgid "Creating queues_config.."
 msgstr "יוצר הגדרות תורים"
 
-#: install.php:94
+#: install.php:65
 msgid "Creating queues_details.."
 msgstr "יוצר פרטים לתורים"
 
@@ -360,7 +360,7 @@ msgstr ""
 msgid "Don't Care"
 msgstr ""
 
-#: install.php:339
+#: install.php:310
 msgid "Dropping old queues table.."
 msgstr "מוחק טבלת תורים ישנה"
 
@@ -376,31 +376,31 @@ msgid ""
 "be logged in to the queue."
 msgstr ""
 
-#: install.php:328
+#: install.php:299
 msgid "ERROR were encountered"
 msgstr "המערכת נתקלה במספר שגיאות"
 
-#: install.php:207
+#: install.php:178
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr "שגיאה: לא ניתן לקרוא טבלת נתונים. מבטל בקשה"
 
-#: install.php:232
+#: install.php:203
 msgid "ERROR: accessing queues table obtaining id list, aborting"
 msgstr "שגיאה: לא ניתן לקרוא טבלת נתונים. מבטל בקשה"
 
-#: install.php:214
+#: install.php:185
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr "שגיאה: לא ניתן לקרוא טבלת נתונים. מבטל בקשה"
 
-#: install.php:101 install.php:195
+#: install.php:72 install.php:166
 msgid "ERROR: could not create table"
 msgstr "שגיאה: לא ניתן ליצור טבלה"
 
-#: install.php:119
+#: install.php:90
 msgid "ERROR: could not migrate to queues_details"
 msgstr "שגיאה: לא ניתן לבצע שדרוג לטבלת התורים"
 
-#: install.php:320
+#: install.php:291
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
 msgstr ""
@@ -654,11 +654,11 @@ msgstr ""
 msgid "Menu ID "
 msgstr "מזהה התפריט"
 
-#: install.php:203
+#: install.php:174
 msgid "Migrating data to queues_config.."
 msgstr "מבצע שידרוג לנתונים"
 
-#: install.php:116
+#: install.php:87
 msgid "Migrating to queues_details.."
 msgstr "מבצעה שדרוג לטבלת התורים"
 
@@ -690,7 +690,7 @@ msgstr ""
 msgid "Music on Hold Class"
 msgstr ""
 
-#: install.php:72
+#: install.php:43
 msgid "NO table found, no migration to do just create tables"
 msgstr "לא אותרה טבלה ישנה, אין צורך לבצע שדרוג. מייצר טבלה חדשה"
 
@@ -726,11 +726,11 @@ msgstr "ללא ניסיון חוזר"
 msgid "None"
 msgstr "אין"
 
-#: install.php:77 install.php:105 install.php:122 install.php:125
-#: install.php:199 install.php:326 install.php:332 install.php:345
-#: install.php:354 install.php:371 install.php:497 install.php:512
-#: install.php:527 install.php:542 install.php:557 install.php:572
-#: install.php:587 install.php:602 install.php:617 install.php:632
+#: install.php:48 install.php:76 install.php:93 install.php:96 install.php:170
+#: install.php:297 install.php:303 install.php:316 install.php:344
+#: install.php:470 install.php:485 install.php:500 install.php:515
+#: install.php:530 install.php:545 install.php:560 install.php:575
+#: install.php:590 install.php:605
 msgid "OK"
 msgstr "תקין"
 
@@ -1156,7 +1156,7 @@ msgid ""
 "are doing or leave this blank"
 msgstr ""
 
-#: install.php:343 install.php:352
+#: install.php:314
 #, php-format
 msgid "WARNING FAILED %s"
 msgstr "אזהרה נכשל %s"
@@ -1341,72 +1341,72 @@ msgstr ""
 "אתה יכול לדרוש שנציגי שירות יכניסו סיסמא לפני שהם יכולים להתחיל לתת שירות "
 "לתור.<br /><br />הגדרה זו היא רשות."
 
-#: install.php:389
+#: install.php:362
 msgid "adding agentannounce_id field.."
 msgstr "מוסיף שדה הודעה לנציג"
 
-#: install.php:398
+#: install.php:371
 msgid "adding joinannounce_id field.."
 msgstr "מוסיף שדה הודעה למתקשר"
 
-#: install.php:99 install.php:193 install.php:373 install.php:499
-#: install.php:514 install.php:529 install.php:544 install.php:559
-#: install.php:574 install.php:589 install.php:604 install.php:619
-#: install.php:634
+#: install.php:70 install.php:164 install.php:346 install.php:472
+#: install.php:487 install.php:502 install.php:517 install.php:532
+#: install.php:547 install.php:562 install.php:577 install.php:592
+#: install.php:607
 msgid "already exists"
 msgstr "כבר קיים"
 
-#: install.php:483
+#: install.php:456
 msgid "already migrated"
 msgstr "כבר בוצע"
 
-#: install.php:622
+#: install.php:595
 msgid "checking for callback_id field.."
 msgstr ""
 
-#: install.php:547
+#: install.php:520
 #, fuzzy
 msgid "checking for callconfirm field.."
 msgstr "בודק נתונים"
 
-#: install.php:562
+#: install.php:535
 #, fuzzy
 msgid "checking for callconfirm_id field.."
 msgstr "בודק נתונים"
 
-#: install.php:592
+#: install.php:565
 #, fuzzy
 msgid "checking for monitor_heard field.."
 msgstr "בודק נתונים"
 
-#: install.php:607
+#: install.php:580
 #, fuzzy
 msgid "checking for monitor_spoken field.."
 msgstr "בודק נתונים"
 
-#: install.php:577
+#: install.php:550
 #, fuzzy
 msgid "checking for monitor_type field.."
 msgstr "בודק נתונים"
 
-#: install.php:532
+#: install.php:505
 #, fuzzy
 msgid "checking for qnoanswer field.."
 msgstr "בודק נתונים"
 
-#: install.php:361
+#: install.php:334
 msgid "checking for qregex field.."
 msgstr "בודק נתונים"
 
-#: install.php:487
+#: install.php:460
 msgid "checking for queuewait field.."
 msgstr "בודק שדה זמן המתנה"
 
-#: install.php:517
+#: install.php:490
 msgid "checking for togglehint field.."
 msgstr ""
 
-#: install.php:502
+#: install.php:475
 msgid "checking for use_queue_context field.."
 msgstr ""
 
@@ -1418,16 +1418,16 @@ msgstr "יום"
 msgid "default"
 msgstr "ברירת מחדל"
 
-#: install.php:464
+#: install.php:437
 msgid "dropping agentannounce field.."
 msgstr ""
 
-#: install.php:474
+#: install.php:447
 msgid "dropping joinannounce field.."
 msgstr ""
 
-#: install.php:393 install.php:402 install.php:414 install.php:430
-#: install.php:440 install.php:456
+#: install.php:366 install.php:375 install.php:387 install.php:403
+#: install.php:413 install.php:429
 msgid "fatal error"
 msgstr "שגיאה חמורה"
 
@@ -1459,20 +1459,20 @@ msgstr "הכי פחות אחרון"
 msgid "linear"
 msgstr "לינארי - כלומר לפי סדר ההופעה של הנציגים"
 
-#: install.php:410
+#: install.php:383
 msgid "migrate agentannounce to ids.."
 msgstr "מייבא הגדרת הודעה לנציג"
 
-#: install.php:436
+#: install.php:409
 msgid "migrate joinannounce to ids.."
 msgstr ""
 
-#: install.php:434 install.php:460
+#: install.php:407 install.php:433
 #, php-format
 msgid "migrated %s entries"
 msgstr "היגרו %s ערכים"
 
-#: install.php:388
+#: install.php:361
 msgid "migrating"
 msgstr "משדרג"
 
@@ -1484,11 +1484,11 @@ msgstr "דקה"
 msgid "minutes"
 msgstr "דקות"
 
-#: install.php:470
+#: install.php:443
 msgid "no agentannounce field???"
 msgstr ""
 
-#: install.php:478
+#: install.php:451
 msgid "no joinannounce field???"
 msgstr ""
 
@@ -1496,7 +1496,7 @@ msgstr ""
 msgid "none"
 msgstr "ללא"
 
-#: install.php:396 install.php:405 install.php:472 install.php:480
+#: install.php:369 install.php:378 install.php:445 install.php:453
 msgid "ok"
 msgstr "תקין"
 
@@ -1509,10 +1509,6 @@ msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
-
-#: install.php:348
-msgid "removing queues data extensions table.."
-msgstr "מסיר טבלת תורים ישנים"
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
@@ -1569,6 +1565,9 @@ msgstr "שניות"
 #: views/form.php:261
 msgid "wrandom"
 msgstr "אקראי עם התחשבות בעונש"
+
+#~ msgid "removing queues data extensions table.."
+#~ msgstr "מסיר טבלת תורים ישנים"
 
 #~ msgid "(**) ERRORS"
 #~ msgstr "(**) ישנם מספר שגיאות"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-14 14:42-0800\n"
+"POT-Creation-Date: 2017-04-13 14:02-0400\n"
 "PO-Revision-Date: 2017-03-05 21:50+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -281,11 +281,11 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Options de capacité"
 
-#: install.php:68
+#: install.php:39
 msgid "Checking for legacy queues table.."
 msgstr "Vérification des tables d'héritage des files d'attente..."
 
-#: install.php:382
+#: install.php:355
 msgid "Checking if recordings need migration.."
 msgstr "Teste si les enregistrements doivent être migrés..."
 
@@ -300,11 +300,11 @@ msgid ""
 "agents, caller announcements, max wait times, etc."
 msgstr ""
 
-#: install.php:188
+#: install.php:159
 msgid "Creating queues_config.."
 msgstr "Création de queues_config (configuration des files d'attente)..."
 
-#: install.php:94
+#: install.php:65
 msgid "Creating queues_details.."
 msgstr "Création des queues_details (details de files d'attente)..."
 
@@ -355,7 +355,7 @@ msgstr ""
 msgid "Don't Care"
 msgstr ""
 
-#: install.php:339
+#: install.php:310
 msgid "Dropping old queues table.."
 msgstr "Suppression de l'ancienne table de files d'attente..."
 
@@ -371,39 +371,39 @@ msgid ""
 "be logged in to the queue."
 msgstr ""
 
-#: install.php:328
+#: install.php:299
 msgid "ERROR were encountered"
 msgstr "ERREURS rencontrées"
 
-#: install.php:207
+#: install.php:178
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
 "ERREUR lors de l'accès à la table des files d'attente et de l'obtention des "
 "infos contextuelles. En cours d'abandon"
 
-#: install.php:232
+#: install.php:203
 msgid "ERROR: accessing queues table obtaining id list, aborting"
 msgstr ""
 "ERREUR lors de l'accès à la table des files d'attente et de l'obtention des "
 "listes d'identifiants. En cours d'abandon"
 
-#: install.php:214
+#: install.php:185
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr ""
 "ERREUR lors de l'accès à la table des files d'attente et de l'obtention des "
 "infos rtone. En cours d'abandon"
 
-#: install.php:101 install.php:195
+#: install.php:72 install.php:166
 msgid "ERROR: could not create table"
 msgstr "ERREUR : impossible de créer la table"
 
-#: install.php:119
+#: install.php:90
 msgid "ERROR: could not migrate to queues_details"
 msgstr ""
 "ERREUR : impossible de migrer vers queues_details (détails de files "
 "d'attente)"
 
-#: install.php:320
+#: install.php:291
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
 msgstr "ERREUR lors de l'insertion de données à la ligne %s: %s..."
@@ -666,13 +666,13 @@ msgstr ""
 msgid "Menu ID "
 msgstr "Menu Identfiants "
 
-#: install.php:203
+#: install.php:174
 msgid "Migrating data to queues_config.."
 msgstr ""
 "Migration des données vers queues_config (configuration des files "
 "d'attente)..."
 
-#: install.php:116
+#: install.php:87
 msgid "Migrating to queues_details.."
 msgstr "Migration vers queues_details (détails de files d'attente)..."
 
@@ -704,7 +704,7 @@ msgstr ""
 msgid "Music on Hold Class"
 msgstr ""
 
-#: install.php:72
+#: install.php:43
 msgid "NO table found, no migration to do just create tables"
 msgstr ""
 "AUCUNE table trouvée, pas de migration à effectuer, créez seulement les "
@@ -742,11 +742,11 @@ msgstr "Pas de Nouvel Essai"
 msgid "None"
 msgstr "Aucun"
 
-#: install.php:77 install.php:105 install.php:122 install.php:125
-#: install.php:199 install.php:326 install.php:332 install.php:345
-#: install.php:354 install.php:371 install.php:497 install.php:512
-#: install.php:527 install.php:542 install.php:557 install.php:572
-#: install.php:587 install.php:602 install.php:617 install.php:632
+#: install.php:48 install.php:76 install.php:93 install.php:96 install.php:170
+#: install.php:297 install.php:303 install.php:316 install.php:344
+#: install.php:470 install.php:485 install.php:500 install.php:515
+#: install.php:530 install.php:545 install.php:560 install.php:575
+#: install.php:590 install.php:605
 msgid "OK"
 msgstr "OK"
 
@@ -1196,7 +1196,7 @@ msgstr ""
 "Utiliser un filtre Regex est plutôt avancé, veuillez confirmer que vous "
 "savez ce que vous faites ou laissez vide"
 
-#: install.php:343 install.php:352
+#: install.php:314
 #, php-format
 msgid "WARNING FAILED %s"
 msgstr "L'AVERTISSEMENT A ECHOUE %s"
@@ -1383,66 +1383,66 @@ msgstr ""
 "puissent s'inscrire dans cette file d'attente.<br><br>Ce paramètre est "
 "optionnel."
 
-#: install.php:389
+#: install.php:362
 msgid "adding agentannounce_id field.."
 msgstr "ajout du champ agentannounce_id..."
 
-#: install.php:398
+#: install.php:371
 msgid "adding joinannounce_id field.."
 msgstr "ajout du champ joinannounce_id..."
 
-#: install.php:99 install.php:193 install.php:373 install.php:499
-#: install.php:514 install.php:529 install.php:544 install.php:559
-#: install.php:574 install.php:589 install.php:604 install.php:619
-#: install.php:634
+#: install.php:70 install.php:164 install.php:346 install.php:472
+#: install.php:487 install.php:502 install.php:517 install.php:532
+#: install.php:547 install.php:562 install.php:577 install.php:592
+#: install.php:607
 msgid "already exists"
 msgstr "existe déjà"
 
-#: install.php:483
+#: install.php:456
 msgid "already migrated"
 msgstr "déjà migré"
 
-#: install.php:622
+#: install.php:595
 msgid "checking for callback_id field.."
 msgstr ""
 
-#: install.php:547
+#: install.php:520
 msgid "checking for callconfirm field.."
 msgstr ""
 
-#: install.php:562
+#: install.php:535
 msgid "checking for callconfirm_id field.."
 msgstr ""
 
-#: install.php:592
+#: install.php:565
 msgid "checking for monitor_heard field.."
 msgstr ""
 
-#: install.php:607
+#: install.php:580
 msgid "checking for monitor_spoken field.."
 msgstr ""
 
-#: install.php:577
+#: install.php:550
 msgid "checking for monitor_type field.."
 msgstr ""
 
-#: install.php:532
+#: install.php:505
 msgid "checking for qnoanswer field.."
 msgstr ""
 
-#: install.php:361
+#: install.php:334
 msgid "checking for qregex field.."
 msgstr "contrôle du champ qregex..."
 
-#: install.php:487
+#: install.php:460
 msgid "checking for queuewait field.."
 msgstr "contrôle du champ queuewait..."
 
-#: install.php:517
+#: install.php:490
 msgid "checking for togglehint field.."
 msgstr ""
 
-#: install.php:502
+#: install.php:475
 msgid "checking for use_queue_context field.."
 msgstr ""
 
@@ -1454,16 +1454,16 @@ msgstr "jour"
 msgid "default"
 msgstr "par défaut"
 
-#: install.php:464
+#: install.php:437
 msgid "dropping agentannounce field.."
 msgstr "suppression du champ agentannounce..."
 
-#: install.php:474
+#: install.php:447
 msgid "dropping joinannounce field.."
 msgstr "suppression du champ joinannounce..."
 
-#: install.php:393 install.php:402 install.php:414 install.php:430
-#: install.php:440 install.php:456
+#: install.php:366 install.php:375 install.php:387 install.php:403
+#: install.php:413 install.php:429
 msgid "fatal error"
 msgstr "erreur fatale"
 
@@ -1495,20 +1495,20 @@ msgstr "Moins Récent"
 msgid "linear"
 msgstr ""
 
-#: install.php:410
+#: install.php:383
 msgid "migrate agentannounce to ids.."
 msgstr "migration d'agentannounce vers ids..."
 
-#: install.php:436
+#: install.php:409
 msgid "migrate joinannounce to ids.."
 msgstr "migration de joinannounce vers ids..."
 
-#: install.php:434 install.php:460
+#: install.php:407 install.php:433
 #, php-format
 msgid "migrated %s entries"
 msgstr "%s entrées migrées"
 
-#: install.php:388
+#: install.php:361
 msgid "migrating"
 msgstr "migartion"
 
@@ -1520,11 +1520,11 @@ msgstr "minute"
 msgid "minutes"
 msgstr "minutes"
 
-#: install.php:470
+#: install.php:443
 msgid "no agentannounce field???"
 msgstr "pas de champ agentannounce ???"
 
-#: install.php:478
+#: install.php:451
 msgid "no joinannounce field???"
 msgstr "pas de champ joinannounce ???"
 
@@ -1532,7 +1532,7 @@ msgstr "pas de champ joinannounce ???"
 msgid "none"
 msgstr "aucun"
 
-#: install.php:396 install.php:405 install.php:472 install.php:480
+#: install.php:369 install.php:378 install.php:445 install.php:453
 msgid "ok"
 msgstr "ok"
 
@@ -1545,11 +1545,6 @@ msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
-
-#: install.php:348
-msgid "removing queues data extensions table.."
-msgstr ""
-"suppression de la table des extensions d'information des files d'attente..."
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
@@ -1612,6 +1607,11 @@ msgstr "secondes"
 #: views/form.php:261
 msgid "wrandom"
 msgstr ""
+
+#~ msgid "removing queues data extensions table.."
+#~ msgstr ""
+#~ "suppression de la table des extensions d'information des files "
+#~ "d'attente..."
 
 #~ msgid "(**) ERRORS"
 #~ msgstr "(**) ERREURS"

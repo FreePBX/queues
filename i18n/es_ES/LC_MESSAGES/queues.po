@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-14 14:42-0800\n"
+"POT-Creation-Date: 2017-04-13 14:02-0400\n"
 "PO-Revision-Date: 2016-12-09 22:34+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -325,11 +325,11 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Opciones de Capacidad"
 
-#: install.php:68
+#: install.php:39
 msgid "Checking for legacy queues table.."
 msgstr "Comprobando tablas antiguas de colas..."
 
-#: install.php:382
+#: install.php:355
 msgid "Checking if recordings need migration.."
 msgstr "Comprobando si las grabaciones necesitan migrarse..."
 
@@ -348,11 +348,11 @@ msgstr ""
 "incluyendo la estrategia de timbrado para agentes, los anuncios de llamadas, "
 "el tiempo de espera máximo, etc."
 
-#: install.php:188
+#: install.php:159
 msgid "Creating queues_config.."
 msgstr "Creando tabla de configuración de colas (queues_config)..."
 
-#: install.php:94
+#: install.php:65
 msgid "Creating queues_details.."
 msgstr "Creando tabla de detalles de colas (queues_details)..."
 
@@ -414,7 +414,7 @@ msgstr ""
 msgid "Don't Care"
 msgstr "No importa"
 
-#: install.php:339
+#: install.php:310
 msgid "Dropping old queues table.."
 msgstr "Eliminando tablas de colas antiguas..."
 
@@ -434,38 +434,38 @@ msgstr ""
 "cola, su penalización  en la cola será como se especifica aquí. Extensiones "
 "incluidas aquí no se registrarán automáticamente en la cola."
 
-#: install.php:328
+#: install.php:299
 msgid "ERROR were encountered"
 msgstr "Se han encontrado errores"
 
-#: install.php:207
+#: install.php:178
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
 "ERROR: accediendo a la tabla de colas al obtener la información del "
 "contexto; abortando"
 
-#: install.php:232
+#: install.php:203
 msgid "ERROR: accessing queues table obtaining id list, aborting"
 msgstr ""
 "ERROR: accediendo a la tabla de colas al obtener el listado de "
 "identificadores; abortando"
 
-#: install.php:214
+#: install.php:185
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr ""
 "ERROR: accediendo a la tabla de colas al obtener la información de 'rtone'; "
 "abortando"
 
-#: install.php:101 install.php:195
+#: install.php:72 install.php:166
 msgid "ERROR: could not create table"
 msgstr "ERROR: no se pudo crear la tabla"
 
-#: install.php:119
+#: install.php:90
 msgid "ERROR: could not migrate to queues_details"
 msgstr ""
 "ERROR: no se pudo migrar la tabla de detalles de colas (queues_details)"
 
-#: install.php:320
+#: install.php:291
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
 msgstr "ERROR: insertando datos para la fila %s: %s."
@@ -786,11 +786,11 @@ msgstr "Valor predeterminado de Evento Estado del miembro"
 msgid "Menu ID "
 msgstr "Identificador de menú "
 
-#: install.php:203
+#: install.php:174
 msgid "Migrating data to queues_config.."
 msgstr "Migrando datos de la tabla de configuración de colas (queues_config).."
 
-#: install.php:116
+#: install.php:87
 msgid "Migrating to queues_details.."
 msgstr "Migrando tabla de detalles de colas(queues_details).."
 
@@ -831,7 +831,7 @@ msgstr ""
 msgid "Music on Hold Class"
 msgstr "Clase de Música en Espera"
 
-#: install.php:72
+#: install.php:43
 msgid "NO table found, no migration to do just create tables"
 msgstr ""
 "No se han encontrado tablas, no hace falta migración, simplemente crear las "
@@ -871,11 +871,11 @@ msgstr "No reintentar"
 msgid "None"
 msgstr "Ninguno"
 
-#: install.php:77 install.php:105 install.php:122 install.php:125
-#: install.php:199 install.php:326 install.php:332 install.php:345
-#: install.php:354 install.php:371 install.php:497 install.php:512
-#: install.php:527 install.php:542 install.php:557 install.php:572
-#: install.php:587 install.php:602 install.php:617 install.php:632
+#: install.php:48 install.php:76 install.php:93 install.php:96 install.php:170
+#: install.php:297 install.php:303 install.php:316 install.php:344
+#: install.php:470 install.php:485 install.php:500 install.php:515
+#: install.php:530 install.php:545 install.php:560 install.php:575
+#: install.php:590 install.php:605
 msgid "OK"
 msgstr "Hecho."
 
@@ -1397,7 +1397,7 @@ msgstr ""
 "El uso de un filtro de Regex está bastante avanzado, por favor confirme que "
 "usted sabe lo que está haciendo o déjelo en blanco"
 
-#: install.php:343 install.php:352
+#: install.php:314
 #, php-format
 msgid "WARNING FAILED %s"
 msgstr "AVISO DE FALLO %s"
@@ -1644,66 +1644,66 @@ msgstr ""
 "Puede pedir a los agentes que introduzcan una contraseña antes de que puedan "
 "iniciar sesión en esta cola.<br/><br/>Este parámetro es opcional."
 
-#: install.php:389
+#: install.php:362
 msgid "adding agentannounce_id field.."
 msgstr "Añadiendo campo 'agentannounce_id'.."
 
-#: install.php:398
+#: install.php:371
 msgid "adding joinannounce_id field.."
 msgstr "Añadiendo campo 'joinannounce_id'.."
 
-#: install.php:99 install.php:193 install.php:373 install.php:499
-#: install.php:514 install.php:529 install.php:544 install.php:559
-#: install.php:574 install.php:589 install.php:604 install.php:619
-#: install.php:634
+#: install.php:70 install.php:164 install.php:346 install.php:472
+#: install.php:487 install.php:502 install.php:517 install.php:532
+#: install.php:547 install.php:562 install.php:577 install.php:592
+#: install.php:607
 msgid "already exists"
 msgstr "Ya existe"
 
-#: install.php:483
+#: install.php:456
 msgid "already migrated"
 msgstr "Ya migrado"
 
-#: install.php:622
+#: install.php:595
 msgid "checking for callback_id field.."
 msgstr "chequeando campo callback_id.."
 
-#: install.php:547
+#: install.php:520
 msgid "checking for callconfirm field.."
 msgstr "Chequeando por campo callconfirm.."
 
-#: install.php:562
+#: install.php:535
 msgid "checking for callconfirm_id field.."
 msgstr "Chequeando por campo callconfirm_id.."
 
-#: install.php:592
+#: install.php:565
 msgid "checking for monitor_heard field.."
 msgstr "chequeando por campo monitor_heard.."
 
-#: install.php:607
+#: install.php:580
 msgid "checking for monitor_spoken field.."
 msgstr "chequeando por campo monitor_spoken.."
 
-#: install.php:577
+#: install.php:550
 msgid "checking for monitor_type field.."
 msgstr "chequeando por campo monitor_type.."
 
-#: install.php:532
+#: install.php:505
 msgid "checking for qnoanswer field.."
 msgstr "chequeando por campo qnoanswer.."
 
-#: install.php:361
+#: install.php:334
 msgid "checking for qregex field.."
 msgstr "Comprobando campo 'qregex'.."
 
-#: install.php:487
+#: install.php:460
 msgid "checking for queuewait field.."
 msgstr "Comprobando campo 'queuewait'.."
 
-#: install.php:517
+#: install.php:490
 msgid "checking for togglehint field.."
 msgstr "chequeando por campo togglehint.."
 
-#: install.php:502
+#: install.php:475
 msgid "checking for use_queue_context field.."
 msgstr "chequeando por campo use_queue_context.."
 
@@ -1715,16 +1715,16 @@ msgstr "día"
 msgid "default"
 msgstr "Por defecto"
 
-#: install.php:464
+#: install.php:437
 msgid "dropping agentannounce field.."
 msgstr "Eliminando campo 'agentannounce'.."
 
-#: install.php:474
+#: install.php:447
 msgid "dropping joinannounce field.."
 msgstr "Eliminando campo 'agentannounce'.."
 
-#: install.php:393 install.php:402 install.php:414 install.php:430
-#: install.php:440 install.php:456
+#: install.php:366 install.php:375 install.php:387 install.php:403
+#: install.php:413 install.php:429
 msgid "fatal error"
 msgstr "error fatal"
 
@@ -1756,20 +1756,20 @@ msgstr "Agente con última llamada más antigua"
 msgid "linear"
 msgstr "lineal"
 
-#: install.php:410
+#: install.php:383
 msgid "migrate agentannounce to ids.."
 msgstr "Migrando tabla 'agentannounce' a identificadores.."
 
-#: install.php:436
+#: install.php:409
 msgid "migrate joinannounce to ids.."
 msgstr "Migrando tabla 'joinannounce' a identificadores.."
 
-#: install.php:434 install.php:460
+#: install.php:407 install.php:433
 #, php-format
 msgid "migrated %s entries"
 msgstr "Migrados %s elementos"
 
-#: install.php:388
+#: install.php:361
 msgid "migrating"
 msgstr "migrando"
 
@@ -1781,11 +1781,11 @@ msgstr "minuto"
 msgid "minutes"
 msgstr "minutos"
 
-#: install.php:470
+#: install.php:443
 msgid "no agentannounce field???"
 msgstr "No existe el campo 'agentannounce'???"
 
-#: install.php:478
+#: install.php:451
 msgid "no joinannounce field???"
 msgstr "No existe el campo joinannounce???"
 
@@ -1793,7 +1793,7 @@ msgstr "No existe el campo joinannounce???"
 msgid "none"
 msgstr "Ninguna"
 
-#: install.php:396 install.php:405 install.php:472 install.php:480
+#: install.php:369 install.php:378 install.php:445 install.php:453
 msgid "ok"
 msgstr "ok"
 
@@ -1808,10 +1808,6 @@ msgid ""
 msgstr ""
 "aleatoriamente  usando penalidad del miembro como un factor de ponderación, "
 "ver documentación asterisk para obtener información específica"
-
-#: install.php:348
-msgid "removing queues data extensions table.."
-msgstr "Eliminando datos de la tabla de extensiones de colas.."
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
@@ -1878,3 +1874,6 @@ msgstr "segundos"
 #: views/form.php:261
 msgid "wrandom"
 msgstr "wrandon"
+
+#~ msgid "removing queues data extensions table.."
+#~ msgstr "Eliminando datos de la tabla de extensiones de colas.."
