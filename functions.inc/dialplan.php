@@ -495,10 +495,12 @@ function queues_get_config($engine) {
 
 									if ($ast_ge_12) {
 										$hint = "Queue:{$q}_pause_Local/{$d_tmp}@from-queue/n";
+										$pause_all_hints[] = "Queue:{$q}_pause_Local/".$device['user']."@from-queue/n";
 									} else {
 										$hint = "qpause:{$q}:Local/{$d_tmp}@from-queue/n";
+										$pause_all_hints[] = "qpause:{$q}:Local/".$device['user']."@from-queue/n";
 									}
-									$pause_all_hints[] = $hint;
+
 									$ext->add($c, $exten_pat, '', new ext_gosub('1','s','app-queue-pause-toggle',$q.','.$d_tmp));
 									$ext->addHint($c, $exten_pat, $hint);
 								}
