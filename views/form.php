@@ -8,11 +8,25 @@ if(isset($extdisplay) && $extdisplay != ''){
 	$thisQ = queues_get($extdisplay);
 	//create variables
 	extract($thisQ);
-
 }else{
 	$accountInput = '<input type="text" name="account" id="account" class="form-control" value="" required>';
 }
+//Added for RVOL mode
+if ($rvol_mode == "") {
+        $rvol_mode = "dontcare";
+}
 
+$options = array(_("Force") => "force", _("Yes") => "yes", _("Don't Care") => "dontcare", _("No") => "no", _("Never") => "never");
+foreach ($options as $disp => $rname) {
+        if ($rvol_mode == $rname) {
+                $checked = "checked";
+        } else {
+                $checked = "";
+        }
+        $rvolmode_opts .= "<input type='radio' id='record_${rname}' name='rvol_mode' value='$rname' $checked><label for='record_${rname}'>$disp</label>";
+}
+
+//Rvol mode ENDS here
 $cronVars = array(
 	'cron_schedule' => isset($cron_schedule)?$cron_schedule:'never',
 	'cron_minute' => isset($cron_minute)?$cron_minute:'',
@@ -903,6 +917,31 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 				</div>
 			</div>
 		</div>
+		<!-- Rvol mode-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="rvolumemode"><?php echo _("Ringer Volume Override Mode") ?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="rvol_mode"></i>
+							</div>
+							  <div class="col-md-9 radioset">
+                                  <?php echo $rvolmode_opts ?>
+                               </div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="rvol_mode-help" class="help-block fpbx-help-block"><?php echo sprintf(_("Please read the wiki for futher information on these changes.."))?></span>
+				</div>
+			</div>
+		</div>
+		<!--End Rvol mode-->
 		<!--Restrict Dynamic Agents-->
 		<div class="element-container">
 			<div class="row">

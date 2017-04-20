@@ -140,6 +140,11 @@ class queues_conf {
 					case 'rvolume':
 						continue(2);
 					break;
+					//We dontwant to write to queue conf file (FREEPBX-14194),its, not a queue variable
+					case 'rvol_mode':
+					        continue(2);
+					break;
+
 					case 'music':
 						$keyword = 'musicclass';
 					break;

@@ -27,7 +27,8 @@ function queues_add(
 	$monitor_spoken = '0',
 	$answered_elsewhere = '0',
 	$recording = 'dontcare',
-	$rvolume = ''
+	$rvolume = '',
+	$rvol_mode=''
 ) {
  	global $db,$astman,$amp_conf;
 
@@ -76,8 +77,8 @@ function queues_add(
 		array($account,'timeoutpriority',(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',0),
 		array($account,'penaltymemberslimit',(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',0),
 		array($account,'rvolume',(isset($_REQUEST['rvolume']))?$_REQUEST['rvolume']:'',0),
+		array($account,'rvol_mode',(isset($_REQUEST['rvol_mode']))?$_REQUEST['rvol_mode']:'',0),
 	);
-
 	/*
 	 * FREEPBX - 8216. As of Asterisk 12 eventmemberstatus and eventwhencalled are always true and
 	 * are not a user option. These fields will only show up if the user is running version 11 or lower.

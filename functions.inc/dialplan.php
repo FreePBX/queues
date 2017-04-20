@@ -80,6 +80,7 @@ function queues_get_config($engine) {
 				$grppre = (isset($q['prefix'])?$q['prefix']:'');
 				$alertinfo = (isset($q['alertinfo'])?$q['alertinfo']:'');
 				$rvolume = (isset($q['rvolume'])?$q['rvolume']:'');
+				$rvol_mode = (isset($q['rvol_mode'])?$q['rvol_mode']:'dontcare');
 
 				// Not sure why someone would ever have a ; in the regex, but since Asterisk has problems with them
 				// it would need to be escaped
@@ -126,7 +127,9 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('VQ_AINFO', ''));
 				if(!empty($rvolume)) {
 					$ext->add($c, $exten, '', new ext_set('__RVOL', $rvolume));
+					$ext->add($c, $exten, '', new ext_set('__RVOLPARENT', $rvolume));// saving Rvol to a differ var , when the call goes to differnt app.
 				}
+				$ext->add($c, $exten, '', new ext_set('__RVOL_MODE', $rvol_mode));// RVOL_MODE : setting the mode of rvol {force,yes,no,dontcare,never)
 				$ext->add($c, $exten, '', new ext_execif('$["${QAINFO}"!=""]', 'Set', '__ALERT_INFO=${QAINFO}'));
 
 				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
