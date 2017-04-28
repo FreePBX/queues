@@ -8,11 +8,26 @@ $heading = _("Queues");
 //get unique queues
 $queues = queues_list();
 $view = isset($request['view'])?$request["view"]:'';
+$usagehtml = '';
 switch($view){
 	case "form":
 		if($request['extdisplay']){
 			$heading .= _(" Edit: ");
 			$heading .= $request['extdisplay'];
+			$usage_list = framework_display_destination_usage(queues_getdest($extdisplay));
+			if(!empty($usage_list)){
+				$usagehtml = <<< HTML
+<div class="panel panel-default">
+	<div class="panel-heading">
+		$usage_list[text]
+	</div>
+	<div class="panel-body">
+		$usage_list[tooltip]
+	</div>
+</div>
+
+HTML;
+			}
 		}else{
 			$heading .= _(" Add Queue");
 		}
@@ -27,6 +42,7 @@ switch($view){
 ?>
 <div class="container-fluid">
 	<h1><?php echo $heading ?></h1>
+	<?php echo $usagehtml?>
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="fpbx-container">
