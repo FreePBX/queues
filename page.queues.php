@@ -14,20 +14,7 @@ switch($view){
 		if($request['extdisplay']){
 			$heading .= _(" Edit: ");
 			$heading .= $request['extdisplay'];
-			$usage_list = framework_display_destination_usage(queues_getdest($extdisplay));
-			if(!empty($usage_list)){
-				$usagehtml = <<< HTML
-<div class="panel panel-default fpbx-usageinfo">
-	<div class="panel-heading">
-		$usage_list[text]
-	</div>
-	<div class="panel-body">
-		$usage_list[tooltip]
-	</div>
-</div>
-
-HTML;
-			}
+			$usagehtml = FreePBX::View()->destinationUsage(queues_getdest($extdisplay));
 		}else{
 			$heading .= _(" Add Queue");
 		}
