@@ -8,11 +8,13 @@ $heading = _("Queues");
 //get unique queues
 $queues = queues_list();
 $view = isset($request['view'])?$request["view"]:'';
+$usagehtml = '';
 switch($view){
 	case "form":
 		if($request['extdisplay']){
 			$heading .= _(" Edit: ");
 			$heading .= $request['extdisplay'];
+			$usagehtml = FreePBX::View()->destinationUsage(queues_getdest($extdisplay));
 		}else{
 			$heading .= _(" Add Queue");
 		}
@@ -27,6 +29,7 @@ switch($view){
 ?>
 <div class="container-fluid">
 	<h1><?php echo $heading ?></h1>
+	<?php echo $usagehtml?>
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="fpbx-container">
