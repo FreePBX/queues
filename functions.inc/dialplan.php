@@ -211,21 +211,27 @@ function queues_get_config($engine) {
 					$agentannounce = ' ';
 				}
 
-				if ($q['callconfirm'] == 1) {
-					$ext->add($c, $exten, '', new ext_setvar('__FORCE_CONFIRM', '${CHANNEL}'));
-					if ($amp_conf['AST_FUNC_SHARED']) {
+				//FREEPBX-14945 :Call Confirm Announcement under Virtual Queue module is broken.
+				//we should do the check in the dialplan , then only call confirm from VQ will work,OR need to enable Queue 'call confirm'.
+				$ext->add($c, $exten, '', new ext_setvar('__QC_CONFIRM', $q['callconfirm']));
+				//check the call is from VQ?and see VQ_CONFIRMMSG is set or not
+				$ext->add($c, $exten, '', new ext_gotoif('$[$["${QC_CONFIRM}"="1"] | $[${LEN(${VQ_CONFIRMMSG})}>1]]','QVQANNOUNCE','NOQVQANNOUNCE'));
+				$ext->add($c, $exten, 'QVQANNOUNCE', new ext_setvar('__FORCE_CONFIRM', '${CHANNEL}'));
+				if ($amp_conf['AST_FUNC_SHARED']) {
 						$ext->add($c, $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)','NOANSWER'));
-					}
-					$ext->add($c, $exten, '', new ext_setvar('__CALLCONFIRMCID', '${CALLERID(number)}'));
-					$callconfirm_id = (isset($q['callconfirm_id']))?$q['callconfirm_id']:'';
-					if ($callconfirm_id) {
-						$callconfirm = recordings_get_file($callconfirm_id);
-					} else {
-						$callconfirm = ' ';
-					}
-					$ext->add($c, $exten, '', new ext_set('__ALT_CONFIRM_MSG', '${IF($[${LEN(${VQ_CONFIRMMSG})}>0]?${IF($["${VQ_CONFIRMMSG}"!="0"]?${VQ_CONFIRMMSG}: )}:' . $callconfirm . ')}'));
-					$ext->add($c, $exten, '', new ext_set('VQ_CONFIRMMSG', ''));
 				}
+				$ext->add($c, $exten, '', new ext_setvar('__CALLCONFIRMCID', '${CALLERID(number)}'));
+				$callconfirm_id = (isset($q['callconfirm_id']))?$q['callconfirm_id']:'';
+				if ($callconfirm_id) {
+						$callconfirm = recordings_get_file($callconfirm_id);
+				} else {
+						$callconfirm = ' ';
+				}
+				$ext->add($c, $exten, '', new ext_set('__ALT_CONFIRM_MSG', '${IF($[${LEN(${VQ_CONFIRMMSG})}>0]?${IF($["${VQ_CONFIRMMSG}"!="0"]?${VQ_CONFIRMMSG}: )}:' . $callconfirm . ')}'));
+				$ext->add($c, $exten, 'NOQVQANNOUNCE', new ext_set('VQ_CONFIRMMSG', ''));
+				//call confirm over.
+
+
 				$ext->add($c, $exten, '', new ext_execif('$["${QJOINMSG}"!=""' . $cplay . ']', 'Playback', '${QJOINMSG}, ' . $joinansw));
 				$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}'));
 
