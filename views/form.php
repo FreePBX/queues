@@ -390,16 +390,16 @@ $jehelphtml .= '<ul>';
 $jehelphtml .= '<li><b>'._("Yes").'</b> '._("Always allows the caller to join the Queue.").'</li>';
 $jehelphtml .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone then don't admit them. If agents are inuse or ringing someone else, caller will still be admitted.").'</li>';
 $jehelphtml .= '<li><b>'._("Ultra Strict").'</b> '._("Same as Strict plus a queue member must be able to answer the phone 'now' to let them in. Simply speaking, any 'available' agents that could answer but are currently on the phone or ringing on behalf of another caller will be considered unavailable.").'</li>';
-$jehelphtml .= '<li><b>'._("No").'</b> '._("Callers will not be admitted if all agents are paused, show an invalid state for their device, or have penalty values less then QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan).").'</li>';
-$jehelphtml .= '<li><b>'._("Loose").'</b> '._("Same as No except Callers will be admitted if their are paused agents who could become available.").'</li>';
+$jehelphtml .= '<li><b>'._("No").'</b> '._("Callers will not be admitted if all agents are paused, show an invalid state for their device, or have penalty values less than QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan).").'</li>';
+$jehelphtml .= '<li><b>'._("Loose").'</b> '._("Same as No except Callers will be admitted if there are paused agents who could become available.").'</li>';
 $jehelphtml .= '</ul>';
 //Leave Empty
 $lwehelphtml = _("Determines if callers should be exited prematurely from the queue in situations where it appears no one is currently available to take the call. The options include:");
 $lwehelphtml .= '<ul>';
-$lwehelphtml .= '<li><b>'._("Yes").'</b> '._("Callers will exit if all agents are paused, show an invalid state for their device or have penalty values less then QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan)..").'</li>';
+$lwehelphtml .= '<li><b>'._("Yes").'</b> '._("Callers will exit if all agents are paused, show an invalid state for their device or have penalty values less than QUEUE_MAX_PENALTY (not currently set in FreePBX dialplan).").'</li>';
 $lwehelphtml .= '<li><b>'._("Strict").'</b> '._("Same as Yes but more strict.  Simply speaking, if no agent could answer the phone then have them leave the queue. If agents are inuse or ringing someone else, caller will still be held.").'</li>';
 $lwehelphtml .= '<li><b>'._("Ultra Strict").'</b> '._("Same as Strict plus a queue member must be able to answer the phone 'now' to let them remain. Simply speaking, any 'available' agents that could answer but are currently on the phone or ringing on behalf of another caller will be considered unavailable.").'</li>';
-$lwehelphtml .= '<li><b>'._("Loose").'</b> '._("Same as Yes except Callers will remain in the Queue if their are paused agents who could become available.").'</li>';
+$lwehelphtml .= '<li><b>'._("Loose").'</b> '._("Same as Yes except Callers will remain in the Queue if there are paused agents who could become available.").'</li>';
 $lwehelphtml .= '<li><b>'._("No").'</b> '._("Never have a caller leave the Queue until the Max Wait Time has expired.").'</li>';
 $lwehelphtml .= '</ul>';
 //Penalty Member Limits
