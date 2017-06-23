@@ -100,7 +100,6 @@ if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']){
 }
 //Queue No Answer
 $qnoahtml = '';
-if ($qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER']) {
 	$qnoahtml = '
 	<!--Queue No Answer-->
 	<div class="element-container">
@@ -130,7 +129,6 @@ if ($qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER']) {
 	</div>
 	<!--END Queue No Answer-->
 	';
-}
 
 //Fields that are dependent on recordings
 //Call Confirm Announce
