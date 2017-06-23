@@ -1,35 +1,23 @@
 # This file is part of FreePBX.
 #
-#    FreePBX is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 2 of the License, or
-#    (at your option) any later version.
-#
-#    FreePBX is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+# For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for queues
-# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
-# Hebrew version for Queues FreePBX Module.
-# Copyright (C) 2011
-# This file is distributed under the same license as the PACKAGE package.
-# Isaac Gal <gal@allegronet.co.il>, 2011.
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: FreePBX 2.2.0\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-01 22:23-0400\n"
-"PO-Revision-Date: 2011-09-25 12:15+0200\n"
-"Last-Translator: Moshe Brevda <mbrevda => gmail ! com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2017-05-01 22:23-0400\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #: page.queues.php:19
 msgid " Add Queue"
@@ -55,7 +43,7 @@ msgstr ""
 
 #: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
-msgstr "הוסף תור"
+msgstr ""
 
 #: views/form.php:874
 msgid ""
@@ -78,7 +66,7 @@ msgstr ""
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
-msgstr "הודעה שתושמע לנציג"
+msgstr ""
 
 #: views/form.php:220
 msgid "Agent Announcement"
@@ -90,11 +78,11 @@ msgstr ""
 
 #: views/form.php:1853
 msgid "Agent Regex Filter"
-msgstr "פילטר להתחברות נציג"
+msgstr ""
 
 #: views/form.php:940
 msgid "Agent Restrictions"
-msgstr "הגבלת נציגים"
+msgstr ""
 
 #: views/form.php:300
 msgid "Agent Ringing"
@@ -110,7 +98,7 @@ msgstr ""
 
 #: views/form.php:862
 msgid "Alert Info"
-msgstr "Alert Info"
+msgstr ""
 
 #: install.php:15 queues.i18n.php:50
 msgid ""
@@ -136,7 +124,7 @@ msgstr ""
 
 #: views/form.php:1769
 msgid "Announce position of caller in the queue?"
-msgstr "הכרז למתקשר את מיקומו בתור?"
+msgstr ""
 
 #: views/form.php:197
 msgid ""
@@ -148,7 +136,6 @@ msgid ""
 msgstr ""
 
 #: views/form.php:234
-#, fuzzy
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -157,9 +144,6 @@ msgid ""
 "or more sound files are not displayed as options since this feature can not "
 "accept such recordings."
 msgstr ""
-"הכרזה המושמעת לנציג השירות לפני קישורו אל המתקשר<br /><br />לדוגמא: \"השיחה "
-"הבאה מגיעה מתור המכירות\" או\"שיחה זו מגיעה מתור התמיכה הטכנית\".<br /><br /"
-">אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
 
 #: views/form.php:157
 msgid ""
@@ -229,7 +213,7 @@ msgstr ""
 
 #: functions.inc/geters_seters.php:40
 msgid "Bad Queue Number, can not be blank"
-msgstr "מספר התור שגוי ואינו יכול להיות ריק"
+msgstr ""
 
 #: views/form.php:426
 msgid "Break Out Type"
@@ -287,15 +271,15 @@ msgstr ""
 
 #: install.php:39
 msgid "Checking for legacy queues table.."
-msgstr "בודק האם ישנה טבלה ישנה..."
+msgstr ""
 
 #: install.php:355
 msgid "Checking if recordings need migration.."
-msgstr "בודק האם הקלטות המערכת צריכות לעבור שדרוג"
+msgstr ""
 
 #: functions.inc/queue_conf.php:233
 msgid "Compound Recordings in Queues Detected"
-msgstr "אותרו הקלטות מערכת מחוברות"
+msgstr ""
 
 #: queues.i18n.php:8
 msgid ""
@@ -306,20 +290,19 @@ msgstr ""
 
 #: install.php:159
 msgid "Creating queues_config.."
-msgstr "יוצר הגדרות תורים"
+msgstr ""
 
 #: install.php:65
 msgid "Creating queues_details.."
-msgstr "יוצר פרטים לתורים"
+msgstr ""
 
 #: views/cron.php:60
 msgid "Daily"
 msgstr ""
 
 #: views/form.php:142
-#, fuzzy
 msgid "Default"
-msgstr "ברירת מחדל"
+msgstr ""
 
 #: queues.i18n.php:36
 msgid ""
@@ -362,7 +345,7 @@ msgstr ""
 
 #: install.php:310
 msgid "Dropping old queues table.."
-msgstr "מוחק טבלת תורים ישנה"
+msgstr ""
 
 #: views/form.php:1205
 msgid "Dynamic Agents"
@@ -378,27 +361,27 @@ msgstr ""
 
 #: install.php:299
 msgid "ERROR were encountered"
-msgstr "המערכת נתקלה במספר שגיאות"
+msgstr ""
 
 #: install.php:178
 msgid "ERROR: accessing queues table obtaining context info, aborting"
-msgstr "שגיאה: לא ניתן לקרוא טבלת נתונים. מבטל בקשה"
+msgstr ""
 
 #: install.php:203
 msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr "שגיאה: לא ניתן לקרוא טבלת נתונים. מבטל בקשה"
+msgstr ""
 
 #: install.php:185
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
-msgstr "שגיאה: לא ניתן לקרוא טבלת נתונים. מבטל בקשה"
+msgstr ""
 
 #: install.php:72 install.php:166
 msgid "ERROR: could not create table"
-msgstr "שגיאה: לא ניתן ליצור טבלה"
+msgstr ""
 
 #: install.php:90
 msgid "ERROR: could not migrate to queues_details"
-msgstr "שגיאה: לא ניתן לבצע שדרוג לטבלת התורים"
+msgstr ""
 
 #: install.php:291
 #, php-format
@@ -427,17 +410,16 @@ msgid "Event When Called"
 msgstr ""
 
 #: functions.inc/hook_core.php:59
-#, fuzzy
 msgid "Extension Options"
-msgstr "שלוחה בלבד"
+msgstr ""
 
 #: views/form.php:952
 msgid "Extensions Only"
-msgstr "שלוחה בלבד"
+msgstr ""
 
 #: views/form.php:1145
 msgid "Fail Over Destination"
-msgstr "יעד שיש להיכשל אליו"
+msgstr ""
 
 #: views/form.php:1093
 msgid "Force"
@@ -457,7 +439,7 @@ msgstr ""
 
 #: views/form.php:768
 msgid "Give this queue a brief name to help you identify it."
-msgstr "תן לתור זה שם קצר כדי לעזור לך לזהות אותו."
+msgstr ""
 
 #: views/form.php:1074
 msgid ""
@@ -466,9 +448,8 @@ msgid ""
 msgstr ""
 
 #: queues.i18n.php:30
-#, fuzzy
 msgid "Hide Queue No Answer Option"
-msgstr "אפשרויות תור"
+msgstr ""
 
 #: views/form.php:395
 msgid "Honor Penalties"
@@ -486,7 +467,7 @@ msgstr ""
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
-msgstr "בכל כמה זמן להשמיע למקשר את ההכרזה (0 לביטול ההכרזה כליל)"
+msgstr ""
 
 #: views/form.php:1716
 msgid ""
@@ -496,7 +477,7 @@ msgstr ""
 
 #: functions.inc/destination_registry.php:98
 msgid "INUSE"
-msgstr "בשימוש כרגע"
+msgstr ""
 
 #: functions.inc.php:75
 #, php-format
@@ -636,7 +617,7 @@ msgstr ""
 
 #: views/form.php:1589
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
-msgstr "מספר אנשים מקסימלי שיכולים להמתין בתור (0 ללא הגבלה)"
+msgstr ""
 
 #: views/form.php:1404
 msgid "Member Delay"
@@ -652,15 +633,15 @@ msgstr ""
 
 #: views/form.php:468 views/form.php:472
 msgid "Menu ID "
-msgstr "מזהה התפריט"
+msgstr ""
 
 #: install.php:174
 msgid "Migrating data to queues_config.."
-msgstr "מבצע שידרוג לנתונים"
+msgstr ""
 
 #: install.php:87
 msgid "Migrating to queues_details.."
-msgstr "מבצעה שדרוג לטבלת התורים"
+msgstr ""
 
 #: views/form.php:1728
 msgid "Minimum Announcement Interval"
@@ -692,7 +673,7 @@ msgstr ""
 
 #: install.php:43
 msgid "NO table found, no migration to do just create tables"
-msgstr "לא אותרה טבלה ישנה, אין צורך לבצע שדרוג. מייצר טבלה חדשה"
+msgstr ""
 
 #: views/form.php:1097
 msgid "Never"
@@ -711,7 +692,7 @@ msgstr ""
 #: views/form.php:1500 views/form.php:1529 views/form.php:1613
 #: views/form.php:1647 views/form.php:1761 views/form.php:1790
 msgid "No"
-msgstr "לא"
+msgstr ""
 
 #: views/form.php:950
 msgid "No Follow-Me or Call Forward"
@@ -719,12 +700,12 @@ msgstr ""
 
 #: views/form.php:356
 msgid "No Retry"
-msgstr "ללא ניסיון חוזר"
+msgstr ""
 
 #: views/form.php:178 views/form.php:206 views/form.php:499 views/form.php:540
 #: views/form.php:890
 msgid "None"
-msgstr "אין"
+msgstr ""
 
 #: install.php:48 install.php:76 install.php:93 install.php:96 install.php:170
 #: install.php:297 install.php:303 install.php:316 install.php:344
@@ -732,11 +713,11 @@ msgstr "אין"
 #: install.php:530 install.php:545 install.php:560 install.php:575
 #: install.php:590 install.php:605
 msgid "OK"
-msgstr "תקין"
+msgstr ""
 
 #: views/form.php:1792
 msgid "Once"
-msgstr "פעם אחת"
+msgstr ""
 
 #: views/form.php:717
 msgid "Other Options"
@@ -755,7 +736,7 @@ msgstr ""
 
 #: views/form.php:1808
 msgid "Periodic Announcements"
-msgstr "הודעה תקופתית"
+msgstr ""
 
 #: queues.i18n.php:12
 msgid "Persistent Members"
@@ -780,12 +761,12 @@ msgstr ""
 
 #: Queues.class.php:193 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
-msgstr "תור"
+msgstr ""
 
 #: functions.inc/destination_registry.php:36
 #, php-format
 msgid "Queue %s : %s"
-msgstr "תור %s : %s"
+msgstr ""
 
 #: functions.inc/queue_conf.php:231
 #, php-format
@@ -818,7 +799,7 @@ msgstr ""
 
 #: assets/js/queues.js:40
 msgid "Queue Number must not be blank"
-msgstr "מספר התור אינו יכול להיות ריק"
+msgstr ""
 
 #: views/form.php:68
 msgid "Queue Password"
@@ -838,7 +819,7 @@ msgstr ""
 
 #: views/form.php:1061
 msgid "Queue Weight"
-msgstr "משקל התור"
+msgstr ""
 
 #: views/form.php:1035
 msgid "Queue calls only (ringinuse=no)"
@@ -855,14 +836,14 @@ msgstr ""
 #: assets/js/queues.js:53
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
-msgstr "שם התור אינו יכול להיות ריק, כמו כן חייב להכיל אותיות ומספרים בלבד"
+msgstr ""
 
 #: functions.inc/destination_registry.php:56
 #: functions.inc/destination_registry.php:73
 #: functions.inc/destination_registry.php:97
 #, php-format
 msgid "Queue: %s"
-msgstr "תור: %s"
+msgstr ""
 
 #: functions.inc/destination_registry.php:126
 #, php-format
@@ -871,12 +852,11 @@ msgstr ""
 
 #: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
-msgstr "תורים"
+msgstr ""
 
 #: queues.i18n.php:14
-#, fuzzy
 msgid "Queues Module"
-msgstr "תורים"
+msgstr ""
 
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
@@ -938,7 +918,7 @@ msgstr ""
 
 #: views/form.php:913
 msgid "Restrict Dynamic Agents"
-msgstr "הגבלת נציגים דינמיים"
+msgstr ""
 
 #: views/form.php:928
 msgid ""
@@ -1022,8 +1002,6 @@ msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
 msgstr ""
-"האם אנו אמורים לכלול את זמן ההמתנה המשוער בהכרזות? האפשרויות הן כן, לא, או "
-"פעם אחת; זמן ההמתנה לא יוכרז אם הוא קטן מדקה אחת"
 
 #: views/form.php:1025
 msgid "Skip Busy Agents"
@@ -1031,7 +1009,7 @@ msgstr ""
 
 #: views/form.php:1172
 msgid "Static Agents"
-msgstr "נציגים קבועים"
+msgstr ""
 
 #: views/form.php:1193
 msgid ""
@@ -1058,7 +1036,7 @@ msgstr ""
 #: views/form.php:379 views/form.php:388 views/form.php:1274
 #: views/form.php:1609 views/form.php:1643
 msgid "Strict"
-msgstr "מוגבל"
+msgstr ""
 
 #: Queues.class.php:210
 msgid "Submit"
@@ -1075,8 +1053,6 @@ msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr ""
-"הזמן המקסימלי בשניות שהמשתמש יכול להמתין בתור לפני שהוא יוצא משם על ידי "
-"המערכת. (0 עבור ללא הגבלה)"
 
 #: views/form.php:1310
 msgid ""
@@ -1114,13 +1090,12 @@ msgstr ""
 
 #: views/form.php:380 views/form.php:389 views/form.php:1611
 #: views/form.php:1645
-#, fuzzy
 msgid "Ultra Strict"
-msgstr "מוגבל"
+msgstr ""
 
 #: views/form.php:332 views/form.php:350
 msgid "Unlimited"
-msgstr "ללא הגבלה"
+msgstr ""
 
 #: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
@@ -1138,11 +1113,6 @@ msgid ""
 "<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
 "in<br>123** = log out</b>"
 msgstr ""
-"השתמש במספר זה כדי לחייג לתוך תור זה, או העבר מתקשרים למספר זה כדי להכניסם "
-"אל התור.<br /><br />נציגי שירות יחייגו למספר תור זה ולאחריו כוכבית כדי "
-"להיכנס לרשימת הנציגים אשר יכולים לקבל שיחות, ואת מספר התור עם שתי כוכביות "
-"אחריו כדי לצאת מהתור.<br /><br />לדוגמא, אם מספר התור הוא 123:<br /><br /"
-"><b>123* = כניסה לשירות בתור<br />123** = יציאה מהשירות בתור</b>"
 
 #: views/form.php:1841
 msgid ""
@@ -1159,7 +1129,7 @@ msgstr ""
 #: install.php:314
 #, php-format
 msgid "WARNING FAILED %s"
-msgstr "אזהרה נכשל %s"
+msgstr ""
 
 #: views/form.php:834
 msgid "Wait Time Prefix"
@@ -1167,7 +1137,7 @@ msgstr ""
 
 #: Queues.class.php:144
 msgid "Warning! Extension"
-msgstr "אזהרה! שלוחה"
+msgstr ""
 
 #: functions.inc/queue_conf.php:226
 msgid ""
@@ -1175,9 +1145,6 @@ msgid ""
 "configurations. Queues can not play these so they have been truncated to the "
 "first sound file. You should correct this problem.<br />Details:<br /><br />"
 msgstr ""
-"הזהרה, ישנם הקלטות שמוגדרות להשמעה באחד או יותר מהתורים שמכילותמספר קבצי קול "
-"מחוברים, מודול התורים אינו יכול להשמיע את הקבצים האלוועליך ליצור הקלטות "
-"מערכת שאינן מכילות חיבור של מספר קבצי קול.<br />Details:<br /><br />"
 
 #: views/cron.php:61
 msgid "Weekly"
@@ -1234,13 +1201,10 @@ msgid ""
 msgstr ""
 
 #: views/form.php:654
-#, fuzzy
 msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
 msgstr ""
-"אם אפשרות זאת מוגדרת ל'כן', אירועי המנהל הבאים יווצרו: AgentCalled, "
-"AgentDump, AgentConnect ו-AgentComplete."
 
 #: views/form.php:1508
 msgid ""
@@ -1269,8 +1233,6 @@ msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
-"אם אפשרות זאת מוגדרת ל'כן', אירועי המנהל הבאים יווצרו: AgentCalled, "
-"AgentDump, AgentConnect ו-AgentComplete."
 
 #: views/cron.php:96
 msgid ""
@@ -1300,7 +1262,7 @@ msgstr ""
 #: views/form.php:1527 views/form.php:1607 views/form.php:1641
 #: views/form.php:1759 views/form.php:1788
 msgid "Yes"
-msgstr "כן"
+msgstr ""
 
 #: views/form.php:1034
 msgid "Yes + (ringinuse=no)"
@@ -1315,15 +1277,11 @@ msgid "Yes in this queue only"
 msgstr ""
 
 #: views/form.php:822
-#, fuzzy
 msgid ""
 "You can optionally prefix the CallerID name of callers to the queue. ie: If "
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
-"אתה יכול (אך אינך חייב) להקדים את השם בזיהוי השיחה של המתקשרים לתור. לדוגמא: "
-"אם תקדים ב-\"Sales:\", אזי שיחה ממישהו ששמו John Doe תוצג בטלפון כך: "
-"\"Sales: John Doe\" בשלוחות שתצלצלנה."
 
 #: views/form.php:509
 msgid ""
@@ -1338,69 +1296,61 @@ msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
 msgstr ""
-"אתה יכול לדרוש שנציגי שירות יכניסו סיסמא לפני שהם יכולים להתחיל לתת שירות "
-"לתור.<br /><br />הגדרה זו היא רשות."
 
 #: install.php:362
 msgid "adding agentannounce_id field.."
-msgstr "מוסיף שדה הודעה לנציג"
+msgstr ""
 
 #: install.php:371
 msgid "adding joinannounce_id field.."
-msgstr "מוסיף שדה הודעה למתקשר"
+msgstr ""
 
 #: install.php:70 install.php:164 install.php:346 install.php:472
 #: install.php:487 install.php:502 install.php:517 install.php:532
 #: install.php:547 install.php:562 install.php:577 install.php:592
 #: install.php:607
 msgid "already exists"
-msgstr "כבר קיים"
+msgstr ""
 
 #: install.php:456
 msgid "already migrated"
-msgstr "כבר בוצע"
+msgstr ""
 
 #: install.php:595
 msgid "checking for callback_id field.."
 msgstr ""
 
 #: install.php:520
-#, fuzzy
 msgid "checking for callconfirm field.."
-msgstr "בודק נתונים"
+msgstr ""
 
 #: install.php:535
-#, fuzzy
 msgid "checking for callconfirm_id field.."
-msgstr "בודק נתונים"
+msgstr ""
 
 #: install.php:565
-#, fuzzy
 msgid "checking for monitor_heard field.."
-msgstr "בודק נתונים"
+msgstr ""
 
 #: install.php:580
-#, fuzzy
 msgid "checking for monitor_spoken field.."
-msgstr "בודק נתונים"
+msgstr ""
 
 #: install.php:550
-#, fuzzy
 msgid "checking for monitor_type field.."
-msgstr "בודק נתונים"
+msgstr ""
 
 #: install.php:505
-#, fuzzy
 msgid "checking for qnoanswer field.."
-msgstr "בודק נתונים"
+msgstr ""
 
 #: install.php:334
 msgid "checking for qregex field.."
-msgstr "בודק נתונים"
+msgstr ""
 
 #: install.php:460
 msgid "checking for queuewait field.."
-msgstr "בודק שדה זמן המתנה"
+msgstr ""
 
 #: install.php:490
 msgid "checking for togglehint field.."
@@ -1412,11 +1362,11 @@ msgstr ""
 
 #: functions.inc.php:31
 msgid "day"
-msgstr "יום"
+msgstr ""
 
 #: views/form.php:293
 msgid "default"
-msgstr "ברירת מחדל"
+msgstr ""
 
 #: install.php:437
 msgid "dropping agentannounce field.."
@@ -1429,39 +1379,39 @@ msgstr ""
 #: install.php:366 install.php:375 install.php:387 install.php:403
 #: install.php:413 install.php:429
 msgid "fatal error"
-msgstr "שגיאה חמורה"
+msgstr ""
 
 #: views/form.php:256
 msgid "fewestcalls"
-msgstr "הכי מעט שיחות"
+msgstr ""
 
 #: functions.inc.php:32
 msgid "hour"
-msgstr "שעה"
+msgstr ""
 
 #: functions.inc.php:32
 msgid "hours"
-msgstr "שעות"
+msgstr ""
 
 #: views/form.php:291
 msgid "inherit"
-msgstr "קבל בירושה"
+msgstr ""
 
 #: Queues.class.php:144
 msgid "is not allowed for your account."
-msgstr "אינה מורשית עבור חשבונך."
+msgstr ""
 
 #: views/form.php:255
 msgid "leastrecent"
-msgstr "הכי פחות אחרון"
+msgstr ""
 
 #: views/form.php:260
 msgid "linear"
-msgstr "לינארי - כלומר לפי סדר ההופעה של הנציגים"
+msgstr ""
 
 #: install.php:383
 msgid "migrate agentannounce to ids.."
-msgstr "מייבא הגדרת הודעה לנציג"
+msgstr ""
 
 #: install.php:409
 msgid "migrate joinannounce to ids.."
@@ -1470,19 +1420,19 @@ msgstr ""
 #: install.php:407 install.php:433
 #, php-format
 msgid "migrated %s entries"
-msgstr "היגרו %s ערכים"
+msgstr ""
 
 #: install.php:361
 msgid "migrating"
-msgstr "משדרג"
+msgstr ""
 
 #: functions.inc.php:33
 msgid "minute"
-msgstr "דקה"
+msgstr ""
 
 #: functions.inc.php:33
 msgid "minutes"
-msgstr "דקות"
+msgstr ""
 
 #: install.php:443
 msgid "no agentannounce field???"
@@ -1494,15 +1444,15 @@ msgstr ""
 
 #: views/form.php:292
 msgid "none"
-msgstr "ללא"
+msgstr ""
 
 #: install.php:369 install.php:378 install.php:445 install.php:453
 msgid "ok"
-msgstr "תקין"
+msgstr ""
 
 #: views/form.php:257
 msgid "random"
-msgstr "אקראי"
+msgstr ""
 
 #: views/form.php:261
 msgid ""
@@ -1512,37 +1462,37 @@ msgstr ""
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
-msgstr "צלצל לנציג שאליו צלצלו בפעם האחרונה הכי מוקדם מבין כולם"
+msgstr ""
 
 #: views/form.php:254
 msgid "ring all available agents until one answers (default)"
-msgstr "צלצל לכל נציגי השירות הזמינים עד שאחד מהם יענה (ברירת המחדל)"
+msgstr ""
 
 #: views/form.php:257
 msgid "ring random agent"
-msgstr "צלצל לנציג אקראי"
+msgstr ""
 
 #: views/form.php:256
 msgid "ring the agent with fewest completed calls from this queue"
-msgstr "צלצל לנציג שהשלים הכי מעט שיחות בתור זה"
+msgstr ""
 
 #: views/form.php:254
 msgid "ringall"
-msgstr "צלצל לכולם"
+msgstr ""
 
 #: views/form.php:260
 msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
-msgstr "חייג לנציגים לפי הסדר, לנציגים דינאמים חייג לפי סדר ההתחברות לתור"
+msgstr ""
 
 #: views/form.php:258
 msgid "round robin with memory, remember where we left off last ring pass"
-msgstr "כמו סיבובי, אבל עם זיכרון - זוכר היכן הופסק בפעם האחרונה וממשיך משם"
+msgstr ""
 
 #: views/form.php:258
 msgid "rrmemory"
-msgstr "סיבובי עם זיכרון"
+msgstr ""
 
 #: views/form.php:259
 msgid "rrordered"
@@ -1555,257 +1505,13 @@ msgstr ""
 
 #: functions.inc.php:34
 msgid "second"
-msgstr "שניה"
+msgstr ""
 
 #: functions.inc.php:17 functions.inc.php:34 views/form.php:334
 #: views/form.php:337 views/form.php:358 views/form.php:364 views/form.php:373
 msgid "seconds"
-msgstr "שניות"
+msgstr ""
 
 #: views/form.php:261
 msgid "wrandom"
-msgstr "אקראי עם התחשבות בעונש"
-
-#~ msgid "removing queues data extensions table.."
-#~ msgstr "מסיר טבלת תורים ישנים"
-
-#~ msgid "(**) ERRORS"
-#~ msgstr "(**) ישנם מספר שגיאות"
-
-#~ msgid "(**) Warning Potential Errors"
-#~ msgstr "(**) זהירות שגיאות אפשריות"
-
-#~ msgid "(pick extension)"
-#~ msgstr "(בחר שלוחה)"
-
-#~ msgid ""
-#~ "After a successful call, how many seconds to wait before sending a "
-#~ "potentially free agent another call (default is 0, or no delay)"
-#~ msgstr ""
-#~ "אחרי שיחה מוצלחת, כמה שניות להמתין לפני ששולחים נציג פנוי באופן פוטנציאלי "
-#~ "אל השיחה הבאה (ברירת המחדל היא 0, או ללא המתנה)"
-
-#~ msgid "Agent Announcement:"
-#~ msgstr "הכרזה לנציג:"
-
-#, fuzzy
-#~ msgid "Agent Timeout Restart:"
-#~ msgstr "זמן מקסימלי לחיוג לנציג"
-
-#~ msgid "Agent Timeout:"
-#~ msgstr "זמן מקסימלי לחיוג לנציג"
-
-#, fuzzy
-#~ msgid "Agent Volume Adjustment:"
-#~ msgstr "הכרזה לנציג:"
-
-#~ msgid "Announce Hold Time:"
-#~ msgstr "הכרז זמן המתנה:"
-
-#~ msgid "Announce Position:"
-#~ msgstr "הכרז מיקום:"
-
-#, fuzzy
-#~ msgid ""
-#~ "Announcement played to anyone using an external follow-me to receive the "
-#~ "queue call.<br><br>You must install and enable the \"Systems Recordings\" "
-#~ "Module to edit this option"
-#~ msgstr ""
-#~ "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />אתה חייב להתקין "
-#~ "ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
-
-#, fuzzy
-#~ msgid ""
-#~ "Announcement played to callers once prior to joining the queue.<br><br>To "
-#~ "add additional recordings please use the \"System Recordings\" MENU"
-#~ msgstr ""
-#~ "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />כדי להוסיף הקלטות "
-#~ "נוספות, אנא השתמש <em>בתפריט</em> \"הקלטות מערכת\" שבצד שמאל"
-
-#~ msgid ""
-#~ "Announcement played to callers once prior to joining the queue."
-#~ "<br><br>You must install and enable the \"Systems Recordings\" Module to "
-#~ "edit this option"
-#~ msgstr ""
-#~ "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />אתה חייב להתקין "
-#~ "ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
-
-#~ msgid ""
-#~ "Announcement played to the Agent prior to bridging in the caller <br><br> "
-#~ "Example: \"the Following call is from the Sales Queue\" or \"This call is "
-#~ "from the Technical Support Queue\".<br><br>You must install and enable "
-#~ "the \"Systems Recordings\" Module to edit this option"
-#~ msgstr ""
-#~ "הכרזה המושמעת לנציג השירות לפני קישורו אל המתקשר<br /><br />לדוגמא: "
-#~ "\"השיחה הבאה מגיעה מתור המכירות\" או\"שיחה זו מגיעה מתור התמיכה הטכנית\"."
-#~ "<br /><br />אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך "
-#~ "אפשרות זו"
-
-#~ msgid "Autofill:"
-#~ msgstr "מלא באופן אוטומטי"
-
-#~ msgid "CID Name Prefix:"
-#~ msgstr "קידומת לזיהוי מתקשר"
-
-#, fuzzy
-#~ msgid "Call Confirm Announce:"
-#~ msgstr "הרכז מיקום בתור למתקשר"
-
-#, fuzzy
-#~ msgid "Call Confirm Announcement:"
-#~ msgstr "הכרזת הצטרפות:"
-
-#~ msgid "Call Recording:"
-#~ msgstr "הקלטת השיחות"
-
-#~ msgid "Caller Position Announcements"
-#~ msgstr "הרכז מיקום בתור למתקשר"
-
-#~ msgid ""
-#~ "Choose an extension to append to the end of the dynamic member list above."
-#~ msgstr "בחר שלוחה להוספה לסוף רשימת הנציגים הדינמיים לתור"
-
-#~ msgid ""
-#~ "Choose an extension to append to the end of the static agents list above."
-#~ msgstr "בחר שלוחה להוספה לסוף רשימת השלוחות הקבועות"
-
-#~ msgid "Conflicting Extensions"
-#~ msgstr "התנגשות בין שלוחות"
-
-#~ msgid "Delete Queue"
-#~ msgstr "מחק תור"
-
-#~ msgid "Dynamic Members"
-#~ msgstr "נציגים דינמיים"
-
-#~ msgid "Edit Queue"
-#~ msgstr "ערוך תור"
-
-#~ msgid "Extension Quick Pick"
-#~ msgstr "בחירת שלוחה מרשימה"
-
-#~ msgid "Frequency:"
-#~ msgstr "תדירות:"
-
-#, fuzzy
-#~ msgid "General Queue Options"
-#~ msgstr "אפשרויות תור"
-
-#~ msgid "Generate Device Hints:"
-#~ msgstr ":Device Hints צור"
-
-#~ msgid "IVR Break Out Menu:"
-#~ msgstr "נתב שיחות ליציאה מההמתנה בתור"
-
-#~ msgid "Inbound Call Control"
-#~ msgstr "זרימת שיחות נכנסות"
-
-#, fuzzy
-#~ msgid "Include Hold Time"
-#~ msgstr "הכרז זמן המתנה:"
-
-#~ msgid ""
-#~ "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
-#~ "monitor)"
-#~ msgstr ""
-#~ "שיחות נכנסות לנציגים יכולות להיות מוקלטות. (נשמר ל /var/spool/asterisk/"
-#~ "monitor)"
-
-#~ msgid "Join Announcement:"
-#~ msgstr "הכרזת הצטרפות:"
-
-#~ msgid "Join Empty:"
-#~ msgstr "אפשר כניסה לתור ריק:"
-
-#, fuzzy
-#~ msgid "Leave Empty:"
-#~ msgstr "יציאה מתור ללא נציג"
-
-#~ msgid "Max Callers:"
-#~ msgstr "מספר ממתינים מקסימלי"
-
-#, fuzzy
-#~ msgid "Max Wait Time Mode:"
-#~ msgstr "זמן המתנה מקסימלי"
-
-#~ msgid "Max Wait Time:"
-#~ msgstr "זמן המתנה מקסימלי"
-
-#, fuzzy
-#~ msgid "Member Delay:"
-#~ msgstr "סטטוס bmhd:"
-
-#, fuzzy
-#~ msgid "Member Status Event:"
-#~ msgstr "סטטוס bmhd:"
-
-#~ msgid "Music on Hold Class:"
-#~ msgstr "קטגורית המוזיקה בהמתנה לתור זה:"
-
-#~ msgid "Queue Name:"
-#~ msgstr "שם התור:"
-
-#, fuzzy
-#~ msgid "Queue No Answer:"
-#~ msgstr "מספר התור"
-
-#~ msgid "Queue Number:"
-#~ msgstr "מספר התור"
-
-#~ msgid "Queue Password:"
-#~ msgstr "סיסמא לתור"
-
-#~ msgid "Queue:"
-#~ msgstr "תור:"
-
-#, fuzzy
-#~ msgid "Recording Mode:"
-#~ msgstr "הקלטת השיחות"
-
-#~ msgid "Repeat Frequency:"
-#~ msgstr "תדירות השמעה חוזרת"
-
-#~ msgid "Report Hold Time:"
-#~ msgstr "דווח זמן המתנה:"
-
-#~ msgid "Retry:"
-#~ msgstr "ניסיון חוזר:"
-
-#~ msgid "Ring Strategy:"
-#~ msgstr "אסטרטגיית צלצול"
-
-#~ msgid "Ringing Instead of MoH:"
-#~ msgstr "צלצול במקום מוזיקה בהתנה"
-
-#~ msgid "Service Level:"
-#~ msgstr "רמת השרות"
-
-#~ msgid "Skip Busy Agents:"
-#~ msgstr "דלג על נציגים תפוסים"
-
-#~ msgid "Submit Changes"
-#~ msgstr "החל שינויים"
-
-#~ msgid "Wait Time Prefix:"
-#~ msgstr "קידומת לזמן ההמתנה"
-
-#~ msgid "Wrap-Up-Time:"
-#~ msgstr "זמן המתנה בין שיחה שהסתיימה לשיחה חדשה"
-
-#~ msgid "deleted"
-#~ msgstr "נמחק"
-
-#~ msgid "gsm"
-#~ msgstr "gsm"
-
-#~ msgid "roundrobin"
-#~ msgstr "סיבובי"
-
-#~ msgid "take turns ringing each available agent"
-#~ msgstr "עובר בצורה סיבובית בין כל הנציגים הזמינים"
-
-#~ msgid "wav"
-#~ msgstr "wav"
-
-#~ msgid "wav49"
-#~ msgstr "wav49"
+msgstr ""
