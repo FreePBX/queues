@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.33</version>
+	<version>13.0.34</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*13.0.34* FREEPBX-14938 Spelling issue in queue tool tips for join/leave empty
 		*13.0.33* FREEPBX-12690 Restore usage info
 		*13.0.32.9* FREEPBX-14132 Pause hint "all queues" action not correct
 		*13.0.32.8* FREEPBX-14132 Pause hints for queues not updating BLF
