@@ -225,9 +225,9 @@ function queues_get_config($engine) {
 				if ($callconfirm_id) {
 						$callconfirm = recordings_get_file($callconfirm_id);
 				} else {
-						$callconfirm = ' ';
+						$callconfirm = 'default';
 				}
-				$ext->add($c, $exten, '', new ext_set('__ALT_CONFIRM_MSG', '${IF($[${LEN(${VQ_CONFIRMMSG})}>0]?${IF($["${VQ_CONFIRMMSG}"!="0"]?${VQ_CONFIRMMSG}: )}:' . $callconfirm . ')}'));
+				$ext->add($c, $exten, '', new ext_set('__ALT_CONFIRM_MSG', '${IF($[${LEN(${VQ_CONFIRMMSG})}>0]?${IF($["${VQ_CONFIRMMSG}"!="0"]?${VQ_CONFIRMMSG}:' . $callconfirm . ' )}:' . $callconfirm . ')}'));
 				$ext->add($c, $exten, 'NOQVQANNOUNCE', new ext_set('VQ_CONFIRMMSG', ''));
 				//call confirm over.
 
