@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-07-26 15:11+0200\n"
+"PO-Revision-Date: 2017-07-26 17:14+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -185,11 +185,11 @@ msgstr ""
 
 #: views/cron.php:63
 msgid "Annually"
-msgstr ""
+msgstr "Hằng năm"
 
 #: queues.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Các ứng dụng"
 
 #: views/form.php:1284
 msgid ""
@@ -212,7 +212,7 @@ msgstr ""
 
 #: views/form.php:1460
 msgid "Auto Pause"
-msgstr ""
+msgstr "Tạm ngưng Tự động"
 
 #: views/form.php:1549
 msgid "Auto Pause Delay"
@@ -228,43 +228,43 @@ msgstr ""
 
 #: views/form.php:1491
 msgid "Auto Pause on Busy"
-msgstr ""
+msgstr "Auto Pause khi Bận"
 
 #: views/form.php:1520
 msgid "Auto Pause on Unavailable"
-msgstr ""
+msgstr "Auto Pause khi Không khả dụng"
 
 #: views/form.php:998
 msgid "Autofill"
-msgstr ""
+msgstr "Autofill ( Tự động điền)"
 
 #: functions.inc/geters_seters.php:40
 msgid "Bad Queue Number, can not be blank"
-msgstr ""
+msgstr "Số hàng đợi xấu, không thể để trống"
 
 #: views/form.php:426
 msgid "Break Out Type"
-msgstr ""
+msgstr "Kiểu Break Out"
 
 #: views/form.php:810
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Tiền tố Tên CID"
 
 #: views/form.php:782
 msgid "Call Confirm"
-msgstr ""
+msgstr "Xác nhận cuộc gọi"
 
 #: views/form.php:134
 msgid "Call Confirm Announce"
-msgstr ""
+msgstr "Thông báo xác nhận cuộc gọi"
 
 #: views/form.php:1088
 msgid "Call Recording"
-msgstr ""
+msgstr "Bản ghi cuộc gọi"
 
 #: views/form.php:948
 msgid "Call as Dialed"
-msgstr ""
+msgstr "Cuộc gọi bị vô hiệu"
 
 #: views/form.php:550
 msgid "Callback to use when caller presses 1."
