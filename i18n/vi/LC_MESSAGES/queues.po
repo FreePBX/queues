@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-07-25 21:59+0200\n"
+"PO-Revision-Date: 2017-07-26 15:11+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -52,12 +52,15 @@ msgid ""
 "Add an Alert-Info Header like Snom and other Phones need for Ring or "
 "Ringtone informations"
 msgstr ""
+"Thêm một Tiêu đề Alert-Infor như Snom hay các điện thoại di động khác cần "
+"cho các thông tin của Chuông hoặc Nhặc chuông"
 
 #: views/form.php:706
 msgid "Advanced Options"
 msgstr "Tùy chọn nâng cao"
 
 #: views/form.php:1392
+#, fuzzy
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay) If using "
@@ -65,68 +68,78 @@ msgid ""
 "setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
 "this is honored across queues for members logged on to multiple queues."
 msgstr ""
+"Sau cuộc gọi thành công, phải đợi bao nhiêu giây trước khi gửi một cuộc gọi "
+"khác tới một tổng đài viên đang rỗi ( mặc định là 0, hoặc no delay). Nếu sử "
+"dụng Asterisk 1.6+, bạn có thể cài đặt 'Honor Wrapup Time Across Queues'  ( "
+"(Asterisk: shared_lastcall) tại trang Cài đặt nâng cao để cuộc gọi được ưu "
+"tiên trên hàng đợi cho các thành viên đăng nhập trên nhiều hàng đợi."
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
-msgstr ""
+msgstr "Tin nhắn thông báo cho Tổng đài viên"
 
 #: views/form.php:220
 msgid "Agent Announcement"
-msgstr ""
+msgstr "Thông báo tổng đài viên"
 
 #: queues.i18n.php:34
+#, fuzzy
 msgid "Agent Called Events Default"
-msgstr ""
+msgstr "Mặc định các sự kiện đã gọi"
 
 #: views/form.php:1853
 msgid "Agent Regex Filter"
 msgstr ""
 
 #: views/form.php:940
+#, fuzzy
 msgid "Agent Restrictions"
-msgstr ""
+msgstr "Các giới hạn đối với Tổng đài viên"
 
 #: views/form.php:300
 msgid "Agent Ringing"
-msgstr ""
+msgstr "Đổ chuông tới Tổng đài viên"
 
 #: views/form.php:1296
 msgid "Agent Timeout"
-msgstr ""
+msgstr "Thời gian chờ Tổng đài viên"
 
 #: views/form.php:1322
 msgid "Agent Timeout Restart"
-msgstr ""
+msgstr "Thời gian chờ khỏi động lại của Tổng đài viên"
 
 #: views/form.php:862
 msgid "Alert Info"
-msgstr ""
+msgstr "Alert Infor ( Thông tin cảnh báo)"
 
 #: install.php:15 queues.i18n.php:50
+#, fuzzy
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
 msgstr ""
+"Cho phép các thành viên của Hàng đợi đăng nhập và đăng xuất. Xem phần Queues "
+"Module để biết cách gán một Thành viên động vào Hàng đợi."
 
 #: views/form.php:186
 msgid "Always"
-msgstr ""
+msgstr "Luôn luôn"
 
 #: views/form.php:378
 msgid "Always allows the caller to join the Queue."
-msgstr ""
+msgstr "Luôn luôn cho phép người gọi tham gia và Hàng Đợi."
 
 #: views/form.php:1781
 msgid "Announce Hold Time"
-msgstr ""
+msgstr "Thong báo Thời gian giữ máy"
 
 #: views/form.php:1752
 msgid "Announce Position"
-msgstr ""
+msgstr "Thông báo vị trí"
 
 #: views/form.php:1769
 msgid "Announce position of caller in the queue?"
-msgstr ""
+msgstr "Thông báo vị trí của người gọi trong Hàng đợi?"
 
 #: views/form.php:197
 msgid ""
@@ -136,8 +149,14 @@ msgid ""
 "call right now. To add additional recordings please use the \"System "
 "Recordings\" MENU."
 msgstr ""
+"Thông báo được phát tới những người gọi trước khi họ tham gia Hàng đợi. Điều "
+"này có thể bị bỏ qua nếu có những Tổng đài viên sẵn sàng trả lời cuộc gọi ("
+"Nghĩa là họ vẫn chỉ đang kết thúc cuộc gọi trước) hoăc khi họ có thể trả lời "
+"cuộc gọi ngay lập tức. Để thêm các bản ghi bổ sung, vui lòng sử dụng MENU \""
+"System Recordings\"."
 
 #: views/form.php:234
+#, fuzzy
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -146,6 +165,12 @@ msgid ""
 "or more sound files are not displayed as options since this feature can not "
 "accept such recordings."
 msgstr ""
+"Thông báo được phát tới Tổng đài viên trước khi kết nối với người goi "
+"<br><br> Ví dụ:  \"the Following call is from the Sales Queue\" hoặc \"This "
+"call is from the Technical Support Queue\". . Điều này có thể bị bỏ qua nếu "
+"có những Tổng đài viên sẵn sàng trả lời cuộc gọi (Nghĩa là họ vẫn chỉ đang "
+"kết thúc cuộc gọi trước) hoăc khi họ có thể trả lời cuộc gọi ngay lập tức. "
+"Để thêm các bản ghi bổ sung, vui lòng sử dụng MENU \"System Recordings\"."
 
 #: views/form.php:157
 msgid ""
