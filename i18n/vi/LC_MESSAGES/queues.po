@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-07-27 10:20+0200\n"
+"PO-Revision-Date: 2017-07-27 15:12+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -66,7 +66,6 @@ msgid "Advanced Options"
 msgstr "Tùy chọn nâng cao"
 
 #: views/form.php:1392
-#, fuzzy
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay) If using "
@@ -74,10 +73,10 @@ msgid ""
 "setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
 "this is honored across queues for members logged on to multiple queues."
 msgstr ""
-"Sau cuộc gọi thành công, phải đợi bao nhiêu giây trước khi gửi một cuộc gọi "
-"khác tới một tổng đài viên đang rỗi ( mặc định là 0, hoặc no delay). Nếu sử "
-"dụng Asterisk 1.6+, bạn có thể cài đặt 'Honor Wrapup Time Across Queues'  ( "
-"(Asterisk: shared_lastcall) tại trang Cài đặt nâng cao để cuộc gọi được ưu "
+"Sau một cuộc gọi thành công, phải đợi bao nhiêu giây trước khi gửi một cuộc "
+"gọi khác tới một tổng đài viên đang rỗi ( mặc định là 0, hoặc no delay). Nếu "
+"sử dụng Asterisk 1.6+, bạn có thể cài đặt 'Honor Wrapup Time Across Queues'  "
+"( (Asterisk: shared_lastcall) tại trang Cài đặt nâng cao để cuộc gọi được ưu "
 "tiên trên hàng đợi cho các thành viên đăng nhập trên nhiều hàng đợi."
 
 #: functions.inc.php:65
@@ -204,6 +203,7 @@ msgid "Applications"
 msgstr "Các ứng dụng"
 
 #: views/form.php:1284
+#, fuzzy
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
 "caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
@@ -213,6 +213,14 @@ msgid ""
 "This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
 "'Agent Timeout' combined."
 msgstr ""
+"Asterisk timeoutpriority. Trong chế độ 'Nghiêm ngặt', khi nhấn 'Max Wait "
+"Time' (Thời gian chờ Tối đa) của người gọi, chúng sẽ được kéo ra khỏi hàng "
+"đợi ngay lập tức. Trong chế độ 'Loose', nếu một thành viên trong hàng đợi "
+"đang đổ chuông cuộc gọi này thì chúng ta sẽ đợi cho đến khi hàng đợi ngừng "
+"đổ chuông thành viên hàng đợi này hoặc nếu không thì cuộc gọi sẽ bị từ chối "
+"bởi thành viên hàng đợi trước khi người gọi ra khỏi hàng đợi. Điều này có "
+"nghĩa là 'Thời gian chờ Tối đa' có thể kết hợp miễn là 'Thời gian chờ Tối "
+"đa' + 'Thời gian chờ của Agent' kết hợp."
 
 #: views/form.php:1683
 msgid ""
@@ -221,6 +229,10 @@ msgid ""
 "members.  No penalty will be weighed in if there are only X or fewer queue "
 "members."
 msgstr ""
+"Asterisk: penaltymemberslimit. Khi hàng đợi có quá ít thành viên, một giới "
+"hạn có thể được thiết lập để bỏ qua các thiết lập hình phạt, cho phép tất cả "
+"các thành viên được thử. Không có hình phạt nào nếu chỉ có X hoặc các thành "
+"viên hàng đợi ít."
 
 #: views/form.php:1460
 msgid "Auto Pause"
@@ -360,11 +372,16 @@ msgid "Default"
 msgstr "Mặc định"
 
 #: queues.i18n.php:36
+#, fuzzy
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
+"Trạng thái mặc định cho các sự kiện AMI phát ra các sự kiện liên quan đến "
+"cuộc gọi của đại lý. Cài đặt này sẽ chỉ ảnh hưởng đến mặc định cho NEW hàng "
+"đợi, nó sẽ không thay đổi hàng đợi hiện tại hoặc enfore các tùy chọn trên "
+"trong những cái mới."
 
 #: queues.i18n.php:44
 msgid ""
@@ -387,12 +404,16 @@ msgid ""
 "situations where it appears no one is currently available to take the call. "
 "The options include:"
 msgstr ""
+"Xác định xem người gọi nên được thoát sớm khỏi hàng đợi trong những trường "
+"hợp không có ai sẵn sàng để thực hiện cuộc gọi. Các tùy chọn bao gồm:"
 
 #: views/form.php:376
 msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
 "failover destination will be immediately pursued. The options include:"
 msgstr ""
+"Xác định những người gọi mới nào sẽ được nhận vào Hàng đợi, nếu không, điểm "
+"đến chịu lỗi sẽ bị bám theo ngay lập tức. Các tùy chọn bao gồm:"
 
 #: views/form.php:1095
 msgid "Don't Care"
@@ -416,19 +437,21 @@ msgstr ""
 
 #: install.php:299
 msgid "ERROR were encountered"
-msgstr ""
+msgstr "LỖI đã gặp phải"
 
 #: install.php:178
 msgid "ERROR: accessing queues table obtaining context info, aborting"
 msgstr ""
+"LỖI: Đang truy cập bảng Hàng đợi để lấy các thông tin ngữ cảnh, đang hủy bỏ"
 
 #: install.php:203
 msgid "ERROR: accessing queues table obtaining id list, aborting"
-msgstr ""
+msgstr "LỖI: Đang truy cập bảng Hàng đợi để lấy danh sách id, đang hủy bỏ"
 
 #: install.php:185
 msgid "ERROR: accessing queues table obtaining rtone info, aborting"
 msgstr ""
+"LỖI: Đang truy cập bảng hàng đợi để lấy các thông tin rtone, đang hủy bỏ"
 
 #: install.php:72 install.php:166
 msgid "ERROR: could not create table"
@@ -441,17 +464,20 @@ msgstr "LỖI: Không thể dịch chuyển đến queues_details"
 #: install.php:291
 #, php-format
 msgid "ERROR: inserting data for row %s: %s.."
-msgstr ""
+msgstr "LỖI: Đang chèn dữ liệu cho hàng %s: %s.."
 
 #: views/form.php:482
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
+"Các phiên bản gần đây của mô đun này được cho phép được chọn những hàng đợi "
+"này, vì sự thay đổi trong cài đặt, nó sẽ không xuất hiện như là một tùy chọn "
+"nữa"
 
 #: views/cron.php:37
 msgid "Enable this task"
-msgstr ""
+msgstr "Kích hoạt tác vụ này"
 
 #: views/form.php:1133
 msgid ""
@@ -459,34 +485,37 @@ msgid ""
 "cancelled. The effect is that missed queue calls are *not* shown on the "
 "phone (if the phone supports it)"
 msgstr ""
+"Kích hoạt tùy chọn này, khi bị hủy bỏ, tất cả các cuộc gọi được đánh dấu là "
+"'answered elsewhere'. Kết quả là các cuộc gọi hàng đợi bị lỡ sẽ không hiện "
+"lên trong điện thoại ( Nếu điện thoại có hỗ trợ tính năng này)"
 
 #: views/form.php:606
 msgid "Event When Called"
-msgstr ""
+msgstr "Sự kiện khi đã gọi"
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
-msgstr ""
+msgstr "Các tùy chọn máy nhánh"
 
 #: views/form.php:952
 msgid "Extensions Only"
-msgstr ""
+msgstr "Chỉ các máy nhánh"
 
 #: views/form.php:1145
 msgid "Fail Over Destination"
-msgstr ""
+msgstr "Các điểm đích chịu lỗi"
 
 #: views/form.php:1093
 msgid "Force"
-msgstr ""
+msgstr "Bắt buộc"
 
 #: views/form.php:1702
 msgid "Frequency"
-msgstr ""
+msgstr "Tần số"
 
 #: views/form.php:681
 msgid "General Settings"
-msgstr ""
+msgstr "Các cài đặt chung"
 
 #: queues.i18n.php:38
 msgid "Generate queuenum*/** Login/off Codes"
