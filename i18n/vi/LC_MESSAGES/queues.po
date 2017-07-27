@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-07-27 15:12+0200\n"
+"PO-Revision-Date: 2017-07-27 16:53+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -519,11 +519,11 @@ msgstr "Các cài đặt chung"
 
 #: queues.i18n.php:38
 msgid "Generate queuenum*/** Login/off Codes"
-msgstr ""
+msgstr "Khởi tạo  queuenum*/** Các mã Đăng nhập/Tắt"
 
 #: views/form.php:768
 msgid "Give this queue a brief name to help you identify it."
-msgstr ""
+msgstr "Đặt cho Hàng đợi này một tên ngắn gọn để bạn nhận biết nó."
 
 #: views/form.php:1074
 msgid ""
@@ -533,7 +533,7 @@ msgstr ""
 
 #: queues.i18n.php:30
 msgid "Hide Queue No Answer Option"
-msgstr ""
+msgstr "Ẩn tùy chọn Queue No Answer ( Không trả lời Hàng đợi)"
 
 #: views/form.php:395
 msgid "Honor Penalties"
@@ -545,32 +545,36 @@ msgstr ""
 
 #: views/cron.php:59
 msgid "Hourly"
-msgstr ""
+msgstr "Hàng giờ"
 
 #: views/form.php:588
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
+"Mức độ thường xuyên để thông báo một menu giọng nói đến người gọi ( 0 để Vô "
+"hiệu Thông báo)."
 
 #: views/form.php:1716
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 msgstr ""
+"Mức độ thường xuyên để thông bao vị trị hàng đợi và thời gian giữ máy dự "
+"kiến ( 0 để vô hiệu Thông báo)."
 
 #: functions.inc/destination_registry.php:98
 msgid "INUSE"
-msgstr ""
+msgstr "INUSE"
 
 #: functions.inc.php:75
 #, php-format
 msgid "IVR Announce: %s"
-msgstr ""
+msgstr "Thông báo IVR: %s"
 
 #: views/form.php:431 views/form.php:494
 msgid "IVR Break Out Menu"
-msgstr ""
+msgstr "Menu IVR Break Out"
 
 #: views/form.php:797
 msgid ""
