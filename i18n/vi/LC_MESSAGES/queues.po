@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-07-26 21:57+0200\n"
+"PO-Revision-Date: 2017-07-26 22:19+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -426,11 +426,11 @@ msgstr ""
 
 #: install.php:72 install.php:166
 msgid "ERROR: could not create table"
-msgstr ""
+msgstr "LỖI; Không thể tạo bảng"
 
 #: install.php:90
 msgid "ERROR: could not migrate to queues_details"
-msgstr ""
+msgstr "LỖI: Không thể dịch chuyển đến queues_details"
 
 #: install.php:291
 #, php-format
