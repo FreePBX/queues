@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-07-26 17:14+0200\n"
+"PO-Revision-Date: 2017-07-26 21:57+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -88,8 +88,9 @@ msgid "Agent Called Events Default"
 msgstr "Mặc định các sự kiện đã gọi"
 
 #: views/form.php:1853
+#, fuzzy
 msgid "Agent Regex Filter"
-msgstr ""
+msgstr "Bộ lọc chính quy cho Tổng đài viên"
 
 #: views/form.php:940
 #, fuzzy
@@ -113,7 +114,6 @@ msgid "Alert Info"
 msgstr "Alert Infor ( Thông tin cảnh báo)"
 
 #: install.php:15 queues.i18n.php:50
-#, fuzzy
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -156,7 +156,6 @@ msgstr ""
 "System Recordings\"."
 
 #: views/form.php:234
-#, fuzzy
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -168,9 +167,9 @@ msgstr ""
 "Thông báo được phát tới Tổng đài viên trước khi kết nối với người goi "
 "<br><br> Ví dụ:  \"the Following call is from the Sales Queue\" hoặc \"This "
 "call is from the Technical Support Queue\". . Điều này có thể bị bỏ qua nếu "
-"có những Tổng đài viên sẵn sàng trả lời cuộc gọi (Nghĩa là họ vẫn chỉ đang "
-"kết thúc cuộc gọi trước) hoăc khi họ có thể trả lời cuộc gọi ngay lập tức. "
-"Để thêm các bản ghi bổ sung, vui lòng sử dụng MENU \"System Recordings\"."
+"Tổng đài viên sẵn sàng trả lời cuộc gọi (Nghĩa là họ đang kết thúc cuộc gọi "
+"trước đó) hoăc khi họ có thể trả lời cuộc gọi ngay lập tức. Để thêm các bản "
+"ghi bổ sung, vui lòng sử dụng MENU \"System Recordings\"."
 
 #: views/form.php:157
 msgid ""
@@ -182,6 +181,13 @@ msgid ""
 "<br><br>To add additional recordings please use the \"System Recordings\" "
 "MENU."
 msgstr ""
+"Thông báo sẽ được phát tới Queue Memeber để thông báo cuộc gọi hàng đợi và "
+"yêu cầu xác nhận trước khi trả lời. Nếu được thiết lập là mặc định, thông "
+"điệp mặc định xác nhận cuộc gọi tiêu chuẩn sẽ được phát trừ khi thành vien "
+"của hàng đợi được tiếp cận thông qua Follow-Me và có một thông điệp thay thế "
+"được cung cấp trong Follow-Me. Thông điệp này sx ghi đè bất kỳ thông điệp "
+"xác định nào khác..<br><br> Để thêm các bản ghi bổ sung vui lòng sử dụng "
+"MENU \"System Recordings\"."
 
 #: views/cron.php:63
 msgid "Annually"
@@ -225,6 +231,11 @@ msgid ""
 "Pause Delay as well as Auto Pause Busy/Unavailable settings if supported on "
 "this version of Asterisk."
 msgstr ""
+"Tự động tạm dừng một tổng đài viên trong hàng đợi này ( hoặc tất cả các hàng "
+"đợi mà tổng đài viên này là thành viên) nếu họ không trả lời cuộc gọi.  "
+"Trạng thái cụ thể có thể được thay đổi bằng các cài đặt  Auto Pause Delay "
+"cũng như Auto Pause Busy/Unavailable nếu các cài đặt này được hỗ trợ trên "
+"phiên bản Asterisk này."
 
 #: views/form.php:1491
 msgid "Auto Pause on Busy"
@@ -268,29 +279,35 @@ msgstr "Cuộc gọi bị vô hiệu"
 
 #: views/form.php:550
 msgid "Callback to use when caller presses 1."
-msgstr ""
+msgstr "Gọi lại khi người gọi nhấn phím 1."
 
 #: views/form.php:701
 msgid "Caller Announcements"
-msgstr ""
+msgstr "Các thông báo cho người gọi"
 
 #: views/form.php:1692
 msgid "Caller Position"
-msgstr ""
+msgstr "Vị trí của người gọi"
 
 #: views/form.php:387
+#, fuzzy
 msgid ""
 "Callers will exit if all agents are paused, show an invalid state for their "
 "device or have penalty values less than QUEUE_MAX_PENALTY (not currently set "
 "in FreePBX dialplan)."
 msgstr ""
+"Người gọi sẽ thoát ra nếu như tất cả các tổng đài viên bị tạm ngưng, đưa ra "
+"một trạng thái không hợp lệ cho thiết bị của họ và các giá trị phạt ít hơn"
 
 #: views/form.php:381
+#, fuzzy
 msgid ""
 "Callers will not be admitted if all agents are paused, show an invalid state "
 "for their device, or have penalty values less than QUEUE_MAX_PENALTY (not "
 "currently set in FreePBX dialplan)."
 msgstr ""
+"Người gọi sẽ không được chấp nhận nếu tất cả các tổng đài viên bị tạm dừng, "
+"đưa ra một trạng thái không hợp lệ cho thiết bị của họ"
 
 #: views/form.php:696
 msgid "Capacity Options"
@@ -298,15 +315,16 @@ msgstr ""
 
 #: install.php:39
 msgid "Checking for legacy queues table.."
-msgstr ""
+msgstr "Đang kiểm tra bảng Hàng đợi legacy.."
 
 #: install.php:355
 msgid "Checking if recordings need migration.."
-msgstr ""
+msgstr "Đang kiểm tra các bản ghi cần dịch chuyển.."
 
 #: functions.inc/queue_conf.php:233
+#, fuzzy
 msgid "Compound Recordings in Queues Detected"
-msgstr ""
+msgstr "Các bản ghi trong Hàng đợi được phát hiện"
 
 #: queues.i18n.php:8
 msgid ""
@@ -314,22 +332,26 @@ msgid ""
 "first-out basis. Many options are available, including ring strategy for "
 "agents, caller announcements, max wait times, etc."
 msgstr ""
+"Tạo một hàng đợi mà các cuộc gọi sẽ được đặt vào đó và được trả lời trên cơ "
+"sở first-in, first-out. Nhiều tùy chọn sẵn có, bao gồm các phương thức đổ "
+"chuông cho các tổng đài viện, các thông báo cho người gọi, số lần chờ tối "
+"đa,.."
 
 #: install.php:159
 msgid "Creating queues_config.."
-msgstr ""
+msgstr "Đang tạo queues_config.."
 
 #: install.php:65
 msgid "Creating queues_details.."
-msgstr ""
+msgstr "Đang tạo queues_details.."
 
 #: views/cron.php:60
 msgid "Daily"
-msgstr ""
+msgstr "Hằng ngày"
 
 #: views/form.php:142
 msgid "Default"
-msgstr ""
+msgstr "Mặc định"
 
 #: queues.i18n.php:36
 msgid ""
@@ -347,11 +369,11 @@ msgstr ""
 
 #: Queues.class.php:205
 msgid "Delete"
-msgstr ""
+msgstr "Xóa"
 
 #: views/bootnav.php:10 views/qgrid.php:15
 msgid "Description"
-msgstr ""
+msgstr "Mô tả"
 
 #: views/form.php:385
 msgid ""
@@ -368,11 +390,11 @@ msgstr ""
 
 #: views/form.php:1095
 msgid "Don't Care"
-msgstr ""
+msgstr "Không quan tâm"
 
 #: install.php:310
 msgid "Dropping old queues table.."
-msgstr ""
+msgstr "Đang thả bảng Hàng đợi cũ.."
 
 #: views/form.php:1205
 msgid "Dynamic Agents"
