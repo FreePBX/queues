@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-07-27 16:53+0200\n"
+"PO-Revision-Date: 2017-07-27 21:37+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -329,7 +329,7 @@ msgstr ""
 
 #: views/form.php:696
 msgid "Capacity Options"
-msgstr ""
+msgstr "Các tùy chọn Capacity"
 
 #: install.php:39
 msgid "Checking for legacy queues table.."
@@ -340,9 +340,8 @@ msgid "Checking if recordings need migration.."
 msgstr "Đang kiểm tra các bản ghi cần dịch chuyển.."
 
 #: functions.inc/queue_conf.php:233
-#, fuzzy
 msgid "Compound Recordings in Queues Detected"
-msgstr "Các bản ghi trong Hàng đợi được phát hiện"
+msgstr "Các bản ghi phức hợp trong Hàng đợi được phát hiện"
 
 #: queues.i18n.php:8
 msgid ""
@@ -425,7 +424,7 @@ msgstr "Đang thả bảng Hàng đợi cũ.."
 
 #: views/form.php:1205
 msgid "Dynamic Agents"
-msgstr ""
+msgstr "Các tổng đài viên động"
 
 #: views/form.php:1226
 msgid ""
@@ -434,6 +433,10 @@ msgid ""
 "will be as specified here. Extensions included here will NOT automatically "
 "be logged in to the queue."
 msgstr ""
+"Các thành viên động là các máy nhánh hoặc các thành viên gọi lại có thể đăng "
+"nhập đăng xuất ra khỏi hàng đợi. Khi một thành viên đăng nhập vào hàng đợi, "
+"hình phạt của chúng trong hàng đợi sẽ được xác định ở đây. Các máy nhánh "
+"được bao gồm sẽ không tự động được đăng nhập vào Hàng đợi."
 
 #: install.php:299
 msgid "ERROR were encountered"
@@ -530,6 +533,9 @@ msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
+"Cung cấp cho các hàng đợi một tùy chọn 'trọng số' cho các hàng đợi để đảm "
+"bảo các cuộc gọi đang đợi trong hàng đợi ưu tiên cao hơn sẽ truyền các cuộc "
+"gọi của hàng đợi đó đầu tiên nếu có các tổng đài viên chung cho các hàng đợi."
 
 #: queues.i18n.php:30
 msgid "Hide Queue No Answer Option"
@@ -583,6 +589,11 @@ msgid ""
 "the PBX will be forced into Call Confirmation mode where the member must "
 "acknowledge the call before it is answered and delivered."
 msgstr ""
+"Nếu được đánh dấu check, bất kỳ thành viên hàng đợi nào là một số máy bên "
+"ngoài, hoặc bất kỳ máy nhánh Follow Me nào hoặc cuộc gọi chờ nào đang được "
+"theo đuổi và đang rời khỏi PBX sẽ buộc phải vào chế độ Xác nhận cuộc gọi nơi "
+"các thành viên của hàng chờ phải xác nhận cuộc gọi trước khi nó được trả lời "
+"và gửi đi."
 
 #: views/form.php:113
 msgid ""
@@ -594,6 +605,14 @@ msgid ""
 "where the caller will not be admitted to the queue unless there is a queue "
 "member immediately available to take the call."
 msgstr ""
+"Nếu được đánh dấu check, hàng đợi sẽ không trả lời cuộc gọi. Trong hầu hết "
+"các trường hợp, bạn cần luôn luôn để hàng đợi trả lời các cuộc gọi. Nếu "
+"không, những người gọi đang đợi sẽ không thể nghe thấy các bản ghi và MoH vì "
+"các khả năng truyền thông bị thay đổi và không đồng nhất. Một số trường hợp "
+"khi bạn không muốn trả lời cuộc gọi là khi bạn sử dụng các chính sách Strict "
+"Join Empty queue ( Tham gia hàng đợi trống nghiêm ngăt), nơi mà người gọi sẽ "
+"không được nhận vào hàng đợi trừ khi có một thành viên hàng đợi sẵn sàng để "
+"thực hiện cuộc gọi."
 
 #: views/form.php:850
 msgid ""
@@ -601,6 +620,9 @@ msgid ""
 "since it first entered the queue or reset if the call is transferred to "
 "another queue with this feature set."
 msgstr ""
+"Nếu cuộc gọi được truyền sau đó, thời gian chờ sẽ phản ánh thời gian kể từ "
+"khi lần đầu tien nó nhập vào hàng đợi hoặc được thiết lập lại nếu cuộc gọi "
+"được truyền đến hàng đợi khác với tính năng này."
 
 #: functions.inc/hook_core.php:65
 msgid ""
@@ -616,6 +638,18 @@ msgid ""
 "member as busy until the original call is terminated. In most cases, this "
 "SHOULD BE set to 'Use State'."
 msgstr ""
+"Nếu máy nhánh này là một phần của Hàng đợi thì Hàng đợi sẽ thử sử dụng trạng "
+"thái máy nhánh hoặc thông tin trạng thái thiết bị của người dùng khi xác "
+"định xem thành viên hàng đợi này có được gọi hay không. Trong một số trường "
+"hợp không phổ biến ví dụ như Một Follow Me mà không có thiết bị vật lý hay "
+"một số kịch bản máy nhánh ảo, thông tin trạng thái sẽ cho biết rằng thành "
+"viên này lúc đố đang không khả dụng.  Thiết lập 'Ignore State' ( Bỏ qua "
+"trạng thái) sẽ khiến Hàng đợi bỏ qua tất cả các thông tin trạng thái do đó "
+"luôn thử liên hệ với thành viên này. Một số ảnh hưởng phụ có thể xảy ra khi "
+"tuyến cuộc gọi này được thực hiện do tính chất của Cách mà hàng đợi xử lý "
+"Các kênh cục bộ, chẳng hạn như chuyển tiếp tiếp theo sẽ tiếp tục cho thấy "
+"thành viên đang bận cho đến khi cuộc gọi ban đầu kết thúc. Trong hầu hết các "
+"trường hợp, điều này NÊN được cài đặt là 'Use State'."
 
 #: views/form.php:1013
 msgid ""
@@ -624,6 +658,11 @@ msgid ""
 "it will hold all calls while it tries to find an agent for the top call in "
 "the queue making other calls wait."
 msgstr ""
+"Nếu điều này được Bật, và nhiều tổng đài viên sẵn có, Asterisk sẽ gửi một "
+"cuộc gọi cho từng tổng đài viên đang chờ (tùy thuộc vào phương thức đổ "
+"chuông). Nếu không, Asterisk sẽ giữ tất cả các cuộc gọi trong khi nó cố gắng "
+"tìm một tổng đài viên cho cuộc gọi ưu tiên hàng đầu trong hàng đợi khiến các "
+"cuộc gọi khác phải chờ."
 
 #: views/form.php:1340
 msgid ""
@@ -631,6 +670,10 @@ msgid ""
 "reset if a BUSY or CONGESTION is received. This can be useful if agents are "
 "able to cancel a call with reject or similar."
 msgstr ""
+"Nếu timeoutrestart cài về Yes thì thời gian chờ cho mỗi tổng đài viên trả "
+"lời cuộc gọi sẽ được thiết lập lại nếu nhận được một cuộc gọi bận hay bị "
+"nghẽn mạng. Điề này sẽ có ích nếu các tổng đài viên có thể hủy một cuộc gọi "
+"với tính năng từ chối hoặc tương tự."
 
 #: views/form.php:1418
 msgid ""
@@ -638,22 +681,30 @@ msgid ""
 "before the member hears any announcement messages), set this to the number "
 "of seconds to delay."
 msgstr ""
+"Nếu bạn muốn trì hoãn trước khi thành viên của hàng đợi được kết nối tới "
+"người gọi ( hoặc trước khi thành viên nghe thấy tin nhắn thông báo nào), cài "
+"đặt nó về số giây mà bạn muốn trì hoãn."
 
 #: views/form.php:1448
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
 "connected to the caller, set this to yes."
 msgstr ""
+"Nếu bạn muốn báo cáo thời gian chờ của người gọi tới một thành viên trong "
+"Hàng đợi trước khi họ chúng được kết nối tới người gọi thì hãy cài đặt điều "
+"này về Yes."
 
 #: functions.inc/hook_core.php:37
 msgid "Ignore State"
-msgstr ""
+msgstr "Bỏ qua Trạng thái"
 
 #: views/form.php:1105
 msgid ""
 "Incoming calls to agents can be recorded. If 'never' is selected, then in-"
 "call on demand recording is blocked."
 msgstr ""
+"Các cuộc gọi đến tới các tổng đài viên sẽ được ghi lại. Nếu chọn \"never' "
+"thì cuộc gọi đến trên bản ghi yêu cầu sẽ bị khóa."
 
 #: queues.i18n.php:32
 msgid ""
