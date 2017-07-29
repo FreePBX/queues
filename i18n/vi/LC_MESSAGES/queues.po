@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-07-27 21:37+0200\n"
+"PO-Revision-Date: 2017-07-28 20:37+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -240,7 +240,7 @@ msgstr "Tạm ngưng Tự động"
 
 #: views/form.php:1549
 msgid "Auto Pause Delay"
-msgstr ""
+msgstr "Hoãn tạm ngừng tự động"
 
 #: views/form.php:1479
 msgid ""
@@ -308,24 +308,26 @@ msgid "Caller Position"
 msgstr "Vị trí của người gọi"
 
 #: views/form.php:387
-#, fuzzy
 msgid ""
 "Callers will exit if all agents are paused, show an invalid state for their "
 "device or have penalty values less than QUEUE_MAX_PENALTY (not currently set "
 "in FreePBX dialplan)."
 msgstr ""
-"Người gọi sẽ thoát ra nếu như tất cả các tổng đài viên bị tạm ngưng, đưa ra "
-"một trạng thái không hợp lệ cho thiết bị của họ và các giá trị phạt ít hơn"
+"Người gọi sẽ thoát ra nếu như tất cả các tổng đài viên bị tạm ngưng, chỉ ra "
+"một trạng thái không hợp lệ cho thiết bị của họ và có giá trị phạt ít hơn "
+"gía trị phạt lớn nhất của hàng đợi ( không được cài đặt trong kế hoạch quay "
+"số FreePBX)."
 
 #: views/form.php:381
-#, fuzzy
 msgid ""
 "Callers will not be admitted if all agents are paused, show an invalid state "
 "for their device, or have penalty values less than QUEUE_MAX_PENALTY (not "
 "currently set in FreePBX dialplan)."
 msgstr ""
-"Người gọi sẽ không được chấp nhận nếu tất cả các tổng đài viên bị tạm dừng, "
-"đưa ra một trạng thái không hợp lệ cho thiết bị của họ"
+"Người gọi sẽ thoát ra nếu như tất cả các tổng đài viên bị tạm ngưng, chỉ ra "
+"một trạng thái không hợp lệ cho thiết bị của họ và có giá trị phạt ít hơn "
+"gía trị phạt lớn nhất của hàng đợi ( không được cài đặt trong kế hoạch quay "
+"số FreePBX)."
 
 #: views/form.php:696
 msgid "Capacity Options"
