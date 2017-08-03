@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-03 14:46+0200\n"
+"PO-Revision-Date: 2017-08-03 16:33+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -804,6 +804,7 @@ msgid "Monthly"
 msgstr "Hằng tháng"
 
 #: views/form.php:310
+#, fuzzy
 msgid ""
 "Music (MoH) played to the caller while they wait in line for an available "
 "agent. Choose \"inherit\" if you want the MoH class to be what is currently "
@@ -814,6 +815,8 @@ msgid ""
 "any MoH Class selected as well as any configured periodic announcements. "
 "This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
+"Nhạc chờ (MoH) được phát tới người gọi trong khi họ đợi một tổng đài viên "
+"sẵn có. Chọn \"\"inherit\" nếu bạn muốn lớp Nhạc nhờ được chọn, chẳng hạn"
 
 #: views/form.php:278
 msgid "Music on Hold Class"
