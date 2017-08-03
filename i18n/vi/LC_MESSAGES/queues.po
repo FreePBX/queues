@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-07-28 20:37+0200\n"
+"PO-Revision-Date: 2017-08-03 10:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -93,12 +93,10 @@ msgid "Agent Called Events Default"
 msgstr "Mặc định các sự kiện đã gọi"
 
 #: views/form.php:1853
-#, fuzzy
 msgid "Agent Regex Filter"
 msgstr "Bộ lọc chính quy cho Tổng đài viên"
 
 #: views/form.php:940
-#, fuzzy
 msgid "Agent Restrictions"
 msgstr "Các giới hạn đối với Tổng đài viên"
 
@@ -390,6 +388,9 @@ msgid ""
 "only affect the default for NEW queues, it won't change existing queues or "
 "enfore the option on in new ones."
 msgstr ""
+"Trạng thái mặc định cho AMI để phát hành sự kiện QueueMemberStatus. Cài đặt "
+"này sẽ chỉ ảnh hưởng đến mặc định đối với các hàng đợi mới, nó sẽ không thay "
+"đổi các hàng đợi hiện có hoặc thực thi tùy chọn trên các hàng đợi mới."
 
 #: Queues.class.php:205
 msgid "Delete"
