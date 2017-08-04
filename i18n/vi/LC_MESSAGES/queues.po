@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-03 16:33+0200\n"
+"PO-Revision-Date: 2017-08-03 21:59+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -820,20 +820,23 @@ msgstr ""
 
 #: views/form.php:278
 msgid "Music on Hold Class"
-msgstr ""
+msgstr "Lớp Nhạc chờ"
 
 #: install.php:43
+#, fuzzy
 msgid "NO table found, no migration to do just create tables"
-msgstr ""
+msgstr "Không tìm thấy bảng nào,"
 
 #: views/form.php:1097
 msgid "Never"
-msgstr ""
+msgstr "Không bao giờ"
 
 #: views/form.php:391
 msgid ""
 "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr ""
+"Không bao giờ để người gọi rời khỏi Hàng đợi cho đến khi Thời gian đợi tối "
+"đa kết thúc."
 
 #: views/cron.php:28 views/cron.php:57 views/form.php:105 views/form.php:381
 #: views/form.php:391 views/form.php:614 views/form.php:646 views/form.php:789
@@ -843,20 +846,20 @@ msgstr ""
 #: views/form.php:1500 views/form.php:1529 views/form.php:1613
 #: views/form.php:1647 views/form.php:1761 views/form.php:1790
 msgid "No"
-msgstr ""
+msgstr "Không"
 
 #: views/form.php:950
 msgid "No Follow-Me or Call Forward"
-msgstr ""
+msgstr "Không Follow Me hay Chuyển Tiếp cuộc gọi"
 
 #: views/form.php:356
 msgid "No Retry"
-msgstr ""
+msgstr "Không có Thử lại"
 
 #: views/form.php:178 views/form.php:206 views/form.php:499 views/form.php:540
 #: views/form.php:890
 msgid "None"
-msgstr ""
+msgstr "Không có"
 
 #: install.php:48 install.php:76 install.php:93 install.php:96 install.php:170
 #: install.php:297 install.php:303 install.php:316 install.php:344
@@ -864,7 +867,7 @@ msgstr ""
 #: install.php:530 install.php:545 install.php:560 install.php:575
 #: install.php:590 install.php:605
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: views/form.php:1792
 msgid "Once"
@@ -872,7 +875,7 @@ msgstr ""
 
 #: views/form.php:717
 msgid "Other Options"
-msgstr ""
+msgstr "Các tùy chọn khác"
 
 #: views/form.php:902
 #, php-format
@@ -880,10 +883,12 @@ msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
+"Ghi đè âm lượng chuông. Lưu ý: Điều này chỉ hợp lệ cho điện thoại %s tại "
+"thời điểm này"
 
 #: views/form.php:1669
 msgid "Penalty Members Limit"
-msgstr ""
+msgstr "Giowis hạn Thành viên Penalty"
 
 #: views/form.php:1808
 msgid "Periodic Announcements"
@@ -912,69 +917,69 @@ msgstr ""
 
 #: Queues.class.php:193 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
-msgstr ""
+msgstr "Hàng đợi"
 
 #: functions.inc/destination_registry.php:36
 #, php-format
 msgid "Queue %s : %s"
-msgstr ""
+msgstr "Hàng đợi %s: %s"
 
 #: functions.inc/queue_conf.php:231
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
-msgstr ""
+msgstr "Hàng đợi - %s (%s): %s<br />"
 
 #: views/form.php:686
 msgid "Queue Agents"
-msgstr ""
+msgstr "Các tổng đài viên Hàng đợi"
 
 #: views/form.php:432 views/form.php:535
 msgid "Queue Callback"
-msgstr ""
+msgstr "Gọi lại Hàng đợi"
 
 #: install.php:10
 msgid "Queue Callers"
-msgstr ""
+msgstr "Người gọi Hàng đợi"
 
 #: views/form.php:756
 msgid "Queue Name"
-msgstr ""
+msgstr "Tên Hàng đợi"
 
 #: views/form.php:98
 msgid "Queue No Answer"
-msgstr ""
+msgstr "Hàng đợi không trả lời"
 
 #: views/form.php:732
 msgid "Queue Number"
-msgstr ""
+msgstr "Số của Hàng đợi"
 
 #: assets/js/queues.js:40
 msgid "Queue Number must not be blank"
-msgstr ""
+msgstr "Số của Hàng đợi không được để trống"
 
 #: views/form.php:68
 msgid "Queue Password"
-msgstr ""
+msgstr "Mật khẩu Hàng đợi"
 
 #: install.php:9 install.php:22 queues.i18n.php:48
 msgid "Queue Pause Toggle"
-msgstr ""
+msgstr "Chuyển đổi Tạm dừng ( Pause) Hàng đợi"
 
 #: functions.inc/hook_core.php:64
 msgid "Queue State Detection"
-msgstr ""
+msgstr "Phát hiện trạng thái Hàng đợi"
 
 #: install.php:8
 msgid "Queue Toggle"
-msgstr ""
+msgstr "Chuyển đổi Hàng đợi"
 
 #: views/form.php:1061
 msgid "Queue Weight"
-msgstr ""
+msgstr "Trọng dung Hàng đợi"
 
 #: views/form.php:1035
 msgid "Queue calls only (ringinuse=no)"
-msgstr ""
+msgstr "Chỉ mỗi các cuộc gọi Hàng đợi (ringinuse=no)"
 
 #: queues.i18n.php:40
 msgid ""
@@ -987,31 +992,31 @@ msgstr ""
 #: assets/js/queues.js:53
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
-msgstr ""
+msgstr "Tên Hàng đợi không được để trống và chỉ bao gồm các ký tự số- anphabe"
 
 #: functions.inc/destination_registry.php:56
 #: functions.inc/destination_registry.php:73
 #: functions.inc/destination_registry.php:97
 #, php-format
 msgid "Queue: %s"
-msgstr ""
+msgstr "Hàng đợi: %s"
 
 #: functions.inc/destination_registry.php:126
 #, php-format
 msgid "Queue: %s (%s)"
-msgstr ""
+msgstr "Hàng đợi: %s (%s)"
 
 #: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
-msgstr ""
+msgstr "Các hàng đợi"
 
 #: queues.i18n.php:14
 msgid "Queues Module"
-msgstr ""
+msgstr "Mô đun Hàng đợi"
 
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
-msgstr ""
+msgstr "Mô đun hàng đợi không tìm thấy hoặc bị vô hiệu. Đang hủy!"
 
 #: queues.i18n.php:28
 msgid ""
@@ -1026,6 +1031,9 @@ msgid ""
 "astdb so that when asterisk is restarted, each member will be automatically "
 "read into their recorded queues."
 msgstr ""
+"Hàng đợi: persistentmembers. Lưu trữ mỗi thành viên động trong mỗi hàng đợi "
+"tại astdb để khi dấu hoa thị được khởi động lại, mỗi thành viên sẽ được tự "
+"động đọc vào hàng đợi đã được ghi lại của chúng."
 
 #: queues.i18n.php:20
 msgid ""
