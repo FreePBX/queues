@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-03 21:59+0200\n"
+"PO-Revision-Date: 2017-08-04 15:53+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -823,9 +823,10 @@ msgid "Music on Hold Class"
 msgstr "Lớp Nhạc chờ"
 
 #: install.php:43
-#, fuzzy
 msgid "NO table found, no migration to do just create tables"
-msgstr "Không tìm thấy bảng nào,"
+msgstr ""
+"Không tìm thấy bảng nào,Không có dịch chuyển nào để thực hiện chỉ tạo các "
+"bảng"
 
 #: views/form.php:1097
 msgid "Never"
@@ -871,7 +872,7 @@ msgstr "OK"
 
 #: views/form.php:1792
 msgid "Once"
-msgstr ""
+msgstr "Một lần"
 
 #: views/form.php:717
 msgid "Other Options"
@@ -892,15 +893,15 @@ msgstr "Giowis hạn Thành viên Penalty"
 
 #: views/form.php:1808
 msgid "Periodic Announcements"
-msgstr ""
+msgstr "Các thông báo định kỳ"
 
 #: queues.i18n.php:12
 msgid "Persistent Members"
-msgstr ""
+msgstr "Các thành viên không đổi"
 
 #: install.php:29 queues.i18n.php:46
 msgid "Playback Queue Caller Count"
-msgstr ""
+msgstr "Phát lại số lần gọi hàng đợi của người gọi"
 
 #: views/form.php:1865
 msgid ""
@@ -988,6 +989,11 @@ msgid ""
 "are required to login or out a third party user that is not the extension "
 "dialing. These can be removed from the system by setting this to false."
 msgstr ""
+"Các mã đăng nhập và đăng xuất Hàng đợi cũ là queunum* and queunum**. Chúng "
+"đã đươc thay thế bởi các mã chuyển đổi hàng đợi *45. Các mã legacy là điều "
+"yêu cầu cho việc đăng nhập và đăng xuất đối với người dùng bên thứ ba mà bên "
+"này không phải là quay số máy nhánh. Chúng có thể bị xóa bỏ khỏi hệ thống "
+"bằng cách cài đặt về False."
 
 #: assets/js/queues.js:53
 msgid ""
@@ -1024,6 +1030,9 @@ msgid ""
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now goes away when this is enabled."
 msgstr ""
+"Hàng đợi: monitor-type = MixMonitor. Cài đặt True sẽ sử dụng ứng dụng  "
+"MixMonitor thay vì Monitor vì thế khái niệm 'joining/mixing' trong các tệp "
+"vào/ra hiện sẽ biến mất khi điều này được kích hoạt."
 
 #: queues.i18n.php:16
 msgid ""
