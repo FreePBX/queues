@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-04 15:53+0200\n"
+"PO-Revision-Date: 2017-08-04 16:55+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -1051,42 +1051,51 @@ msgid ""
 "queue. This is useful to make the queue respect the wrapuptime of another "
 "queue for a shared member."
 msgstr ""
+"Hàng đợi: shared_lastcall,, chỉ hợp lệ với Asterisk 1.6 trở lên. Điều này sẽ "
+"khiến cuộc gọi cuối và các cuộc gọi đã nhận giống nhau trong các thanh viên "
+"đã đăng nhập vào nhiều hàng đợi. Điều này có ích cho việc tạo một hàng đợi "
+"liên quan tới wrapuptime của hàng đợi khác cho thành viên được chia sẻ."
 
 #: queues.i18n.php:24
+#, fuzzy
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
 "with an agent name, which is set if available at the login time with "
 "AddQueueMember membername parameter, or with static members."
 msgstr ""
+"Hàng đợi: updatecdr, chỉ hợp lệ với Asterisk 1.6 trở lên. Tùy chọn này được "
+"thực hiện nhằm bắt chước hành vi  chan_agents  của trường CDR dstchannel  "
+"của một cuộc gọi với một tên tổng đài viên, Nó được cài đặt nếu nó sẵn có "
+"trong thời gian đăng nhập bằng tham số AddQueueMember membername hoặc với các"
 
 #: views/cron.php:84
 msgid "RUN"
-msgstr ""
+msgstr "CHẠY"
 
 #: views/cron.php:50
 msgid "Random"
-msgstr ""
+msgstr "Ngẫu nhiên"
 
 #: views/form.php:574
 msgid "Repeat Frequency"
-msgstr ""
+msgstr "Tần suất lặp lại"
 
 #: views/form.php:1431
 msgid "Report Hold Time"
-msgstr ""
+msgstr "Báo cáo Thời gian giữ máy"
 
 #: Queues.class.php:215
 msgid "Reset"
-msgstr ""
+msgstr "Cài đặt lại"
 
 #: views/form.php:711
 msgid "Reset Queue Stats"
-msgstr ""
+msgstr "Cài đặt lại Trạng thái Hàng đợi"
 
 #: views/form.php:913
 msgid "Restrict Dynamic Agents"
-msgstr ""
+msgstr "Hạn chế các tổng đài viên động"
 
 #: views/form.php:928
 msgid ""
@@ -1094,6 +1103,9 @@ msgid ""
 "Members list above. When set to Yes, members not listed will be DENIED "
 "ACCESS to the queue."
 msgstr ""
+"Hạn chế đăng nhập thành viên động của Hàng đợi năng động vào danh sách đã "
+"được liệt kệ trong danh sách Thành viên động ở trên. Khi cài về Yes, các "
+"thành viên không được liệt kệ sẽ bị TỪ CHỐI TRUY NHẬP vào Hàng đợi."
 
 #: views/form.php:1352
 msgid "Retry"
