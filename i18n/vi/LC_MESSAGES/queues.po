@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-04 16:55+0200\n"
+"PO-Revision-Date: 2017-08-04 21:42+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -744,7 +744,7 @@ msgstr "Danh sách Hàng đợi"
 #: views/form.php:382 views/form.php:390 views/form.php:1276
 #: views/form.php:1615 views/form.php:1649
 msgid "Loose"
-msgstr ""
+msgstr "ơ6="
 
 #: views/form.php:1117
 msgid "Mark calls answered elsewhere"
@@ -1109,25 +1109,28 @@ msgstr ""
 
 #: views/form.php:1352
 msgid "Retry"
-msgstr ""
+msgstr "Thử lại"
 
 #: views/form.php:301
 msgid "Ring Only"
-msgstr ""
+msgstr "Chỉ đổ chuông"
 
 #: views/form.php:972
 msgid "Ring Strategy"
-msgstr ""
+msgstr "Phương thức đổ chuông"
 
 #: views/form.php:885
 msgid "Ringer Volume Override"
-msgstr ""
+msgstr "Ghi đè âm lượng chuông"
 
 #: views/form.php:382
+#, fuzzy
 msgid ""
 "Same as No except Callers will be admitted if there are paused agents who "
 "could become available."
 msgstr ""
+"Giống như No except Callers sẽ được nhận nếu có các tổng đài viên được tạm "
+"dừng và họ có thể trở nên sẽ khả dụng."
 
 #: views/form.php:380
 msgid ""
@@ -1167,29 +1170,32 @@ msgstr ""
 
 #: views/form.php:1827
 msgid "Service Level"
-msgstr ""
+msgstr "Mức dịch vụ"
 
 #: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
-msgstr ""
+msgstr "Cài Tên Tổng đài viên trong CDR dstchannel"
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
-msgstr ""
+msgstr "Cài đặt tác vụ này xảy ra ngẫu nhiên"
 
 #: views/form.php:1800
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
 msgstr ""
+"Chúng ta có nên bao hàm thời gian giữ dự kiến trong Các thông báo vị trí? Cả "
+"Yes, no, hoặc only once, thời gian giữ máy sẽ không được thông báo nếu nhỏ "
+"hơn 1 phút"
 
 #: views/form.php:1025
 msgid "Skip Busy Agents"
-msgstr ""
+msgstr "Bỏ qua các Tổng đài viên đang bận"
 
 #: views/form.php:1172
 msgid "Static Agents"
-msgstr ""
+msgstr "Các tổng đài viên Tĩnh"
 
 #: views/form.php:1193
 msgid ""
@@ -1211,7 +1217,7 @@ msgstr ""
 
 #: views/cron.php:20
 msgid "Stats Reset"
-msgstr ""
+msgstr "Cài đặt lại Trạng thái"
 
 #: views/form.php:379 views/form.php:388 views/form.php:1274
 #: views/form.php:1609 views/form.php:1643
@@ -1220,19 +1226,23 @@ msgstr ""
 
 #: Queues.class.php:210
 msgid "Submit"
-msgstr ""
+msgstr "Gửi đi"
 
 #: views/form.php:1740
 msgid ""
 "The absolute minimum time between the start of each queue position and/or "
 "estimated holdtime announcement"
 msgstr ""
+"Thời gian tối thiểu tuyệt đối giữa khi khởi động của mỗi vị trí hàng đợi và/"
+"hoặc thông báo thời gian giữ máy dự kiến"
 
 #: views/form.php:1255
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr ""
+"Số giây tối đa mà một người gọi có thể đợi trong một hàng đợi trước khi bị "
+"đẩy ra khỏi hàng. (Đặt là 0 để không giới hạn số giây)."
 
 #: views/form.php:1310
 msgid ""
@@ -1240,6 +1250,10 @@ msgid ""
 "timeout. Unlimited or other timeout values may still be limited by system "
 "ringtime or individual extension defaults."
 msgstr ""
+"Số giây mà điện thoại của tổng đài viên có thể đổ chuông trước khi chúng ta "
+"xem chúng như là một Thời gian chờ. Không giới hạn hoặc Gía trị thời gian "
+"chờ khác có thể bị giới hạn bằng hệ thống ringtime hoặc các mặc định máy "
+"nhánh cá nhân."
 
 #: views/form.php:1366
 msgid ""
