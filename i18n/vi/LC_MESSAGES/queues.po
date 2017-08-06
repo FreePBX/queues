@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-04 21:42+0200\n"
+"PO-Revision-Date: 2017-08-05 21:46+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -804,7 +804,6 @@ msgid "Monthly"
 msgstr "Hằng tháng"
 
 #: views/form.php:310
-#, fuzzy
 msgid ""
 "Music (MoH) played to the caller while they wait in line for an available "
 "agent. Choose \"inherit\" if you want the MoH class to be what is currently "
@@ -816,7 +815,13 @@ msgid ""
 "This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
 "Nhạc chờ (MoH) được phát tới người gọi trong khi họ đợi một tổng đài viên "
-"sẵn có. Chọn \"\"inherit\" nếu bạn muốn lớp Nhạc nhờ được chọn, chẳng hạn"
+"sẵn có. Chọn \"\"inherit\" nếu bạn muốn lớp Nhạc nhờ được chọn chẳng hạn bởi "
+"một tuyến gọi vào. MoH  chỉ sẽ phát đến khi tổng đài viên trả lời. Đổ chuông "
+"tổng đài viên sẽ phát MoH đến khi điện thoại của Tổng đài viên hiển thị cuộc "
+"gọi và đang đổ chuông. Nếu họ không trả lời, Nhặc chờ sẽ đổ. Chuông chỉ làm "
+"cho người gọi nghe thấy một nhạc chuông chứ không phải là một nhạc chờ bỏ "
+"qua các lớp nhạc chờ được chọn cũng như các thông báo định kỳ đã được cấu "
+"hình. NHạc chờ này sẽ được xác định trong menu \"Music on Hold\"."
 
 #: views/form.php:278
 msgid "Music on Hold Class"
@@ -1066,8 +1071,9 @@ msgid ""
 msgstr ""
 "Hàng đợi: updatecdr, chỉ hợp lệ với Asterisk 1.6 trở lên. Tùy chọn này được "
 "thực hiện nhằm bắt chước hành vi  chan_agents  của trường CDR dstchannel  "
-"của một cuộc gọi với một tên tổng đài viên, Nó được cài đặt nếu nó sẵn có "
-"trong thời gian đăng nhập bằng tham số AddQueueMember membername hoặc với các"
+"của một cuộc gọi với một tên tổng đài viên mà nó được cài đặt nếu nó sẵn có "
+"tại thời gian đăng nhập với tham số AddQueueMember membername hoặc với các "
+"thành viên động."
 
 #: views/cron.php:84
 msgid "RUN"
@@ -1262,8 +1268,13 @@ msgid ""
 "as the first attempted agent times-out, additional agents will not be "
 "attempted."
 msgstr ""
+"Số giây chúng ta đợi trước khi cố thử các điện thoại lần nữa. Chọn \" No "
+"Retry\" sẽ thoát khỏi Hàng đợi và đi tới điểm đích chịu lỗi ngay sau khi "
+"tổng đài viên đầu tiên được thử hết thời gian chờ, các tổng đài viên bổ sung "
+"sẽ không được thử."
 
 #: views/form.php:1561
+#, fuzzy
 msgid ""
 "This setting will delay the auto pause of an agent by auto pause delay "
 "seconds from when it last took a call. For example, if this were set to 120 "
@@ -1273,31 +1284,39 @@ msgid ""
 "they will then be auto paused. If they have taken no calls, this will have "
 "no affect."
 msgstr ""
+"Cài đặt này sẽ trì hoãn việc tạm dừng tự động một tổng đài viên bằng cách "
+"tạm  nhân bằng cách tự động tạm dừng giây trễ từ khi cuộc gọi cuối cùng được "
+"thực hiện. Ví dụ: nếu thiết lập này được đặt thành 120 giây và một cuộc gọi "
+"mới được trình bày cho tác nhân 90 giây sau khi họ thực hiện cuộc gọi, họ sẽ "
+"không bị tạm dừng tự động nếu họ không trả lời cuộc gọi. Nếu được gọi với "
+"cuộc gọi 120 giây hoặc muộn hơn sau khi trả lời cuộc gọi cuối cùng, chúng sẽ "
+"được tạm dừng tự động. Nếu họ không có cuộc gọi, điều này sẽ không có ảnh "
+"hưởng."
 
 #: views/form.php:1716
 msgid "This value is ignored if the caller's position changes"
-msgstr ""
+msgstr "Gía trị này bị bỏ qua nếu vị trí người gọi thay đổi"
 
 #: views/form.php:691
 msgid "Timing & Agent Options"
-msgstr ""
+msgstr "Tùy chọn Timing & Agent  ( Định giờ & Tổng đài viên)"
 
 #: views/form.php:380 views/form.php:389 views/form.php:1611
 #: views/form.php:1645
 msgid "Ultra Strict"
-msgstr ""
+msgstr "Cực nghiêm ngặt"
 
 #: views/form.php:332 views/form.php:350
 msgid "Unlimited"
-msgstr ""
+msgstr "Không giới hạn"
 
 #: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
-msgstr ""
+msgstr "Sử dụng MixMonitor cho các bản ghi"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
-msgstr ""
+msgstr "Sử dụng State ( Trạng thái)"
 
 #: views/form.php:744
 msgid ""
