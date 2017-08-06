@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-05 21:46+0200\n"
+"PO-Revision-Date: 2017-08-05 22:47+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -1326,38 +1326,50 @@ msgid ""
 "<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
 "in<br>123** = log out</b>"
 msgstr ""
+"Sử dụng số này để quay số vào hàng đợi, hoặc truyền người gọi vào số này để "
+"đặt họ vào hàng đợi. <br><br> Các tổng đài viên sẽ quay số này thêm * để "
+"truy nhập vào hàng đợi, và thêm ** để đăng xuất khỏi hàng đợi. <br><br> Ví "
+"dụ nếu số hàng đợi là 123: br><br><b>123* = truy nhập<br>123** = đăng "
+"xuất</b>"
 
 #: views/form.php:1841
 msgid ""
 "Used for service level statistics (calls answered within service level time "
 "frame)"
 msgstr ""
+"Được sử dụng cho các thống kê cấp dịch vụ ( các cuộc gọi được trả lời trong "
+"khung thời gian của cấp dịch vụ)"
 
 #: assets/js/queues.js:29
 msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
 msgstr ""
+"Đang sử dụng một bộc lọc Regex là một thao tác nâng cao, vui lòng xác nhận "
+"bạn biết bạn đang làm gì hoặc để trống"
 
 #: install.php:314
 #, php-format
 msgid "WARNING FAILED %s"
-msgstr ""
+msgstr "CẢNH BÁO KHÔNG THÀNH CÔNG %s"
 
 #: views/form.php:834
 msgid "Wait Time Prefix"
-msgstr ""
+msgstr "Tiền tố thời gian đợi"
 
 #: Queues.class.php:144
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Cảnh báo! Máy nhánh"
 
 #: functions.inc/queue_conf.php:226
+#, fuzzy
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
 "first sound file. You should correct this problem.<br />Details:<br /><br />"
 msgstr ""
+"Cảnh báo, có các bản ghi phức hợp được cấu hình trong một hoặc nhìu cấu hình "
+"hàng đợi. Các hàng đợi không thể phát các bản ghi vì thế chúng được"
 
 #: views/cron.php:61
 msgid "Weekly"
