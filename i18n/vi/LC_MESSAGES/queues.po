@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-05 22:47+0200\n"
+"PO-Revision-Date: 2017-08-06 15:07+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -1228,7 +1228,7 @@ msgstr "Cài đặt lại Trạng thái"
 #: views/form.php:379 views/form.php:388 views/form.php:1274
 #: views/form.php:1609 views/form.php:1643
 msgid "Strict"
-msgstr ""
+msgstr "Nghiêm ngặt"
 
 #: Queues.class.php:210
 msgid "Submit"
@@ -1373,15 +1373,15 @@ msgstr ""
 
 #: views/cron.php:61
 msgid "Weekly"
-msgstr ""
+msgstr "Hằng tuần"
 
 #: views/form.php:187
 msgid "When No Free Agents"
-msgstr ""
+msgstr "Khi không có tổng đài viên nào rỗi"
 
 #: views/form.php:188
 msgid "When No Ready Agents"
-msgstr ""
+msgstr "Khi không có tổng đài viên nào sẵn sàng"
 
 #: views/form.php:960
 msgid ""
