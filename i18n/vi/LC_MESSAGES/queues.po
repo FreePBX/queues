@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-06 15:07+0200\n"
+"PO-Revision-Date: 2017-08-06 21:17+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -1430,13 +1430,19 @@ msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
 msgstr ""
+"Khi cài đặt về YES, trình quản lý sự kiện sau sẽ được kích hoạt: "
+"QueueMemberStatus"
 
 #: views/form.php:1508
+#, fuzzy
 msgid ""
 "When set to Yes agents devices that report busy upon a call attempt will be "
 "considered as a missed call and auto paused immediately or after the auto "
 "pause delay if configured"
 msgstr ""
+"Khi cài đặt là Yes các thiết bị của tổng đài viên báo cáo đang bận khi thử "
+"một cuộc gọi sẽ bị xem như một cuộc gọi nhỡ và tự động tạm dừng ngay lập tức "
+"hoặc"
 
 #: views/form.php:1537
 msgid ""
@@ -1452,21 +1458,29 @@ msgid ""
 "be rounded to the nearest minute, in the form of Mnn: where nn is the number "
 "of minutes."
 msgstr ""
+"Khi cài đặt về Yes, tên CID sẽ được thêm tiền tố với tổng thời gian đợi "
+"trong hàng đợi vì vậy tổng đài viên đang trả lợi sẽ nhận biết được họ đợi "
+"bao lâu. Nó sẽ được làm tròn lên đến phút gần nhất, trong dạng mẫu của Mnn: "
+"Nơi nn là số phút."
 
 #: views/form.php:622
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
+"Khi tùy chọn này được cài đặt về Yes, các sự kiện của trình quản lý sau sẽ "
+"được kích hoạt: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 
 #: views/cron.php:96
 msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
+"Thời điểm để lên kế hoạch tác vụ này. Lưu ý việc kích hoạt \"Random\" sẽ ghi "
+"đè các cài đặt này"
 
 #: views/form.php:1157
 msgid "Where calls should fail to"
-msgstr ""
+msgstr "Nơi các cuộc gọi không thành công sẽ đến"
 
 #: views/form.php:441
 msgid ""
