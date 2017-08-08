@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-07 21:45+0200\n"
+"PO-Revision-Date: 2017-08-07 22:38+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -1670,129 +1670,137 @@ msgstr "Đang kiểm tra trường use_queue_context .."
 
 #: functions.inc.php:31
 msgid "day"
-msgstr ""
+msgstr "ngày"
 
 #: views/form.php:293
 msgid "default"
-msgstr ""
+msgstr "mặc định"
 
 #: install.php:437
 msgid "dropping agentannounce field.."
-msgstr ""
+msgstr "Đang thả trường  agentannounce.."
 
 #: install.php:447
 msgid "dropping joinannounce field.."
-msgstr ""
+msgstr "Đang thả trường joinannounce.."
 
 #: install.php:366 install.php:375 install.php:387 install.php:403
 #: install.php:413 install.php:429
 msgid "fatal error"
-msgstr ""
+msgstr "Lõi nghiêm trọng"
 
 #: views/form.php:256
 msgid "fewestcalls"
-msgstr ""
+msgstr "fewestcalls ( cuộc gọi ít nhất)"
 
 #: functions.inc.php:32
 msgid "hour"
-msgstr ""
+msgstr "giờ"
 
 #: functions.inc.php:32
 msgid "hours"
-msgstr ""
+msgstr "giờ"
 
 #: views/form.php:291
 msgid "inherit"
-msgstr ""
+msgstr "kế thừa"
 
 #: Queues.class.php:144
 msgid "is not allowed for your account."
-msgstr ""
+msgstr "tài khoản của bạn không được cho phép."
 
 #: views/form.php:255
 msgid "leastrecent"
-msgstr ""
+msgstr "leastrecent"
 
 #: views/form.php:260
 msgid "linear"
-msgstr ""
+msgstr "linear"
 
 #: install.php:383
 msgid "migrate agentannounce to ids.."
-msgstr ""
+msgstr "dịch chuyển agentannounce đến ids.."
 
 #: install.php:409
 msgid "migrate joinannounce to ids.."
-msgstr ""
+msgstr "dịch chuyển joinannounce đến  ids.."
 
 #: install.php:407 install.php:433
 #, php-format
 msgid "migrated %s entries"
-msgstr ""
+msgstr "Đã dịch chuyển các mục nhập %s"
 
 #: install.php:361
 msgid "migrating"
-msgstr ""
+msgstr "Đang dịch chuyển"
 
 #: functions.inc.php:33
 msgid "minute"
-msgstr ""
+msgstr "phút"
 
 #: functions.inc.php:33
 msgid "minutes"
-msgstr ""
+msgstr "phút"
 
 #: install.php:443
 msgid "no agentannounce field???"
-msgstr ""
+msgstr "Không có trường agentannounce???"
 
 #: install.php:451
 msgid "no joinannounce field???"
-msgstr ""
+msgstr "Không có trường joinannounce???"
 
 #: views/form.php:292
 msgid "none"
-msgstr ""
+msgstr "không có"
 
 #: install.php:369 install.php:378 install.php:445 install.php:453
 msgid "ok"
-msgstr ""
+msgstr "ok"
 
 #: views/form.php:257
 msgid "random"
-msgstr ""
+msgstr "ngẫu nhiên"
 
 #: views/form.php:261
 msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
+"Ngẫu nhiên sử dụng penalty của thành viên giống như một yếu tố trọng dung, "
+"xem tài liệu asterisk để biết cụ thể"
 
 #: views/form.php:255
 msgid "ring agent which was least recently called by this queue"
-msgstr ""
+msgstr "Đổ chuông tổng đài viên được gọi gần đây nhất bởi Hàng đợi này"
 
 #: views/form.php:254
 msgid "ring all available agents until one answers (default)"
 msgstr ""
+"đổ chuông tất cả các tổng đài viên khả dụng đến khi một tổng đài viên trả "
+"lời ( mặc định)"
 
 #: views/form.php:257
 msgid "ring random agent"
-msgstr ""
+msgstr "đổ chuông tổng đài viên ngẫu nhiên"
 
 #: views/form.php:256
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr ""
+"đổ chuông tổng đài viên với các cuộc gọi đa hoàn thành ít nhất từ Hàng đợi "
+"này"
 
 #: views/form.php:254
 msgid "ringall"
-msgstr ""
+msgstr "đổ chuông tất cả"
 
 #: views/form.php:260
 msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
 msgstr ""
+"đổ chuông các tổng đài viên theo thứ tự xác định, đối với các tổng đài viên "
+"động thì theo thứ tự mà họ đã đăng nhập"
 
 #: views/form.php:258
 msgid "round robin with memory, remember where we left off last ring pass"
@@ -1800,11 +1808,11 @@ msgstr ""
 
 #: views/form.php:258
 msgid "rrmemory"
-msgstr ""
+msgstr "rrmemory (bộ nhớ rr)"
 
 #: views/form.php:259
 msgid "rrordered"
-msgstr ""
+msgstr "rrordered( thứ tự rr)"
 
 #: views/form.php:259
 msgid ""
@@ -1813,13 +1821,13 @@ msgstr ""
 
 #: functions.inc.php:34
 msgid "second"
-msgstr ""
+msgstr "giây"
 
 #: functions.inc.php:17 functions.inc.php:34 views/form.php:334
 #: views/form.php:337 views/form.php:358 views/form.php:364 views/form.php:373
 msgid "seconds"
-msgstr ""
+msgstr "giây"
 
 #: views/form.php:261
 msgid "wrandom"
-msgstr ""
+msgstr "wrandom ( ngẫu nhiên w)"
