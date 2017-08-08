@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 19:49-0400\n"
-"PO-Revision-Date: 2017-08-07 17:22+0200\n"
+"PO-Revision-Date: 2017-08-07 21:45+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/queues/vi/>\n"
@@ -1220,6 +1220,22 @@ msgid ""
 "will have problems with subsequent transfers to voicemail and other issues "
 "may also exist."
 msgstr ""
+"Các tổng đài viên tĩnh là các máy nhánh được giả định là luôn luôn trên Hàng "
+"đợi. Các tổng đài viên tĩnh không cần 'đăng nhập' vào Hàng đợi, và không thể "
+"'đăng xuất' khỏi Hàng đợi.<br><br>Danh sách các máy nhánh đổ chuông, một "
+"dòng một máy. <br><br>Bạn có thể bao gồm một máy nhánh trên hệ thống từ xa, "
+"hoặc một số bên ngoài ) Việc định tuyến gọi ra phải chứa một tuyến hợp lệ "
+"cho các số bên ngoài). Bạn phải đặt dấu \",\" ngay sau tổng đài viên được "
+"theo sau bởi một giá trị penalty, xem phần Asterisk documentation concerning "
+"penalties ( Các penalty liên quan đến tài liệu về Asterisk). <br /><br />Một "
+"chế độ nâng cao đã được thêm vào cho phép bạn thêm tiền tố số tổng đài viên "
+"với S, P, X , Z, D hoặc A. Điều này sẽ buộc số tổng đài được quay số như là "
+"một thiết bị Asterisk theo kiểu SIP, PJSIP, IAX2, ZAP, DAHDi hoặc tổng đài "
+"viên tương ứng. Chế độ này dành cho người dùng nâng cao và có thể gây ra các "
+"sự cố sẽ biết trước trong FreePBX khi bạn đang dùng phương thức quay số "
+"thông thường. Nếu'Agent Restrictions' của bạn không được đặt thành "
+"'Extension Only' , bạn sẽ gặp sự cố khi chuyển thư sang thư thoại tiếp theo "
+"và các sự cố có thể tồn tại khác."
 
 #: views/cron.php:20
 msgid "Stats Reset"
@@ -1473,7 +1489,6 @@ msgstr ""
 "QueueMemberStatus"
 
 #: views/form.php:1508
-#, fuzzy
 msgid ""
 "When set to Yes agents devices that report busy upon a call attempt will be "
 "considered as a missed call and auto paused immediately or after the auto "
@@ -1481,7 +1496,7 @@ msgid ""
 msgstr ""
 "Khi cài đặt là Yes các thiết bị của tổng đài viên báo cáo đang bận khi thử "
 "một cuộc gọi sẽ bị xem như một cuộc gọi nhỡ và tự động tạm dừng ngay lập tức "
-"hoặc"
+"hoặc sau khi trễ tạm dừng tự động nếu được cấu hình"
 
 #: views/form.php:1537
 msgid ""
@@ -1489,6 +1504,9 @@ msgid ""
 "will be considered as a missed call and auto paused immediately or after the "
 "auto pause delay if configured"
 msgstr ""
+"Khi cài đặt là Yes các thiết bị của tổng đài viên báo cáo đang bận khi thử "
+"một cuộc gọi sẽ bị xem như một cuộc gọi nhỡ và tự động tạm dừng ngay lập tức "
+"hoặc sau khi trễ tạm dừng tự động nếu được cấu hình"
 
 #: views/form.php:850
 msgid ""
@@ -1527,6 +1545,9 @@ msgid ""
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
 msgstr ""
+"Hàng đợi này sử dụng một Menu IVR Break Out ( Giải quyết sự cố IVR) hay "
+"Queue Callback ( Gọi lại Hàng đợi).  Queue Callback có thể đạt được qua một "
+"IVR, nhưng yêu cầu một cấu hình bổ sung."
 
 #: views/form.php:1378
 msgid "Wrap-Up-Time"
@@ -1540,19 +1561,19 @@ msgstr ""
 #: views/form.php:1527 views/form.php:1607 views/form.php:1641
 #: views/form.php:1759 views/form.php:1788
 msgid "Yes"
-msgstr ""
+msgstr "Có"
 
 #: views/form.php:1034
 msgid "Yes + (ringinuse=no)"
-msgstr ""
+msgstr "Có + (ringinuse=no)"
 
 #: views/form.php:1466
 msgid "Yes in all queues"
-msgstr ""
+msgstr "Yes trong tất cả Hàng đợi"
 
 #: views/form.php:1466
 msgid "Yes in this queue only"
-msgstr ""
+msgstr "Yes chỉ trên Hàng đợi này"
 
 #: views/form.php:822
 msgid ""
@@ -1560,6 +1581,9 @@ msgid ""
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
+"Bạn có thể tùy thêm tiền tố vào tên Caller ID của người gọi vào Hàng đợi. Cụ "
+"thể: Nếu bạn thêm tiền tố với \"Sale:\", một cuộc gọi từ John Doe sẽ hiển "
+"thị là \"Sales:John Doe\" trên máy nhánh đang đổ chuông."
 
 #: views/form.php:509
 msgid ""
@@ -1568,75 +1592,81 @@ msgid ""
 "Recording set for the IVR will be played at intervals specified in 'Repeat "
 "Frequency', below."
 msgstr ""
+"Bạn có thể đưa ra một VIR hiện có như một menu \" break out\". <br><br> IVR "
+"nàychỉ chứa 'các tùy tùy chọn quay số' chữ số đơn. Bản ghi cài đặt cho IVR "
+"sẽ được phát tại các khoảng thời gian xác định trong 'Repeat Frequency' ( "
+"Tần suất lặp lại) dưới đây."
 
 #: views/form.php:80
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
 msgstr ""
+"Bạn có thể yêu cầu các tổng đài viên nhập một mật khẩu trước khi họ đăng "
+"nhập vào hàng đợi này. <br><br> Cài đặt này là tùy chọn."
 
 #: install.php:362
 msgid "adding agentannounce_id field.."
-msgstr ""
+msgstr "Đang thêm trường agentannounce_id.."
 
 #: install.php:371
 msgid "adding joinannounce_id field.."
-msgstr ""
+msgstr "Đang thêm trường  joinannounce_id .."
 
 #: install.php:70 install.php:164 install.php:346 install.php:472
 #: install.php:487 install.php:502 install.php:517 install.php:532
 #: install.php:547 install.php:562 install.php:577 install.php:592
 #: install.php:607
 msgid "already exists"
-msgstr ""
+msgstr "Đã tồn tại"
 
 #: install.php:456
 msgid "already migrated"
-msgstr ""
+msgstr "Đã được di chuyển"
 
 #: install.php:595
 msgid "checking for callback_id field.."
-msgstr ""
+msgstr "Đang kiểm tra trường callback_id .."
 
 #: install.php:520
 msgid "checking for callconfirm field.."
-msgstr ""
+msgstr "Đang kiểm tra trường callconfirm.."
 
 #: install.php:535
 msgid "checking for callconfirm_id field.."
-msgstr ""
+msgstr "Đang kiểm tra trường callconfirm_id.."
 
 #: install.php:565
 msgid "checking for monitor_heard field.."
-msgstr ""
+msgstr "Đang kiểm tra trường monitor_heard.."
 
 #: install.php:580
 msgid "checking for monitor_spoken field.."
-msgstr ""
+msgstr "Đang kiểm tra trường monitor_spoken.."
 
 #: install.php:550
 msgid "checking for monitor_type field.."
-msgstr ""
+msgstr "Đang kiểm tra trường .."
 
 #: install.php:505
 msgid "checking for qnoanswer field.."
-msgstr ""
+msgstr "Đang kiểm tra trường qnoanswer.."
 
 #: install.php:334
 msgid "checking for qregex field.."
-msgstr ""
+msgstr "Đang kiểm tra trường qregex.."
 
 #: install.php:460
 msgid "checking for queuewait field.."
-msgstr ""
+msgstr "Đang kiểm tra trường queuewait.."
 
 #: install.php:490
 msgid "checking for togglehint field.."
-msgstr ""
+msgstr "Đang kiểm tra trường togglehint .."
 
 #: install.php:475
 msgid "checking for use_queue_context field.."
-msgstr ""
+msgstr "Đang kiểm tra trường use_queue_context .."
 
 #: functions.inc.php:31
 msgid "day"
