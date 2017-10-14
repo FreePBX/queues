@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>14.0.2.4</version>
+	<version>14.0.2.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*14.0.2.5* FREEPBX-15350 always write out database hints
 		*14.0.2.4* FREEPBX-15474
 		*14.0.2.3* FREEPBX-14945 FREEPBX-15058 FREEPBX-14938
 		*14.0.2.2* FREEPBX-14194 Queue volume override in GUI has no affect on sangoma phone
