@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 16:50-0700\n"
+"POT-Creation-Date: 2017-10-24 12:55-0700\n"
 "PO-Revision-Date: 2015-12-08 23:36+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -735,12 +735,11 @@ msgstr ""
 
 #: views/cron.php:28 views/cron.php:57 views/form.php:19 views/form.php:118
 #: views/form.php:393 views/form.php:403 views/form.php:626 views/form.php:658
-#: views/form.php:801 views/form.php:854 views/form.php:957
-#: views/form.php:1042 views/form.php:1069 views/form.php:1133
-#: views/form.php:1162 views/form.php:1368 views/form.php:1477
-#: views/form.php:1503 views/form.php:1537 views/form.php:1566
-#: views/form.php:1650 views/form.php:1684 views/form.php:1798
-#: views/form.php:1827
+#: views/form.php:801 views/form.php:854 views/form.php:957 views/form.php:1042
+#: views/form.php:1069 views/form.php:1133 views/form.php:1162
+#: views/form.php:1368 views/form.php:1477 views/form.php:1503
+#: views/form.php:1537 views/form.php:1566 views/form.php:1650
+#: views/form.php:1684 views/form.php:1798 views/form.php:1827
 msgid "No"
 msgstr "No"
 
@@ -863,7 +862,7 @@ msgstr "El número de la cola no puede estar vacío"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 install.php:22 queues.i18n.php:48
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:48
 msgid "Queue Pause Toggle"
 msgstr "Switch de pausa de Cola"
 
@@ -1429,11 +1428,11 @@ msgstr ""
 
 #: views/cron.php:26 views/cron.php:55 views/form.php:19 views/form.php:116
 #: views/form.php:390 views/form.php:399 views/form.php:624 views/form.php:656
-#: views/form.php:799 views/form.php:852 views/form.php:955
-#: views/form.php:1040 views/form.php:1070 views/form.php:1131
-#: views/form.php:1160 views/form.php:1366 views/form.php:1475
-#: views/form.php:1535 views/form.php:1564 views/form.php:1644
-#: views/form.php:1678 views/form.php:1796 views/form.php:1825
+#: views/form.php:799 views/form.php:852 views/form.php:955 views/form.php:1040
+#: views/form.php:1070 views/form.php:1131 views/form.php:1160
+#: views/form.php:1366 views/form.php:1475 views/form.php:1535
+#: views/form.php:1564 views/form.php:1644 views/form.php:1678
+#: views/form.php:1796 views/form.php:1825
 msgid "Yes"
 msgstr "Sí"
 
