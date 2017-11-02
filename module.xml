@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>14.0.2.7</version>
+	<version>14.0.2.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*14.0.2.8* FREEPBX-15347 Unit tests
 		*14.0.2.7* FREEPBX-15347 Queue feature code for logout/login toggle and Pause toggle not working
 		*14.0.2.6* FREEPBX-15942 Queue Reset queue stats GUI glitch
 		*14.0.2.5* FREEPBX-15350 always write out database hints
