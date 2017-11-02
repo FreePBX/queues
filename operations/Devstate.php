@@ -1,5 +1,5 @@
 <?php
-namespace FreePBX\modules\Queues;
+namespace FreePBX\modules\Queues\operations;
 class Devstate {
 	private $agi = null;
 	private $action = null;
@@ -29,8 +29,8 @@ class Devstate {
 	private function getqueues() {
 		$queue = $this->getVar("QUEUENO");
 		$this->debug("Getting Queue Status for user {$this->user} in queue $queue");
-		$loggedvar=(array_search(trim($this->user),$this->allAgents[$queue]))?'LOGGEDIN':'LOGGEDOUT';
-		$queuestat=(array_search(trim($this->user),$this->staticAgents[$queue]))?'STATIC':$loggedvar;
+		$loggedvar = (!empty($this->allAgents[$queue]) && in_array($this->user,$this->allAgents[$queue])) ? 'LOGGEDIN' : 'LOGGEDOUT';
+		$queuestat = (!empty($this->staticAgents[$queue]) && in_array($this->user,$this->staticAgents[$queue])) ? 'STATIC' : $loggedvar;
 		$this->debug("Agent {$this->user} is $queuestat");
 		$this->agi->set_variable('QUEUESTAT',$queuestat);
 	}
@@ -70,7 +70,7 @@ class Devstate {
 	private function getCurrentQueues($user) {
 		$queues = array();
 		foreach ($this->allAgents as $q => $m) {
-			if (array_search($user,$this->allAgents[$q])) {
+			if (in_array($user,$this->allAgents[$q])) {
 				$queues[] = $q;
 			}
 		}
@@ -86,7 +86,7 @@ class Devstate {
 		}
 		foreach ($queues as $q) {
 			$this->debug("checking if logged into queue: $q");
-			if (array_search($user,$this->allAgents[$q]) && ! array_search($user,$this->staticAgents[$q])) {
+			if (!empty($this->allAgents[$q]) && !empty($this->staticAgents[$q]) && in_array($user,$this->allAgents[$q]) && !in_array($user,$this->staticAgents[$q])) {
 				$this->debug("Yes logged into queue: $q");
 				return 'LOGGEDIN';
 			}

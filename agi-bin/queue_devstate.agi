@@ -7,7 +7,7 @@ include '/etc/freepbx.conf';
 $agidir = \FreePBX::Config()->get('ASTAGIDIR');
 require $agidir."/phpagi.php";
 $webroot = \FreePBX::Config()->get('AMPWEBROOT');
-include $webroot."/admin/modules/queues/functions.inc/Devstate.php";
+include $webroot."/admin/modules/queues/operations/Devstate.php";
 
 /* Usage:
  *
@@ -19,5 +19,5 @@ include $webroot."/admin/modules/queues/functions.inc/Devstate.php";
  *
  */
 
-$devstate = new FreePBX\modules\Queues\Devstate(new \AGI(),\FreePBX::create()->astman,$argv);
+$devstate = new FreePBX\modules\Queues\operations\Devstate(new \AGI(),\FreePBX::create()->astman,$argv);
 $devstate->run();
