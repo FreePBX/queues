@@ -14,6 +14,7 @@ class Devstate {
 		$this->agi = $agi;
 		$this->action = strtolower(trim($argv['1']));
 		$this->user = trim($argv['2']);
+		$this->queue = trim($argv['3']);
 	}
 
 	public function run() {
@@ -76,6 +77,32 @@ class Devstate {
 		}
 		return $queues;
 	}
+/* this function used for playback queue caller count */
+	private function getuserQueues() {
+		$user = $this->user;
+		if(is_numeric($this ->queue)){
+		// need to check varify the caller is a member of this queue
+			if(in_array($user,$this->allAgents[$this->queue])) {
+				$this->agi->set_variable("QUEUES", $this->queue);
+			}else{
+				$this->agi->set_variable("QUEUES", 0);
+			}
+		return;
+		}
+		$queues = array();
+		foreach ($this->allAgents as $q => $m) {
+			if(in_array($user,$this->allAgents[$q])) {
+				$queues[] = $q;
+			}
+		}
+		 if(count($queues) ==0){
+			$this->agi->set_variable("QUEUES", 0);
+			return;
+		 }
+		 $queuenums = implode('&',$queues);
+		 $this->agi->set_variable("QUEUES", $queuenums);
+		  return;
+        }
 
 	// if they are logged into any of the queues provided, they are considered logged in and we will log them out of all
 	//
