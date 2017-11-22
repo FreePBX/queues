@@ -63,6 +63,10 @@ function queues_get_config($engine) {
 			$fcc = new featurecode('queues', 'que_callers');
 			$que_callers_code = $fcc->getCodeActive();
 			unset($fcc);
+			 if ($que_callers_code != '') {
+	                         //      app-queue-caller-count()
+				$ext->addGlobal('QUEUECALLERS',$que_callers_code);
+			}
 
 			$from_queue_exten_only = 'from-queue-exten-only';
 			$from_queue_exten_internal = 'from-queue-exten-internal';
@@ -406,7 +410,6 @@ function queues_get_config($engine) {
 					$device_list = is_array($device_list)?$device_list:array();
 				}
 			}
-
 			// Create *45 all queue toggle
 			//
 			if ($que_code != '') {
@@ -514,17 +517,28 @@ function queues_get_config($engine) {
 				$ext->addHint($c, '_'.$que_pause_code . '*X.', '${DB(AMPUSER/${EXTEN:'.strlen($que_pause_code . '*').'}/pausequeuehint)}');
 			}
 			// Create *47 codes/hints
-			//
+			// user may dial *47{playback all logedin queue call waiting count}
+			// User may dial *47*<queuenum> play back the specific call waiting count}
 			if ($que_callers_code != '') {
+
+				// user may dial *47{playback all logedin queue call waiting count}
+				$ext->add($c, $que_callers_code, '', new ext_goto('1','s','app-queue-caller-count'));
+				//create *47 for for individual queues (if some one dials *47*queuenum
+				foreach($qlist as $item) {
+					$qnum = $item[0];
+					$ext->add($c, $que_callers_code . '*' . $qnum ,'', new ext_setvar('QUEUE',$qnum));
+					$ext->add($c, $que_callers_code . '*' . $qnum ,'', new ext_goto('1','s','app-queue-caller-count'));
+				}
+
 				$id = "app-queue-caller-count";
 				$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
+				$ext->add($id, 's', '', new ext_agi('queue_devstate.agi,getuserQueues,${CALLERID(num)},${QUEUE}'));
 				$ext->add($id, 's', '', new ext_answer());
-				$ext->add($id, 's', '', new ext_wait(1));
-
-				$ext->add($id, 's', '', new ext_setvar('QUEUES', '${ARG1}'));
 				$ext->add($id, 's', '', new ext_setvar('COUNT', '0'));
-
+				$ext->add($id, 's', '', new ext_noop('${QUEUES}'));
+				$ext->add($id, 's', '', new ext_gotoif('$["${QUEUES}" = "0"]', 'skip'));
+				$ext->add($id, 's', '', new ext_wait(1));
 				$ext->add($id, 's', '', new ext_setvar('LOOPCNT', '${FIELDQTY(QUEUES,&)}'));
 				$ext->add($id, 's', '', new ext_setvar('ITER', '1'));
 				$ext->add($id, 's', 'begin1', new ext_setvar('QUEUE', '${CUT(QUEUES,&,${ITER})}'));
@@ -534,6 +548,7 @@ function queues_get_config($engine) {
 				$ext->add($id, 's', 'end1', new ext_setvar('ITER', '$[${ITER} + 1]'));
 				$ext->add($id, 's', '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin1'));
 
+				$ext->add($id, 's', 'skip', new ext_wait(1));
 				$ext->add($id, 's', '', new ext_saynumber('${COUNT}'));
 				$ext->add($id, 's', '', new ext_playback('queue-quantity2'));
 				$ext->add($id, 's', '', new ext_return());
