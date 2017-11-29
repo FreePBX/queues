@@ -593,6 +593,8 @@ function queues_get_config($engine) {
 				//make sure exten exists
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/cidnum)} = 0]', $from_queue_exten_only.'-x,${EXTEN},1'));
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_set('RingGroupMethod', 'none'));
+				//FREEPBX-16064 Queue reports hold time to agents in the wrong language
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_set('CHANNEL(language)','${MASTER_CHANNEL(CHANNEL(language))}'));
 
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_set('QDOPTS', '${IF($["${CALLER_DEST}"!=""]?g)}${IF($["${AGENT_DEST}"!=""]?F(${AGENT_DEST}))}'));
 
