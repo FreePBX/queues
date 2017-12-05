@@ -141,9 +141,9 @@ function queues_add(
 		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");
 	}
 	$extension		= $account;
-	$descr			= isset($name) ? $db->escapeSimple($name):'';
-	$grppre			= isset($prefix) ? $db->escapeSimple($prefix):'';
-	$alertinfo		= isset($alertinfo) ? $db->escapeSimple($alertinfo):'';
+	$descr			= isset($name) ? $name:'';
+	$grppre			= isset($prefix) ? $prefix:'';
+	$alertinfo		= isset($alertinfo) ? $alertinfo:'';
 	if (isset($joinannounce_id)) {
 		if ($joinannounce_id == "None" || $joinannounce_id == "") {
 			$joinannounce_id = NULL;
@@ -178,7 +178,7 @@ function queues_add(
 	$dest			= isset($goto) ? $goto:'';
 	$cwignore		= isset($cwignore) ? $cwignore:'0';
 	$queuewait		= isset($queuewait) ? $queuewait:'0';
-	$qregex			= isset($qregex) ? $db->escapeSimple($qregex):'';
+	$qregex			= isset($qregex) ? $qregex:'';
 	$use_queue_context = isset($use_queue_context) ? $use_queue_context:'0';
 	if (isset($togglehint) && $togglehint == "") {
 		$togglehint = 0;
