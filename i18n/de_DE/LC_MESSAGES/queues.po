@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-29 17:54-0500\n"
-"PO-Revision-Date: 2017-11-13 02:55+0200\n"
-"Last-Translator: hammer125 <auswertung@aon.at>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/queues/"
-"de_DE/>\n"
+"PO-Revision-Date: 2017-12-18 17:40+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/queues/de_DE/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1318,7 +1318,7 @@ msgstr ""
 #: install.php:547 install.php:562 install.php:577 install.php:592
 #: install.php:607
 msgid "already exists"
-msgstr "bereits vorhanden"
+msgstr "besteht bereits"
 
 #: install.php:456
 msgid "already migrated"
