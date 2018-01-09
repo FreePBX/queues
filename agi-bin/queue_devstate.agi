@@ -6,8 +6,6 @@ $restrict_mods = array('queues' => true);
 include '/etc/freepbx.conf';
 $agidir = \FreePBX::Config()->get('ASTAGIDIR');
 require $agidir."/phpagi.php";
-$webroot = \FreePBX::Config()->get('AMPWEBROOT');
-include $webroot."/admin/modules/queues/operations/Devstate.php";
 
 /* Usage:
  *

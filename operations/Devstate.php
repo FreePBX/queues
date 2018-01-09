@@ -14,7 +14,7 @@ class Devstate {
 		$this->agi = $agi;
 		$this->action = strtolower(trim($argv['1']));
 		$this->user = trim($argv['2']);
-		$this->queue = trim($argv['3']);
+		$this->queue = isset($argv['3']) ? trim($argv['3']) : '';
 	}
 
 	public function run() {
@@ -113,7 +113,7 @@ class Devstate {
 		}
 		foreach ($queues as $q) {
 			$this->debug("checking if logged into queue: $q");
-			if (!empty($this->allAgents[$q]) && !empty($this->staticAgents[$q]) && in_array($user,$this->allAgents[$q]) && !in_array($user,$this->staticAgents[$q])) {
+			if ((!empty($this->allAgents[$q]) || !empty($this->staticAgents[$q])) && in_array($user,$this->allAgents[$q]) && !in_array($user,$this->staticAgents[$q])) {
 				$this->debug("Yes logged into queue: $q");
 				return 'LOGGEDIN';
 			}
