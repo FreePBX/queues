@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.34.7</version>
+	<version>13.0.34.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*13.0.34.8* Require proper framework version
 		*13.0.34.7* FREEPBX-15347 Check either/or
 		*13.0.34.6* FREEPBX-16064 Queue reports hold time to agents in the wrong language
 		*13.0.34.5* FREEPBX-15460 Playback Queue Caller Count feature code not working
@@ -68,7 +69,7 @@
 	</changelog>
 	<depends>
 		<module>core ge 13.0.114</module>
-		<module>framework ge 13.0.191.12</module>
+		<module>framework ge 13.0.193</module>
 		<module>recordings ge 3.3.8</module>
 	</depends>
 	<menuitems>
