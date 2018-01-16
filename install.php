@@ -96,38 +96,13 @@ $set['description'] = "Queues: monitor-type = MixMonitor. Setting true will use 
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('QUEUES_MIX_MONITOR',$set);
 
-// QUEUES_HIDE_NOANSWER
-//
-$set['value'] = true;
-$set['defaultval'] =& $set['value'];
-$set['readonly'] = 0;
-$set['hidden'] = 0;
-$set['level'] = 0;
-$set['module'] = 'queues';
-$set['category'] = 'Queues Module';
-$set['emptyok'] = 0;
-$set['sortorder'] = 50;
-$set['name'] = 'Hide Queue No Answer Option';
-$set['description'] = 'It is possible for a queue to NOT Answer a call and still enter callers to the queue. The normal behavior is that all  allers are answered before entering the queue. If the call is not answered, it is possible that some early media delivery would still allow callers to hear recordings, MoH, etc. but this can be inconsistent and vary. Because of the volatility of this option, it is not displayed by default. If a queue is set to not answer, the setting will be displayed for that queue regardless of this setting.';
-$set['type'] = CONF_TYPE_BOOL;
-$freepbx_conf->define_conf_setting('QUEUES_HIDE_NOANSWER',$set);
+if($freepbx_conf->conf_setting_exists('QUEUES_HIDE_NOANSWER')) {
+	$freepbx_conf->remove_conf_setting('QUEUES_HIDE_NOANSWER');
+}
 
-// GENERATE_LEGACY_QUEUE_CODES
-//
-$set['value'] = true;
-$set['defaultval'] =& $set['value'];
-$set['readonly'] = 0;
-$set['hidden'] = 0;
-$set['level'] = 3;
-$set['module'] = 'queues';
-$set['category'] = 'Queues Module';
-$set['emptyok'] = 0;
-$set['sortorder'] = 120;
-$set['name'] = 'Generate queuenum*/** Login/off Codes';
-$set['description'] = 'Queue login and out codes were historically queunum* and queunum**. These have been largely replaced by the *45 queue toggle codes. The legacy codes are required to login or out a third party user that is not the extension dialing. These can be removed from the system by setting this to false.';
-$set['type'] = CONF_TYPE_BOOL;
-$freepbx_conf->define_conf_setting('GENERATE_LEGACY_QUEUE_CODES',$set,true);
-
+if($freepbx_conf->conf_setting_exists('GENERATE_LEGACY_QUEUE_CODES')) {
+	$freepbx_conf->remove_conf_setting('GENERATE_LEGACY_QUEUE_CODES');
+}
 
 // QUEUES_EVENTS_WHEN_CALLED_DEFAULT
 $set['value'] = false;

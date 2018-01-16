@@ -782,8 +782,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</div>
 		</div>
 		<!--END Queue Name-->
-		<?php echo $glqchtml //if amp_conf['GENERATE_LEGACY_QUEUE_CODES']?>
-		<?php echo $qnoahtml //if $qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER'])?>
+		<?php echo $glqchtml ?>
+		<?php echo $qnoahtml ?>
 		<!--Call Confirm-->
 		<div class="element-container">
 			<div class="row">
