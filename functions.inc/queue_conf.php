@@ -150,8 +150,8 @@ class queues_conf {
 					break;
 				}
 
-				if ($keyword == "retry" && $data == "none") {
-					$data = 0;
+				if ($keyword == "retry" && ($data == "none" || $data == 0)) {
+					$data = 1;
 				}
 				$output .= $keyword."=".$data."\n";
 			}
