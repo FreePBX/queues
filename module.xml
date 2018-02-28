@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>14.0.2.12</version>
+	<version>14.0.2.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*14.0.2.13* FREEPBX-16371 Agent Retry not working after change 
 		*14.0.3.12* FREEPBX-15176 Remove outdated setting
 		*14.0.2.11* FREEPBX-15347 look at all agents
 		*14.0.2.10* FREEPBX-16064 Queue reports hold time to agents in the wrong language

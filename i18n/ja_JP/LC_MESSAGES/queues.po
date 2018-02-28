@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-15 20:56-0500\n"
+"POT-Creation-Date: 2018-02-28 02:53-0500\n"
 "PO-Revision-Date: 2015-09-18 15:56+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -104,7 +104,7 @@ msgstr "エージェントアナウンスメッセージ"
 msgid "Agent Announcement"
 msgstr ""
 
-#: queues.i18n.php:34
+#: queues.i18n.php:30
 msgid "Agent Called Events Default"
 msgstr "標準エージェント・イベントコール"
 
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Alert Info"
 msgstr "アラート情報"
 
-#: install.php:15 queues.i18n.php:50
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -350,7 +350,7 @@ msgstr "毎日"
 msgid "Default"
 msgstr "デフォルト"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:32
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -359,7 +359,7 @@ msgstr ""
 "エージェントの呼に関連するAMI emit eventのデフォルト。この設定は、新規キュー"
 "のデフォルトのみを変更し、既存のキューの設定は変更しません。"
 
-#: queues.i18n.php:44
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -464,10 +464,6 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: queues.i18n.php:38
-msgid "Generate queuenum*/** Login/off Codes"
-msgstr "queuenum*/** Login/offのコードを生成する"
-
 #: views/form.php:780
 msgid "Give this queue a brief name to help you identify it."
 msgstr "このキューを識別するために分かりやすい名前を付けます。"
@@ -480,10 +476,6 @@ msgstr ""
 "複数のキューに同じエージェントがいる場合に、より高い優先度を持つキューで待っ"
 "ている呼が先に着信することを保証するために、キューに「重み付け」を設定しま"
 "す。"
-
-#: queues.i18n.php:30
-msgid "Hide Queue No Answer Option"
-msgstr "キューを隠し応答しないオプション"
 
 #: views/form.php:407
 msgid "Honor Penalties"
@@ -633,24 +625,6 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
-#: queues.i18n.php:32
-msgid ""
-"It is possible for a queue to NOT Answer a call and still enter callers to "
-"the queue. The normal behavior is that all  allers are answered before "
-"entering the queue. If the call is not answered, it is possible that some "
-"early media delivery would still allow callers to hear recordings, MoH, etc. "
-"but this can be inconsistent and vary. Because of the volatility of this "
-"option, it is not displayed by default. If a queue is set to not answer, the "
-"setting will be displayed for that queue regardless of this setting."
-msgstr ""
-"キューに対して、コールに応答しないようにし、さらにまだ発信者をキューに入れた"
-"状態にすることが可能です。通常の動作では、全ての発信者はキューに入る前に応答"
-"されます。コールに応答されない場合、いづれかの早いメディアが発信者に録音や、"
-"保留音等を聞かせるように運ぶことが可能です。しかし、これは一貫性がなく可変で"
-"す。このオプションは不安定なため、デフォルトでは表示されません。キューが応答"
-"しないように設定された場合、この設定にかかわらず、そのキューに対して設定が表"
-"示されます。"
-
 #: views/form.php:183
 msgid "Join Announcement"
 msgstr ""
@@ -700,7 +674,7 @@ msgstr ""
 msgid "Member Status Event"
 msgstr "メンバーステータスイベント"
 
-#: queues.i18n.php:42
+#: queues.i18n.php:34
 msgid "Member Status Event Default"
 msgstr ""
 
@@ -801,7 +775,7 @@ msgstr "定期的なアナウンス"
 msgid "Persistent Members"
 msgstr "永続的なメンバー"
 
-#: install.php:29 queues.i18n.php:46
+#: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
 msgstr ""
 
@@ -877,7 +851,7 @@ msgstr "キュー番号を空にすることはできません"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:48
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "キューポーズトグル"
 
@@ -896,18 +870,6 @@ msgstr "キューの重みづけ"
 #: views/form.php:1072
 msgid "Queue calls only (ringinuse=no)"
 msgstr "キューコールオンリー (使用中着信=no)"
-
-#: queues.i18n.php:40
-msgid ""
-"Queue login and out codes were historically queunum* and queunum**. These "
-"have been largely replaced by the *45 queue toggle codes. The legacy codes "
-"are required to login or out a third party user that is not the extension "
-"dialing. These can be removed from the system by setting this to false."
-msgstr ""
-"キューログイン／ログアウトコードは、以前迄はqueunum*とqueunum**でしたが、ほぼ"
-"*45 キュートグルコードに切り替えられています。レガシーのコードは、第三者ユー"
-"ザー（非発信者の内線）のログイン／ログアウトに必要です。falseに設定すると、こ"
-"れらのコードをシステムから削除することができます。"
 
 #: assets/js/queues.js:53
 msgid ""
@@ -1603,6 +1565,42 @@ msgstr "秒"
 #: views/form.php:273
 msgid "wrandom"
 msgstr "wrandom"
+
+#~ msgid "Generate queuenum*/** Login/off Codes"
+#~ msgstr "queuenum*/** Login/offのコードを生成する"
+
+#~ msgid "Hide Queue No Answer Option"
+#~ msgstr "キューを隠し応答しないオプション"
+
+#~ msgid ""
+#~ "It is possible for a queue to NOT Answer a call and still enter callers "
+#~ "to the queue. The normal behavior is that all  allers are answered before "
+#~ "entering the queue. If the call is not answered, it is possible that some "
+#~ "early media delivery would still allow callers to hear recordings, MoH, "
+#~ "etc. but this can be inconsistent and vary. Because of the volatility of "
+#~ "this option, it is not displayed by default. If a queue is set to not "
+#~ "answer, the setting will be displayed for that queue regardless of this "
+#~ "setting."
+#~ msgstr ""
+#~ "キューに対して、コールに応答しないようにし、さらにまだ発信者をキューに入れ"
+#~ "た状態にすることが可能です。通常の動作では、全ての発信者はキューに入る前に"
+#~ "応答されます。コールに応答されない場合、いづれかの早いメディアが発信者に録"
+#~ "音や、保留音等を聞かせるように運ぶことが可能です。しかし、これは一貫性がな"
+#~ "く可変です。このオプションは不安定なため、デフォルトでは表示されません。"
+#~ "キューが応答しないように設定された場合、この設定にかかわらず、そのキューに"
+#~ "対して設定が表示されます。"
+
+#~ msgid ""
+#~ "Queue login and out codes were historically queunum* and queunum**. These "
+#~ "have been largely replaced by the *45 queue toggle codes. The legacy "
+#~ "codes are required to login or out a third party user that is not the "
+#~ "extension dialing. These can be removed from the system by setting this "
+#~ "to false."
+#~ msgstr ""
+#~ "キューログイン／ログアウトコードは、以前迄はqueunum*とqueunum**でしたが、"
+#~ "ほぼ*45 キュートグルコードに切り替えられています。レガシーのコードは、第三"
+#~ "者ユーザー（非発信者の内線）のログイン／ログアウトに必要です。falseに設定"
+#~ "すると、これらのコードをシステムから削除することができます。"
 
 #~ msgid ""
 #~ "Callers will exit if all agents are paused, show an invalid state for "
