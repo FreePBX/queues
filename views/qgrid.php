@@ -8,7 +8,7 @@ foreach($queuelist as $q){
 <div id="toolbar-all">
 	<a href="?display=queues&amp;view=form" class="btn btn-primary"><i class="fa fa-plus"></i> <?php echo _("Add Queue") ?></a>
 </div>
-<table id="qgrid" data-toolbar="#toolbar-all" data-maintain-selected="true" data-show-columns="true" data-show-toggle="true" data-toggle="table" data-pagination="true" data-search="true"class="table table-striped">
+<table id="qgrid" data-cookie="true" data-cookie-id-table="queuecookie"  data-toolbar="#toolbar-all" data-maintain-selected="true" data-show-columns="true" data-show-toggle="true" data-toggle="table" data-pagination="true" data-search="true"class="table table-striped">
 <thead>
 	<tr>
 		<th data-sortable="true"><?php echo _("Queue")?></th>
