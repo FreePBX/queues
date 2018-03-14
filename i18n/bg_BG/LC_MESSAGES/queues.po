@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-08 21:29-0500\n"
+"POT-Creation-Date: 2018-03-14 16:51-0400\n"
 "PO-Revision-Date: 2014-07-22 13:12+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/queues/bg/"
 ">\n"
+"Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 "X-Poedit-Language: Bulgarian\n"
@@ -75,7 +75,7 @@ msgstr "Съобщение на Агент"
 msgid "Agent Announcement"
 msgstr ""
 
-#: queues.i18n.php:34
+#: queues.i18n.php:30
 msgid "Agent Called Events Default"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Alert Info"
 msgstr "Информация за Сигнал"
 
-#: install.php:15 queues.i18n.php:50
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -307,14 +307,14 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: queues.i18n.php:36
+#: queues.i18n.php:32
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
 
-#: queues.i18n.php:44
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -440,10 +440,6 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: queues.i18n.php:38
-msgid "Generate queuenum*/** Login/off Codes"
-msgstr ""
-
 #: views/form.php:766
 msgid "Give this queue a brief name to help you identify it."
 msgstr ""
@@ -457,10 +453,6 @@ msgstr ""
 "Дава на опашката опция 'натоварена', за да осигури на чакащи обаждания в "
 "опашка с най-висок приоритет, че ще достави първо нейните обаждания ако има "
 "общи агенти в опашките."
-
-#: queues.i18n.php:30
-msgid "Hide Queue No Answer Option"
-msgstr ""
 
 #: views/form.php:393
 msgid "Honor Penalties"
@@ -582,17 +574,6 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
-#: queues.i18n.php:32
-msgid ""
-"It is possible for a queue to NOT Answer a call and still enter callers to "
-"the queue. The normal behavior is that all  allers are answered before "
-"entering the queue. If the call is not answered, it is possible that some "
-"early media delivery would still allow callers to hear recordings, MoH, etc. "
-"but this can be inconsistent and vary. Because of the volatility of this "
-"option, it is not displayed by default. If a queue is set to not answer, the "
-"setting will be displayed for that queue regardless of this setting."
-msgstr ""
-
 #: views/form.php:169
 msgid "Join Announcement"
 msgstr ""
@@ -642,7 +623,7 @@ msgstr ""
 msgid "Member Status Event"
 msgstr ""
 
-#: queues.i18n.php:42
+#: queues.i18n.php:34
 msgid "Member Status Event Default"
 msgstr ""
 
@@ -757,7 +738,7 @@ msgstr "Периодични Съобщения"
 msgid "Persistent Members"
 msgstr ""
 
-#: install.php:29 queues.i18n.php:46
+#: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
 msgstr ""
 
@@ -767,9 +748,9 @@ msgid ""
 "callback number. If the callback number does not pass the regex filter then "
 "it will be treated as invalid. This can be used to restrict agents to "
 "extensions within a range, not allow callbacks to include keys like *, or "
-"any other use that may be appropriate. An example input might be:<br />^([2-"
-"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
-"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"any other use that may be appropriate. An example input might be:<br /"
+">^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. "
+"Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * "
 "key.<br />WARNING: make sure you understand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
@@ -829,7 +810,7 @@ msgstr "Неправилен Номер на Опашка, полето не м�
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 install.php:22 queues.i18n.php:48
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr ""
 
@@ -847,14 +828,6 @@ msgstr "Приоритет на Опашка"
 
 #: views/form.php:1033
 msgid "Queue calls only (ringinuse=no)"
-msgstr ""
-
-#: queues.i18n.php:40
-msgid ""
-"Queue login and out codes were historically queunum* and queunum**. These "
-"have been largely replaced by the *45 queue toggle codes. The legacy codes "
-"are required to login or out a third party user that is not the extension "
-"dialing. These can be removed from the system by setting this to false."
 msgstr ""
 
 #: assets/js/queues.js:53
