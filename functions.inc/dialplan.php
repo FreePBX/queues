@@ -206,6 +206,7 @@ function queues_get_config($engine) {
 					$ext->add($c, $exten, '', new ext_setvar('__CFIGNORE', 'TRUE'));
 					$ext->add($c, $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'block-cf'));
 				}
+				$ext->add($c, $exten, '', new ext_setvar('__SIGNORE', 'TRUE'));
 				$agentannounce_id = (isset($q['agentannounce_id'])?$q['agentannounce_id']:'');
 				if ($agentannounce_id) {
 					$agentannounce = recordings_get_file($agentannounce_id);
