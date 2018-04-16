@@ -145,6 +145,9 @@ function queues_get_config($engine) {
 				if (isset($q['answered_elsewhere']) && $q['answered_elsewhere'] == '1'){
 					$ext->add($c, $exten, '', new ext_set('QCANCELMISSED', 'C'));
 				}
+				else{
+					$ext->add($c, $exten, '', new ext_set('QCANCELMISSED', ''));
+				}
 				if ($q['rtone'] == 1) {
 					$qringopts = 'r';
 				} else if ($q['rtone'] == 2) {
