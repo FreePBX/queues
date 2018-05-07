@@ -8,23 +8,25 @@ msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-14 16:51-0400\n"
-"PO-Revision-Date: 2011-04-02 23:37+0200\n"
-"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
-"Language-Team: Italian\n"
-"Language: \n"
+"PO-Revision-Date: 2018-05-30 10:08+0000\n"
+"Last-Translator: Maurizio Longhitano <mlonghitano@teampower.it>\n"
+"Language-Team: Italian <http://*/projects/freepbx/queues/it/>\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.19.1\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 
 #: page.queues.php:19
 msgid " Add Queue"
-msgstr ""
+msgstr " Aggiungi Coda"
 
 #: page.queues.php:15
 msgid " Edit: "
-msgstr ""
+msgstr " Modifica: "
 
 #: views/form.php:480
 msgid ""
@@ -38,7 +40,7 @@ msgstr ""
 
 #: views/qgrid.php:16
 msgid "Actions"
-msgstr ""
+msgstr "Azioni"
 
 #: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
@@ -52,7 +54,7 @@ msgstr ""
 
 #: views/form.php:704
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opzioni Avanzate"
 
 #: views/form.php:1390
 msgid ""
@@ -65,11 +67,11 @@ msgstr ""
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
-msgstr "Annuncio Agente"
+msgstr "Messaggio Annuncio Agente"
 
 #: views/form.php:218
 msgid "Agent Announcement"
-msgstr ""
+msgstr "Annuncio Agente"
 
 #: queues.i18n.php:30
 msgid "Agent Called Events Default"
@@ -81,15 +83,15 @@ msgstr "Filtro Regex Agenti:"
 
 #: views/form.php:938
 msgid "Agent Restrictions"
-msgstr ""
+msgstr "Restrizioni Agente"
 
 #: views/form.php:298
 msgid "Agent Ringing"
-msgstr ""
+msgstr "Squillo Agente"
 
 #: views/form.php:1294
 msgid "Agent Timeout"
-msgstr ""
+msgstr "Timeout Agente"
 
 #: views/form.php:1320
 msgid "Agent Timeout Restart"
@@ -107,19 +109,19 @@ msgstr ""
 
 #: views/form.php:184
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: views/form.php:376
 msgid "Always allows the caller to join the Queue."
-msgstr ""
+msgstr "Permetti sempre al chiamante di unirsi alla Coda."
 
 #: views/form.php:1779
 msgid "Announce Hold Time"
-msgstr ""
+msgstr "Tempo di Attesa Annuncio"
 
 #: views/form.php:1750
 msgid "Announce Position"
-msgstr ""
+msgstr "Posizione Annuncio"
 
 #: views/form.php:1767
 msgid "Announce position of caller in the queue?"
@@ -157,11 +159,11 @@ msgstr ""
 
 #: views/cron.php:63
 msgid "Annually"
-msgstr ""
+msgstr "Annualmente"
 
 #: queues.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Applicazioni"
 
 #: views/form.php:1282
 msgid ""
@@ -220,19 +222,19 @@ msgstr ""
 
 #: views/form.php:808
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Prefisso Nome CID"
 
 #: views/form.php:780
 msgid "Call Confirm"
-msgstr ""
+msgstr "Conferma Chiamata"
 
 #: views/form.php:132
 msgid "Call Confirm Announce"
-msgstr ""
+msgstr "Annuncio Conferma Chiamata"
 
 #: views/form.php:1086
 msgid "Call Recording"
-msgstr ""
+msgstr "Registrazione Chiamata"
 
 #: views/form.php:946
 msgid "Call as Dialed"
@@ -244,11 +246,11 @@ msgstr ""
 
 #: views/form.php:699
 msgid "Caller Announcements"
-msgstr ""
+msgstr "Annunci Chiamante"
 
 #: views/form.php:1690
 msgid "Caller Position"
-msgstr ""
+msgstr "Posizione Chiamate"
 
 #: views/form.php:385
 msgid ""
