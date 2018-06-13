@@ -8,23 +8,25 @@ msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-14 16:51-0400\n"
-"PO-Revision-Date: 2011-04-02 23:37+0200\n"
-"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
-"Language-Team: Italian\n"
-"Language: \n"
+"PO-Revision-Date: 2018-05-31 08:34+0000\n"
+"Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
+"Language-Team: Italian <http://*/projects/freepbx/queues/it/>\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.19.1\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 
 #: page.queues.php:19
 msgid " Add Queue"
-msgstr ""
+msgstr " Aggiungi Coda"
 
 #: page.queues.php:15
 msgid " Edit: "
-msgstr ""
+msgstr " Modifica: "
 
 #: views/form.php:480
 msgid ""
@@ -35,10 +37,16 @@ msgid ""
 "that is not from a compound sound file. The IVR itself can play such files, "
 "but the Queue subsystem can not"
 msgstr ""
+"<b> 1ERROR </b> 2: hai selezionato un IVR che utilizza annunci creati da "
+"file audio composti. La coda non è in grado di riprodurre questi annunci. "
+"Questa registrazione IVR verrà troncata per utilizzare solo il primo file "
+"audio. È possibile correggere il problema selezionando un annuncio diverso "
+"per questo IVR che non proviene da un file audio composto. L'IVR stesso può "
+"riprodurre tali file, ma il sottosistema Queue non può"
 
 #: views/qgrid.php:16
 msgid "Actions"
-msgstr ""
+msgstr "Azioni"
 
 #: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
@@ -49,10 +57,12 @@ msgid ""
 "Add an Alert-Info Header like Snom and other Phones need for Ring or "
 "Ringtone informations"
 msgstr ""
+"Aggiungi un'intestazione di informazioni di avviso come Snom e altri "
+"telefoni hanno bisogno di informazioni su suoneria o suoneria"
 
 #: views/form.php:704
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opzioni Avanzate"
 
 #: views/form.php:1390
 msgid ""
@@ -62,18 +72,24 @@ msgid ""
 "setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
 "this is honored across queues for members logged on to multiple queues."
 msgstr ""
+"Dopo una chiamata riuscita, quanti secondi attendere prima di inviare un "
+"altro agente potenzialmente libero un'altra chiamata (il valore predefinito "
+"è 0 o nessun ritardo) Se si utilizza Asterisk 1.6+, è anche possibile "
+"impostare l'impostazione \"Tempo di avvolgimento temporaneo tra le code\" "
+"(asterisco: shared_lastcall ) nella pagina Impostazioni avanzate in modo che "
+"questo venga rispettato attraverso le code per i membri connessi a più code."
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
-msgstr "Annuncio Agente"
+msgstr "Messaggio Annuncio Agente"
 
 #: views/form.php:218
 msgid "Agent Announcement"
-msgstr ""
+msgstr "Annuncio Agente"
 
 #: queues.i18n.php:30
 msgid "Agent Called Events Default"
-msgstr ""
+msgstr "Agente chiamato eventi predefinito"
 
 #: views/form.php:1851
 msgid "Agent Regex Filter"
@@ -81,19 +97,19 @@ msgstr "Filtro Regex Agenti:"
 
 #: views/form.php:938
 msgid "Agent Restrictions"
-msgstr ""
+msgstr "Restrizioni Agente"
 
 #: views/form.php:298
 msgid "Agent Ringing"
-msgstr ""
+msgstr "Squillo Agente"
 
 #: views/form.php:1294
 msgid "Agent Timeout"
-msgstr ""
+msgstr "Timeout Agente"
 
 #: views/form.php:1320
 msgid "Agent Timeout Restart"
-msgstr ""
+msgstr "Timeout agente scaduto"
 
 #: views/form.php:860
 msgid "Alert Info"
@@ -104,22 +120,24 @@ msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
 msgstr ""
+"Consentire ai membri dinamici di una coda di accedere o uscire. Consulta il "
+"modulo Code per sapere come assegnare un membro dinamico a una coda."
 
 #: views/form.php:184
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: views/form.php:376
 msgid "Always allows the caller to join the Queue."
-msgstr ""
+msgstr "Permetti sempre al chiamante di unirsi alla Coda."
 
 #: views/form.php:1779
 msgid "Announce Hold Time"
-msgstr ""
+msgstr "Tempo di Attesa Annuncio"
 
 #: views/form.php:1750
 msgid "Announce Position"
-msgstr ""
+msgstr "Posizione Annuncio"
 
 #: views/form.php:1767
 msgid "Announce position of caller in the queue?"
@@ -133,6 +151,12 @@ msgid ""
 "call right now. To add additional recordings please use the \"System "
 "Recordings\" MENU."
 msgstr ""
+"Annuncio suonato ai chiamanti prima di unirsi alla coda. Questo può essere "
+"saltato se ci sono agenti pronti a rispondere a una chiamata (il che "
+"significa che potrebbero ancora essersi riavvolti da una chiamata precedente)"
+" o quando sono liberi di rispondere alla chiamata in questo momento. Per "
+"aggiungere ulteriori registrazioni, utilizzare il menu \"Registrazioni di "
+"sistema\"."
 
 #: views/form.php:232
 msgid ""
@@ -143,6 +167,11 @@ msgid ""
 "or more sound files are not displayed as options since this feature can not "
 "accept such recordings."
 msgstr ""
+"Announcement played to the Agent prior to bridging in the caller <br> <br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\". <br> <br> To add additional recordings "
+"please use the \"System Recordings\" MENU. Compound recordings composed of 2 "
+"or more sound files are not displayed as options."
 
 #: views/form.php:155
 msgid ""
@@ -154,14 +183,19 @@ msgid ""
 "<br><br>To add additional recordings please use the \"System Recordings\" "
 "MENU."
 msgstr ""
+"Announcement played to the Queue Memeber announcing the call and requesting "
+"confirmation prior to answering. If the default is set to default the "
+"message will be played unless the member is reached through to Follow-Me and "
+"there is an alternate message provided in the Follow-Me. This message will "
+"override any other message specified."
 
 #: views/cron.php:63
 msgid "Annually"
-msgstr ""
+msgstr "Annualmente"
 
 #: queues.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Applicazioni"
 
 #: views/form.php:1282
 msgid ""
@@ -173,6 +207,11 @@ msgid ""
 "This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
 "'Agent Timeout' combined."
 msgstr ""
+"Asterisk timeoutpriority. In 'Strict' mode, when the Max Wait Time is a hit, "
+"they will be pulled out of the queue immediately. In 'Loose' mode, then we "
+"will wait until the queue is ringing this queue member or otherwise the call "
+"is rejected by the queue member before the caller out of the queue. This "
+"means that the 'Max Wait Time' could be as long as' combined."
 
 #: views/form.php:1681
 msgid ""
@@ -181,14 +220,17 @@ msgid ""
 "members.  No penalty will be weighed in if there are only X or fewer queue "
 "members."
 msgstr ""
+"Asterisk: penaltymemberslimit. Set to disregard penalty settings, allowing "
+"all members to be tried, when the queue has too few members. No penalty will "
+"be weighed in if there are only X or fewer queue members."
 
 #: views/form.php:1458
 msgid "Auto Pause"
-msgstr ""
+msgstr "Pausa automatica"
 
 #: views/form.php:1547
 msgid "Auto Pause Delay"
-msgstr ""
+msgstr "Auto Pausa Ritardo"
 
 #: views/form.php:1477
 msgid ""
@@ -197,18 +239,23 @@ msgid ""
 "Pause Delay as well as Auto Pause Busy/Unavailable settings if supported on "
 "this version of Asterisk."
 msgstr ""
+"Auto Mette in pausa un agente in questa coda (o tutte le code di cui è "
+"membro) se non risponde a una chiamata. Il comportamento specifico può "
+"essere modificato dal ritardo di pausa automatico e dalle impostazioni di "
+"pausa / non attivo di Pausa automatica se supportato su questa versione di "
+"Asterisk."
 
 #: views/form.php:1489
 msgid "Auto Pause on Busy"
-msgstr ""
+msgstr "Auto pause su occupato"
 
 #: views/form.php:1518
 msgid "Auto Pause on Unavailable"
-msgstr ""
+msgstr "Pausa automatica su non disponibile"
 
 #: views/form.php:996
 msgid "Autofill"
-msgstr ""
+msgstr "Autoriempimento"
 
 #: functions.inc/geters_seters.php:40
 msgid "Bad Queue Number, can not be blank"
@@ -216,39 +263,39 @@ msgstr "Numero Coda non corretto, non può essere lasciato vuoto"
 
 #: views/form.php:424
 msgid "Break Out Type"
-msgstr ""
+msgstr "Tipo di interruzione"
 
 #: views/form.php:808
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Prefisso Nome CID"
 
 #: views/form.php:780
 msgid "Call Confirm"
-msgstr ""
+msgstr "Conferma Chiamata"
 
 #: views/form.php:132
 msgid "Call Confirm Announce"
-msgstr ""
+msgstr "Annuncio Conferma Chiamata"
 
 #: views/form.php:1086
 msgid "Call Recording"
-msgstr ""
+msgstr "Registrazione Chiamata"
 
 #: views/form.php:946
 msgid "Call as Dialed"
-msgstr ""
+msgstr "Chiama come composto"
 
 #: views/form.php:548
 msgid "Callback to use when caller presses 1."
-msgstr ""
+msgstr "Richiamata da usare quando il chiamante preme 1."
 
 #: views/form.php:699
 msgid "Caller Announcements"
-msgstr ""
+msgstr "Annunci Chiamante"
 
 #: views/form.php:1690
 msgid "Caller Position"
-msgstr ""
+msgstr "Posizione Chiamate"
 
 #: views/form.php:385
 msgid ""
@@ -256,6 +303,9 @@ msgid ""
 "device or have penalty values less than QUEUE_MAX_PENALTY (not currently set "
 "in FreePBX dialplan)."
 msgstr ""
+"I chiamanti usciranno se tutti gli agenti sono in pausa, mostrano uno stato "
+"non valido per il loro dispositivo o hanno valori di penalità inferiori a "
+"QUEUE_MAX_PENALTY (non attualmente impostato nel dialplan FreePBX)."
 
 #: views/form.php:379
 msgid ""
@@ -263,10 +313,14 @@ msgid ""
 "for their device, or have penalty values less than QUEUE_MAX_PENALTY (not "
 "currently set in FreePBX dialplan)."
 msgstr ""
+"I chiamanti non saranno ammessi se tutti gli agenti sono in pausa, mostrano "
+"uno stato non valido per il loro dispositivo o hanno valori di penalità "
+"inferiori a QUEUE_MAX_PENALTY (non attualmente impostato nel dialplan "
+"FreePBX)."
 
 #: views/form.php:694
 msgid "Capacity Options"
-msgstr ""
+msgstr "Capacità opzioni"
 
 #: install.php:39
 msgid "Checking for legacy queues table.."
@@ -286,6 +340,9 @@ msgid ""
 "first-out basis. Many options are available, including ring strategy for "
 "agents, caller announcements, max wait times, etc."
 msgstr ""
+"Crea una coda in cui le chiamate vengono messe in attesa e risposte su base "
+"first-in, first-out. Sono disponibili molte opzioni, tra cui la strategia di "
+"squillo per agenti, annunci dei chiamanti, tempi di attesa massimi, ecc."
 
 #: install.php:159
 msgid "Creating queues_config.."
@@ -297,11 +354,11 @@ msgstr "Creazione queues_details.."
 
 #: views/cron.php:60
 msgid "Daily"
-msgstr ""
+msgstr "Giornalmente"
 
 #: views/form.php:140
 msgid "Default"
-msgstr ""
+msgstr "Predefinito"
 
 #: queues.i18n.php:32
 msgid ""
@@ -309,6 +366,9 @@ msgid ""
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
+"Lo stato predefinito per AMI emette eventi correlati alla chiamata di un "
+"agente. Questa impostazione influenzerà solo l'impostazione predefinita per "
+"le code NUOVE, non cambierà le code esistenti o l'opzione su quelle nuove."
 
 #: queues.i18n.php:36
 msgid ""
@@ -316,14 +376,17 @@ msgid ""
 "only affect the default for NEW queues, it won't change existing queues or "
 "enfore the option on in new ones."
 msgstr ""
+"Stato predefinito per AMI per l'emissione dell'evento QueueMemberStatus. "
+"Questa impostazione influenzerà solo l'impostazione predefinita per le code "
+"NUOVE, non cambierà le code esistenti o l'opzione su quelle nuove."
 
 #: Queues.class.php:205
 msgid "Delete"
-msgstr ""
+msgstr "Elimina"
 
 #: views/bootnav.php:10 views/qgrid.php:15
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #: views/form.php:383
 msgid ""
@@ -331,16 +394,22 @@ msgid ""
 "situations where it appears no one is currently available to take the call. "
 "The options include:"
 msgstr ""
+"Determina se i chiamanti devono essere abbandonati prematuramente dalla coda "
+"in situazioni in cui sembra che nessuno sia attualmente disponibile per "
+"rispondere alla chiamata. Le opzioni includono:"
 
 #: views/form.php:374
 msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
 "failover destination will be immediately pursued. The options include:"
 msgstr ""
+"Determina se i nuovi chiamanti saranno ammessi alla coda, in caso contrario "
+"la destinazione del failover verrà immediatamente perseguita. Le opzioni "
+"includono:"
 
 #: views/form.php:1093
 msgid "Don't Care"
-msgstr ""
+msgstr "Non importa"
 
 #: install.php:310
 msgid "Dropping old queues table.."
@@ -348,7 +417,7 @@ msgstr "Rimozione vecchia tabella code.."
 
 #: views/form.php:1203
 msgid "Dynamic Agents"
-msgstr ""
+msgstr "Agenti dinamici"
 
 #: views/form.php:1224
 msgid ""
@@ -357,6 +426,10 @@ msgid ""
 "will be as specified here. Extensions included here will NOT automatically "
 "be logged in to the queue."
 msgstr ""
+"I membri dinamici sono estensioni o numeri di richiamata che possono "
+"accedere e uscire dalla coda. Quando un utente accede a una coda, la "
+"penalità in coda sarà come specificato qui. Le estensioni qui incluse NON "
+"verranno automaticamente registrate in coda."
 
 #: install.php:299
 msgid "ERROR were encountered"
@@ -402,7 +475,7 @@ msgstr ""
 
 #: views/cron.php:37
 msgid "Enable this task"
-msgstr ""
+msgstr "Abilita questa attività"
 
 #: views/form.php:1131
 msgid ""
@@ -410,18 +483,21 @@ msgid ""
 "cancelled. The effect is that missed queue calls are *not* shown on the "
 "phone (if the phone supports it)"
 msgstr ""
+"Abilitando questa opzione, tutte le chiamate sono contrassegnate come \""
+"risposte altrove\" quando cancellate. L'effetto è che le chiamate in coda "
+"perse sono * non * mostrate sul telefono (se il telefono lo supporta)"
 
 #: views/form.php:604
 msgid "Event When Called"
-msgstr ""
+msgstr "Evento quando chiamato"
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
-msgstr ""
+msgstr "Opzioni estensione"
 
 #: views/form.php:950
 msgid "Extensions Only"
-msgstr ""
+msgstr "Solo estensioni"
 
 #: views/form.php:1143
 msgid "Fail Over Destination"
@@ -429,15 +505,15 @@ msgstr "Destinazione dopo fallimento"
 
 #: views/form.php:1091
 msgid "Force"
-msgstr ""
+msgstr "Forza"
 
 #: views/form.php:1700
 msgid "Frequency"
-msgstr ""
+msgstr "Frequenza"
 
 #: views/form.php:679
 msgid "General Settings"
-msgstr ""
+msgstr "Impostazioni generali"
 
 #: views/form.php:766
 msgid "Give this queue a brief name to help you identify it."
@@ -454,15 +530,15 @@ msgstr ""
 
 #: views/form.php:393
 msgid "Honor Penalties"
-msgstr ""
+msgstr "Onore Penalità"
 
 #: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
-msgstr ""
+msgstr "onorare il tempo di avvolgimento tra le code"
 
 #: views/cron.php:59
 msgid "Hourly"
-msgstr ""
+msgstr "ogni ora"
 
 #: views/form.php:586
 msgid ""
@@ -491,7 +567,7 @@ msgstr "Annuncio IVR: %s"
 
 #: views/form.php:429 views/form.php:492
 msgid "IVR Break Out Menu"
-msgstr ""
+msgstr "Menu Break IVR"
 
 #: views/form.php:795
 msgid ""
@@ -500,6 +576,11 @@ msgid ""
 "the PBX will be forced into Call Confirmation mode where the member must "
 "acknowledge the call before it is answered and delivered."
 msgstr ""
+"Se selezionato, qualsiasi membro della coda che in realtà è un numero di "
+"telefono esterno, o eventuali interni Follow-Me o inoltro di chiamata che "
+"vengono perseguiti e lasciano il PBX sarà forzato in modalità di conferma "
+"della chiamata in cui il membro deve riconoscere la chiamata prima che venga "
+"risposto e consegnato ."
 
 #: views/form.php:112
 msgid ""
@@ -511,6 +592,14 @@ msgid ""
 "where the caller will not be admitted to the queue unless there is a queue "
 "member immediately available to take the call."
 msgstr ""
+"Se selezionato, la coda non risponderà alla chiamata. Nella maggior parte "
+"dei casi è necessario avere sempre la coda per rispondere alle chiamate. In "
+"caso contrario, è possibile che le registrazioni e il MoH non vengano "
+"ascoltati dai chiamanti in attesa poiché le capacità multimediali iniziali "
+"variano e non sono coerenti. Alcuni casi in cui si può desiderare di non "
+"rispondere a una chiamata è quando si utilizza Strict Join politiche di coda "
+"vuote in cui il chiamante non sarà ammesso alla coda a meno che non ci sia "
+"un membro della coda immediatamente disponibile per rispondere alla chiamata."
 
 #: views/form.php:848
 msgid ""
@@ -518,6 +607,9 @@ msgid ""
 "since it first entered the queue or reset if the call is transferred to "
 "another queue with this feature set."
 msgstr ""
+"Se la chiamata viene successivamente trasferita, il tempo di attesa "
+"rispecchierà il tempo trascorso dal primo accesso alla coda o il ripristino "
+"se la chiamata viene trasferita a un'altra coda con questo set di funzioni."
 
 #: functions.inc/hook_core.php:65
 msgid ""
@@ -533,6 +625,19 @@ msgid ""
 "member as busy until the original call is terminated. In most cases, this "
 "SHOULD BE set to 'Use State'."
 msgstr ""
+"Se questa estensione fa parte di una coda, la coda tenterà di utilizzare lo "
+"stato di estensione o le informazioni sullo stato del dispositivo "
+"dell'utente per determinare se questo membro della coda debba essere "
+"chiamato. In alcune situazioni insolite come un Follow-Me senza dispositivo "
+"fisico o alcuni scenari di estensione virtuale, le informazioni sullo stato "
+"indicano che questo membro non è disponibile quando lo sono. Impostando "
+"questa opzione su \"Ignora stato\", la coda ignorerà tutte le informazioni "
+"sullo stato, quindi cercherà sempre di contattare questo membro. Alcuni "
+"effetti collaterali possono verificarsi quando questa rotta viene eseguita a "
+"causa della natura del modo in cui le code gestiscono i canali locali, ad "
+"esempio i trasferimenti successivi continueranno a mostrare il membro come "
+"occupato fino a quando la chiamata originale non viene terminata. Nella "
+"maggior parte dei casi, DEVE ESSERE impostato su \"Usa stato\"."
 
 #: views/form.php:1011
 msgid ""
@@ -541,6 +646,10 @@ msgid ""
 "it will hold all calls while it tries to find an agent for the top call in "
 "the queue making other calls wait."
 msgstr ""
+"Se è abilitato e sono disponibili più agenti, Asterisk invierà una chiamata "
+"a ciascun agente di attesa (a seconda della strategia di squillo). "
+"Altrimenti, manterrà tutte le chiamate mentre tenta di trovare un agente per "
+"la chiamata superiore nella coda, in modo che altre chiamate attenderanno."
 
 #: views/form.php:1338
 msgid ""
@@ -548,6 +657,10 @@ msgid ""
 "reset if a BUSY or CONGESTION is received. This can be useful if agents are "
 "able to cancel a call with reject or similar."
 msgstr ""
+"Se timeoutrestart è impostato su yes, il timeout per la risposta di un "
+"agente viene resettato se viene ricevuto un OCCUPATO o CONGESTIONE. Questo "
+"può essere utile se gli agenti sono in grado di annullare una chiamata con "
+"rifiuto o simili."
 
 #: views/form.php:1416
 msgid ""
@@ -555,59 +668,66 @@ msgid ""
 "before the member hears any announcement messages), set this to the number "
 "of seconds to delay."
 msgstr ""
+"Se si desidera avere un ritardo prima che il membro sia connesso al "
+"chiamante (o prima che il membro riceva messaggi di annuncio), impostarlo "
+"sul numero di secondi da ritardare."
 
 #: views/form.php:1446
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
 "connected to the caller, set this to yes."
 msgstr ""
+"Se si desidera segnalare il tempo di attesa del chiamante al membro prima di "
+"essere connessi al chiamante, impostare su Sì."
 
 #: functions.inc/hook_core.php:37
 msgid "Ignore State"
-msgstr ""
+msgstr "Ignora stato"
 
 #: views/form.php:1103
 msgid ""
 "Incoming calls to agents can be recorded. If 'never' is selected, then in-"
 "call on demand recording is blocked."
 msgstr ""
+"Le chiamate in entrata agli agenti possono essere registrate. Se è "
+"selezionato \"mai\", la registrazione in entrata su richiesta viene bloccata."
 
 #: views/form.php:169
 msgid "Join Announcement"
-msgstr ""
+msgstr "Iscriviti a un annuncio"
 
 #: views/form.php:1599
 msgid "Join Empty"
-msgstr ""
+msgstr "Iscriviti vuoto"
 
 #: views/form.php:1633
 msgid "Leave Empty"
-msgstr ""
+msgstr "Lasciare vuoto"
 
 #: views/bootnav.php:2
 msgid "List Queues"
-msgstr ""
+msgstr "Elenco delle code"
 
 #: views/form.php:380 views/form.php:388 views/form.php:1274
 #: views/form.php:1613 views/form.php:1647
 msgid "Loose"
-msgstr ""
+msgstr "sciolto"
 
 #: views/form.php:1115
 msgid "Mark calls answered elsewhere"
-msgstr ""
+msgstr "Mark chiama le risposte altrove"
 
 #: views/form.php:1574
 msgid "Max Callers"
-msgstr ""
+msgstr "Max chiamanti"
 
 #: views/form.php:1239
 msgid "Max Wait Time"
-msgstr ""
+msgstr "Tempo di attesa massimo"
 
 #: views/form.php:1265
 msgid "Max Wait Time Mode"
-msgstr ""
+msgstr "Tempo massimo di attesa"
 
 #: views/form.php:1587
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
@@ -617,15 +737,15 @@ msgstr ""
 
 #: views/form.php:1402
 msgid "Member Delay"
-msgstr ""
+msgstr "Ritardo membro"
 
 #: views/form.php:636
 msgid "Member Status Event"
-msgstr ""
+msgstr "Evento stato membro"
 
 #: queues.i18n.php:34
 msgid "Member Status Event Default"
-msgstr ""
+msgstr "Evento stato membro predefinito"
 
 #: views/form.php:466 views/form.php:470
 msgid "Menu ID "
@@ -641,15 +761,15 @@ msgstr "Migrazione verso queues_details.."
 
 #: views/form.php:1726
 msgid "Minimum Announcement Interval"
-msgstr ""
+msgstr "Intervallo di annuncio minimo"
 
 #: views/form.php:297
 msgid "MoH Only"
-msgstr ""
+msgstr "Solo MoH"
 
 #: views/cron.php:62
 msgid "Monthly"
-msgstr ""
+msgstr "mensilmente"
 
 #: views/form.php:308
 msgid ""
@@ -662,10 +782,19 @@ msgid ""
 "any MoH Class selected as well as any configured periodic announcements. "
 "This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
+"Music (MoH) ha suonato al chiamante mentre aspettavano in fila per un agente "
+"disponibile. Scegli \"eredita\" se vuoi che la classe MoH sia quella che è "
+"attualmente selezionata, ad esempio dalla rotta in entrata. Solo MoH "
+"riprodurrà la musica finché l'agente non risponde. La suoneria dell'agente "
+"riprodurrà MoH fino a quando il telefono dell'agente non viene presentato "
+"con la chiamata e sta squillando. Se non rispondono, MoH ritornerà. Suoneria "
+"Fa sì che i chiamanti sentano un tono di chiamata invece di MoH ignorando "
+"qualsiasi Classe MoH selezionata e qualsiasi annuncio periodico configurato. "
+"Questa musica è definita nel menu \"Musica in attesa\"."
 
 #: views/form.php:276
 msgid "Music on Hold Class"
-msgstr ""
+msgstr "Musica in attesa di classe"
 
 #: install.php:43
 msgid "NO table found, no migration to do just create tables"
@@ -675,12 +804,14 @@ msgstr ""
 
 #: views/form.php:1095
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: views/form.php:389
 msgid ""
 "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr ""
+"Mai un chiamante lascia la coda finché non è scaduto il tempo di attesa "
+"massimo."
 
 #: views/cron.php:28 views/cron.php:57 views/form.php:104 views/form.php:379
 #: views/form.php:389 views/form.php:612 views/form.php:644 views/form.php:787
@@ -694,7 +825,7 @@ msgstr "No"
 
 #: views/form.php:948
 msgid "No Follow-Me or Call Forward"
-msgstr ""
+msgstr "nessun follow-me o chiamata in avanti"
 
 #: views/form.php:354
 msgid "No Retry"
@@ -719,7 +850,7 @@ msgstr "Una volta"
 
 #: views/form.php:715
 msgid "Other Options"
-msgstr ""
+msgstr "Altre opzioni"
 
 #: views/form.php:900
 #, php-format
@@ -727,10 +858,12 @@ msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
+"Sostituisci il volume della suoneria. Nota: questo è valido solo per %s1 "
+"telefono in questo momento"
 
 #: views/form.php:1667
 msgid "Penalty Members Limit"
-msgstr ""
+msgstr "Limite per i penali"
 
 #: views/form.php:1806
 msgid "Periodic Announcements"
@@ -738,11 +871,11 @@ msgstr "Annunci Periodici"
 
 #: queues.i18n.php:12
 msgid "Persistent Members"
-msgstr ""
+msgstr "Membri persistenti"
 
 #: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
-msgstr ""
+msgstr "Conteggio chiamante coda di riproduzione"
 
 #: views/form.php:1863
 msgid ""
@@ -783,27 +916,27 @@ msgstr "Coda- %s (%s): %s<br />"
 
 #: views/form.php:684
 msgid "Queue Agents"
-msgstr ""
+msgstr "Agenti di coda"
 
 #: views/form.php:430 views/form.php:533
 msgid "Queue Callback"
-msgstr ""
+msgstr "Coda di richiamata"
 
 #: install.php:10
 msgid "Queue Callers"
-msgstr ""
+msgstr "Coda i chiamanti"
 
 #: views/form.php:754
 msgid "Queue Name"
-msgstr ""
+msgstr "Nome coda"
 
 #: views/form.php:97
 msgid "Queue No Answer"
-msgstr ""
+msgstr "Coda Nessuna risposta"
 
 #: views/form.php:730
 msgid "Queue Number"
-msgstr ""
+msgstr "Numero coda"
 
 #: assets/js/queues.js:40
 msgid "Queue Number must not be blank"
@@ -811,19 +944,19 @@ msgstr "Il Numero della coda non può essere lasciato vuoto"
 
 #: views/form.php:68
 msgid "Queue Password"
-msgstr ""
+msgstr "Coda password"
 
 #: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
-msgstr ""
+msgstr "Sospendi coda"
 
 #: functions.inc/hook_core.php:64
 msgid "Queue State Detection"
-msgstr ""
+msgstr "Rilevamento dello stato della coda"
 
 #: install.php:8
 msgid "Queue Toggle"
-msgstr ""
+msgstr "Attiva la coda"
 
 #: views/form.php:1059
 msgid "Queue Weight"
@@ -831,7 +964,7 @@ msgstr "Peso Coda (Weight)"
 
 #: views/form.php:1033
 msgid "Queue calls only (ringinuse=no)"
-msgstr ""
+msgstr "Solo chiamate in coda (ringinuse = no)"
 
 #: assets/js/queues.js:53
 msgid ""
@@ -858,11 +991,11 @@ msgstr "Code"
 
 #: queues.i18n.php:14
 msgid "Queues Module"
-msgstr ""
+msgstr "Modulo Code"
 
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
-msgstr ""
+msgstr "Modulo code non trovato o disabilitato. Interruzione!"
 
 #: queues.i18n.php:28
 msgid ""
@@ -870,6 +1003,9 @@ msgid ""
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now goes away when this is enabled."
 msgstr ""
+"Code: monitor-type = MixMonitor. L'impostazione true userà l'applicazione "
+"MixMonitor invece di Monitor, quindi il concetto di \"unire / mixare\" i "
+"file in / out ora scompare quando questo è abilitato."
 
 #: queues.i18n.php:16
 msgid ""
@@ -877,6 +1013,9 @@ msgid ""
 "astdb so that when asterisk is restarted, each member will be automatically "
 "read into their recorded queues."
 msgstr ""
+"Code: persistentmembers. Memorizza ogni membro dinamico in ogni coda in "
+"astdb in modo che quando l'asterisco viene riavviato, ciascun membro verrà "
+"automaticamente letto nelle code registrate."
 
 #: queues.i18n.php:20
 msgid ""
@@ -885,6 +1024,10 @@ msgid ""
 "queue. This is useful to make the queue respect the wrapuptime of another "
 "queue for a shared member."
 msgstr ""
+"Code: shared_lastcall, valido solo con Asterisk 1.6+. Ciò farà sì che "
+"l'ultima chiamata e le chiamate ricevute siano le stesse nei membri "
+"registrati in più di una coda. Questo è utile per far sì che la coda "
+"rispetti il tempo di wrapup di un'altra coda per un membro condiviso."
 
 #: queues.i18n.php:24
 msgid ""
@@ -893,34 +1036,39 @@ msgid ""
 "with an agent name, which is set if available at the login time with "
 "AddQueueMember membername parameter, or with static members."
 msgstr ""
+"Code: updatecdr, valido solo con Asterisk 1.6+. Questa opzione è "
+"implementata per simulare il comportamento di chan_agents di popolamento del "
+"campo dstchannel CDR di una chiamata con un nome agente, che viene impostato "
+"se disponibile al momento dell'accesso con il parametro membername "
+"AddQueueMember o con i membri static."
 
 #: views/cron.php:84
 msgid "RUN"
-msgstr ""
+msgstr "ESEGUI"
 
 #: views/cron.php:50
 msgid "Random"
-msgstr ""
+msgstr "Casuale"
 
 #: views/form.php:572
 msgid "Repeat Frequency"
-msgstr ""
+msgstr "Ripeti frequenza"
 
 #: views/form.php:1429
 msgid "Report Hold Time"
-msgstr ""
+msgstr "Segnala tempo di attesa"
 
 #: Queues.class.php:215
 msgid "Reset"
-msgstr ""
+msgstr "Azzerare"
 
 #: views/form.php:709
 msgid "Reset Queue Stats"
-msgstr ""
+msgstr "Reimposta statistiche code"
 
 #: views/form.php:911
 msgid "Restrict Dynamic Agents"
-msgstr ""
+msgstr "Limita gli agenti dinamici"
 
 #: views/form.php:926
 msgid ""
@@ -928,28 +1076,33 @@ msgid ""
 "Members list above. When set to Yes, members not listed will be DENIED "
 "ACCESS to the queue."
 msgstr ""
+"Limita gli accessi ai membri dinamici della coda solo a quelli elencati "
+"nell'elenco Membri dinamici sopra. Se impostato su Sì, i membri non elencati "
+"verranno negati all'accesso alla coda."
 
 #: views/form.php:1350
 msgid "Retry"
-msgstr ""
+msgstr "Riprova"
 
 #: views/form.php:299
 msgid "Ring Only"
-msgstr ""
+msgstr "Solo suoneria"
 
 #: views/form.php:970
 msgid "Ring Strategy"
-msgstr ""
+msgstr "strategia Anello"
 
 #: views/form.php:883
 msgid "Ringer Volume Override"
-msgstr ""
+msgstr "Sostituzione del volume della suoneria"
 
 #: views/form.php:380
 msgid ""
 "Same as No except Callers will be admitted if there are paused agents who "
 "could become available."
 msgstr ""
+"Uguale a No, tranne che i chiamanti saranno ammessi se ci sono agenti in "
+"pausa che potrebbero essere disponibili."
 
 #: views/form.php:378
 msgid ""
@@ -958,6 +1111,10 @@ msgid ""
 "are currently on the phone or ringing on behalf of another caller will be "
 "considered unavailable."
 msgstr ""
+"Come Strict più un membro della coda deve essere in grado di rispondere al "
+"telefono \"ora\" per farli entrare. Semplicemente, qualsiasi agente \""
+"disponibile\" che possa rispondere ma che è attualmente al telefono o che "
+"squilla per conto di un altro chiamante sarà considerato non disponibile ."
 
 #: views/form.php:387
 msgid ""
@@ -966,6 +1123,10 @@ msgid ""
 "but are currently on the phone or ringing on behalf of another caller will "
 "be considered unavailable."
 msgstr ""
+"Come Strict più un membro della coda deve essere in grado di rispondere al "
+"telefono \"ora\" per lasciarli rimanere. In poche parole, qualsiasi agente \""
+"disponibile\" che possa rispondere ma che è attualmente al telefono o che "
+"squilla per conto di un altro chiamante verrà considerato non disponibile."
 
 #: views/form.php:377
 msgid ""
@@ -973,6 +1134,9 @@ msgid ""
 "phone then don't admit them. If agents are inuse or ringing someone else, "
 "caller will still be admitted."
 msgstr ""
+"Uguale a Sì ma più severo. Semplicemente parlando, se nessun agente può "
+"rispondere al telefono, non ammetterlo. Se gli agenti sono in uso o chiamano "
+"qualcun altro, il chiamante sarà comunque ammesso."
 
 #: views/form.php:386
 msgid ""
@@ -980,24 +1144,29 @@ msgid ""
 "phone then have them leave the queue. If agents are inuse or ringing someone "
 "else, caller will still be held."
 msgstr ""
+"Uguale a Sì ma più severo. In parole povere, se nessun agente può rispondere "
+"al telefono, fa in modo che lascino la coda. Se gli agenti sono in uso o "
+"chiamano qualcun altro, il chiamante verrà comunque trattenuto."
 
 #: views/form.php:388
 msgid ""
 "Same as Yes except Callers will remain in the Queue if there are paused "
 "agents who could become available."
 msgstr ""
+"Uguale a Sì, tranne che i chiamanti rimarranno nella coda se ci sono agenti "
+"in pausa che potrebbero essere disponibili."
 
 #: views/form.php:1825
 msgid "Service Level"
-msgstr ""
+msgstr "Livello di servizio"
 
 #: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
-msgstr ""
+msgstr "Imposta il nome dell'agente in Dstchannel CDR"
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
-msgstr ""
+msgstr "Imposta questa attività in modo casuale"
 
 #: views/form.php:1798
 msgid ""
@@ -1009,7 +1178,7 @@ msgstr ""
 
 #: views/form.php:1023
 msgid "Skip Busy Agents"
-msgstr ""
+msgstr "Salta agenti indaffarati"
 
 #: views/form.php:1170
 msgid "Static Agents"
@@ -1032,10 +1201,25 @@ msgid ""
 "will have problems with subsequent transfers to voicemail and other issues "
 "may also exist."
 msgstr ""
+"Gli agenti statici sono estensioni che si presume siano sempre in coda. Gli "
+"agenti statici non devono \"accedere\" alla coda e non possono \""
+"disconnettersi\" dalla coda. <br> <br> Estensioni elenco da squillare, una "
+"per riga. <br> <br> È possibile includere un'estensione su un sistema remoto "
+"o un numero esterno (il routing in uscita deve contenere una route valida "
+"per i numeri esterni). Puoi inserire un \",\" dopo l'agente seguito da un "
+"valore di penalità, vedere la documentazione di Asterisk relativa alle "
+"penalità. <br/> <br/> È stata aggiunta una modalità avanzata che ti permette "
+"di prefisso un numero di agente con S, P, X , Z, D o A. Questo costringerà "
+"il numero dell'agente a comporre come dispositivo Asterisk di tipo SIP, "
+"PJSIP, IAX2, ZAP, DAHDi o Agent rispettivamente. Questa modalità è per "
+"utenti esperti e può causare problemi noti in FreePBX mentre stai bypassando "
+"il normale dialplan. Se le \"Restrizioni agente\" non sono impostate su \""
+"Solo interno\", si avranno problemi con i trasferimenti successivi a "
+"Voicemail e potrebbero anche esistere altri problemi."
 
 #: views/cron.php:20
 msgid "Stats Reset"
-msgstr ""
+msgstr "Reset delle statistiche"
 
 #: views/form.php:377 views/form.php:386 views/form.php:1272
 #: views/form.php:1607 views/form.php:1641
@@ -1044,13 +1228,15 @@ msgstr "Strict"
 
 #: Queues.class.php:210
 msgid "Submit"
-msgstr ""
+msgstr "Sottoscrivi"
 
 #: views/form.php:1738
 msgid ""
 "The absolute minimum time between the start of each queue position and/or "
 "estimated holdtime announcement"
 msgstr ""
+"Il tempo minimo assoluto tra l'inizio di ogni posizione di coda e / o "
+"l'annuncio di tempo di attesa stimato"
 
 #: views/form.php:1253
 msgid ""
@@ -1093,19 +1279,27 @@ msgid ""
 "they will then be auto paused. If they have taken no calls, this will have "
 "no affect."
 msgstr ""
+"Questa impostazione ritarderà la pausa automatica di un agente per il "
+"ritardo della pausa automatica dal momento in cui è stata effettuata "
+"l'ultima chiamata. Ad esempio, se questo è stato impostato su 120 secondi e "
+"una nuova chiamata viene presentata all'agente 90 secondi dopo l'ultima "
+"chiamata, non verranno messi in pausa automaticamente se non rispondono alla "
+"chiamata. Se viene presentata una chiamata 120 secondi o successiva dopo "
+"aver risposto all'ultima chiamata, verranno automaticamente messe in pausa. "
+"Se non hanno effettuato chiamate, questo non avrà alcun effetto."
 
 #: views/form.php:1714
 msgid "This value is ignored if the caller's position changes"
-msgstr ""
+msgstr "Questo valore viene ignorato se la posizione del chiamante cambia"
 
 #: views/form.php:689
 msgid "Timing & Agent Options"
-msgstr ""
+msgstr "Tempi e opzioni dell'agente"
 
 #: views/form.php:378 views/form.php:387 views/form.php:1609
 #: views/form.php:1643
 msgid "Ultra Strict"
-msgstr ""
+msgstr "Ultra rigoroso"
 
 #: views/form.php:330 views/form.php:348
 msgid "Unlimited"
@@ -1113,11 +1307,11 @@ msgstr "Illimitato"
 
 #: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
-msgstr ""
+msgstr "Usa MixMonitor per le registrazioni"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
-msgstr ""
+msgstr "Usa stato"
 
 #: views/form.php:742
 msgid ""
@@ -1138,6 +1332,8 @@ msgid ""
 "Used for service level statistics (calls answered within service level time "
 "frame)"
 msgstr ""
+"Utilizzato per le statistiche del livello di servizio (chiamate ricevute "
+"entro l'intervallo di tempo del livello di servizio)"
 
 #: assets/js/queues.js:29
 msgid ""
@@ -1154,7 +1350,7 @@ msgstr "ATTENZIONE FALLITO %s"
 
 #: views/form.php:832
 msgid "Wait Time Prefix"
-msgstr ""
+msgstr "Tempo di attesa prefisso"
 
 #: Queues.class.php:144
 msgid "Warning! Extension"
@@ -1173,15 +1369,15 @@ msgstr ""
 
 #: views/cron.php:61
 msgid "Weekly"
-msgstr ""
+msgstr "Settimanalmente"
 
 #: views/form.php:185
 msgid "When No Free Agents"
-msgstr ""
+msgstr "Quando non ci sono agenti liberi"
 
 #: views/form.php:186
 msgid "When No Ready Agents"
-msgstr ""
+msgstr "Quando non ci sono agenti pronti"
 
 #: views/form.php:958
 msgid ""
@@ -1200,6 +1396,23 @@ msgid ""
 "the call will simply be blocked when the queue tries to call it. For dynamic "
 "agents, see the 'Agent Regex Filter' to provide some validation."
 msgstr ""
+"Se impostato su \"Chiama come composto\", la coda chiamerà un'estensione "
+"proprio come se la coda fosse un altro utente. Gli stati Follow-Me o Call "
+"Forward attivi sull'interno comporteranno la chiamata in coda seguendo "
+"questi percorsi di chiamata. Questo comportamento è stato il comportamento "
+"della coda standard nelle versioni precedenti di FreePBX. <br/> 1Se "
+"impostato su 'No Follow-Me o Call Forward', tutti gli agenti che sono "
+"estensioni sul sistema saranno limitati a squillare solo le loro estensioni. "
+"Le impostazioni Follow-Me e Call Forward verranno ignorate. Qualsiasi altro "
+"agente sarà chiamato come composto. Questo comportamento è simile a come le "
+"estensioni vengono composte nei ringgroup. <br/> 2Quando è impostato su \""
+"Solo estensioni\", la coda comporrà le estensioni come descritto per \""
+"Nessun follow-me o inoltro chiamata\". Qualsiasi altro numero inserito per "
+"un agente che NON è un'estensione valida verrà ignorato. Non viene fornito "
+"alcun controllo degli errori quando si immette un agente statico o quando si "
+"effettua l'accesso come agente dinamico, la chiamata verrà semplicemente "
+"bloccata quando la coda tenta di chiamarla. Per gli agenti dinamici, "
+"consultare \"Agent Regex Filter\" per fornire alcune convalide."
 
 #: views/form.php:1047
 msgid ""
@@ -1224,12 +1437,39 @@ msgid ""
 "until that call is terminated as the call still appears as 'inuse' to the "
 "queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
 msgstr ""
+"Se impostato su \"Sì\", gli agenti che si trovano su un telefono occupato "
+"verranno saltati come se la linea fosse tornata occupata. Ciò significa che "
+"i telefoni di chiamata in attesa o multilinea non saranno presentati con la "
+"chiamata e nelle varie strategie di anello di stile di ricerca, verrà "
+"tentato il prossimo agente. <br /> 1Quando impostato su 'Sì + (ringinuse = "
+"no)' il flag di configurazione della coda 'ringinuse = no' è impostato per "
+"questa coda oltre allo stato del dispositivo del telefono monitorato. Ciò si "
+"traduce negli agenti remoti di tracciamento della coda (agenti che sono un "
+"telefono PSTN remoto, chiamato tramite Follow-Me e altri mezzi), nonché "
+"agenti connessi al PBX, quindi la coda non tenterà di inviare un'altra "
+"chiamata se sono già su un chiama da qualsiasi coda. <br /> 2Quando "
+"impostato su 'Solo chiamate in coda (ringinuse = no)' il flag di "
+"configurazione della coda 'ringinuse = no' è impostato per questa coda, ma "
+"lo stato della periferica degli agenti connessi localmente non è monitorato. "
+"Il comportamento consiste nel limitare un agente appartenente a una o più "
+"code a una singola chiamata in coda. Se sono occupati da altre chiamate, "
+"come le chiamate in uscita avviate, la coda le considererà disponibili e le "
+"squillerà perché lo stato del dispositivo non viene monitorato con questa "
+"opzione. <br /> 3 <br /> 4AVVERTENZA: quando si utilizzano le impostazioni "
+"che impostano il flag \"ringinuse = no\", esiste un effetto collaterale "
+"NEGATIVO. Un agente che trasferisce una chiamata in coda rimarrà non "
+"disponibile da qualsiasi coda fino a quando quella chiamata non verrà "
+"terminata poiché la chiamata verrà ancora visualizzata come \"inutilizzata\" "
+"alla coda A MENO CHE \"Limitazioni agente\" sia impostato su \"Solo "
+"estensioni\"."
 
 #: views/form.php:652
 msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
 msgstr ""
+"Se impostato su SÌ, verrà generato il seguente evento gestore: "
+"QueueMemberStatus"
 
 #: views/form.php:1506
 msgid ""
@@ -1237,6 +1477,10 @@ msgid ""
 "considered as a missed call and auto paused immediately or after the auto "
 "pause delay if configured"
 msgstr ""
+"Se impostato su Sì, i dispositivi che segnalano un'attività impegnata in un "
+"tentativo di chiamata saranno considerati come chiamate perse e interrotti "
+"automaticamente immediatamente o dopo il ritardo della pausa automatica se "
+"configurato"
 
 #: views/form.php:1535
 msgid ""
@@ -1244,6 +1488,10 @@ msgid ""
 "will be considered as a missed call and auto paused immediately or after the "
 "auto pause delay if configured"
 msgstr ""
+"Se impostato su Sì, i dispositivi che segnalano la congestione durante un "
+"tentativo di chiamata saranno considerati come una chiamata persa e "
+"automaticamente sospesi automaticamente o dopo il ritardo della pausa "
+"automatica se configurato"
 
 #: views/form.php:848
 msgid ""
@@ -1269,10 +1517,12 @@ msgstr ""
 msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
+"Quando pianificare questo lavoro. Nota abilitando 'Casuale' sovrascrive "
+"queste impostazioni"
 
 #: views/form.php:1155
 msgid "Where calls should fail to"
-msgstr ""
+msgstr "Dove le chiamate dovrebbero fallire"
 
 #: views/form.php:439
 msgid ""
@@ -1280,10 +1530,13 @@ msgid ""
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
 msgstr ""
+"Se questa coda utilizza un menu di interruzione IVR o una coda di "
+"richiamata. Le code callback possono anche essere ottenute tramite un IVR, "
+"ma richiedono una configurazione aggiuntiva."
 
 #: views/form.php:1376
 msgid "Wrap-Up-Time"
-msgstr ""
+msgstr "Wrap-Up-Tempo"
 
 #: views/cron.php:26 views/cron.php:55 views/form.php:102 views/form.php:376
 #: views/form.php:385 views/form.php:610 views/form.php:642 views/form.php:785
@@ -1297,15 +1550,15 @@ msgstr "Sì"
 
 #: views/form.php:1032
 msgid "Yes + (ringinuse=no)"
-msgstr ""
+msgstr "Sì + (ringinuse = no)"
 
 #: views/form.php:1464
 msgid "Yes in all queues"
-msgstr ""
+msgstr "Sì in tutte le code"
 
 #: views/form.php:1464
 msgid "Yes in this queue only"
-msgstr ""
+msgstr "Sì solo in questa coda"
 
 #: views/form.php:820
 msgid ""
@@ -1313,6 +1566,10 @@ msgid ""
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
+"Opzionalmente è possibile aggiungere il prefisso del nome CallerID dei "
+"chiamanti alla coda. Ad esempio: se si prefissa \"Vendite:\", una chiamata "
+"di John Doe viene visualizzata come \"Vendite: John Doe\" nelle estensioni "
+"che squillano."
 
 #: views/form.php:507
 msgid ""
@@ -1355,31 +1612,31 @@ msgstr "già migrato"
 
 #: install.php:595
 msgid "checking for callback_id field.."
-msgstr ""
+msgstr "controllando il campo callback_id .."
 
 #: install.php:520
 msgid "checking for callconfirm field.."
-msgstr ""
+msgstr "controllando il campo callconfirm .."
 
 #: install.php:535
 msgid "checking for callconfirm_id field.."
-msgstr ""
+msgstr "controllando il campo callconfirm_id .."
 
 #: install.php:565
 msgid "checking for monitor_heard field.."
-msgstr ""
+msgstr "controllando il campo monitor_heard .."
 
 #: install.php:580
 msgid "checking for monitor_spoken field.."
-msgstr ""
+msgstr "controllando il campo monitor_spoken .."
 
 #: install.php:550
 msgid "checking for monitor_type field.."
-msgstr ""
+msgstr "controllando il campo monitor_type .."
 
 #: install.php:505
 msgid "checking for qnoanswer field.."
-msgstr ""
+msgstr "controllando per il campo qnoanswer .."
 
 #: install.php:334
 msgid "checking for qregex field.."
@@ -1391,11 +1648,11 @@ msgstr "controllo il campo queuewait.."
 
 #: install.php:490
 msgid "checking for togglehint field.."
-msgstr ""
+msgstr "controllando il campo togglehint .."
 
 #: install.php:475
 msgid "checking for use_queue_context field.."
-msgstr ""
+msgstr "controllando il campo use_queue_context .."
 
 #: functions.inc.php:31
 msgid "day"
@@ -1403,7 +1660,7 @@ msgstr "giorno"
 
 #: views/form.php:291
 msgid "default"
-msgstr ""
+msgstr "predefinito"
 
 #: install.php:437
 msgid "dropping agentannounce field.."
@@ -1432,7 +1689,7 @@ msgstr "ore"
 
 #: views/form.php:289
 msgid "inherit"
-msgstr ""
+msgstr "ereditare"
 
 #: Queues.class.php:144
 msgid "is not allowed for your account."
@@ -1444,7 +1701,7 @@ msgstr "leastrecent"
 
 #: views/form.php:258
 msgid "linear"
-msgstr ""
+msgstr "lineare"
 
 #: install.php:383
 msgid "migrate agentannounce to ids.."
@@ -1481,7 +1738,7 @@ msgstr "nessun campo joinannounce??"
 
 #: views/form.php:290
 msgid "none"
-msgstr ""
+msgstr "nessuna"
 
 #: install.php:369 install.php:378 install.php:445 install.php:453
 msgid "ok"
@@ -1496,6 +1753,8 @@ msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
+"casuale usando la penalità del membro come fattore di ponderazione, vedere "
+"la documentazione dell'asterisco per le specifiche"
 
 #: views/form.php:253
 msgid "ring agent which was least recently called by this queue"
@@ -1525,6 +1784,8 @@ msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
 msgstr ""
+"anelli agenti nell'ordine specificato, per gli agenti dinamici nell'ordine "
+"in cui hanno effettuato l'accesso"
 
 #: views/form.php:256
 msgid "round robin with memory, remember where we left off last ring pass"
@@ -1538,12 +1799,14 @@ msgstr "rrmemory"
 
 #: views/form.php:257
 msgid "rrordered"
-msgstr ""
+msgstr "riordinati"
 
 #: views/form.php:257
 msgid ""
 "same as rrmemory, except the queue member order from config file is preserved"
 msgstr ""
+"come rrmemory, tranne che l'ordine dei membri della coda dal file di "
+"configurazione è conservato"
 
 #: functions.inc.php:34
 msgid "second"
@@ -1556,7 +1819,7 @@ msgstr "secondi"
 
 #: views/form.php:259
 msgid "wrandom"
-msgstr ""
+msgstr "Wrandom"
 
 #~ msgid "removing queues data extensions table.."
 #~ msgstr "rimozione dei dati delle code dalla tabella extensions.."
