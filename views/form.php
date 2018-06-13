@@ -753,7 +753,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<span id="account-help" class="help-block fpbx-help-block"><?php echo _("Use this number to dial into the queue, or transfer callers to this number to put them into the queue.<br><br>Agents will dial this queue number plus * to log onto the queue, and this queue number plus ** to log out of the queue.<br><br>For example, if the queue number is 123:<br><br><b>123* = log in<br>123** = log out</b>")?></span>
+					<span id="account-help" class="help-block fpbx-help-block"><?php echo _("Use this number to dial into the queue, or transfer callers to this number to put them into the queue")?></span>
 				</div>
 			</div>
 		</div>
