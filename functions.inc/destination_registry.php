@@ -96,7 +96,7 @@ function queues_check_extensions($exten=true) {
 		$thisexten = $result['extension'];
 		$extenlist[$thisexten]['description'] = sprintf(_("Queue: %s"),$result['descr']);
 		$extenlist[$thisexten]['status'] = _('INUSE');
-		$extenlist[$thisexten]['edit_url'] = 'config.php?display=queues&extdisplay='.urlencode($thisexten);
+		$extenlist[$thisexten]['edit_url'] = 'config.php?display=queues&view=form&extdisplay='.urlencode($thisexten);
 	}
 	return $extenlist;
 }
