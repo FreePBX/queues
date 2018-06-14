@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 14:32-0400\n"
+"POT-Creation-Date: 2018-06-14 13:16-0400\n"
 "PO-Revision-Date: 2016-12-09 22:34+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -81,7 +81,7 @@ msgstr "Menaje de anuncio de agente"
 msgid "Agent Announcement"
 msgstr "Anuncio de Agente"
 
-#: queues.i18n.php:30
+#: queues.i18n.php:34
 msgid "Agent Called Events Default"
 msgstr "Eventos llamados por el agente predeterminados"
 
@@ -109,7 +109,7 @@ msgstr "Reinicio Tiempo de Espera del Agente"
 msgid "Alert Info"
 msgstr "Información de alerta"
 
-#: install.php:15 queues.i18n.php:42
+#: install.php:15 queues.i18n.php:50
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -356,7 +356,7 @@ msgstr "Diario"
 msgid "Default"
 msgstr "Por defecto"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -367,7 +367,7 @@ msgstr ""
 "las NUEVAS colas, no cambiará las colas existentes o por lo tanto la opción "
 "en las nuevas."
 
-#: queues.i18n.php:36
+#: queues.i18n.php:44
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -512,6 +512,10 @@ msgstr "Frecuencia"
 msgid "General Settings"
 msgstr "Configuración General"
 
+#: queues.i18n.php:38
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "Generar queuenum */** Códigos de inicio/desconexión"
+
 #: views/form.php:766
 msgid "Give this queue a brief name to help you identify it."
 msgstr "Asigne a esta cola un breve nombre para ayudarle a identificarla."
@@ -524,6 +528,10 @@ msgstr ""
 "Da a las colas una opción de \"peso\", para garantizar que las llamadas en "
 "espera en una cola con prioridad más alta se entregarán primero si hay "
 "agentes comunes a las dos colas."
+
+#: queues.i18n.php:30
+msgid "Hide Queue No Answer Option"
+msgstr "Ocultar opción de cola sin respuesta"
 
 #: views/form.php:393
 msgid "Honor Penalties"
@@ -691,6 +699,26 @@ msgstr ""
 "Se pueden grabar llamadas entrantes a agentes. Si se selecciona \"nunca\", "
 "se bloquea la grabación en llamada en demanda."
 
+#: queues.i18n.php:32
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr ""
+"Es posible que una cola NO conteste una llamada y sigan ingresando a "
+"llamantes a la cola. El comportamiento normal es que todos los llamantes se "
+"respondan antes de entrar en la cola. Si no se responde a la llamada, es "
+"posible que algunos medios de comunicación tempranos todavía permitan a los "
+"llamantes escuchar grabaciones, MoH, etc, pero esto puede ser inconsistente "
+"y variar. Debido a la volatilidad de esta opción, no se muestra de forma "
+"predeterminada. Si una cola está configurada para no responder, la "
+"configuración se mostrará para esa cola independientemente de esta "
+"configuración."
+
 #: views/form.php:169
 msgid "Join Announcement"
 msgstr "Anuncio de Uniéndose"
@@ -742,7 +770,7 @@ msgstr "Retraso del Miembro"
 msgid "Member Status Event"
 msgstr "Evento Estado de Miembro"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:42
 msgid "Member Status Event Default"
 msgstr "Valor predeterminado de Evento Estado del miembro"
 
@@ -872,7 +900,7 @@ msgstr "Anuncios periódicos"
 msgid "Persistent Members"
 msgstr "Miembros Persistentes"
 
-#: install.php:29 queues.i18n.php:38
+#: install.php:29 queues.i18n.php:46
 msgid "Playback Queue Caller Count"
 msgstr "Reproducir conteo de llamantes en cola"
 
@@ -946,7 +974,7 @@ msgstr "El número de la cola no puede estar vacío"
 msgid "Queue Password"
 msgstr "Contraseña de la Cola"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:48
 msgid "Queue Pause Toggle"
 msgstr "Switch de pausa de Cola"
 
@@ -965,6 +993,19 @@ msgstr "Peso de Cola"
 #: views/form.php:1033
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Cola llamadas solo (ringinuse=no)"
+
+#: queues.i18n.php:40
+msgid ""
+"Queue login and out codes were historically queunum* and queunum**. These "
+"have been largely replaced by the *45 queue toggle codes. The legacy codes "
+"are required to login or out a third party user that is not the extension "
+"dialing. These can be removed from the system by setting this to false."
+msgstr ""
+"Los códigos de entrada y salida de la cola eran históricamente queunum* y "
+"queunum**. Éstos han sido reemplazados en gran parte por los códigos de "
+"toggle de la cola *45. Los códigos legados son necesarios para iniciar "
+"sesión o salir de un usuario de terceros que no es la extensión de marcado. "
+"Éstos se pueden quitar del sistema estableciendo esto en falso."
 
 #: assets/js/queues.js:53
 msgid ""
@@ -1821,45 +1862,6 @@ msgstr "segundos"
 #: views/form.php:259
 msgid "wrandom"
 msgstr "wrandon"
-
-#~ msgid "Generate queuenum*/** Login/off Codes"
-#~ msgstr "Generar queuenum */** Códigos de inicio/desconexión"
-
-#~ msgid "Hide Queue No Answer Option"
-#~ msgstr "Ocultar opción de cola sin respuesta"
-
-#~ msgid ""
-#~ "It is possible for a queue to NOT Answer a call and still enter callers "
-#~ "to the queue. The normal behavior is that all  allers are answered before "
-#~ "entering the queue. If the call is not answered, it is possible that some "
-#~ "early media delivery would still allow callers to hear recordings, MoH, "
-#~ "etc. but this can be inconsistent and vary. Because of the volatility of "
-#~ "this option, it is not displayed by default. If a queue is set to not "
-#~ "answer, the setting will be displayed for that queue regardless of this "
-#~ "setting."
-#~ msgstr ""
-#~ "Es posible que una cola NO conteste una llamada y sigan ingresando a "
-#~ "llamantes a la cola. El comportamiento normal es que todos los llamantes "
-#~ "se respondan antes de entrar en la cola. Si no se responde a la llamada, "
-#~ "es posible que algunos medios de comunicación tempranos todavía permitan "
-#~ "a los llamantes escuchar grabaciones, MoH, etc, pero esto puede ser "
-#~ "inconsistente y variar. Debido a la volatilidad de esta opción, no se "
-#~ "muestra de forma predeterminada. Si una cola está configurada para no "
-#~ "responder, la configuración se mostrará para esa cola independientemente "
-#~ "de esta configuración."
-
-#~ msgid ""
-#~ "Queue login and out codes were historically queunum* and queunum**. These "
-#~ "have been largely replaced by the *45 queue toggle codes. The legacy "
-#~ "codes are required to login or out a third party user that is not the "
-#~ "extension dialing. These can be removed from the system by setting this "
-#~ "to false."
-#~ msgstr ""
-#~ "Los códigos de entrada y salida de la cola eran históricamente queunum* y "
-#~ "queunum**. Éstos han sido reemplazados en gran parte por los códigos de "
-#~ "toggle de la cola *45. Los códigos legados son necesarios para iniciar "
-#~ "sesión o salir de un usuario de terceros que no es la extensión de "
-#~ "marcado. Éstos se pueden quitar del sistema estableciendo esto en falso."
 
 #~ msgid ""
 #~ "Callers will exit if all agents are paused, show an invalid state for "

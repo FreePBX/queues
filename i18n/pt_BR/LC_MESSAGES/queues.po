@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 14:32-0400\n"
+"POT-Creation-Date: 2018-06-14 13:16-0400\n"
 "PO-Revision-Date: 2017-03-23 19:16+0200\n"
 "Last-Translator: Luis <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -88,7 +88,7 @@ msgstr "Msg de Anúncio do Agente"
 msgid "Agent Announcement"
 msgstr "Anúncio do Agente"
 
-#: queues.i18n.php:30
+#: queues.i18n.php:34
 msgid "Agent Called Events Default"
 msgstr "Padrão de Eventos do Agente Chamado"
 
@@ -116,7 +116,7 @@ msgstr "Reiniciar Timeout do Agente"
 msgid "Alert Info"
 msgstr "Alerta"
 
-#: install.php:15 queues.i18n.php:42
+#: install.php:15 queues.i18n.php:50
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -358,7 +358,7 @@ msgstr "Diariamente"
 msgid "Default"
 msgstr "Padrão"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -368,7 +368,7 @@ msgstr ""
 "Esta configuração irá apenas afetar NOVAS filas, isto não modifica filas "
 "existentes ou atualiza a opção em filas existentes."
 
-#: queues.i18n.php:36
+#: queues.i18n.php:44
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -510,6 +510,10 @@ msgstr "Frequência"
 msgid "General Settings"
 msgstr "Opções Gerais"
 
+#: queues.i18n.php:38
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "Gerar queuenum*/* Códigos Login/off"
+
 #: views/form.php:766
 msgid "Give this queue a brief name to help you identify it."
 msgstr "Dê um breve nome a esta fila para ajudá-lo a identificá-la."
@@ -522,6 +526,10 @@ msgstr ""
 "Dá às filas uma opção 'peso', para garantir que as chamadas em espera em uma "
 "fila de prioridade mais alta entreguem suas chamadas primeiro se houver "
 "agentes comuns em ambas as filas."
+
+#: queues.i18n.php:30
+msgid "Hide Queue No Answer Option"
+msgstr "Ocultar opção de fila sem resposta"
 
 #: views/form.php:393
 msgid "Honor Penalties"
@@ -684,6 +692,25 @@ msgstr ""
 "As chamadas de entrada para agentes podem ser gravadas. Se \"nunca\" for "
 "selecionado, a gravação em chamada em demanda será bloqueada."
 
+#: queues.i18n.php:32
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr ""
+"É possível para uma fila não atender uma chamada e ainda inserir chamadores "
+"para a fila. O comportamento normal é que todos os chamadores são "
+"respondidos antes de entrar na fila. Se a chamada não for atendida, é "
+"possível que os chamadores ainda consigam ouvir gravações, música de espera, "
+"etc., mas isso pode ser inconsistente e variar. Devido à volatilidade desta "
+"opção, ela não é exibida por padrão. Se uma fila estiver configurada para "
+"não atender, a configuração será exibida para essa fila independentemente "
+"dessa configuração."
+
 #: views/form.php:169
 msgid "Join Announcement"
 msgstr "Anúncio de Entrada"
@@ -733,7 +760,7 @@ msgstr "Atraso do Membro"
 msgid "Member Status Event"
 msgstr "Status de evento do Membro"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:42
 msgid "Member Status Event Default"
 msgstr "Status padrão de evento do membro"
 
@@ -863,7 +890,7 @@ msgstr "Anúncios Periódicos"
 msgid "Persistent Members"
 msgstr "Membros Persistentes"
 
-#: install.php:29 queues.i18n.php:38
+#: install.php:29 queues.i18n.php:46
 msgid "Playback Queue Caller Count"
 msgstr "Contagem de chamadas da fila de reprodução"
 
@@ -936,7 +963,7 @@ msgstr "O número da fila não pode ficar em branco"
 msgid "Queue Password"
 msgstr "Senha da Fila"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:48
 msgid "Queue Pause Toggle"
 msgstr "Alternar Pausa da Fila"
 
@@ -955,6 +982,19 @@ msgstr "Peso da Fila"
 #: views/form.php:1033
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Apenas chamadas em fila (ringinuse = no)"
+
+#: queues.i18n.php:40
+msgid ""
+"Queue login and out codes were historically queunum* and queunum**. These "
+"have been largely replaced by the *45 queue toggle codes. The legacy codes "
+"are required to login or out a third party user that is not the extension "
+"dialing. These can be removed from the system by setting this to false."
+msgstr ""
+"Os códigos de login e saída da fila eram queunum * e queunum **. Estes foram "
+"substituídos pelos códigos de alternância *45. Os códigos herdados são "
+"necessários para efetuar login ou logout de um usuário de terceiros que não "
+"seja a discagem de extensão. Estes podem ser removidos do sistema, definindo "
+"isto como falso."
 
 #: assets/js/queues.js:53
 msgid ""
@@ -1797,44 +1837,6 @@ msgstr "segundos"
 #: views/form.php:259
 msgid "wrandom"
 msgstr "wrandom"
-
-#~ msgid "Generate queuenum*/** Login/off Codes"
-#~ msgstr "Gerar queuenum*/* Códigos Login/off"
-
-#~ msgid "Hide Queue No Answer Option"
-#~ msgstr "Ocultar opção de fila sem resposta"
-
-#~ msgid ""
-#~ "It is possible for a queue to NOT Answer a call and still enter callers "
-#~ "to the queue. The normal behavior is that all  allers are answered before "
-#~ "entering the queue. If the call is not answered, it is possible that some "
-#~ "early media delivery would still allow callers to hear recordings, MoH, "
-#~ "etc. but this can be inconsistent and vary. Because of the volatility of "
-#~ "this option, it is not displayed by default. If a queue is set to not "
-#~ "answer, the setting will be displayed for that queue regardless of this "
-#~ "setting."
-#~ msgstr ""
-#~ "É possível para uma fila não atender uma chamada e ainda inserir "
-#~ "chamadores para a fila. O comportamento normal é que todos os chamadores "
-#~ "são respondidos antes de entrar na fila. Se a chamada não for atendida, é "
-#~ "possível que os chamadores ainda consigam ouvir gravações, música de "
-#~ "espera, etc., mas isso pode ser inconsistente e variar. Devido à "
-#~ "volatilidade desta opção, ela não é exibida por padrão. Se uma fila "
-#~ "estiver configurada para não atender, a configuração será exibida para "
-#~ "essa fila independentemente dessa configuração."
-
-#~ msgid ""
-#~ "Queue login and out codes were historically queunum* and queunum**. These "
-#~ "have been largely replaced by the *45 queue toggle codes. The legacy "
-#~ "codes are required to login or out a third party user that is not the "
-#~ "extension dialing. These can be removed from the system by setting this "
-#~ "to false."
-#~ msgstr ""
-#~ "Os códigos de login e saída da fila eram queunum * e queunum **. Estes "
-#~ "foram substituídos pelos códigos de alternância *45. Os códigos herdados "
-#~ "são necessários para efetuar login ou logout de um usuário de terceiros "
-#~ "que não seja a discagem de extensão. Estes podem ser removidos do "
-#~ "sistema, definindo isto como falso."
 
 #~ msgid ""
 #~ "Callers will exit if all agents are paused, show an invalid state for "
