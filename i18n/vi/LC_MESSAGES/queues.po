@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 14:32-0400\n"
+"POT-Creation-Date: 2018-06-14 13:18-0400\n"
 "PO-Revision-Date: 2017-08-08 15:22+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -88,7 +88,7 @@ msgstr "Tin nhắn thông báo cho Tổng đài viên"
 msgid "Agent Announcement"
 msgstr "Thông báo tổng đài viên"
 
-#: queues.i18n.php:30
+#: queues.i18n.php:34
 msgid "Agent Called Events Default"
 msgstr "Mặc định các sự kiện đã gọi Tổng đài viên"
 
@@ -116,7 +116,7 @@ msgstr "Thời gian chờ khỏi động lại của Tổng đài viên"
 msgid "Alert Info"
 msgstr "Alert Infor ( Thông tin cảnh báo)"
 
-#: install.php:15 queues.i18n.php:42
+#: install.php:15 queues.i18n.php:50
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -352,7 +352,7 @@ msgstr "Hằng ngày"
 msgid "Default"
 msgstr "Mặc định"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -363,7 +363,7 @@ msgstr ""
 "các hàng đợi mới, nó sẽ không thay đổi hàng đợi hiện tại hoặc thực thi các "
 "tùy chọn trên các hàng đợi mới."
 
-#: queues.i18n.php:36
+#: queues.i18n.php:44
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -469,6 +469,10 @@ msgstr "Tần số"
 msgid "General Settings"
 msgstr "Các cài đặt chung"
 
+#: queues.i18n.php:38
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "Khởi tạo  queuenum*/** Các mã Đăng nhập/Tắt"
+
 #: views/form.php:780
 msgid "Give this queue a brief name to help you identify it."
 msgstr "Đặt cho Hàng đợi này một tên ngắn gọn để bạn nhận biết nó."
@@ -481,6 +485,10 @@ msgstr ""
 "Cung cấp cho các hàng đợi một tùy chọn 'trọng số' cho các hàng đợi để đảm "
 "bảo các cuộc gọi đang đợi trong hàng đợi ưu tiên cao hơn sẽ truyền các cuộc "
 "gọi của hàng đợi đó đầu tiên nếu có các tổng đài viên chung cho các hàng đợi."
+
+#: queues.i18n.php:30
+msgid "Hide Queue No Answer Option"
+msgstr "Ẩn tùy chọn Queue No Answer ( Không trả lời Hàng đợi)"
 
 #: views/form.php:407
 msgid "Honor Penalties"
@@ -647,6 +655,24 @@ msgstr ""
 "Các cuộc gọi đến tới các tổng đài viên sẽ được ghi lại. Nếu chọn \"never' "
 "thì cuộc gọi đến trên bản ghi yêu cầu sẽ bị khóa."
 
+#: queues.i18n.php:32
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr ""
+"Một hàng đợi có thể KHÔNG Trả lời một cuộc gọi khi vẫn nhập người gọi vào "
+"hàng đợi. Các hành vi bình thường là tất cả người gọi được trả lời trước khi "
+"vào hàng đợi. Nếu cuộc gọi không được trả lời, có thể một số phương tiện "
+"truyền thông vẫn sẽ cho phép người gọi nghe các bản ghi, MoH, vv nhưng điều "
+"này có thể không phù hợp và thay đổi. Do sự bất định của tùy chọn này, theo "
+"mặc định nó không được hiển thị. Nếu một hàng đợi được cài đặt để không trả "
+"lời, các thiết lập sẽ được hiển thị cho hàng đợi này."
+
 #: views/form.php:183
 msgid "Join Announcement"
 msgstr "Truy nhập vào Thông báo (Announcement)"
@@ -697,7 +723,7 @@ msgstr "Hoãn thành viên"
 msgid "Member Status Event"
 msgstr "Sự kiện trạng thái thành viên"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:42
 msgid "Member Status Event Default"
 msgstr "Mặc định sự kiện trạng thái thành viên"
 
@@ -804,7 +830,7 @@ msgstr "Các thông báo định kỳ"
 msgid "Persistent Members"
 msgstr "Các thành viên không đổi"
 
-#: install.php:29 queues.i18n.php:38
+#: install.php:29 queues.i18n.php:46
 msgid "Playback Queue Caller Count"
 msgstr "Phát lại số lần gọi hàng đợi của người gọi"
 
@@ -881,7 +907,7 @@ msgstr "Số của Hàng đợi không được để trống"
 msgid "Queue Password"
 msgstr "Mật khẩu Hàng đợi"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:48
 msgid "Queue Pause Toggle"
 msgstr "Chuyển đổi Tạm dừng ( Pause) Hàng đợi"
 
@@ -900,6 +926,19 @@ msgstr "Trọng dung Hàng đợi"
 #: views/form.php:1072
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Chỉ mỗi các cuộc gọi Hàng đợi (ringinuse=no)"
+
+#: queues.i18n.php:40
+msgid ""
+"Queue login and out codes were historically queunum* and queunum**. These "
+"have been largely replaced by the *45 queue toggle codes. The legacy codes "
+"are required to login or out a third party user that is not the extension "
+"dialing. These can be removed from the system by setting this to false."
+msgstr ""
+"Các mã đăng nhập và đăng xuất Hàng đợi cũ là queunum* and queunum**. Chúng "
+"đã đươc thay thế bởi các mã chuyển đổi hàng đợi *45. Các mã legacy là điều "
+"yêu cầu cho việc đăng nhập và đăng xuất đối với người dùng bên thứ ba mà bên "
+"này không phải là quay số máy nhánh. Chúng có thể bị xóa bỏ khỏi hệ thống "
+"bằng cách cài đặt về False."
 
 #: assets/js/queues.js:53
 msgid ""
@@ -1630,43 +1669,6 @@ msgstr "wrandom ( ngẫu nhiên w)"
 #~ "để truy nhập vào hàng đợi, và thêm ** để đăng xuất khỏi hàng đợi. "
 #~ "<br><br> Ví dụ nếu số hàng đợi là 123: br><br><b>123* = truy "
 #~ "nhập<br>123** = đăng xuất</b>"
-
-#~ msgid "Generate queuenum*/** Login/off Codes"
-#~ msgstr "Khởi tạo  queuenum*/** Các mã Đăng nhập/Tắt"
-
-#~ msgid "Hide Queue No Answer Option"
-#~ msgstr "Ẩn tùy chọn Queue No Answer ( Không trả lời Hàng đợi)"
-
-#~ msgid ""
-#~ "It is possible for a queue to NOT Answer a call and still enter callers "
-#~ "to the queue. The normal behavior is that all  allers are answered before "
-#~ "entering the queue. If the call is not answered, it is possible that some "
-#~ "early media delivery would still allow callers to hear recordings, MoH, "
-#~ "etc. but this can be inconsistent and vary. Because of the volatility of "
-#~ "this option, it is not displayed by default. If a queue is set to not "
-#~ "answer, the setting will be displayed for that queue regardless of this "
-#~ "setting."
-#~ msgstr ""
-#~ "Một hàng đợi có thể KHÔNG Trả lời một cuộc gọi khi vẫn nhập người gọi vào "
-#~ "hàng đợi. Các hành vi bình thường là tất cả người gọi được trả lời trước "
-#~ "khi vào hàng đợi. Nếu cuộc gọi không được trả lời, có thể một số phương "
-#~ "tiện truyền thông vẫn sẽ cho phép người gọi nghe các bản ghi, MoH, vv "
-#~ "nhưng điều này có thể không phù hợp và thay đổi. Do sự bất định của tùy "
-#~ "chọn này, theo mặc định nó không được hiển thị. Nếu một hàng đợi được cài "
-#~ "đặt để không trả lời, các thiết lập sẽ được hiển thị cho hàng đợi này."
-
-#~ msgid ""
-#~ "Queue login and out codes were historically queunum* and queunum**. These "
-#~ "have been largely replaced by the *45 queue toggle codes. The legacy "
-#~ "codes are required to login or out a third party user that is not the "
-#~ "extension dialing. These can be removed from the system by setting this "
-#~ "to false."
-#~ msgstr ""
-#~ "Các mã đăng nhập và đăng xuất Hàng đợi cũ là queunum* and queunum**. "
-#~ "Chúng đã đươc thay thế bởi các mã chuyển đổi hàng đợi *45. Các mã legacy "
-#~ "là điều yêu cầu cho việc đăng nhập và đăng xuất đối với người dùng bên "
-#~ "thứ ba mà bên này không phải là quay số máy nhánh. Chúng có thể bị xóa bỏ "
-#~ "khỏi hệ thống bằng cách cài đặt về False."
 
 #~ msgid "Checking for legacy queues table.."
 #~ msgstr "Đang kiểm tra bảng Hàng đợi legacy.."
