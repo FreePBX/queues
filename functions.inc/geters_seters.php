@@ -32,9 +32,6 @@ function queues_add(
 ) {
  	global $db,$astman,$amp_conf;
 
-	$ast_ge_11 = version_compare($amp_conf['ASTVERSION'] , '11', 'ge');
-	$ast_ge_120 = version_compare($amp_conf['ASTVERSION'] , '12', 'ge');
-
 	if (trim($account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
 		return false;
@@ -77,18 +74,13 @@ function queues_add(
 		array($account,'timeoutpriority',(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',0),
 		array($account,'penaltymemberslimit',(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',0),
 		array($account,'rvolume',(isset($_REQUEST['rvolume']))?$_REQUEST['rvolume']:'',0),
-		array($account,'rvol_mode',(isset($_REQUEST['rvol_mode']))?$_REQUEST['rvol_mode']:'',0),
-	);
-	/*
-	 * FREEPBX - 8216. As of Asterisk 12 eventmemberstatus and eventwhencalled are always true and
-	 * are not a user option. These fields will only show up if the user is running version 11 or lower.
-	 * TODO: Remove this code once we drop 11 support in the future
-	 */
-	if(!$ast_ge_120){
-		$fields[] = array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0);
-		$fields[] = array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'],0);
-	}
-
+        array($account,'rvol_mode',(isset($_REQUEST['rvol_mode']))?$_REQUEST['rvol_mode']:'',0),
+        array($account, 'eventwhencalled', ($_REQUEST['eventwhencalled']) ? $_REQUEST['eventwhencalled'] : $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'], 0),
+        array($account, 'eventmemberstatus', ($_REQUEST['eventmemberstatus']) ? $_REQUEST['eventmemberstatus'] : $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'], 0),
+        array($account, 'autopausebusy', (isset($_REQUEST['autopausebusy'])) ? $_REQUEST['autopausebusy'] : 'no', 0),
+        array($account, 'autopauseunavail', (isset($_REQUEST['autopauseunavail'])) ? $_REQUEST['autopauseunavail'] : 'no', 0),
+    );
+    
     foreach($_REQUEST as $key => $value) {
         switch($key) {
             case 'cron_minute':
@@ -110,12 +102,7 @@ function queues_add(
                 break;
         }
     }
-
-	if ($ast_ge_11) {
-		$fields[] = array($account,'autopausebusy',(isset($_REQUEST['autopausebusy']))?$_REQUEST['autopausebusy']:'no',0);
-		$fields[] = array($account,'autopauseunavail',(isset($_REQUEST['autopauseunavail']))?$_REQUEST['autopauseunavail']:'no',0);
-	}
-
+	
 	if ($_REQUEST['music'] != 'inherit') {
 		$fields[] = array(
 			$account,
@@ -422,5 +409,3 @@ function queues_get($account, $queues_conf_only=false) {
 	}
 	return $results;
 }
-
-?>
