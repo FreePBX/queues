@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-14 13:18-0400\n"
+"POT-Creation-Date: 2018-06-29 17:57-0400\n"
 "PO-Revision-Date: 2017-03-03 14:42+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Agent Announcement"
 msgstr "Agent Ankündigung"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:30
 msgid "Agent Called Events Default"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Alert Info"
 msgstr "Alarminformation"
 
-#: install.php:15 queues.i18n.php:50
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -290,14 +290,14 @@ msgstr "Täglich"
 msgid "Default"
 msgstr "Standard"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:32
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
 
-#: queues.i18n.php:44
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -386,10 +386,6 @@ msgstr "Häufigkeit"
 msgid "General Settings"
 msgstr "Allgemeine Einstellungen"
 
-#: queues.i18n.php:38
-msgid "Generate queuenum*/** Login/off Codes"
-msgstr ""
-
 #: views/form.php:780
 msgid "Give this queue a brief name to help you identify it."
 msgstr ""
@@ -398,10 +394,6 @@ msgstr ""
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
-msgstr ""
-
-#: queues.i18n.php:30
-msgid "Hide Queue No Answer Option"
 msgstr ""
 
 #: views/form.php:407
@@ -524,17 +516,6 @@ msgid ""
 "call on demand recording is blocked."
 msgstr ""
 
-#: queues.i18n.php:32
-msgid ""
-"It is possible for a queue to NOT Answer a call and still enter callers to "
-"the queue. The normal behavior is that all  allers are answered before "
-"entering the queue. If the call is not answered, it is possible that some "
-"early media delivery would still allow callers to hear recordings, MoH, etc. "
-"but this can be inconsistent and vary. Because of the volatility of this "
-"option, it is not displayed by default. If a queue is set to not answer, the "
-"setting will be displayed for that queue regardless of this setting."
-msgstr ""
-
 #: views/form.php:183
 msgid "Join Announcement"
 msgstr ""
@@ -586,7 +567,7 @@ msgstr ""
 msgid "Member Status Event"
 msgstr ""
 
-#: queues.i18n.php:42
+#: queues.i18n.php:34
 msgid "Member Status Event Default"
 msgstr ""
 
@@ -681,7 +662,7 @@ msgstr "Regelmäßige Benachtichtigung"
 msgid "Persistent Members"
 msgstr "Dauerhafte Mitglieder"
 
-#: install.php:29 queues.i18n.php:46
+#: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
 msgstr ""
 
@@ -749,7 +730,7 @@ msgstr "Die Warteschlangennummer darf nicht leer sein"
 msgid "Queue Password"
 msgstr "Warteschlangenpasswort"
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:48
+#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Warteschlange Pause Umschalten"
 
@@ -767,14 +748,6 @@ msgstr ""
 
 #: views/form.php:1072
 msgid "Queue calls only (ringinuse=no)"
-msgstr ""
-
-#: queues.i18n.php:40
-msgid ""
-"Queue login and out codes were historically queunum* and queunum**. These "
-"have been largely replaced by the *45 queue toggle codes. The legacy codes "
-"are required to login or out a third party user that is not the extension "
-"dialing. These can be removed from the system by setting this to false."
 msgstr ""
 
 #: assets/js/queues.js:53

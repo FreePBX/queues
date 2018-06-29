@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-14 13:18-0400\n"
+"POT-Creation-Date: 2018-06-29 17:57-0400\n"
 "PO-Revision-Date: 2016-07-07 11:27+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com.com>\n"
 "Language-Team: Russian <http://weblate.postmet.com/freepbx/trunkbalance/"
@@ -88,7 +88,7 @@ msgstr "Анонс агента"
 msgid "Agent Announcement"
 msgstr "Агент оповещения"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:30
 msgid "Agent Called Events Default"
 msgstr "События Вызываемого Агента по умолчанию"
 
@@ -116,7 +116,7 @@ msgstr "Перезапуск таймаута агента"
 msgid "Alert Info"
 msgstr "Дополнительная информация"
 
-#: install.php:15 queues.i18n.php:50
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -338,7 +338,7 @@ msgstr "Ежедневно"
 msgid "Default"
 msgstr "По умолчанию"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:32
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -348,7 +348,7 @@ msgstr ""
 "установка влияет только на установки по умолчанию для НОВОЙ очереди. Эта "
 "установка не меняет существующую очередь."
 
-#: queues.i18n.php:44
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -452,10 +452,6 @@ msgstr "Частота"
 msgid "General Settings"
 msgstr "Общие настройки"
 
-#: queues.i18n.php:38
-msgid "Generate queuenum*/** Login/off Codes"
-msgstr "Формировать номер очереди*/** коды набора для входа-выхода операторов"
-
 #: views/form.php:780
 msgid "Give this queue a brief name to help you identify it."
 msgstr "Присвоить для очереди короткое название для идентификации."
@@ -468,10 +464,6 @@ msgstr ""
 "Позволяет добавлять 'вес' очереди обеспечивая ожидание в очереди с большим "
 "приоритетом. Оператору будет подан звонок большим приоритетом очереди, если "
 "оператор обслуживаетс две и более очереди."
-
-#: queues.i18n.php:30
-msgid "Hide Queue No Answer Option"
-msgstr "Скрыть параметр Очереди 'No Answer'"
 
 #: views/form.php:407
 msgid "Honor Penalties"
@@ -628,17 +620,6 @@ msgstr ""
 "Входящие вызовы операторам должны быть записаны.Если выбрано \"никогда\", "
 "запись вызова по требованию блокирована."
 
-#: queues.i18n.php:32
-msgid ""
-"It is possible for a queue to NOT Answer a call and still enter callers to "
-"the queue. The normal behavior is that all  allers are answered before "
-"entering the queue. If the call is not answered, it is possible that some "
-"early media delivery would still allow callers to hear recordings, MoH, etc. "
-"but this can be inconsistent and vary. Because of the volatility of this "
-"option, it is not displayed by default. If a queue is set to not answer, the "
-"setting will be displayed for that queue regardless of this setting."
-msgstr "Дает возможность не делать ответ на вызов, помещенный в очередь."
-
 #: views/form.php:183
 msgid "Join Announcement"
 msgstr "Присоединить приветствие"
@@ -688,7 +669,7 @@ msgstr "Задержка участника"
 msgid "Member Status Event"
 msgstr "Событие статуса участника"
 
-#: queues.i18n.php:42
+#: queues.i18n.php:34
 msgid "Member Status Event Default"
 msgstr "Событие по умолчанию Статуса участника"
 
@@ -793,7 +774,7 @@ msgstr "Периодичность сообщений"
 msgid "Persistent Members"
 msgstr "Постоянные операторы"
 
-#: install.php:29 queues.i18n.php:46
+#: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
 msgstr "Воспроизвести количество вызывающих в очереди"
 
@@ -871,7 +852,7 @@ msgstr "Номер очереди не может быть пустым"
 msgid "Queue Password"
 msgstr "Пароль очереди"
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:48
+#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Переключить паузу очереди"
 
@@ -890,17 +871,6 @@ msgstr "Вес очереди"
 #: views/form.php:1072
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Только звонки очереди (ringinuse=no)"
-
-#: queues.i18n.php:40
-msgid ""
-"Queue login and out codes were historically queunum* and queunum**. These "
-"have been largely replaced by the *45 queue toggle codes. The legacy codes "
-"are required to login or out a third party user that is not the extension "
-"dialing. These can be removed from the system by setting this to false."
-msgstr ""
-"Коды входа-выхода в очередь были номер очереди* и номер очереди**. Они были "
-"заменены на *45 коды переключения. Старые коды могу понадобиться для "
-"сторонего программного обеспечения или телефонов."
 
 #: assets/js/queues.js:53
 msgid ""
@@ -1624,6 +1594,35 @@ msgstr "секунды"
 #: views/form.php:273
 msgid "wrandom"
 msgstr "случайный-выбор"
+
+#~ msgid "Generate queuenum*/** Login/off Codes"
+#~ msgstr ""
+#~ "Формировать номер очереди*/** коды набора для входа-выхода операторов"
+
+#~ msgid "Hide Queue No Answer Option"
+#~ msgstr "Скрыть параметр Очереди 'No Answer'"
+
+#~ msgid ""
+#~ "It is possible for a queue to NOT Answer a call and still enter callers "
+#~ "to the queue. The normal behavior is that all  allers are answered before "
+#~ "entering the queue. If the call is not answered, it is possible that some "
+#~ "early media delivery would still allow callers to hear recordings, MoH, "
+#~ "etc. but this can be inconsistent and vary. Because of the volatility of "
+#~ "this option, it is not displayed by default. If a queue is set to not "
+#~ "answer, the setting will be displayed for that queue regardless of this "
+#~ "setting."
+#~ msgstr "Дает возможность не делать ответ на вызов, помещенный в очередь."
+
+#~ msgid ""
+#~ "Queue login and out codes were historically queunum* and queunum**. These "
+#~ "have been largely replaced by the *45 queue toggle codes. The legacy "
+#~ "codes are required to login or out a third party user that is not the "
+#~ "extension dialing. These can be removed from the system by setting this "
+#~ "to false."
+#~ msgstr ""
+#~ "Коды входа-выхода в очередь были номер очереди* и номер очереди**. Они "
+#~ "были заменены на *45 коды переключения. Старые коды могу понадобиться для "
+#~ "сторонего программного обеспечения или телефонов."
 
 #~ msgid ""
 #~ "Use this number to dial into the queue, or transfer callers to this "
