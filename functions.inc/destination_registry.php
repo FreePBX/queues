@@ -34,7 +34,7 @@ function queues_getdestinfo($dest) {
 		} else {
 			//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
 			return array('description' => sprintf(_("Queue %s : %s"),$exten,$thisexten['name']),
-			             'edit_url' => 'config.php?display=queues&extdisplay='.urlencode($exten),
+			             'edit_url' => 'config.php?display=queues&view=form&extdisplay='.urlencode($exten),
 								  );
 		}
 	} else {
