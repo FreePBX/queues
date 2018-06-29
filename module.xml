@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.34.12</version>
+	<version>13.0.34.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*13.0.34.13* FREEPBX-17706 Wrong URL's in Used as Destination - Queues 
 		*13.0.34.12* prevent infinite loops in from-queue
 		*13.0.34.11* FREEPBX-17552 Wrong URL's in Used as Destination 
 		*13.0.34.10* Fixing FREEPBX-17647 Adding confirmation popup to deleting queue

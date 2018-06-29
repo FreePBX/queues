@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-14 13:16-0400\n"
+"POT-Creation-Date: 2018-06-29 17:57-0400\n"
 "PO-Revision-Date: 2018-05-31 08:34+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/queues/it/>\n"
@@ -88,7 +88,7 @@ msgstr "Messaggio Annuncio Agente"
 msgid "Agent Announcement"
 msgstr "Annuncio Agente"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:30
 msgid "Agent Called Events Default"
 msgstr "Agente chiamato eventi predefinito"
 
@@ -116,7 +116,7 @@ msgstr "Timeout agente scaduto"
 msgid "Alert Info"
 msgstr "Alert Info"
 
-#: install.php:15 queues.i18n.php:50
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -361,7 +361,7 @@ msgstr "Giornalmente"
 msgid "Default"
 msgstr "Predefinito"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:32
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -371,7 +371,7 @@ msgstr ""
 "agente. Questa impostazione influenzerà solo l'impostazione predefinita per "
 "le code NUOVE, non cambierà le code esistenti o l'opzione su quelle nuove."
 
-#: queues.i18n.php:44
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -516,10 +516,6 @@ msgstr "Frequenza"
 msgid "General Settings"
 msgstr "Impostazioni generali"
 
-#: queues.i18n.php:38
-msgid "Generate queuenum*/** Login/off Codes"
-msgstr ""
-
 #: views/form.php:766
 msgid "Give this queue a brief name to help you identify it."
 msgstr "Dare alla coda un nome breve per una facile identificazione."
@@ -532,10 +528,6 @@ msgstr ""
 "Questa opzione permette di impostare alla coda un 'peso', per assicurare che "
 "le chiamate in attesa in una coda con maggiore priorità vengano smistate per "
 "prima se ci sono agenti comuni in diverse code."
-
-#: queues.i18n.php:30
-msgid "Hide Queue No Answer Option"
-msgstr ""
 
 #: views/form.php:393
 msgid "Honor Penalties"
@@ -701,17 +693,6 @@ msgstr ""
 "Le chiamate in entrata agli agenti possono essere registrate. Se è "
 "selezionato \"mai\", la registrazione in entrata su richiesta viene bloccata."
 
-#: queues.i18n.php:32
-msgid ""
-"It is possible for a queue to NOT Answer a call and still enter callers to "
-"the queue. The normal behavior is that all  allers are answered before "
-"entering the queue. If the call is not answered, it is possible that some "
-"early media delivery would still allow callers to hear recordings, MoH, etc. "
-"but this can be inconsistent and vary. Because of the volatility of this "
-"option, it is not displayed by default. If a queue is set to not answer, the "
-"setting will be displayed for that queue regardless of this setting."
-msgstr ""
-
 #: views/form.php:169
 msgid "Join Announcement"
 msgstr "Iscriviti a un annuncio"
@@ -763,7 +744,7 @@ msgstr "Ritardo membro"
 msgid "Member Status Event"
 msgstr "Evento stato membro"
 
-#: queues.i18n.php:42
+#: queues.i18n.php:34
 msgid "Member Status Event Default"
 msgstr "Evento stato membro predefinito"
 
@@ -893,7 +874,7 @@ msgstr "Annunci Periodici"
 msgid "Persistent Members"
 msgstr "Membri persistenti"
 
-#: install.php:29 queues.i18n.php:46
+#: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
 msgstr "Conteggio chiamante coda di riproduzione"
 
@@ -966,7 +947,7 @@ msgstr "Il Numero della coda non può essere lasciato vuoto"
 msgid "Queue Password"
 msgstr "Coda password"
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:48
+#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Sospendi coda"
 
@@ -985,14 +966,6 @@ msgstr "Peso Coda (Weight)"
 #: views/form.php:1033
 msgid "Queue calls only (ringinuse=no)"
 msgstr "Solo chiamate in coda (ringinuse = no)"
-
-#: queues.i18n.php:40
-msgid ""
-"Queue login and out codes were historically queunum* and queunum**. These "
-"have been largely replaced by the *45 queue toggle codes. The legacy codes "
-"are required to login or out a third party user that is not the extension "
-"dialing. These can be removed from the system by setting this to false."
-msgstr ""
 
 #: assets/js/queues.js:53
 msgid ""
