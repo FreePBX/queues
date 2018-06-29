@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX queues\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 17:57-0400\n"
+"POT-Creation-Date: 2018-06-29 17:58-0400\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Autofill"
 msgstr ""
 
-#: functions.inc/geters_seters.php:39
+#: functions.inc/geters_seters.php:36
 msgid "Bad Queue Number, can not be blank"
 msgstr "Felaktigt könummer, detta fält kan inte vara tomt"
 
@@ -312,7 +312,7 @@ msgid ""
 "enfore the option on in new ones."
 msgstr ""
 
-#: Queues.class.php:206
+#: Queues.class.php:202
 msgid "Delete"
 msgstr ""
 
@@ -707,7 +707,7 @@ msgstr ""
 "<br />WARNING: make sure you undertand what you are doing or otherwise leave "
 "this blank!"
 
-#: Queues.class.php:194 views/bootnav.php:9 views/qgrid.php:14
+#: Queues.class.php:190 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "Kö"
 
@@ -848,7 +848,7 @@ msgstr ""
 msgid "Report Hold Time"
 msgstr ""
 
-#: Queues.class.php:216
+#: Queues.class.php:212
 msgid "Reset"
 msgstr ""
 
@@ -988,7 +988,7 @@ msgstr ""
 msgid "Strict"
 msgstr "Strikt"
 
-#: Queues.class.php:211
+#: Queues.class.php:207
 msgid "Submit"
 msgstr ""
 
@@ -1091,7 +1091,7 @@ msgstr ""
 msgid "Wait Time Prefix"
 msgstr ""
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "Warning! Extension"
 msgstr "Varning! Anknytning"
 
@@ -1323,7 +1323,7 @@ msgstr "timmar"
 msgid "inherit"
 msgstr "ärv"
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "is not allowed for your account."
 msgstr "är inte tillåtet för ditt konto."
 

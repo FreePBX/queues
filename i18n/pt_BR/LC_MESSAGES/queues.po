@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 17:57-0400\n"
+"POT-Creation-Date: 2018-06-29 17:58-0400\n"
 "PO-Revision-Date: 2017-02-20 18:07+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -261,7 +261,7 @@ msgstr "Pausa Automática em Indisponível"
 msgid "Autofill"
 msgstr "Autocompletar"
 
-#: functions.inc/geters_seters.php:39
+#: functions.inc/geters_seters.php:36
 msgid "Bad Queue Number, can not be blank"
 msgstr "Mau Número de fila, não pode estar em branco"
 
@@ -362,7 +362,7 @@ msgstr ""
 "irá apenas afetar NOVAS filas, isto não modifica filas existentes ou "
 "atualiza a opção em filas existentes."
 
-#: Queues.class.php:206
+#: Queues.class.php:202
 msgid "Delete"
 msgstr "Apagar"
 
@@ -822,7 +822,7 @@ msgstr ""
 "*. <br /> AVISO: certifique-se de entender o que você está fazendo ou deixe "
 "este espaço em branco!"
 
-#: Queues.class.php:194 views/bootnav.php:9 views/qgrid.php:14
+#: Queues.class.php:190 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "FIla"
 
@@ -981,7 +981,7 @@ msgstr "Frequência de Repetição"
 msgid "Report Hold Time"
 msgstr "Relatório de tempo de espera"
 
-#: Queues.class.php:216
+#: Queues.class.php:212
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -1150,7 +1150,7 @@ msgstr "Reiniciar Estatísticas"
 msgid "Strict"
 msgstr "Restrito"
 
-#: Queues.class.php:211
+#: Queues.class.php:207
 msgid "Submit"
 msgstr "Enviar"
 
@@ -1263,7 +1263,7 @@ msgstr ""
 msgid "Wait Time Prefix"
 msgstr "Prefixo do tempo de espera"
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "Warning! Extension"
 msgstr "Atenção! Ramal"
 
@@ -1519,7 +1519,7 @@ msgstr "horas"
 msgid "inherit"
 msgstr "herdado"
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "is not allowed for your account."
 msgstr "não é permitido para sua conta."
 

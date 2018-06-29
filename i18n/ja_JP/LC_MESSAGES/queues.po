@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 17:57-0400\n"
+"POT-Creation-Date: 2018-06-29 17:58-0400\n"
 "PO-Revision-Date: 2015-09-18 15:56+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -270,7 +270,7 @@ msgstr ""
 msgid "Autofill"
 msgstr ""
 
-#: functions.inc/geters_seters.php:39
+#: functions.inc/geters_seters.php:36
 msgid "Bad Queue Number, can not be blank"
 msgstr "無効なキュー番号が入力されました。この設定は空にできません。"
 
@@ -368,7 +368,7 @@ msgstr ""
 "AMIがQueueMemberStatusイベントを発行する際のデフォルトのステータス。この設定"
 "は、新規キューのデフォルトのみを変更し、既存のキューの設定は変更しません。"
 
-#: Queues.class.php:206
+#: Queues.class.php:202
 msgid "Delete"
 msgstr ""
 
@@ -805,7 +805,7 @@ msgstr ""
 "号でも許可されますが、*キーを制限します。<br />警告: 自分が使用としていること"
 "を理解しているかを確認し、さもなくば空白のままにしておいてください!"
 
-#: Queues.class.php:194 views/bootnav.php:9 views/qgrid.php:14
+#: Queues.class.php:190 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "キュー"
 
@@ -961,7 +961,7 @@ msgstr ""
 msgid "Report Hold Time"
 msgstr ""
 
-#: Queues.class.php:216
+#: Queues.class.php:212
 msgid "Reset"
 msgstr ""
 
@@ -1115,7 +1115,7 @@ msgstr ""
 msgid "Strict"
 msgstr "厳密"
 
-#: Queues.class.php:211
+#: Queues.class.php:207
 msgid "Submit"
 msgstr ""
 
@@ -1218,7 +1218,7 @@ msgstr ""
 msgid "Wait Time Prefix"
 msgstr ""
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "Warning! Extension"
 msgstr "警告! 内線"
 
@@ -1462,7 +1462,7 @@ msgstr "時間"
 msgid "inherit"
 msgstr "継承"
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "is not allowed for your account."
 msgstr "は、あなたのアカウントには権限がありません。"
 

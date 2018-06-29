@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 17:57-0400\n"
+"POT-Creation-Date: 2018-06-29 17:58-0400\n"
 "PO-Revision-Date: 2015-11-12 12:43+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -214,7 +214,7 @@ msgstr "自动暂停无效"
 msgid "Autofill"
 msgstr "自动填入"
 
-#: functions.inc/geters_seters.php:39
+#: functions.inc/geters_seters.php:36
 msgid "Bad Queue Number, can not be blank"
 msgstr "错误的队列号，队列号不可以为空"
 
@@ -305,7 +305,7 @@ msgid ""
 "enfore the option on in new ones."
 msgstr ""
 
-#: Queues.class.php:206
+#: Queues.class.php:202
 msgid "Delete"
 msgstr ""
 
@@ -690,7 +690,7 @@ msgstr ""
 "分机号范围内。或者<br />^([0-9]+)$将允许任何长度的任何号码，但是不允许有*号。"
 "<br />警告：除非你知道你在做什么，否则请保留此设置为空白！"
 
-#: Queues.class.php:194 views/bootnav.php:9 views/qgrid.php:14
+#: Queues.class.php:190 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "等待队列"
 
@@ -831,7 +831,7 @@ msgstr ""
 msgid "Report Hold Time"
 msgstr ""
 
-#: Queues.class.php:216
+#: Queues.class.php:212
 msgid "Reset"
 msgstr ""
 
@@ -967,7 +967,7 @@ msgstr ""
 msgid "Strict"
 msgstr "严格"
 
-#: Queues.class.php:211
+#: Queues.class.php:207
 msgid "Submit"
 msgstr ""
 
@@ -1061,7 +1061,7 @@ msgstr ""
 msgid "Wait Time Prefix"
 msgstr ""
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "Warning! Extension"
 msgstr "警告！你的帐户无法使用分机"
 
@@ -1256,7 +1256,7 @@ msgstr "小时"
 msgid "inherit"
 msgstr "继承"
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "is not allowed for your account."
 msgstr "不支持此帐号。"
 

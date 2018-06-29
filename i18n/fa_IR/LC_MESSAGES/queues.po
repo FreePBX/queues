@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 17:57-0400\n"
+"POT-Creation-Date: 2018-06-29 17:58-0400\n"
 "PO-Revision-Date: 2016-08-07 06:44+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -261,7 +261,7 @@ msgstr "توقف خودکار در عدم دسترس"
 msgid "Autofill"
 msgstr "جاگذاری خودکار"
 
-#: functions.inc/geters_seters.php:39
+#: functions.inc/geters_seters.php:36
 msgid "Bad Queue Number, can not be blank"
 msgstr "شماره صف نادرست، شماره صف نمیتواند خالی باشد"
 
@@ -361,7 +361,7 @@ msgstr ""
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 
-#: Queues.class.php:206
+#: Queues.class.php:202
 msgid "Delete"
 msgstr "حذف"
 
@@ -813,7 +813,7 @@ msgstr ""
 "key.<br />WARNING: make sure you understand what  you are doing or otherwise "
 "leave this blank!"
 
-#: Queues.class.php:194 views/bootnav.php:9 views/qgrid.php:14
+#: Queues.class.php:190 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "صف"
 
@@ -968,7 +968,7 @@ msgstr "فرکانس تکرار"
 msgid "Report Hold Time"
 msgstr "گزارش زمان توقف"
 
-#: Queues.class.php:216
+#: Queues.class.php:212
 msgid "Reset"
 msgstr "بازنشانی"
 
@@ -1135,7 +1135,7 @@ msgstr "بازنشانی آمار"
 msgid "Strict"
 msgstr "محدودیت"
 
-#: Queues.class.php:211
+#: Queues.class.php:207
 msgid "Submit"
 msgstr "ارسال"
 
@@ -1243,7 +1243,7 @@ msgstr ""
 msgid "Wait Time Prefix"
 msgstr "زمان انتظار پیش شماره"
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "Warning! Extension"
 msgstr "هشدار! داخلی"
 
@@ -1491,7 +1491,7 @@ msgstr "ساعات"
 msgid "inherit"
 msgstr "ارثی"
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "is not allowed for your account."
 msgstr "برای حساب شما مجاز نیست."
 

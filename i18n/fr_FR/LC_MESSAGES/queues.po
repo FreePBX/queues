@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 17:57-0400\n"
+"POT-Creation-Date: 2018-06-29 17:58-0400\n"
 "PO-Revision-Date: 2016-02-02 18:06+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -223,7 +223,7 @@ msgstr ""
 msgid "Autofill"
 msgstr ""
 
-#: functions.inc/geters_seters.php:39
+#: functions.inc/geters_seters.php:36
 msgid "Bad Queue Number, can not be blank"
 msgstr "Numéro de File d'Attente incorrect, ne peut être vide"
 
@@ -314,7 +314,7 @@ msgid ""
 "enfore the option on in new ones."
 msgstr ""
 
-#: Queues.class.php:206
+#: Queues.class.php:202
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -709,7 +709,7 @@ msgstr ""
 "la touche *.<br />ATTENTION : assurez-vous de savoir ce que vous faites, "
 "sinon ne remplissez pas cette section."
 
-#: Queues.class.php:194 views/bootnav.php:9 views/qgrid.php:14
+#: Queues.class.php:190 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "File d'Attente"
 
@@ -852,7 +852,7 @@ msgstr ""
 msgid "Report Hold Time"
 msgstr ""
 
-#: Queues.class.php:216
+#: Queues.class.php:212
 msgid "Reset"
 msgstr ""
 
@@ -989,7 +989,7 @@ msgstr ""
 msgid "Strict"
 msgstr "Strict"
 
-#: Queues.class.php:211
+#: Queues.class.php:207
 msgid "Submit"
 msgstr ""
 
@@ -1091,7 +1091,7 @@ msgstr ""
 msgid "Wait Time Prefix"
 msgstr ""
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "Warning! Extension"
 msgstr "Attention ! l'Extension"
 
@@ -1293,7 +1293,7 @@ msgstr "heures"
 msgid "inherit"
 msgstr "hériter"
 
-#: Queues.class.php:145
+#: Queues.class.php:141
 msgid "is not allowed for your account."
 msgstr "n'est pas autorisée pour votre compte."
 
