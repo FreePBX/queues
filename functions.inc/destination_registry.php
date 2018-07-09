@@ -124,7 +124,7 @@ function queues_check_destinations($dest=true) {
 		$destlist[] = array(
 			'dest' => $thisdest,
 			'description' => sprintf(_("Queue: %s (%s)"),$result['descr'],$thisid),
-			'edit_url' => 'config.php?display=queues&extdisplay='.urlencode($thisid),
+			'edit_url' => 'config.php?display=queues&view=form&extdisplay='.urlencode($thisid),
 		);
 	}
 	return $destlist;
