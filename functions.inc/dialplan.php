@@ -558,7 +558,11 @@ function queues_get_config($engine) {
 			//
 			$ext->add('from-queue', '_.', '', new ext_setvar('QAGENT','${EXTEN}'));
 			$ext->add('from-queue', '_.', '', new ext_setvar('__FROMQ','true')); //see below comments
-			$ext->add('from-queue', '_.', '', new ext_goto('1','${NODEST}'));
+			$ext->add('from-queue', '_.', '', new ext_gotoif('$["${LEN(${NODEST})}" = "0"]', 'hangup')); //prevent infinite loop
+			$ext->add('from-queue', '_.', '', new ext_gotoif('$["${DIALPLAN_EXISTS(from-queue,${NODEST},1)}" = "1"]', '${NODEST},1', 'hangup'));
+			$ext->add('from-queue', '_.', 'hangup', new ext_macro('hangupcall'));
+			//catch all hangup
+			$ext->add('from-queue', 'h', '', new ext_macro('hangupcall'));
 
 			//http://issues.freepbx.org/browse/FREEPBX-11871
 			//Because of local channel changes in Asterisk 12+ we end up losing track of our recording file
