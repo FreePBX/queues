@@ -23,6 +23,7 @@ class Queues implements \BMO {
 			isset($request['agentannounce_id'])?$agentannounce_id = $request['agentannounce_id']:$agentannounce_id='';
 			isset($request['prefix'])?$prefix = $request['prefix']:$prefix='';
 			isset($request['alertinfo'])?$alertinfo = $request['alertinfo']:$alertinfo='';
+			isset($request['rvol_mode'])?$rvol_mode = $request['rvol_mode']:$rvol_mode='dontcare';
 			isset($request['joinannounce_id'])?$joinannounce_id = $request['joinannounce_id']:$joinannounce_id='';
 			$maxwait = isset($request['maxwait'])?$request['maxwait']:'';
 			$cwignore = isset($request['cwignore'])?$request['cwignore']:'0';

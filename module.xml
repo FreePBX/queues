@@ -2,39 +2,35 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>13.0.34.14</version>
+	<version>14.0.2.21</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
-		*13.0.34.14* FREEPBX-17706 Wrong URL's in Used as Destination - Announcements 
-		*13.0.34.13* FREEPBX-17706 Wrong URL's in Used as Destination - Queues 
-		*13.0.34.12* prevent infinite loops in from-queue
-		*13.0.34.11* FREEPBX-17552 Wrong URL's in Used as Destination 
-		*13.0.34.10* Fixing FREEPBX-17647 Adding confirmation popup to deleting queue
-		*13.0.34.9* FREEPBX-15383 Page setting display line number shown lost after submit 
-		*13.0.34.8* Require proper framework version
-		*13.0.34.7* FREEPBX-15347 Check either/or
-		*13.0.34.6* FREEPBX-16064 Queue reports hold time to agents in the wrong language
-		*13.0.34.5* FREEPBX-15460 Playback Queue Caller Count feature code not working
-		*13.0.34.4* FREEPBX-15347 unit tests
-		*13.0.34.3* FREEPBX-15347
-		*13.0.34.2* FREEPBX-15350 always write out database hints
-		*13.0.34.1* FREEPBX-15058
-		*13.0.34* FREEPBX-14938 Spelling issue in queue tool tips for join/leave empty
-		*13.0.33* FREEPBX-12690 Restore usage info
-		*13.0.32.9* FREEPBX-14132 Pause hint "all queues" action not correct
-		*13.0.32.8* FREEPBX-14132 Pause hints for queues not updating BLF
-		*13.0.32.7* FREEPBX-13529 Fix Stats reset on Queue Creation
-		*13.0.32.6* FREEPBX-14133: queue ring volume override written out incorrectly
-		*13.0.32.5* Replace absolute urls with relative urls in the grid
-		*13.0.32.4* FREEPBX-13818 Force ring volume to be inherited
-		*13.0.32.3* FREEPBX-12966 Errors in Queue pause dialplan
-		*13.0.32.2* Fix buggy hints logic
-		*13.0.32.1* FREEPBX-13241 Queue reset stats cron tasks not being created properly
-		*13.0.32* FREEPBX-13364 Ability to set ringer volume
+		*14.0.2.21* FREEPBX-17706 Wrong URL's in Used as Destination - Announcements 
+		*14.0.2.20* FREEPBX-17706 Wrong URL's in Used as Destination - Queues 
+		*14.0.2.19* prevent infinite loops in from-queue
+		*14.0.2.18* FREEPBX-17552 Wrong URL's in Used as Destination 
+		*14.0.2.17* Fixing FREEPBX-17647 Adding confirmation popup to deleting queue
+		*14.0.2.16* FREEPBX-17145 Queue 'Mark calls answered elsewhere' doesn't work good with 2 queues 
+		*14.0.2.15* FREEPBX-17175  Queues ring strategy not working if Call Screening enabled on extension 
+		*14.0.2.14* FREEPBX-15383 Page setting display line number shown lost after submit 
+		*14.0.2.13* FREEPBX-16371 Agent Retry not working after change 
+		*14.0.3.12* FREEPBX-15176 Remove outdated setting
+		*14.0.2.11* FREEPBX-15347 look at all agents
+		*14.0.2.10* FREEPBX-16064 Queue reports hold time to agents in the wrong language
+		*14.0.2.9* FREEPBX-15460 Playback Queue Caller Count feature code not working
+		*14.0.2.8* FREEPBX-15347 Unit tests
+		*14.0.2.7* FREEPBX-15347 Queue feature code for logout/login toggle and Pause toggle not working
+		*14.0.2.6* FREEPBX-15942 Queue Reset queue stats GUI glitch
+		*14.0.2.5* FREEPBX-15350 always write out database hints
+		*14.0.2.4* FREEPBX-15474
+		*14.0.2.3* FREEPBX-14945 FREEPBX-15058 FREEPBX-14938
+		*14.0.2.2* FREEPBX-14194 Queue volume override in GUI has no affect on sangoma phone
+		*14.0.2.1* FREEPBX-14133 Ignore rvol when writing conf
+		*14.0.2* FREEPBX-13364 Ability to set ringer volume
 		*13.0.31* FREEPBX-12966 Errors in Queue pause dialplan
 		*13.0.30* FREEPBX-12906
 		*13.0.29* Fix adding of call queues with modern databases (FreePBX-12845) by lidl
@@ -74,9 +70,9 @@
 		*13.0.1alpha1* Visual Changes
 	</changelog>
 	<depends>
-		<module>core ge 13.0.114</module>
-		<module>framework ge 13.0.193</module>
+		<version>14.0.1alpha24</version>
 		<module>recordings ge 3.3.8</module>
+		<module>core ge 13.0.22</module>
 	</depends>
 	<menuitems>
 		<queues needsenginedb="yes">Queues</queues>
@@ -88,8 +84,41 @@
 		</queues>
 	</popovers>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
+	<database>
+		<table name="queues_details">
+			<field name="id" type="string" length="45" default="-1" primarykey="true"/>
+			<field name="keyword" type="string" length="30" default="" primarykey="true"/>
+			<field name="data" type="string" length="150" default="" primarykey="true"/>
+			<field name="flags" type="integer" default="0"/>
+		</table>
+		<table name="queues_config">
+			<field name="extension" type="string" length="20" default="" primaryKey="true"/>
+			<field name="descr" type="string" length="35" default=""/>
+			<field name="grppre" type="string" length="100" default=""/>
+			<field name="alertinfo" type="string" length="254" default=""/>
+			<field name="ringing" type="boolean" default="0"/>
+			<field name="maxwait" type="string" length="8" default=""/>
+			<field name="password" type="string" length="20" default=""/>
+			<field name="ivr_id" type="string" length="8" default="0"/>
+			<field name="dest" type="string" length="50" default=""/>
+			<field name="cwignore" type="boolean" default="0"/>
+			<field name="queuewait" type="boolean" default="0" notnull="false"/>
+			<field name="use_queue_context" type="boolean" default="0" notnull="false"/>
+			<field name="togglehint" type="boolean" default="0" notnull="false"/>
+			<field name="qnoanswer" type="boolean" default="0" notnull="false"/>
+			<field name="callconfirm" type="boolean" default="0" notnull="false"/>
+			<field name="callconfirm_id" type="integer" notnull="false"/>
+			<field name="qregex" type="string" length="255" notnull="false"/>
+			<field name="agentannounce_id" type="integer" notnull="false"/>
+			<field name="joinannounce_id" type="integer" notnull="false"/>
+			<field name="monitor_type" type="string" length="5" notnull="false"/>
+			<field name="monitor_heard" type="integer" notnull="false"/>
+			<field name="monitor_spoken" type="integer" notnull="false"/>
+			<field name="callback_id" type="string" length="8" default=""/>
+		</table>
+	</database>
 	<location>release/2.11/queues-2.11.0.11.tgz</location>
 	<md5sum>71b1461cc558320b5f3ecf238d093da6</md5sum>
 </module>

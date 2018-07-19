@@ -8,11 +8,25 @@ if(isset($extdisplay) && $extdisplay != ''){
 	$thisQ = queues_get($extdisplay);
 	//create variables
 	extract($thisQ);
-
 }else{
 	$accountInput = '<input type="text" name="account" id="account" class="form-control" value="" required>';
 }
+//Added for RVOL mode
+if ($rvol_mode == "") {
+        $rvol_mode = "dontcare";
+}
 
+$options = array(_("Force") => "force", _("Yes") => "yes", _("Don't Care") => "dontcare", _("No") => "no", _("Never") => "never");
+foreach ($options as $disp => $rname) {
+        if ($rvol_mode == $rname) {
+                $checked = "checked";
+        } else {
+                $checked = "";
+        }
+        $rvolmode_opts .= "<input type='radio' id='rvolmode_${rname}' name='rvol_mode' value='$rname' $checked><label for='rvolmode_${rname}'>$disp</label>";
+}
+
+//Rvol mode ENDS here
 $cronVars = array(
 	'cron_schedule' => isset($cron_schedule)?$cron_schedule:'never',
 	'cron_minute' => isset($cron_minute)?$cron_minute:'',
@@ -739,7 +753,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<span id="account-help" class="help-block fpbx-help-block"><?php echo _("Use this number to dial into the queue, or transfer callers to this number to put them into the queue.<br><br>Agents will dial this queue number plus * to log onto the queue, and this queue number plus ** to log out of the queue.<br><br>For example, if the queue number is 123:<br><br><b>123* = log in<br>123** = log out</b>")?></span>
+					<span id="account-help" class="help-block fpbx-help-block"><?php echo _("Use this number to dial into the queue, or transfer callers to this number to put them into the queue")?></span>
 				</div>
 			</div>
 		</div>
@@ -768,8 +782,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</div>
 		</div>
 		<!--END Queue Name-->
-		<?php echo $glqchtml //if amp_conf['GENERATE_LEGACY_QUEUE_CODES']?>
-		<?php echo $qnoahtml //if $qnoanswer || !$amp_conf['QUEUES_HIDE_NOANSWER'])?>
+		<?php echo $glqchtml ?>
+		<?php echo $qnoahtml ?>
 		<!--Call Confirm-->
 		<div class="element-container">
 			<div class="row">
@@ -901,6 +915,31 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 				</div>
 			</div>
 		</div>
+		<!-- Rvol mode-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="rvolumemode"><?php echo _("Ringer Volume Override Mode") ?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="rvol_mode"></i>
+							</div>
+							  <div class="col-md-9 radioset">
+                                  <?php echo $rvolmode_opts ?>
+                               </div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="rvol_mode-help" class="help-block fpbx-help-block"><?php echo sprintf(_("Please read the wiki for futher information on these changes.."))?></span>
+				</div>
+			</div>
+		</div>
+		<!--End Rvol mode-->
 		<!--Restrict Dynamic Agents-->
 		<div class="element-container">
 			<div class="row">

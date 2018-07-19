@@ -27,12 +27,11 @@ function queues_add(
 	$monitor_spoken = '0',
 	$answered_elsewhere = '0',
 	$recording = 'dontcare',
-	$rvolume = ''
+	$rvolume = '',
+	$rvol_mode=''
 ) {
  	global $db,$astman,$amp_conf;
 
-	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
-	$ast_ge_18 = version_compare($amp_conf['ASTVERSION'] , '1.8', 'ge');
 	$ast_ge_11 = version_compare($amp_conf['ASTVERSION'] , '11', 'ge');
 	$ast_ge_120 = version_compare($amp_conf['ASTVERSION'] , '12', 'ge');
 
@@ -74,9 +73,12 @@ function queues_add(
 		array($account,'memberdelay',(isset($_REQUEST['memberdelay']))?$_REQUEST['memberdelay']:'0',0),
 		array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
 		array($account,'skip_joinannounce',(isset($_REQUEST['skip_joinannounce']))?$_REQUEST['skip_joinannounce']:'',0),
+		array($account,'answered_elsewhere',(isset($_REQUEST['answered_elsewhere']))?$_REQUEST['answered_elsewhere']:'0',0),
+		array($account,'timeoutpriority',(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',0),
+		array($account,'penaltymemberslimit',(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',0),
 		array($account,'rvolume',(isset($_REQUEST['rvolume']))?$_REQUEST['rvolume']:'',0),
+		array($account,'rvol_mode',(isset($_REQUEST['rvol_mode']))?$_REQUEST['rvol_mode']:'',0),
 	);
-
 	/*
 	 * FREEPBX - 8216. As of Asterisk 12 eventmemberstatus and eventwhencalled are always true and
 	 * are not a user option. These fields will only show up if the user is running version 11 or lower.
@@ -114,26 +116,6 @@ function queues_add(
 		$fields[] = array($account,'autopauseunavail',(isset($_REQUEST['autopauseunavail']))?$_REQUEST['autopauseunavail']:'no',0);
 	}
 
-	if($ast_ge_16) {
-		$fields[] = array(
-			$account,
-			'timeoutpriority',
-			(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',
-			0);
-		$fields[] = array(
-			$account,
-			'penaltymemberslimit',
-			(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',
-			0);
-	}
-	if($ast_ge_18) {
-		$fields[] = array(
-			$account,
-			'answered_elsewhere',
-			(isset($_REQUEST['answered_elsewhere']))?$_REQUEST['answered_elsewhere']:'0',
-			0);
-	}
-
 	if ($_REQUEST['music'] != 'inherit') {
 		$fields[] = array(
 			$account,
@@ -159,9 +141,9 @@ function queues_add(
 		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");
 	}
 	$extension		= $account;
-	$descr			= isset($name) ? $db->escapeSimple($name):'';
-	$grppre			= isset($prefix) ? $db->escapeSimple($prefix):'';
-	$alertinfo		= isset($alertinfo) ? $db->escapeSimple($alertinfo):'';
+	$descr			= isset($name) ? $name:'';
+	$grppre			= isset($prefix) ? $prefix:'';
+	$alertinfo		= isset($alertinfo) ? $alertinfo:'';
 	if (isset($joinannounce_id)) {
 		if ($joinannounce_id == "None" || $joinannounce_id == "") {
 			$joinannounce_id = NULL;
@@ -196,7 +178,7 @@ function queues_add(
 	$dest			= isset($goto) ? $goto:'';
 	$cwignore		= isset($cwignore) ? $cwignore:'0';
 	$queuewait		= isset($queuewait) ? $queuewait:'0';
-	$qregex			= isset($qregex) ? $db->escapeSimple($qregex):'';
+	$qregex			= isset($qregex) ? $qregex:'';
 	$use_queue_context = isset($use_queue_context) ? $use_queue_context:'0';
 	if (isset($togglehint) && $togglehint == "") {
 		$togglehint = 0;

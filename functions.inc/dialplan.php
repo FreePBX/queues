@@ -16,8 +16,6 @@ function queues_get_config($engine) {
 
 			//set our reset cron
 			queues_set_backup_cron();
-
-			$ast_ge_11 = version_compare($version,'11','ge');
 			$ast_ge_12 = version_compare($version,'12','ge');
 
 			if (isset($queues_conf) && is_a($queues_conf, "queues_conf")) {
@@ -84,6 +82,7 @@ function queues_get_config($engine) {
 				$grppre = (isset($q['prefix'])?$q['prefix']:'');
 				$alertinfo = (isset($q['alertinfo'])?$q['alertinfo']:'');
 				$rvolume = (isset($q['rvolume'])?$q['rvolume']:'');
+				$rvol_mode = (isset($q['rvol_mode'])?$q['rvol_mode']:'dontcare');
 
 				// Not sure why someone would ever have a ; in the regex, but since Asterisk has problems with them
 				// it would need to be escaped
@@ -130,7 +129,9 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('VQ_AINFO', ''));
 				if(!empty($rvolume)) {
 					$ext->add($c, $exten, '', new ext_set('__RVOL', $rvolume));
+					$ext->add($c, $exten, '', new ext_set('__RVOLPARENT', $rvolume));// saving Rvol to a differ var , when the call goes to differnt app.
 				}
+				$ext->add($c, $exten, '', new ext_set('__RVOL_MODE', $rvol_mode));// RVOL_MODE : setting the mode of rvol {force,yes,no,dontcare,never)
 				$ext->add($c, $exten, '', new ext_execif('$["${QAINFO}"!=""]', 'Set', '__ALERT_INFO=${QAINFO}'));
 
 				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
@@ -143,6 +144,9 @@ function queues_get_config($engine) {
 				$options = 't';
 				if (isset($q['answered_elsewhere']) && $q['answered_elsewhere'] == '1'){
 					$ext->add($c, $exten, '', new ext_set('QCANCELMISSED', 'C'));
+				}
+				else{
+					$ext->add($c, $exten, '', new ext_set('QCANCELMISSED', ''));
 				}
 				if ($q['rtone'] == 1) {
 					$qringopts = 'r';
@@ -205,6 +209,7 @@ function queues_get_config($engine) {
 					$ext->add($c, $exten, '', new ext_setvar('__CFIGNORE', 'TRUE'));
 					$ext->add($c, $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'block-cf'));
 				}
+				$ext->add($c, $exten, '', new ext_setvar('__SIGNORE', 'TRUE'));
 				$agentannounce_id = (isset($q['agentannounce_id'])?$q['agentannounce_id']:'');
 				if ($agentannounce_id) {
 					$agentannounce = recordings_get_file($agentannounce_id);
@@ -212,21 +217,27 @@ function queues_get_config($engine) {
 					$agentannounce = ' ';
 				}
 
-				if ($q['callconfirm'] == 1) {
-					$ext->add($c, $exten, '', new ext_setvar('__FORCE_CONFIRM', '${CHANNEL}'));
-					if ($amp_conf['AST_FUNC_SHARED']) {
+				//FREEPBX-14945 :Call Confirm Announcement under Virtual Queue module is broken.
+				//we should do the check in the dialplan , then only call confirm from VQ will work,OR need to enable Queue 'call confirm'.
+				$ext->add($c, $exten, '', new ext_setvar('__QC_CONFIRM', $q['callconfirm']));
+				//check the call is from VQ?and see VQ_CONFIRMMSG is set or not
+				$ext->add($c, $exten, '', new ext_gotoif('$[$["${QC_CONFIRM}"="1"] | $[${LEN(${VQ_CONFIRMMSG})}>1]]','QVQANNOUNCE','NOQVQANNOUNCE'));
+				$ext->add($c, $exten, 'QVQANNOUNCE', new ext_setvar('__FORCE_CONFIRM', '${CHANNEL}'));
+				if ($amp_conf['AST_FUNC_SHARED']) {
 						$ext->add($c, $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)','NOANSWER'));
-					}
-					$ext->add($c, $exten, '', new ext_setvar('__CALLCONFIRMCID', '${CALLERID(number)}'));
-					$callconfirm_id = (isset($q['callconfirm_id']))?$q['callconfirm_id']:'';
-					if ($callconfirm_id) {
-						$callconfirm = recordings_get_file($callconfirm_id);
-					} else {
-						$callconfirm = ' ';
-					}
-					$ext->add($c, $exten, '', new ext_set('__ALT_CONFIRM_MSG', '${IF($[${LEN(${VQ_CONFIRMMSG})}>0]?${IF($["${VQ_CONFIRMMSG}"!="0"]?${VQ_CONFIRMMSG}: )}:' . $callconfirm . ')}'));
-					$ext->add($c, $exten, '', new ext_set('VQ_CONFIRMMSG', ''));
 				}
+				$ext->add($c, $exten, '', new ext_setvar('__CALLCONFIRMCID', '${CALLERID(number)}'));
+				$callconfirm_id = (isset($q['callconfirm_id']))?$q['callconfirm_id']:'';
+				if ($callconfirm_id) {
+						$callconfirm = recordings_get_file($callconfirm_id);
+				} else {
+						$callconfirm = 'default';
+				}
+				$ext->add($c, $exten, '', new ext_set('__ALT_CONFIRM_MSG', '${IF($[${LEN(${VQ_CONFIRMMSG})}>0]?${IF($["${VQ_CONFIRMMSG}"!="0"]?${VQ_CONFIRMMSG}:' . $callconfirm . ' )}:' . $callconfirm . ')}'));
+				$ext->add($c, $exten, 'NOQVQANNOUNCE', new ext_set('VQ_CONFIRMMSG', ''));
+				//call confirm over.
+
+
 				$ext->add($c, $exten, '', new ext_execif('$["${QJOINMSG}"!=""' . $cplay . ']', 'Playback', '${QJOINMSG}, ' . $joinansw));
 				$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}'));
 
@@ -656,14 +667,14 @@ function queues_get_config($engine) {
 			$ext->add($c, $exten, '', new ext_goto('a3'));
 
 			$lang = 'en'; // English
-		        $ext->add($c, $lang, 'hook_0', new ext_playback('agent-loginok&with&extension'));
+			$ext->add($c, $lang, 'hook_0', new ext_playback('agent-loginok&with&extension'));
 			$ext->add($c, $lang, '', new ext_saydigits('${CALLBACKNUM}'));
-		        $ext->add($c, $lang, '', new ext_return());
+			$ext->add($c, $lang, '', new ext_return());
 			$lang = 'ja'; // Japanese
-		        $ext->add($c, $lang, 'hook_0', new ext_playback('extension'));
+			$ext->add($c, $lang, 'hook_0', new ext_playback('extension'));
 			$ext->add($c, $lang, '', new ext_saydigits('${CALLBACKNUM}'));
-		        $ext->add($c, $lang, '', new ext_playback('jp-kara&agent-loginok'));
-		        $ext->add($c, $lang, '', new ext_return());
+			$ext->add($c, $lang, '', new ext_playback('jp-kara&agent-loginok'));
+			$ext->add($c, $lang, '', new ext_return());
 
 			/*
 			 * Removes a dynamic agent/member from a Queue
@@ -835,7 +846,7 @@ function queue_agent_add_toggle() {
 	$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${QUEUEUSER}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${QUEUEUSER}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})},,${QUEUEUSERCIDNAME}'));
 
 	$ext->add($id, $c, '', new ext_userevent('AgentLogin','Agent: ${QUEUEUSER}'));
-	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${QUEUEUSERCIDNAME})}>0]?${QUEUEUSERCIDNAME}:${QUEUEUSER})}','ADDMEMBER'));
+	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${QUEUEUSERCIDNAME})}>0]?${QUEUEUSERCIDNAME}:${QUEUEUSER})}','ADDMEMBER', 'Local/${QUEUEUSER}@from-queue/n'));
 	$ext->add($id, $c, '', new ext_macroexit());
 	$ext->add($id, $c, 'invalid', new ext_playback('pbx-invalid'));
 	$ext->add($id, $c, '', new ext_set('QAGENT_UNAUTHORIZED','1'));
@@ -856,6 +867,6 @@ function queue_agent_del_toggle() {
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${QUEUEUSER}@from-queue/n'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${QUEUEUSER}@from-internal/n'));
 	$ext->add($id, $c, '', new ext_userevent('RefreshQueue'));
-	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${QUEUEUSERCIDNAME})}>0]?${QUEUEUSERCIDNAME}:${QUEUEUSER})}','REMOVEMEMBER'));
+	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${QUEUEUSERCIDNAME})}>0]?${QUEUEUSERCIDNAME}:${QUEUEUSER})}','REMOVEMEMBER', 'Local/${QUEUEUSER}@from-queue/n'));
 	$ext->add($id, $c, '', new ext_macroexit());
 }

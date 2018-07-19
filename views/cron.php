@@ -197,7 +197,7 @@ $('input[name="disablecron"]').on('change',function(){
 		$('#cron_random').attr('disabled', true);
 		$('#cron_schedule').val('never');
 	}else{
-		if($('input[name="cron_random"]').val() == 'false'){
+		if($('input[name="cron_random"]:checked').val() == 'false'){
 			$('#cron').prop('disabled',false);
 			$('#cron_minute').attr('disabled', false);
 			$('#cron_hour').attr('disabled', false);
