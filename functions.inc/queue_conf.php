@@ -153,7 +153,19 @@ class queues_conf {
 				if ($keyword == "retry" && ($data == "none" || $data == 0)) {
 					$data = 1;
 				}
-				$output .= $keyword."=".$data."\n";
+				//we dont want to write the queue config if the queue is linked to callbackqueue because callback daemon will play the position annoucnement
+				//dbug('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'.$result[2]. '!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+				if($result[2] >0) {
+					if($keyword =='announce-holdtime' || $keyword == 'announce-position'){
+						$output .= $keyword."=no\n";
+					}elseif($keyword == 'periodic-announce-frequency' ||$keyword == 'announce-frequency' || $keyword =='min-announce-frequency'){
+						$output .= $keyword."=0\n";
+					}else{
+						$output .= $keyword."=".$data."\n";
+					}
+				}else{
+					$output .= $keyword."=".$data."\n";
+				}
 			}
 
 
