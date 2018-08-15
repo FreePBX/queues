@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 17:57-0400\n"
+"POT-Creation-Date: 2018-08-15 00:50-0400\n"
 "PO-Revision-Date: 2016-02-02 18:06+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -281,7 +281,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Options de capacité"
 
-#: functions.inc/queue_conf.php:207
+#: functions.inc/queue_conf.php:219
 msgid "Compound Recordings in Queues Detected"
 msgstr "Enregistrements composés détectés dans les Files d'attente"
 
@@ -718,7 +718,7 @@ msgstr "File d'Attente"
 msgid "Queue %s : %s"
 msgstr "File d'attente %s : %s"
 
-#: functions.inc/queue_conf.php:205
+#: functions.inc/queue_conf.php:217
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "File d'attente - %s (%s) : %s<br />"
@@ -1095,7 +1095,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Attention ! l'Extension"
 
-#: functions.inc/queue_conf.php:200
+#: functions.inc/queue_conf.php:212
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
