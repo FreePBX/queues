@@ -175,7 +175,7 @@ class Queues extends FreePBX_Helpers implements BMO {
 	public function search($query, &$results) {
 		if(!ctype_digit($query)) {
 			$sql = "SELECT * FROM queues_config WHERE descr LIKE ?";
-			$sth = $this->FreePBX->Database->prepare($sql);
+			$sth = $this->Database->prepare($sql);
 			$sth->execute(array("%".$query."%"));
 			$rows = $sth->fetchAll(PDO::FETCH_ASSOC);
 			foreach($rows as $row) {
@@ -183,7 +183,7 @@ class Queues extends FreePBX_Helpers implements BMO {
 			}
 		} else {
 			$sql = "SELECT * FROM queues_config WHERE extension LIKE ?";
-			$sth = $this->FreePBX->Database->prepare($sql);
+			$sth = $this->Database->prepare($sql);
 			$sth->execute(array("%".$query."%"));
 			$rows = $sth->fetchAll(PDO::FETCH_ASSOC);
 			foreach($rows as $row) {
@@ -305,7 +305,7 @@ class Queues extends FreePBX_Helpers implements BMO {
    }
 	 public function listQueues($listall=false){
 		 $sql = "SELECT extension, descr FROM queues_config ORDER BY extension";
-		 $stmt = $this->FreePBX->Database->prepare($sql);
+		 $stmt = $this->Database->prepare($sql);
 		 $stmt->execute();
 		 $results = $stmt->fetchall(PDO::FETCH_BOTH);
 		 foreach($results as $result){
@@ -321,12 +321,12 @@ class Queues extends FreePBX_Helpers implements BMO {
      }
     public function dumpConfigs(){
         $sql = "SELECT * FROM queues_config";
-        return $this->FreePBX->Database->query($sql)
+        return $this->Database->query($sql)
             ->fetchAll(PDO::FETCH_ASSOC);
     }
     public function loadConfigs($configs){
         $sql = "REPLACE INTO queues_config (extension, descr, grppre, alertinfo, ringing, maxwait, password, ivr_id, dest, cwignore, queuewait, use_queue_context, togglehint, qnoanswer, callconfirm, callconfirm_id, qregex, agentannounce_id, joinannounce_id, monitor_type, monitor_heard, monitor_spoken, callback_id) VALUES (:extension, :descr, :grppre, :alertinfo, :ringing, :maxwait, :password, :ivr_id, :dest, :cwignore, :queuewait, :use_queue_context, :togglehint, :qnoanswer, :callconfirm, :callconfirm_id, :qregex, :agentannounce_id, :joinannounce_id, :monitor_type, :monitor_heard, :monitor_spoken, :callback_id)";
-        $stmt = $this->FreePBX->Database->prepare($sql);
+        $stmt = $this->Database->prepare($sql);
         foreach ($configs as $config) {
             $stmt->execute([
             ':extension' => $config ['extension'],
@@ -359,13 +359,13 @@ class Queues extends FreePBX_Helpers implements BMO {
 
     public function dumpDetails(){
     $sql = "SELECT * FROM queues_details";
-    return $this->FreePBX->Database->query($sql)
+    return $this->Database->query($sql)
         ->fetchAll(PDO::FETCH_ASSOC);
 
     }
     public function loadDetails($details){
         $sql = "REPLACE INTO queues_details (id, keyword, data, flags) VALUES (:id, :keyword, :data, :flags)";
-        $stmt = $this->FreePBX->Database->prepare($sql);
+        $stmt = $this->Database->prepare($sql);
         foreach ($details as $key => $detail) {
             $stmt->execute([
                 ':id' => $detail['id'],
@@ -374,6 +374,15 @@ class Queues extends FreePBX_Helpers implements BMO {
                 ':flags' => $detail['flags'],
             ]);
         }
+        return $this;
+    }
+    public function setDatabase($pdo){
+        $this->Database = $pdo;
+        return $this;
+    }
+    
+    public function resetDatabase(){
+        $this->Database = $this->FreePBX->Database;
         return $this;
     }
 }
