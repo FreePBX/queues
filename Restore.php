@@ -21,7 +21,6 @@ class Restore Extends Base\RestoreBase{
       'details' => $bmo->dumpDetails(),
     ];
     $bmo->resetDatabase();
-    $configs = reset($configs);
     $bmo->loadConfigs($configs['configs'])
         ->loadDetails($configs['details']);
     return $this;
