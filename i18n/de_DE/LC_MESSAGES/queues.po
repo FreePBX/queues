@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-15 00:50-0400\n"
-"PO-Revision-Date: 2018-09-12 14:00+0000\n"
+"PO-Revision-Date: 2018-09-19 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
 "Language: de_DE\n"
@@ -1066,7 +1066,7 @@ msgstr ""
 
 #: Queues.class.php:145
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Warnung! Nebenstelle"
 
 #: functions.inc/queue_conf.php:212
 msgid ""
