@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-15 00:50-0400\n"
-"PO-Revision-Date: 2018-10-17 15:00+0000\n"
+"PO-Revision-Date: 2018-10-19 22:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
 "Language: de_DE\n"
@@ -37,13 +37,14 @@ msgid ""
 "that is not from a compound sound file. The IVR itself can play such files, "
 "but the Queue subsystem can not"
 msgstr ""
-"<b>FEHLER</b>: Sie haben ein IVR ausgewählt, das Ansagen verwendet, die aus "
-"zusammengesetzten Audiodateien erzeugt wurden. Die Warteschlange ist nicht "
-"in der Lage, diese Ankündigungen abzuspielen. Diese IVR-Aufnahme wird so "
-"gekürzt, dass nur die erste Audiodatei benutzt wird. Sie können das Problem "
-"beheben, indem Sie für dieses IVR eine andere Ansage auswählen, die nicht "
-"aus zusammengesetzten Audiodateien besteht. Das IVR kann solche Dateien "
-"abspielen, das Warteschlangen-Subsystem jedoch nicht"
+"<b>FEHLER</b>: Sie haben einen Sprachdialog ausgewählt, der Ansagen "
+"verwendet, die aus zusammengesetzten Audiodateien erzeugt wurden. Die "
+"Warteschlange ist nicht in der Lage, diese Ankündigungen abzuspielen. Diese "
+"IVR-Aufnahme wird so gekürzt, dass nur die erste Audiodatei benutzt wird. "
+"Sie können das Problem beheben, indem Sie für diesen Sprachdialog eine "
+"andere Ansage auswählen, die nicht aus zusammengesetzten Audiodateien "
+"besteht. Der Sprachdialog kann solche Dateien abspielen, das Warteschlangen-"
+"Subsystem jedoch nicht"
 
 #: views/qgrid.php:16
 msgid "Actions"
@@ -667,7 +668,7 @@ msgstr "Keine Wiederholung"
 #: views/form.php:190 views/form.php:218 views/form.php:511 views/form.php:552
 #: views/form.php:902
 msgid "None"
-msgstr "keine"
+msgstr "Kein*e"
 
 #: views/form.php:1829
 msgid "Once"
@@ -1272,7 +1273,7 @@ msgstr "Erben"
 
 #: Queues.class.php:145
 msgid "is not allowed for your account."
-msgstr "ist für ihr Konto nicht erlaubt."
+msgstr "ist für Ihr Konto nicht erlaubt."
 
 #: views/form.php:267
 msgid "leastrecent"
@@ -1280,7 +1281,7 @@ msgstr ""
 
 #: views/form.php:272
 msgid "linear"
-msgstr ""
+msgstr "linear"
 
 #: functions.inc.php:33
 msgid "minute"
