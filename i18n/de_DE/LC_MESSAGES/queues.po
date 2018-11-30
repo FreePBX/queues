@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 17:57-0400\n"
+"POT-Creation-Date: 2018-11-30 12:05+0530\n"
 "PO-Revision-Date: 2017-12-18 17:40+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -794,7 +794,7 @@ msgstr "Die Warteschlangennummer darf nicht leer sein"
 msgid "Queue Password"
 msgstr "Warteschlangenpasswort"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Warteschlange Pause Umschalten"
 
