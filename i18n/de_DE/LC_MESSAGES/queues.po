@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-15 00:50-0400\n"
+"POT-Creation-Date: 2018-11-30 12:04+0530\n"
 "PO-Revision-Date: 2018-11-10 20:09+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
@@ -226,8 +226,8 @@ msgstr ""
 "Bearbeiter in dieser Warteschlange (oder in allen Warteschlangen, in denen "
 "sie Mitglieder sind) automatisch auf 'Pause' setzen, wenn sie einen Anruf "
 "nicht entgegennehmen. Das genaue Verhalten kann durch die Einstellungen  "
-"'Verzögerung für die automatische Pause' sowie 'Automatische Pause bei beschä"
-"ftigt/nicht verfügbar' geändert werden, falls dies von der verwendeten "
+"'Verzögerung für die automatische Pause' sowie 'Automatische Pause bei "
+"beschäftigt/nicht verfügbar' geändert werden, falls dies von der verwendeten "
 "Asterisk-Version unterstützt wird."
 
 #: views/form.php:1528
@@ -767,7 +767,7 @@ msgstr "Die Warteschlangennummer darf nicht leer sein"
 msgid "Queue Password"
 msgstr "Warteschlangenpasswort"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Warteschlange Pause Umschalten"
 

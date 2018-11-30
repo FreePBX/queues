@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-15 00:50-0400\n"
+"POT-Creation-Date: 2018-11-30 12:04+0530\n"
 "PO-Revision-Date: 2016-07-07 11:27+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com.com>\n"
 "Language-Team: Russian <http://weblate.postmet.com/freepbx/trunkbalance/"
@@ -852,7 +852,7 @@ msgstr "Номер очереди не может быть пустым"
 msgid "Queue Password"
 msgstr "Пароль очереди"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Переключить паузу очереди"
 

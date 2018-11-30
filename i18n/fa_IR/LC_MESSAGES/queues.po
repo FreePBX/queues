@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-15 00:50-0400\n"
+"POT-Creation-Date: 2018-11-30 12:04+0530\n"
 "PO-Revision-Date: 2016-08-07 06:44+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -859,7 +859,7 @@ msgstr "شماره صف نباید خالی باشد"
 msgid "Queue Password"
 msgstr "کلمه عبور صف"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "تغییر توقف صف"
 
