@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-15 00:50-0400\n"
-"PO-Revision-Date: 2018-07-27 14:00+0000\n"
+"PO-Revision-Date: 2018-11-10 20:09+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
 "Language: de_DE\n"
@@ -37,6 +37,14 @@ msgid ""
 "that is not from a compound sound file. The IVR itself can play such files, "
 "but the Queue subsystem can not"
 msgstr ""
+"<b>FEHLER</b>: Sie haben einen Sprachdialog ausgewählt, der Ansagen "
+"verwendet, die aus zusammengesetzten Audiodateien erzeugt wurden. Die "
+"Warteschlange ist nicht in der Lage, diese Ankündigungen abzuspielen. Diese "
+"IVR-Aufnahme wird so gekürzt, dass nur die erste Audiodatei benutzt wird. "
+"Sie können das Problem beheben, indem Sie für diesen Sprachdialog eine "
+"andere Ansage auswählen, die nicht aus zusammengesetzten Audiodateien "
+"besteht. Der Sprachdialog kann solche Dateien abspielen, das Warteschlangen-"
+"Subsystem jedoch nicht"
 
 #: views/qgrid.php:16
 msgid "Actions"
@@ -64,6 +72,13 @@ msgid ""
 "setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
 "this is honored across queues for members logged on to multiple queues."
 msgstr ""
+"Wie viele Sekunden nach einem erfolgreichen Anruf gewartet werden soll, "
+"bevor einem potentiell freien Bearbeiter ein weiterer Anruf durchgestellt "
+"wird (Standard ist 0 oder keine Verzögerung). Wenn Sie Asterisk 1.6+ "
+"verwenden, können Sie auch die Einstellung 'Nachbearbeitungszeit über alle "
+"Warteschlangen berücksichtigen' (Asterisk: shared_lastcall) unter "
+"'Erweiterte Einstellungen' festlegen, damit diese für Bearbeiter, die in "
+"mehreren Warteschlangen angemeldet sind, berücksichtigt wird."
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
@@ -208,6 +223,12 @@ msgid ""
 "Pause Delay as well as Auto Pause Busy/Unavailable settings if supported on "
 "this version of Asterisk."
 msgstr ""
+"Bearbeiter in dieser Warteschlange (oder in allen Warteschlangen, in denen "
+"sie Mitglieder sind) automatisch auf 'Pause' setzen, wenn sie einen Anruf "
+"nicht entgegennehmen. Das genaue Verhalten kann durch die Einstellungen  "
+"'Verzögerung für die automatische Pause' sowie 'Automatische Pause bei beschä"
+"ftigt/nicht verfügbar' geändert werden, falls dies von der verwendeten "
+"Asterisk-Version unterstützt wird."
 
 #: views/form.php:1528
 msgid "Auto Pause on Busy"
@@ -231,7 +252,7 @@ msgstr "Unterbrechungstyp"
 
 #: views/form.php:822
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Namenspräfix für Anruferkennung"
 
 #: views/form.php:794
 msgid "Call Confirm"
@@ -390,7 +411,7 @@ msgstr ""
 
 #: views/form.php:19 views/form.php:1130
 msgid "Force"
-msgstr "Zwang"
+msgstr "Erzwingen"
 
 #: views/form.php:1739
 msgid "Frequency"
@@ -647,7 +668,7 @@ msgstr "Keine Wiederholung"
 #: views/form.php:190 views/form.php:218 views/form.php:511 views/form.php:552
 #: views/form.php:902
 msgid "None"
-msgstr "keine"
+msgstr "Kein*e"
 
 #: views/form.php:1829
 msgid "Once"
@@ -977,7 +998,7 @@ msgstr ""
 
 #: Queues.class.php:211
 msgid "Submit"
-msgstr "Bestätigen"
+msgstr "Absenden"
 
 #: views/form.php:1777
 msgid ""
@@ -1066,7 +1087,7 @@ msgstr ""
 
 #: Queues.class.php:145
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Warnung! Nebenstelle"
 
 #: functions.inc/queue_conf.php:212
 msgid ""
@@ -1252,7 +1273,7 @@ msgstr "Erben"
 
 #: Queues.class.php:145
 msgid "is not allowed for your account."
-msgstr "ist für ihr Konto nicht erlaubt."
+msgstr "ist für Ihr Konto nicht erlaubt."
 
 #: views/form.php:267
 msgid "leastrecent"
@@ -1260,7 +1281,7 @@ msgstr ""
 
 #: views/form.php:272
 msgid "linear"
-msgstr ""
+msgstr "linear"
 
 #: functions.inc.php:33
 msgid "minute"
