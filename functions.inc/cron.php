@@ -27,8 +27,9 @@ function queues_set_backup_cron() {
                         $q['cron_schedule'] = 'never';
                 }
 
-		$cron = '';
-		$cron['command'] = $amp_conf['AMPBIN'] . '/queue_reset_stats.php --id=' . $qid;
+		$cron = array(
+			'command' => $amp_conf['AMPBIN'] . '/queue_reset_stats.php --id=' . $qid
+		);
 		if (!isset($q['cron_random']) || $q['cron_random'] != 'true') {
 			switch ($q['cron_schedule']) {
 				case 'never':
