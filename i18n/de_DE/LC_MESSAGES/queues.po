@@ -9,17 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 15:17-0400\n"
-"PO-Revision-Date: 2017-03-03 14:42+0200\n"
-"Last-Translator: hammer125 <auswertung@aon.at>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/queues/"
-"de_DE/>\n"
+"POT-Creation-Date: 2018-11-30 12:04+0530\n"
+"PO-Revision-Date: 2018-11-10 20:09+0000\n"
+"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: page.queues.php:19
 msgid " Add Queue"
@@ -38,6 +37,14 @@ msgid ""
 "that is not from a compound sound file. The IVR itself can play such files, "
 "but the Queue subsystem can not"
 msgstr ""
+"<b>FEHLER</b>: Sie haben einen Sprachdialog ausgewählt, der Ansagen "
+"verwendet, die aus zusammengesetzten Audiodateien erzeugt wurden. Die "
+"Warteschlange ist nicht in der Lage, diese Ankündigungen abzuspielen. Diese "
+"IVR-Aufnahme wird so gekürzt, dass nur die erste Audiodatei benutzt wird. "
+"Sie können das Problem beheben, indem Sie für diesen Sprachdialog eine "
+"andere Ansage auswählen, die nicht aus zusammengesetzten Audiodateien "
+"besteht. Der Sprachdialog kann solche Dateien abspielen, das Warteschlangen-"
+"Subsystem jedoch nicht"
 
 #: views/qgrid.php:16
 msgid "Actions"
@@ -65,6 +72,13 @@ msgid ""
 "setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
 "this is honored across queues for members logged on to multiple queues."
 msgstr ""
+"Wie viele Sekunden nach einem erfolgreichen Anruf gewartet werden soll, "
+"bevor einem potentiell freien Bearbeiter ein weiterer Anruf durchgestellt "
+"wird (Standard ist 0 oder keine Verzögerung). Wenn Sie Asterisk 1.6+ "
+"verwenden, können Sie auch die Einstellung 'Nachbearbeitungszeit über alle "
+"Warteschlangen berücksichtigen' (Asterisk: shared_lastcall) unter "
+"'Erweiterte Einstellungen' festlegen, damit diese für Bearbeiter, die in "
+"mehreren Warteschlangen angemeldet sind, berücksichtigt wird."
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
@@ -92,11 +106,11 @@ msgstr ""
 
 #: views/form.php:1333
 msgid "Agent Timeout"
-msgstr ""
+msgstr "Zeitüberschreitung für Bearbeiter"
 
 #: views/form.php:1359
 msgid "Agent Timeout Restart"
-msgstr ""
+msgstr "Neustart der Zeitüberschreitung für Bearbeiter"
 
 #: views/form.php:874
 msgid "Alert Info"
@@ -107,6 +121,9 @@ msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
 msgstr ""
+"Dynamischen Mitgliedern erlauben, sich an- oder abzumelden. Schauen Sie im "
+"Warteschlangenmodul nach, wie man einer Warteschlange dynamische Mitglieder "
+"zuordnet."
 
 #: views/form.php:198
 msgid "Always"
@@ -126,7 +143,7 @@ msgstr "Position ansagen"
 
 #: views/form.php:1806
 msgid "Announce position of caller in the queue?"
-msgstr ""
+msgstr "Die Position des Anrufers in der Warteschlange ansagen?"
 
 #: views/form.php:209
 msgid ""
@@ -136,6 +153,12 @@ msgid ""
 "call right now. To add additional recordings please use the \"System "
 "Recordings\" MENU."
 msgstr ""
+"Ansage, die Anrufern vor dem Einreihen in die Warteschlange vorgespielt "
+"wird. Diese kann übersprungen werden, wenn es Bearbeiter gibt, die bereit "
+"sind einen Anruf entgegenzunehmen (diese können aber noch einen "
+"vorangegangenen Anrufs  nachbearbeiten) oder die aktuell frei sind und den "
+"Anruf sofort entgegenzunehmen. Um zusätzliche Aufnahmen hinzuzufügen, "
+"verwenden Sie bitte das Menü 'Systemaufnahmen'."
 
 #: views/form.php:246
 msgid ""
@@ -200,6 +223,12 @@ msgid ""
 "Pause Delay as well as Auto Pause Busy/Unavailable settings if supported on "
 "this version of Asterisk."
 msgstr ""
+"Bearbeiter in dieser Warteschlange (oder in allen Warteschlangen, in denen "
+"sie Mitglieder sind) automatisch auf 'Pause' setzen, wenn sie einen Anruf "
+"nicht entgegennehmen. Das genaue Verhalten kann durch die Einstellungen  "
+"'Verzögerung für die automatische Pause' sowie 'Automatische Pause bei "
+"beschäftigt/nicht verfügbar' geändert werden, falls dies von der verwendeten "
+"Asterisk-Version unterstützt wird."
 
 #: views/form.php:1528
 msgid "Auto Pause on Busy"
@@ -213,9 +242,9 @@ msgstr "Auto Pause bei Nicht Verfügbar"
 msgid "Autofill"
 msgstr "Automatisches Ausfüllen"
 
-#: functions.inc/geters_seters.php:36
+#: functions.inc/geters_seters.php:39
 msgid "Bad Queue Number, can not be blank"
-msgstr ""
+msgstr "Ungültige Warteschlangennummer, kann nicht leer sein"
 
 #: views/form.php:438
 msgid "Break Out Type"
@@ -223,7 +252,7 @@ msgstr "Unterbrechungstyp"
 
 #: views/form.php:822
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Namenspräfix für Anruferkennung"
 
 #: views/form.php:794
 msgid "Call Confirm"
@@ -273,7 +302,7 @@ msgstr "Kapazitätsoptionen"
 
 #: functions.inc/queue_conf.php:219
 msgid "Compound Recordings in Queues Detected"
-msgstr ""
+msgstr "Zusammengesetzte Aufnahmen in Warteschlangen erkannt"
 
 #: queues.i18n.php:8
 msgid ""
@@ -281,6 +310,10 @@ msgid ""
 "first-out basis. Many options are available, including ring strategy for "
 "agents, caller announcements, max wait times, etc."
 msgstr ""
+"Erzeugt eine Warteschlange, in der Anrufe in einer Warteschleife gehalten "
+"werden und nach Eingangsreihenfolge entgegengenommen werden. Zu den vielen "
+"verfügbaren Optionen zählen  Klingel-Strategien für Bearbeiter, Anrufer-"
+"Ansagen, maximale Wartedauern etc."
 
 #: views/cron.php:60
 msgid "Daily"
@@ -304,7 +337,7 @@ msgid ""
 "enfore the option on in new ones."
 msgstr ""
 
-#: Queues.class.php:202
+#: Queues.class.php:206
 msgid "Delete"
 msgstr "Löschen"
 
@@ -324,6 +357,8 @@ msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
 "failover destination will be immediately pursued. The options include:"
 msgstr ""
+"Entscheidet, ob neue Anrufer in die Warteschlange aufgenommen werden; falls "
+"nicht, wird sofort das Ausweichziel angewählt. Die Optionen enthalten:"
 
 #: views/form.php:19 views/form.php:1132
 msgid "Don't Care"
@@ -376,7 +411,7 @@ msgstr ""
 
 #: views/form.php:19 views/form.php:1130
 msgid "Force"
-msgstr "Zwang"
+msgstr "Erzwingen"
 
 #: views/form.php:1739
 msgid "Frequency"
@@ -426,7 +461,7 @@ msgstr ""
 
 #: functions.inc/destination_registry.php:98
 msgid "INUSE"
-msgstr ""
+msgstr "INUSE"
 
 #: functions.inc.php:75
 #, php-format
@@ -633,7 +668,7 @@ msgstr "Keine Wiederholung"
 #: views/form.php:190 views/form.php:218 views/form.php:511 views/form.php:552
 #: views/form.php:902
 msgid "None"
-msgstr "keine"
+msgstr "Kein*e"
 
 #: views/form.php:1829
 msgid "Once"
@@ -649,6 +684,8 @@ msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
+"Ruftonlautstärke übersteuern. Hinweis: Dies gilt zur Zeit nur für Telefone "
+"von %s"
 
 #: views/form.php:1706
 msgid "Penalty Members Limit"
@@ -684,7 +721,7 @@ msgid ""
 "leave this blank!"
 msgstr ""
 
-#: Queues.class.php:190 views/bootnav.php:9 views/qgrid.php:14
+#: Queues.class.php:194 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
 msgstr "Warteschlange"
 
@@ -825,7 +862,7 @@ msgstr ""
 msgid "Report Hold Time"
 msgstr ""
 
-#: Queues.class.php:212
+#: Queues.class.php:216
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -858,7 +895,7 @@ msgstr ""
 
 #: views/form.php:897
 msgid "Ringer Volume Override"
-msgstr ""
+msgstr "Ruftonlautstärke überschreiben"
 
 #: views/form.php:925
 msgid "Ringer Volume Override Mode"
@@ -959,9 +996,9 @@ msgstr "Statistik zurücksetzen"
 msgid "Strict"
 msgstr ""
 
-#: Queues.class.php:207
+#: Queues.class.php:211
 msgid "Submit"
-msgstr "Bestätigen"
+msgstr "Absenden"
 
 #: views/form.php:1777
 msgid ""
@@ -1048,9 +1085,9 @@ msgstr ""
 msgid "Wait Time Prefix"
 msgstr ""
 
-#: Queues.class.php:141
+#: Queues.class.php:145
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Warnung! Nebenstelle"
 
 #: functions.inc/queue_conf.php:212
 msgid ""
@@ -1234,9 +1271,9 @@ msgstr "Stunden"
 msgid "inherit"
 msgstr "Erben"
 
-#: Queues.class.php:141
+#: Queues.class.php:145
 msgid "is not allowed for your account."
-msgstr ""
+msgstr "ist für Ihr Konto nicht erlaubt."
 
 #: views/form.php:267
 msgid "leastrecent"
@@ -1244,7 +1281,7 @@ msgstr ""
 
 #: views/form.php:272
 msgid "linear"
-msgstr ""
+msgstr "linear"
 
 #: functions.inc.php:33
 msgid "minute"
@@ -1324,11 +1361,23 @@ msgstr "Sekunden"
 msgid "wrandom"
 msgstr ""
 
+#~ msgid "Creating queues_config.."
+#~ msgstr "Erzeuge queues_config.."
+
+#~ msgid "Creating queues_details.."
+#~ msgstr "Erzeuge queues_details.."
+
+#~ msgid "Dropping old queues table.."
+#~ msgstr "Verwerfe alte Warteschlangentabelle.."
+
+#~ msgid "ERROR were encountered"
+#~ msgstr "FEHLER traten auf"
+
 #~ msgid "OK"
 #~ msgstr "OK"
 
 #~ msgid "already exists"
-#~ msgstr "bereits vorhanden"
+#~ msgstr "besteht bereits"
 
 #~ msgid "already migrated"
 #~ msgstr "bereits migriert"
