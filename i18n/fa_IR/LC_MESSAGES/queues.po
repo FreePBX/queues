@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 15:17-0400\n"
+"POT-Creation-Date: 2019-03-06 17:47-0500\n"
 "PO-Revision-Date: 2016-08-07 06:44+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -87,10 +87,6 @@ msgstr "پیام عامل آگهی"
 msgid "Agent Announcement"
 msgstr "اطلاعیه عامل"
 
-#: queues.i18n.php:30
-msgid "Agent Called Events Default"
-msgstr "پیشفرض رویدادهای تماس عامل"
-
 #: views/form.php:1890
 msgid "Agent Regex Filter"
 msgstr "فیلتر Regex  عامل"
@@ -115,7 +111,7 @@ msgstr "راه اندازی مجدد وقفه عامل"
 msgid "Alert Info"
 msgstr "اطلاعات هشدار"
 
-#: install.php:15 queues.i18n.php:42
+#: install.php:15
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -341,26 +337,6 @@ msgstr "روزانه"
 msgid "Default"
 msgstr "پیشفرض"
 
-#: queues.i18n.php:32
-msgid ""
-"Default state for AMI emit events related to an agent's call. This setting "
-"will only affect the default for NEW queues, it won't change existing queues "
-"or enfore the option on in new ones."
-msgstr ""
-"Default state for AMI emit events related to an agent's call. This setting "
-"will only affect the default for NEW queues, it  won't change existing "
-"queues or enfore the option on in new ones."
-
-#: queues.i18n.php:36
-msgid ""
-"Default state for AMI to emit the QueueMemberStatus event. This setting will "
-"only affect the default for NEW queues, it won't change existing queues or "
-"enfore the option on in new ones."
-msgstr ""
-"Default  state for AMI to emit the QueueMemberStatus event. This setting "
-"will only affect the default for NEW queues, it won't change existing queues "
-"or enfore the option on in new ones."
-
 #: Queues.class.php:202
 msgid "Delete"
 msgstr "حذف"
@@ -473,10 +449,6 @@ msgstr ""
 #: views/form.php:407
 msgid "Honor Penalties"
 msgstr "مجازات افتخار"
-
-#: queues.i18n.php:18
-msgid "Honor Wrapup Time Across Queues"
-msgstr "Honor Wrapup  Time Across Queues"
 
 #: views/cron.php:59
 msgid "Hourly"
@@ -678,10 +650,6 @@ msgstr "تاخیر اعضا"
 msgid "Member Status Event"
 msgstr "رویداد وضعیت عضو"
 
-#: queues.i18n.php:34
-msgid "Member Status Event Default"
-msgstr "رویداد پیشفرض وضعیت عضو"
-
 #: views/form.php:480 views/form.php:484
 msgid "Menu ID "
 msgstr "شناسه منو "
@@ -778,11 +746,7 @@ msgstr "محدودیت اعضا"
 msgid "Periodic Announcements"
 msgstr "اطلاعیه های دوره ای"
 
-#: queues.i18n.php:12
-msgid "Persistent Members"
-msgstr "اعضای مداوم"
-
-#: install.php:29 queues.i18n.php:38
+#: install.php:29
 msgid "Playback Queue Caller Count"
 msgstr "تعداد دفعات پخش مجدد برای تماس گیرنده های صف"
 
@@ -859,7 +823,7 @@ msgstr "شماره صف نباید خالی باشد"
 msgid "Queue Password"
 msgstr "کلمه عبور صف"
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:12
 msgid "Queue Pause Toggle"
 msgstr "تغییر توقف صف"
 
@@ -867,7 +831,7 @@ msgstr "تغییر توقف صف"
 msgid "Queue State Detection"
 msgstr "تشخیص آمار صف"
 
-#: install.php:8
+#: install.php:8 queues.i18n.php:14
 msgid "Queue Toggle"
 msgstr "تغییر صف"
 
@@ -900,57 +864,9 @@ msgstr "صف: %s (%s)"
 msgid "Queues"
 msgstr "صف ها"
 
-#: queues.i18n.php:14
-msgid "Queues Module"
-msgstr "ماژول صف"
-
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "ماژول صف یافت نشد یا غیرفعال است. شکست!"
-
-#: queues.i18n.php:28
-msgid ""
-"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-"application instead of Monitor so the concept of 'joining/mixing' the in/out "
-"files now goes away when this is enabled."
-msgstr ""
-"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-"application instead of Monitor so the concept of 'joining/mixing' the in/out "
-"files now  goes away when this is enabled."
-
-#: queues.i18n.php:16
-msgid ""
-"Queues: persistentmembers. Store each dynamic member in each queue in the "
-"astdb so that when asterisk is restarted, each member will be automatically "
-"read into their recorded queues."
-msgstr ""
-"Queues: persistentmembers. Store each dynamic member in each queue in the "
-"astdb so that when asterisk is restarted, each member will be automatically "
-"read into  their recorded queues."
-
-#: queues.i18n.php:20
-msgid ""
-"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
-"lastcall and calls received be the same in members logged in more than one "
-"queue. This is useful to make the queue respect the wrapuptime of another "
-"queue for a shared member."
-msgstr ""
-"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
-"lastcall and calls received be the same in members logged in more than one "
-"queue. This is useful to make the queue respect the wrapuptime of another "
-"queue for a  shared member."
-
-#: queues.i18n.php:24
-msgid ""
-"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
-"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
-"with an agent name, which is set if available at the login time with "
-"AddQueueMember membername parameter, or with static members."
-msgstr ""
-"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
-"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
-"with an agent name, which is set if available at the login time with "
-"AddQueueMember membername parameter, or  with static members."
 
 #: views/cron.php:84
 msgid "RUN"
@@ -1069,10 +985,6 @@ msgstr ""
 #: views/form.php:1864
 msgid "Service Level"
 msgstr "مرحله سرویس"
-
-#: queues.i18n.php:22
-msgid "Set Agent Name in CDR dstchannel"
-msgstr "Set Agent Name  in CDR dstchannel"
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
@@ -1210,10 +1122,6 @@ msgstr "محدودیت جزیی"
 #: views/form.php:344 views/form.php:362
 msgid "Unlimited"
 msgstr "نامحدود"
-
-#: queues.i18n.php:26
-msgid "Use MixMonitor for Recordings"
-msgstr "استفاده از MixMonitor برای ضبط تماسها"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
@@ -1586,6 +1494,87 @@ msgstr "ثانیه ها"
 #: views/form.php:273
 msgid "wrandom"
 msgstr "w random"
+
+#~ msgid "Agent Called Events Default"
+#~ msgstr "پیشفرض رویدادهای تماس عامل"
+
+#~ msgid ""
+#~ "Default state for AMI emit events related to an agent's call. This "
+#~ "setting will only affect the default for NEW queues, it won't change "
+#~ "existing queues or enfore the option on in new ones."
+#~ msgstr ""
+#~ "Default state for AMI emit events related to an agent's call. This "
+#~ "setting will only affect the default for NEW queues, it  won't change "
+#~ "existing queues or enfore the option on in new ones."
+
+#~ msgid ""
+#~ "Default state for AMI to emit the QueueMemberStatus event. This setting "
+#~ "will only affect the default for NEW queues, it won't change existing "
+#~ "queues or enfore the option on in new ones."
+#~ msgstr ""
+#~ "Default  state for AMI to emit the QueueMemberStatus event. This setting "
+#~ "will only affect the default for NEW queues, it won't change existing "
+#~ "queues or enfore the option on in new ones."
+
+#~ msgid "Honor Wrapup Time Across Queues"
+#~ msgstr "Honor Wrapup  Time Across Queues"
+
+#~ msgid "Member Status Event Default"
+#~ msgstr "رویداد پیشفرض وضعیت عضو"
+
+#~ msgid "Persistent Members"
+#~ msgstr "اعضای مداوم"
+
+#~ msgid "Queues Module"
+#~ msgstr "ماژول صف"
+
+#~ msgid ""
+#~ "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+#~ "application instead of Monitor so the concept of 'joining/mixing' the in/"
+#~ "out files now goes away when this is enabled."
+#~ msgstr ""
+#~ "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+#~ "application instead of Monitor so the concept of 'joining/mixing' the in/"
+#~ "out files now  goes away when this is enabled."
+
+#~ msgid ""
+#~ "Queues: persistentmembers. Store each dynamic member in each queue in the "
+#~ "astdb so that when asterisk is restarted, each member will be "
+#~ "automatically read into their recorded queues."
+#~ msgstr ""
+#~ "Queues: persistentmembers. Store each dynamic member in each queue in the "
+#~ "astdb so that when asterisk is restarted, each member will be "
+#~ "automatically read into  their recorded queues."
+
+#~ msgid ""
+#~ "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make "
+#~ "the lastcall and calls received be the same in members logged in more "
+#~ "than one queue. This is useful to make the queue respect the wrapuptime "
+#~ "of another queue for a shared member."
+#~ msgstr ""
+#~ "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make "
+#~ "the lastcall and calls received be the same in members logged in more "
+#~ "than one queue. This is useful to make the queue respect the wrapuptime "
+#~ "of another queue for a  shared member."
+
+#~ msgid ""
+#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
+#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
+#~ "field of a call with an agent name, which is set if available at the "
+#~ "login time with AddQueueMember membername parameter, or with static "
+#~ "members."
+#~ msgstr ""
+#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
+#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
+#~ "field of a call with an agent name, which is set if available at the "
+#~ "login time with AddQueueMember membername parameter, or  with static "
+#~ "members."
+
+#~ msgid "Set Agent Name in CDR dstchannel"
+#~ msgstr "Set Agent Name  in CDR dstchannel"
+
+#~ msgid "Use MixMonitor for Recordings"
+#~ msgstr "استفاده از MixMonitor برای ضبط تماسها"
 
 #~ msgid "Generate queuenum*/** Login/off Codes"
 #~ msgstr "Generate  queuenum*/** Login/off Codes"
