@@ -582,11 +582,7 @@ function queues_get_config($engine) {
 				$ext->splice('macro-auto-blkvm', 's', 1, new ext_execif('$["${FROMQ}" = "true" & "${CALLFILENAME}" != "" & "${CDR(recordingfile)}" = ""]', 'Set', 'CDR(recordingfile)=${CALLFILENAME}.${MON_FMT}'));
 			}
 
-			$ext->addInclude($from_queue_exten_only.'-x','from-internal');
-			$ext->add($from_queue_exten_only.'-x', 'foo', '', new ext_noop('bar'));
-
 			$ext->addInclude($from_queue_exten_internal,$from_queue_exten_only);
-			$ext->addInclude($from_queue_exten_internal,$from_queue_exten_only.'-x');
 			$ext->addInclude($from_queue_exten_internal,'from-internal');
 			$ext->add($from_queue_exten_internal, 'foo', '', new ext_noop('bar'));
 
@@ -599,7 +595,7 @@ function queues_get_config($engine) {
 			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
 			foreach($rows as $row) {
 				//make sure exten exists
-				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/cidnum)} = 0]', $from_queue_exten_only.'-x,${EXTEN},1'));
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/cidnum)} = 0]', 'hangup'));
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_set('RingGroupMethod', 'none'));
 				//FREEPBX-16064 Queue reports hold time to agents in the wrong language
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_set('CHANNEL(language)','${MASTER_CHANNEL(CHANNEL(language))}'));
@@ -613,7 +609,7 @@ function queues_get_config($engine) {
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gosub('1','s','sub-record-check','exten,${EXTEN},'));
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_macro('dial-one',',${DIAL_OPTIONS}${QDOPTS},${EXTEN}'));
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$["${CALLER_DEST}"!=""&&"${DIALSTATUS}"="ANSWER"]','${CUT(CALLER_DEST,^,1)},${CUT(CALLER_DEST,^,2)},${CUT(CALLER_DEST,^,3)}'));
-				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_hangup());
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), 'hangup', new ext_hangup());
 			}
 			if(!empty($rows)) {
 				$ext->add($from_queue_exten_only, 'h', '', new ext_macro('hangupcall'));
