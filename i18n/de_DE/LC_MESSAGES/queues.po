@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 17:47-0500\n"
+"POT-Creation-Date: 2019-03-11 14:37+0530\n"
 "PO-Revision-Date: 2018-11-10 20:09+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
@@ -88,6 +88,10 @@ msgstr ""
 msgid "Agent Announcement"
 msgstr "Agent Ankündigung"
 
+#: queues.i18n.php:30
+msgid "Agent Called Events Default"
+msgstr ""
+
 #: views/form.php:1890
 msgid "Agent Regex Filter"
 msgstr ""
@@ -112,7 +116,7 @@ msgstr "Neustart der Zeitüberschreitung für Bearbeiter"
 msgid "Alert Info"
 msgstr "Alarminformation"
 
-#: install.php:15
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -319,6 +323,20 @@ msgstr "Täglich"
 msgid "Default"
 msgstr "Standard"
 
+#: queues.i18n.php:32
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr ""
+
+#: queues.i18n.php:36
+msgid ""
+"Default state for AMI to emit the QueueMemberStatus event. This setting will "
+"only affect the default for NEW queues, it won't change existing queues or "
+"enfore the option on in new ones."
+msgstr ""
+
 #: Queues.class.php:202
 msgid "Delete"
 msgstr "Löschen"
@@ -415,6 +433,10 @@ msgstr ""
 
 #: views/form.php:407
 msgid "Honor Penalties"
+msgstr ""
+
+#: queues.i18n.php:18
+msgid "Honor Wrapup Time Across Queues"
 msgstr ""
 
 #: views/cron.php:59
@@ -580,6 +602,10 @@ msgstr ""
 msgid "Member Status Event"
 msgstr ""
 
+#: queues.i18n.php:34
+msgid "Member Status Event Default"
+msgstr ""
+
 #: views/form.php:480 views/form.php:484
 msgid "Menu ID "
 msgstr "Menü ID "
@@ -669,13 +695,12 @@ msgstr ""
 msgid "Periodic Announcements"
 msgstr "Regelmäßige Benachtichtigung"
 
-#: install.php:29
-msgid "Playback Queue Caller Count"
-msgstr ""
+#: queues.i18n.php:12
+msgid "Persistent Members"
+msgstr "Dauerhafte Mitglieder"
 
-#: views/form.php:938
-#, php-format
-msgid "Please read the wiki for futher information on these changes.."
+#: install.php:29 queues.i18n.php:38
+msgid "Playback Queue Caller Count"
 msgstr ""
 
 #: views/form.php:1902
@@ -737,7 +762,7 @@ msgstr "Die Warteschlangennummer darf nicht leer sein"
 msgid "Queue Password"
 msgstr "Warteschlangenpasswort"
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:12
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Warteschlange Pause Umschalten"
 
@@ -745,7 +770,7 @@ msgstr "Warteschlange Pause Umschalten"
 msgid "Queue State Detection"
 msgstr ""
 
-#: install.php:8 queues.i18n.php:14
+#: install.php:8
 msgid "Queue Toggle"
 msgstr "Warteschlange umschalten"
 
@@ -778,8 +803,42 @@ msgstr "Warteschlange: %s (%s)"
 msgid "Queues"
 msgstr "Warteschlangen"
 
+#: queues.i18n.php:14
+msgid "Queues Module"
+msgstr "Warteschlangenmodule"
+
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
+msgstr ""
+
+#: queues.i18n.php:28
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+
+#: queues.i18n.php:16
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+
+#: queues.i18n.php:20
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr ""
+
+#: queues.i18n.php:24
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
 msgstr ""
 
 #: views/cron.php:84
@@ -881,6 +940,10 @@ msgstr ""
 
 #: views/form.php:1864
 msgid "Service Level"
+msgstr ""
+
+#: queues.i18n.php:22
+msgid "Set Agent Name in CDR dstchannel"
 msgstr ""
 
 #: views/cron.php:72
@@ -986,6 +1049,10 @@ msgstr ""
 #: views/form.php:344 views/form.php:362
 msgid "Unlimited"
 msgstr "Unbegrenzt"
+
+#: queues.i18n.php:26
+msgid "Use MixMonitor for Recordings"
+msgstr ""
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
@@ -1126,6 +1193,14 @@ msgid ""
 "Whether this queue uses an IVR Break Out Menu or a Queue Callback.  Queue "
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
+msgstr ""
+
+#: views/form.php:938
+#, php-format
+msgid ""
+"While queue calls are distributed, any member has FM/FM(Find Me/Follow Me) "
+"enabled, Ringer Volume value will set based on the 'Ringer Volume Override "
+"Mode(RVOM)'."
 msgstr ""
 
 #: views/form.php:1415
@@ -1288,12 +1363,6 @@ msgstr "Sekunden"
 #: views/form.php:273
 msgid "wrandom"
 msgstr ""
-
-#~ msgid "Persistent Members"
-#~ msgstr "Dauerhafte Mitglieder"
-
-#~ msgid "Queues Module"
-#~ msgstr "Warteschlangenmodule"
 
 #~ msgid "Creating queues_config.."
 #~ msgstr "Erzeuge queues_config.."

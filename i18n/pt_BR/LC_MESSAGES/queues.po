@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 17:47-0500\n"
+"POT-Creation-Date: 2019-03-11 14:37+0530\n"
 "PO-Revision-Date: 2017-02-20 18:07+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -88,6 +88,10 @@ msgstr "Msg de Anúncio do Agente"
 msgid "Agent Announcement"
 msgstr "Anúncio do Agente"
 
+#: queues.i18n.php:30
+msgid "Agent Called Events Default"
+msgstr "Padrão de Eventos do Agente Chamado"
+
 #: views/form.php:1890
 msgid "Agent Regex Filter"
 msgstr "Filtro de Agente (Regex)"
@@ -112,7 +116,7 @@ msgstr "Reiniciar Timeout do Agente"
 msgid "Alert Info"
 msgstr "Alerta"
 
-#: install.php:15
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -338,6 +342,26 @@ msgstr "Diariamente"
 msgid "Default"
 msgstr "Padrão"
 
+#: queues.i18n.php:32
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr ""
+"Estado padrão para emitir eventos AMI relacionados a uma chamada de agente. "
+"Esta configuração irá apenas afetar NOVAS filas, isto não modifica filas "
+"existentes ou atualiza a opção em filas existentes."
+
+#: queues.i18n.php:36
+msgid ""
+"Default state for AMI to emit the QueueMemberStatus event. This setting will "
+"only affect the default for NEW queues, it won't change existing queues or "
+"enfore the option on in new ones."
+msgstr ""
+"Estado padrão para emitir eventos AMI QueueMemberStatus. Esta configuração "
+"irá apenas afetar NOVAS filas, isto não modifica filas existentes ou "
+"atualiza a opção em filas existentes."
+
 #: Queues.class.php:202
 msgid "Delete"
 msgstr "Apagar"
@@ -450,6 +474,10 @@ msgstr ""
 #: views/form.php:407
 msgid "Honor Penalties"
 msgstr "Respeitar penalidades"
+
+#: queues.i18n.php:18
+msgid "Honor Wrapup Time Across Queues"
+msgstr "Respeitar tempo em filas"
 
 #: views/cron.php:59
 msgid "Hourly"
@@ -653,6 +681,10 @@ msgstr "Atraso do Membro"
 msgid "Member Status Event"
 msgstr "Status de evento do Membro"
 
+#: queues.i18n.php:34
+msgid "Member Status Event Default"
+msgstr "Status padrão de evento do membro"
+
 #: views/form.php:480 views/form.php:484
 msgid "Menu ID "
 msgstr "ID do Menu "
@@ -754,14 +786,13 @@ msgstr "Limite de Penalidade de membros"
 msgid "Periodic Announcements"
 msgstr "Anúncios Periódicos"
 
-#: install.php:29
+#: queues.i18n.php:12
+msgid "Persistent Members"
+msgstr "Membros Persistentes"
+
+#: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
 msgstr "Contagem de chamadas da fila de reprodução"
-
-#: views/form.php:938
-#, php-format
-msgid "Please read the wiki for futher information on these changes.."
-msgstr ""
 
 #: views/form.php:1902
 msgid ""
@@ -832,7 +863,7 @@ msgstr "O número da fila não pode ficar em branco"
 msgid "Queue Password"
 msgstr "Senha da Fila"
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:12
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Alternar Pausa da Fila"
 
@@ -840,7 +871,7 @@ msgstr "Alternar Pausa da Fila"
 msgid "Queue State Detection"
 msgstr "Detecção de estado da fila"
 
-#: install.php:8 queues.i18n.php:14
+#: install.php:8
 msgid "Queue Toggle"
 msgstr "Alternar Fila"
 
@@ -875,9 +906,59 @@ msgstr "Fila: %s (%s)"
 msgid "Queues"
 msgstr "Filas"
 
+#: queues.i18n.php:14
+msgid "Queues Module"
+msgstr "Módulo de Filas"
+
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "O módulo filas não foi encontrado ou está desativado. Abortando!"
+
+#: queues.i18n.php:28
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+"Filas: monitor-type = MixMonitor. Configurando como Verdadeiro usará o "
+"aplicativo MixMonitor ao invés do Monitor, de modo que o conceito de \"unir/"
+"misturar\" os arquivos de entrada/saída agora desaparece quando isso estiver "
+"ativado."
+
+#: queues.i18n.php:16
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+"Filas: membros persistentes. Armazene cada membro dinâmico em cada fila no "
+"astdb para que, quando o Asterisk seja reiniciado, cada membro será "
+"automaticamente lido em suas filas."
+
+#: queues.i18n.php:20
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr ""
+"Filas: shared_lastcall, apenas válido com o Asterisk 1.6+. Isso fará com que "
+"a última chamada e as chamadas recebidas sejam as mesmas nos membros "
+"registrados em mais de uma fila. Isso é útil para fazer com que a fila "
+"respeite o wrapuptime de outra fila para um membro compartilhado."
+
+#: queues.i18n.php:24
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
+msgstr ""
+"Filas: updatecdr, apenas válido com o Asterisk 1.6+. Esta opção é "
+"implementada para imitar o comportamento de chan_agents de preencher no CDR "
+"o campo dstchannel de uma chamada com um nome de agente, que é definido se "
+"estiver disponível na hora de início de sessão com o parâmetro memberName "
+"AddQueueMember ou com membros estáticos."
 
 #: views/cron.php:84
 msgid "RUN"
@@ -996,6 +1077,10 @@ msgstr ""
 #: views/form.php:1864
 msgid "Service Level"
 msgstr "Nível de Serviço"
+
+#: queues.i18n.php:22
+msgid "Set Agent Name in CDR dstchannel"
+msgstr "Definir o nome do agente no campo dstchannel no CDR"
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
@@ -1138,6 +1223,10 @@ msgstr "Ultra Restrito"
 #: views/form.php:344 views/form.php:362
 msgid "Unlimited"
 msgstr "Ilimitado"
+
+#: queues.i18n.php:26
+msgid "Use MixMonitor for Recordings"
+msgstr "Use MixMonitor para gravações"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
@@ -1345,6 +1434,14 @@ msgstr ""
 "Se essa fila usa URA Break Out Menu ou  Queue Callback. Queue Callbacks "
 "também pode ser alcançado através da URA, mas requer configuração extra."
 
+#: views/form.php:938
+#, php-format
+msgid ""
+"While queue calls are distributed, any member has FM/FM(Find Me/Follow Me) "
+"enabled, Ringer Volume value will set based on the 'Ringer Volume Override "
+"Mode(RVOM)'."
+msgstr ""
+
 #: views/form.php:1415
 msgid "Wrap-Up-Time"
 msgstr ""
@@ -1521,88 +1618,6 @@ msgstr "segundos"
 #: views/form.php:273
 msgid "wrandom"
 msgstr ""
-
-#~ msgid "Agent Called Events Default"
-#~ msgstr "Padrão de Eventos do Agente Chamado"
-
-#~ msgid ""
-#~ "Default state for AMI emit events related to an agent's call. This "
-#~ "setting will only affect the default for NEW queues, it won't change "
-#~ "existing queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "Estado padrão para emitir eventos AMI relacionados a uma chamada de "
-#~ "agente. Esta configuração irá apenas afetar NOVAS filas, isto não "
-#~ "modifica filas existentes ou atualiza a opção em filas existentes."
-
-#~ msgid ""
-#~ "Default state for AMI to emit the QueueMemberStatus event. This setting "
-#~ "will only affect the default for NEW queues, it won't change existing "
-#~ "queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "Estado padrão para emitir eventos AMI QueueMemberStatus. Esta "
-#~ "configuração irá apenas afetar NOVAS filas, isto não modifica filas "
-#~ "existentes ou atualiza a opção em filas existentes."
-
-#~ msgid "Honor Wrapup Time Across Queues"
-#~ msgstr "Respeitar tempo em filas"
-
-#~ msgid "Member Status Event Default"
-#~ msgstr "Status padrão de evento do membro"
-
-#~ msgid "Persistent Members"
-#~ msgstr "Membros Persistentes"
-
-#~ msgid "Queues Module"
-#~ msgstr "Módulo de Filas"
-
-#~ msgid ""
-#~ "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-#~ "application instead of Monitor so the concept of 'joining/mixing' the in/"
-#~ "out files now goes away when this is enabled."
-#~ msgstr ""
-#~ "Filas: monitor-type = MixMonitor. Configurando como Verdadeiro usará o "
-#~ "aplicativo MixMonitor ao invés do Monitor, de modo que o conceito de "
-#~ "\"unir/misturar\" os arquivos de entrada/saída agora desaparece quando "
-#~ "isso estiver ativado."
-
-#~ msgid ""
-#~ "Queues: persistentmembers. Store each dynamic member in each queue in the "
-#~ "astdb so that when asterisk is restarted, each member will be "
-#~ "automatically read into their recorded queues."
-#~ msgstr ""
-#~ "Filas: membros persistentes. Armazene cada membro dinâmico em cada fila "
-#~ "no astdb para que, quando o Asterisk seja reiniciado, cada membro será "
-#~ "automaticamente lido em suas filas."
-
-#~ msgid ""
-#~ "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make "
-#~ "the lastcall and calls received be the same in members logged in more "
-#~ "than one queue. This is useful to make the queue respect the wrapuptime "
-#~ "of another queue for a shared member."
-#~ msgstr ""
-#~ "Filas: shared_lastcall, apenas válido com o Asterisk 1.6+. Isso fará com "
-#~ "que a última chamada e as chamadas recebidas sejam as mesmas nos membros "
-#~ "registrados em mais de uma fila. Isso é útil para fazer com que a fila "
-#~ "respeite o wrapuptime de outra fila para um membro compartilhado."
-
-#~ msgid ""
-#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
-#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
-#~ "field of a call with an agent name, which is set if available at the "
-#~ "login time with AddQueueMember membername parameter, or with static "
-#~ "members."
-#~ msgstr ""
-#~ "Filas: updatecdr, apenas válido com o Asterisk 1.6+. Esta opção é "
-#~ "implementada para imitar o comportamento de chan_agents de preencher no "
-#~ "CDR o campo dstchannel de uma chamada com um nome de agente, que é "
-#~ "definido se estiver disponível na hora de início de sessão com o "
-#~ "parâmetro memberName AddQueueMember ou com membros estáticos."
-
-#~ msgid "Set Agent Name in CDR dstchannel"
-#~ msgstr "Definir o nome do agente no campo dstchannel no CDR"
-
-#~ msgid "Use MixMonitor for Recordings"
-#~ msgstr "Use MixMonitor para gravações"
 
 #~ msgid "Generate queuenum*/** Login/off Codes"
 #~ msgstr "Gerar queuenum*/* Códigos Login/off"
