@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-30 12:04+0530\n"
+"POT-Creation-Date: 2019-03-11 14:35+0530\n"
 "PO-Revision-Date: 2017-08-08 15:22+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -808,11 +808,6 @@ msgstr "Các thành viên không đổi"
 msgid "Playback Queue Caller Count"
 msgstr "Phát lại số lần gọi hàng đợi của người gọi"
 
-#: views/form.php:938
-#, php-format
-msgid "Please read the wiki for futher information on these changes.."
-msgstr ""
-
 #: views/form.php:1902
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
@@ -1439,6 +1434,14 @@ msgstr ""
 "Hàng đợi này sử dụng một Menu IVR Break Out ( Giải quyết sự cố IVR) hay "
 "Queue Callback ( Gọi lại Hàng đợi).  Queue Callback có thể đạt được qua một "
 "IVR, nhưng yêu cầu một cấu hình bổ sung."
+
+#: views/form.php:938
+#, php-format
+msgid ""
+"While queue calls are distributed, any member has FM/FM(Find Me/Follow Me) "
+"enabled, Ringer Volume value will set based on the 'Ringer Volume Override "
+"Mode(RVOM)'."
+msgstr ""
 
 #: views/form.php:1415
 msgid "Wrap-Up-Time"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-30 12:04+0530\n"
+"POT-Creation-Date: 2019-03-11 14:35+0530\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -669,11 +669,6 @@ msgstr ""
 msgid "Playback Queue Caller Count"
 msgstr ""
 
-#: views/form.php:938
-#, php-format
-msgid "Please read the wiki for futher information on these changes.."
-msgstr ""
-
 #: views/form.php:1902
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
@@ -1200,6 +1195,14 @@ msgid ""
 "Whether this queue uses an IVR Break Out Menu or a Queue Callback.  Queue "
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
+msgstr ""
+
+#: views/form.php:938
+#, php-format
+msgid ""
+"While queue calls are distributed, any member has FM/FM(Find Me/Follow Me) "
+"enabled, Ringer Volume value will set based on the 'Ringer Volume Override "
+"Mode(RVOM)'."
 msgstr ""
 
 #: views/form.php:1415

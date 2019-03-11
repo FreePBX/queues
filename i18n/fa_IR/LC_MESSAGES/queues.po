@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-30 12:04+0530\n"
+"POT-Creation-Date: 2019-03-11 14:35+0530\n"
 "PO-Revision-Date: 2019-01-25 11:51+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/queues/fa/>\n"
@@ -793,11 +793,6 @@ msgstr "اعضای مداوم"
 msgid "Playback Queue Caller Count"
 msgstr "تعداد دفعات پخش مجدد برای تماس گیرنده های صف"
 
-#: views/form.php:938
-#, php-format
-msgid "Please read the wiki for futher information on these changes.."
-msgstr "برای اطلاعات بیشتر ویکی را مطالعه کنید.."
-
 #: views/form.php:1902
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
@@ -1424,6 +1419,14 @@ msgstr ""
 "Callbacks can  also be achieved through an IVR, but requires extra "
 "configuration."
 
+#: views/form.php:938
+#, php-format
+msgid ""
+"While queue calls are distributed, any member has FM/FM(Find Me/Follow Me) "
+"enabled, Ringer Volume value will set based on the 'Ringer Volume Override "
+"Mode(RVOM)'."
+msgstr ""
+
 #: views/form.php:1415
 msgid "Wrap-Up-Time"
 msgstr "خلاصه وقت"
@@ -1599,6 +1602,9 @@ msgstr "ثانیه ها"
 #: views/form.php:273
 msgid "wrandom"
 msgstr "w random"
+
+#~ msgid "Please read the wiki for futher information on these changes.."
+#~ msgstr "برای اطلاعات بیشتر ویکی را مطالعه کنید.."
 
 #~ msgid "Generate queuenum*/** Login/off Codes"
 #~ msgstr "Generate  queuenum*/** Login/off Codes"
