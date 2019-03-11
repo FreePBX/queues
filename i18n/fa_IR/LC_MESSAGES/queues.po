@@ -10,16 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-30 12:04+0530\n"
-"PO-Revision-Date: 2016-08-07 06:44+0200\n"
-"Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"queues/fa_IR/>\n"
+"PO-Revision-Date: 2019-01-25 11:51+0000\n"
+"Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://*/projects/freepbx/queues/fa/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: page.queues.php:19
 msgid " Add Queue"
@@ -307,6 +306,9 @@ msgid ""
 "device or have penalty values less than QUEUE_MAX_PENALTY (not currently set "
 "in FreePBX dialplan)."
 msgstr ""
+"Callers will exit if all agents are paused, show an invalid state for their "
+"device or have penalty values less than QUEUE_MAX_PENALTY (not currently set "
+"in FreePBX dialplan)."
 
 #: views/form.php:393
 msgid ""
@@ -314,6 +316,9 @@ msgid ""
 "for their device, or have penalty values less than QUEUE_MAX_PENALTY (not "
 "currently set in FreePBX dialplan)."
 msgstr ""
+"Callers will not be admitted if all agents are paused, show an invalid state "
+"for their device, or have penalty values less than QUEUE_MAX_PENALTY (not "
+"currently set in FreePBX dialplan)."
 
 #: views/form.php:708
 msgid "Capacity Options"
@@ -769,6 +774,8 @@ msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
+"Override the ringer volume. Note: This is only valid for %s1 phones at this "
+"time"
 
 #: views/form.php:1706
 msgid "Penalty Members Limit"
@@ -789,7 +796,7 @@ msgstr "تعداد دفعات پخش مجدد برای تماس گیرنده ه�
 #: views/form.php:938
 #, php-format
 msgid "Please read the wiki for futher information on these changes.."
-msgstr ""
+msgstr "برای اطلاعات بیشتر ویکی را مطالعه کنید.."
 
 #: views/form.php:1902
 msgid ""
@@ -1004,17 +1011,19 @@ msgstr "چگونگی زنگ"
 
 #: views/form.php:897
 msgid "Ringer Volume Override"
-msgstr ""
+msgstr "بازنویسی صدای زنگ"
 
 #: views/form.php:925
 msgid "Ringer Volume Override Mode"
-msgstr ""
+msgstr "حالت بازنویسی صدای زنگ"
 
 #: views/form.php:394
 msgid ""
 "Same as No except Callers will be admitted if there are paused agents who "
 "could become available."
 msgstr ""
+"همانطور که نه، به جز تماس گیرندگان، اگر مأموریت های متوقف شده ای که می "
+"توانند در دسترس قرار گیرند، پذیرفته می شوند."
 
 #: views/form.php:392
 msgid ""
@@ -1065,6 +1074,8 @@ msgid ""
 "Same as Yes except Callers will remain in the Queue if there are paused "
 "agents who could become available."
 msgstr ""
+"همانطور که بله به جز تماس گیرندگان در صف می ماند اگر مأموران مکث وجود داشته "
+"باشند که می توانند در دسترس باشند."
 
 #: views/form.php:1864
 msgid "Service Level"
@@ -1224,6 +1235,8 @@ msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
 "to put them into the queue"
 msgstr ""
+"از این شماره برای شماره گیری به صف استفاده کنید یا تماس گیرندگان را به این "
+"شماره انتقال دهید تا آنها را در صف قرار دهید"
 
 #: views/form.php:1878
 msgid ""
