@@ -935,7 +935,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<span id="rvol_mode-help" class="help-block fpbx-help-block"><?php echo sprintf(_("Please read the wiki for futher information on these changes.."))?></span>
+					<span id="rvol_mode-help" class="help-block fpbx-help-block"><?php echo sprintf(_("While queue calls are distributed, any member has FM/FM(Find Me/Follow Me) enabled, Ringer Volume value will set based on the 'Ringer Volume Override Mode(RVOM)'."))?></span>
 				</div>
 			</div>
 		</div>
