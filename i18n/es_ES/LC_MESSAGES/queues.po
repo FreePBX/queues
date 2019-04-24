@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 14:35+0530\n"
+"POT-Creation-Date: 2019-04-24 16:50+0530\n"
 "PO-Revision-Date: 2015-12-08 23:36+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -838,7 +838,7 @@ msgstr "El número de la cola no puede estar vacío"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Switch de pausa de Cola"
 
