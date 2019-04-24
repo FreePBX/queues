@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>15.0.9</version>
+	<version>15.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*15.0.10* FREEI-492 Duplicate entry 'Agent Availability Detail' qxact_reports 
 		*15.0.9* FREEPBX-19434 and FREEPBX-19433 
 		*15.0.7* fixing legacy restore
 		*15.0.6* Fix backup
