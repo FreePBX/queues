@@ -248,7 +248,7 @@ function queues_del($account) {
 //
 function queues_list($listall=false) {
 	global $db;
-	$sql = "SELECT extension, descr,callback_id FROM queues_config ORDER BY extension";
+	$sql = "SELECT extension, descr,callback_id,use_queue_context FROM queues_config ORDER BY extension";
 	$results = $db->getAll($sql);
 	if($db->IsError($results)) {
 		$results = array();
@@ -256,7 +256,7 @@ function queues_list($listall=false) {
 
 	foreach($results as $result){
 		if ($listall || checkRange($result[0])){
-			$extens[] = array($result[0],$result[1],$result[2]);
+			$extens[] = array($result[0],$result[1],$result[2],$result[3]);
 		}
 	}
 	if (isset($extens)) {

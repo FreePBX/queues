@@ -78,7 +78,7 @@ function queues_get_config($engine) {
 				$exten = $item[0];
 				$q = queues_get($exten);
 				$c = 'ext-queues';
-
+				$use_queue_context = $item[3];
 				$grppre = (isset($q['prefix'])?$q['prefix']:'');
 				$alertinfo = (isset($q['alertinfo'])?$q['alertinfo']:'');
 				$rvolume = (isset($q['rvolume'])?$q['rvolume']:'');
@@ -112,6 +112,9 @@ function queues_get_config($engine) {
 				// Inform all the children NOT to send calls to destinations or voicemail
 				//
 				$ext->add($c, $exten, '', new ext_setvar('__NODEST', '${EXTEN}'));
+
+				/* adding agent restriction vale in the dialplan to use latter */
+				$ext->add($c, $exten, '', new ext_setvar('__QCONTEXT', $use_queue_context));
 
 				/*
 				 * Virtual Queue Settings, dialplan designed so these can be changed by other modules and those changes
@@ -582,7 +585,11 @@ function queues_get_config($engine) {
 				$ext->splice('macro-auto-blkvm', 's', 1, new ext_execif('$["${FROMQ}" = "true" & "${CALLFILENAME}" != "" & "${CDR(recordingfile)}" = ""]', 'Set', 'CDR(recordingfile)=${CALLFILENAME}.${MON_FMT}'));
 			}
 
+			$ext->addInclude($from_queue_exten_only.'-x','from-internal');
+			$ext->add($from_queue_exten_only.'-x', 'foo', '', new ext_noop('bar'));
+
 			$ext->addInclude($from_queue_exten_internal,$from_queue_exten_only);
+			$ext->addInclude($from_queue_exten_internal,$from_queue_exten_only.'-x');
 			$ext->addInclude($from_queue_exten_internal,'from-internal');
 			$ext->add($from_queue_exten_internal, 'foo', '', new ext_noop('bar'));
 
@@ -595,7 +602,8 @@ function queues_get_config($engine) {
 			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
 			foreach($rows as $row) {
 				//make sure exten exists
-				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/cidnum)} = 0]', 'hangup'));
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/cidnum)} = 0 & ${QCONTEXT}=2]', 'hangup'));
+				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/cidnum)} = 0]', $from_queue_exten_only.'-x,${EXTEN},1'));
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_set('RingGroupMethod', 'none'));
 				//FREEPBX-16064 Queue reports hold time to agents in the wrong language
 				$ext->add($from_queue_exten_only, '_'.str_repeat('X',$row['len']), '', new ext_set('CHANNEL(language)','${MASTER_CHANNEL(CHANNEL(language))}'));
