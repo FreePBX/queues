@@ -356,7 +356,10 @@ function queues_get($account, $queues_conf_only=false) {
 			$account = str_replace("'",'',$account);
 			//get dynamic members priority from astDB
 			$get = $astman->database_show('QPENALTY/'.$account.'/agents');
-
+			if (empty($get)) {
+				$astman->useCaching = false;
+				$get = $astman->database_show('QPENALTY/'.$account.'/agents');
+			}
 			if($get){
 				foreach($get as $key => $value){
 					$key1=explode('/',$key);
