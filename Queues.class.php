@@ -130,8 +130,8 @@ class Queues implements \BMO {
 				// $members = array_values(array_unique($members));
 			}
 
-			if (isset($request["dynmembers"])) {
-				$dynmembers=explode("\n",$request["dynmembers"]);
+			if (isset($request["dynmembers"])) {dbug($request["dynmembers"]);
+				$dynmembers=explode("\n",$request["dynmembers"]);dbug($dynmembers);
 				if (!$dynmembers) {
 					$dynmembers = null;
 				}

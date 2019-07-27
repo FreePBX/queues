@@ -216,18 +216,19 @@ function queues_add(
 		$monitor_spoken
 	);
 	$results = $sth->execute($values);
-
+dbug('Adding dynacmic agents ');
   // store dynamic member data in astDB
 	if ($astman) {
 		$dynmembers = array_unique($dynmembers);
-		foreach($dynmembers as $member){
+		foreach($dynmembers as $member){dbug($member);
 			$mem = explode(',',$member);
 			if (isset($mem[0]) && trim($mem[0]) != '') {
 				$penalty = isset($mem[1]) && ctype_digit(trim($mem[1])) ? $mem[1] : 0;
  				$astman->database_put('QPENALTY/'.$account.'/agents',trim($mem[0]),trim($penalty));
 			}
 		}
-		$astman->database_put('QPENALTY/'.$account,'dynmemberonly',$dynmemberonly);
+		$res1 = $astman->database_put('QPENALTY/'.$account,'dynmemberonly',$dynmemberonly);
+		dbug($res1);
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
@@ -255,6 +256,7 @@ function queues_del($account) {
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
+	return true;
 }
 
 //get the existing queue extensions
@@ -369,7 +371,7 @@ function queues_get($account, $queues_conf_only=false) {
 			$account = str_replace("'",'',$account);
 			//get dynamic members priority from astDB
 			$get = $astman->database_show('QPENALTY/'.$account.'/agents');
-
+dbug(' retriving '.print_r($get,true));
 			if($get){
 				foreach($get as $key => $value){
 					$key1=explode('/',$key);
@@ -383,6 +385,7 @@ function queues_get($account, $queues_conf_only=false) {
 				$results['dynmembers']='';
 			}
 			$results['dynmemberonly'] = $astman->database_get('QPENALTY/'.$account,'dynmemberonly');
+dbug(' retriving2 '.print_r($results['dynmemberonly'],true));
 		} else {
 			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 		}
