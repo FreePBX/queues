@@ -367,7 +367,8 @@ function queues_get($account, $queues_conf_only=false) {
 
 		// TODO: why the str_replace?
     		//
-		if ($astman) {
+		if ($astman) {dbug($astman);
+			$astman->useCaching = false;
 			$account = str_replace("'",'',$account);
 			//get dynamic members priority from astDB
 			$get = $astman->database_show('QPENALTY/'.$account.'/agents');
@@ -385,7 +386,6 @@ dbug(' retriving '.print_r($get,true));
 				$results['dynmembers']='';
 			}
 			$results['dynmemberonly'] = $astman->database_get('QPENALTY/'.$account,'dynmemberonly');
-dbug(' retriving2 '.print_r($results['dynmemberonly'],true));
 		} else {
 			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 		}
