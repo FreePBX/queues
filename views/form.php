@@ -271,6 +271,7 @@ $strategyhelphtml .= '<b>' . _("rrmemory").'</b>: ' . _("round robin with memory
 $strategyhelphtml .= '<b>' . _("rrordered").'</b>: ' . _("same as rrmemory, except the queue member order from config file is preserved").'<br>';
 $strategyhelphtml .= '<b>' . _("linear").'</b>: ' . _("rings agents in the order specified, for dynamic agents in the order they logged in").'<br>';
 $strategyhelphtml .= '<b>' . _("wrandom").'</b>: ' . _("random using the member's penalty as a weighting factor, see asterisk documentation for specifics").'<br>';
+$strategyhelphtml .= '<b>' . _("Some ring strategies (linear, round robin) require Asterisk to be restarted for changes to take effect.").'</b><br>';
 $default = (isset($strategy) ? $strategy : 'ringall');
 $items = array('ringall','leastrecent','fewestcalls','random','rrmemory','rrordered', 'linear', 'wrandom');
 $strategyopts = '';
