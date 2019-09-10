@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>15.0.13</version>
+	<version>15.0.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*15.0.14* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.13* FREEPBX-20461 Add detail to Queues ring strategy tool tip. 
 		*15.0.12* FREEI-618 Dynamic Queue Agents causing ALL queue agents to disappear 
 		*15.0.11* FREEPBX-19819 Queue agent restriction is not working for 'No Follow-Me or Call Forward' option. 
