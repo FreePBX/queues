@@ -828,7 +828,7 @@ function queue_agent_add_toggle() {
 
 	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSER', '${IF($[${LEN(${QUEUEUSER})}>0]?${QUEUEUSER}:${AMPUSER})}'));
-	$ext->add($id, $c, '', new ext_setvar('QUEUEUSERCIDNAME','${DB(AMPUSER/${QUEUEUSER}/cidname)}'));
+	$ext->add($id, $c, '', new ext_setvar('QUEUEUSERCIDNAME','"${DB(AMPUSER/${QUEUEUSER}/cidname)}"'));
 	//TODO: check if it's not a user for some reason and abort?
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(QPENALTY/${QUEUENO}/dynmemberonly)}" = "yes" & ${DB_EXISTS(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})} != 1]', 'invalid'));
 	$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${QUEUEUSER}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${QUEUEUSER}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${QUEUEUSER})},,${QUEUEUSERCIDNAME},hint:${QUEUEUSER}@ext-local'));
@@ -852,7 +852,7 @@ function queue_agent_del_toggle() {
 
 	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSER', '${IF($[${LEN(${QUEUEUSER})}>0]?${QUEUEUSER}:${AMPUSER})}'));
-	$ext->add($id, $c, '', new ext_setvar('QUEUEUSERCIDNAME','${DB(AMPUSER/${QUEUEUSER}/cidname)}'));
+	$ext->add($id, $c, '', new ext_setvar('QUEUEUSERCIDNAME','"${DB(AMPUSER/${QUEUEUSER}/cidname)}"'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${QUEUEUSER}@from-queue/n'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${QUEUEUSER}@from-internal/n'));
 	$ext->add($id, $c, '', new ext_userevent('RefreshQueue'));
