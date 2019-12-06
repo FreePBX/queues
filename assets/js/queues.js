@@ -73,3 +73,9 @@ function breakoutDisable() {
 	/* Re-enable the active one */
 	document.getElementById(breakouttype.value).disabled = false;
 }
+
+function linkFormatterGroup(value, row, index){
+    var html = '<a href="?display=queues&view=form&extdisplay='+row[0]+'"><i class="fa fa-edit"></i></a>';
+    html += '&nbsp;<a href="?display=queues&action=delete&account='+row[0]+'" class="delAction"><i class="fa fa-trash"></i></a>';
+    return html;
+}

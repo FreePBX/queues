@@ -3,7 +3,7 @@
   <a href="config.php?display=queues&amp;view=form" class="btn btn-primary"><i class="fa fa-plus"></i> <?php echo _("Add Queue") ?></a>
 
 </div>
-<table data-url="ajax.php?module=queues&amp;command=getJSON&amp;jdata=grid" data-toolbar="#toolbar-qrnav" data-cache="false" data-toggle="table" data-search="true" class="table" id="table-all-side">
+<table data-url="ajax.php?module=queues&amp;command=getJSON&amp;jdata=grid" data-escape="true" data-toolbar="#toolbar-qrnav" data-cache="false" data-toggle="table" data-search="true" class="table" id="table-all-side">
     <thead>
         <tr>
             <th data-sortable="true" data-field="extension"><?php echo _('Queue')?></th>
