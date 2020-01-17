@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-26 14:44+0530\n"
+"POT-Creation-Date: 2020-01-17 17:28+0530\n"
 "PO-Revision-Date: 2017-08-08 15:22+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -88,7 +88,7 @@ msgstr "Tin nhắn thông báo cho Tổng đài viên"
 msgid "Agent Announcement"
 msgstr "Thông báo tổng đài viên"
 
-#: queues.i18n.php:30
+#: queues.i18n.php:22
 msgid "Agent Called Events Default"
 msgstr "Mặc định các sự kiện đã gọi Tổng đài viên"
 
@@ -116,7 +116,7 @@ msgstr "Thời gian chờ khỏi động lại của Tổng đài viên"
 msgid "Alert Info"
 msgstr "Alert Infor ( Thông tin cảnh báo)"
 
-#: install.php:15 queues.i18n.php:42
+#: install.php:15 queues.i18n.php:34
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -195,10 +195,6 @@ msgstr ""
 #: views/cron.php:63
 msgid "Annually"
 msgstr "Hằng năm"
-
-#: queues.i18n.php:6
-msgid "Applications"
-msgstr "Các ứng dụng"
 
 #: views/form.php:1322
 msgid ""
@@ -333,17 +329,6 @@ msgstr "Các tùy chọn Capacity"
 msgid "Compound Recordings in Queues Detected"
 msgstr "Các bản ghi phức hợp trong Hàng đợi được phát hiện"
 
-#: queues.i18n.php:8
-msgid ""
-"Creates a queue where calls are placed on hold and answered on a first-in, "
-"first-out basis. Many options are available, including ring strategy for "
-"agents, caller announcements, max wait times, etc."
-msgstr ""
-"Tạo một hàng đợi mà các cuộc gọi sẽ được đặt vào đó và được trả lời trên cơ "
-"sở first-in, first-out. Nhiều tùy chọn sẵn có, bao gồm các phương thức đổ "
-"chuông cho các tổng đài viện, các thông báo cho người gọi, số lần chờ tối "
-"đa,.."
-
 #: views/cron.php:60
 msgid "Daily"
 msgstr "Hằng ngày"
@@ -352,7 +337,7 @@ msgstr "Hằng ngày"
 msgid "Default"
 msgstr "Mặc định"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:24
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -363,7 +348,7 @@ msgstr ""
 "các hàng đợi mới, nó sẽ không thay đổi hàng đợi hiện tại hoặc thực thi các "
 "tùy chọn trên các hàng đợi mới."
 
-#: queues.i18n.php:36
+#: queues.i18n.php:28
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -486,7 +471,7 @@ msgstr ""
 msgid "Honor Penalties"
 msgstr ""
 
-#: queues.i18n.php:18
+#: queues.i18n.php:10
 msgid "Honor Wrapup Time Across Queues"
 msgstr ""
 
@@ -697,7 +682,7 @@ msgstr "Hoãn thành viên"
 msgid "Member Status Event"
 msgstr "Sự kiện trạng thái thành viên"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:26
 msgid "Member Status Event Default"
 msgstr "Mặc định sự kiện trạng thái thành viên"
 
@@ -800,11 +785,11 @@ msgstr "Giowis hạn Thành viên Penalty"
 msgid "Periodic Announcements"
 msgstr "Các thông báo định kỳ"
 
-#: queues.i18n.php:12
+#: queues.i18n.php:4
 msgid "Persistent Members"
 msgstr "Các thành viên không đổi"
 
-#: install.php:29 queues.i18n.php:38
+#: install.php:29 queues.i18n.php:30
 msgid "Playback Queue Caller Count"
 msgstr "Phát lại số lần gọi hàng đợi của người gọi"
 
@@ -876,7 +861,7 @@ msgstr "Số của Hàng đợi không được để trống"
 msgid "Queue Password"
 msgstr "Mật khẩu Hàng đợi"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:32
 msgid "Queue Pause Toggle"
 msgstr "Chuyển đổi Tạm dừng ( Pause) Hàng đợi"
 
@@ -913,11 +898,11 @@ msgstr "Hàng đợi: %s"
 msgid "Queue: %s (%s)"
 msgstr "Hàng đợi: %s (%s)"
 
-#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
+#: page.queues.php:7
 msgid "Queues"
 msgstr "Các hàng đợi"
 
-#: queues.i18n.php:14
+#: queues.i18n.php:6
 msgid "Queues Module"
 msgstr "Mô đun Hàng đợi"
 
@@ -925,7 +910,7 @@ msgstr "Mô đun Hàng đợi"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "Mô đun hàng đợi không tìm thấy hoặc bị vô hiệu. Đang hủy!"
 
-#: queues.i18n.php:28
+#: queues.i18n.php:20
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -935,7 +920,7 @@ msgstr ""
 "MixMonitor thay vì Monitor vì thế khái niệm 'joining/mixing' trong các tệp "
 "vào/ra hiện sẽ biến mất khi điều này được kích hoạt."
 
-#: queues.i18n.php:16
+#: queues.i18n.php:8
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
@@ -945,7 +930,7 @@ msgstr ""
 "tại astdb để khi dấu hoa thị được khởi động lại, mỗi thành viên sẽ được tự "
 "động đọc vào hàng đợi đã được ghi lại của chúng."
 
-#: queues.i18n.php:20
+#: queues.i18n.php:12
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -957,7 +942,7 @@ msgstr ""
 "đã đăng nhập vào nhiều hàng đợi. Điều này có ích cho việc tạo một hàng đợi "
 "liên quan tới wrapuptime của hàng đợi khác cho thành viên được chia sẻ."
 
-#: queues.i18n.php:24
+#: queues.i18n.php:16
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -1077,7 +1062,7 @@ msgstr ""
 msgid "Service Level"
 msgstr "Mức dịch vụ"
 
-#: queues.i18n.php:22
+#: queues.i18n.php:14
 msgid "Set Agent Name in CDR dstchannel"
 msgstr "Cài Tên Tổng đài viên trong CDR dstchannel"
 
@@ -1231,7 +1216,7 @@ msgstr "Cực nghiêm ngặt"
 msgid "Unlimited"
 msgstr "Không giới hạn"
 
-#: queues.i18n.php:26
+#: queues.i18n.php:18
 msgid "Use MixMonitor for Recordings"
 msgstr "Sử dụng MixMonitor cho các bản ghi"
 
@@ -1327,7 +1312,6 @@ msgstr ""
 "'Agent Regex Filter' để cung cấp thêm một số  xác nhận tính hợp lệ của mình."
 
 #: views/form.php:1087
-#, fuzzy
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
 "the line were returning busy. This means that Call Waiting or multi-line "
@@ -1344,33 +1328,8 @@ msgid ""
 "to limit an agent belonging to one or more queues to a single queue call. If "
 "they are occupied from other calls, such as outbound calls they initiated, "
 "the queue will consider them available and ring them since the device state "
-"is not monitored with this option. <br /><br />WARNING: When using the "
-"settings that set the 'ringinuse=no' flag, there is a NEGATIVE side effect. "
-"An agent who transfers a queue call will remain unavailable by any queue "
-"until that call is terminated as the call still appears as 'inuse' to the "
-"queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
+"is not monitored with this option."
 msgstr ""
-"Khi được đặt là  \"Yes\" tổng đài viên đang có cuộc gọi sẽ bị bỏ qua nếu "
-"đường dây phản hồi lại là đang bận. Điều này có nghĩa là Call Waiting hoặc "
-"các điện thoại đa đường dây sẽ không được đưa ra cho cuộc gọi và trong các "
-"phương thức đổ chuông khác nhau, tổng đài viên tiếp theo sẽ được thử gọi "
-"lại. <br /> Khi đặt thành 'Yes + (ringinuse=no)', bên cạnh trạng thái thiết "
-"bị được giám sát thì cờ (flag) cấu hình đặt hàng đợi 'ringinuse = no' cũng "
-"được cài đặt cho hàng đợi này. Điều này dẫn đến việc hàng đợi theo dõi các "
-"tổng đài viên từ xa ( Các tổng đài viên là những điện thoại PSTN từ xa, được "
-"gọi qua Follow Me hoặc các phương thức khác) cũng như PBX được kết nối với "
-"các tổng đài viên, vì vậy cờ cấu hình hàng đợi  'ringinuse=no' sẽ được cài "
-"đặt cho Hàng đợi này nhưng trạng thái thiết bị của các tổng đài viên được "
-"kết nối tại chỗ sẽ không được giám sát. \n"
-"Hành vi này là để giới hạn một tổng đài viên thuộc một hay nhiều hàng đợi "
-"đến một cuộc gọi hàng đợi đơn lẻ. Nếu họ đang có cuộc gọi khác ví dụ như các "
-"cuộc gọi ra mà họ đã khởi tạo, hàng đợi sẽ xem họ là khả dụng và đổ chuông "
-"một cuộc gọi hàng đợi đơn lẻ vì trạng thái thiết bị không được giám sát với "
-"tùy chọn này. <br /><br />CẢNH BÁO: Khi sử dụng các cài đặt để cài đặt cờ "
-"'ringinuse=no', sẽ có tác động tiêu cực. Một tổng đài viên truyền một cuộc "
-"gọi Hàng đợi sẽ được các hàng đợi khác xem là không khả dụng cho đến khi "
-"cuộc gọi đó kết thúc vì cuộc gọi vẫn được xuất hiện là 'inuse' trừ khi "
-"'Restrictions Agent' được đặt thành 'Extensions Only'."
 
 #: views/form.php:667
 msgid ""
@@ -1626,6 +1585,67 @@ msgstr "giây"
 #: views/form.php:273
 msgid "wrandom"
 msgstr "wrandom ( ngẫu nhiên w)"
+
+#~ msgid "Applications"
+#~ msgstr "Các ứng dụng"
+
+#~ msgid ""
+#~ "Creates a queue where calls are placed on hold and answered on a first-"
+#~ "in, first-out basis. Many options are available, including ring strategy "
+#~ "for agents, caller announcements, max wait times, etc."
+#~ msgstr ""
+#~ "Tạo một hàng đợi mà các cuộc gọi sẽ được đặt vào đó và được trả lời trên "
+#~ "cơ sở first-in, first-out. Nhiều tùy chọn sẵn có, bao gồm các phương thức "
+#~ "đổ chuông cho các tổng đài viện, các thông báo cho người gọi, số lần chờ "
+#~ "tối đa,.."
+
+#, fuzzy
+#~ msgid ""
+#~ "When set to 'Yes' agents who are on an occupied phone will be skipped as "
+#~ "if the line were returning busy. This means that Call Waiting or multi-"
+#~ "line phones will not be presented with the call and in the various hunt "
+#~ "style ring strategies, the next agent will be attempted. <br />When set "
+#~ "to 'Yes + (ringinuse=no)' the queue configuration flag 'ringinuse=no' is "
+#~ "set for this queue in addition to the phone's device status being "
+#~ "monitored. This results in the queue tracking remote agents (agents who "
+#~ "are a remote PSTN phone, called through Follow-Me, and other means) as "
+#~ "well as PBX connected agents, so the queue will not attempt to send "
+#~ "another call if they are already on a call from any queue. <br />When set "
+#~ "to 'Queue calls only (ringinuse=no)' the queue configuration flag "
+#~ "'ringinuse=no' is set for this queue also but the device status of "
+#~ "locally connected agents is not monitored. The behavior is to limit an "
+#~ "agent belonging to one or more queues to a single queue call. If they are "
+#~ "occupied from other calls, such as outbound calls they initiated, the "
+#~ "queue will consider them available and ring them since the device state "
+#~ "is not monitored with this option. <br /><br />WARNING: When using the "
+#~ "settings that set the 'ringinuse=no' flag, there is a NEGATIVE side "
+#~ "effect. An agent who transfers a queue call will remain unavailable by "
+#~ "any queue until that call is terminated as the call still appears as "
+#~ "'inuse' to the queue UNLESS 'Agent Restrictions' is set to 'Extensions "
+#~ "Only'."
+#~ msgstr ""
+#~ "Khi được đặt là  \"Yes\" tổng đài viên đang có cuộc gọi sẽ bị bỏ qua nếu "
+#~ "đường dây phản hồi lại là đang bận. Điều này có nghĩa là Call Waiting "
+#~ "hoặc các điện thoại đa đường dây sẽ không được đưa ra cho cuộc gọi và "
+#~ "trong các phương thức đổ chuông khác nhau, tổng đài viên tiếp theo sẽ "
+#~ "được thử gọi lại. <br /> Khi đặt thành 'Yes + (ringinuse=no)', bên cạnh "
+#~ "trạng thái thiết bị được giám sát thì cờ (flag) cấu hình đặt hàng đợi "
+#~ "'ringinuse = no' cũng được cài đặt cho hàng đợi này. Điều này dẫn đến "
+#~ "việc hàng đợi theo dõi các tổng đài viên từ xa ( Các tổng đài viên là "
+#~ "những điện thoại PSTN từ xa, được gọi qua Follow Me hoặc các phương thức "
+#~ "khác) cũng như PBX được kết nối với các tổng đài viên, vì vậy cờ cấu hình "
+#~ "hàng đợi  'ringinuse=no' sẽ được cài đặt cho Hàng đợi này nhưng trạng "
+#~ "thái thiết bị của các tổng đài viên được kết nối tại chỗ sẽ không được "
+#~ "giám sát. \n"
+#~ "Hành vi này là để giới hạn một tổng đài viên thuộc một hay nhiều hàng đợi "
+#~ "đến một cuộc gọi hàng đợi đơn lẻ. Nếu họ đang có cuộc gọi khác ví dụ như "
+#~ "các cuộc gọi ra mà họ đã khởi tạo, hàng đợi sẽ xem họ là khả dụng và đổ "
+#~ "chuông một cuộc gọi hàng đợi đơn lẻ vì trạng thái thiết bị không được "
+#~ "giám sát với tùy chọn này. <br /><br />CẢNH BÁO: Khi sử dụng các cài đặt "
+#~ "để cài đặt cờ 'ringinuse=no', sẽ có tác động tiêu cực. Một tổng đài viên "
+#~ "truyền một cuộc gọi Hàng đợi sẽ được các hàng đợi khác xem là không khả "
+#~ "dụng cho đến khi cuộc gọi đó kết thúc vì cuộc gọi vẫn được xuất hiện là "
+#~ "'inuse' trừ khi 'Restrictions Agent' được đặt thành 'Extensions Only'."
 
 #~ msgid "Generate queuenum*/** Login/off Codes"
 #~ msgstr "Khởi tạo  queuenum*/** Các mã Đăng nhập/Tắt"

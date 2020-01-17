@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-26 14:44+0530\n"
+"POT-Creation-Date: 2020-01-17 17:28+0530\n"
 "PO-Revision-Date: 2015-12-08 23:36+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -73,7 +73,7 @@ msgstr "Menaje de anuncio de agente"
 msgid "Agent Announcement"
 msgstr ""
 
-#: queues.i18n.php:30
+#: queues.i18n.php:22
 msgid "Agent Called Events Default"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Alert Info"
 msgstr "Información de alerta"
 
-#: install.php:15 queues.i18n.php:42
+#: install.php:15 queues.i18n.php:34
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -179,10 +179,6 @@ msgstr ""
 #: views/cron.php:63
 msgid "Annually"
 msgstr "Anualmente"
-
-#: queues.i18n.php:6
-msgid "Applications"
-msgstr "Aplicaciones"
 
 #: views/form.php:1322
 msgid ""
@@ -310,17 +306,6 @@ msgstr "Opciones de Capacidad"
 msgid "Compound Recordings in Queues Detected"
 msgstr "Se han detectado grabaciones compuestas en las colas"
 
-#: queues.i18n.php:8
-msgid ""
-"Creates a queue where calls are placed on hold and answered on a first-in, "
-"first-out basis. Many options are available, including ring strategy for "
-"agents, caller announcements, max wait times, etc."
-msgstr ""
-"Crea una cola donde las llamadas se colocan en espera y contestar en esquema "
-"primero en entrar, primero en salir,. Muchas opciones están disponibles, "
-"incluyendo la estrategia de timbrado para agentes, los anuncios de llamadas, "
-"el tiempo de espera máximo, etc."
-
 #: views/cron.php:60
 msgid "Daily"
 msgstr "Diario"
@@ -329,14 +314,14 @@ msgstr "Diario"
 msgid "Default"
 msgstr "Por defecto"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:24
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
 
-#: queues.i18n.php:36
+#: queues.i18n.php:28
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -456,7 +441,7 @@ msgstr ""
 msgid "Honor Penalties"
 msgstr "Honrar Penalidades"
 
-#: queues.i18n.php:18
+#: queues.i18n.php:10
 msgid "Honor Wrapup Time Across Queues"
 msgstr ""
 
@@ -658,7 +643,7 @@ msgstr ""
 msgid "Member Status Event"
 msgstr "Evento Estado de Miembro"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:26
 msgid "Member Status Event Default"
 msgstr ""
 
@@ -760,11 +745,11 @@ msgstr ""
 msgid "Periodic Announcements"
 msgstr "Anuncios periódicos"
 
-#: queues.i18n.php:12
+#: queues.i18n.php:4
 msgid "Persistent Members"
 msgstr ""
 
-#: install.php:29 queues.i18n.php:38
+#: install.php:29 queues.i18n.php:30
 msgid "Playback Queue Caller Count"
 msgstr ""
 
@@ -838,7 +823,7 @@ msgstr "El número de la cola no puede estar vacío"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:32
 msgid "Queue Pause Toggle"
 msgstr "Switch de pausa de Cola"
 
@@ -877,11 +862,11 @@ msgstr "Cola: %s"
 msgid "Queue: %s (%s)"
 msgstr "Cola: %s (%s)"
 
-#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
+#: page.queues.php:7
 msgid "Queues"
 msgstr "Colas"
 
-#: queues.i18n.php:14
+#: queues.i18n.php:6
 msgid "Queues Module"
 msgstr ""
 
@@ -889,21 +874,21 @@ msgstr ""
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "Modulo de Colas no encontrado o deshabilitado. Abortando!"
 
-#: queues.i18n.php:28
+#: queues.i18n.php:20
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now goes away when this is enabled."
 msgstr ""
 
-#: queues.i18n.php:16
+#: queues.i18n.php:8
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
 "read into their recorded queues."
 msgstr ""
 
-#: queues.i18n.php:20
+#: queues.i18n.php:12
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -911,7 +896,7 @@ msgid ""
 "queue for a shared member."
 msgstr ""
 
-#: queues.i18n.php:24
+#: queues.i18n.php:16
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -1040,7 +1025,7 @@ msgstr ""
 msgid "Service Level"
 msgstr ""
 
-#: queues.i18n.php:22
+#: queues.i18n.php:14
 msgid "Set Agent Name in CDR dstchannel"
 msgstr ""
 
@@ -1174,7 +1159,7 @@ msgstr "Ultra Estricto"
 msgid "Unlimited"
 msgstr "Sin límite"
 
-#: queues.i18n.php:26
+#: queues.i18n.php:18
 msgid "Use MixMonitor for Recordings"
 msgstr ""
 
@@ -1287,35 +1272,8 @@ msgid ""
 "to limit an agent belonging to one or more queues to a single queue call. If "
 "they are occupied from other calls, such as outbound calls they initiated, "
 "the queue will consider them available and ring them since the device state "
-"is not monitored with this option. <br /><br />WARNING: When using the "
-"settings that set the 'ringinuse=no' flag, there is a NEGATIVE side effect. "
-"An agent who transfers a queue call will remain unavailable by any queue "
-"until that call is terminated as the call still appears as 'inuse' to the "
-"queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
+"is not monitored with this option."
 msgstr ""
-"Cuando se usa  'Sí' los Agentes que están en un teléfono ocupado se saltará "
-"como si la línea se pone ocupada. Esto significa que la llamada en espera o "
-"teléfono multilínea no se presentarán con la convocatoria y en las diversas "
-"estrategias de timbrado de estilo caza (hunt), se intentará el siguiente "
-"agente. <br /> Cuando usa en \"Sí + (ringinuse = no) 'el indicador de "
-"configuración de colas' ringinuse = no 'se ha fijado para esta cola, además "
-"de estado del dispositivo del teléfono está supervisando. Esto se traduce en "
-"el rastreo agentes remotos (agentes que están en un teléfono remoto PSTN, "
-"llamados por SígueMe, u otros medios), así como PBX conectado agentes, por "
-"lo que la cola no intentará enviar otra llamada si ya están en una llamada "
-"desde cualquier cola. <br /> Cuando se usa \"cola de llamadas sólo "
-"(ringinuse = no) 'el indicador de configuración de colas' ringinuse = no 'se "
-"establece para esta cola también, pero el estado del dispositivo de agentes "
-"conectados localmente no se supervisa. El comportamiento es limitar un "
-"agente que pertenece a una o más colas a  una sola llamada. Si ellos están "
-"ocupados de otras llamadas, como las llamadas salientes que habían iniciado, "
-"la cola los considerará disponible y timbrara a ellos ya que  el estado del "
-"dispositivo no se monitorea con esta opción. <br /><br /> ADVERTENCIA: "
-"Cuando se utiliza la configuración que establecen el 'ringinuse = no' , hay "
-"un efecto secundario negativo. Un agente que transfiere una llamada en cola "
-"no estará disponible por cualquier cola de espera hasta que la llamada se "
-"termina cuando la llamada sigue apareciendo como \"inuse 'a la cola A MENOS "
-"que 'Restricciones de Agente' este en 'Extensiones Only '."
 
 #: views/form.php:667
 msgid ""
@@ -1577,6 +1535,68 @@ msgstr "segundos"
 #: views/form.php:273
 msgid "wrandom"
 msgstr "wrandon"
+
+#~ msgid "Applications"
+#~ msgstr "Aplicaciones"
+
+#~ msgid ""
+#~ "Creates a queue where calls are placed on hold and answered on a first-"
+#~ "in, first-out basis. Many options are available, including ring strategy "
+#~ "for agents, caller announcements, max wait times, etc."
+#~ msgstr ""
+#~ "Crea una cola donde las llamadas se colocan en espera y contestar en "
+#~ "esquema primero en entrar, primero en salir,. Muchas opciones están "
+#~ "disponibles, incluyendo la estrategia de timbrado para agentes, los "
+#~ "anuncios de llamadas, el tiempo de espera máximo, etc."
+
+#~ msgid ""
+#~ "When set to 'Yes' agents who are on an occupied phone will be skipped as "
+#~ "if the line were returning busy. This means that Call Waiting or multi-"
+#~ "line phones will not be presented with the call and in the various hunt "
+#~ "style ring strategies, the next agent will be attempted. <br />When set "
+#~ "to 'Yes + (ringinuse=no)' the queue configuration flag 'ringinuse=no' is "
+#~ "set for this queue in addition to the phone's device status being "
+#~ "monitored. This results in the queue tracking remote agents (agents who "
+#~ "are a remote PSTN phone, called through Follow-Me, and other means) as "
+#~ "well as PBX connected agents, so the queue will not attempt to send "
+#~ "another call if they are already on a call from any queue. <br />When set "
+#~ "to 'Queue calls only (ringinuse=no)' the queue configuration flag "
+#~ "'ringinuse=no' is set for this queue also but the device status of "
+#~ "locally connected agents is not monitored. The behavior is to limit an "
+#~ "agent belonging to one or more queues to a single queue call. If they are "
+#~ "occupied from other calls, such as outbound calls they initiated, the "
+#~ "queue will consider them available and ring them since the device state "
+#~ "is not monitored with this option. <br /><br />WARNING: When using the "
+#~ "settings that set the 'ringinuse=no' flag, there is a NEGATIVE side "
+#~ "effect. An agent who transfers a queue call will remain unavailable by "
+#~ "any queue until that call is terminated as the call still appears as "
+#~ "'inuse' to the queue UNLESS 'Agent Restrictions' is set to 'Extensions "
+#~ "Only'."
+#~ msgstr ""
+#~ "Cuando se usa  'Sí' los Agentes que están en un teléfono ocupado se "
+#~ "saltará como si la línea se pone ocupada. Esto significa que la llamada "
+#~ "en espera o teléfono multilínea no se presentarán con la convocatoria y "
+#~ "en las diversas estrategias de timbrado de estilo caza (hunt), se "
+#~ "intentará el siguiente agente. <br /> Cuando usa en \"Sí + (ringinuse = "
+#~ "no) 'el indicador de configuración de colas' ringinuse = no 'se ha fijado "
+#~ "para esta cola, además de estado del dispositivo del teléfono está "
+#~ "supervisando. Esto se traduce en el rastreo agentes remotos (agentes que "
+#~ "están en un teléfono remoto PSTN, llamados por SígueMe, u otros medios), "
+#~ "así como PBX conectado agentes, por lo que la cola no intentará enviar "
+#~ "otra llamada si ya están en una llamada desde cualquier cola. <br /> "
+#~ "Cuando se usa \"cola de llamadas sólo (ringinuse = no) 'el indicador de "
+#~ "configuración de colas' ringinuse = no 'se establece para esta cola "
+#~ "también, pero el estado del dispositivo de agentes conectados localmente "
+#~ "no se supervisa. El comportamiento es limitar un agente que pertenece a "
+#~ "una o más colas a  una sola llamada. Si ellos están ocupados de otras "
+#~ "llamadas, como las llamadas salientes que habían iniciado, la cola los "
+#~ "considerará disponible y timbrara a ellos ya que  el estado del "
+#~ "dispositivo no se monitorea con esta opción. <br /><br /> ADVERTENCIA: "
+#~ "Cuando se utiliza la configuración que establecen el 'ringinuse = no' , "
+#~ "hay un efecto secundario negativo. Un agente que transfiere una llamada "
+#~ "en cola no estará disponible por cualquier cola de espera hasta que la "
+#~ "llamada se termina cuando la llamada sigue apareciendo como \"inuse 'a la "
+#~ "cola A MENOS que 'Restricciones de Agente' este en 'Extensiones Only '."
 
 #~ msgid ""
 #~ "Use this number to dial into the queue, or transfer callers to this "

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-26 14:44+0530\n"
+"POT-Creation-Date: 2020-01-17 17:28+0530\n"
 "PO-Revision-Date: 2015-09-18 15:56+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -104,7 +104,7 @@ msgstr "エージェントアナウンスメッセージ"
 msgid "Agent Announcement"
 msgstr ""
 
-#: queues.i18n.php:30
+#: queues.i18n.php:22
 msgid "Agent Called Events Default"
 msgstr "標準エージェント・イベントコール"
 
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Alert Info"
 msgstr "アラート情報"
 
-#: install.php:15 queues.i18n.php:42
+#: install.php:15 queues.i18n.php:34
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -204,10 +204,6 @@ msgstr ""
 #: views/cron.php:63
 msgid "Annually"
 msgstr "毎年"
-
-#: queues.i18n.php:6
-msgid "Applications"
-msgstr "アプリケーション"
 
 #: views/form.php:1322
 msgid ""
@@ -332,16 +328,6 @@ msgstr "キャパシティーオプション"
 msgid "Compound Recordings in Queues Detected"
 msgstr "キューに合成録音を検知しました"
 
-#: queues.i18n.php:8
-msgid ""
-"Creates a queue where calls are placed on hold and answered on a first-in, "
-"first-out basis. Many options are available, including ring strategy for "
-"agents, caller announcements, max wait times, etc."
-msgstr ""
-"コールが保留中に置かれ、先入れ先出しに基づいて応答されるキューを作成します。"
-"エージェントへのリングストラテジー、発信者アナウンス、最大待ち時間等を含む多"
-"くのオプションを利用できます。"
-
 #: views/cron.php:60
 msgid "Daily"
 msgstr "毎日"
@@ -350,7 +336,7 @@ msgstr "毎日"
 msgid "Default"
 msgstr "デフォルト"
 
-#: queues.i18n.php:32
+#: queues.i18n.php:24
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -359,7 +345,7 @@ msgstr ""
 "エージェントの呼に関連するAMI emit eventのデフォルト。この設定は、新規キュー"
 "のデフォルトのみを変更し、既存のキューの設定は変更しません。"
 
-#: queues.i18n.php:36
+#: queues.i18n.php:28
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -481,7 +467,7 @@ msgstr ""
 msgid "Honor Penalties"
 msgstr "ペナルティを与える"
 
-#: queues.i18n.php:18
+#: queues.i18n.php:10
 msgid "Honor Wrapup Time Across Queues"
 msgstr "キューをまたいでまとめた時間を尊重する"
 
@@ -674,7 +660,7 @@ msgstr ""
 msgid "Member Status Event"
 msgstr "メンバーステータスイベント"
 
-#: queues.i18n.php:34
+#: queues.i18n.php:26
 msgid "Member Status Event Default"
 msgstr ""
 
@@ -771,11 +757,11 @@ msgstr ""
 msgid "Periodic Announcements"
 msgstr "定期的なアナウンス"
 
-#: queues.i18n.php:12
+#: queues.i18n.php:4
 msgid "Persistent Members"
 msgstr "永続的なメンバー"
 
-#: install.php:29 queues.i18n.php:38
+#: install.php:29 queues.i18n.php:30
 msgid "Playback Queue Caller Count"
 msgstr ""
 
@@ -846,7 +832,7 @@ msgstr "キュー番号を空にすることはできません"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:32
 msgid "Queue Pause Toggle"
 msgstr "キューポーズトグル"
 
@@ -883,11 +869,11 @@ msgstr "キュー: %s"
 msgid "Queue: %s (%s)"
 msgstr "キュー: %s (%s)"
 
-#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
+#: page.queues.php:7
 msgid "Queues"
 msgstr "キュー"
 
-#: queues.i18n.php:14
+#: queues.i18n.php:6
 msgid "Queues Module"
 msgstr "キューモジュール"
 
@@ -896,7 +882,7 @@ msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 "キューのモジュールが見つからない、または無効になっているため終了します！"
 
-#: queues.i18n.php:28
+#: queues.i18n.php:20
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -906,7 +892,7 @@ msgstr ""
 "代わりにMixモニターアプリケーションが使用され、入/出力ファイルを'追加/ミック"
 "ス'するという概念が消えます。"
 
-#: queues.i18n.php:16
+#: queues.i18n.php:8
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
@@ -916,7 +902,7 @@ msgstr ""
 "キューに読み込まれるように、各キューに入っている各動的メンバーをastdb内に格納"
 "します。"
 
-#: queues.i18n.php:20
+#: queues.i18n.php:12
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -927,7 +913,7 @@ msgstr ""
 "ルと受信したコールを１つ以上のキューにログインしたメンバー内で同じにします。"
 "これは、共有メンバーで他のキューのラップアップタイムを尊重するのに便利です。"
 
-#: queues.i18n.php:24
+#: queues.i18n.php:16
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -1059,7 +1045,7 @@ msgstr ""
 msgid "Service Level"
 msgstr ""
 
-#: queues.i18n.php:22
+#: queues.i18n.php:14
 msgid "Set Agent Name in CDR dstchannel"
 msgstr "CDR dstchannelにエージェント名を設定"
 
@@ -1185,7 +1171,7 @@ msgstr "非常に厳密"
 msgid "Unlimited"
 msgstr "無制限"
 
-#: queues.i18n.php:26
+#: queues.i18n.php:18
 msgid "Use MixMonitor for Recordings"
 msgstr "録音にMixモニターを使用"
 
@@ -1295,33 +1281,8 @@ msgid ""
 "to limit an agent belonging to one or more queues to a single queue call. If "
 "they are occupied from other calls, such as outbound calls they initiated, "
 "the queue will consider them available and ring them since the device state "
-"is not monitored with this option. <br /><br />WARNING: When using the "
-"settings that set the 'ringinuse=no' flag, there is a NEGATIVE side effect. "
-"An agent who transfers a queue call will remain unavailable by any queue "
-"until that call is terminated as the call still appears as 'inuse' to the "
-"queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
+"is not monitored with this option."
 msgstr ""
-"'はい'に設定された時、電話機が占有されているエージェントは、ラインがビジーで"
-"戻ってきたかのようにスキップされます。これは、コールウェイティングやマルチラ"
-"イン電話は様々なハントスタイルのリングストラテジー内ではコールに出現しないこ"
-"とを意味し、次のエージェントが試みられます。<br />'はい + (使用中着信=no)'に"
-"設定された場合、電話デバイスのステータスがモニタリングされることに加えて、"
-"キュー設定フラグ '使用中着信=no'がこのキューに設定されます。これによりキュー"
-"がPBXに接続したエージェントに加え、リモートエージェント(リモートPSTN電話の"
-"エージェント、フォローミー経由でのコールや他の手段)をトラッキングすることにな"
-"り、彼らが既にいづれかのキューからのコールに出ている場合はキューは他のコール"
-"を送信するように試みません。<br />キューコールオンリー (使用中着信=no)に設定"
-"された場合、キュー設定フラグ '使用中着信=no'もこのキューに設定されますが、"
-"ローカル接続されたエージェントのデバイスステータスはモニターされません。この"
-"動作は１つ以上のキューに所属しているエージェントを単独のキューコールに制限す"
-"るためです。例えば彼らから発信したアウトバウンドコールなどのように、もしそれ"
-"らが他のコールに占有された場合、キューは彼らが利用可能であるとみなし、このオ"
-"プションによってデバイスステータスがモニターされていないため彼らに着信させま"
-"す。<br /><br />警告: '使用中着信=no' フラグがセットされる設定を使用する場合"
-"は、ネガティブな効果も生じます。キューコールを転送したエージェントは、'エー"
-"ジェントを制限' を '内線のみ' に設定されない限り、'内線のみコールがまだキュー"
-"に対して '使用中' に見えてしまうため、そのコールが切断されるまで利用不可能な"
-"ままになってしまいます。"
 
 #: views/form.php:667
 msgid ""
@@ -1566,6 +1527,64 @@ msgstr "秒"
 #: views/form.php:273
 msgid "wrandom"
 msgstr "wrandom"
+
+#~ msgid "Applications"
+#~ msgstr "アプリケーション"
+
+#~ msgid ""
+#~ "Creates a queue where calls are placed on hold and answered on a first-"
+#~ "in, first-out basis. Many options are available, including ring strategy "
+#~ "for agents, caller announcements, max wait times, etc."
+#~ msgstr ""
+#~ "コールが保留中に置かれ、先入れ先出しに基づいて応答されるキューを作成しま"
+#~ "す。エージェントへのリングストラテジー、発信者アナウンス、最大待ち時間等を"
+#~ "含む多くのオプションを利用できます。"
+
+#~ msgid ""
+#~ "When set to 'Yes' agents who are on an occupied phone will be skipped as "
+#~ "if the line were returning busy. This means that Call Waiting or multi-"
+#~ "line phones will not be presented with the call and in the various hunt "
+#~ "style ring strategies, the next agent will be attempted. <br />When set "
+#~ "to 'Yes + (ringinuse=no)' the queue configuration flag 'ringinuse=no' is "
+#~ "set for this queue in addition to the phone's device status being "
+#~ "monitored. This results in the queue tracking remote agents (agents who "
+#~ "are a remote PSTN phone, called through Follow-Me, and other means) as "
+#~ "well as PBX connected agents, so the queue will not attempt to send "
+#~ "another call if they are already on a call from any queue. <br />When set "
+#~ "to 'Queue calls only (ringinuse=no)' the queue configuration flag "
+#~ "'ringinuse=no' is set for this queue also but the device status of "
+#~ "locally connected agents is not monitored. The behavior is to limit an "
+#~ "agent belonging to one or more queues to a single queue call. If they are "
+#~ "occupied from other calls, such as outbound calls they initiated, the "
+#~ "queue will consider them available and ring them since the device state "
+#~ "is not monitored with this option. <br /><br />WARNING: When using the "
+#~ "settings that set the 'ringinuse=no' flag, there is a NEGATIVE side "
+#~ "effect. An agent who transfers a queue call will remain unavailable by "
+#~ "any queue until that call is terminated as the call still appears as "
+#~ "'inuse' to the queue UNLESS 'Agent Restrictions' is set to 'Extensions "
+#~ "Only'."
+#~ msgstr ""
+#~ "'はい'に設定された時、電話機が占有されているエージェントは、ラインがビジー"
+#~ "で戻ってきたかのようにスキップされます。これは、コールウェイティングやマル"
+#~ "チライン電話は様々なハントスタイルのリングストラテジー内ではコールに出現し"
+#~ "ないことを意味し、次のエージェントが試みられます。<br />'はい + (使用中着"
+#~ "信=no)'に設定された場合、電話デバイスのステータスがモニタリングされること"
+#~ "に加えて、キュー設定フラグ '使用中着信=no'がこのキューに設定されます。これ"
+#~ "によりキューがPBXに接続したエージェントに加え、リモートエージェント(リモー"
+#~ "トPSTN電話のエージェント、フォローミー経由でのコールや他の手段)をトラッキ"
+#~ "ングすることになり、彼らが既にいづれかのキューからのコールに出ている場合は"
+#~ "キューは他のコールを送信するように試みません。<br />キューコールオンリー "
+#~ "(使用中着信=no)に設定された場合、キュー設定フラグ '使用中着信=no'もこの"
+#~ "キューに設定されますが、ローカル接続されたエージェントのデバイスステータス"
+#~ "はモニターされません。この動作は１つ以上のキューに所属しているエージェント"
+#~ "を単独のキューコールに制限するためです。例えば彼らから発信したアウトバウン"
+#~ "ドコールなどのように、もしそれらが他のコールに占有された場合、キューは彼ら"
+#~ "が利用可能であるとみなし、このオプションによってデバイスステータスがモニ"
+#~ "ターされていないため彼らに着信させます。<br /><br />警告: '使用中着信=no' "
+#~ "フラグがセットされる設定を使用する場合は、ネガティブな効果も生じます。"
+#~ "キューコールを転送したエージェントは、'エージェントを制限' を '内線のみ' "
+#~ "に設定されない限り、'内線のみコールがまだキューに対して '使用中' に見えて"
+#~ "しまうため、そのコールが切断されるまで利用不可能なままになってしまいます。"
 
 #~ msgid "Generate queuenum*/** Login/off Codes"
 #~ msgstr "queuenum*/** Login/offのコードを生成する"
