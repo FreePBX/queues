@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-26 14:43+0530\n"
-"PO-Revision-Date: 2020-02-04 16:00+0000\n"
+"PO-Revision-Date: 2020-02-19 15:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
 "Language: de_DE\n"
@@ -290,7 +290,7 @@ msgstr "Anruf bestätigen"
 
 #: views/form.php:146
 msgid "Call Confirm Announce"
-msgstr ""
+msgstr "Anrufbestätigungsansage"
 
 #: views/form.php:1126
 msgid "Call Recording"
@@ -302,7 +302,7 @@ msgstr ""
 
 #: views/form.php:563
 msgid "Callback to use when caller presses 1."
-msgstr ""
+msgstr "Zu nutzender Rückruf, wenn der Anrufer '1' drückt."
 
 #: views/form.php:714
 msgid "Caller Announcements"
@@ -377,6 +377,10 @@ msgid ""
 "only affect the default for NEW queues, it won't change existing queues or "
 "enfore the option on in new ones."
 msgstr ""
+"Standardstatus, in dem AMI das QueueMemberStatus-Ereignis ausgibt. Diese "
+"Einstellung wirkt sich nur auf die Standardeinstellung für NEUE "
+"Warteschlangen aus. Bestehende Warteschlangen werden nicht geändert, und die "
+"Option wird nicht für neue Warteschlangen erzwungen."
 
 #: Queues.class.php:206
 msgid "Delete"
@@ -392,6 +396,9 @@ msgid ""
 "situations where it appears no one is currently available to take the call. "
 "The options include:"
 msgstr ""
+"Legt fest, ob Anrufer vorzeitig aus der Warteschlange entfernt werden "
+"sollen, wenn der Eindruck entsteht, dass derzeit niemand für die Annahme des "
+"Anrufs verfügbar ist. Die Optionen umfassen:"
 
 #: views/form.php:389
 msgid ""
@@ -422,6 +429,9 @@ msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
+"In früheren Versionen dieses Moduls konnten solche Warteschlangen ausgewählt "
+"werden. Sobald diese Einstellung geändert wurde, wird sie nicht mehr als "
+"Option angezeigt."
 
 #: views/cron.php:37
 msgid "Enable this task"
@@ -436,15 +446,15 @@ msgstr ""
 
 #: views/form.php:619
 msgid "Event When Called"
-msgstr ""
+msgstr "Ereignis bei Anruf"
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
-msgstr ""
+msgstr "Nebenstellen-Einstellungen"
 
 #: views/form.php:990
 msgid "Extensions Only"
-msgstr ""
+msgstr "Nur Nebenstellen"
 
 #: views/form.php:1183
 msgid "Fail Over Destination"
@@ -465,6 +475,8 @@ msgstr "Allgemeine Einstellungen"
 #: views/form.php:781
 msgid "Give this queue a brief name to help you identify it."
 msgstr ""
+"Geben Sie dieser Warteschlange einen kurzen Namen, damit Sie sie leichter "
+"identifizieren können."
 
 #: views/form.php:1112
 msgid ""
@@ -474,11 +486,11 @@ msgstr ""
 
 #: views/form.php:408
 msgid "Honor Penalties"
-msgstr ""
+msgstr "Strafen einhalten"
 
 #: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
-msgstr ""
+msgstr "Wrapup-Zeit über Warteschlangen hinweg einhalten"
 
 #: views/cron.php:59
 msgid "Hourly"
@@ -507,7 +519,7 @@ msgstr "INUSE"
 #: functions.inc.php:75
 #, php-format
 msgid "IVR Announce: %s"
-msgstr ""
+msgstr "IVR Ansage: %s"
 
 #: views/form.php:444 views/form.php:507
 msgid "IVR Break Out Menu"
@@ -640,7 +652,7 @@ msgstr "Warteschlangen auflisten"
 #: views/form.php:395 views/form.php:403 views/form.php:1314
 #: views/form.php:1653 views/form.php:1687
 msgid "Loose"
-msgstr "verlieren"
+msgstr "locker"
 
 #: views/form.php:1155
 msgid "Mark calls answered elsewhere"
@@ -1029,7 +1041,7 @@ msgstr ""
 
 #: views/form.php:1865
 msgid "Service Level"
-msgstr ""
+msgstr "Servicelevel"
 
 #: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
@@ -1047,7 +1059,7 @@ msgstr ""
 
 #: views/form.php:1063
 msgid "Skip Busy Agents"
-msgstr ""
+msgstr "Beschäftigte Agenten überspringen"
 
 #: views/form.php:274
 msgid ""
@@ -1057,7 +1069,7 @@ msgstr ""
 
 #: views/form.php:1210
 msgid "Static Agents"
-msgstr ""
+msgstr "Statische Agenten"
 
 #: views/form.php:1231
 msgid ""
@@ -1101,7 +1113,7 @@ msgstr "Statistik zurücksetzen"
 #: views/form.php:392 views/form.php:401 views/form.php:1312
 #: views/form.php:1647 views/form.php:1681
 msgid "Strict"
-msgstr ""
+msgstr "Streng"
 
 #: Queues.class.php:211
 msgid "Submit"
@@ -1173,7 +1185,7 @@ msgstr ""
 #: views/form.php:393 views/form.php:402 views/form.php:1649
 #: views/form.php:1683
 msgid "Ultra Strict"
-msgstr ""
+msgstr "Sehr Streng"
 
 #: views/form.php:345 views/form.php:363
 msgid "Unlimited"
@@ -1380,7 +1392,7 @@ msgstr ""
 
 #: views/form.php:1416
 msgid "Wrap-Up-Time"
-msgstr ""
+msgstr "Nachbearbeitungszeit"
 
 #: views/cron.php:26 views/cron.php:55 views/form.php:19 views/form.php:116
 #: views/form.php:391 views/form.php:400 views/form.php:625 views/form.php:657
@@ -1435,7 +1447,7 @@ msgstr "Standard"
 
 #: views/form.php:268
 msgid "fewestcalls"
-msgstr ""
+msgstr "wenigste Anrufe"
 
 #: functions.inc.php:32
 msgid "hour"
@@ -1486,6 +1498,8 @@ msgstr ""
 #: views/form.php:267
 msgid "ring agent which was least recently called by this queue"
 msgstr ""
+"Rufen Sie den Agenten an, der zuletzt von dieser Warteschlange angerufen "
+"wurde"
 
 #: views/form.php:266
 msgid "ring all available agents until one answers (default)"
@@ -1498,6 +1512,8 @@ msgstr "Klingel bei zufälligen Agenten"
 #: views/form.php:268
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr ""
+"Rufen Sie den Agenten mit den wenigsten abgeschlossenen Anrufen aus dieser "
+"Warteschlange an"
 
 #: views/form.php:266
 msgid "ringall"
