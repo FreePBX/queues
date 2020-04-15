@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 17:28+0530\n"
+"POT-Creation-Date: 2020-04-15 13:47+0530\n"
 "PO-Revision-Date: 2017-02-20 18:07+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -88,7 +88,7 @@ msgstr "Msg de Anúncio do Agente"
 msgid "Agent Announcement"
 msgstr "Anúncio do Agente"
 
-#: queues.i18n.php:22
+#: queues.i18n.php:30
 msgid "Agent Called Events Default"
 msgstr "Padrão de Eventos do Agente Chamado"
 
@@ -116,7 +116,7 @@ msgstr "Reiniciar Timeout do Agente"
 msgid "Alert Info"
 msgstr "Alerta"
 
-#: install.php:15 queues.i18n.php:34
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -193,6 +193,10 @@ msgstr ""
 #: views/cron.php:63
 msgid "Annually"
 msgstr "Anualmente"
+
+#: queues.i18n.php:6
+msgid "Applications"
+msgstr "Aplicações"
 
 #: views/form.php:1322
 msgid ""
@@ -319,6 +323,17 @@ msgstr "Opções de Capacidade"
 msgid "Compound Recordings in Queues Detected"
 msgstr "Gravações Compostas em Fila Detectado"
 
+#: queues.i18n.php:8
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
+"Cria uma fila onde chamadas são colocadas em espera e atendidas na regra "
+"primeiro-a-entrar, primeiro-a-sair. Muitas opções estão disponíveis, "
+"incluindo estratégias de toque para agentes, anúncios para chamadores, tempo "
+"máximo de espera, etc."
+
 #: views/cron.php:60
 msgid "Daily"
 msgstr "Diariamente"
@@ -327,7 +342,7 @@ msgstr "Diariamente"
 msgid "Default"
 msgstr "Padrão"
 
-#: queues.i18n.php:24
+#: queues.i18n.php:32
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -337,7 +352,7 @@ msgstr ""
 "Esta configuração irá apenas afetar NOVAS filas, isto não modifica filas "
 "existentes ou atualiza a opção em filas existentes."
 
-#: queues.i18n.php:28
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -460,7 +475,7 @@ msgstr ""
 msgid "Honor Penalties"
 msgstr "Respeitar penalidades"
 
-#: queues.i18n.php:10
+#: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
 msgstr "Respeitar tempo em filas"
 
@@ -666,7 +681,7 @@ msgstr "Atraso do Membro"
 msgid "Member Status Event"
 msgstr "Status de evento do Membro"
 
-#: queues.i18n.php:26
+#: queues.i18n.php:34
 msgid "Member Status Event Default"
 msgstr "Status padrão de evento do membro"
 
@@ -771,11 +786,11 @@ msgstr "Limite de Penalidade de membros"
 msgid "Periodic Announcements"
 msgstr "Anúncios Periódicos"
 
-#: queues.i18n.php:4
+#: queues.i18n.php:12
 msgid "Persistent Members"
 msgstr "Membros Persistentes"
 
-#: install.php:29 queues.i18n.php:30
+#: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
 msgstr "Contagem de chamadas da fila de reprodução"
 
@@ -848,7 +863,7 @@ msgstr "O número da fila não pode ficar em branco"
 msgid "Queue Password"
 msgstr "Senha da Fila"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:32
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Alternar Pausa da Fila"
 
@@ -887,11 +902,11 @@ msgstr "Fila: %s"
 msgid "Queue: %s (%s)"
 msgstr "Fila: %s (%s)"
 
-#: page.queues.php:7
+#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
 msgstr "Filas"
 
-#: queues.i18n.php:6
+#: queues.i18n.php:14
 msgid "Queues Module"
 msgstr "Módulo de Filas"
 
@@ -899,7 +914,7 @@ msgstr "Módulo de Filas"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "O módulo filas não foi encontrado ou está desativado. Abortando!"
 
-#: queues.i18n.php:20
+#: queues.i18n.php:28
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -910,7 +925,7 @@ msgstr ""
 "misturar\" os arquivos de entrada/saída agora desaparece quando isso estiver "
 "ativado."
 
-#: queues.i18n.php:8
+#: queues.i18n.php:16
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
@@ -920,7 +935,7 @@ msgstr ""
 "astdb para que, quando o Asterisk seja reiniciado, cada membro será "
 "automaticamente lido em suas filas."
 
-#: queues.i18n.php:12
+#: queues.i18n.php:20
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -932,7 +947,7 @@ msgstr ""
 "registrados em mais de uma fila. Isso é útil para fazer com que a fila "
 "respeite o wrapuptime de outra fila para um membro compartilhado."
 
-#: queues.i18n.php:16
+#: queues.i18n.php:24
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -1063,7 +1078,7 @@ msgstr ""
 msgid "Service Level"
 msgstr "Nível de Serviço"
 
-#: queues.i18n.php:14
+#: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
 msgstr "Definir o nome do agente no campo dstchannel no CDR"
 
@@ -1215,7 +1230,7 @@ msgstr "Ultra Restrito"
 msgid "Unlimited"
 msgstr "Ilimitado"
 
-#: queues.i18n.php:18
+#: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
 msgstr "Use MixMonitor para gravações"
 
@@ -1582,19 +1597,6 @@ msgstr "segundos"
 #: views/form.php:273
 msgid "wrandom"
 msgstr ""
-
-#~ msgid "Applications"
-#~ msgstr "Aplicações"
-
-#~ msgid ""
-#~ "Creates a queue where calls are placed on hold and answered on a first-"
-#~ "in, first-out basis. Many options are available, including ring strategy "
-#~ "for agents, caller announcements, max wait times, etc."
-#~ msgstr ""
-#~ "Cria uma fila onde chamadas são colocadas em espera e atendidas na regra "
-#~ "primeiro-a-entrar, primeiro-a-sair. Muitas opções estão disponíveis, "
-#~ "incluindo estratégias de toque para agentes, anúncios para chamadores, "
-#~ "tempo máximo de espera, etc."
 
 #~ msgid ""
 #~ "When set to 'Yes' agents who are on an occupied phone will be skipped as "
