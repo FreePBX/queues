@@ -2,30 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>15.0.17</version>
+	<version>16.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
-		*15.0.17* FREEPBX-20987 Update 'skip busy' tooltip in Queues 
-		*15.0.16* FREEI-924 Fix XSS Bootstrap Datatable Issues 
-		*15.0.15* FREEPBX-20634 Dynamic Agents with comma character in name show as (Invalid) in queues 
-		*15.0.14* Related to FREEPBX-20414: removed $jobid from runRestore() 
-		*15.0.13* FREEPBX-20461 Add detail to Queues ring strategy tool tip. 
-		*15.0.12* FREEI-618 Dynamic Queue Agents causing ALL queue agents to disappear 
-		*15.0.11* FREEPBX-19819 Queue agent restriction is not working for 'No Follow-Me or Call Forward' option. 
-		*15.0.10* FREEI-492 Duplicate entry 'Agent Availability Detail' qxact_reports 
-		*15.0.9* FREEPBX-19434 and FREEPBX-19433 
-		*15.0.7* fixing legacy restore
-		*15.0.6* Fix backup
-		*15.0.5.1* FREEPBX-18835
-		*15.0.5* Rest Api
-		*15.0.4* Packaging of ver 15.0.4
-		*15.0.3* FREEPBX-17706 Wrong URL's in Used as Destination - Announcements
-		*15.0.2* FREEPBX-17706 Wrong URL's in Used as Destination - Queues
-        *15.0.1* Backup 15
+        	*16.0.1* inti 16 
 	</changelog>
 	<depends>
 		<version>14.0.1alpha24</version>
@@ -42,7 +26,7 @@
 		</queues>
 	</popovers>
 	<supported>
-		<version>15.0</version>
+		<version>16.0</version>
 	</supported>
 	<database>
 		<table name="queues_details">
