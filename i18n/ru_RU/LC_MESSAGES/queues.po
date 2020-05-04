@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 17:28+0530\n"
+"POT-Creation-Date: 2020-04-15 13:47+0530\n"
 "PO-Revision-Date: 2016-07-07 11:27+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com.com>\n"
 "Language-Team: Russian <http://weblate.postmet.com/freepbx/trunkbalance/"
@@ -88,7 +88,7 @@ msgstr "Анонс агента"
 msgid "Agent Announcement"
 msgstr "Агент оповещения"
 
-#: queues.i18n.php:22
+#: queues.i18n.php:30
 msgid "Agent Called Events Default"
 msgstr "События Вызываемого Агента по умолчанию"
 
@@ -116,7 +116,7 @@ msgstr "Перезапуск таймаута агента"
 msgid "Alert Info"
 msgstr "Дополнительная информация"
 
-#: install.php:15 queues.i18n.php:34
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -193,6 +193,10 @@ msgstr ""
 #: views/cron.php:63
 msgid "Annually"
 msgstr "Ежегодно"
+
+#: queues.i18n.php:6
+msgid "Applications"
+msgstr "Приложения"
 
 #: views/form.php:1322
 msgid ""
@@ -316,6 +320,16 @@ msgstr "Параметры ёмкости очереди"
 msgid "Compound Recordings in Queues Detected"
 msgstr "Обнаружена составная запись, использованная в очереди"
 
+#: queues.i18n.php:8
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
+"Создаёт очередь, где входящие звонки по принципу первый-вошёл/првый ушёл "
+"(FIFO). Большинство опций доступны, включая стратегии вызовов для "
+"операторов, приветствия для позвонивших, максимальное время ожидания, и т.д."
+
 #: views/cron.php:60
 msgid "Daily"
 msgstr "Ежедневно"
@@ -324,7 +338,7 @@ msgstr "Ежедневно"
 msgid "Default"
 msgstr "По умолчанию"
 
-#: queues.i18n.php:24
+#: queues.i18n.php:32
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
@@ -334,7 +348,7 @@ msgstr ""
 "установка влияет только на установки по умолчанию для НОВОЙ очереди. Эта "
 "установка не меняет существующую очередь."
 
-#: queues.i18n.php:28
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -455,7 +469,7 @@ msgstr ""
 msgid "Honor Penalties"
 msgstr "Соблюдать уровни доступности"
 
-#: queues.i18n.php:10
+#: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
 msgstr "Давать передышку оператору при работе в нескольких очередях"
 
@@ -655,7 +669,7 @@ msgstr "Задержка участника"
 msgid "Member Status Event"
 msgstr "Событие статуса участника"
 
-#: queues.i18n.php:26
+#: queues.i18n.php:34
 msgid "Member Status Event Default"
 msgstr "Событие по умолчанию Статуса участника"
 
@@ -756,11 +770,11 @@ msgstr "Максимальное количество отброшенных у�
 msgid "Periodic Announcements"
 msgstr "Периодичность сообщений"
 
-#: queues.i18n.php:4
+#: queues.i18n.php:12
 msgid "Persistent Members"
 msgstr "Постоянные операторы"
 
-#: install.php:29 queues.i18n.php:30
+#: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
 msgstr "Воспроизвести количество вызывающих в очереди"
 
@@ -833,7 +847,7 @@ msgstr "Номер очереди не может быть пустым"
 msgid "Queue Password"
 msgstr "Пароль очереди"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:32
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Переключить паузу очереди"
 
@@ -872,11 +886,11 @@ msgstr "Очередь: %s"
 msgid "Queue: %s (%s)"
 msgstr "Очередь: %s (%s)"
 
-#: page.queues.php:7
+#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
 msgstr "Очереди"
 
-#: queues.i18n.php:6
+#: queues.i18n.php:14
 msgid "Queues Module"
 msgstr "Модуль очередей"
 
@@ -884,7 +898,7 @@ msgstr "Модуль очередей"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "Модуль очереди не найден или отключён. Завершено!"
 
-#: queues.i18n.php:20
+#: queues.i18n.php:28
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
@@ -895,7 +909,7 @@ msgstr ""
 "понятие 'присоединения/смешивания' в/из файлы(ов) теперь уйдет, когда это "
 "включено."
 
-#: queues.i18n.php:8
+#: queues.i18n.php:16
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
@@ -905,7 +919,7 @@ msgstr ""
 "сохраняется в базе данных asterisk что бы очереди были корректно "
 "восстановлены в случае перезапуска Asterisk."
 
-#: queues.i18n.php:12
+#: queues.i18n.php:20
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -913,7 +927,7 @@ msgid ""
 "queue for a shared member."
 msgstr "Queues: shared_lastcall, действительны только с Астериск выше 1.6."
 
-#: queues.i18n.php:16
+#: queues.i18n.php:24
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -1039,7 +1053,7 @@ msgstr ""
 msgid "Service Level"
 msgstr "Уровень сервиса"
 
-#: queues.i18n.php:14
+#: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
 msgstr "Назначить имя оператора в поле dstchannel CDR"
 
@@ -1190,7 +1204,7 @@ msgstr "Строго ограниченный"
 msgid "Unlimited"
 msgstr "Неограничено"
 
-#: queues.i18n.php:18
+#: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
 msgstr "Использовать MixMonitor для записи разговоров"
 
@@ -1561,19 +1575,6 @@ msgstr "секунды"
 #: views/form.php:273
 msgid "wrandom"
 msgstr "случайный-выбор"
-
-#~ msgid "Applications"
-#~ msgstr "Приложения"
-
-#~ msgid ""
-#~ "Creates a queue where calls are placed on hold and answered on a first-"
-#~ "in, first-out basis. Many options are available, including ring strategy "
-#~ "for agents, caller announcements, max wait times, etc."
-#~ msgstr ""
-#~ "Создаёт очередь, где входящие звонки по принципу первый-вошёл/првый ушёл "
-#~ "(FIFO). Большинство опций доступны, включая стратегии вызовов для "
-#~ "операторов, приветствия для позвонивших, максимальное время ожидания, и т."
-#~ "д."
 
 #~ msgid ""
 #~ "When set to 'Yes' agents who are on an occupied phone will be skipped as "

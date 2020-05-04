@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 17:28+0530\n"
+"POT-Creation-Date: 2020-04-15 13:47+0530\n"
 "PO-Revision-Date: 2017-05-01 22:23-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Agent Announcement"
 msgstr ""
 
-#: queues.i18n.php:22
+#: queues.i18n.php:30
 msgid "Agent Called Events Default"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Alert Info"
 msgstr ""
 
-#: install.php:15 queues.i18n.php:34
+#: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -159,6 +159,10 @@ msgstr ""
 
 #: views/cron.php:63
 msgid "Annually"
+msgstr ""
+
+#: queues.i18n.php:6
+msgid "Applications"
 msgstr ""
 
 #: views/form.php:1322
@@ -270,6 +274,13 @@ msgstr ""
 msgid "Compound Recordings in Queues Detected"
 msgstr ""
 
+#: queues.i18n.php:8
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
+
 #: views/cron.php:60
 msgid "Daily"
 msgstr ""
@@ -278,14 +289,14 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: queues.i18n.php:24
+#: queues.i18n.php:32
 msgid ""
 "Default state for AMI emit events related to an agent's call. This setting "
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
 
-#: queues.i18n.php:28
+#: queues.i18n.php:36
 msgid ""
 "Default state for AMI to emit the QueueMemberStatus event. This setting will "
 "only affect the default for NEW queues, it won't change existing queues or "
@@ -388,7 +399,7 @@ msgstr ""
 msgid "Honor Penalties"
 msgstr ""
 
-#: queues.i18n.php:10
+#: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
 msgstr ""
 
@@ -549,7 +560,7 @@ msgstr ""
 msgid "Member Status Event"
 msgstr ""
 
-#: queues.i18n.php:26
+#: queues.i18n.php:34
 msgid "Member Status Event Default"
 msgstr ""
 
@@ -640,11 +651,11 @@ msgstr ""
 msgid "Periodic Announcements"
 msgstr ""
 
-#: queues.i18n.php:4
+#: queues.i18n.php:12
 msgid "Persistent Members"
 msgstr ""
 
-#: install.php:29 queues.i18n.php:30
+#: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
 msgstr ""
 
@@ -707,7 +718,7 @@ msgstr ""
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:32
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr ""
 
@@ -744,11 +755,11 @@ msgstr ""
 msgid "Queue: %s (%s)"
 msgstr ""
 
-#: page.queues.php:7
+#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
 msgstr ""
 
-#: queues.i18n.php:6
+#: queues.i18n.php:14
 msgid "Queues Module"
 msgstr ""
 
@@ -756,21 +767,21 @@ msgstr ""
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr ""
 
-#: queues.i18n.php:20
+#: queues.i18n.php:28
 msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now goes away when this is enabled."
 msgstr ""
 
-#: queues.i18n.php:8
+#: queues.i18n.php:16
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
 "astdb so that when asterisk is restarted, each member will be automatically "
 "read into their recorded queues."
 msgstr ""
 
-#: queues.i18n.php:12
+#: queues.i18n.php:20
 msgid ""
 "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
 "lastcall and calls received be the same in members logged in more than one "
@@ -778,7 +789,7 @@ msgid ""
 "queue for a shared member."
 msgstr ""
 
-#: queues.i18n.php:16
+#: queues.i18n.php:24
 msgid ""
 "Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
@@ -887,7 +898,7 @@ msgstr ""
 msgid "Service Level"
 msgstr ""
 
-#: queues.i18n.php:14
+#: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
 msgstr ""
 
@@ -1001,7 +1012,7 @@ msgstr ""
 msgid "Unlimited"
 msgstr ""
 
-#: queues.i18n.php:18
+#: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
 msgstr ""
 

@@ -5,6 +5,7 @@ class Backup Extends Base\BackupBase{
 	public function runBackup($id,$transaction){
 		$this->addDependency('recordings');
 		$this->addDependency('core');
-		$this->addConfigs($this->dumpAll());
+		$astdbqueue = $this->dumpAstDB('QPENALTY');
+		$this->addConfigs(array_merge($this->dumpAll(),["astdb" => $astdbqueue]));
 	}
 }
