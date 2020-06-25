@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-26 14:43+0530\n"
-"PO-Revision-Date: 2019-04-10 08:00+0000\n"
+"PO-Revision-Date: 2020-02-19 15:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
 "Language: de_DE\n"
@@ -172,6 +172,13 @@ msgid ""
 "or more sound files are not displayed as options since this feature can not "
 "accept such recordings."
 msgstr ""
+"Ansage wird dem Agenten vor dem Überbrücken des Anrufers vorgespielt <br> "
+"<br> Beispiel: \"Der folgende Anruf kommt aus der Verkaufswarteschlange\" "
+"oder \"Dieser Anruf kommt aus der Warteschlange des technischen Supports\". "
+"<br> <br> Um weitere Aufnahmen hinzuzufügen, benutzen sie bitte das menü \""
+"System aufnahmen\". Zusammengesetzte Aufzeichnungen, die aus zwei oder mehr "
+"Audiodateien bestehen, werden nicht als Optionen angezeigt, da diese "
+"Funktion solche Aufzeichnungen nicht akzeptieren kann."
 
 #: views/form.php:169
 msgid ""
@@ -183,6 +190,14 @@ msgid ""
 "<br><br>To add additional recordings please use the \"System Recordings\" "
 "MENU."
 msgstr ""
+"Ansage, die dem Warteschlangemitglied vorgespielt wird, das den "
+"Warteschlangenanruf ankündigt und vor dem Antworten eine Bestätigung "
+"anfordert. Bei der Standardeinstellung wird die Standardnachricht für die "
+"Anrufbestätigung abgespielt, sofern das Mitglied nicht über eine Follow-Me-"
+"Verbindung erreicht wird und in der Follow-Me-Verbindung eine alternative "
+"Nachricht enthalten ist. Diese Nachricht überschreibt alle anderen "
+"angegebenen Nachrichten. <br> <br> Verwenden Sie das MENÜ \""
+"Systemaufzeichnungen\", um weitere Aufzeichnungen hinzuzufügen."
 
 #: views/cron.php:63
 msgid "Annually"
@@ -202,6 +217,14 @@ msgid ""
 "This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
 "'Agent Timeout' combined."
 msgstr ""
+"Asterisk-Zeitüberschreitung. Wenn im Modus \"Streng\" die maximale Wartezeit "
+"eines Anrufers erreicht wird, wird dieser sofort aus der Warteschlange "
+"entfernt. Wenn im 'Loose'-Modus ein Warteschlangenmitglied gerade mit diesem "
+"Anruf klingelt, warten wir, bis die Warteschlange aufhört, dieses "
+"Warteschlangenmitglied zu klingeln, oder der Anruf von dem "
+"Warteschlangenmitglied abgelehnt wird, bevor der Anrufer aus der "
+"Warteschlange genommen wird. Dies bedeutet, dass die maximale Wartezeit so "
+"lang sein kann wie die maximale Wartezeit und das Agenten-Timeout zusammen."
 
 #: views/form.php:1721
 msgid ""
@@ -210,6 +233,10 @@ msgid ""
 "members.  No penalty will be weighed in if there are only X or fewer queue "
 "members."
 msgstr ""
+"Asterisk: Penaltymemberslimit. Es kann ein Limit festgelegt werden, um "
+"Strafeinstellungen zu ignorieren, sodass alle Mitglieder ausprobiert werden "
+"können, wenn die Warteschlange zu wenige Mitglieder hat. Wenn es nur X oder "
+"weniger Warteschlangenmitglieder gibt, wird keine Strafe abgewogen."
 
 #: views/form.php:1498
 msgid "Auto Pause"
@@ -263,7 +290,7 @@ msgstr "Anruf bestätigen"
 
 #: views/form.php:146
 msgid "Call Confirm Announce"
-msgstr ""
+msgstr "Anrufbestätigungsansage"
 
 #: views/form.php:1126
 msgid "Call Recording"
@@ -275,7 +302,7 @@ msgstr ""
 
 #: views/form.php:563
 msgid "Callback to use when caller presses 1."
-msgstr ""
+msgstr "Zu nutzender Rückruf, wenn der Anrufer '1' drückt."
 
 #: views/form.php:714
 msgid "Caller Announcements"
@@ -291,6 +318,9 @@ msgid ""
 "device or have penalty values less than QUEUE_MAX_PENALTY (not currently set "
 "in FreePBX dialplan)."
 msgstr ""
+"Anrufer werden beendet, wenn alle Agenten angehalten wurden, ein ungültiger "
+"Status für ihr Gerät angezeigt wird oder die Strafwerte unter "
+"QUEUE_MAX_PENALTY liegen (derzeit nicht in FreePBX-Wählplan festgelegt)."
 
 #: views/form.php:394
 msgid ""
@@ -298,6 +328,9 @@ msgid ""
 "for their device, or have penalty values less than QUEUE_MAX_PENALTY (not "
 "currently set in FreePBX dialplan)."
 msgstr ""
+"Anrufer werden nicht zugelassen, wenn alle Agenten angehalten sind, einen "
+"ungültigen Status für ihr Gerät aufweisen oder Strafen von weniger als "
+"QUEUE_MAX_PENALTY (derzeit nicht im FreePBX-Wählplan festgelegt) gelten."
 
 #: views/form.php:709
 msgid "Capacity Options"
@@ -332,6 +365,11 @@ msgid ""
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
+"Der Standardstatus für AMI gibt Ereignisse aus, die mit dem Anruf eines "
+"Agenten zusammenhängen. Diese Einstellung wirkt sich nur auf die "
+"Standardeinstellung für NEUE Warteschlangen aus. Bestehende Warteschlangen "
+"werden nicht geändert, und die Option wird bei neuen Warteschlangen nicht "
+"aktiviert."
 
 #: queues.i18n.php:36
 msgid ""
@@ -339,6 +377,10 @@ msgid ""
 "only affect the default for NEW queues, it won't change existing queues or "
 "enfore the option on in new ones."
 msgstr ""
+"Standardstatus, in dem AMI das QueueMemberStatus-Ereignis ausgibt. Diese "
+"Einstellung wirkt sich nur auf die Standardeinstellung für NEUE "
+"Warteschlangen aus. Bestehende Warteschlangen werden nicht geändert, und die "
+"Option wird nicht für neue Warteschlangen erzwungen."
 
 #: Queues.class.php:206
 msgid "Delete"
@@ -354,6 +396,9 @@ msgid ""
 "situations where it appears no one is currently available to take the call. "
 "The options include:"
 msgstr ""
+"Legt fest, ob Anrufer vorzeitig aus der Warteschlange entfernt werden "
+"sollen, wenn der Eindruck entsteht, dass derzeit niemand für die Annahme des "
+"Anrufs verfügbar ist. Die Optionen umfassen:"
 
 #: views/form.php:389
 msgid ""
@@ -384,6 +429,9 @@ msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
+"In früheren Versionen dieses Moduls konnten solche Warteschlangen ausgewählt "
+"werden. Sobald diese Einstellung geändert wurde, wird sie nicht mehr als "
+"Option angezeigt."
 
 #: views/cron.php:37
 msgid "Enable this task"
@@ -398,15 +446,15 @@ msgstr ""
 
 #: views/form.php:619
 msgid "Event When Called"
-msgstr ""
+msgstr "Ereignis bei Anruf"
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
-msgstr ""
+msgstr "Nebenstellen-Einstellungen"
 
 #: views/form.php:990
 msgid "Extensions Only"
-msgstr ""
+msgstr "Nur Nebenstellen"
 
 #: views/form.php:1183
 msgid "Fail Over Destination"
@@ -427,6 +475,8 @@ msgstr "Allgemeine Einstellungen"
 #: views/form.php:781
 msgid "Give this queue a brief name to help you identify it."
 msgstr ""
+"Geben Sie dieser Warteschlange einen kurzen Namen, damit Sie sie leichter "
+"identifizieren können."
 
 #: views/form.php:1112
 msgid ""
@@ -436,11 +486,11 @@ msgstr ""
 
 #: views/form.php:408
 msgid "Honor Penalties"
-msgstr ""
+msgstr "Strafen einhalten"
 
 #: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
-msgstr ""
+msgstr "Wrapup-Zeit über Warteschlangen hinweg einhalten"
 
 #: views/cron.php:59
 msgid "Hourly"
@@ -469,7 +519,7 @@ msgstr "INUSE"
 #: functions.inc.php:75
 #, php-format
 msgid "IVR Announce: %s"
-msgstr ""
+msgstr "IVR Ansage: %s"
 
 #: views/form.php:444 views/form.php:507
 msgid "IVR Break Out Menu"
@@ -493,6 +543,16 @@ msgid ""
 "where the caller will not be admitted to the queue unless there is a queue "
 "member immediately available to take the call."
 msgstr ""
+"Wenn diese Option aktiviert ist, beantwortet die Warteschlange den Anruf "
+"nicht. In den meisten Fällen sollte die Warteschlange Anrufe immer "
+"entgegennehmen. Wenn nicht, ist es möglich, dass die wartenden Anrufer die "
+"Aufzeichnungen und den MoH nicht hören, da die frühen Medienfunktionen "
+"variieren und inkonsistent sind. In einigen Fällen kann es erwünscht sein, "
+"einen Anruf nicht entgegenzunehmen, wenn die Warteschlangenrichtlinien \""
+"Strict Join Empty\" (Strikte Verbindung mit leerer Warteschlange) verwendet "
+"werden, bei denen der Anrufer nur dann in die Warteschlange aufgenommen "
+"wird, wenn ein Warteschlangenmitglied sofort verfügbar ist, um den Anruf "
+"anzunehmen."
 
 #: views/form.php:863
 msgid ""
@@ -500,6 +560,10 @@ msgid ""
 "since it first entered the queue or reset if the call is transferred to "
 "another queue with this feature set."
 msgstr ""
+"Wenn der Anruf anschließend weitergeleitet wird, gibt die Wartezeit die Zeit "
+"seit dem ersten Eintreten in die Warteschlange an oder wird zurückgesetzt, "
+"wenn der Anruf mit dieser Funktion in eine andere Warteschlange "
+"weitergeleitet wird."
 
 #: functions.inc/hook_core.php:65
 msgid ""
@@ -515,6 +579,21 @@ msgid ""
 "member as busy until the original call is terminated. In most cases, this "
 "SHOULD BE set to 'Use State'."
 msgstr ""
+"Wenn diese Erweiterung Teil einer Warteschlange ist, versucht die "
+"Warteschlange, den Erweiterungsstatus oder die Gerätestatusinformationen des "
+"Benutzers zu verwenden, um zu bestimmen, ob dieses Warteschlangenmitglied "
+"aufgerufen werden soll. In einigen seltenen Situationen, z. B. bei Follow-Me-"
+"Aktionen ohne physisches Gerät oder in einigen virtuellen "
+"Erweiterungsszenarien, wird in den Statusinformationen angegeben, dass "
+"dieses Mitglied nicht verfügbar ist, wenn dies der Fall ist. Wenn Sie diese "
+"Option auf \"Status ignorieren\" setzen, ignoriert die Warteschlange alle "
+"Statusinformationen und versucht daher immer, Kontakt mit diesem Mitglied "
+"aufzunehmen. Bestimmte Nebeneffekte können auftreten, wenn diese Route "
+"aufgrund der Art der Verarbeitung lokaler Kanäle durch Warteschlangen "
+"verwendet wird. Bei nachfolgenden Übertragungen wird das Mitglied "
+"beispielsweise weiterhin als besetzt angezeigt, bis der ursprüngliche Anruf "
+"beendet wird. In den meisten Fällen sollte dies auf \"Use State\" gesetzt "
+"werden."
 
 #: views/form.php:1051
 msgid ""
@@ -573,7 +652,7 @@ msgstr "Warteschlangen auflisten"
 #: views/form.php:395 views/form.php:403 views/form.php:1314
 #: views/form.php:1653 views/form.php:1687
 msgid "Loose"
-msgstr "verlieren"
+msgstr "locker"
 
 #: views/form.php:1155
 msgid "Mark calls answered elsewhere"
@@ -636,6 +715,15 @@ msgid ""
 "any MoH Class selected as well as any configured periodic announcements. "
 "This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
+"Musik (MoH), die dem Anrufer abgespielt wird, während er in der Schlange auf "
+"einen verfügbaren Agenten wartet. Wählen Sie \"Vererben\", wenn Sie möchten, "
+"dass die MoH-Klasse die aktuell ausgewählte Klasse ist, z. B. über die "
+"eingehende Route. \"Nur MoH\" spielt Musik, bis der Agent antwortet. \"Agent "
+"klingelt\" spielt MoH ab, bis das Telefon eines Agenten den Anruf erhält und "
+"klingelt. Wenn sie nicht antworten, wird MoH zurückkehren. \"Nur Klingeln\" "
+"bewirkt, dass Anrufer einen Klingelton hören, anstatt die MoH-Klasse zu "
+"ignorieren, die ausgewählt wurde, sowie alle konfigurierten regelmäßigen "
+"Durchsagen. Diese Musik wird im Menü \"Wartemusik\" definiert."
 
 #: views/form.php:291
 msgid "Music on Hold Class"
@@ -912,6 +1000,11 @@ msgid ""
 "are currently on the phone or ringing on behalf of another caller will be "
 "considered unavailable."
 msgstr ""
+"Genau wie bei Strict plus muss ein Mitglied der Warteschlange in der Lage "
+"sein, das Telefon \"jetzt\" anzunehmen, um sie einzulassen. Einfach "
+"ausgedrückt: Alle \"verfügbaren\" Agenten, die antworten können, aber gerade "
+"am Telefon sind oder im Namen eines anderen Anrufers klingeln, werden als "
+"nicht verfügbar betrachtet ."
 
 #: views/form.php:402
 msgid ""
@@ -920,6 +1013,11 @@ msgid ""
 "but are currently on the phone or ringing on behalf of another caller will "
 "be considered unavailable."
 msgstr ""
+"Genau wie bei Strict muss ein Mitglied der Warteschlange in der Lage sein, "
+"das Telefon \"jetzt\" zu beantworten, damit sie verbleiben können. Einfach "
+"ausgedrückt: Alle verfügbaren Agenten, die antworten könnten, aber gerade "
+"telefonieren oder im Namen eines anderen Anrufers klingeln, werden als nicht "
+"verfügbar betrachtet."
 
 #: views/form.php:392
 msgid ""
@@ -943,7 +1041,7 @@ msgstr ""
 
 #: views/form.php:1865
 msgid "Service Level"
-msgstr ""
+msgstr "Servicelevel"
 
 #: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
@@ -961,7 +1059,7 @@ msgstr ""
 
 #: views/form.php:1063
 msgid "Skip Busy Agents"
-msgstr ""
+msgstr "Beschäftigte Agenten überspringen"
 
 #: views/form.php:274
 msgid ""
@@ -971,7 +1069,7 @@ msgstr ""
 
 #: views/form.php:1210
 msgid "Static Agents"
-msgstr ""
+msgstr "Statische Agenten"
 
 #: views/form.php:1231
 msgid ""
@@ -990,6 +1088,23 @@ msgid ""
 "will have problems with subsequent transfers to voicemail and other issues "
 "may also exist."
 msgstr ""
+"Statische Agenten sind Erweiterungen, von denen angenommen wird, dass sie "
+"sich immer in der Warteschlange befinden. Statische Agenten müssen sich "
+"nicht bei der Warteschlange 'anmelden' und können sich auch nicht bei der "
+"Warteschlange 'abmelden'. <br><br> Auflisten der zu klingenden Nebenstellen, "
+"eine pro Zeile. <br><br> Sie können eine Nebenstelle hinzufügen auf einem "
+"entfernten System oder einer externen Nummer (Outbound Routing muss eine "
+"gültige Route für externe Nummern enthalten). Sie können nach dem Agenten "
+"ein \",\" gefolgt von einem Strafwert einfügen (siehe Asterisk-Dokumentation "
+"zu Strafen). <br/><br/> Es wurde ein erweiterter Modus hinzugefügt, in dem "
+"Sie einer Agentennummer S, P, X voranstellen können , Z, D oder A. Dies "
+"erzwingt, dass die Agentennummer als Asterisk-Gerät vom Typ SIP, PJSIP, "
+"IAX2, ZAP, DAHDi oder Agent gewählt wird. Dieser Modus richtet sich an "
+"fortgeschrittene Benutzer und kann bekannte Probleme in FreePBX verursachen, "
+"da Sie den normalen Wählplan umgehen. Wenn für Ihre \"Agent-Einschränkungen\""
+" nicht \"Nur Nebenstellen\" festgelegt ist, treten Probleme bei der "
+"nachfolgenden Übermittlung an Voicemail auf, und es können auch andere "
+"Probleme auftreten."
 
 #: views/cron.php:20
 msgid "Stats Reset"
@@ -998,7 +1113,7 @@ msgstr "Statistik zurücksetzen"
 #: views/form.php:392 views/form.php:401 views/form.php:1312
 #: views/form.php:1647 views/form.php:1681
 msgid "Strict"
-msgstr ""
+msgstr "Streng"
 
 #: Queues.class.php:211
 msgid "Submit"
@@ -1022,6 +1137,10 @@ msgid ""
 "timeout. Unlimited or other timeout values may still be limited by system "
 "ringtime or individual extension defaults."
 msgstr ""
+"Die Anzahl der Sekunden, die das Telefon eines Agenten klingeln kann, bevor "
+"wir es als Timeout betrachten. Unbegrenzte oder andere "
+"Zeitüberschreitungswerte können weiterhin durch die Systemlaufzeit oder die "
+"Standardeinstellungen für einzelne Nebenstellen begrenzt sein."
 
 #: views/form.php:1404
 msgid ""
@@ -1030,6 +1149,11 @@ msgid ""
 "as the first attempted agent times-out, additional agents will not be "
 "attempted."
 msgstr ""
+"Die Anzahl der Sekunden, die wir warten, bevor wir alle Telefone erneut "
+"versuchen. Wenn Sie \"Kein erneuter Versuch\" auswählen, wird die "
+"Warteschlange verlassen und zum Failover-Ziel gewechselt, sobald das Timeout "
+"des ersten versuchten Agenten abgelaufen ist. Es werden keine weiteren "
+"Agenten mehr versucht."
 
 #: views/form.php:1599
 msgid ""
@@ -1041,6 +1165,14 @@ msgid ""
 "they will then be auto paused. If they have taken no calls, this will have "
 "no affect."
 msgstr ""
+"Diese Einstellung verzögert die automatische Pause eines Agenten um die "
+"Sekunden nach der letzten Annahme eines Anrufs. Wenn dies beispielsweise auf "
+"120 Sekunden festgelegt wurde und dem Agenten 90 Sekunden nach dem letzten "
+"Anruf ein neuer Anruf angezeigt wird, werden sie nicht automatisch "
+"angehalten, wenn sie den Anruf nicht annehmen. Wenn 120 Sekunden oder später "
+"nach der Beantwortung des letzten Anrufs ein Anruf eingeht, werden sie "
+"automatisch angehalten. Wenn sie keine Anrufe entgegengenommen haben, hat "
+"dies keine Auswirkungen."
 
 #: views/form.php:1754
 msgid "This value is ignored if the caller's position changes"
@@ -1053,7 +1185,7 @@ msgstr ""
 #: views/form.php:393 views/form.php:402 views/form.php:1649
 #: views/form.php:1683
 msgid "Ultra Strict"
-msgstr ""
+msgstr "Sehr Streng"
 
 #: views/form.php:345 views/form.php:363
 msgid "Unlimited"
@@ -1129,6 +1261,24 @@ msgid ""
 "the call will simply be blocked when the queue tries to call it. For dynamic "
 "agents, see the 'Agent Regex Filter' to provide some validation."
 msgstr ""
+"Bei der Einstellung \"Anruf als gewählt\"('Call as Dialed') ruft die "
+"Warteschlange eine Nebenstelle an, als wäre die Warteschlange ein anderer "
+"Benutzer. Alle Follow-Me- oder Rufumleitungszustände, die an der Nebenstelle "
+"aktiv sind, führen dazu, dass der Warteschlangenruf diesen Anrufpfaden "
+"folgt. Dieses Verhalten war in früheren FreePBX-Versionen das "
+"Standardverhalten für Warteschlangen. <br/> Wenn \"Keine Umleitung oder "
+"Anrufweiterleitung\" eingestellt ist, können alle Agenten, die Nebenstellen "
+"auf dem System sind, nur ihre Nebenstellen anrufen. Follow-Me- und "
+"Rufumleitungseinstellungen werden ignoriert. Jeder andere Agent wird als "
+"gewählt bezeichnet. Dieses Verhalten ähnelt dem Wählen von Nebenstellen in "
+"Ringgruppen. <br/> Bei Auswahl von \"Nur Nebenstellen\" wählt die "
+"Warteschlange Nebenstellen, wie unter \"Keine Umleitung oder "
+"Anrufweiterleitung\" beschrieben. Jede andere für einen Agenten eingegebene "
+"Nummer, die KEINE gültige Nebenstelle ist, wird ignoriert. Wenn Sie einen "
+"statischen Agenten eingeben oder sich als dynamischer Agent anmelden, wird "
+"keine Fehlerprüfung durchgeführt. Der Anruf wird einfach blockiert, wenn die "
+"Warteschlange versucht, ihn aufzurufen. Informationen zu dynamischen Agenten "
+"finden Sie im Agent-Regex-Filter."
 
 #: views/form.php:1087
 msgid ""
@@ -1153,6 +1303,34 @@ msgid ""
 "until that call is terminated as the call still appears as 'inuse' to the "
 "queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
 msgstr ""
+"Bei der Einstellung \"Ja\" werden Agenten, die sich an einem besetzten "
+"Telefon befinden, so übersprungen, als würde die Leitung besetzt "
+"zurückkehren. Dies bedeutet, dass Anklopfen oder Telefone mit mehreren "
+"Leitungen nicht mit dem Anruf verbunden werden und in den verschiedenen "
+"Klingelstrategien für den Sammelruf der nächste Agent versucht wird. <br/> "
+"Bei der Einstellung \"Ja + (Klingelton = Nein)\" wird zusätzlich zum "
+"überwachten Gerätestatus des Telefons das Warteschlangenkonfigurationsflag \""
+"Klingelton = Nein\" für diese Warteschlange gesetzt. Dies führt dazu, dass "
+"die Warteschlange entfernte Agenten (Agenten, die ein entferntes PSTN-"
+"Telefon sind, das über Follow-Me angerufen wird, und andere Mittel) sowie "
+"Agenten mit PBX-Verbindung nachverfolgt, sodass die Warteschlange nicht "
+"versucht, einen weiteren Anruf zu senden, wenn sie sich bereits in einem "
+"befinden Anruf aus einer beliebigen Warteschlange. <br/> Bei der Einstellung "
+"'Nur Anrufe in Warteschlange (ringinuse = no)' wird das "
+"Warteschlangenkonfigurationsflag 'ringinuse = no' auch für diese "
+"Warteschlange gesetzt, aber der Gerätestatus lokal verbundener Agenten wird "
+"nicht überwacht. Das Verhalten besteht darin, einen Agenten, der zu einer "
+"oder mehreren Warteschlangen gehört, auf einen einzelnen "
+"Warteschlangenaufruf zu beschränken. Wenn sie von anderen Anrufen besetzt "
+"sind, z. B. von ihnen initiierten ausgehenden Anrufen, werden sie von der "
+"Warteschlange als verfügbar betrachtet und geklingelt, da der Gerätestatus "
+"mit dieser Option nicht überwacht wird. <br/> <br/> WARNUNG: Wenn Sie die "
+"Einstellungen verwenden, die das Flag 'ringinuse = no' setzen, tritt eine "
+"negative Nebenwirkung auf. Ein Agent, der einen Warteschlangenanruf "
+"weiterleitet, ist für keine Warteschlange verfügbar, bis dieser Anruf "
+"beendet wird, da der Anruf in der Warteschlange weiterhin als \"inuse\" "
+"angezeigt wird, OHNE dass \"Agent-Einschränkungen\" auf \"Nur Nebenstellen\" "
+"festgelegt ist."
 
 #: views/form.php:667
 msgid ""
@@ -1214,7 +1392,7 @@ msgstr ""
 
 #: views/form.php:1416
 msgid "Wrap-Up-Time"
-msgstr ""
+msgstr "Nachbearbeitungszeit"
 
 #: views/cron.php:26 views/cron.php:55 views/form.php:19 views/form.php:116
 #: views/form.php:391 views/form.php:400 views/form.php:625 views/form.php:657
@@ -1269,7 +1447,7 @@ msgstr "Standard"
 
 #: views/form.php:268
 msgid "fewestcalls"
-msgstr ""
+msgstr "wenigste Anrufe"
 
 #: functions.inc.php:32
 msgid "hour"
@@ -1320,6 +1498,8 @@ msgstr ""
 #: views/form.php:267
 msgid "ring agent which was least recently called by this queue"
 msgstr ""
+"Rufen Sie den Agenten an, der zuletzt von dieser Warteschlange angerufen "
+"wurde"
 
 #: views/form.php:266
 msgid "ring all available agents until one answers (default)"
@@ -1332,6 +1512,8 @@ msgstr "Klingel bei zufälligen Agenten"
 #: views/form.php:268
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr ""
+"Rufen Sie den Agenten mit den wenigsten abgeschlossenen Anrufen aus dieser "
+"Warteschlange an"
 
 #: views/form.php:266
 msgid "ringall"
