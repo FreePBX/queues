@@ -1616,7 +1616,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9">
 								<?php $default = (isset($maxlen) ? $maxlen : 0);?>
-								<input type="number" min="0" max="50" class="form-control" id="maxlen" name="maxlen" value="<?php echo $default ?>" >
+								<input type="number" min="0" max="5000" class="form-control" id="maxlen" name="maxlen" value="<?php echo $default ?>" >
 							</div>
 						</div>
 					</div>
