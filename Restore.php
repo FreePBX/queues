@@ -10,6 +10,17 @@ class Restore Extends Base\RestoreBase{
 	}
 
 	public function processLegacy($pdo, $data, $tables, $unknownTables){
+		global $astman;
 		$this->restoreLegacyAll($pdo);
+		if(isset($data['astdb']['QPENALTY'])) {
+			$queuePenalty = array();
+			foreach($data['astdb']['QPENALTY'] as $key => $value) {
+				$queuePenalty[] = [
+					'QPENALTY' => [ $key => $value ]
+				];
+			}
+		}
+		$astman->database_deltree("QPENALTY");
+		$this->importAstDB($queuePenalty);
 	}
 }
