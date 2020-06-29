@@ -2,13 +2,14 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>15.0.19</version>
+	<version>15.0.20</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
 	<changelog>
+		*15.0.20* FREEI-1834 dynamic agents are not restored 
 		*15.0.19* FREEPBX-21428 Increasing the queue max caller limit 
 		*15.0.18* FREEPBX-21363 Backup/restore doesn't restore Dynamic agents in Queues 
 		*15.0.17* FREEPBX-20987 Update 'skip busy' tooltip in Queues 
