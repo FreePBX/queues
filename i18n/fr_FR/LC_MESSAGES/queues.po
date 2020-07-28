@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 04:03+0000\n"
+"POT-Creation-Date: 2020-07-28 12:30+0000\n"
 "PO-Revision-Date: 2016-02-02 18:06+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -441,7 +441,7 @@ msgstr ""
 "Fréquence à laquelle on annonce la position dans la file d'attente et le "
 "temps d'attente estimé (0 pour Désactiver les Annonces)."
 
-#: functions.inc/destination_registry.php:98
+#: functions.inc/destination_registry.php:104
 msgid "INUSE"
 msgstr "UTILISÉ"
 
@@ -708,7 +708,7 @@ msgstr ""
 msgid "Queue"
 msgstr "File d'Attente"
 
-#: functions.inc/destination_registry.php:36
+#: functions.inc/destination_registry.php:42
 #, php-format
 msgid "Queue %s : %s"
 msgstr "File d'attente %s : %s"
@@ -777,14 +777,14 @@ msgstr ""
 "Le nom de la File d\\'Attente ne doit pas être vide et doit contenir des "
 "caractères alpha-numériques uniquement"
 
-#: functions.inc/destination_registry.php:56
-#: functions.inc/destination_registry.php:73
-#: functions.inc/destination_registry.php:97
+#: functions.inc/destination_registry.php:62
+#: functions.inc/destination_registry.php:79
+#: functions.inc/destination_registry.php:103
 #, php-format
 msgid "Queue: %s"
 msgstr "File d'Attente : %s"
 
-#: functions.inc/destination_registry.php:126
+#: functions.inc/destination_registry.php:132
 #, php-format
 msgid "Queue: %s (%s)"
 msgstr "File d'attente : %s (%s)"

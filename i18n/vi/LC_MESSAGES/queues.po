@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 04:03+0000\n"
+"POT-Creation-Date: 2020-07-28 12:30+0000\n"
 "PO-Revision-Date: 2017-08-08 15:22+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -510,7 +510,7 @@ msgstr ""
 "Mức độ thường xuyên để thông bao vị trị hàng đợi và thời gian giữ máy dự "
 "kiến ( 0 để vô hiệu Thông báo)."
 
-#: functions.inc/destination_registry.php:98
+#: functions.inc/destination_registry.php:104
 msgid "INUSE"
 msgstr "INUSE"
 
@@ -834,7 +834,7 @@ msgstr ""
 msgid "Queue"
 msgstr "Hàng đợi"
 
-#: functions.inc/destination_registry.php:36
+#: functions.inc/destination_registry.php:42
 #, php-format
 msgid "Queue %s : %s"
 msgstr "Hàng đợi %s: %s"
@@ -901,14 +901,14 @@ msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr "Tên Hàng đợi không được để trống và chỉ bao gồm các ký tự số- anphabe"
 
-#: functions.inc/destination_registry.php:56
-#: functions.inc/destination_registry.php:73
-#: functions.inc/destination_registry.php:97
+#: functions.inc/destination_registry.php:62
+#: functions.inc/destination_registry.php:79
+#: functions.inc/destination_registry.php:103
 #, php-format
 msgid "Queue: %s"
 msgstr "Hàng đợi: %s"
 
-#: functions.inc/destination_registry.php:126
+#: functions.inc/destination_registry.php:132
 #, php-format
 msgid "Queue: %s (%s)"
 msgstr "Hàng đợi: %s (%s)"
