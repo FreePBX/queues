@@ -1,6 +1,6 @@
 <?php
 // The destinations this module provides
-// returns a associative arrays with keys 'destination' and 'description'
+// returns a associative arrays with keys 'destination', 'description', and 'edit_url'
 function queues_destinations() {
 	//get the list of all exisiting
 	$results = queues_list(true);
@@ -8,7 +8,13 @@ function queues_destinations() {
 	//return an associative array with destination and description
 	if (isset($results)) {
 		foreach($results as $result){
-				$extens[] = array('destination' => 'ext-queues,'.$result['0'].',1', 'description' => $result['0'].' '.$result['1']);
+			$exten = $result['0'];
+			$descr = $result['1'];
+			$extens[] = array(
+				'destination' => 'ext-queues,'.$exten.',1', 
+				'description' => $exten.' '.$descr,
+				'edit_url' => 'config.php?display=queues&view=form&extdisplay='.urlencode($exten),
+			);
 		}
 	}
 
