@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 04:03+0000\n"
+"POT-Creation-Date: 2020-07-28 12:30+0000\n"
 "PO-Revision-Date: 2014-07-22 13:12+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/queues/bg/"
@@ -431,7 +431,7 @@ msgstr ""
 "Колко често да известява позицията в опашката и изминалото време на "
 "задържане (0 за Забрана на Известяване)."
 
-#: functions.inc/destination_registry.php:98
+#: functions.inc/destination_registry.php:104
 msgid "INUSE"
 msgstr "ИЗПОЛЗВА СЕ"
 
@@ -697,7 +697,7 @@ msgstr ""
 msgid "Queue"
 msgstr "Опашка"
 
-#: functions.inc/destination_registry.php:36
+#: functions.inc/destination_registry.php:42
 #, php-format
 msgid "Queue %s : %s"
 msgstr "Опашка %s : %s"
@@ -766,14 +766,14 @@ msgstr ""
 "Името на Опашка не може да е празно и трябва да съдържа само буквено-цифрени "
 "символи"
 
-#: functions.inc/destination_registry.php:56
-#: functions.inc/destination_registry.php:73
-#: functions.inc/destination_registry.php:97
+#: functions.inc/destination_registry.php:62
+#: functions.inc/destination_registry.php:79
+#: functions.inc/destination_registry.php:103
 #, php-format
 msgid "Queue: %s"
 msgstr "Опашка: %s"
 
-#: functions.inc/destination_registry.php:126
+#: functions.inc/destination_registry.php:132
 #, php-format
 msgid "Queue: %s (%s)"
 msgstr "Опашка: %s (%s)"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 04:03+0000\n"
+"POT-Creation-Date: 2020-07-28 12:30+0000\n"
 "PO-Revision-Date: 2016-08-07 06:44+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -498,7 +498,7 @@ msgstr ""
 "How often to  announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 
-#: functions.inc/destination_registry.php:98
+#: functions.inc/destination_registry.php:104
 msgid "INUSE"
 msgstr "در حال استفاده"
 
@@ -812,7 +812,7 @@ msgstr ""
 msgid "Queue"
 msgstr "صف"
 
-#: functions.inc/destination_registry.php:36
+#: functions.inc/destination_registry.php:42
 #, php-format
 msgid "Queue %s : %s"
 msgstr "صف %s : %s"
@@ -879,14 +879,14 @@ msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr "نام صف نباید خالی باشد و تنها باید شامل کراکتر الفبایی باشد"
 
-#: functions.inc/destination_registry.php:56
-#: functions.inc/destination_registry.php:73
-#: functions.inc/destination_registry.php:97
+#: functions.inc/destination_registry.php:62
+#: functions.inc/destination_registry.php:79
+#: functions.inc/destination_registry.php:103
 #, php-format
 msgid "Queue: %s"
 msgstr "صف: %s"
 
-#: functions.inc/destination_registry.php:126
+#: functions.inc/destination_registry.php:132
 #, php-format
 msgid "Queue: %s (%s)"
 msgstr "صف: %s (%s)"

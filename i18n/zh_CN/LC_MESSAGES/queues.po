@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 04:03+0000\n"
+"POT-Creation-Date: 2020-07-28 12:30+0000\n"
 "PO-Revision-Date: 2015-11-12 12:43+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -427,7 +427,7 @@ msgstr ""
 "可以向等待者通告他在队列中的位置和剩下的等待时间，在这里设置通告的频率（0表示"
 "不要通告）。"
 
-#: functions.inc/destination_registry.php:98
+#: functions.inc/destination_registry.php:104
 msgid "INUSE"
 msgstr "正在使用"
 
@@ -689,7 +689,7 @@ msgstr ""
 msgid "Queue"
 msgstr "等待队列"
 
-#: functions.inc/destination_registry.php:36
+#: functions.inc/destination_registry.php:42
 #, php-format
 msgid "Queue %s : %s"
 msgstr "等待队列 %s：%s"
@@ -756,14 +756,14 @@ msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr "队列名称不能为空，并且只能包含字母和数字字符"
 
-#: functions.inc/destination_registry.php:56
-#: functions.inc/destination_registry.php:73
-#: functions.inc/destination_registry.php:97
+#: functions.inc/destination_registry.php:62
+#: functions.inc/destination_registry.php:79
+#: functions.inc/destination_registry.php:103
 #, php-format
 msgid "Queue: %s"
 msgstr "等待队列：%s"
 
-#: functions.inc/destination_registry.php:126
+#: functions.inc/destination_registry.php:132
 #, php-format
 msgid "Queue: %s (%s)"
 msgstr "等待队列：%s（%s）"
