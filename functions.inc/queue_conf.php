@@ -96,6 +96,14 @@ class queues_conf {
 
 		$results = queues_list(true);
 		foreach ($results as $result) {
+			$qannouncements = 0;
+			if($result[2] >0){
+				if(function_exists('vqplus_queue_announcement')){
+					$qannouncements = vqplus_queue_announcement($result[2]);
+				}else {
+					$qannouncements = 1;
+				}
+			}
 			$output .= "[".$result[0]."]\n";
 
 			// passing 2nd param 'true' tells queues_get to send back only queue_conf required params
@@ -154,8 +162,7 @@ class queues_conf {
 					$data = 1;
 				}
 				//we dont want to write the queue config if the queue is linked to callbackqueue because callback daemon will play the position annoucnement
-				//dbug('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'.$result[2]. '!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-				if($result[2] >0) {
+				if($qannouncements == 1 ) {
 					if($keyword =='announce-holdtime' || $keyword == 'announce-position'){
 						$output .= $keyword."=no\n";
 					}elseif($keyword == 'periodic-announce-frequency' ||$keyword == 'announce-frequency' || $keyword =='min-announce-frequency'){
