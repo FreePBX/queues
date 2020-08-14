@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 12:30+0000\n"
+"POT-Creation-Date: 2020-08-14 07:05+0000\n"
 "PO-Revision-Date: 2018-11-10 20:09+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
@@ -300,7 +300,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Kapazitätsoptionen"
 
-#: functions.inc/queue_conf.php:219
+#: functions.inc/queue_conf.php:226
 msgid "Compound Recordings in Queues Detected"
 msgstr "Zusammengesetzte Aufnahmen in Warteschlangen erkannt"
 
@@ -725,7 +725,7 @@ msgstr "Warteschlange"
 msgid "Queue %s : %s"
 msgstr "Warteschlange %s : %s"
 
-#: functions.inc/queue_conf.php:217
+#: functions.inc/queue_conf.php:224
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Warteschlange - %s (%s): %s<br />"
@@ -762,7 +762,7 @@ msgstr "Die Warteschlangennummer darf nicht leer sein"
 msgid "Queue Password"
 msgstr "Warteschlangenpasswort"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Warteschlange Pause Umschalten"
 
@@ -1090,7 +1090,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Warnung! Nebenstelle"
 
-#: functions.inc/queue_conf.php:212
+#: functions.inc/queue_conf.php:219
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

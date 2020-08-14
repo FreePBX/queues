@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 12:30+0000\n"
+"POT-Creation-Date: 2020-08-14 07:05+0000\n"
 "PO-Revision-Date: 2015-11-12 12:43+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "处理能力选项"
 
-#: functions.inc/queue_conf.php:219
+#: functions.inc/queue_conf.php:226
 msgid "Compound Recordings in Queues Detected"
 msgstr "在等待队列的配置中检测到了复合录音"
 
@@ -694,7 +694,7 @@ msgstr "等待队列"
 msgid "Queue %s : %s"
 msgstr "等待队列 %s：%s"
 
-#: functions.inc/queue_conf.php:217
+#: functions.inc/queue_conf.php:224
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "等待队列 - %s（%s）：%s<br />"
@@ -731,7 +731,7 @@ msgstr "等待队列号码不能为空"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr ""
 
@@ -1066,7 +1066,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "警告！你的帐户无法使用分机"
 
-#: functions.inc/queue_conf.php:212
+#: functions.inc/queue_conf.php:219
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

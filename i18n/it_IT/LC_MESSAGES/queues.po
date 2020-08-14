@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 12:30+0000\n"
+"POT-Creation-Date: 2020-08-14 07:05+0000\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -268,7 +268,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr ""
 
-#: functions.inc/queue_conf.php:219
+#: functions.inc/queue_conf.php:226
 msgid "Compound Recordings in Queues Detected"
 msgstr "Ricontrate Registrazioni Composte nelle Code"
 
@@ -701,7 +701,7 @@ msgstr "Coda"
 msgid "Queue %s : %s"
 msgstr "Coda: %s : %s"
 
-#: functions.inc/queue_conf.php:217
+#: functions.inc/queue_conf.php:224
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Coda- %s (%s): %s<br />"
@@ -738,7 +738,7 @@ msgstr "Il Numero della coda non può essere lasciato vuoto"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr ""
 
@@ -1082,7 +1082,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Attenzione! L'interno"
 
-#: functions.inc/queue_conf.php:212
+#: functions.inc/queue_conf.php:219
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 12:30+0000\n"
+"POT-Creation-Date: 2020-08-14 07:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,7 +270,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr ""
 
-#: functions.inc/queue_conf.php:219
+#: functions.inc/queue_conf.php:226
 msgid "Compound Recordings in Queues Detected"
 msgstr ""
 
@@ -713,7 +713,7 @@ msgstr ""
 msgid "Queue %s : %s"
 msgstr ""
 
-#: functions.inc/queue_conf.php:217
+#: functions.inc/queue_conf.php:224
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr ""
@@ -751,7 +751,7 @@ msgstr ""
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22
+#: install.php:9 /usr/src/freepbx/queues/install.php:22
 #: queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr ""
@@ -1088,7 +1088,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr ""
 
-#: functions.inc/queue_conf.php:212
+#: functions.inc/queue_conf.php:219
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
