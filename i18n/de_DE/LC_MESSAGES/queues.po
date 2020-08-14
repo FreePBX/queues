@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-26 14:43+0530\n"
+"POT-Creation-Date: 2020-08-14 07:05+0000\n"
 "PO-Revision-Date: 2020-02-19 15:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/queues/de/>\n"
@@ -175,9 +175,9 @@ msgstr ""
 "Ansage wird dem Agenten vor dem Überbrücken des Anrufers vorgespielt <br> "
 "<br> Beispiel: \"Der folgende Anruf kommt aus der Verkaufswarteschlange\" "
 "oder \"Dieser Anruf kommt aus der Warteschlange des technischen Supports\". "
-"<br> <br> Um weitere Aufnahmen hinzuzufügen, benutzen sie bitte das menü \""
-"System aufnahmen\". Zusammengesetzte Aufzeichnungen, die aus zwei oder mehr "
-"Audiodateien bestehen, werden nicht als Optionen angezeigt, da diese "
+"<br> <br> Um weitere Aufnahmen hinzuzufügen, benutzen sie bitte das menü "
+"\"System aufnahmen\". Zusammengesetzte Aufzeichnungen, die aus zwei oder "
+"mehr Audiodateien bestehen, werden nicht als Optionen angezeigt, da diese "
 "Funktion solche Aufzeichnungen nicht akzeptieren kann."
 
 #: views/form.php:169
@@ -196,8 +196,8 @@ msgstr ""
 "Anrufbestätigung abgespielt, sofern das Mitglied nicht über eine Follow-Me-"
 "Verbindung erreicht wird und in der Follow-Me-Verbindung eine alternative "
 "Nachricht enthalten ist. Diese Nachricht überschreibt alle anderen "
-"angegebenen Nachrichten. <br> <br> Verwenden Sie das MENÜ \""
-"Systemaufzeichnungen\", um weitere Aufzeichnungen hinzuzufügen."
+"angegebenen Nachrichten. <br> <br> Verwenden Sie das MENÜ "
+"\"Systemaufzeichnungen\", um weitere Aufzeichnungen hinzuzufügen."
 
 #: views/cron.php:63
 msgid "Annually"
@@ -336,7 +336,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Kapazitätsoptionen"
 
-#: functions.inc/queue_conf.php:219
+#: functions.inc/queue_conf.php:226
 msgid "Compound Recordings in Queues Detected"
 msgstr "Zusammengesetzte Aufnahmen in Warteschlangen erkannt"
 
@@ -548,11 +548,11 @@ msgstr ""
 "entgegennehmen. Wenn nicht, ist es möglich, dass die wartenden Anrufer die "
 "Aufzeichnungen und den MoH nicht hören, da die frühen Medienfunktionen "
 "variieren und inkonsistent sind. In einigen Fällen kann es erwünscht sein, "
-"einen Anruf nicht entgegenzunehmen, wenn die Warteschlangenrichtlinien \""
-"Strict Join Empty\" (Strikte Verbindung mit leerer Warteschlange) verwendet "
-"werden, bei denen der Anrufer nur dann in die Warteschlange aufgenommen "
-"wird, wenn ein Warteschlangenmitglied sofort verfügbar ist, um den Anruf "
-"anzunehmen."
+"einen Anruf nicht entgegenzunehmen, wenn die Warteschlangenrichtlinien "
+"\"Strict Join Empty\" (Strikte Verbindung mit leerer Warteschlange) "
+"verwendet werden, bei denen der Anrufer nur dann in die Warteschlange "
+"aufgenommen wird, wenn ein Warteschlangenmitglied sofort verfügbar ist, um "
+"den Anruf anzunehmen."
 
 #: views/form.php:863
 msgid ""
@@ -816,7 +816,7 @@ msgstr "Warteschlange"
 msgid "Queue %s : %s"
 msgstr "Warteschlange %s : %s"
 
-#: functions.inc/queue_conf.php:217
+#: functions.inc/queue_conf.php:224
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Warteschlange - %s (%s): %s<br />"
@@ -853,7 +853,7 @@ msgstr "Die Warteschlangennummer darf nicht leer sein"
 msgid "Queue Password"
 msgstr "Warteschlangenpasswort"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Warteschlange Pause Umschalten"
 
@@ -1101,8 +1101,8 @@ msgstr ""
 "erzwingt, dass die Agentennummer als Asterisk-Gerät vom Typ SIP, PJSIP, "
 "IAX2, ZAP, DAHDi oder Agent gewählt wird. Dieser Modus richtet sich an "
 "fortgeschrittene Benutzer und kann bekannte Probleme in FreePBX verursachen, "
-"da Sie den normalen Wählplan umgehen. Wenn für Ihre \"Agent-Einschränkungen\""
-" nicht \"Nur Nebenstellen\" festgelegt ist, treten Probleme bei der "
+"da Sie den normalen Wählplan umgehen. Wenn für Ihre \"Agent-Einschränkungen"
+"\" nicht \"Nur Nebenstellen\" festgelegt ist, treten Probleme bei der "
 "nachfolgenden Übermittlung an Voicemail auf, und es können auch andere "
 "Probleme auftreten."
 
@@ -1225,7 +1225,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Warnung! Nebenstelle"
 
-#: functions.inc/queue_conf.php:212
+#: functions.inc/queue_conf.php:219
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1309,8 +1309,8 @@ msgstr ""
 "Leitungen nicht mit dem Anruf verbunden werden und in den verschiedenen "
 "Klingelstrategien für den Sammelruf der nächste Agent versucht wird. <br/> "
 "Bei der Einstellung \"Ja + (Klingelton = Nein)\" wird zusätzlich zum "
-"überwachten Gerätestatus des Telefons das Warteschlangenkonfigurationsflag \""
-"Klingelton = Nein\" für diese Warteschlange gesetzt. Dies führt dazu, dass "
+"überwachten Gerätestatus des Telefons das Warteschlangenkonfigurationsflag "
+"\"Klingelton = Nein\" für diese Warteschlange gesetzt. Dies führt dazu, dass "
 "die Warteschlange entfernte Agenten (Agenten, die ein entferntes PSTN-"
 "Telefon sind, das über Follow-Me angerufen wird, und andere Mittel) sowie "
 "Agenten mit PBX-Verbindung nachverfolgt, sodass die Warteschlange nicht "
