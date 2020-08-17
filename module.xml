@@ -8,6 +8,7 @@
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<category>Applications</category>
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Queues+Module</more-info>
 	<changelog>
 		*13.0.34.17* FREEI-924 Fix XSS Bootstrap Datatable Issues 
 		*13.0.34.16* FREEPBX-20634 Dynamic Agents with comma character in name show as (Invalid) in queues 
