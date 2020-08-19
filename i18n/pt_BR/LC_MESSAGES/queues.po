@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 12:30+0000\n"
+"POT-Creation-Date: 2020-08-19 10:40+0000\n"
 "PO-Revision-Date: 2017-02-20 18:07+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -319,7 +319,7 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Opções de Capacidade"
 
-#: functions.inc/queue_conf.php:219
+#: functions.inc/queue_conf.php:226
 msgid "Compound Recordings in Queues Detected"
 msgstr "Gravações Compostas em Fila Detectado"
 
@@ -826,7 +826,7 @@ msgstr "FIla"
 msgid "Queue %s : %s"
 msgstr "Fila %s : %s"
 
-#: functions.inc/queue_conf.php:217
+#: functions.inc/queue_conf.php:224
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "FIla - %s (%s): %s<br />"
@@ -863,7 +863,7 @@ msgstr "O número da fila não pode ficar em branco"
 msgid "Queue Password"
 msgstr "Senha da Fila"
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr "Alternar Pausa da Fila"
 
@@ -1268,7 +1268,7 @@ msgstr "Prefixo do tempo de espera"
 msgid "Warning! Extension"
 msgstr "Atenção! Ramal"
 
-#: functions.inc/queue_conf.php:212
+#: functions.inc/queue_conf.php:219
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
