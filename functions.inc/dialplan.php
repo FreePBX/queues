@@ -122,7 +122,7 @@ function queues_get_config($engine) {
 				 */
 
 				// deal with group CID prefix
-				$ext->add($c, $exten, '', new ext_set('QCIDPP', '${IF($[${LEN(${VQ_CIDPP})}>0]?${VQ_CIDPP}' . ':' . ($grppre == '' ? ' ':$grppre) . ')}'));
+				$ext->add($c, $exten, '', new ext_set('QCIDPP', '${IF($[${LEN(${VQ_CIDPP})}>0]?"${VQ_CIDPP}"' . ':' . ($grppre == '' ? ' ':$grppre) . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_CIDPP', ''));
 				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Macro', 'prepend-cid,${QCIDPP}'));
 
