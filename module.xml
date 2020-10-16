@@ -2,7 +2,7 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>15.0.23</version>
+	<version>15.0.24</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
@@ -10,6 +10,7 @@
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
   	<more-info>https://wiki.freepbx.org/display/F2/Queues+Module</more-info>
 	<changelog>
+		*15.0.24* add encapsulating doublequotes around queue CID prefix to allow delimeting characters to be part of prefix 
 		*15.0.23* Packaging of ver 15.0.23
 		*15.0.22* Packaging of ver 15.0.22
 		*15.0.21* FREEI-1959 - optimize the queues_get() function 
