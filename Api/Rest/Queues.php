@@ -3,6 +3,12 @@ namespace FreePBX\modules\Queues\Api\Rest;
 use FreePBX\modules\Api\Rest\Base;
 class Queues extends Base {
 	protected $module = 'queues';
+
+	public function __construct($freepbx, $module) {
+		parent::__construct($freepbx, $module);
+		$this->freepbx->Modules->loadFunctionsInc($module);
+	}
+
 	public function setupRoutes($app) {
 		/**
 		* @verb GET
@@ -10,7 +16,6 @@ class Queues extends Base {
 		* @uri /queues
 		*/
 		$app->get('/', function ($request, $response, $args) {
-			\FreePBX::Modules()->loadFunctionsInc('queues');
 			$queues = queues_list();
 
 			foreach ($queues as $queue) {
@@ -30,7 +35,6 @@ class Queues extends Base {
 		 * @uri /queues/members
 		 */
 		$app->get('/members', function ($request, $response, $args) {
-			\FreePBX::Modules()->loadFunctionsInc('queues');
 			$list = array();
 
 			// Get dynamic members priority from astdb
