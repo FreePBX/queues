@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 05:15+0000\n"
+"POT-Creation-Date: 2020-11-25 05:24+0000\n"
 "PO-Revision-Date: 2016-02-02 18:06+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -750,7 +750,7 @@ msgstr "Le numéro de File d\\'Attente ne doit pas être vide"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr ""
 
