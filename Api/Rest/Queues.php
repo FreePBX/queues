@@ -102,7 +102,7 @@ class Queues extends Base {
          * @uri     /queues/members/:id
          */
         $app->put('/members/{id}', function($request, $response, $args) {
-            global $db, $astman;
+            global $db;
 
             // Get queue
             $queue = queues_get($args['id']);
@@ -199,29 +199,29 @@ class Queues extends Base {
             }
 
             // Save dynamic members
-            if ($astman && isset($params['dynmembers'])) {
+            if (isset($params['dynmembers'])) {
                 $params['dynmembers'] = explode("\n", $params['dynmembers']);
                 $params['dynmembers'] = array_unique($params['dynmembers']);
 
                 // Get running dynmemberonly
-                $dynmemberonly = $astman->database_get(sprintf('QPENALTY/%d', $args['id']),
+                $dynmemberonly = $this->freepbx->astman->database_get(sprintf('QPENALTY/%d', $args['id']),
                                                        'dynmemberonly');
 
                 // Restore dyn agents
-                $astman->database_deltree(sprintf('QPENALTY/%d', $args['id']));
+                $this->freepbx->astman->database_deltree(sprintf('QPENALTY/%d', $args['id']));
 
                 // Set dyn agents
                 foreach ($params['dynmembers'] as $member) {
                     $mem = explode(',', $member);
                     if (isset($mem[0]) && trim($mem[0]) != '') {
                         $penalty = isset($mem[1]) && ctype_digit(trim($mem[1])) ? $mem[1] : 0;
-                        $astman->database_put(sprintf('QPENALTY/%d/agents', $args['id']),
+                        $this->freepbx->astman->database_put(sprintf('QPENALTY/%d/agents', $args['id']),
                                               trim($mem[0]), trim($penalty));
                     }
                 }
 
                 // Restore dynmemberonly
-                $astman->database_put(sprintf('QPENALTY/%d', $args['id']), 'dynmemberonly',
+                $this->freepbx->astman->database_put(sprintf('QPENALTY/%d', $args['id']), 'dynmemberonly',
                                       $dynmemberonly ? $dynmemberonly : 0);
             }
 
