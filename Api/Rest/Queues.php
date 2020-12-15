@@ -82,14 +82,18 @@ class Queues extends Base {
                               'member' => []];
 
             // fill dynmembers
-            foreach (explode("\n", $queue['dynmembers']) as $member) {
-                $queue_members['dynmembers'][] = substr($member, 0, strpos($member, ","));
+            if (!empty($queue['dynmembers'])) {
+                foreach (explode("\n", $queue['dynmembers']) as $member) {
+                    $queue_members['dynmembers'][] = substr($member, 0, strpos($member, ","));
+                }
             }
 
             // fill static members
-            foreach ($queue['member'] as $member) {
-                if (preg_match("/^.*?\/([\d]+).*,([\d]+)$/", $member, $matches)) {
-                    $queue_members['member'][] = $matches[1];
+            if (!empty($queue['member'])) {
+                foreach ($queue['member'] as $member) {
+                    if (preg_match("/^.*?\/([\d]+).*,([\d]+)$/", $member, $matches)) {
+                        $queue_members['member'][] = $matches[1];
+                    }
                 }
             }
 
@@ -102,8 +106,6 @@ class Queues extends Base {
          * @uri     /queues/members/:id
          */
         $app->put('/members/{id}', function($request, $response, $args) {
-            global $db;
-
             // Get queue
             $queue = queues_get($args['id']);
             if (empty($queue)) {
@@ -193,9 +195,12 @@ class Queues extends Base {
                 }
 
                 // Update to DB
-                $db->query(sprintf("DELETE FROM queues_details WHERE id = '%s'", $args['id']));
-                $compiled = $db->prepare('INSERT INTO queues_details (id, keyword, data, flags) values (?,?,?,?)');
-                $db->executeMultiple($compiled, $fields);
+                $this->freepbx->Database->query(sprintf("DELETE FROM queues_details WHERE id = '%s'",
+                                                        $args['id']));
+                $compiled = $this->freepbx->Database->prepare('INSERT INTO queues_details (id, keyword, data, flags) values (?,?,?,?)');
+                array_walk($fields, function($field) use ($compiled) {
+                    $compiled->execute($field);
+                });
             }
 
             // Save dynamic members
@@ -204,8 +209,9 @@ class Queues extends Base {
                 $params['dynmembers'] = array_unique($params['dynmembers']);
 
                 // Get running dynmemberonly
-                $dynmemberonly = $this->freepbx->astman->database_get(sprintf('QPENALTY/%d', $args['id']),
-                                                       'dynmemberonly');
+                $dynmemberonly = $this->freepbx->astman->database_get(sprintf('QPENALTY/%d',
+                                                                              $args['id']),
+                                                                      'dynmemberonly');
 
                 // Restore dyn agents
                 $this->freepbx->astman->database_deltree(sprintf('QPENALTY/%d', $args['id']));
@@ -215,14 +221,16 @@ class Queues extends Base {
                     $mem = explode(',', $member);
                     if (isset($mem[0]) && trim($mem[0]) != '') {
                         $penalty = isset($mem[1]) && ctype_digit(trim($mem[1])) ? $mem[1] : 0;
-                        $this->freepbx->astman->database_put(sprintf('QPENALTY/%d/agents', $args['id']),
-                                              trim($mem[0]), trim($penalty));
+                        $this->freepbx->astman->database_put(sprintf('QPENALTY/%d/agents',
+                                                                     $args['id']), trim($mem[0]),
+                                                             trim($penalty));
                     }
                 }
 
                 // Restore dynmemberonly
-                $this->freepbx->astman->database_put(sprintf('QPENALTY/%d', $args['id']), 'dynmemberonly',
-                                      $dynmemberonly ? $dynmemberonly : 0);
+                $this->freepbx->astman->database_put(sprintf('QPENALTY/%d', $args['id']),
+                                                     'dynmemberonly',
+                                                     $dynmemberonly ? $dynmemberonly : 0);
             }
 
             needreload();
