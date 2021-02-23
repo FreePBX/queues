@@ -2,7 +2,7 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>15.0.28</version>
+	<version>15.0.29</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
@@ -10,6 +10,7 @@
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
   	<more-info>https://wiki.freepbx.org/display/FPG/Queues+Module</more-info>
 	<changelog>
+		*15.0.29* FREEPBX-22294/Queues API Can Delete Member 
 		*15.0.28* Fixing FREEPBX-22294 New Queue API destroys queue if sent with no static members issue. 
 		*15.0.27* FREEPBX-22110 Improving REST API for Queues 
 		*15.0.26* Packaging of ver 15.0.26
