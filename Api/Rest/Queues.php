@@ -118,10 +118,7 @@ class Queues extends Base {
             if (isset($params['member'])) {
                 $count = 0;
                 $members = explode("\n", $params['member']);
- 				if (empty($members)){
-            		  // members was set, with no contents.  remove static members from the DB.
-                 	  $this->freepbx->Database->query(sprintf("DELETE FROM queues_details WHERE id = '%s'", $args['id']));
-                }else{
+ 			
                 // parse and transform members
                 foreach (array_keys($members) as $key) {
                     //trim it
@@ -198,13 +195,12 @@ class Queues extends Base {
                 }
 
                 // Update to DB
-                $this->freepbx->Database->query(sprintf("DELETE FROM queues_details WHERE id = '%s'",
+                $this->freepbx->Database->query(sprintf("DELETE FROM queues_details WHERE id = '%s' AND keyword='member'",
                                                         $args['id']));
                 $compiled = $this->freepbx->Database->prepare('INSERT INTO queues_details (id, keyword, data, flags) values (?,?,?,?)');
                 array_walk($fields, function($field) use ($compiled) {
                     $compiled->execute($field);
                 });
-            }
             }
             // Save dynamic members
             if (isset($params['dynmembers'])) {
