@@ -319,4 +319,112 @@ class Queues extends FreePBX_Helpers implements BMO {
 			 return array();
 		 }
 	 }
+
+	public function getDynMembersOfQueue($queue) {
+		$get = $this->FreePBX->astman->database_show('QPENALTY/'.$queue.'/agents');
+		$dynmem =  array();
+		if($get){
+			foreach($get as $key => $value){
+				$key1 = explode('/',$key);
+				$mem[$key1[4]] = $value;
+			}
+			foreach($mem as $mem => $pnlty){
+				$dynmem[] = $mem ;
+			}
+		}
+		return $dynmem;
+	}
+
+	public function getQueuesDetails($queue) {
+		$data = $this->FreePBX->astman->Command('queue show '.$queue);
+
+		$sections = [];
+		$current = false;
+		$buffer = [];
+		$queuestats = [];
+		foreach (preg_split("/\\r\\n|\\r|\\n/", $data['data']) as $line) {
+			if (strpos($line, "Privilege: ") === 0) {
+				continue;
+			}
+			if (preg_match('/^(.+) has \d* calls/', $line, $out)) {
+				if ($current !== false) {
+					$sections[$current] = $buffer;
+					$buffer = [];
+				}
+				$current = (string) $out[1];
+			}
+			$buffer[] = $line;
+		}
+		if ($current !== false) {
+			$sections[$current] = $buffer;
+		}
+		if(!empty($sections)) {
+			foreach($sections as $qnum => $lines)
+			{
+				$tmparr = $this->parseQueueVal($lines);
+				$queuestats[$qnum] = $tmparr;
+			}
+		}
+		return $queuestats;
+	}
+
+	public function parseQueueVal($queue) {
+		$header = array_shift($queue);
+		if (!preg_match('/(.+) has (\d+) call.+\((.+) holdtime, (.+) talktime\), W:(\d+), C:(\d+), A:(\d+), SL:(.+)% within (.+)$/', $header, $out)) {
+			return false;
+		}
+
+		$sql = "SELECT * FROM queues_config WHERE extension = ?";
+		$sth = $this->db->prepare($sql);
+		$sth->execute(array($out[1]));
+		$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
+		foreach($rows as $row) {
+			$qName = $row['descr'];
+		}
+
+		$retarr = [
+			"queue" => $out[1], "name" => $qName, "waiting" => $out[2], "holdtime" => $out[3], "talktime" => $out[4],
+			"weight" => $out[5], "totalcalls" => ($out[6] + $out[7]), "answered" => $out[6],"abandoned" => $out[7], "members" => [], "callers" => [],
+		];
+
+		$callers = false;
+		foreach ($queue as $oline) {
+			$line = trim($oline);
+			if (!$line) {
+				continue;
+			}
+			if ($line === "Callers:" || $line === "No Callers") {
+				$callers = true;
+				continue;
+			}
+			if ($callers) {
+				$retarr['callers'][] = trim($line);
+			} else {
+				$tmp = $this->parseMemberVal($line);
+				if(empty($tmp['hint'])) {
+					continue;
+				}
+				$retarr['members'][$tmp['hint']] = $tmp['data'];
+			}
+		}
+		return $retarr;
+	}
+
+	public function parseMemberVal($line) {
+		if (!preg_match("/(.+)\((Local\/.+from-queue\/n) from hint:(\d+)@ext-local\) (.+) has taken (.+$)/", $line, $out)) {
+			$retarr = ["user" => "", "localchan" => "", "hint" => "", "callcount" => "", "lastcall" => "", "incall" => "", "ispaused" => ""];
+			return ['hint' => '', 'data' => $retarr];
+		}
+		if (strpos($out[5], "no") === 0) {
+			$retarr =  [ "user" => trim($out[1]), "localchan" => $out[2], "hint" => $out[3], "callcount" => 0, "lastcall" => "Never" ];
+		} else {
+			$tmparr = explode(" ", $out[5]);
+			$retarr =  [ "user" => trim($out[1]), "localchan" => $out[2], "hint" => $out[3], "callcount" => (int) $tmparr[0], "lastcall" => $tmparr[4] ];
+		}
+
+		$retarr['incall'] = (strpos($out[4], "(in call)") !== false);
+		$retarr['ispaused'] = (strpos($out[4], "(paused") !== false);
+
+		return ['hint' => $retarr['hint'], 'data' => $retarr];
+	}
 }
