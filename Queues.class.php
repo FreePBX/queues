@@ -427,4 +427,36 @@ class Queues extends FreePBX_Helpers implements BMO {
 
 		return ['hint' => $retarr['hint'], 'data' => $retarr];
 	}
+
+	public function queues_member_login($queue, $user, $state) {
+		$astman = $this->FreePBX->astman;
+
+		$interface = "Local/" . $user . "@from-queue/n";
+
+		if ($state) {
+			$penalty = $astman->database_get("QPENALTY", $queue . "/agents/" . $user);
+			$cidname = $astman->database_get('AMPUSER', $user . '/cidname');
+			$cidname = $astman->database_get('AMPUSER', $user . '/cidname');
+
+			$ret = $astman->send_request("QueueAdd", array(
+				"Queue" => $queue,
+				"Interface" => $interface,
+				"Penalty" => $penalty,
+				"MemberName" => $cidname,
+				"StateInterface" => "hint:" . $user . "@ext-local"
+			));
+		} else {
+			$ret = $astman->send_request("QueueRemove", array(
+				"Queue" => $queue,
+				"Interface" => $interface
+			));
+		}
+
+		$devices = $astman->database_get("AMPUSER", $user . "/device");
+
+		$device_arr = explode('&', $devices);
+		foreach ($device_arr as $device) {
+			$ret = $astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:QUEUE" . $device . "*" . $queue . ")", ($state ? 'INUSE' : 'NOT_INUSE'));
+		}
+	}
 }
