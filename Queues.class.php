@@ -459,4 +459,16 @@ class Queues extends FreePBX_Helpers implements BMO {
 			$ret = $astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:QUEUE" . $device . "*" . $queue . ")", ($state ? 'INUSE' : 'NOT_INUSE'));
 		}
 	}
+
+	public function queuesMemberPause($queue, $user, $state, $reason = null) {
+		$astman = $this->FreePBX->astman;
+		$interface = "Local/" . $user . "@from-queue/n";
+		$state = $state ? 1 : 0 ;
+		$ret = $astman->send_request("QueuePause", array(
+			"Interface" => $interface,
+			"Paused" => $state,
+			"Queue" => $queue,
+			"Reason" => $reason
+		));
+	}
 }
