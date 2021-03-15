@@ -375,7 +375,7 @@ class Queues extends FreePBX_Helpers implements BMO {
 		}
 
 		$sql = "SELECT * FROM queues_config WHERE extension = ?";
-		$sth = $this->db->prepare($sql);
+		$sth = $this->Database->prepare($sql);
 		$sth->execute(array($out[1]));
 		$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		foreach($rows as $row) {
