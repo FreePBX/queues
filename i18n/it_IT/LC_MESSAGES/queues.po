@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 04:10+0000\n"
+"POT-Creation-Date: 2021-03-16 13:33+0000\n"
 "PO-Revision-Date: 2011-04-02 23:37+0200\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -738,7 +738,7 @@ msgstr "Il Numero della coda non può essere lasciato vuoto"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
 msgstr ""
 
