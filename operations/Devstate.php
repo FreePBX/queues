@@ -67,6 +67,33 @@ class Devstate {
 		}
 		$this->agi->set_variable("TOGGLEPAUSED", $new_state);
 	}
+	
+	/**
+	 * Method toggle_pause_all_reason
+	 *
+	 * @return void
+	 */
+	private function toggle_pause_all_reason() {
+		$this->debug("Looking up queues for agent: {$this->user}");
+		$agent_queues = $this->getCurrentQueues($this->user);
+		$this->debug("got queues from logged in of: " . implode('-',$agent_queues));
+
+		$user_interface = "Local/{$this->user}@from-queue/n";
+		$paused_state = 0;
+		foreach ($agent_queues as $q) {
+			$state = $this->getVar("QUEUE_MEMBER($q,paused,$user_interface)");
+			$paused_state |= $state;
+		}
+		// If one was paused then treat as all paused and unpause all, otherwise pause all
+		// in all queues
+		$new_state = $paused_state ? '0' : '1';
+		foreach ($agent_queues as $q) {
+			$this->agi->set_variable("QUEUE_MEMBER($q,paused,$user_interface)", $new_state);
+			$this->debug("QUEUE_MEMBER($q,paused,$user_interface)=$new_state");
+		}
+		$this->agi->set_variable("TOGGLEPAUSED", $new_state);
+		$this->getuserQueues();
+	}
 
 	private function getCurrentQueues($user) {
 		$queues = array();
