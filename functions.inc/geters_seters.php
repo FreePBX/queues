@@ -164,7 +164,7 @@ function queues_add(
 			$callconfirm_id = NULL;
 		}
 	} else {
-		$joinannounce_id = NULL;
+		$callconfirm_id = NULL;
 	}
 	$maxwait		= isset($maxwait) ? $maxwait:'';
 	$password		= isset($password) ? $password:'';
