@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-26 06:29+0000\n"
-"PO-Revision-Date: 2021-11-30 15:00+0000\n"
+"PO-Revision-Date: 2021-12-08 08:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/queues/"
 "ru/>\n"
@@ -945,7 +945,12 @@ msgid ""
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
 "with an agent name, which is set if available at the login time with "
 "AddQueueMember membername parameter, or with static members."
-msgstr "Queues: updatecdr"
+msgstr ""
+"Очереди: updatecdr, действительно только с Asterisk 1.6+. Эта опция "
+"реализована для имитации поведения chan_agents при заполнении поля CDR "
+"dstchannel вызова именем агента, которое задается, если оно доступно во "
+"время входа с параметром membername для AddQueueMember() или со статическими "
+"участниками."
 
 #: views/cron.php:84
 msgid "RUN"
@@ -1517,7 +1522,7 @@ msgstr "по умолчанию"
 
 #: views/form.php:268
 msgid "fewestcalls"
-msgstr "менее-организованному"
+msgstr "менее-вызываемый"
 
 #: functions.inc.php:32
 msgid "hour"
@@ -1537,11 +1542,11 @@ msgstr "не разрешен к использованию в вашем акк
 
 #: views/form.php:267
 msgid "leastrecent"
-msgstr "самому-незанятому"
+msgstr "недавний"
 
 #: views/form.php:272
 msgid "linear"
-msgstr "линейное"
+msgstr "линейная"
 
 #: functions.inc.php:33
 msgid "minute"
@@ -1557,33 +1562,34 @@ msgstr "нет"
 
 #: views/form.php:269
 msgid "random"
-msgstr "случайный-выбор"
+msgstr "случайный"
 
 #: views/form.php:273
 msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
-"случайный выбор использует занятость агентов как вес в качестве приоритета "
-"выбора, см. документацию Астериск для более детальной информации"
+"случайным образом с использованием штрафа участника в качестве весового "
+"коэффициента, подробности см. в документации по Asterisk"
 
 #: views/form.php:267
 msgid "ring agent which was least recently called by this queue"
-msgstr "звонок поступает наименее занятому оператору в этой очереди"
+msgstr "вызывать агента, который был последним вызван этой очередью"
 
 #: views/form.php:266
 msgid "ring all available agents until one answers (default)"
 msgstr ""
-"звонят сразу все телефоны у всех операторов, пока кто либо один не ответит "
-"(по умолчанию)"
+"вызывать всех доступных агентов, пока один из них не ответит (по умолчанию)"
 
 #: views/form.php:269
 msgid "ring random agent"
-msgstr "звонок поступает любому оператору случайным образом"
+msgstr "вызвать случайного агента"
 
 #: views/form.php:268
 msgid "ring the agent with fewest completed calls from this queue"
-msgstr "звонок поступает оператору с наименьшим числом законченых разговоров"
+msgstr ""
+"вызывается агент с наименьшим количеством завершенных вызовов в данной "
+"очереди"
 
 #: views/form.php:266
 msgid "ringall"
@@ -1594,27 +1600,29 @@ msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
 msgstr ""
-"звонок поступает агентам в том порядке, в котором они перечислены. Для "
-"динамических агентов - в том порядке, в котором они регистрировались"
+"вызывать агентов в указанном порядке, для динамических агентов в том "
+"порядке, в котором они вошли в систему"
 
 #: views/form.php:270
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr ""
-"звонок поступает любому доступному оператору, но с учётом того, кто отвечал "
-"на последний звонок"
+"круговой алгоритм с памятью, запоминает где мы остановились на последнем "
+"вызове"
 
 #: views/form.php:270
 msgid "rrmemory"
-msgstr "RRMEMORY"
+msgstr "запоминающая"
 
 #: views/form.php:271
 msgid "rrordered"
-msgstr "RRORDERED"
+msgstr "упорядоченная"
 
 #: views/form.php:271
 msgid ""
 "same as rrmemory, except the queue member order from config file is preserved"
-msgstr "такой же порядок, как и rrmemory, но сохранен порядок из конфигурации"
+msgstr ""
+"тоже самое, что и запоминающая, за исключением того, что порядок участников "
+"очереди из файла конфигурации сохраняется"
 
 #: functions.inc.php:34
 msgid "second"
@@ -1627,7 +1635,7 @@ msgstr "секунды"
 
 #: views/form.php:273
 msgid "wrandom"
-msgstr "случайный-выбор"
+msgstr "весово-случайная"
 
 #~ msgid "Generate queuenum*/** Login/off Codes"
 #~ msgstr ""
