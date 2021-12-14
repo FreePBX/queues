@@ -87,10 +87,7 @@ class Devstate {
 		// If one was paused then treat as all paused and unpause all, otherwise pause all
 		// in all queues
 		$new_state = $paused_state ? '0' : '1';
-		foreach ($agent_queues as $q) {
-			$this->agi->set_variable("QUEUE_MEMBER($q,paused,$user_interface)", $new_state);
-			$this->debug("QUEUE_MEMBER($q,paused,$user_interface)=$new_state");
-		}
+		
 		$this->agi->set_variable("TOGGLEPAUSED", $new_state);
 		$this->getuserQueues();
 	}
