@@ -14,8 +14,8 @@ $cron_schedule = isset($cron_schedule)?$cron_schedule:'never';
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="enabledw"><?php echo _("Stats Reset") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="enabledw"></i>
@@ -44,8 +44,8 @@ $cron_schedule = isset($cron_schedule)?$cron_schedule:'never';
 <div class="element-container <?php echo ($cron_schedule == 'never' ? 'hidden':'')?>" id="randominput">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="cron_randomw"><?php echo _("Random") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_randomw"></i>
@@ -78,8 +78,8 @@ $cron_schedule = isset($cron_schedule)?$cron_schedule:'never';
 <div class="element-container <?php echo ($cron_schedule == 'never' ? 'hidden':'')?>" id="runinput">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="runw"><?php echo _("RUN") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="runw"></i>
