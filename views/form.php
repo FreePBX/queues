@@ -686,7 +686,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 	<div class="scroller scroller-left"><i class="fa fa-chevron-left"></i></div>
 	<div class="scroller scroller-right"><i class="fa fa-chevron-right"></i></div>
 	<div class="wrapper">
-		<ul class="nav nav-tabs list" role="tablist" style="margin-top:2px;">
+		<ul class="nav nav-tabs list pb-0" role="tablist" style="margin-top:2px;">
 			<li role="presentation" data-name="qgeneral">
 				<a class="nav-link active" href="#qgeneral" aria-controls="qgeneral" role="tab" data-toggle="tab">
 					<?php echo _("General Settings")?>
