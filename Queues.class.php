@@ -258,7 +258,7 @@ class Queues extends FreePBX_Helpers implements BMO {
 		$hookTabs = '';
 		$hookcontent = '';
 		foreach ($sections as $data) {
-			$hookTabs .= '<li role="presentation"><a href="#queuehook'.$data['rawname'].'" aria-controls="queuehook'.$data['rawname'].'" role="tab" data-toggle="tab">'.$data['title'].'</a></li>';
+			$hookTabs .= '<li role="presentation"><a class="nav-link" href="#queuehook'.$data['rawname'].'" aria-controls="queuehook'.$data['rawname'].'" role="tab" data-toggle="tab">'.$data['title'].'</a></li>';
 			$hookcontent .= '<div role="tabpanel" class="tab-pane" id="queuehook'.$data['rawname'].'">';
 			$hookcontent .=	 $data['content'];
 			$hookcontent .= '</div>';
