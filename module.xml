@@ -2,7 +2,7 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>16.0.17</version>
+	<version>17.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
@@ -10,23 +10,7 @@
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
   	<more-info>https://wiki.freepbx.org/display/F2/Queues+Module</more-info>
 	<changelog>
-		*16.0.17* Packaging of ver 16.0.17
-		*16.0.16* FREEI-4793 
-		*16.0.15* FREEI-4793 
-		*16.0.14* FREEI-3852 adding pause all toggle reason 
-		*16.0.13* Packaging of ver 16.0.13
-		*16.0.12* FREEI-3011 Unable to Configure Queue native app in D-phone 
-		*16.0.11* FREEI-2920	Method added for Dphone API 
-		*16.0.10* FREEI-2918 Added method for Dphone API 
-		*16.0.9* FREEI-2878 methods added for Dphone API 
-		*16.0.8* FREEPBX-22294/Queues API Can Delete Member 
-		*16.0.7* Fixing FREEPBX-22294 New Queue API destroys queue if sent with no static members issue. 
-		*16.0.6* FREEPBX-22046 Queues Rest API fails to fetch details by QueueID 
-		*16.0.5* Packaging of ver 16.0.5
-		*16.0.4* FREEI-1959 - optimize the queues_get() function 
-		*16.0.3* FREEI-1834 dynamic agents are not restored 
-		*16.0.2* FREEPBX-21428 Increasing the queue max caller limit 
-        	*16.0.1* inti 16
+        	*17.0.1* inti 17
 	</changelog>
 	<depends>
 		<version>14.0.1alpha24</version>
@@ -43,7 +27,7 @@
 		</queues>
 	</popovers>
 	<supported>
-		<version>16.0</version>
+		<version>17.0</version>
 	</supported>
 	<database>
 		<table name="queues_details">
