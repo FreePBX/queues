@@ -2,7 +2,7 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>16.0.17</version>
+	<version>16.0.18</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
@@ -10,6 +10,7 @@
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
   	<more-info>https://wiki.freepbx.org/display/F2/Queues+Module</more-info>
 	<changelog>
+		*16.0.18* Reverting Bootstrap and dependent libs fixes 
 		*16.0.17* Packaging of ver 16.0.17
 		*16.0.16* FREEI-4793 
 		*16.0.15* FREEI-4793 
