@@ -76,8 +76,8 @@ if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']){
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="password">'._("Queue Password").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="password"></i>
@@ -105,8 +105,8 @@ $qnoahtml = '';
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="qnoanswerw">'._("Queue No Answer").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="qnoanswerw"></i>
@@ -140,8 +140,8 @@ if(function_exists('recordings_list')){
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="callconfirm_id">'._("Call Confirm Announce").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="callconfirm_id"></i>
@@ -177,8 +177,8 @@ if(function_exists('recordings_list')){
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="joinannounce_id">'._("Join Announcement").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="joinannounce_id"></i>
@@ -226,8 +226,8 @@ if(function_exists('recordings_list')){
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="agentannounce_id">'._("Agent Announcement").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="agentannounce_id"></i>
@@ -285,8 +285,8 @@ if(function_exists('music_list')) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="music">'._("Music on Hold Class").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="music"></i>
@@ -433,8 +433,8 @@ if(function_exists('vqplus_callback_get') && function_exists('ivr_get_details'))
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="breakouttype">'._("Break Out Type") .'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="breakouttype"></i>
@@ -501,8 +501,8 @@ if(function_exists('ivr_get_details')) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="announcemenu">'. _("IVR Break Out Menu").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="announcemenu"></i>
@@ -542,8 +542,8 @@ if(function_exists('vqplus_callback_get')) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="callback">'. _("Queue Callback").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="callback"></i>
@@ -581,8 +581,8 @@ if(function_exists('vqplus_callback_get') || function_exists('ivr_get_details'))
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="pannouncefreq">'._("Repeat Frequency").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="pannouncefreq"></i>
@@ -613,13 +613,14 @@ if(!$ast_ge_120){
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="eventwhencalledw">'. _("Event When Called").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="eventwhencalledw"></i>
 						</div>
 						<div class="col-md-9 radioset input-group">
+							&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="eventwhencalled" id="eventwhencalledyes" value="yes" '. ($default == "yes" ? 'checked' : '') .' >
 							<label for="eventwhencalledyes">'. _("Yes") .'</label>
 							<input type="radio" name="eventwhencalled" id="eventwhencalledno" value="no" '. ($default == "no" ? 'checked' : '') .' >
@@ -644,13 +645,14 @@ if(!$ast_ge_120){
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="eventmemberstatusw">'. _("Member Status Event").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="eventmemberstatusw"></i>
 						</div>
 						<div class="col-md-9 radioset input-group">
+							&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="eventmemberstatus" id="eventmemberstatusyes" value="yes" '. ($default == "yes" ? 'checked' : '') .' >
 							<label for="eventmemberstatusyes">'. _("Yes") .'</label>
 							<input type="radio" name="eventmemberstatus" id="eventmemberstatusno" value="no" '. ($default == "no" ? 'checked' : '') .' >
@@ -683,48 +685,48 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 <input type="hidden" name="extdisplay" value="<?php echo $extdisplay ?>">
 <input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
 <div class="nav-container">
-	<div class="scroller scroller-left"><i class="fa fa-chevron-left"></i></div>
-	<div class="scroller scroller-right"><i class="fa fa-chevron-right"></i></div>
+	<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
+	<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
 	<div class="wrapper">
-		<ul class="nav nav-tabs list" role="tablist" style="margin-top:2px;">
-			<li role="presentation" data-name="qgeneral">
-				<a class="nav-link active" href="#qgeneral" aria-controls="qgeneral" role="tab" data-toggle="tab">
+		<ul class="nav nav-tabs list" role="tablist">
+			<li role="presentation" data-name="qgeneral" class="active">
+				<a href="#qgeneral" aria-controls="qgeneral" role="tab" data-toggle="tab">
 					<?php echo _("General Settings")?>
 				</a>
 			</li>
 			<li role="presentation" data-name="qagentlist">
-				<a class="nav-link" href="#qagentlist" aria-controls="qagentlist" role="tab" data-toggle="tab">
+				<a href="#qagentlist" aria-controls="qagentlist" role="tab" data-toggle="tab">
 					<?php echo _("Queue Agents")?>
 				</a>
 			</li>
 			<li role="presentation" data-name="qagent" class="change-tab">
-				<a class="nav-link" href="#qagent" aria-controls="qagent" role="tab" data-toggle="tab">
+				<a href="#qagent" aria-controls="qagent" role="tab" data-toggle="tab">
 					<?php echo _("Timing & Agent Options")?>
 				</a>
 			</li>
 			<li role="presentation" data-name="qcallercap" class="change-tab">
-				<a class="nav-link" href="#qcallercap" aria-controls="qcallercap" role="tab" data-toggle="tab">
+				<a href="#qcallercap" aria-controls="qcallercap" role="tab" data-toggle="tab">
 					<?php echo _("Capacity Options")?>
 				</a>
 			</li>
 			<li role="presentation" data-name="qcallerannounce" class="change-tab">
-				<a class="nav-link" href="#qcallerannounce" aria-controls="qcallerannounce" role="tab" data-toggle="tab">
+				<a href="#qcallerannounce" aria-controls="qcallerannounce" role="tab" data-toggle="tab">
 					<?php echo _("Caller Announcements")?>
 				</a>
 			</li>
 			<li role="presentation" data-name="qadvanced" class="change-tab">
-				<a class="nav-link" href="#qadvanced" aria-controls="qadvanced" role="tab" data-toggle="tab">
+				<a href="#qadvanced" aria-controls="qadvanced" role="tab" data-toggle="tab">
 					<?php echo _("Advanced Options")?>
 				</a>
 			</li>
 			<li role="presentation" data-name="qresetstats" class="change-tab">
-				<a class="nav-link" href="#qresetstats" aria-controls="qresetstats" role="tab" data-toggle="tab">
+				<a href="#qresetstats" aria-controls="qresetstats" role="tab" data-toggle="tab">
 					<?php echo _("Reset Queue Stats")?>
 				</a>
 			</li>
 			<?php echo $hookdata['hookTabs']?>
 			<li role="presentation" data-name="qother" class="change-tab <?php echo empty($hookdata['oldHooks'])?'hidden':''?>">
-				<a class="nav-link" href="#qother" aria-controls="qother" role="tab" data-toggle="tab">
+				<a href="#qother" aria-controls="qother" role="tab" data-toggle="tab">
 					<?php echo _("Other Options")?>
 				</a>
 			</li>
@@ -737,8 +739,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="account"><?php echo _("Queue Number") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="account"></i>
@@ -761,8 +763,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="name"><?php echo _("Queue Name") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="name"></i>
@@ -787,8 +789,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="callconfirmw"><?php echo _("Call Confirm") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="callconfirmw"></i>
@@ -815,8 +817,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="prefix"><?php echo _("CID Name Prefix") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="prefix"></i>
@@ -839,8 +841,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="queuewaitw"><?php echo _("Wait Time Prefix") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="queuewaitw"></i>
@@ -867,8 +869,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="alertinfo"><?php echo _("Alert Info") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="alertinfo"></i>
@@ -890,8 +892,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="rvolume"><?php echo _("Ringer Volume Override") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="rvolume"></i>
@@ -918,8 +920,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="rvolumemode"><?php echo _("Ringer Volume Override Mode") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="rvol_mode"></i>
@@ -943,8 +945,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="dynmemberonlyw"><?php echo _("Restrict Dynamic Agents") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="dynmemberonlyw"></i>
@@ -970,8 +972,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="use_queue_context"><?php echo _("Agent Restrictions") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="use_queue_context"></i>
@@ -1002,8 +1004,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="strategy"><?php echo _("Ring Strategy") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="strategy"></i>
@@ -1028,8 +1030,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="autofillw"><?php echo _("Autofill") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autofillw"></i>
@@ -1055,8 +1057,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="cwignore"><?php echo _("Skip Busy Agents") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="cwignore"></i>
@@ -1091,8 +1093,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="weight"><?php echo _("Queue Weight") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="weight"></i>
@@ -1118,13 +1120,14 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="recording"><?php echo _("Call Recording") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="recording"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
+								&nbsp;&nbsp;&nbsp;<!--Align Span to other elements. Not sure why it shifts-->
 								<input type="radio" id="record_force" name="recording" value="force" <?php echo ($recording =='force'?'checked':'');?>><label for="record_force"><?php echo _('Force'); ?></label>
 								<input type="radio" id="record_yes" name="recording" value="yes" <?php echo ($recording =='yes'?'checked':'');?>><label for="record_yes"><?php echo _('Yes'); ?></label>
 								<input type="radio" id="record_dontcare" name="recording" value="dontcare" <?php echo ($recording =='dontcare'?'checked':'');?>><label for="record_dontcare"><?php echo _("Don't Care")?></label>
@@ -1146,8 +1149,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="answered_elsewherew"><?php echo _("Mark calls answered elsewhere") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="answered_elsewherew"></i>
@@ -1174,8 +1177,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="goto0"><?php echo _("Fail Over Destination") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="goto0"></i>
@@ -1201,8 +1204,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="members"><?php echo _("Static Agents") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="members"></i>
@@ -1210,7 +1213,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							<div class="col-md-9">
 								<div class="input-group">
 									<textarea id="members" class="form-control" cols="15" rows="<?php  $rows = count($mem_array)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" ><?php echo implode("\n",$mem_array) ?></textarea>
-									<span class="input-group-text d-flex flex-column justify-content-center">
+									<span class="input-group-addon">
 										<label for="qsagents1"><strong><?php echo("Agent Quick Select")?></strong></label>
 										<select id="qsagents1" class="form-control" data-for="members">
 											<option SELECTED>
@@ -1234,8 +1237,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="dynmembers"><?php echo _("Dynamic Agents") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="dynmembers"></i>
@@ -1243,7 +1246,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							<div class="col-md-9">
 								<div class="input-group">
 									<textarea id="dynmembers" class="form-control" cols="15" rows="<?php  $rows = count(explode("\n",$dynmembers)) + 1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" ><?php echo $dynmembers ?></textarea>
-									<span class="input-group-text d-flex flex-column justify-content-center">
+									<span class="input-group-addon">
 										<label for="qsagents2"><strong><?php echo("Agent Quick Select")?></strong></label>
 										<select id="qsagents2" class="form-control" data-for="dynmembers">
 											<option SELECTED>
@@ -1270,8 +1273,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="maxwait"><?php echo _("Max Wait Time") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="maxwait"></i>
@@ -1296,13 +1299,14 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="timeoutpriorityw"><?php echo _("Max Wait Time Mode") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="timeoutpriorityw"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
+								&nbsp;&nbsp;&nbsp;
 								<?php $default = (isset($timeoutpriority) ? $timeoutpriority : "app")?>
 								<input type="radio" name="timeoutpriority" id="timeoutpriorityapp" value="app" <?php echo ($default == "app" ? 'CHECKED' : '') ?> >
 								<label for="timeoutpriorityapp"><?php echo _("Strict") ?></label>
@@ -1324,8 +1328,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="timeout"><?php echo _("Agent Timeout") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="timeout"></i>
@@ -1350,13 +1354,14 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="timeoutrestartw"><?php echo _("Agent Timeout Restart") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="timeoutrestartw"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
+								&nbsp;&nbsp;&nbsp;
 								<?php $default = (isset($timeoutrestart) ? $timeoutrestart : "no");?>
 								<input type="radio" name="timeoutrestart" id="timeoutrestartyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '')?> >
 								<label for="timeoutrestartyes"><?php echo _("Yes") ?></label>
@@ -1379,8 +1384,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="retry"><?php echo _("Retry") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="retry"></i>
@@ -1405,8 +1410,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="wrapuptime"><?php echo _("Wrap-Up-Time") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="wrapuptime"></i>
@@ -1431,8 +1436,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="memberdelay"><?php echo _("Member Delay") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="memberdelay"></i>
@@ -1458,13 +1463,14 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="reportholdtimew"><?php echo _("Report Hold Time") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="reportholdtimew"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
+								&nbsp;&nbsp;&nbsp;
 								<?php $default = (isset($reportholdtime) ? $reportholdtime : "no");?>
 								<input type="radio" name="reportholdtime" id="reportholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="reportholdtimeyes"><?php echo _("Yes") ?></label>
@@ -1486,8 +1492,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="autopause"><?php echo _("Auto Pause") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autopause"></i>
@@ -1517,13 +1523,14 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="autopausebusyw"><?php echo _("Auto Pause on Busy") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autopausebusyw"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
+								&nbsp;&nbsp;&nbsp;
 								<?php $default = (isset($autopausebusy) ? $autopausebusy : "no");?>
 								<input type="radio" name="autopausebusy" id="autopausebusyyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="autopausebusyyes"><?php echo _("Yes") ?></label>
@@ -1545,13 +1552,14 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="autopauseunavailw"><?php echo _("Auto Pause on Unavailable") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autopauseunavailw"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
+								&nbsp;&nbsp;&nbsp;
 								<?php $default = (isset($autopauseunavail) ? $autopauseunavail : "no");?>
 								<input type="radio" name="autopauseunavail" id="autopauseunavailyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="autopauseunavailyes"><?php echo _("Yes") ?></label>
@@ -1573,8 +1581,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="autopausedelay"><?php echo _("Auto Pause Delay") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autopausedelay"></i>
@@ -1600,8 +1608,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="maxlen"><?php echo _("Max Callers") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="maxlen"></i>
@@ -1625,8 +1633,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="joinempty"><?php echo _("Join Empty") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="joinempty"></i>
@@ -1659,8 +1667,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="leavewhenempty"><?php echo _("Leave Empty") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="leavewhenempty"></i>
@@ -1693,8 +1701,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="penaltymemberslimit"><?php echo _("Penalty Members Limit") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="penaltymemberslimit"></i>
@@ -1726,8 +1734,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
    			<div class="element-container">
    				<div class="row">
    					<div class="col-md-12">
-   						<div class="">
-   							<div class="row form-group">
+   						<div class="row">
+   							<div class="form-group">
    								<div class="col-md-3">
    									<label class="control-label" for="announcefreq"><?php echo _("Frequency") ?></label>
    									<i class="fa fa-question-circle fpbx-help-icon" data-for="announcefreq"></i>
@@ -1752,8 +1760,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 				<div class="element-container">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="min-announce"><?php echo _("Minimum Announcement Interval") ?></label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="min-announce"></i>
@@ -1776,13 +1784,14 @@ $hookdata = \FreePBX::Queues()->hookTabs();
    			<div class="element-container">
    				<div class="row">
    					<div class="col-md-12">
-   						<div class="">
-   							<div class="row form-group">
+   						<div class="row">
+   							<div class="form-group">
    								<div class="col-md-3">
    									<label class="control-label" for="announcepositionw"><?php echo _("Announce Position") ?></label>
    									<i class="fa fa-question-circle fpbx-help-icon" data-for="announcepositionw"></i>
    								</div>
    								<div class="col-md-9 radioset input-group">
+   								&nbsp;&nbsp;&nbsp;
 								<?php $default = (isset($thisQ['announce-position']) ? $thisQ['announce-position'] : "no");?>
 								<input type="radio" name="announceposition" id="announcepositionyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="announcepositionyes"><?php echo _("Yes") ?></label>
@@ -1804,13 +1813,14 @@ $hookdata = \FreePBX::Queues()->hookTabs();
    			<div class="element-container">
    				<div class="row">
    					<div class="col-md-12">
-   						<div class="">
-   							<div class="row form-group">
+   						<div class="row">
+   							<div class="form-group">
    								<div class="col-md-3">
    									<label class="control-label" for="announceholdtimew"><?php echo _("Announce Hold Time") ?></label>
    									<i class="fa fa-question-circle fpbx-help-icon" data-for="announceholdtimew"></i>
    								</div>
    								<div class="col-md-9 radioset input-group">
+   								&nbsp;&nbsp;&nbsp;
 								<?php $default = (isset($thisQ['announce-holdtime']) ? $thisQ['announce-holdtime'] : "no");?>
 								<input type="radio" name="announceholdtime" id="announceholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="announceholdtimeyes"><?php echo _("Yes") ?></label>
@@ -1849,8 +1859,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="servicelevel"><?php echo _("Service Level") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="servicelevel"></i>
@@ -1875,8 +1885,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="qregex"><?php echo _("Agent Regex Filter") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="qregex"></i>
