@@ -841,7 +841,7 @@ function queue_agent_add_toggle() {
 
 	$c = 's';
 
-	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
+	$ext->add($id, $c, '', new ext_macro('user-callerid','SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSER', '${IF($[${LEN(${QUEUEUSER})}>0]?${QUEUEUSER}:${AMPUSER})}'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSERCIDNAME','"${DB(AMPUSER/${QUEUEUSER}/cidname)}"'));
 	//TODO: check if it's not a user for some reason and abort?
@@ -864,7 +864,7 @@ function queue_agent_del_toggle() {
 
 	$c = 's';
 
-	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
+	$ext->add($id, $c, '', new ext_macro('user-callerid','SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSER', '${IF($[${LEN(${QUEUEUSER})}>0]?${QUEUEUSER}:${AMPUSER})}'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSERCIDNAME','"${DB(AMPUSER/${QUEUEUSER}/cidname)}"'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${QUEUEUSER}@from-queue/n'));
