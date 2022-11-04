@@ -106,7 +106,7 @@ function queues_get_config($engine) {
 				// If extension_only don't do this and CFIGNORE
 				if($q['use_queue_context'] != '2') {
 					$ext->add($c, $exten, '', new ext_macro('blkvm-set', 'reset'));
-					$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)'));
+					$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}U(macro-auto-blkvm)'));
 				}
 
 				// Inform all the children NOT to send calls to destinations or voicemail
@@ -124,7 +124,7 @@ function queues_get_config($engine) {
 				// deal with group CID prefix
 				$ext->add($c, $exten, '', new ext_set('QCIDPP', '${IF($[${LEN(${VQ_CIDPP})}>0]?"${VQ_CIDPP}"' . ':' . ($grppre == '' ? ' ':$grppre) . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_CIDPP', ''));
-				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Macro', 'prepend-cid,${QCIDPP}'));
+				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Gosub', 'macro-prepend-cid,s,1(${QCIDPP})'));
 
 				// Set Alert_Info
 				$ainfo = $alertinfo != '' ? str_replace(';', '\;', $alertinfo) : ' ';
@@ -841,7 +841,7 @@ function queue_agent_add_toggle() {
 
 	$c = 's';
 
-	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
+	$ext->add($id, $c, '', new ext_macro('user-callerid','SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSER', '${IF($[${LEN(${QUEUEUSER})}>0]?${QUEUEUSER}:${AMPUSER})}'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSERCIDNAME','"${DB(AMPUSER/${QUEUEUSER}/cidname)}"'));
 	//TODO: check if it's not a user for some reason and abort?
@@ -864,7 +864,7 @@ function queue_agent_del_toggle() {
 
 	$c = 's';
 
-	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
+	$ext->add($id, $c, '', new ext_macro('user-callerid','SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSER', '${IF($[${LEN(${QUEUEUSER})}>0]?${QUEUEUSER}:${AMPUSER})}'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUEUSERCIDNAME','"${DB(AMPUSER/${QUEUEUSER}/cidname)}"'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${QUEUEUSER}@from-queue/n'));
