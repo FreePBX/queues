@@ -313,7 +313,7 @@ function queues_get_config($engine) {
 				if (trim($qregex) != '') {
 					$ext->add($c, $exten."*", '', new ext_setvar('QREGEX', $qregex));
 				}
-				if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
+				if (isset($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) && $amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
 					if($q['use_queue_context'] == '2') {
 						$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password'].",EXTEN"));
 					} else {
@@ -628,7 +628,7 @@ function queues_get_config($engine) {
 			 * Prompts for call-back number - in not entered, uses CIDNum
 			 */
 
-			if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
+			if (isset($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) && $amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
 
 			$c = 'macro-agent-add';
 			// for i18n playback in multiple languages

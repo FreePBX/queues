@@ -66,7 +66,7 @@ function queues_check_compoundrecordings() {
 														 	);
 		}
 		if ($result['ivr_id'] != 'none' && $result['ivr_id'] != '' && $check_ivr) {
-			$id = $ivr_hash[$result['ivr_id']]['announcement_id'];
+			$id = isset($ivr_hash[$result['ivr_id']]['announcement_id']) ? $ivr_hash[$result['ivr_id']]['announcement_id'] : false;
 			$announce = $id ? recordings_get_file($id) : '';
 			if (strpos($announce,"&") !== false) {
 				$compound_recordings[] = array(
