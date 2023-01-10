@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-26 06:29+0000\n"
-"PO-Revision-Date: 2022-07-16 15:01+0000\n"
+"PO-Revision-Date: 2023-01-10 11:44+0000\n"
 "Last-Translator: Santiago Pioli <spioli@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/queues/"
 "es/>\n"
@@ -986,15 +986,15 @@ msgstr "Aleatorio"
 
 #: views/form.php:587
 msgid "Repeat Frequency"
-msgstr ""
+msgstr "Frequencia de Repetición"
 
 #: views/form.php:1469
 msgid "Report Hold Time"
-msgstr ""
+msgstr "Informar Tiempo de Espera"
 
 #: Queues.class.php:216
 msgid "Reset"
-msgstr ""
+msgstr "Reiniciar"
 
 #: views/form.php:724
 msgid "Reset Queue Stats"
@@ -1016,7 +1016,7 @@ msgstr ""
 
 #: views/form.php:1390
 msgid "Retry"
-msgstr ""
+msgstr "Reintentar"
 
 #: views/form.php:314
 msgid "Ring Only"
@@ -1024,21 +1024,23 @@ msgstr "Timbrar Solo"
 
 #: views/form.php:1010
 msgid "Ring Strategy"
-msgstr ""
+msgstr "Estrategia de Timbrado"
 
 #: views/form.php:898
 msgid "Ringer Volume Override"
-msgstr ""
+msgstr "Anulación de Volumen de Timbrado"
 
 #: views/form.php:926
 msgid "Ringer Volume Override Mode"
-msgstr ""
+msgstr "Modo de Anulación de Volumen de Timbrado"
 
 #: views/form.php:395
 msgid ""
 "Same as No except Callers will be admitted if there are paused agents who "
 "could become available."
 msgstr ""
+"Igual a No excepto que se admitirán las personas que llaman si hay agentes "
+"pausados que podrían estar disponibles."
 
 #: views/form.php:393
 msgid ""
@@ -1092,18 +1094,20 @@ msgid ""
 "Same as Yes except Callers will remain in the Queue if there are paused "
 "agents who could become available."
 msgstr ""
+"Igual a Si excepto que las personas que llaman permanecerán en la Cola si "
+"hay agentes pausados que podrían estar disponibles."
 
 #: views/form.php:1865
 msgid "Service Level"
-msgstr ""
+msgstr "Nivel de Servicio"
 
 #: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
-msgstr ""
+msgstr "Configurar el Nombre del Agente en CDR dstchannel"
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
-msgstr ""
+msgstr "Establecer esta tarea para que ocurra al azar"
 
 #: views/form.php:1838
 msgid ""
@@ -1116,13 +1120,15 @@ msgstr ""
 
 #: views/form.php:1063
 msgid "Skip Busy Agents"
-msgstr ""
+msgstr "Saltar Agentes Ocupados"
 
 #: views/form.php:274
 msgid ""
 "Some ring strategies (linear, round robin) require Asterisk to be restarted "
 "for changes to take effect."
 msgstr ""
+"Algunas estrategias de timbrado (lineal, round robin) requieren que Asterisk "
+"se reinicie para que los cambios tomen efecto."
 
 #: views/form.php:1210
 msgid "Static Agents"
@@ -1145,10 +1151,25 @@ msgid ""
 "will have problems with subsequent transfers to voicemail and other issues "
 "may also exist."
 msgstr ""
+"Agentes estáticos son extensiones que se asume que siempre estarán en la "
+"cola. Los agentes estáticos no necesitan 'iniciar sesión' en la cola, y no "
+"puden 'cerrar sesión' de la cola. <br><br>Lista de extensiones a timbrar, "
+"una por línea.<br><br>Puede incluir una extensión en un sistema remoto, o un "
+"número externo (El Enrutamiento Saliente debe contener una ruta válida para "
+"los números externos). Puede poner una ',' luego del agente seguido de un "
+"valor de penalidad, vea la documentación de Asterisk respecto a penalidades.<"
+"br /><br /> Un modo avanzado ha sido añadido que le permite agregar un "
+"prefijo al número del agente con S,P,X,Z,D o A. Esto va a forzar que el "
+"número del agente sea discado como un dispositivo Asterisk del tipo SIP, "
+"PJSIP, IAX2, ZAP, DAHDI o Agente respectivamente. Este modo es para usuarios "
+"avanzados y puede causar problemas conocidos en FreePBX ya que está "
+"esquivando el plan de discado normal. Si sus 'Restricciones de Agente' no "
+"están configuradas en 'Solo Extensiones' tendrá problemas con subsecuentes "
+"transferencias al correo de voz y otros problemas."
 
 #: views/cron.php:20
 msgid "Stats Reset"
-msgstr ""
+msgstr "Reiniciar Estadísticas"
 
 #: views/form.php:392 views/form.php:401 views/form.php:1312
 #: views/form.php:1647 views/form.php:1681
@@ -1157,13 +1178,15 @@ msgstr "Estricto"
 
 #: Queues.class.php:211
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: views/form.php:1778
 msgid ""
 "The absolute minimum time between the start of each queue position and/or "
 "estimated holdtime announcement"
 msgstr ""
+"El tiempo mínimo absoluto entre el inicio de cada posición en la cola y/o el "
+"anuncio de tiempo de espera estimado"
 
 #: views/form.php:1293
 msgid ""
@@ -1216,7 +1239,7 @@ msgstr ""
 
 #: views/form.php:1754
 msgid "This value is ignored if the caller's position changes"
-msgstr ""
+msgstr "Este valor es ignorado si la posición de la persona que llama cambia"
 
 #: views/form.php:704
 msgid "Timing & Agent Options"
@@ -1233,7 +1256,7 @@ msgstr "Sin límite"
 
 #: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
-msgstr ""
+msgstr "Usar MixMonitor para Grabaciones"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
@@ -1244,6 +1267,8 @@ msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
 "to put them into the queue"
 msgstr ""
+"Utilice este número para discar a la cola, o transfiera a las personas que "
+"llaman a este número para ponerlos en la cola"
 
 #: views/form.php:1879
 msgid ""
@@ -1263,7 +1288,7 @@ msgstr ""
 
 #: views/form.php:847
 msgid "Wait Time Prefix"
-msgstr ""
+msgstr "Prefijo de Tiempo de Espera"
 
 #: Queues.class.php:145
 msgid "Warning! Extension"
@@ -1429,10 +1454,12 @@ msgstr ""
 msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
+"Cuando programar este trabajo. Tenga en cuenta que habilitar 'Aleatorio' "
+"anular esta configuración"
 
 #: views/form.php:1195
 msgid "Where calls should fail to"
-msgstr ""
+msgstr "Cuando las llamadas deberían fallar"
 
 #: views/form.php:454
 msgid ""
@@ -1451,10 +1478,13 @@ msgid ""
 "enabled, Ringer Volume value will set based on the 'Ringer Volume Override "
 "Mode(RVOM)'."
 msgstr ""
+"Mientras las llamadas de la cola son distribuidas, cualquiera miembro con "
+"Sigue Me/Encuentra Me activado, el valor Volumen de Timbrado se basará en el "
+"'Modo de Anulación de Volumen de Timbrado (RVOM)'."
 
 #: views/form.php:1416
 msgid "Wrap-Up-Time"
-msgstr ""
+msgstr "Tiempo de Finalización"
 
 #: views/cron.php:26 views/cron.php:55 views/form.php:19 views/form.php:116
 #: views/form.php:391 views/form.php:400 views/form.php:625 views/form.php:657
