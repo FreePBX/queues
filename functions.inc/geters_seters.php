@@ -219,6 +219,14 @@ function queues_add(
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
 
+	$res =  $astman->send_request("UserEvent", array(
+		"userEvent" => "update-queue-contacts",
+		"action" => isset($_REQUEST['action']) ? $_REQUEST['action'] : '',
+		"queueId" => $account,
+		"queueName" => $descr,
+		"staticMembers" => json_encode($members),
+		"dynamicMembers" => json_encode($dynmembers)
+	));
 	return true;
 }
 
@@ -241,6 +249,13 @@ function queues_del($account) {
 	  $astman->database_deltree('QPENALTY/'.$account);
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+	}
+	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+	if ($action == 'delete') {
+		$res =  $astman->send_request("UserEvent", array(
+			"userEvent" => "delete-queue",
+			"queueId" => $account
+		));
 	}
 }
 
