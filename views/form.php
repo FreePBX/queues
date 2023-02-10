@@ -198,6 +198,7 @@ if(function_exists('recordings_list')){
 								<input type="radio" id="skip_joinannounce-no" name="skip_joinannounce" value="" '.($skip_joinannounce ==''?'checked':'').'><label for="skip_joinannounce-no">'. _('Always').'</label>
 								<input type="radio" id="skip_joinannounce-free" name="skip_joinannounce" value="free" '.($skip_joinannounce =='free'?'checked':'').'><label for="skip_joinannounce-free">'. _('When No Free Agents').'</label>
 								<input type="radio" id="skip_joinannounce-ready" name="skip_joinannounce" value="ready" '. ($skip_joinannounce =='ready'?'checked':'').'><label for="skip_joinannounce-ready">'. _('When No Ready Agents').'</label>
+								<input type="radio" id="skip_joinannounce-nofreeagent" name="skip_joinannounce" value="nofreeagent" '. ($skip_joinannounce =='nofreeagent'?'checked':'').'><label for="skip_joinannounce-nofreeagent">'. _('When there are both logged in and no free agents').'</label>
 							</span>
 						</div>
 					</div>
