@@ -2,7 +2,7 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>15.0.34</version>
+	<version>15.0.35</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
@@ -10,6 +10,7 @@
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
   	<more-info>https://wiki.freepbx.org/display/FPG/Queues+Module</more-info>
 	<changelog>
+		*15.0.35* FREEI-5574 
 		*15.0.34* FREEI-3852 adding pause all toggle reason 
 		*15.0.33* FREEI-3011 Unable to Configure Queue native app in D-phone 
 		*15.0.32* FREEI-2920	Method added for Dphone API 
