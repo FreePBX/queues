@@ -143,7 +143,13 @@ function queues_get_config($engine) {
 				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
 				$joinannounce = $joinannounce_id ? recordings_get_file($joinannounce_id) : ' ';
 				$joinansw = isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE ? 'noanswer' : '';
-				$cplay = $q['skip_joinannounce'] ? ' && ${QUEUE_MEMBER(' . $exten . ',' . $q['skip_joinannounce'] . ')}<1' : '';
+				if($q['skip_joinannounce'] != "nofreeagent"){
+					$cplay = $q['skip_joinannounce'] ? ' && ${QUEUE_MEMBER(' . $exten . ',' . $q['skip_joinannounce'] . ')}<1' : '';
+				}
+				else{
+					$cplay = $q['skip_joinannounce'] ? ' && ${QUEUE_MEMBER('.$exten.',free)}<1 && ${QUEUE_MEMBER('.$exten.',count)}>0' : '';
+				}
+
 				$ext->add($c, $exten, '', new ext_set('QJOINMSG', '${IF($[${LEN(${VQ_JOINMSG})}>0]?${IF($["${VQ_JOINMSG}"!="0"]?${VQ_JOINMSG}: )}:' . $joinannounce . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_JOINMSG', ''));
 
@@ -242,7 +248,6 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('__ALT_CONFIRM_MSG', '${IF($[${LEN(${VQ_CONFIRMMSG})}>0]?${IF($["${VQ_CONFIRMMSG}"!="0"]?${VQ_CONFIRMMSG}:' . $callconfirm . ' )}:' . $callconfirm . ')}'));
 				$ext->add($c, $exten, 'NOQVQANNOUNCE', new ext_set('VQ_CONFIRMMSG', ''));
 				//call confirm over.
-
 
 				$ext->add($c, $exten, '', new ext_execif('$["${QJOINMSG}"!=""' . $cplay . ']', 'Playback', '${QJOINMSG}, ' . $joinansw));
 				$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}'));
