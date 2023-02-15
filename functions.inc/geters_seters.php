@@ -219,9 +219,10 @@ function queues_add(
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
 
+	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 	$res =  $astman->send_request("UserEvent", array(
 		"userEvent" => "update-queue-contacts",
-		"action" => isset($_REQUEST['action']) ? $_REQUEST['action'] : '',
+		"reloadQueue" => $action == "add" ? '1' : '0',
 		"queueId" => $account,
 		"queueName" => $descr,
 		"staticMembers" => json_encode($members),
