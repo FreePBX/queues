@@ -99,7 +99,7 @@ function queues_get_config($engine) {
 				}
 
 				// Fixe Queue incoming call generates the call recording file with queue number instead of the original caller id
-				$ext->add($c, $exten, '', new ext_setvar('__FROMEXTEN', '${CALLERID(number)}'));
+				$ext->add($c, $exten, '', new ext_setvar('__FROMQUEUEEXTEN', '${CALLERID(number)}'));
 				
 				// block voicemail until phone is answered at which point a macro should be called on the answering
 				// line to clear this flag so that subsequent transfers can occur.
