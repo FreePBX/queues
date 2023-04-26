@@ -11,7 +11,7 @@ $view = isset($request['view'])?$request["view"]:'';
 $usagehtml = '';
 switch($view){
 	case "form":
-		if($request['extdisplay']){
+		if($request['extdisplay']!=""){
 			$heading .= _(" Edit: ");
 			$heading .= $request['extdisplay'];
 			$usagehtml = FreePBX::View()->destinationUsage(queues_getdest($extdisplay));

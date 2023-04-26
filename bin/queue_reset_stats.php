@@ -29,6 +29,11 @@ if (isset($vars['id']) && $vars['id'] && is_numeric($vars['id'])) {
                 $response = $astman->send_request('Command', array('Command' => $cmd));
 
                 //TODO: freepbx dashboard notification?
+
+                $astman->send_request("UserEvent", array(
+                        "userEvent" => "reset-queue-stats",
+                        "queueId" => $vars['id']
+                ));
         }
 
 } else {

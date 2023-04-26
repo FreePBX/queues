@@ -98,6 +98,9 @@ function queues_get_config($engine) {
 					$ext->add($c, $exten, '', new ext_progress());
 				}
 
+				// Fixe Queue incoming call generates the call recording file with queue number instead of the original caller id
+				$ext->add($c, $exten, '', new ext_setvar('__FROMQUEUEEXTEN', '${CALLERID(number)}'));
+				
 				// block voicemail until phone is answered at which point a macro should be called on the answering
 				// line to clear this flag so that subsequent transfers can occur.
 				if ($q['queuewait']) {
@@ -140,7 +143,13 @@ function queues_get_config($engine) {
 				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
 				$joinannounce = $joinannounce_id ? recordings_get_file($joinannounce_id) : ' ';
 				$joinansw = isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE ? 'noanswer' : '';
-				$cplay = $q['skip_joinannounce'] ? ' && ${QUEUE_MEMBER(' . $exten . ',' . $q['skip_joinannounce'] . ')}<1' : '';
+				if($q['skip_joinannounce'] != "nofreeagent"){
+					$cplay = $q['skip_joinannounce'] ? ' && ${QUEUE_MEMBER(' . $exten . ',' . $q['skip_joinannounce'] . ')}<1' : '';
+				}
+				else{
+					$cplay = $q['skip_joinannounce'] ? ' && ${QUEUE_MEMBER('.$exten.',free)}<1 && ${QUEUE_MEMBER('.$exten.',count)}>0' : '';
+				}
+
 				$ext->add($c, $exten, '', new ext_set('QJOINMSG', '${IF($[${LEN(${VQ_JOINMSG})}>0]?${IF($["${VQ_JOINMSG}"!="0"]?${VQ_JOINMSG}: )}:' . $joinannounce . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_JOINMSG', ''));
 
@@ -240,7 +249,6 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, 'NOQVQANNOUNCE', new ext_set('VQ_CONFIRMMSG', ''));
 				//call confirm over.
 
-
 				$ext->add($c, $exten, '', new ext_execif('$["${QJOINMSG}"!=""' . $cplay . ']', 'Playback', '${QJOINMSG}, ' . $joinansw));
 				$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}'));
 
@@ -313,7 +321,7 @@ function queues_get_config($engine) {
 				if (trim($qregex) != '') {
 					$ext->add($c, $exten."*", '', new ext_setvar('QREGEX', $qregex));
 				}
-				if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
+				if (isset($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) && $amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
 					if($q['use_queue_context'] == '2') {
 						$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password'].",EXTEN"));
 					} else {
@@ -628,7 +636,7 @@ function queues_get_config($engine) {
 			 * Prompts for call-back number - in not entered, uses CIDNum
 			 */
 
-			if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
+			if (isset($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) && $amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
 
 			$c = 'macro-agent-add';
 			// for i18n playback in multiple languages
