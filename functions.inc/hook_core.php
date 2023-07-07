@@ -6,7 +6,9 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
  * when it is acting as a Queue Member (Agent).
  */
 function queues_get_qnostate($exten) {
-	global $astman;
+	$amp_conf = [];
+ $qnostate = null;
+ global $astman;
 
 	// Retrieve the qnostate configuraiton from this user from ASTDB
 	if ($astman) {
@@ -20,7 +22,8 @@ function queues_get_qnostate($exten) {
 }
 
 function queues_set_qnostate($exten,$qnostate) {
-	global $astman;
+	$amp_conf = [];
+ global $astman;
 
 	// Update the settings in ASTDB
 	if ($astman) {
@@ -48,8 +51,8 @@ function queues_configpageload() {
 	global $currentcomponent;
 
 	// Init vars from $_REQUEST[]
-	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$action = $_REQUEST['action'] ?? null;
+	$extdisplay = $_REQUEST['extdisplay'] ?? null;
 
 	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
 	if ($action != 'del') {
@@ -80,11 +83,11 @@ function queues_configpageload() {
 
 function queues_configprocess() {
 	//create vars from the request
-	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$id = isset($_REQUEST['id'])?$_REQUEST['id']:null;
-	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
-	$qnostate = isset($_REQUEST['qnostate'])?$_REQUEST['qnostate']:null;
+	$action = $_REQUEST['action'] ?? null;
+	$id = $_REQUEST['id'] ?? null;
+	$ext = $_REQUEST['extdisplay'] ?? null;
+	$extn = $_REQUEST['extension'] ?? null;
+	$qnostate = $_REQUEST['qnostate'] ?? null;
 
 
 	if ($ext==='') {
@@ -116,11 +119,11 @@ function queues_hookProcess_core($viewing_itemid, $request) {
 			$item = 0;
 			// Scan all members until we find a match
 			foreach ($members as $member) {
-				preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
+				preg_match("/^Local\/([\d]+)\@*/",(string) $member,$matches);
 				if($matches[1] == $viewing_itemid) {
 					// We got a match, now delete that member from all queues
 					// Strip the penalty from the member
-					$member_to_delete = explode(',',$members[$item]);
+					$member_to_delete = explode(',',(string) $members[$item]);
 					$sql = "DELETE FROM queues_details WHERE data LIKE '$member_to_delete[0]%'";
 					$result = $db->query($sql);
 					if($db->IsError($result)) {

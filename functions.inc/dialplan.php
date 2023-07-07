@@ -71,23 +71,23 @@ function queues_get_config($engine) {
 			$from_queue_exten_only = 'from-queue-exten-only';
 			$from_queue_exten_internal = 'from-queue-exten-internal';
 
-			$qmembers = array();
-			$hint_hash = array();
-			$qlist = is_array($qlist)?$qlist:array();
+			$qmembers = [];
+			$hint_hash = [];
+			$qlist = is_array($qlist)?$qlist:[];
 			foreach($qlist as $item) {
 				$exten = $item[0];
 				$q = queues_get($exten);
 				$c = 'ext-queues';
 				$use_queue_context = $item[3];
-				$grppre = (isset($q['prefix'])?$q['prefix']:'');
-				$alertinfo = (isset($q['alertinfo'])?$q['alertinfo']:'');
-				$rvolume = (isset($q['rvolume'])?$q['rvolume']:'');
-				$rvol_mode = (isset($q['rvol_mode'])?$q['rvol_mode']:'dontcare');
+				$grppre = ($q['prefix'] ?? '');
+				$alertinfo = ($q['alertinfo'] ?? '');
+				$rvolume = ($q['rvolume'] ?? '');
+				$rvol_mode = ($q['rvol_mode'] ?? 'dontcare');
 
 				// Not sure why someone would ever have a ; in the regex, but since Asterisk has problems with them
 				// it would need to be escaped
-				$qregex = (isset($q['qregex'])?$q['qregex']:'');
-				str_replace(';','\;',$qregex);
+				$qregex = ($q['qregex'] ?? '');
+				str_replace(';','\;',(string) $qregex);
 
 				$ext->add($c, $exten, '', new ext_macro('user-callerid'));
 
@@ -130,7 +130,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Gosub', 'macro-prepend-cid,s,1(${QCIDPP})'));
 
 				// Set Alert_Info
-				$ainfo = $alertinfo != '' ? str_replace(';', '\;', $alertinfo) : ' ';
+				$ainfo = $alertinfo != '' ? str_replace(';', '\;', (string) $alertinfo) : ' ';
 				$ext->add($c, $exten, '', new ext_set('QAINFO', '${IF($[${LEN(${VQ_AINFO})}>0]?${VQ_AINFO}:' . $ainfo . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_AINFO', ''));
 				if(!empty($rvolume)) {
@@ -140,7 +140,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('__RVOL_MODE', $rvol_mode));// RVOL_MODE : setting the mode of rvol {force,yes,no,dontcare,never)
 				$ext->add($c, $exten, '', new ext_execif('$["${QAINFO}"!=""]', 'Set', '__ALERT_INFO=${QAINFO}'));
 
-				$joinannounce_id = (isset($q['joinannounce_id'])?$q['joinannounce_id']:'');
+				$joinannounce_id = ($q['joinannounce_id'] ?? '');
 				$joinannounce = $joinannounce_id ? recordings_get_file($joinannounce_id) : ' ';
 				$joinansw = isset($q['qnoanswer']) && $q['qnoanswer'] == TRUE ? 'noanswer' : '';
 				if($q['skip_joinannounce'] != "nofreeagent"){
@@ -222,7 +222,7 @@ function queues_get_config($engine) {
 					$ext->add($c, $exten, '', new ext_setvar('__FORWARD_CONTEXT', 'block-cf'));
 				}
 				$ext->add($c, $exten, '', new ext_setvar('__SIGNORE', 'TRUE'));
-				$agentannounce_id = (isset($q['agentannounce_id'])?$q['agentannounce_id']:'');
+				$agentannounce_id = ($q['agentannounce_id'] ?? '');
 				if ($agentannounce_id) {
 					$agentannounce = recordings_get_file($agentannounce_id);
 				} else {
@@ -239,7 +239,7 @@ function queues_get_config($engine) {
 						$ext->add($c, $exten, '', new ext_setvar('SHARED(ANSWER_STATUS)','NOANSWER'));
 				}
 				$ext->add($c, $exten, '', new ext_setvar('__CALLCONFIRMCID', '${CALLERID(number)}'));
-				$callconfirm_id = (isset($q['callconfirm_id']))?$q['callconfirm_id']:'';
+				$callconfirm_id = $q['callconfirm_id'] ?? '';
 				if ($callconfirm_id) {
 						$callconfirm = recordings_get_file($callconfirm_id);
 				} else {
@@ -318,7 +318,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, 'gotodest', new ext_gotoif('$["${QDEST}"=""]',$q['goto'],'${CUT(QDEST,^,1)},${CUT(QDEST,^,2)},${CUT(QDEST,^,3)}'));
 
 				//dynamic agent login/logout
-				if (trim($qregex) != '') {
+				if (trim((string) $qregex) != '') {
 					$ext->add($c, $exten."*", '', new ext_setvar('QREGEX', $qregex));
 				}
 				if (isset($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) && $amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
@@ -342,13 +342,13 @@ function queues_get_config($engine) {
 				if ($que_code != '') {
 					if (!isset($device_list)) {
 				  	$device_list = core_devices_list("all", 'full', true);
-						$device_list = is_array($device_list)?$device_list:array();
+						$device_list = is_array($device_list)?$device_list:[];
 					}
 					if ($astman) {
-						if (($dynmemberonly = strtolower($astman->database_get('QPENALTY/'.$exten,'dynmemberonly')) == 'yes') == true) {
+						if (($dynmemberonly = strtolower((string) $astman->database_get('QPENALTY/'.$exten,'dynmemberonly')) == 'yes') == true) {
 							$get=$astman->database_show('QPENALTY/'.$exten.'/agents');
 							if(is_array($get)){
-								$mem = array();
+								$mem = [];
 								foreach($get as $key => $value){
 									$key=explode('/',$key);
 									$mem[$key[4]]=$value;
@@ -358,16 +358,16 @@ function queues_get_config($engine) {
 					} else {
 						fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 					}
-					$exten_str_len = strlen($exten);
+					$exten_str_len = strlen((string) $exten);
 					$exten_str_tmp = str_repeat('X', $exten_str_len);
-					$que_code_len = strlen($que_code);
-					$device_list = !empty($device_list) ? $device_list : array();
+					$que_code_len = strlen((string) $que_code);
+					$device_list = !empty($device_list) ? $device_list : [];
 					foreach ($device_list as $device) {
 						if (
 							(!$dynmemberonly || $device['devicetype'] == 'adhoc' || isset($mem[$device['user']]))
 							&& ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip')
 							) {
-								$dev_len = strlen($device['id']);
+								$dev_len = strlen((string) $device['id']);
 								$dev_len_tmp = str_repeat('X', $dev_len);
 								$exten_pat = '_'.$que_code.$dev_len_tmp.'*'.$exten_str_tmp;
 								if (!in_array($exten_pat, $hint_hash)) {
@@ -385,23 +385,16 @@ function queues_get_config($engine) {
 				// Add routing vector to direct which context call should go
 				//
 				$agent_context = isset($q['use_queue_context']) && $q['use_queue_context'] && isset($queue_context) ? $queue_context : 'from-internal';
-				switch ($q['use_queue_context']) {
-					case 1:
-						$agent_context = $from_queue_exten_internal;
-						break;
-					case 2:
-						$agent_context = $from_queue_exten_only;
-						break;
-					case 0:
-					default:
-						$agent_context = 'from-internal';
-						break;
-				}
+				$agent_context = match ($q['use_queue_context']) {
+        1 => $from_queue_exten_internal,
+        2 => $from_queue_exten_only,
+        default => 'from-internal',
+    };
 				$ext->add('from-queue', $exten, '', new ext_goto('1','${QAGENT}',$agent_context));
-				$q['member'] = is_array($q['member'])?$q['member']:array();
+				$q['member'] = is_array($q['member'])?$q['member']:[];
 				foreach ($q['member'] as $qm) {
-					if (strtoupper(substr($qm,0,1)) == 'L') {
-						$tm = preg_replace("/[^0-9#\,*]/", "", $qm);
+					if (strtoupper(substr((string) $qm,0,1)) == 'L') {
+						$tm = preg_replace("/[^0-9#\,*]/", "", (string) $qm);
 						$tma = explode(',',$tm);
 						$qmembers[$exten][] = $tma[0];
 					}
@@ -411,7 +404,7 @@ function queues_get_config($engine) {
 
 			if (!$amp_conf['DYNAMICHINTS'] && ($que_code != '' || $que_pause_code != '' || $que_callers_code != '')) {
 				$qpenalty=$astman->database_show('QPENALTY');
-				$qc = array();
+				$qc = [];
 				foreach(array_keys($qpenalty) as $key) {
 					$key = explode('/', $key);
 					if ($key[3] == 'agents') {
@@ -422,7 +415,7 @@ function queues_get_config($engine) {
 				//
 				if (!isset($device_list)) {
 					$device_list = core_devices_list("all", 'full', true);
-					$device_list = is_array($device_list)?$device_list:array();
+					$device_list = is_array($device_list)?$device_list:[];
 				}
 			}
 			// Create *45 all queue toggle
@@ -440,7 +433,7 @@ function queues_get_config($engine) {
 				if ($amp_conf['DYNAMICHINTS']) {
 					$ext->addExec($c,$amp_conf['AMPBIN'].'/generate_queue_hints.php '.$que_code);
 				} else {
-					$que_code_len = strlen($que_code);
+					$que_code_len = strlen((string) $que_code);
 					$hlist = '';
 					foreach ($device_list as $device) {
 						$astman->database_del("AMPUSER/".$device['id'],"queuehint"); //cleanup
@@ -457,7 +450,7 @@ function queues_get_config($engine) {
 
 			// Add the static members now since so far it only has dynamic members
 			foreach ($qmembers as $q => $mems) {
-				$mems = is_array($mems)?$mems:array();
+				$mems = is_array($mems)?$mems:[];
 				foreach ($mems as $m) {
 					// If $m is not in qc already then add them, thus avoiding duplicates
 					if (!isset($qc[$m]) || !in_array($q, $qc[$m])) {
@@ -479,16 +472,16 @@ function queues_get_config($engine) {
 				// TODO: There's a bug here $q_pause_Local isn't initialized and shoudl be something.
 				//       Currently this can't be made into a pattern since it's the $device['user'] but the hint has the device
 				//
-				$q_pause_len = strlen($que_pause_code);
-				$device_list = (isset($device_list) && is_array($device_list))?$device_list:array();
+				$q_pause_len = strlen((string) $que_pause_code);
+				$device_list = (isset($device_list) && is_array($device_list))?$device_list:[];
 				foreach ($device_list as $device) {
 					$astman->database_del("AMPUSER/".$device['id'],"pausequeuehint");
 					if ($device['user'] != '') {
-						$pause_all_hints = array();
+						$pause_all_hints = [];
 						if (isset($qc[$device['user']])) {
 							foreach($qc[$device['user']] as $q) {
 								if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
-									$dev_len = strlen($device['id']);
+									$dev_len = strlen((string) $device['id']);
 									$dev_len_tmp = str_repeat('X', $dev_len);
 									$exten_pat = "_".$que_pause_code."*".$dev_len_tmp."*".$q;
 

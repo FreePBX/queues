@@ -4,8 +4,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 class queues_conf {
 
 	private static $obj;
-	var $_queues_general = array();
-	var $_queues_additional = array();
+	public $_queues_general = [];
+	public $_queues_additional = [];
 
 	// FreePBX magic ::create() call
 	public static function create() {
@@ -23,10 +23,7 @@ class queues_conf {
 	// return an array of filenames to write
 	// files named like pinset_N
 	function get_filename() {
-		$files = array(
-			'queues_additional.conf',
-			'queues_general_additional.conf',
-			);
+		$files = ['queues_additional.conf', 'queues_general_additional.conf'];
 		return $files;
 	}
 
@@ -45,11 +42,11 @@ class queues_conf {
 	}
 
 	function addQueuesGeneral($key, $value) {
-		$this->_queues_general[] = array('key' => $key, 'value' => $value);
+		$this->_queues_general[] = ['key' => $key, 'value' => $value];
 	}
 
 	function addQueuesAdditional($section, $key, $value) {
-		$this->_queues_additional[$section][] = array('key' => $key, 'value' => $value);
+		$this->_queues_additional[$section][] = ['key' => $key, 'value' => $value];
 	}
 
 	function generate_queues_additional($ast_version) {
@@ -68,13 +65,13 @@ class queues_conf {
 			die($results->getMessage());
 		}
 		foreach ($results as $result) {
-			if (!$ver12 && trim($result['data']) == '') {
+			if (!$ver12 && trim((string) $result['data']) == '') {
 				continue;
 			}
 			$additional .= $result['keyword']."=".$result['data']."\n";
 		}
 
-		$devices = array();
+		$devices = [];
 		$device_results = core_devices_list('all','full',true);
 		if (is_array($device_results)) {
 			foreach ($device_results as $device) {
@@ -85,7 +82,7 @@ class queues_conf {
 			unset($device_results);
 		}
 
-		$users = array();
+		$users = [];
 		$user_results = FreePBX::Core()->listUsers();
 		if (is_array($user_results)) {
 			foreach ($user_results as $user) {
@@ -134,7 +131,7 @@ class queues_conf {
 				unset($results2['eventmemberstatus']);
 			}
 			foreach ($results2 as $keyword => $data) {
-				if ((trim($data) == '' && $keyword != "context") || substr($keyword, 0, 4) == "cron") {
+				if ((trim((string) $data) == '' && $keyword != "context") || str_starts_with((string) $keyword, "cron")) {
 					// Skip anything that's empty or not required
 					continue;
 				}
@@ -179,7 +176,7 @@ class queues_conf {
 			// Now pull out all the memebers, one line for each
 			//
 			foreach ($members as $member) {
-				preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
+				preg_match("/^Local\/([\d]+)\@*/",(string) $member,$matches);
 				if (isset($matches[1]) && isset($users[$matches[1]])) {
 					$name = sprintf('"%s"',$users[$matches[1]]);
 

@@ -1,6 +1,6 @@
 <?php
 extract($request, EXTR_SKIP);
-$member = array();
+$member = [];
 //Name is a text box on add or text on edit.
 if(isset($extdisplay) && $extdisplay != ''){
 	$accountInput = '<input type="hidden" name="account" value="'.$extdisplay.'">';
@@ -12,36 +12,28 @@ if(isset($extdisplay) && $extdisplay != ''){
 	$accountInput = '<input type="text" name="account" id="account" class="form-control" value="" required>';
 }
 //Added for RVOL mode
-if ($rvol_mode == "") {
+if (isset($rvol_mode) && $rvol_mode == "") {
         $rvol_mode = "dontcare";
 }
 
-$options = array(_("Force") => "force", _("Yes") => "yes", _("Don't Care") => "dontcare", _("No") => "no", _("Never") => "never");
+$options = [_("Force") => "force", _("Yes") => "yes", _("Don't Care") => "dontcare", _("No") => "no", _("Never") => "never"];
 foreach ($options as $disp => $rname) {
-        if ($rvol_mode == $rname) {
+        if (isset($rvol_mode) && $rvol_mode == $rname) {
                 $checked = "checked";
         } else {
                 $checked = "";
         }
-        $rvolmode_opts .= "<input type='radio' id='rvolmode_${rname}' name='rvol_mode' value='$rname' $checked><label for='rvolmode_${rname}'>$disp</label>";
+        $rvolmode_opts = "<input type='radio' id='rvolmode_${rname}' name='rvol_mode' value='$rname' $checked><label for='rvolmode_${rname}'>$disp</label>";
 }
 
 //Rvol mode ENDS here
-$cronVars = array(
-	'cron_schedule' => isset($cron_schedule)?$cron_schedule:'never',
-	'cron_minute' => isset($cron_minute)?$cron_minute:'',
-	'cron_hour' => isset($cron_hour)?$cron_hour:'',
-	'cron_dow' => isset($cron_dow)?$cron_dow:'',
-	'cron_month' => isset($cron_month)?$cron_month:'',
-	'cron_dom' => isset($cron_dom)?$cron_dom:'',
-	'cron_random' => isset($cron_random)?$cron_random:false,
-	);
+$cronVars = ['cron_schedule' => $cron_schedule ?? 'never', 'cron_minute' => $cron_minute ?? '', 'cron_hour' => $cron_hour ?? '', 'cron_dow' => $cron_dow ?? '', 'cron_month' => $cron_month ?? '', 'cron_dom' => $cron_dom ?? '', 'cron_random' => $cron_random ?? false];
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
 $ast_ge_11 = version_compare($astver, '11', 'ge');
 $ast_ge_120 = version_compare($astver, '12', 'ge');
 $ast_ge_130 = version_compare($astver, '13', 'ge');
-$mem_array = array();
+$mem_array = [];
 foreach ($member as $mem) {
 	if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2|PJSIP)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
 		switch ($matches[1]) {
@@ -70,7 +62,7 @@ foreach ($member as $mem) {
 		$mem_array[] = $exten_prefix.$matches[2].','.$matches[3];
 	}
 }
-if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']){
+if (isset($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) && $amp_conf['GENERATE_LEGACY_QUEUE_CODES']){
 	$glqchtml = '
 	<!--Queue Password-->
 	<div class="element-container">
@@ -83,7 +75,7 @@ if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']){
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="password"></i>
 						</div>
 						<div class="col-md-9">
-							<input type="password" name="password" id="password" class="form-control" value="'.(isset($password) ? $password : '').'">
+							<input type="password" name="password" id="password" class="form-control" value="'.($password ?? '').'">
 						</div>
 					</div>
 				</div>
@@ -150,7 +142,7 @@ if(function_exists('recordings_list')){
 							<select class="form-control" id="callconfirm_id" name="callconfirm_id">
 							';
 	$tresults = recordings_list();
-    $default = (isset($callconfirm_id) ? $callconfirm_id : '');
+    $default = ($callconfirm_id ?? '');
     $ccahtml .= '<option value="None">'._("Default");
     if (isset($tresults[0])) {
 		foreach ($tresults as $tresult) {
@@ -186,7 +178,7 @@ if(function_exists('recordings_list')){
 						<div class="col-md-9">
 							<select name="joinannounce_id" id="joinannounce_id" class="form-control">';
 	$tresults = recordings_list();
-	$default = (isset($joinannounce_id) ? $joinannounce_id : '');
+	$default = ($joinannounce_id ?? '');
 	$jahtml .= '<option value="None">'._("None");
 	if (isset($tresults[0])) {
 		foreach ($tresults as $tresult) {
@@ -195,10 +187,10 @@ if(function_exists('recordings_list')){
 	}
 	$jahtml .= '			</select>
 							<span class="radioset input-group">
-								<input type="radio" id="skip_joinannounce-no" name="skip_joinannounce" value="" '.($skip_joinannounce ==''?'checked':'').'><label for="skip_joinannounce-no">'. _('Always').'</label>
-								<input type="radio" id="skip_joinannounce-free" name="skip_joinannounce" value="free" '.($skip_joinannounce =='free'?'checked':'').'><label for="skip_joinannounce-free">'. _('When No Free Agents').'</label>
-								<input type="radio" id="skip_joinannounce-ready" name="skip_joinannounce" value="ready" '. ($skip_joinannounce =='ready'?'checked':'').'><label for="skip_joinannounce-ready">'. _('When No Ready Agents').'</label>
-								<input type="radio" id="skip_joinannounce-nofreeagent" name="skip_joinannounce" value="nofreeagent" '. ($skip_joinannounce =='nofreeagent'?'checked':'').'><label for="skip_joinannounce-nofreeagent">'. _('When there are both logged in and no free agents').'</label>
+								<input type="radio" id="skip_joinannounce-no" name="skip_joinannounce" value="" '.((isset($skip_joinannounce) && $skip_joinannounce =='')?'checked':'').'><label for="skip_joinannounce-no">'. _('Always').'</label>
+								<input type="radio" id="skip_joinannounce-free" name="skip_joinannounce" value="free" '.((isset($skip_joinannounce) && $skip_joinannounce =='free')?'checked':'').'><label for="skip_joinannounce-free">'. _('When No Free Agents').'</label>
+								<input type="radio" id="skip_joinannounce-ready" name="skip_joinannounce" value="ready" '. ((isset($skip_joinannounce) && $skip_joinannounce =='ready')?'checked':'').'><label for="skip_joinannounce-ready">'. _('When No Ready Agents').'</label>
+								<input type="radio" id="skip_joinannounce-nofreeagent" name="skip_joinannounce" value="nofreeagent" '. ((isset($skip_joinannounce) && $skip_joinannounce =='nofreeagent')?'checked':'').'><label for="skip_joinannounce-nofreeagent">'. _('When there are both logged in and no free agents').'</label>
 							</span>
 						</div>
 					</div>
@@ -215,7 +207,7 @@ if(function_exists('recordings_list')){
 	';
 	$tresults = recordings_list(false);
 	$aaopts = '';
-	$default = (isset($agentannounce_id) ? $agentannounce_id : '');
+	$default = ($agentannounce_id ?? '');
 	$aaopts .= '<option value="">'._("None").'</option>';
 	if (isset($tresults[0])) {
 		foreach ($tresults as $tresult) {
@@ -258,7 +250,7 @@ if(function_exists('recordings_list')){
 //Used for the agent quick select boxes.
 //$results = core_users_list();
 $results = \FreePBX::Core()->listUsers();
-$results = is_array($results)?$results:array();
+$results = is_array($results)?$results:[];
 $qsagentlist = '';
 foreach($results as $result){
 	$qsagentlist .= "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
@@ -273,8 +265,8 @@ $strategyhelphtml .= '<b>' . _("rrordered").'</b>: ' . _("same as rrmemory, exce
 $strategyhelphtml .= '<b>' . _("linear").'</b>: ' . _("rings agents in the order specified, for dynamic agents in the order they logged in").'<br>';
 $strategyhelphtml .= '<b>' . _("wrandom").'</b>: ' . _("random using the member's penalty as a weighting factor, see asterisk documentation for specifics").'<br>';
 $strategyhelphtml .= '<b>' . _("Some ring strategies (linear, round robin) require Asterisk to be restarted for changes to take effect.").'</b><br>';
-$default = (isset($strategy) ? $strategy : 'ringall');
-$items = array('ringall','leastrecent','fewestcalls','random','rrmemory','rrordered', 'linear', 'wrandom');
+$default = ($strategy ?? 'ringall');
+$items = ['ringall', 'leastrecent', 'fewestcalls', 'random', 'rrmemory', 'rrordered', 'linear', 'wrandom'];
 $strategyopts = '';
 foreach ($items as $item) {
 	$strategyopts .= '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item);
@@ -297,7 +289,7 @@ if(function_exists('music_list')) {
 							<select name="music" id="music" class="form-control">';
 	$tresults = music_list();
 	array_unshift($tresults,'inherit');
-	$default = (isset($music) ? $music : 'inherit');
+	$default = ($music ?? 'inherit');
 	if (isset($tresults) && is_array($tresults)) {
 		foreach ($tresults as $tresult) {
 			$searchvalue="$tresult";
@@ -310,9 +302,9 @@ if(function_exists('music_list')) {
 	}
 	$mohhtml .='			</select>
 							<span class="radioset input-group">
-								<input type="radio" id="rtone-no" name="rtone" value="0" '. ($rtone=='0'?'checked':'').'><label for="rtone-no">'._('MoH Only').'</label>
-								<input type="radio" id="rtone-agent" name="rtone" value="2" '.($rtone=='2'?'checked':'').'><label for="rtone-agent">'. _('Agent Ringing').'</label>
-								<input type="radio" id="rtone-yes" name="rtone" value="1" '. ($rtone=='1'?'checked':'').'><label for="rtone-yes">'. _('Ring Only').'</label>
+								<input type="radio" id="rtone-no" name="rtone" value="0" '. ((isset($rtone) && $rtone=='0')?'checked':'').'><label for="rtone-no">'._('MoH Only').'</label>
+								<input type="radio" id="rtone-agent" name="rtone" value="2" '.((isset($rtone) && $rtone=='2')?'checked':'').'><label for="rtone-agent">'. _('Agent Ringing').'</label>
+								<input type="radio" id="rtone-yes" name="rtone" value="1" '. ((isset($rtone) && $rtone=='1')?'checked':'').'><label for="rtone-yes">'. _('Ring Only').'</label>
 							</span>
 						</div>
 					</div>
@@ -339,40 +331,40 @@ if (!isset($thisQ['recording'])) {
 	}
 }
 //Max Wait
-$default = (isset($maxwait) ? $maxwait : 0);
+$default = ($maxwait ?? 0);
 $maxwopts = '';
 for ($i=0; $i < 30; $i++) {
 	if ($i == 0)
 		$maxwopts .= '<option value="">'._("Unlimited").'</option>';
 	else
-		$maxwopts .= '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
+		$maxwopts .= '<option value="'.$i.'"'.((isset($maxwait) && $i == $maxwait) ? ' SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 }
 for ($i=30; $i < 60; $i+=5) {
-	$maxwopts .= '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
+	$maxwopts .= '<option value="'.$i.'"'.((isset($maxwait) && $i == $maxwait) ? ' SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 }
 for ($i=60; $i < 300; $i+=20) {
-	$maxwopts .= '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+	$maxwopts .= '<option value="'.$i.'"'.((isset($maxwait) && $i == $maxwait) ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 }
 for ($i=300; $i < 1200; $i+=60) {
-	$maxwopts .= '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+	$maxwopts .= '<option value="'.$i.'"'.((isset($maxwait) && $i == $maxwait) ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 }
 for ($i=1200; $i <= 7200; $i+=300) {
-	$maxwopts .= '<option value="'.$i.'"'.($i == $maxwait ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
+	$maxwopts .= '<option value="'.$i.'"'.((isset($maxwait) && $i == $maxwait) ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 }
 //Time Out
-$default = (isset($timeout) ? $timeout : 15);
+$default = ($timeout ?? 15);
 $toopts = '<option value="0" '.(0 == $default ? 'SELECTED' : '').'>'._("Unlimited").'</option>';
 for ($i=1; $i <= 120; $i++) {
 	$toopts .= '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 }
 //Retry Time
-$default = (isset($retry) ? $retry : 5);
+$default = ($retry ?? 5);
 $retryopts = '<option value="none" '.(($default == "none") ? 'SELECTED' : '').'>'._("No Retry").'</option>';
 for ($i=0; $i <= 60; $i++) {
 	$retryopts .= '<option value="'.$i.'" '.(("$i" == "$default") ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 }
 //Wrapup Time
-$default = (isset($wrapuptime) ? $wrapuptime : 0);
+$default = ($wrapuptime ?? 0);
 $wutopts = '';
 for ($i=0; $i < 60; $i++) {
 	$wutopts .= '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
@@ -382,7 +374,7 @@ for ($i=60; $i <= 3600; $i+=30) {
 }
 //Member Delay
 $mdopts = '';
-$default = (isset($memberdelay) ? $memberdelay : 0);
+$default = ($memberdelay ?? 0);
 for ($i=0; $i <= 60; $i++) {
 	$mdopts .= '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.' '._("seconds").'</option>';
 }
@@ -405,19 +397,19 @@ $lwehelphtml .= '<li><b>'._("Loose").'</b> '._("Same as Yes except Callers will 
 $lwehelphtml .= '<li><b>'._("No").'</b> '._("Never have a caller leave the Queue until the Max Wait Time has expired.").'</li>';
 $lwehelphtml .= '</ul>';
 //Penalty Member Limits
-$default = (isset($penaltymemberslimit) ? $penaltymemberslimit : 0);
+$default = ($penaltymemberslimit ?? 0);
 $pmlopts = '<option value="0" '.(!$default ? 'SELECTED' : '').'>'._("Honor Penalties").'</option>';
 for ($i=1; $i <= 20; $i++) {
 	$pmlopts .= '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.'</option>';
 }
 //Queue Announce Frequency
-$default = (isset($thisQ['announce-frequency']) ? $thisQ['announce-frequency'] : 0);
+$default = ($thisQ['announce-frequency'] ?? 0);
 $qafreqopts = '';
 for ($i=0; $i <= 1200; $i+=15) {
 	$qafreqopts .= '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 }
 //Queue Minimum Announce Frequency
-$default = (isset($thisQ['min-announce-frequency']) ? $thisQ['min-announce-frequency'] : 15);
+$default = ($thisQ['min-announce-frequency'] ?? 15);
 $qminfreqopts = '';
 for ($i=0; $i <= 1200; $i+=15) {
 	$qminfreqopts .= '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
@@ -468,7 +460,7 @@ if(function_exists('vqplus_callback_get') && function_exists('ivr_get_details'))
 }
 //IVR Breakout
 if(function_exists('ivr_get_details')) {
-	$default = (isset($announcemenu) ? $announcemenu : "none");
+	$default = ($announcemenu ?? "none");
 	$unique_aas = ivr_get_details();
 	$compound_recordings = false;
 	$is_error = false;
@@ -476,14 +468,14 @@ if(function_exists('ivr_get_details')) {
 	if (isset($unique_aas) && is_array($unique_aas)) {
 		foreach ($unique_aas as $unique_aa) {
 			$menu_id = $unique_aa['id'];
-			$menu_name = $unique_aa['name'] ? $unique_aa['name'] : 'IVR ' . $unique_aa['id'];
+			$menu_name = $unique_aa['name'] ?: 'IVR ' . $unique_aa['id'];
 			$unique_aa['announcement'] = recordings_get_file($unique_aa['announcement']);
-			if (strpos($unique_aa['announcement'],"&") === false) {
-				$ivrboopts .= '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)."</option>\n";
+			if (!str_contains((string) $unique_aa['announcement'],"&")) {
+				$ivrboopts .= '<option value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ?: _("Menu ID ").$menu_id)."</option>\n";
 			}else {
 				$compound_recordings = true;
 				if ($menu_id == $default) {
-					$ivrboopts .= '<option style="color:red" value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ? $menu_name : _("Menu ID ").$menu_id)." (**)</option>\n";
+					$ivrboopts .= '<option style="color:red" value="'.$menu_id.'" '.($default == $menu_id ? 'SELECTED' : '').'>'.($menu_name ?: _("Menu ID ").$menu_id)." (**)</option>\n";
 					$is_error = true;
 				}
 			}
@@ -533,7 +525,7 @@ if(function_exists('ivr_get_details')) {
 //VQPLUS Callback
 if(function_exists('vqplus_callback_get')) {
 	$cbs = vqplus_callback_get();
-	$cbs = is_array($cbs)?$cbs:array();
+	$cbs = is_array($cbs)?$cbs:[];
 	$vqcbopts = '';
 	foreach ($cbs as $cb) {
 		$vqcbopts .= '<option value="'.$cb['id'].'" '.($callback == $cb['id'] ? 'SELECTED' : '').'>'.$cb['name']."</option>";
@@ -572,7 +564,7 @@ if(function_exists('vqplus_callback_get')) {
 }
 //Repeat Frequency
 if(function_exists('vqplus_callback_get') || function_exists('ivr_get_details')) {
-	$default = (isset($thisQ['periodic-announce-frequency']) ? $thisQ['periodic-announce-frequency'] : 0);
+	$default = ($thisQ['periodic-announce-frequency'] ?? 0);
 	$pafreqopts = '';
 	for ($i=0; $i <= 1200; $i+=15) {
 		$pafreqopts .= '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
@@ -608,7 +600,7 @@ if(function_exists('vqplus_callback_get') || function_exists('ivr_get_details'))
 }
 if(!$ast_ge_120){
 	$amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT'] = $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT']?'yes':'no';
-	$default = (isset($eventwhencalled) ? $eventwhencalled : $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT']);
+	$default = ($eventwhencalled ?? $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT']);
 	$agenteventshtml = '
 	<!--Event When Called-->
 	<div class="element-container">
@@ -640,7 +632,7 @@ if(!$ast_ge_120){
 	<!--END Event When Called-->
 	';
 	$amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'] = $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT']?'yes':'no';
-	$default = (isset($eventmemberstatus) ? $eventmemberstatus : $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT']);
+	$default = ($eventmemberstatus ?? $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT']);
 	$membereventhtml = '
 	<!--Event When Called-->
 	<div class="element-container">
@@ -673,7 +665,7 @@ if(!$ast_ge_120){
 	';
 
 }//End If Asterisk GE 12
-$default = (isset($servicelevel) ? $servicelevel : 60);
+$default = ($servicelevel ?? 60);
 $slopts = '';
 for ($i=15; $i <= 300; $i+=15) {
 	$slopts .= '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
@@ -681,7 +673,7 @@ for ($i=15; $i <= 300; $i+=15) {
 //hooks
 $hookdata = \FreePBX::Queues()->hookTabs();
 ?>
-<form class="fpbx-submit" autocomplete="off" name="editQ" action="config.php?display=queues" method="post" onsubmit="return checkQ(editQ);" data-fpbx-delete="config.php?display=queues&amp;account=<?php echo urlencode($extdisplay) ?>&amp;action=delete">
+<form class="fpbx-submit" autocomplete="off" name="editQ" action="config.php?display=queues" method="post" onsubmit="return checkQ(editQ);" data-fpbx-delete="config.php?display=queues&amp;account=<?php echo urlencode((string) $extdisplay) ?>&amp;action=delete">
 <input type="hidden" name="display" value="queues">
 <input type="hidden" name="extdisplay" value="<?php echo $extdisplay ?>">
 <input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
@@ -771,7 +763,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="name"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="text" name="name" id="name" class="form-control" value="<?php echo (isset($name) ? $name : ''); ?>" >
+								<input type="text" name="name" id="name" class="form-control" value="<?php echo ($name ?? ''); ?>" >
 							</div>
 						</div>
 					</div>
@@ -784,8 +776,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 			</div>
 		</div>
 		<!--END Queue Name-->
-		<?php echo $glqchtml ?>
-		<?php echo $qnoahtml ?>
+		<?php echo $glqchtml ?? ''; ?>
+		<?php echo $qnoahtml ?? ''; ?>
 		<!--Call Confirm-->
 		<div class="element-container">
 			<div class="row">
@@ -825,7 +817,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="prefix"></i>
 							</div>
 							<div class="col-md-9">
-								<input class="form-control" type="text" name="prefix" id="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>" >
+								<input class="form-control" type="text" name="prefix" id="prefix" value="<?php echo ($prefix ?? ''); ?>" >
 							</div>
 						</div>
 					</div>
@@ -849,7 +841,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="queuewaitw"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<?php $default = (isset($queuewait) ? $queuewait : "0");?>
+								<?php $default = ($queuewait ?? "0");?>
 								<input type="radio" name="queuewait" id="queuewaitYES" value="1" <?php echo ($default == "1" ? 'checked' : '') ?>>
 								<label for="queuewaitYES"><?php echo _("Yes")?></label>
 								<input type="radio" name="queuewait" id="queuewaitNO" value="0" <?php echo ($default == "0" ? 'checked' : '') ?>>
@@ -877,7 +869,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="alertinfo"></i>
 							</div>
 							<div class="col-md-9">
-								<?php echo FreePBX::View()->alertInfoDrawSelect("alertinfo",(isset($alertinfo)?$alertinfo:''));?>
+								<?php echo FreePBX::View()->alertInfoDrawSelect("alertinfo",($alertinfo ?? ''));?>
 							</div>
 						</div>
 					</div>
@@ -903,7 +895,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<select class="form-control" id="rvolume" name="rvolume">
 									<option value="0"><?php echo _("None")?></option>
 									<?php for($i = 1; $i <= 14; $i++) { ?>
-										<option value="<?php echo $i?>" <?php echo ($rvolume == $i) ? 'selected' : ''?>><?php echo $i?></option>
+										<option value="<?php echo $i?>" <?php echo (isset($rvolume) && $rvolume == $i) ? 'selected' : ''?>><?php echo $i?></option>
 									<?php } ?>
 								</select>
 							</div>
@@ -953,9 +945,9 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="dynmemberonlyw"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<input type="radio" id="dynmemberonly_yes" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly=='yes'?'checked':'');?>>
+								<input type="radio" id="dynmemberonly_yes" name="dynmemberonly" value="yes" <?php echo ((isset($dynmemberonly) && $dynmemberonly=='yes')?'checked':'');?>>
 								<label for="dynmemberonly_yes"><?php echo _('Yes')?></label>
-								<input type="radio" name="dynmemberonly" id="dynmemberonly_no" value="no" <?php echo ($dynmemberonly!='yes'?'checked':'');?>>
+								<input type="radio" name="dynmemberonly" id="dynmemberonly_no" value="no" <?php echo ((isset($dynmemberonly) && $dynmemberonly!='yes')?'checked':'');?>>
 								<label for="dynmemberonly_no"><?php echo _('No'); ?></label>
 							</div>
 						</div>
@@ -981,7 +973,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9 radioset">
 								<?php
-								$default = (isset($use_queue_context) ? $use_queue_context : '0');
+								$default = ($use_queue_context ?? '0');
 								?>
 								<input type="radio" name="use_queue_context" id="use_queue_context0" value="0" <?php echo ($default == "0"?"CHECKED":"") ?>>
 								<label for="use_queue_context0"><?php echo _("Call as Dialed");?></label>
@@ -1066,13 +1058,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9 radioset">
 									<?php
-									$default = (isset($cwignore) ? $cwignore : 'no');
-									$items = array(
-										'0' => _("No"),
-										'1'=>_("Yes"),
-										'2'=>_("Yes + (ringinuse=no)"),
-										'3'=>_("Queue calls only (ringinuse=no)"),
-										);
+									$default = ($cwignore ?? 'no');
+									$items = ['0' => _("No"), '1'=>_("Yes"), '2'=>_("Yes + (ringinuse=no)"), '3'=>_("Queue calls only (ringinuse=no)")];
 									foreach ($items as $item=>$val) {
 										echo '<input type="radio" name="cwignore" id="cwignore'.$item.'" value="'.$item.'" '. ($default == $item?"CHECKED":"") .'>';
 										echo '<label for="cwignore'.$item.'">'.$val.'</label>';
@@ -1101,7 +1088,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="weight"></i>
 							</div>
 							<div class="col-md-9">
-								<?php $default = (isset($weight) ? $weight : 0);?>
+								<?php $default = ($weight ?? 0);?>
 								<input type="number" min="0" max="10" class="form-control" id="weight" name="weight" value="<?php echo $default ?>">
 							</div>
 						</div>
@@ -1185,7 +1172,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="goto0"></i>
 							</div>
 							<div class="col-md-9">
-								<?php echo drawselects($goto,0,false,true,'',true); ?>
+								<?php echo drawselects($goto ?? '',0,false,true,'',true); ?>
 							</div>
 						</div>
 					</div>
@@ -1246,7 +1233,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9">
 								<div class="input-group">
-									<textarea id="dynmembers" class="form-control" cols="15" rows="<?php  $rows = count(explode("\n",$dynmembers)) + 1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" ><?php echo $dynmembers ?></textarea>
+									<textarea id="dynmembers" class="form-control" cols="15" rows="<?php  $rows = count(explode("\n",(string) ($dynmembers ?? ''))) + 1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" ><?php echo $dynmembers ?? '' ?></textarea>
 									<span class="input-group-addon">
 										<label for="qsagents2"><strong><?php echo("Agent Quick Select")?></strong></label>
 										<select id="qsagents2" class="form-control" data-for="dynmembers">
@@ -1308,7 +1295,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($timeoutpriority) ? $timeoutpriority : "app")?>
+								<?php $default = ($timeoutpriority ?? "app")?>
 								<input type="radio" name="timeoutpriority" id="timeoutpriorityapp" value="app" <?php echo ($default == "app" ? 'CHECKED' : '') ?> >
 								<label for="timeoutpriorityapp"><?php echo _("Strict") ?></label>
 								<input type="radio" name="timeoutpriority" id="timeoutpriorityconf" value="conf" <?php echo ($default == "conf" ? 'CHECKED' : '') ?> >
@@ -1363,7 +1350,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($timeoutrestart) ? $timeoutrestart : "no");?>
+								<?php $default = ($timeoutrestart ?? "no");?>
 								<input type="radio" name="timeoutrestart" id="timeoutrestartyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '')?> >
 								<label for="timeoutrestartyes"><?php echo _("Yes") ?></label>
 								<input type="radio" name="timeoutrestart" id="timeoutrestartno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
@@ -1472,7 +1459,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($reportholdtime) ? $reportholdtime : "no");?>
+								<?php $default = ($reportholdtime ?? "no");?>
 								<input type="radio" name="reportholdtime" id="reportholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="reportholdtimeyes"><?php echo _("Yes") ?></label>
 								<input type="radio" name="reportholdtime" id="reportholdtimeno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
@@ -1501,8 +1488,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9 radioset">
 									<?php
-										$default = (isset($autopause) ? $autopause : 'no');
-										$items = array('yes'=>_("Yes in this queue only"),'all'=>_('Yes in all queues'),'no'=>_("No"));
+										$default = ($autopause ?? 'no');
+										$items = ['yes'=>_("Yes in this queue only"), 'all'=>_('Yes in all queues'), 'no'=>_("No")];
 										foreach ($items as $item=>$val) {
 											echo '<input type="radio" name="autopause" id="autopause'.$item.'" value="'.$item.'" '.($default == $item?"CHECKED":"") .'>';
 											echo '<label for="autopause'.$item.'">'.$val.'</label>';
@@ -1532,7 +1519,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($autopausebusy) ? $autopausebusy : "no");?>
+								<?php $default = ($autopausebusy ?? "no");?>
 								<input type="radio" name="autopausebusy" id="autopausebusyyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="autopausebusyyes"><?php echo _("Yes") ?></label>
 								<input type="radio" name="autopausebusy" id="autopausebusyno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
@@ -1561,7 +1548,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 							</div>
 							<div class="col-md-9 radioset input-group">
 								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($autopauseunavail) ? $autopauseunavail : "no");?>
+								<?php $default = ($autopauseunavail ?? "no");?>
 								<input type="radio" name="autopauseunavail" id="autopauseunavailyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="autopauseunavailyes"><?php echo _("Yes") ?></label>
 								<input type="radio" name="autopauseunavail" id="autopauseunavailno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
@@ -1589,7 +1576,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autopausedelay"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="number" class="form-control" id="autopausedelay" name="autopausedelay" min="0" max="3600" value="<?php echo (isset($autopausedelay)?$autopausedelay:'0') ?>" >
+								<input type="number" class="form-control" id="autopausedelay" name="autopausedelay" min="0" max="3600" value="<?php echo ($autopausedelay ?? '0') ?>" >
 							</div>
 						</div>
 					</div>
@@ -1616,7 +1603,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="maxlen"></i>
 							</div>
 							<div class="col-md-9">
-								<?php $default = (isset($maxlen) ? $maxlen : 0);?>
+								<?php $default = ($maxlen ?? 0);?>
 								<input type="number" min="0" max="5000" class="form-control" id="maxlen" name="maxlen" value="<?php echo $default ?>" >
 							</div>
 						</div>
@@ -1641,7 +1628,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="joinempty"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<?php $default = (isset($joinempty) ? $joinempty : 'yes');?>
+								<?php $default = ($joinempty ?? 'yes');?>
 								<input type="radio" name="joinempty" id="joinemptyyes" value="yes" <?php echo ($default == "yes"?"CHECKED":"") ?>>
 								<label for="joinemptyyes"><?php echo _("Yes");?></label>
 								<input type="radio" name="joinempty" id="joinemptystrict" value="strict" <?php echo ($default == "strict"?"CHECKED":"") ?>>
@@ -1675,7 +1662,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="leavewhenempty"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<?php $default = (isset($leavewhenempty) ? $leavewhenempty : 'no');?>
+								<?php $default = ($leavewhenempty ?? 'no');?>
 								<input type="radio" name="leavewhenempty" id="leavewhenemptyyes" value="yes" <?php echo ($default == "yes"?"CHECKED":"") ?>>
 								<label for="leavewhenemptyyes"><?php echo _("Yes");?></label>
 								<input type="radio" name="leavewhenempty" id="leavewhenemptystrict" value="strict" <?php echo ($default == "strict"?"CHECKED":"") ?>>
@@ -1793,7 +1780,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
    								</div>
    								<div class="col-md-9 radioset input-group">
    								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($thisQ['announce-position']) ? $thisQ['announce-position'] : "no");?>
+								<?php $default = ($thisQ['announce-position'] ?? "no");?>
 								<input type="radio" name="announceposition" id="announcepositionyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="announcepositionyes"><?php echo _("Yes") ?></label>
 								<input type="radio" name="announceposition" id="announcepositionno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
@@ -1822,7 +1809,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
    								</div>
    								<div class="col-md-9 radioset input-group">
    								&nbsp;&nbsp;&nbsp;
-								<?php $default = (isset($thisQ['announce-holdtime']) ? $thisQ['announce-holdtime'] : "no");?>
+								<?php $default = ($thisQ['announce-holdtime'] ?? "no");?>
 								<input type="radio" name="announceholdtime" id="announceholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="announceholdtimeyes"><?php echo _("Yes") ?></label>
 								<input type="radio" name="announceholdtime" id="announceholdtimeno" value="no" <?php echo ($default == "no" ? 'checked' : '') ?> >
@@ -1854,8 +1841,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 		</div>
 	</div>
 	<div role="tabpanel" id="qadvanced" class="tab-pane">
-		<?php echo isset($agenteventshtml)?$agenteventshtml:''; //if asterisk is below 12 ?>
-		<?php echo isset($membereventhtml)?$membereventhtml:''; //if asterisk is below 12 ?>
+		<?php echo $agenteventshtml ?? ''; //if asterisk is below 12 ?>
+		<?php echo $membereventhtml ?? ''; //if asterisk is below 12 ?>
 		<!--Service Level-->
 		<div class="element-container">
 			<div class="row">
@@ -1893,7 +1880,7 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="qregex"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="text" class="form-control" id="qregex" name="qregex" value="<?php echo (isset($qregex) ? $qregex : ''); ?>">
+								<input type="text" class="form-control" id="qregex" name="qregex" value="<?php echo ($qregex ?? ''); ?>">
 							</div>
 						</div>
 					</div>

@@ -10,11 +10,7 @@ function queues_destinations() {
 		foreach($results as $result){
 			$exten = $result['0'];
 			$descr = $result['1'];
-			$extens[] = array(
-				'destination' => 'ext-queues,'.$exten.',1', 
-				'description' => $exten.' '.$descr,
-				'edit_url' => 'config.php?display=queues&view=form&extdisplay='.urlencode($exten),
-			);
+			$extens[] = ['destination' => 'ext-queues,'.$exten.',1', 'description' => $exten.' '.$descr, 'edit_url' => 'config.php?display=queues&view=form&extdisplay='.urlencode((string) $exten)];
 		}
 	}
 
@@ -25,23 +21,21 @@ function queues_destinations() {
 }
 
 function queues_getdest($exten) {
-	return array('ext-queues,'.$exten.',1');
+	return ['ext-queues,'.$exten.',1'];
 }
 
 function queues_getdestinfo($dest) {
 	global $active_modules;
 
-	if (substr(trim($dest),0,11) == 'ext-queues,') {
-		$exten = explode(',',$dest);
+	if (str_starts_with(trim((string) $dest), 'ext-queues,')) {
+		$exten = explode(',',(string) $dest);
 		$exten = $exten[1];
 		$thisexten = queues_get($exten);
 		if (empty($thisexten)) {
-			return array();
+			return [];
 		} else {
 			//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
-			return array('description' => sprintf(_("Queue %s : %s"),$exten,$thisexten['name']),
-			             'edit_url' => 'config.php?display=queues&view=form&extdisplay='.urlencode($exten),
-								  );
+			return ['description' => sprintf(_("Queue %s : %s"),$exten,$thisexten['name']), 'edit_url' => 'config.php?display=queues&view=form&extdisplay='.urlencode($exten)];
 		}
 	} else {
 		return false;
@@ -49,35 +43,31 @@ function queues_getdestinfo($dest) {
 }
 
 function queues_recordings_usage($recording_id) {
-	global $active_modules;
+	$usage_arr = [];
+ global $active_modules;
 
 	$results = sql("SELECT `extension`, `descr` FROM `queues_config` WHERE `callconfirm_id` = '$recording_id' OR `agentannounce_id` = '$recording_id' OR `joinannounce_id` = '$recording_id'","getAll",DB_FETCHMODE_ASSOC);
 	if (empty($results)) {
-		return array();
+		return [];
 	} else {
 		//$type = isset($active_modules['queues']['type'])?$active_modules['queues']['type']:'setup';
 		foreach ($results as $result) {
-			$usage_arr[] = array(
-			  'url_query' => 'config.php?display=queues&extdisplay='.urlencode($result['extension']),
-				'description' => sprintf(_("Queue: %s"),$result['descr']),
-			);
+			$usage_arr[] = ['url_query' => 'config.php?display=queues&extdisplay='.urlencode((string) $result['extension']), 'description' => sprintf(_("Queue: %s"),$result['descr'])];
 		}
 		return $usage_arr;
 	}
 }
 
 function queues_ivr_usage($ivr_id) {
-	global $active_modules;
+	$usage_arr = [];
+ global $active_modules;
 
 	$results = sql("SELECT `extension`, `descr` FROM `queues_config` WHERE `ivr_id` = '$ivr_id'","getAll",DB_FETCHMODE_ASSOC);
 	if (empty($results)) {
-		return array();
+		return [];
 	} else {
 		foreach ($results as $result) {
-			$usage_arr[] = array(
-			  'url_query' => 'config.php?display=queues&extdisplay='.urlencode($result['extension']),
-				'description' => sprintf(_("Queue: %s"),$result['descr']),
-			);
+			$usage_arr[] = ['url_query' => 'config.php?display=queues&extdisplay='.urlencode((string) $result['extension']), 'description' => sprintf(_("Queue: %s"),$result['descr'])];
 		}
 		return $usage_arr;
 	}
@@ -86,7 +76,7 @@ function queues_ivr_usage($ivr_id) {
 function queues_check_extensions($exten=true) {
 	global $active_modules;
 
-	$extenlist = array();
+	$extenlist = [];
 	if (is_array($exten) && empty($exten)) {
 		return $extenlist;
 	}
@@ -102,7 +92,7 @@ function queues_check_extensions($exten=true) {
 		$thisexten = $result['extension'];
 		$extenlist[$thisexten]['description'] = sprintf(_("Queue: %s"),$result['descr']);
 		$extenlist[$thisexten]['status'] = _('INUSE');
-		$extenlist[$thisexten]['edit_url'] = 'config.php?display=queues&view=form&extdisplay='.urlencode($thisexten);
+		$extenlist[$thisexten]['edit_url'] = 'config.php?display=queues&view=form&extdisplay='.urlencode((string) $thisexten);
 	}
 	return $extenlist;
 }
@@ -110,7 +100,7 @@ function queues_check_extensions($exten=true) {
 function queues_check_destinations($dest=true) {
 	global $active_modules;
 
-	$destlist = array();
+	$destlist = [];
 	if (is_array($dest) && empty($dest)) {
 		return $destlist;
 	}
@@ -127,11 +117,7 @@ function queues_check_destinations($dest=true) {
 	foreach ($results as $result) {
 		$thisdest = $result['dest'];
 		$thisid   = $result['extension'];
-		$destlist[] = array(
-			'dest' => $thisdest,
-			'description' => sprintf(_("Queue: %s (%s)"),$result['descr'],$thisid),
-			'edit_url' => 'config.php?display=queues&view=form&extdisplay='.urlencode($thisid),
-		);
+		$destlist[] = ['dest' => $thisdest, 'description' => sprintf(_("Queue: %s (%s)"),$result['descr'],$thisid), 'edit_url' => 'config.php?display=queues&view=form&extdisplay='.urlencode((string) $thisid)];
 	}
 	return $destlist;
 }

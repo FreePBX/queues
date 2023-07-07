@@ -1,6 +1,6 @@
 <?php
 //Default to disabled:
-$cron_schedule = isset($cron_schedule)?$cron_schedule:'never';
+$cron_schedule ??= 'never';
 ?>
 <script type="text/javascript" src="modules/queues/assets/js/jquery-cron.js"></script>
 <link type="text/css" href="modules/queues/assets/css/jquery-cron.css" rel="stylesheet" />

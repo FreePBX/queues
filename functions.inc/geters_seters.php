@@ -32,7 +32,7 @@ function queues_add(
 ) {
  	global $db,$astman,$amp_conf;
 
-	if (trim($account) == '') {
+	if (trim((string) $account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
 		return false;
 	}
@@ -41,45 +41,49 @@ function queues_add(
 	if (empty($agentannounce_id)) {
 		$agentannounce_id=NULL;
 	}
-	$fields = array(
-		array($account,'maxlen',($_REQUEST['maxlen'])?$_REQUEST['maxlen']:'0',0),
-		array($account,'joinempty',($_REQUEST['joinempty'])?$_REQUEST['joinempty']:'yes',0),
-		array($account,'leavewhenempty',($_REQUEST['leavewhenempty'])?$_REQUEST['leavewhenempty']:'no',0),
-		array($account,'strategy',($_REQUEST['strategy'])?$_REQUEST['strategy']:'ringall',0),
-		array($account,'timeout',(isset($_REQUEST['timeout']))?$_REQUEST['timeout']:'15',0),
-		array($account,'retry',(isset($_REQUEST['retry']) && $_REQUEST['retry'] != '')?$_REQUEST['retry']:'5',0),
-		array($account,'wrapuptime',($_REQUEST['wrapuptime'])?$_REQUEST['wrapuptime']:'0',0),
-		array($account,'announce-frequency',($_REQUEST['announcefreq'])?$_REQUEST['announcefreq']:'0',0),
-		array($account,'min-announce-frequency',($_REQUEST['min-announce'])?$_REQUEST['min-announce']:'15',0),
-		array($account,'announce-holdtime',($_REQUEST['announceholdtime'])?$_REQUEST['announceholdtime']:'no',0),
-		array($account,'announce-position',($_REQUEST['announceposition'])?$_REQUEST['announceposition']:'no',0),
-		array($account,'queue-youarenext',($_REQUEST['announceposition']=='no')?'silence/1':'queue-youarenext',0),  //if no, play no sound
-		array($account,'queue-thereare',($_REQUEST['announceposition']=='no')?'silence/1':'queue-thereare',0),  //if no, play no sound
-		array($account,'queue-callswaiting',($_REQUEST['announceposition']=='no')?'silence/1':'queue-callswaiting',0),  //if no, play no sound
-		array($account,'queue-thankyou',($_REQUEST['announceposition']=='no')?'':'queue-thankyou',0),  //if no, play no sound
-		array($account,'periodic-announce-frequency',($_REQUEST['pannouncefreq'])?$_REQUEST['pannouncefreq']:'0',0),
-		array($account,'recording',($_REQUEST['recording'])?$_REQUEST['recording']:'dontcare',0),
-		array($account,'monitor-join','yes',0),
-		array($account,'weight',(isset($_REQUEST['weight']))?$_REQUEST['weight']:'0',0),
-		array($account,'autofill',(!empty($_REQUEST['autofill']))?'yes':'no',0),
-		array($account,'ringinuse',($cwignore == 2 || $cwignore == 3)?'no':'yes',0),
-		array($account,'reportholdtime',(isset($_REQUEST['reportholdtime']))?$_REQUEST['reportholdtime']:'no',0),
-		array($account,'autopause',(isset($_REQUEST['autopause']))?$_REQUEST['autopause']:'no',0),
-		array($account,'autopausedelay',(isset($_REQUEST['autopausedelay']))?$_REQUEST['autopausedelay']:'0',0),
-		array($account,'servicelevel',(isset($_REQUEST['servicelevel']))?$_REQUEST['servicelevel']:60,0),
-		array($account,'memberdelay',(isset($_REQUEST['memberdelay']))?$_REQUEST['memberdelay']:'0',0),
-		array($account,'timeoutrestart',(isset($_REQUEST['timeoutrestart']))?$_REQUEST['timeoutrestart']:'no',0),
-		array($account,'skip_joinannounce',(isset($_REQUEST['skip_joinannounce']))?$_REQUEST['skip_joinannounce']:'',0),
-		array($account,'answered_elsewhere',(isset($_REQUEST['answered_elsewhere']))?$_REQUEST['answered_elsewhere']:'0',0),
-		array($account,'timeoutpriority',(isset($_REQUEST['timeoutpriority']))?$_REQUEST['timeoutpriority']:'app',0),
-		array($account,'penaltymemberslimit',(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',0),
-		array($account,'rvolume',(isset($_REQUEST['rvolume']))?$_REQUEST['rvolume']:'',0),
-        array($account,'rvol_mode',(isset($_REQUEST['rvol_mode']))?$_REQUEST['rvol_mode']:'',0),
-        array($account, 'eventwhencalled', ($_REQUEST['eventwhencalled']) ? $_REQUEST['eventwhencalled'] : $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'], 0),
-        array($account, 'eventmemberstatus', ($_REQUEST['eventmemberstatus']) ? $_REQUEST['eventmemberstatus'] : $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'], 0),
-        array($account, 'autopausebusy', (isset($_REQUEST['autopausebusy'])) ? $_REQUEST['autopausebusy'] : 'no', 0),
-        array($account, 'autopauseunavail', (isset($_REQUEST['autopauseunavail'])) ? $_REQUEST['autopauseunavail'] : 'no', 0),
-    );
+	$fields = [
+     [$account, 'maxlen', $_REQUEST['maxlen'] ?: '0', 0],
+     [$account, 'joinempty', $_REQUEST['joinempty'] ?: 'yes', 0],
+     [$account, 'leavewhenempty', $_REQUEST['leavewhenempty'] ?: 'no', 0],
+     [$account, 'strategy', $_REQUEST['strategy'] ?: 'ringall', 0],
+     [$account, 'timeout', $_REQUEST['timeout'] ?? '15', 0],
+     [$account, 'retry', (isset($_REQUEST['retry']) && $_REQUEST['retry'] != '')?$_REQUEST['retry']:'5', 0],
+     [$account, 'wrapuptime', $_REQUEST['wrapuptime'] ?: '0', 0],
+     [$account, 'announce-frequency', $_REQUEST['announcefreq'] ?: '0', 0],
+     [$account, 'min-announce-frequency', $_REQUEST['min-announce'] ?: '15', 0],
+     [$account, 'announce-holdtime', $_REQUEST['announceholdtime'] ?: 'no', 0],
+     [$account, 'announce-position', $_REQUEST['announceposition'] ?: 'no', 0],
+     [$account, 'queue-youarenext', ($_REQUEST['announceposition']=='no')?'silence/1':'queue-youarenext', 0],
+     //if no, play no sound
+     [$account, 'queue-thereare', ($_REQUEST['announceposition']=='no')?'silence/1':'queue-thereare', 0],
+     //if no, play no sound
+     [$account, 'queue-callswaiting', ($_REQUEST['announceposition']=='no')?'silence/1':'queue-callswaiting', 0],
+     //if no, play no sound
+     [$account, 'queue-thankyou', ($_REQUEST['announceposition']=='no')?'':'queue-thankyou', 0],
+     //if no, play no sound
+     [$account, 'periodic-announce-frequency', $_REQUEST['pannouncefreq'] ?: '0', 0],
+     [$account, 'recording', $_REQUEST['recording'] ?: 'dontcare', 0],
+     [$account, 'monitor-join', 'yes', 0],
+     [$account, 'weight', $_REQUEST['weight'] ?? '0', 0],
+     [$account, 'autofill', (!empty($_REQUEST['autofill']))?'yes':'no', 0],
+     [$account, 'ringinuse', ($cwignore == 2 || $cwignore == 3)?'no':'yes', 0],
+     [$account, 'reportholdtime', $_REQUEST['reportholdtime'] ?? 'no', 0],
+     [$account, 'autopause', $_REQUEST['autopause'] ?? 'no', 0],
+     [$account, 'autopausedelay', $_REQUEST['autopausedelay'] ?? '0', 0],
+     [$account, 'servicelevel', $_REQUEST['servicelevel'] ?? 60, 0],
+     [$account, 'memberdelay', $_REQUEST['memberdelay'] ?? '0', 0],
+     [$account, 'timeoutrestart', $_REQUEST['timeoutrestart'] ?? 'no', 0],
+     [$account, 'skip_joinannounce', $_REQUEST['skip_joinannounce'] ?? '', 0],
+     [$account, 'answered_elsewhere', $_REQUEST['answered_elsewhere'] ?? '0', 0],
+     [$account, 'timeoutpriority', $_REQUEST['timeoutpriority'] ?? 'app', 0],
+     [$account, 'penaltymemberslimit', $_REQUEST['penaltymemberslimit'] ?? '0', 0],
+     [$account, 'rvolume', $_REQUEST['rvolume'] ?? '', 0],
+     [$account, 'rvol_mode', $_REQUEST['rvol_mode'] ?? '', 0],
+     [$account, 'eventwhencalled', ($_REQUEST['eventwhencalled']??'') ?: $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'] ?? '', 0],
+     [$account, 'eventmemberstatus', ($_REQUEST['eventmemberstatus']??'') ?: $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'] ?? '', 0],
+     [$account, 'autopausebusy', $_REQUEST['autopausebusy'] ?? 'no', 0],
+     [$account, 'autopauseunavail', $_REQUEST['autopauseunavail'] ?? 'no', 0],
+ ];
     
     foreach($_REQUEST as $key => $value) {
         switch($key) {
@@ -96,7 +100,7 @@ function queues_add(
                     $request_value = $value;
                 }
 
-                $fields[] = array($account, $key, $request_value, 0);
+                $fields[] = [$account, $key, $request_value, 0];
                 break;
             default:
                 break;
@@ -104,11 +108,7 @@ function queues_add(
     }
 	
 	if ($_REQUEST['music'] != 'inherit') {
-		$fields[] = array(
-			$account,
-			'music',
-			($_REQUEST['music'])?$_REQUEST['music']:'default',
-			0);
+		$fields[] = [$account, 'music', $_REQUEST['music'] ?: 'default', 0];
 	}
 
 	//there can be multiple members
@@ -116,7 +116,7 @@ function queues_add(
 		$count = 0;
 		$members = array_unique($members);
 		foreach ($members as $member) {
-			$fields[] = array($account,'member',$member,$count);
+			$fields[] = [$account, 'member', $member, $count];
 			$count++;
 		}
 	}
@@ -128,9 +128,9 @@ function queues_add(
 		die_freepbx($result->getMessage()."<br><br>error adding to queues_details table");
 	}
 	$extension		= $account;
-	$descr			= isset($name) ? $name:'';
-	$grppre			= isset($prefix) ? $prefix:'';
-	$alertinfo		= isset($alertinfo) ? $alertinfo:'';
+	$descr			= $name ?? '';
+	$grppre			= $prefix ?? '';
+	$alertinfo ??= '';
 	if (isset($joinannounce_id)) {
 		if ($joinannounce_id == "None" || $joinannounce_id == "") {
 			$joinannounce_id = NULL;
@@ -138,7 +138,7 @@ function queues_add(
 	} else {
 		$joinannounce_id = NULL;
 	}
-	$ringing		= isset($_REQUEST['rtone']) ? $_REQUEST['rtone']:0;
+	$ringing		= $_REQUEST['rtone'] ?? 0;
 	if (isset($agentannounce_id)) {
 		if ($agentannounce_id == "None" || $agentannounce_id == "") {
 			$agentannounce_id = NULL;
@@ -153,30 +153,30 @@ function queues_add(
 	} else {
 		$joinannounce_id = NULL;
 	}
-	$maxwait		= isset($maxwait) ? $maxwait:'';
-	$password		= isset($password) ? $password:'';
-	$ivr_id			= isset($_REQUEST['announcemenu']) ? $_REQUEST['announcemenu']:'none';
+	$maxwait ??= '';
+	$password ??= '';
+	$ivr_id			= $_REQUEST['announcemenu'] ?? 'none';
 	if (isset($_REQUEST['breakouttype']) && $_REQUEST['breakouttype'] == 'callback') {
-		$callback_id	= isset($_REQUEST['callback']) ? $_REQUEST['callback']:'none';
+		$callback_id	= $_REQUEST['callback'] ?? 'none';
 		$ivr_id		= 'none';
 	} else {
 		$callback_id    = 'none';
 	}
-	$dest			= isset($goto) ? $goto:'';
-	$cwignore		= isset($cwignore) ? $cwignore:'0';
-	$queuewait		= isset($queuewait) ? $queuewait:'0';
-	$qregex			= isset($qregex) ? $qregex:'';
-	$use_queue_context = isset($use_queue_context) ? $use_queue_context:'0';
+	$dest			= $goto ?? '';
+	$cwignore ??= '0';
+	$queuewait ??= '0';
+	$qregex ??= '';
+	$use_queue_context ??= '0';
 	if (isset($togglehint) && $togglehint == "") {
 		$togglehint = 0;
 	}
 	if (isset($callconfirm) && $callconfirm == "") {
 		$callconfirm = 0;
 	}
-	$qnoanswer		= isset($qnoanswer) ? $qnoanswer:'0';
-	$monitor_type	= isset($monitor_type) ? $monitor_type:'';
-	$monitor_heard	= isset($monitor_heard) ? $monitor_heard:'0';
-	$monitor_spoken	= isset($monitor_spoken) ? $monitor_spoken:'0';
+	$qnoanswer ??= '0';
+	$monitor_type ??= '';
+	$monitor_heard ??= '0';
+	$monitor_spoken ??= '0';
 	// Assumes it has just been deleted
 	$sql = "INSERT INTO queues_config (
 			extension, descr, grppre, alertinfo, joinannounce_id,
@@ -194,21 +194,14 @@ function queues_add(
 			?
 		)";
 	$sth = $db->prepare($sql);
-	$values = array(
-		$extension, $descr, $grppre, $alertinfo, $joinannounce_id,
-		$ringing, $agentannounce_id, $maxwait, $password, $ivr_id,
-		$callback_id, $dest, $cwignore, $qregex, $queuewait,
-		$use_queue_context, $togglehint, $qnoanswer, $callconfirm,
-		$callconfirm_id, $monitor_type, $monitor_heard,
-		$monitor_spoken
-	);
+	$values = [$extension, $descr, $grppre, $alertinfo, $joinannounce_id, $ringing, $agentannounce_id, $maxwait, $password, $ivr_id, $callback_id, $dest, $cwignore, $qregex, $queuewait, $use_queue_context, $togglehint, $qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken];
 	$results = $sth->execute($values);
 
   // store dynamic member data in astDB
 	if ($astman) {
 		$dynmembers = array_unique($dynmembers);
 		foreach($dynmembers as $member){
-			$mem = explode(',',$member);
+			$mem = explode(',',(string) $member);
 			if (isset($mem[0]) && trim($mem[0]) != '') {
 				$penalty = isset($mem[1]) && ctype_digit(trim($mem[1])) ? $mem[1] : 0;
  				$astman->database_put('QPENALTY/'.$account.'/agents',trim($mem[0]),trim($penalty));
@@ -219,15 +212,8 @@ function queues_add(
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
 
-	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
-	$res =  $astman->send_request("UserEvent", array(
-		"userEvent" => "update-queue-contacts",
-		"reloadQueue" => $action == "add" ? '1' : '0',
-		"queueId" => $account,
-		"queueName" => $descr,
-		"staticMembers" => json_encode($members),
-		"dynamicMembers" => json_encode($dynmembers)
-	));
+	$action = $_REQUEST['action'] ?? '';
+	$res =  $astman->send_request("UserEvent", ["userEvent" => "update-queue-contacts", "reloadQueue" => $action == "add" ? '1' : '0', "queueId" => $account, "queueName" => $descr, "staticMembers" => json_encode($members, JSON_THROW_ON_ERROR), "dynamicMembers" => json_encode($dynmembers, JSON_THROW_ON_ERROR)]);
 	return true;
 }
 
@@ -251,12 +237,9 @@ function queues_del($account) {
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
-	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+	$action = $_REQUEST['action'] ?? '';
 	if ($action == 'delete') {
-		$res =  $astman->send_request("UserEvent", array(
-			"userEvent" => "delete-queue",
-			"queueId" => $account
-		));
+		$res =  $astman->send_request("UserEvent", ["userEvent" => "delete-queue", "queueId" => $account]);
 	}
 }
 
@@ -267,18 +250,18 @@ function queues_list($listall=false) {
 	$sql = "SELECT extension, descr,callback_id,use_queue_context FROM queues_config ORDER BY extension";
 	$results = $db->getAll($sql);
 	if($db->IsError($results)) {
-		$results = array();
+		$results = [];
 	}
 
 	foreach($results as $result){
 		if ($listall || checkRange($result[0])){
-			$extens[] = array($result[0],$result[1],$result[2],$result[3]);
+			$extens[] = [$result[0], $result[1], $result[2], $result[3]];
 		}
 	}
 	if (isset($extens)) {
 		return $extens;
 	} else {
-		return array();
+		return [];
 	}
 }
 
@@ -290,7 +273,7 @@ function queues_get_static_members($account = '') {
 	} else {
 		$sql = "SELECT id, data FROM queues_details WHERE keyword = 'member' ORDER BY id, flags";
 		$res = $db->getAll($sql,DB_FETCHMODE_ASSOC);
-		$mem_hash = array();
+		$mem_hash = [];
 		foreach ($res as $qmp) {
 			$mem_hash[$qmp['id']][] = $qmp['data'];
 		}
@@ -302,7 +285,7 @@ function queues_get($account, $queues_conf_only=false) {
 	global $db,$astman,$amp_conf;
 
     if ($account == "") {
-	    return array();
+	    return [];
     }
 
 	$account = q($account);
@@ -310,7 +293,7 @@ function queues_get($account, $queues_conf_only=false) {
 	$sql = "SELECT keyword,data FROM queues_details WHERE id = $account";
 	$results = $db->getAssoc($sql);
 	if (empty($results)) {
-		return array();
+		return [];
 	}
 
 	//okay, but there can be multiple member variables ... do another select for them
@@ -327,7 +310,7 @@ function queues_get($account, $queues_conf_only=false) {
 
 	//if 'eventmemberstatusoff=Yes', then assume we want to 'eventmemberstatus=no'
 	if(isset($results['eventmemberstatusoff'])) {
-		if (strtolower($results['eventmemberstatusoff']) == 'yes') {
+		if (strtolower((string) $results['eventmemberstatusoff']) == 'yes') {
 			$results['eventmemberstatus'] = 'no';
 		} else {
 			$results['eventmemberstatus'] = 'yes';
@@ -369,7 +352,7 @@ function queues_get($account, $queues_conf_only=false) {
 		// TODO: why the str_replace?
     		//
 		if ($astman) {
-			$account = str_replace("'",'',$account);
+			$account = str_replace("'",'',(string) $account);
 			//get dynamic members priority from astDB
 			$get = $astman->database_show('QPENALTY/'.$account.'/agents');
 			if (empty($get)) {
@@ -378,7 +361,7 @@ function queues_get($account, $queues_conf_only=false) {
 			}
 			if($get){
 				foreach($get as $key => $value){
-					$key1=explode('/',$key);
+					$key1=explode('/',(string) $key);
 					$mem[$key1[4]]=$value;
 				}
 				foreach($mem as $mem => $pnlty){
@@ -404,7 +387,7 @@ function queues_get($account, $queues_conf_only=false) {
 			if( isset($arr['announcement']) && $arr['announcement'] != '') {
 				$periodic = recordings_get_file($arr['announcement']);
 				// We need to strip off all but the first sound file of any compound sound files
-				$periodic_arr = explode("&", $periodic);
+				$periodic_arr = explode("&", (string) $periodic);
 				$results['periodic-announce'] = $periodic_arr[0];
 			}
 		}
@@ -421,7 +404,7 @@ function queues_get($account, $queues_conf_only=false) {
 			if (isset($arr['announcement']) && $arr['announcement'] != '') {
 				$periodic = recordings_get_file($arr['announcement']);
 				// We need to strip off all but the first sound file of any compound sound files
-				$periodic_arr = explode("&", $periodic);
+				$periodic_arr = explode("&", (string) $periodic);
 				$results['periodic-announce'] = $periodic_arr[0];
 			}
 		}
