@@ -543,7 +543,7 @@ if(function_exists('vqplus_callback_get')) {
 						</div>
 						<div class="col-md-9">
 							<select name="callback" id="callback" class=form-control '. ($breakouttype == 'callback' ? '' : 'disabled').'>
-							<option value="none" '.($callback == "" ? 'SELECTED' : '').'>'. _("None").'</option>
+							<option value="none" '.((isset($callback) && $callback == "") ? 'SELECTED' : '').'>'. _("None").'</option>
 							'.$vqcbopts.'
 							</select>
 						</div>
