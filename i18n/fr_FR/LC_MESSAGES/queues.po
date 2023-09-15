@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-13 04:42+0000\n"
+"POT-Creation-Date: 2023-09-15 11:56+0530\n"
 "PO-Revision-Date: 2016-02-02 18:06+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/queues/"
@@ -39,7 +39,7 @@ msgstr " Ajouter une queue"
 msgid " Edit: "
 msgstr " Éditer "
 
-#: views/form.php:496
+#: views/form.php:488
 msgid ""
 "<b>ERROR</b>: You have selected an IVR that uses Announcements created from "
 "compound sound files. The Queue is not able to play these announcements. "
@@ -57,17 +57,17 @@ msgstr "Actions"
 msgid "Add Queue"
 msgstr "Ajouter une File d'Attente"
 
-#: views/form.php:888
+#: views/form.php:880
 msgid ""
 "Add an Alert-Info Header like Snom and other Phones need for Ring or "
 "Ringtone informations"
 msgstr ""
 
-#: views/form.php:720
+#: views/form.php:712
 msgid "Advanced Options"
 msgstr "Options avancées"
 
-#: views/form.php:1431
+#: views/form.php:1418
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
 "potentially free agent another call (default is 0, or no delay) If using "
@@ -80,65 +80,61 @@ msgstr ""
 msgid "Agent Announce Msg"
 msgstr "Message d'annonce de l'agent"
 
-#: views/form.php:233
+#: views/form.php:225
 msgid "Agent Announcement"
 msgstr ""
 
-#: queues.i18n.php:30
-msgid "Agent Called Events Default"
-msgstr ""
-
-#: views/form.php:1892
+#: views/form.php:1879
 msgid "Agent Regex Filter"
 msgstr "Filtre Regex sur l'Agent"
 
-#: views/form.php:979
+#: views/form.php:971
 msgid "Agent Restrictions"
 msgstr ""
 
-#: views/form.php:314
+#: views/form.php:306
 msgid "Agent Ringing"
 msgstr ""
 
-#: views/form.php:1335
+#: views/form.php:1322
 msgid "Agent Timeout"
 msgstr ""
 
-#: views/form.php:1361
+#: views/form.php:1348
 msgid "Agent Timeout Restart"
 msgstr ""
 
-#: views/form.php:876
+#: views/form.php:868
 msgid "Alert Info"
 msgstr "Infos sur les alertes"
 
-#: install.php:15 queues.i18n.php:42
+#: install.php:15
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
 msgstr ""
 
-#: views/form.php:198
+#: views/form.php:190
 msgid "Always"
 msgstr "Toujours"
 
-#: views/form.php:392
+#: views/form.php:384
 msgid "Always allows the caller to join the Queue."
 msgstr ""
 
-#: views/form.php:1820
+#: views/form.php:1807
 msgid "Announce Hold Time"
 msgstr "Annoncer le temps d'attente"
 
-#: views/form.php:1791
+#: views/form.php:1778
 msgid "Announce Position"
 msgstr "Annoncer la position"
 
-#: views/form.php:1808
+#: views/form.php:1795
 msgid "Announce position of caller in the queue?"
 msgstr "Annoncer la position de l'appelant dans la file d'attente ?"
 
-#: views/form.php:210
+#: views/form.php:202
 msgid ""
 "Announcement played to callers prior to joining the queue. This can be "
 "skipped if there are agents ready to answer a call (meaning they still may "
@@ -147,7 +143,7 @@ msgid ""
 "Recordings\" MENU."
 msgstr ""
 
-#: views/form.php:247
+#: views/form.php:239
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
 "Example: \"the Following call is from the Sales Queue\" or \"This call is "
@@ -157,7 +153,7 @@ msgid ""
 "accept such recordings."
 msgstr ""
 
-#: views/form.php:169
+#: views/form.php:161
 msgid ""
 "Announcement played to the Queue Memeber announcing the Queue call and "
 "requesting confirmation prior to answering. If set to default, the standard "
@@ -176,7 +172,7 @@ msgstr "Annuellement"
 msgid "Applications"
 msgstr "Applications"
 
-#: views/form.php:1323
+#: views/form.php:1310
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
 "caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
@@ -187,7 +183,7 @@ msgid ""
 "'Agent Timeout' combined."
 msgstr ""
 
-#: views/form.php:1722
+#: views/form.php:1709
 msgid ""
 "Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
 "settings, allowing all members to be tried, when the queue has too few "
@@ -195,15 +191,15 @@ msgid ""
 "members."
 msgstr ""
 
-#: views/form.php:1499
+#: views/form.php:1486
 msgid "Auto Pause"
 msgstr "Pause automatique"
 
-#: views/form.php:1588
+#: views/form.php:1575
 msgid "Auto Pause Delay"
 msgstr "Délai de pause automatique"
 
-#: views/form.php:1518
+#: views/form.php:1505
 msgid ""
 "Auto Pause an agent in this queue (or all queues they are a member of) if "
 "they don't answer a call. Specific behavior can be modified by the Auto "
@@ -211,15 +207,15 @@ msgid ""
 "this version of Asterisk."
 msgstr ""
 
-#: views/form.php:1530
+#: views/form.php:1517
 msgid "Auto Pause on Busy"
 msgstr ""
 
-#: views/form.php:1559
+#: views/form.php:1546
 msgid "Auto Pause on Unavailable"
 msgstr ""
 
-#: views/form.php:1037
+#: views/form.php:1029
 msgid "Autofill"
 msgstr ""
 
@@ -227,61 +223,61 @@ msgstr ""
 msgid "Bad Queue Number, can not be blank"
 msgstr "Numéro de File d'Attente incorrect, ne peut être vide"
 
-#: views/form.php:440
+#: views/form.php:432
 msgid "Break Out Type"
 msgstr ""
 
-#: views/form.php:824
+#: views/form.php:816
 msgid "CID Name Prefix"
 msgstr ""
 
-#: views/form.php:796
+#: views/form.php:788
 msgid "Call Confirm"
 msgstr "Confirmation d'appel"
 
-#: views/form.php:146
+#: views/form.php:138
 msgid "Call Confirm Announce"
 msgstr "Annonce de confirmation d'appel"
 
-#: views/form.php:1127
+#: views/form.php:1114
 msgid "Call Recording"
 msgstr "Enregistrer l'appel"
 
-#: views/form.php:987
+#: views/form.php:979
 msgid "Call as Dialed"
 msgstr ""
 
-#: views/form.php:564
+#: views/form.php:556
 msgid "Callback to use when caller presses 1."
 msgstr ""
 
-#: views/form.php:715
+#: views/form.php:707
 msgid "Caller Announcements"
 msgstr ""
 
-#: views/form.php:1731
+#: views/form.php:1718
 msgid "Caller Position"
 msgstr ""
 
-#: views/form.php:401
+#: views/form.php:393
 msgid ""
 "Callers will exit if all agents are paused, show an invalid state for their "
 "device or have penalty values less than QUEUE_MAX_PENALTY (not currently set "
 "in FreePBX dialplan)."
 msgstr ""
 
-#: views/form.php:395
+#: views/form.php:387
 msgid ""
 "Callers will not be admitted if all agents are paused, show an invalid state "
 "for their device, or have penalty values less than QUEUE_MAX_PENALTY (not "
 "currently set in FreePBX dialplan)."
 msgstr ""
 
-#: views/form.php:710
+#: views/form.php:702
 msgid "Capacity Options"
 msgstr "Options de capacité"
 
-#: functions.inc/queue_conf.php:226
+#: functions.inc/queue_conf.php:223
 msgid "Compound Recordings in Queues Detected"
 msgstr "Enregistrements composés détectés dans les Files d'attente"
 
@@ -296,23 +292,9 @@ msgstr ""
 msgid "Daily"
 msgstr "Journalier"
 
-#: views/form.php:154
+#: views/form.php:146
 msgid "Default"
 msgstr "Par défaut"
-
-#: queues.i18n.php:32
-msgid ""
-"Default state for AMI emit events related to an agent's call. This setting "
-"will only affect the default for NEW queues, it won't change existing queues "
-"or enfore the option on in new ones."
-msgstr ""
-
-#: queues.i18n.php:36
-msgid ""
-"Default state for AMI to emit the QueueMemberStatus event. This setting will "
-"only affect the default for NEW queues, it won't change existing queues or "
-"enfore the option on in new ones."
-msgstr ""
 
 #: Queues.class.php:202
 msgid "Delete"
@@ -322,28 +304,28 @@ msgstr "Supprimer"
 msgid "Description"
 msgstr "Description"
 
-#: views/form.php:399
+#: views/form.php:391
 msgid ""
 "Determines if callers should be exited prematurely from the queue in "
 "situations where it appears no one is currently available to take the call. "
 "The options include:"
 msgstr ""
 
-#: views/form.php:390
+#: views/form.php:382
 msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
 "failover destination will be immediately pursued. The options include:"
 msgstr ""
 
-#: views/form.php:19 views/form.php:1134
+#: views/form.php:19 views/form.php:1121
 msgid "Don't Care"
 msgstr ""
 
-#: views/form.php:1244
+#: views/form.php:1231
 msgid "Dynamic Agents"
 msgstr ""
 
-#: views/form.php:1265
+#: views/form.php:1252
 msgid ""
 "Dynamic Members are extensions or callback numbers that can log in and out "
 "of the queue. When a member logs in to a queue, their penalty in the queue "
@@ -351,7 +333,7 @@ msgid ""
 "be logged in to the queue."
 msgstr ""
 
-#: views/form.php:496
+#: views/form.php:488
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
@@ -364,47 +346,47 @@ msgstr ""
 msgid "Enable this task"
 msgstr "Activer cette tâche"
 
-#: views/form.php:1172
+#: views/form.php:1159
 msgid ""
 "Enabling this option, all calls are marked as 'answered elsewhere' when "
 "cancelled. The effect is that missed queue calls are *not* shown on the "
 "phone (if the phone supports it)"
 msgstr ""
 
-#: views/form.php:620
+#: views/form.php:612
 msgid "Event When Called"
 msgstr ""
 
-#: functions.inc/hook_core.php:59
+#: functions.inc/hook_core.php:62
 msgid "Extension Options"
 msgstr "Options de poste"
 
-#: views/form.php:991
+#: views/form.php:983
 msgid "Extensions Only"
 msgstr "Postes seulement"
 
-#: views/form.php:1184
+#: views/form.php:1171
 msgid "Fail Over Destination"
 msgstr "Destination d'échec (Fail Over)"
 
-#: views/form.php:19 views/form.php:1132
+#: views/form.php:19 views/form.php:1119
 msgid "Force"
 msgstr "Forcer"
 
-#: views/form.php:1741
+#: views/form.php:1728
 msgid "Frequency"
 msgstr "Fréquence"
 
-#: views/form.php:695
+#: views/form.php:687
 msgid "General Settings"
 msgstr "Paramètres généraux"
 
-#: views/form.php:782
+#: views/form.php:774
 msgid "Give this queue a brief name to help you identify it."
 msgstr ""
 "Donnez à cette file d'attente un nom court pour l'identifier rapidement."
 
-#: views/form.php:1113
+#: views/form.php:1100
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
@@ -413,19 +395,15 @@ msgstr ""
 "appels qui patientent dans une file d'attente avec une priorité haute seront "
 "délivrés en priorité si il y a des agents communs aux deux files."
 
-#: views/form.php:409
+#: views/form.php:401
 msgid "Honor Penalties"
 msgstr "Honorer les pénalités"
-
-#: queues.i18n.php:18
-msgid "Honor Wrapup Time Across Queues"
-msgstr ""
 
 #: views/cron.php:59
 msgid "Hourly"
 msgstr ""
 
-#: views/form.php:602
+#: views/form.php:594
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
@@ -433,7 +411,7 @@ msgstr ""
 "La fréquence à laquelle un menu vocal est proposé à l'appelant (0 pour "
 "Désactiver les Annonces)."
 
-#: views/form.php:1755
+#: views/form.php:1742
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
@@ -441,7 +419,7 @@ msgstr ""
 "Fréquence à laquelle on annonce la position dans la file d'attente et le "
 "temps d'attente estimé (0 pour Désactiver les Annonces)."
 
-#: functions.inc/destination_registry.php:104
+#: functions.inc/destination_registry.php:94
 msgid "INUSE"
 msgstr "UTILISÉ"
 
@@ -450,11 +428,11 @@ msgstr "UTILISÉ"
 msgid "IVR Announce: %s"
 msgstr "Annonce IVR : %s"
 
-#: views/form.php:445 views/form.php:508
+#: views/form.php:437 views/form.php:500
 msgid "IVR Break Out Menu"
 msgstr ""
 
-#: views/form.php:811
+#: views/form.php:803
 msgid ""
 "If checked, any queue member that is actually an outside telephone number, "
 "or any extensions Follow-Me or call forwarding that are pursued and leave "
@@ -462,7 +440,7 @@ msgid ""
 "acknowledge the call before it is answered and delivered."
 msgstr ""
 
-#: views/form.php:126
+#: views/form.php:118
 msgid ""
 "If checked, the queue will not answer the call. Under most circumstance you "
 "should always have the queue answering calls. If not, then it's possible "
@@ -473,14 +451,14 @@ msgid ""
 "member immediately available to take the call."
 msgstr ""
 
-#: views/form.php:864
+#: views/form.php:856
 msgid ""
 "If the call is subsequently transferred, the wait time will reflect the time "
 "since it first entered the queue or reset if the call is transferred to "
 "another queue with this feature set."
 msgstr ""
 
-#: functions.inc/hook_core.php:65
+#: functions.inc/hook_core.php:68
 msgid ""
 "If this extension is part of a Queue then the Queue will attempt to use the "
 "user's extension state or device state information when determining if this "
@@ -495,7 +473,7 @@ msgid ""
 "SHOULD BE set to 'Use State'."
 msgstr ""
 
-#: views/form.php:1052
+#: views/form.php:1044
 msgid ""
 "If this is Enabled, and multiple agents are available, Asterisk will send "
 "one call to each waiting agent (depending on the ring strategy). Otherwise, "
@@ -503,45 +481,45 @@ msgid ""
 "the queue making other calls wait."
 msgstr ""
 
-#: views/form.php:1379
+#: views/form.php:1366
 msgid ""
 "If timeoutrestart is set to yes, then the time out for an agent to answer is "
 "reset if a BUSY or CONGESTION is received. This can be useful if agents are "
 "able to cancel a call with reject or similar."
 msgstr ""
 
-#: views/form.php:1457
+#: views/form.php:1444
 msgid ""
 "If you wish to have a delay before the member is connected to the caller (or "
 "before the member hears any announcement messages), set this to the number "
 "of seconds to delay."
 msgstr ""
 
-#: views/form.php:1487
+#: views/form.php:1474
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
 "connected to the caller, set this to yes."
 msgstr ""
 
-#: functions.inc/hook_core.php:37
+#: functions.inc/hook_core.php:40
 msgid "Ignore State"
 msgstr "Ignorer l'état"
 
-#: views/form.php:1144
+#: views/form.php:1131
 msgid ""
 "Incoming calls to agents can be recorded. If 'never' is selected, then in-"
 "call on demand recording is blocked."
 msgstr ""
 
-#: views/form.php:183
+#: views/form.php:175
 msgid "Join Announcement"
 msgstr ""
 
-#: views/form.php:1640
+#: views/form.php:1627
 msgid "Join Empty"
 msgstr ""
 
-#: views/form.php:1674
+#: views/form.php:1661
 msgid "Leave Empty"
 msgstr ""
 
@@ -549,52 +527,48 @@ msgstr ""
 msgid "List Queues"
 msgstr "Liste des queues"
 
-#: views/form.php:396 views/form.php:404 views/form.php:1315
-#: views/form.php:1654 views/form.php:1688
+#: views/form.php:388 views/form.php:396 views/form.php:1302
+#: views/form.php:1641 views/form.php:1675
 msgid "Loose"
 msgstr ""
 
-#: views/form.php:1156
+#: views/form.php:1143
 msgid "Mark calls answered elsewhere"
 msgstr ""
 
-#: views/form.php:1615
+#: views/form.php:1602
 msgid "Max Callers"
 msgstr ""
 
-#: views/form.php:1280
+#: views/form.php:1267
 msgid "Max Wait Time"
 msgstr ""
 
-#: views/form.php:1306
+#: views/form.php:1293
 msgid "Max Wait Time Mode"
 msgstr ""
 
-#: views/form.php:1628
+#: views/form.php:1615
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "Nombre maximum de gens qui attendent dans la file (0 pour illimité)"
 
-#: views/form.php:1443
+#: views/form.php:1430
 msgid "Member Delay"
 msgstr ""
 
-#: views/form.php:652
+#: views/form.php:644
 msgid "Member Status Event"
 msgstr ""
 
-#: queues.i18n.php:34
-msgid "Member Status Event Default"
-msgstr ""
-
-#: views/form.php:482 views/form.php:486
+#: views/form.php:474 views/form.php:478
 msgid "Menu ID "
 msgstr "Menu Identfiants "
 
-#: views/form.php:1767
+#: views/form.php:1754
 msgid "Minimum Announcement Interval"
 msgstr ""
 
-#: views/form.php:313
+#: views/form.php:305
 msgid "MoH Only"
 msgstr ""
 
@@ -602,7 +576,7 @@ msgstr ""
 msgid "Monthly"
 msgstr "Mensuellement"
 
-#: views/form.php:324
+#: views/form.php:316
 msgid ""
 "Music (MoH) played to the caller while they wait in line for an available "
 "agent. Choose \"inherit\" if you want the MoH class to be what is currently "
@@ -614,74 +588,70 @@ msgid ""
 "This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
 
-#: views/form.php:292
+#: views/form.php:284
 msgid "Music on Hold Class"
 msgstr ""
 
-#: views/form.php:19 views/form.php:1136
+#: views/form.php:19 views/form.php:1123
 msgid "Never"
 msgstr "Jamais"
 
-#: views/form.php:405
+#: views/form.php:397
 msgid ""
 "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr ""
 
-#: views/cron.php:28 views/cron.php:57 views/form.php:19 views/form.php:118
-#: views/form.php:395 views/form.php:405 views/form.php:628 views/form.php:660
-#: views/form.php:803 views/form.php:856 views/form.php:959 views/form.php:1044
-#: views/form.php:1071 views/form.php:1135 views/form.php:1164
-#: views/form.php:1370 views/form.php:1479 views/form.php:1505
-#: views/form.php:1539 views/form.php:1568 views/form.php:1652
-#: views/form.php:1686 views/form.php:1800 views/form.php:1829
+#: views/cron.php:28 views/cron.php:57 views/form.php:19 views/form.php:110
+#: views/form.php:387 views/form.php:397 views/form.php:620 views/form.php:652
+#: views/form.php:795 views/form.php:848 views/form.php:951 views/form.php:1036
+#: views/form.php:1062 views/form.php:1122 views/form.php:1151
+#: views/form.php:1357 views/form.php:1466 views/form.php:1492
+#: views/form.php:1526 views/form.php:1555 views/form.php:1639
+#: views/form.php:1673 views/form.php:1787 views/form.php:1816
 msgid "No"
 msgstr "Non"
 
-#: views/form.php:989
+#: views/form.php:981
 msgid "No Follow-Me or Call Forward"
 msgstr ""
 
-#: views/form.php:370
+#: views/form.php:362
 msgid "No Retry"
 msgstr "Pas de Nouvel Essai"
 
-#: views/form.php:190 views/form.php:219 views/form.php:513 views/form.php:554
-#: views/form.php:904
+#: views/form.php:182 views/form.php:211 views/form.php:505 views/form.php:546
+#: views/form.php:896
 msgid "None"
 msgstr "Aucun"
 
-#: views/form.php:1831
+#: views/form.php:1818
 msgid "Once"
 msgstr "Une seule fois"
 
-#: views/form.php:731
+#: views/form.php:723
 msgid "Other Options"
 msgstr "Autres options"
 
-#: views/form.php:916
+#: views/form.php:908
 #, php-format
 msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
 
-#: views/form.php:1708
+#: views/form.php:1695
 msgid "Penalty Members Limit"
 msgstr ""
 
-#: views/form.php:1847
+#: views/form.php:1834
 msgid "Periodic Announcements"
 msgstr "Annonces périodiques"
 
-#: queues.i18n.php:12
-msgid "Persistent Members"
-msgstr "Membres persistants"
-
-#: install.php:29 queues.i18n.php:38
+#: install.php:29
 msgid "Playback Queue Caller Count"
 msgstr ""
 
-#: views/form.php:1904
+#: views/form.php:1891
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
 "callback number. If the callback number does not pass the regex filter then "
@@ -708,21 +678,21 @@ msgstr ""
 msgid "Queue"
 msgstr "File d'Attente"
 
-#: functions.inc/destination_registry.php:42
+#: functions.inc/destination_registry.php:38
 #, php-format
 msgid "Queue %s : %s"
 msgstr "File d'attente %s : %s"
 
-#: functions.inc/queue_conf.php:224
+#: functions.inc/queue_conf.php:221
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "File d'attente - %s (%s) : %s<br />"
 
-#: views/form.php:700
+#: views/form.php:692
 msgid "Queue Agents"
 msgstr ""
 
-#: views/form.php:446 views/form.php:549
+#: views/form.php:438 views/form.php:541
 msgid "Queue Callback"
 msgstr ""
 
@@ -730,15 +700,15 @@ msgstr ""
 msgid "Queue Callers"
 msgstr ""
 
-#: views/form.php:770
+#: views/form.php:762
 msgid "Queue Name"
 msgstr ""
 
-#: views/form.php:111
+#: views/form.php:103
 msgid "Queue No Answer"
 msgstr ""
 
-#: views/form.php:746
+#: views/form.php:738
 msgid "Queue Number"
 msgstr ""
 
@@ -746,15 +716,15 @@ msgstr ""
 msgid "Queue Number must not be blank"
 msgstr "Le numéro de File d\\'Attente ne doit pas être vide"
 
-#: views/form.php:82
+#: views/form.php:74
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22
 msgid "Queue Pause Toggle"
 msgstr ""
 
-#: functions.inc/hook_core.php:64
+#: functions.inc/hook_core.php:67
 msgid "Queue State Detection"
 msgstr ""
 
@@ -762,11 +732,11 @@ msgstr ""
 msgid "Queue Toggle"
 msgstr ""
 
-#: views/form.php:1100
+#: views/form.php:1087
 msgid "Queue Weight"
 msgstr "Poids de File d'Attente"
 
-#: views/form.php:1074
+#: views/form.php:1062
 msgid "Queue calls only (ringinuse=no)"
 msgstr ""
 
@@ -777,14 +747,14 @@ msgstr ""
 "Le nom de la File d\\'Attente ne doit pas être vide et doit contenir des "
 "caractères alpha-numériques uniquement"
 
-#: functions.inc/destination_registry.php:62
-#: functions.inc/destination_registry.php:79
-#: functions.inc/destination_registry.php:103
+#: functions.inc/destination_registry.php:55
+#: functions.inc/destination_registry.php:70
+#: functions.inc/destination_registry.php:93
 #, php-format
 msgid "Queue: %s"
 msgstr "File d'Attente : %s"
 
-#: functions.inc/destination_registry.php:132
+#: functions.inc/destination_registry.php:120
 #, php-format
 msgid "Queue: %s (%s)"
 msgstr "File d'attente : %s (%s)"
@@ -793,42 +763,8 @@ msgstr "File d'attente : %s (%s)"
 msgid "Queues"
 msgstr "Files d'Attente"
 
-#: queues.i18n.php:14
-msgid "Queues Module"
-msgstr ""
-
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
-msgstr ""
-
-#: queues.i18n.php:28
-msgid ""
-"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-"application instead of Monitor so the concept of 'joining/mixing' the in/out "
-"files now goes away when this is enabled."
-msgstr ""
-
-#: queues.i18n.php:16
-msgid ""
-"Queues: persistentmembers. Store each dynamic member in each queue in the "
-"astdb so that when asterisk is restarted, each member will be automatically "
-"read into their recorded queues."
-msgstr ""
-
-#: queues.i18n.php:20
-msgid ""
-"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
-"lastcall and calls received be the same in members logged in more than one "
-"queue. This is useful to make the queue respect the wrapuptime of another "
-"queue for a shared member."
-msgstr ""
-
-#: queues.i18n.php:24
-msgid ""
-"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
-"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
-"with an agent name, which is set if available at the login time with "
-"AddQueueMember membername parameter, or with static members."
 msgstr ""
 
 #: views/cron.php:84
@@ -839,11 +775,11 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: views/form.php:588
+#: views/form.php:580
 msgid "Repeat Frequency"
 msgstr ""
 
-#: views/form.php:1470
+#: views/form.php:1457
 msgid "Report Hold Time"
 msgstr ""
 
@@ -851,48 +787,48 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: views/form.php:725
+#: views/form.php:717
 msgid "Reset Queue Stats"
 msgstr ""
 
-#: views/form.php:952
+#: views/form.php:944
 msgid "Restrict Dynamic Agents"
 msgstr ""
 
-#: views/form.php:967
+#: views/form.php:959
 msgid ""
 "Restrict dynamic queue member logins to only those listed in the Dynamic "
 "Members list above. When set to Yes, members not listed will be DENIED "
 "ACCESS to the queue."
 msgstr ""
 
-#: views/form.php:1391
+#: views/form.php:1378
 msgid "Retry"
 msgstr ""
 
-#: views/form.php:315
+#: views/form.php:307
 msgid "Ring Only"
 msgstr ""
 
-#: views/form.php:1011
+#: views/form.php:1003
 msgid "Ring Strategy"
 msgstr ""
 
-#: views/form.php:899
+#: views/form.php:891
 msgid "Ringer Volume Override"
 msgstr ""
 
-#: views/form.php:927
+#: views/form.php:919
 msgid "Ringer Volume Override Mode"
 msgstr ""
 
-#: views/form.php:396
+#: views/form.php:388
 msgid ""
 "Same as No except Callers will be admitted if there are paused agents who "
 "could become available."
 msgstr ""
 
-#: views/form.php:394
+#: views/form.php:386
 msgid ""
 "Same as Strict plus a queue member must be able to answer the phone 'now' to "
 "let them in. Simply speaking, any 'available' agents that could answer but "
@@ -900,7 +836,7 @@ msgid ""
 "considered unavailable."
 msgstr ""
 
-#: views/form.php:403
+#: views/form.php:395
 msgid ""
 "Same as Strict plus a queue member must be able to answer the phone 'now' to "
 "let them remain. Simply speaking, any 'available' agents that could answer "
@@ -908,39 +844,35 @@ msgid ""
 "be considered unavailable."
 msgstr ""
 
-#: views/form.php:393
+#: views/form.php:385
 msgid ""
 "Same as Yes but more strict.  Simply speaking, if no agent could answer the "
 "phone then don't admit them. If agents are inuse or ringing someone else, "
 "caller will still be admitted."
 msgstr ""
 
-#: views/form.php:402
+#: views/form.php:394
 msgid ""
 "Same as Yes but more strict.  Simply speaking, if no agent could answer the "
 "phone then have them leave the queue. If agents are inuse or ringing someone "
 "else, caller will still be held."
 msgstr ""
 
-#: views/form.php:404
+#: views/form.php:396
 msgid ""
 "Same as Yes except Callers will remain in the Queue if there are paused "
 "agents who could become available."
 msgstr ""
 
-#: views/form.php:1866
+#: views/form.php:1853
 msgid "Service Level"
-msgstr ""
-
-#: queues.i18n.php:22
-msgid "Set Agent Name in CDR dstchannel"
 msgstr ""
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
 msgstr ""
 
-#: views/form.php:1839
+#: views/form.php:1826
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
@@ -949,21 +881,21 @@ msgstr ""
 "Oui, non, ou une seule fois; le temps d'attente ne sera pas annoncé si il "
 "est inférieur à 1 minute"
 
-#: views/form.php:1064
+#: views/form.php:1056
 msgid "Skip Busy Agents"
 msgstr ""
 
-#: views/form.php:275
+#: views/form.php:267
 msgid ""
 "Some ring strategies (linear, round robin) require Asterisk to be restarted "
 "for changes to take effect."
 msgstr ""
 
-#: views/form.php:1211
+#: views/form.php:1198
 msgid "Static Agents"
 msgstr "Agents Statiques"
 
-#: views/form.php:1232
+#: views/form.php:1219
 msgid ""
 "Static agents are extensions that are assumed to always be on the queue.  "
 "Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
@@ -985,8 +917,8 @@ msgstr ""
 msgid "Stats Reset"
 msgstr ""
 
-#: views/form.php:393 views/form.php:402 views/form.php:1313
-#: views/form.php:1648 views/form.php:1682
+#: views/form.php:385 views/form.php:394 views/form.php:1300
+#: views/form.php:1635 views/form.php:1669
 msgid "Strict"
 msgstr "Strict"
 
@@ -994,13 +926,13 @@ msgstr "Strict"
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:1779
+#: views/form.php:1766
 msgid ""
 "The absolute minimum time between the start of each queue position and/or "
 "estimated holdtime announcement"
 msgstr ""
 
-#: views/form.php:1294
+#: views/form.php:1281
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
@@ -1008,7 +940,7 @@ msgstr ""
 "Le nombre maximum de secondes qu'un appelant peut attendre dans une file "
 "d'attente avant d'en être éliminé. (O pour illimité)."
 
-#: views/form.php:1349
+#: views/form.php:1336
 msgid ""
 "The number of seconds an agent's phone can ring before we consider it a "
 "timeout. Unlimited or other timeout values may still be limited by system "
@@ -1019,7 +951,7 @@ msgstr ""
 "susceptibles d'être limitées par le temps de sonnerie du système ou les "
 "valeurs par défaut de l'extension."
 
-#: views/form.php:1405
+#: views/form.php:1392
 msgid ""
 "The number of seconds we wait before trying all the phones again. Choosing "
 "\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
@@ -1032,7 +964,7 @@ msgstr ""
 "l'agent qu'on essaye de joindre est atteint. Les autres agents ne seront pas "
 "sollicités."
 
-#: views/form.php:1600
+#: views/form.php:1587
 msgid ""
 "This setting will delay the auto pause of an agent by auto pause delay "
 "seconds from when it last took a call. For example, if this were set to 120 "
@@ -1043,38 +975,34 @@ msgid ""
 "no affect."
 msgstr ""
 
-#: views/form.php:1755
+#: views/form.php:1742
 msgid "This value is ignored if the caller's position changes"
 msgstr ""
 
-#: views/form.php:705
+#: views/form.php:697
 msgid "Timing & Agent Options"
 msgstr ""
 
-#: views/form.php:394 views/form.php:403 views/form.php:1650
-#: views/form.php:1684
+#: views/form.php:386 views/form.php:395 views/form.php:1637
+#: views/form.php:1671
 msgid "Ultra Strict"
 msgstr ""
 
-#: views/form.php:346 views/form.php:364
+#: views/form.php:338 views/form.php:356
 msgid "Unlimited"
 msgstr "Illimité"
 
-#: queues.i18n.php:26
-msgid "Use MixMonitor for Recordings"
-msgstr ""
-
-#: functions.inc/hook_core.php:36
+#: functions.inc/hook_core.php:39
 msgid "Use State"
 msgstr ""
 
-#: views/form.php:758
+#: views/form.php:750
 msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
 "to put them into the queue"
 msgstr ""
 
-#: views/form.php:1880
+#: views/form.php:1867
 msgid ""
 "Used for service level statistics (calls answered within service level time "
 "frame)"
@@ -1088,7 +1016,7 @@ msgstr ""
 "Utiliser un filtre Regex est plutôt avancé, veuillez confirmer que vous "
 "savez ce que vous faites ou laissez vide"
 
-#: views/form.php:848
+#: views/form.php:840
 msgid "Wait Time Prefix"
 msgstr ""
 
@@ -1096,7 +1024,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "Attention ! l'Extension"
 
-#: functions.inc/queue_conf.php:219
+#: functions.inc/queue_conf.php:216
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
@@ -1109,15 +1037,15 @@ msgstr ""
 msgid "Weekly"
 msgstr ""
 
-#: views/form.php:199
+#: views/form.php:191
 msgid "When No Free Agents"
 msgstr ""
 
-#: views/form.php:200
+#: views/form.php:192
 msgid "When No Ready Agents"
 msgstr ""
 
-#: views/form.php:999
+#: views/form.php:991
 msgid ""
 "When set to 'Call as Dialed' the queue will call an extension just as if the "
 "queue were another user. Any Follow-Me or Call Forward states active on the "
@@ -1135,7 +1063,7 @@ msgid ""
 "agents, see the 'Agent Regex Filter' to provide some validation."
 msgstr ""
 
-#: views/form.php:1088
+#: views/form.php:1075
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
 "the line were returning busy. This means that Call Waiting or multi-line "
@@ -1155,27 +1083,27 @@ msgid ""
 "is not monitored with this option."
 msgstr ""
 
-#: views/form.php:668
+#: views/form.php:660
 msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
 msgstr ""
 
-#: views/form.php:1547
+#: views/form.php:1534
 msgid ""
 "When set to Yes agents devices that report busy upon a call attempt will be "
 "considered as a missed call and auto paused immediately or after the auto "
 "pause delay if configured"
 msgstr ""
 
-#: views/form.php:1576
+#: views/form.php:1563
 msgid ""
 "When set to Yes agents devices that report congestion upon a call attempt "
 "will be considered as a missed call and auto paused immediately or after the "
 "auto pause delay if configured"
 msgstr ""
 
-#: views/form.php:864
+#: views/form.php:856
 msgid ""
 "When set to Yes, the CID Name will be prefixed with the total wait time in "
 "the queue so the answering agent is aware how long they have waited. It will "
@@ -1187,11 +1115,11 @@ msgstr ""
 "temps ils ont attendu. Le temps sera arrondi à la minute près, sous la forme "
 "Mnn : où nn est le nombre de minutes."
 
-#: views/form.php:201
+#: views/form.php:193
 msgid "When there are both logged in and no free agents"
 msgstr ""
 
-#: views/form.php:636
+#: views/form.php:628
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
@@ -1205,18 +1133,18 @@ msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
 
-#: views/form.php:1196
+#: views/form.php:1183
 msgid "Where calls should fail to"
 msgstr ""
 
-#: views/form.php:455
+#: views/form.php:447
 msgid ""
 "Whether this queue uses an IVR Break Out Menu or a Queue Callback.  Queue "
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
 msgstr ""
 
-#: views/form.php:940
+#: views/form.php:932
 #, php-format
 msgid ""
 "While queue calls are distributed, any member has FM/FM(Find Me/Follow Me) "
@@ -1224,40 +1152,40 @@ msgid ""
 "Mode(RVOM)'."
 msgstr ""
 
-#: views/form.php:1417
+#: views/form.php:1404
 msgid "Wrap-Up-Time"
 msgstr ""
 
-#: views/cron.php:26 views/cron.php:55 views/form.php:19 views/form.php:116
-#: views/form.php:392 views/form.php:401 views/form.php:626 views/form.php:658
-#: views/form.php:801 views/form.php:854 views/form.php:957 views/form.php:1042
-#: views/form.php:1072 views/form.php:1133 views/form.php:1162
-#: views/form.php:1368 views/form.php:1477 views/form.php:1537
-#: views/form.php:1566 views/form.php:1646 views/form.php:1680
-#: views/form.php:1798 views/form.php:1827
+#: views/cron.php:26 views/cron.php:55 views/form.php:19 views/form.php:108
+#: views/form.php:384 views/form.php:393 views/form.php:618 views/form.php:650
+#: views/form.php:793 views/form.php:846 views/form.php:949 views/form.php:1034
+#: views/form.php:1062 views/form.php:1120 views/form.php:1149
+#: views/form.php:1355 views/form.php:1464 views/form.php:1524
+#: views/form.php:1553 views/form.php:1633 views/form.php:1667
+#: views/form.php:1785 views/form.php:1814
 msgid "Yes"
 msgstr "Oui"
 
-#: views/form.php:1073
+#: views/form.php:1062
 msgid "Yes + (ringinuse=no)"
 msgstr ""
 
-#: views/form.php:1505
+#: views/form.php:1492
 msgid "Yes in all queues"
 msgstr ""
 
-#: views/form.php:1505
+#: views/form.php:1492
 msgid "Yes in this queue only"
 msgstr ""
 
-#: views/form.php:836
+#: views/form.php:828
 msgid ""
 "You can optionally prefix the CallerID name of callers to the queue. ie: If "
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
 
-#: views/form.php:523
+#: views/form.php:515
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
 "<br><br>This IVR must only contain single-digit 'dialed options'. The "
@@ -1269,7 +1197,7 @@ msgstr ""
 "un seul chiffre. Le jeu d'enregistrement pour l'IVR sera joué aux "
 "intervalles spécifiés dans 'Fréquence de Répétition', ci-dessous."
 
-#: views/form.php:94
+#: views/form.php:86
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
@@ -1282,11 +1210,11 @@ msgstr ""
 msgid "day"
 msgstr "jour"
 
-#: views/form.php:307
+#: views/form.php:299
 msgid "default"
 msgstr "par défaut"
 
-#: views/form.php:269
+#: views/form.php:261
 msgid "fewestcalls"
 msgstr "Le Moins d'Appels"
 
@@ -1298,7 +1226,7 @@ msgstr "heure"
 msgid "hours"
 msgstr "heures"
 
-#: views/form.php:305
+#: views/form.php:297
 msgid "inherit"
 msgstr "hériter"
 
@@ -1306,11 +1234,11 @@ msgstr "hériter"
 msgid "is not allowed for your account."
 msgstr "n'est pas autorisée pour votre compte."
 
-#: views/form.php:268
+#: views/form.php:260
 msgid "leastrecent"
 msgstr "Moins Récent"
 
-#: views/form.php:273
+#: views/form.php:265
 msgid "linear"
 msgstr ""
 
@@ -1322,65 +1250,65 @@ msgstr "minute"
 msgid "minutes"
 msgstr "minutes"
 
-#: views/form.php:306
+#: views/form.php:298
 msgid "none"
 msgstr "aucun"
 
-#: views/form.php:270
+#: views/form.php:262
 msgid "random"
 msgstr "Aléatoire"
 
-#: views/form.php:274
+#: views/form.php:266
 msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
 
-#: views/form.php:268
+#: views/form.php:260
 msgid "ring agent which was least recently called by this queue"
 msgstr ""
 "Sonne chez l'agent qui a récemment été le moins sollicité par cette file "
 "d'attente"
 
-#: views/form.php:267
+#: views/form.php:259
 msgid "ring all available agents until one answers (default)"
 msgstr ""
 "Sonner chez tous les agents disponibles jusqu'à ce qu'un réponde (par défaut)"
 
-#: views/form.php:270
+#: views/form.php:262
 msgid "ring random agent"
 msgstr "Sonne chez un agent au hasard"
 
-#: views/form.php:269
+#: views/form.php:261
 msgid "ring the agent with fewest completed calls from this queue"
 msgstr ""
 "Sonne chez l'agent ayant le plus faible nombre d'appels terminés de cette "
 "file d'attente"
 
-#: views/form.php:267
+#: views/form.php:259
 msgid "ringall"
 msgstr "Sonner partout"
 
-#: views/form.php:273
+#: views/form.php:265
 msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
 msgstr ""
 
-#: views/form.php:271
+#: views/form.php:263
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr ""
 "Tour à tour avec mémoire, se souvient où nous avons stoppé le dernier tour"
 
-#: views/form.php:271
+#: views/form.php:263
 msgid "rrmemory"
 msgstr "Mémoire Tour à Tour"
 
-#: views/form.php:272
+#: views/form.php:264
 msgid "rrordered"
 msgstr ""
 
-#: views/form.php:272
+#: views/form.php:264
 msgid ""
 "same as rrmemory, except the queue member order from config file is preserved"
 msgstr ""
@@ -1389,14 +1317,17 @@ msgstr ""
 msgid "second"
 msgstr "seonde"
 
-#: functions.inc.php:17 functions.inc.php:34 views/form.php:348
-#: views/form.php:351 views/form.php:372 views/form.php:378 views/form.php:387
+#: functions.inc.php:17 functions.inc.php:34 views/form.php:340
+#: views/form.php:343 views/form.php:364 views/form.php:370 views/form.php:379
 msgid "seconds"
 msgstr "secondes"
 
-#: views/form.php:274
+#: views/form.php:266
 msgid "wrandom"
 msgstr ""
+
+#~ msgid "Persistent Members"
+#~ msgstr "Membres persistants"
 
 #~ msgid ""
 #~ "Use this number to dial into the queue, or transfer callers to this "
@@ -1590,9 +1521,9 @@ msgstr ""
 #~ msgstr ""
 #~ "Annonce jouée à l'agent avant de le mettre en liaison avec l'appelant "
 #~ "<br><br> Exemple : \"l'appel suivant provient de la File d'Attente des "
-#~ "Ventes\" ou \"Cet appel provient de la File d'Attente du Support Technique"
-#~ "\".<br><br>Pour ajouter des enregistrements supplémentaires, veuillez "
-#~ "utiliser le MENU \"Enregistrements Système\" sur la gauche. Les "
+#~ "Ventes\" ou \"Cet appel provient de la File d'Attente du Support "
+#~ "Technique\".<br><br>Pour ajouter des enregistrements supplémentaires, "
+#~ "veuillez utiliser le MENU \"Enregistrements Système\" sur la gauche. Les "
 #~ "enregistrements composés de deux ou plusieurs fichiers sonores ne sont "
 #~ "pas affichés en tant qu'options car cette fonctionnalité ne peut pas "
 #~ "accepter de tels enregistrements."
@@ -1605,9 +1536,9 @@ msgstr ""
 #~ msgstr ""
 #~ "Annonce jouée à l'agent avant de le mettre en liaison avec l'appelant "
 #~ "<br><br> Exemple : \"l'appel suivant provient de la File d'Attente des "
-#~ "Ventes\" ou \"Cet appel provient de la File d'Attente du Support Technique"
-#~ "\".<br><br>Vous devez installer et activer le Module \"Enregistrements "
-#~ "Systèmes\" pour éditer cette option"
+#~ "Ventes\" ou \"Cet appel provient de la File d'Attente du Support "
+#~ "Technique\".<br><br>Vous devez installer et activer le Module "
+#~ "\"Enregistrements Systèmes\" pour éditer cette option"
 
 #~ msgid "Autofill:"
 #~ msgstr "Remplissage Automatique :"
