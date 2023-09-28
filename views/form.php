@@ -272,6 +272,7 @@ foreach ($items as $item) {
 	$strategyopts .= '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item);
 }
 //MOH
+$mohhtml = '';
 if(function_exists('music_list')) {
 	$mohhtml='
 	<!--Music on Hold Class-->
@@ -411,6 +412,8 @@ for ($i=0; $i <= 1200; $i+=15) {
 //Queue Minimum Announce Frequency
 $default = ($thisQ['min-announce-frequency'] ?? 15);
 $qminfreqopts = '';
+$ivrbreakouthtml = '';
+$breakouthtml = '';
 for ($i=0; $i <= 1200; $i+=15) {
 	$qminfreqopts .= '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
 }
@@ -563,6 +566,7 @@ if(function_exists('vqplus_callback_get')) {
 	$vqcbhtml = '<input type="hidden" name="callback" value="none">';
 }
 //Repeat Frequency
+$repeatfreqhtml ='';
 if(function_exists('vqplus_callback_get') || function_exists('ivr_get_details')) {
 	$default = ($thisQ['periodic-announce-frequency'] ?? 0);
 	$pafreqopts = '';
