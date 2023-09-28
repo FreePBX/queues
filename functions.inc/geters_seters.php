@@ -107,7 +107,7 @@ function queues_add(
         }
     }
 	
-	if ($_REQUEST['music'] != 'inherit') {
+	if (isset($_REQUEST['music']) && $_REQUEST['music'] != 'inherit') {
 		$fields[] = [$account, 'music', $_REQUEST['music'] ?: 'default', 0];
 	}
 
