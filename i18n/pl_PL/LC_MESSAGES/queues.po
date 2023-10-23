@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-26 06:29+0000\n"
-"PO-Revision-Date: 2023-08-22 17:00+0000\n"
+"PO-Revision-Date: 2023-10-25 12:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/queues/pl/"
 ">\n"
@@ -74,68 +74,77 @@ msgid ""
 "setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
 "this is honored across queues for members logged on to multiple queues."
 msgstr ""
+"Ile sekund należy czekać po pomyślnym połączeniu, zanim wysłać połączenie do "
+"potencjalnie wolnego agenta (wartość domyślna to 0 lub brak opóźnienia) "
+"Jeśli używasz Asterisk 1.6 lub nowszego, możesz także ustawić ustawienie „"
+"Honoruj czas zakończenia w kolejkach” (Asterisk: shared_lastcall) w "
+"Ustawienia Zaawansowane, aby było to honorowane w kolejkach dla użytkowników "
+"zalogowanych do wielu kolejek."
 
 #: functions.inc.php:65
 msgid "Agent Announce Msg"
-msgstr ""
+msgstr "Zapowiedź dla agenta"
 
 #: views/form.php:232
 msgid "Agent Announcement"
-msgstr ""
+msgstr "Zapowiedź agenta"
 
 #: queues.i18n.php:30
 msgid "Agent Called Events Default"
-msgstr ""
+msgstr "Agent wywołał zdarzenia domyślne"
 
 #: views/form.php:1891
 msgid "Agent Regex Filter"
-msgstr ""
+msgstr "Filtr Regex Agenta"
 
 #: views/form.php:978
 msgid "Agent Restrictions"
-msgstr ""
+msgstr "Ograniczenia Agenta"
 
 #: views/form.php:313
 msgid "Agent Ringing"
-msgstr ""
+msgstr "Dzwonienie Agenta"
 
 #: views/form.php:1334
 msgid "Agent Timeout"
-msgstr ""
+msgstr "Limit czasu agenta"
 
 #: views/form.php:1360
 msgid "Agent Timeout Restart"
-msgstr ""
+msgstr "Uruchom ponownie limit czasu agenta"
 
 #: views/form.php:875
 msgid "Alert Info"
-msgstr ""
+msgstr "Informacje o alertach"
 
 #: install.php:15 queues.i18n.php:42
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
 msgstr ""
+"Zezwalaj dynamicznym członkom kolejki na logowanie lub wylogowywanie się. "
+"Zobacz moduł Kolejki, aby dowiedzieć się, jak przypisać członka dynamicznego "
+"do kolejki."
 
 #: views/form.php:198
 msgid "Always"
-msgstr ""
+msgstr "Zawsze"
 
 #: views/form.php:391
 msgid "Always allows the caller to join the Queue."
-msgstr ""
+msgstr "Zawsze pozwól dzwoniącemu na dołączenie do kolejki."
 
 #: views/form.php:1819
 msgid "Announce Hold Time"
-msgstr ""
+msgstr "Komunikat o czasie oczekiwania"
 
 #: views/form.php:1790
 msgid "Announce Position"
-msgstr ""
+msgstr "Komunikat o miejscu"
 
 #: views/form.php:1807
 msgid "Announce position of caller in the queue?"
-msgstr ""
+msgstr "Komunikat o miejscu dzwoniącego w kolejce?"
 
 #: views/form.php:209
 msgid ""
@@ -145,6 +154,10 @@ msgid ""
 "call right now. To add additional recordings please use the \"System "
 "Recordings\" MENU."
 msgstr ""
+"Komunikat odtwarzany dzwoniącym przed dołączeniem do kolejki. Można to "
+"pominąć, jeśli agenci są gotowi odebrać połączenie (co oznacza, że mogą "
+"jeszcze kończyć poprzednią rozmowę) lub gdy mogą teraz odebrać połączenie. "
+"Aby dodać kolejne nagrania należy skorzystać z MENU „Nagrania systemowe”."
 
 #: views/form.php:246
 msgid ""
@@ -155,6 +168,12 @@ msgid ""
 "or more sound files are not displayed as options since this feature can not "
 "accept such recordings."
 msgstr ""
+"Komunikat odtwarzany Agentowi przed połączeniem do rozmówcy <br><br> "
+"Przykład: „Następujące połączenie pochodzi z kolejki sprzedaży” lub „To "
+"połączenie pochodzi z kolejki pomocy technicznej”.<br><br>Aby dodać "
+"dodatkowe komunikaty prosimy skorzystać z MENU „Nagrania systemowe”. "
+"Nagrania złożone składające się z 2 lub więcej plików dźwiękowych nie są "
+"wyświetlane jako opcje, ponieważ ta funkcja nie akceptuje takich nagrań."
 
 #: views/form.php:169
 msgid ""
@@ -166,14 +185,21 @@ msgid ""
 "<br><br>To add additional recordings please use the \"System Recordings\" "
 "MENU."
 msgstr ""
+"Komunikat odtwarzany członkowi kolejki, informujący o wywołaniu z kolejki i "
+"żądający potwierdzenia przed odpowiedzią. Jeśli jest to ustawienie domyślne, "
+"odtwarzana będzie standardowa wiadomość domyślna z potwierdzeniem "
+"połączenia, chyba że do członka można dotrzeć za pośrednictwem Follow-Me, a "
+"w Follow-Me dostępna jest alternatywna wiadomość. Ta wiadomość zastępuje "
+"każdą inną określoną wiadomość..<br><br>Aby dodać dodatkowe nagrania, "
+"skorzystaj z MENU \"Nagrania systemowe\"."
 
 #: views/cron.php:63
 msgid "Annually"
-msgstr ""
+msgstr "Roczne"
 
 #: queues.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Aplikacje"
 
 #: views/form.php:1322
 msgid ""
@@ -185,6 +211,14 @@ msgid ""
 "This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
 "'Agent Timeout' combined."
 msgstr ""
+"Priorytet limitu czasu Asterisk. W trybie „Strict” po osiągnięciu "
+"maksymalnego czasu oczekiwania dzwoniącego zostanie on natychmiast usunięty "
+"z kolejki. W trybie „Loose”, jeśli członek kolejki aktualnie dzwoni z tym "
+"połączeniem, przed usunięciem dzwoniącego z kolejki zaczekamy, aż kolejka "
+"przestanie dzwonić do tego członka kolejki lub w przeciwnym razie połączenie "
+"zostanie odrzucone przez członka kolejki. Oznacza to, że „Maksymalny czas "
+"oczekiwania” może wynosić tyle samo, co łącznie „Maksymalny czas oczekiwania”"
+" + „Limit czasu agenta”."
 
 #: views/form.php:1721
 msgid ""
@@ -193,14 +227,18 @@ msgid ""
 "members.  No penalty will be weighed in if there are only X or fewer queue "
 "members."
 msgstr ""
+"Asterisk: limit członków karnych. Można ustawić limit ignorowania ustawień "
+"kar, umożliwiając wypróbowanie wszystkich członków, gdy w kolejce jest zbyt "
+"mało członków. Żadna kara nie zostanie naliczona, jeśli w kolejce będzie "
+"tylko X lub mniej członków."
 
 #: views/form.php:1498
 msgid "Auto Pause"
-msgstr ""
+msgstr "Automatyczna Pauza"
 
 #: views/form.php:1587
 msgid "Auto Pause Delay"
-msgstr ""
+msgstr "Opóźnienie Automatycznej Pauzy"
 
 #: views/form.php:1517
 msgid ""
@@ -209,58 +247,63 @@ msgid ""
 "Pause Delay as well as Auto Pause Busy/Unavailable settings if supported on "
 "this version of Asterisk."
 msgstr ""
+"Automatyczna pauza agenta w tej kolejce (lub we wszystkich kolejkach, do "
+"których należy), jeśli nie odbierze połączenia. Określone zachowanie można "
+"modyfikować za pomocą ustawień opóźnienia automatycznej pauzy oraz ustawień "
+"automatycznej pauzy zajęty/niedostępny, jeśli są obsługiwane w tej wersji "
+"Asterisk."
 
 #: views/form.php:1529
 msgid "Auto Pause on Busy"
-msgstr ""
+msgstr "Automatyczna pauza w przypadku zajętości"
 
 #: views/form.php:1558
 msgid "Auto Pause on Unavailable"
-msgstr ""
+msgstr "Automatyczna pauza w przypadku niedostępności"
 
 #: views/form.php:1036
 msgid "Autofill"
-msgstr ""
+msgstr "Automatycznie uzupełnij"
 
 #: functions.inc/geters_seters.php:39
 msgid "Bad Queue Number, can not be blank"
-msgstr ""
+msgstr "Zły numer kolejki, pole nie może być puste"
 
 #: views/form.php:439
 msgid "Break Out Type"
-msgstr ""
+msgstr "Typ Ucieczki"
 
 #: views/form.php:823
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Prefix Nazwy CID"
 
 #: views/form.php:795
 msgid "Call Confirm"
-msgstr ""
+msgstr "Potwierdzenie Połączenia"
 
 #: views/form.php:146
 msgid "Call Confirm Announce"
-msgstr ""
+msgstr "Komunikat Potwierdzenia Rozmowy"
 
 #: views/form.php:1126
 msgid "Call Recording"
-msgstr ""
+msgstr "Nagrywanie Połączeń"
 
 #: views/form.php:986
 msgid "Call as Dialed"
-msgstr ""
+msgstr "Zadzwoń jak Wybrany"
 
 #: views/form.php:563
 msgid "Callback to use when caller presses 1."
-msgstr ""
+msgstr "Callback gdy dzwoniący naciśnie klawisz 1."
 
 #: views/form.php:714
 msgid "Caller Announcements"
-msgstr ""
+msgstr "Zapowiedzi dla Dzwoniącego"
 
 #: views/form.php:1730
 msgid "Caller Position"
-msgstr ""
+msgstr "Pozycja Dzwoniącego"
 
 #: views/form.php:400
 msgid ""
@@ -268,6 +311,9 @@ msgid ""
 "device or have penalty values less than QUEUE_MAX_PENALTY (not currently set "
 "in FreePBX dialplan)."
 msgstr ""
+"Dzwoniący rozłączą się, jeśli wszyscy agenci zostaną wstrzymani, pokażą "
+"nieprawidłowy stan swojego urządzenia lub będą mieli kary mniejsze niż "
+"QUEUE_MAX_PENALTY (obecnie nieustawione w planie wybierania FreePBX)."
 
 #: views/form.php:394
 msgid ""
@@ -275,14 +321,18 @@ msgid ""
 "for their device, or have penalty values less than QUEUE_MAX_PENALTY (not "
 "currently set in FreePBX dialplan)."
 msgstr ""
+"Połączenia od dzwoniących nie zostaną przyjęte, jeśli wszyscy agenci są "
+"wstrzymani, wykazują nieprawidłowy stan swojego urządzenia lub mają kary "
+"mniejsze niż QUEUE_MAX_PENALTY (obecnie nieustawione w planie wybierania "
+"FreePBX)."
 
 #: views/form.php:709
 msgid "Capacity Options"
-msgstr ""
+msgstr "Opcje pojemności"
 
 #: functions.inc/queue_conf.php:226
 msgid "Compound Recordings in Queues Detected"
-msgstr ""
+msgstr "Wykryto nagrania złożone w kolejkach"
 
 #: queues.i18n.php:8
 msgid ""
@@ -290,14 +340,18 @@ msgid ""
 "first-out basis. Many options are available, including ring strategy for "
 "agents, caller announcements, max wait times, etc."
 msgstr ""
+"Tworzy kolejkę, w której połączenia są zawieszane i odbierane według "
+"kolejności zgłoszeń. Dostępnych jest wiele opcji, w tym strategia dzwonienia "
+"dla agentów, powiadomienia o osobach dzwoniących, maksymalny czas "
+"oczekiwania itp."
 
 #: views/cron.php:60
 msgid "Daily"
-msgstr ""
+msgstr "Codziennie"
 
 #: views/form.php:154
 msgid "Default"
-msgstr ""
+msgstr "Domyślny"
 
 #: queues.i18n.php:32
 msgid ""
@@ -305,6 +359,10 @@ msgid ""
 "will only affect the default for NEW queues, it won't change existing queues "
 "or enfore the option on in new ones."
 msgstr ""
+"Domyślny stan dla AMI emituje zdarzenia związane z wywołaniem agenta. To "
+"ustawienie będzie miało wpływ tylko na ustawienie domyślne dla NOWYCH "
+"kolejek, nie zmieni istniejących kolejek ani nie wymusi włączenia opcji w "
+"nowych."
 
 #: queues.i18n.php:36
 msgid ""
@@ -312,14 +370,17 @@ msgid ""
 "only affect the default for NEW queues, it won't change existing queues or "
 "enfore the option on in new ones."
 msgstr ""
+"Domyślny stan AMI do emitowania zdarzenia QueueMemberStatus. To ustawienie "
+"będzie miało wpływ tylko na ustawienie domyślne dla NOWYCH kolejek, nie "
+"zmieni istniejących kolejek ani nie wymusi włączenia opcji w nowych."
 
 #: Queues.class.php:206
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 #: views/bootnav.php:10 views/qgrid.php:15
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #: views/form.php:398
 msgid ""
@@ -327,20 +388,26 @@ msgid ""
 "situations where it appears no one is currently available to take the call. "
 "The options include:"
 msgstr ""
+"Określa, czy osoby dzwoniące powinny być przedwcześnie usuwane z kolejki w "
+"sytuacjach, gdy wydaje się, że obecnie nie ma nikogo, kto mógłby odebrać "
+"połączenie. Opcje obejmują:"
 
 #: views/form.php:389
 msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
 "failover destination will be immediately pursued. The options include:"
 msgstr ""
+"Określa, czy nowi rozmówcy zostaną dopuszczeni do kolejki. Jeśli nie, "
+"miejsce docelowe przełączania awaryjnego będzie natychmiast wybierane. Opcje "
+"obejmują:"
 
 #: views/form.php:19 views/form.php:1133
 msgid "Don't Care"
-msgstr ""
+msgstr "Bez znaczenia"
 
 #: views/form.php:1243
 msgid "Dynamic Agents"
-msgstr ""
+msgstr "Agenci dynamiczni"
 
 #: views/form.php:1264
 msgid ""
@@ -349,16 +416,23 @@ msgid ""
 "will be as specified here. Extensions included here will NOT automatically "
 "be logged in to the queue."
 msgstr ""
+"Członkowie dynamiczni to numery wewnętrzne lub numery wywołań zwrotnych, "
+"które umożliwiają logowanie i wylogowywanie się z kolejki. Kiedy członek "
+"zaloguje się do kolejki, jego kara w kolejce będzie taka, jak określono "
+"tutaj. Rozszerzenia zawarte w tym miejscu NIE będą automatycznie logowane do "
+"kolejki."
 
 #: views/form.php:495
 msgid ""
 "Earlier versions of this module allowed such queues to be chosen, once "
 "changing this setting, it will no longer appear as an option"
 msgstr ""
+"Wcześniejsze wersje tego modułu umożliwiały wybór takich kolejek, po zmianie "
+"tego ustawienia nie będzie już ono dostępne jako opcja"
 
 #: views/cron.php:37
 msgid "Enable this task"
-msgstr ""
+msgstr "Włącz to zadanie"
 
 #: views/form.php:1171
 msgid ""
@@ -366,81 +440,92 @@ msgid ""
 "cancelled. The effect is that missed queue calls are *not* shown on the "
 "phone (if the phone supports it)"
 msgstr ""
+"Po włączeniu tej opcji wszystkie połączenia zostaną oznaczone jako „odebrane "
+"gdzie indziej” w przypadku anulowania. Efekt jest taki, że nieodebrane "
+"połączenia z kolejki *nie* są pokazywane na telefonie (jeśli telefon to "
+"obsługuje)"
 
 #: views/form.php:619
 msgid "Event When Called"
-msgstr ""
+msgstr "Zdarzenie po wywołaniu"
 
 #: functions.inc/hook_core.php:59
 msgid "Extension Options"
-msgstr ""
+msgstr "Opcje numeru wewnętrznego"
 
 #: views/form.php:990
 msgid "Extensions Only"
-msgstr ""
+msgstr "Tylko numery wewnętrzne"
 
 #: views/form.php:1183
 msgid "Fail Over Destination"
-msgstr ""
+msgstr "Awaryjne miejsce docelowe"
 
 #: views/form.php:19 views/form.php:1131
 msgid "Force"
-msgstr ""
+msgstr "Wymuś"
 
 #: views/form.php:1740
 msgid "Frequency"
-msgstr ""
+msgstr "Częstotliwość"
 
 #: views/form.php:694
 msgid "General Settings"
-msgstr ""
+msgstr "Ustawienia główne"
 
 #: views/form.php:781
 msgid "Give this queue a brief name to help you identify it."
-msgstr ""
+msgstr "Nadaj tej kolejce krótką nazwę, która pomoże Ci ją zidentyfikować."
 
 #: views/form.php:1112
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
+"Nadaje kolejkom opcję „wagi”, aby mieć pewność, że połączenia oczekujące w "
+"kolejce o wyższym priorytecie będą dostarczane jako pierwsze, jeśli w obu "
+"kolejkach znajdują się agenci wspólni."
 
 #: views/form.php:408
 msgid "Honor Penalties"
-msgstr ""
+msgstr "Uwzględniaj kary"
 
 #: queues.i18n.php:18
 msgid "Honor Wrapup Time Across Queues"
-msgstr ""
+msgstr "Uwzględniaj czas Wrapup w kolejkach"
 
 #: views/cron.php:59
 msgid "Hourly"
-msgstr ""
+msgstr "Cogodzinny"
 
 #: views/form.php:601
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
 "Announcements)."
 msgstr ""
+"Jak często zapowiadać menu głosowe dzwoniącemu (0, aby wyłączyć "
+"powiadomienia)."
 
 #: views/form.php:1754
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 msgstr ""
+"Jak często zapowiadać pozycję w kolejce i szacowany czas oczekiwania (0, aby "
+"wyłączyć powiadomienia)."
 
 #: functions.inc/destination_registry.php:98
 msgid "INUSE"
-msgstr ""
+msgstr "W UŻYCIU"
 
 #: functions.inc.php:75
 #, php-format
 msgid "IVR Announce: %s"
-msgstr ""
+msgstr "Zapowiedź IVR: %s"
 
 #: views/form.php:444 views/form.php:507
 msgid "IVR Break Out Menu"
-msgstr ""
+msgstr "Przerwanie Menu IVR"
 
 #: views/form.php:810
 msgid ""
@@ -449,6 +534,12 @@ msgid ""
 "the PBX will be forced into Call Confirmation mode where the member must "
 "acknowledge the call before it is answered and delivered."
 msgstr ""
+"Jeśli ta opcja jest zaznaczona, każdy członek kolejki będący w "
+"rzeczywistości numerem telefonu zewnętrznego lub dowolne rozszerzenie Follow-"
+"Me lub przekierowanie połączeń, które jest realizowane i opuszcza centralę "
+"PBX, zostanie zmuszony do przejścia w tryb potwierdzenia połączenia, w "
+"którym członek musi potwierdzić połączenie, zanim zostanie ono odebrane i "
+"dostarczone."
 
 #: views/form.php:126
 msgid ""
@@ -460,6 +551,14 @@ msgid ""
 "where the caller will not be admitted to the queue unless there is a queue "
 "member immediately available to take the call."
 msgstr ""
+"Jeżeli zaznaczone, kolejka nie będzie odbierać połączeń. W większości "
+"przypadków zawsze należy ustawić kolejkę do odbierania połączeń. Jeśli nie, "
+"możliwe jest, że oczekujące osoby nie usłyszą nagrań ani MoH, ponieważ "
+"wczesne możliwości multimediów są różne i niespójne. W niektórych "
+"przypadkach pożądane może być nieodbieranie połączenia, gdy stosuje się "
+"zasady ścisłego dołączenia do pustej kolejki, gdy osoba dzwoniąca nie "
+"zostanie dopuszczona do kolejki, chyba że będzie natychmiast dostępny "
+"członek kolejki, który będzie mógł odebrać połączenie."
 
 #: views/form.php:863
 msgid ""
@@ -467,6 +566,10 @@ msgid ""
 "since it first entered the queue or reset if the call is transferred to "
 "another queue with this feature set."
 msgstr ""
+"Jeśli połączenie zostanie następnie przekazane, czas oczekiwania będzie "
+"odzwierciedlał czas od pierwszego wprowadzenia do kolejki lub zostanie "
+"zresetowany, jeśli połączenie zostanie przeniesione do innej kolejki z tym "
+"zestawem funkcji."
 
 #: functions.inc/hook_core.php:65
 msgid ""
@@ -482,6 +585,19 @@ msgid ""
 "member as busy until the original call is terminated. In most cases, this "
 "SHOULD BE set to 'Use State'."
 msgstr ""
+"Jeśli ten numer wewnętrzny jest częścią kolejki, kolejka spróbuje użyć "
+"informacji o stanie numeru wewnętrznego użytkownika lub stanie urządzenia "
+"przy ustalaniu, czy należy wywołać tego członka kolejki. W niektórych "
+"nietypowych sytuacjach, takich jak Follow-Me bez urządzenia fizycznego lub w "
+"niektórych scenariuszach wirtualnych numerów wewnętrznych, informacje o "
+"stanie będą wskazywać, że ten członek jest niedostępny, gdy tak jest. "
+"Ustawienie tej opcji na „Ignoruj stan” sprawi, że kolejka zignoruje "
+"wszystkie informacje o stanie, w ten sposób zawsze próbując skontaktować się "
+"z tym członkiem. W przypadku wybrania tej trasy mogą wystąpić pewne skutki "
+"uboczne ze względu na charakter sposobu, w jaki kolejki obsługują kanały "
+"lokalne, np. przy kolejnych transferach członek będzie nadal pokazywany jako "
+"zajęty, aż do zakończenia pierwotnego połączenia. W większości przypadków "
+"POWINIEN BYĆ ustawiony na „Użyj stanu”."
 
 #: views/form.php:1051
 msgid ""
@@ -490,6 +606,11 @@ msgid ""
 "it will hold all calls while it tries to find an agent for the top call in "
 "the queue making other calls wait."
 msgstr ""
+"Jeśli ta opcja jest włączona i dostępnych jest wielu agentów, Asterisk wyśle "
+"jedno połączenie do każdego oczekującego agenta (w zależności od strategii "
+"dzwonienia). W przeciwnym razie wstrzyma wszystkie połączenia i spróbuje "
+"znaleźć agenta dla pierwszego połączenia w kolejce, powodując oczekiwanie "
+"innych połączeń."
 
 #: views/form.php:1378
 msgid ""
@@ -497,6 +618,10 @@ msgid ""
 "reset if a BUSY or CONGESTION is received. This can be useful if agents are "
 "able to cancel a call with reject or similar."
 msgstr ""
+"Jeśli opcja timeoutrestart jest ustawiona na Tak, limit czasu, w którym "
+"agent może odpowiedzieć, jest resetowany w przypadku otrzymania komunikatu "
+"BUSY lub CONGESTION. To może być przydatne, jeśli agenci mogą anulować "
+"połączenie za pomocą odrzucenia lub podobnego zdarzenia."
 
 #: views/form.php:1456
 msgid ""
@@ -504,91 +629,98 @@ msgid ""
 "before the member hears any announcement messages), set this to the number "
 "of seconds to delay."
 msgstr ""
+"Jeśli chcesz mieć opóźnienie, zanim agent uzyska połączenia z rozmówcą (lub "
+"zanim agent usłyszy jakiekolwiek komunikaty zapowiadające), ustaw tę opcję "
+"na liczbę sekund opóźnienia."
 
 #: views/form.php:1486
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
 "connected to the caller, set this to yes."
 msgstr ""
+"Jeśli chcesz zgłosić agentowi czas zawieszenia rozmówcy, zanim zostanie on "
+"połączony z rozmówcą, ustaw tę opcję na Tak."
 
 #: functions.inc/hook_core.php:37
 msgid "Ignore State"
-msgstr ""
+msgstr "Ignoruj stan"
 
 #: views/form.php:1143
 msgid ""
 "Incoming calls to agents can be recorded. If 'never' is selected, then in-"
 "call on demand recording is blocked."
 msgstr ""
+"Połączenia przychodzące do agentów mogą być nagrywane. Jeśli wybierzesz "
+"opcję „nigdy”, nagrywanie rozmów na żądanie zostanie zablokowane."
 
 #: views/form.php:183
 msgid "Join Announcement"
-msgstr ""
+msgstr "Komunikat dołączenia"
 
 #: views/form.php:1639
 msgid "Join Empty"
-msgstr ""
+msgstr "Dołącz do pustej"
 
 #: views/form.php:1673
 msgid "Leave Empty"
-msgstr ""
+msgstr "Opuść pustą"
 
 #: views/bootnav.php:2
 msgid "List Queues"
-msgstr ""
+msgstr "Lista kolejek"
 
 #: views/form.php:395 views/form.php:403 views/form.php:1314
 #: views/form.php:1653 views/form.php:1687
 msgid "Loose"
-msgstr ""
+msgstr "Loose"
 
 #: views/form.php:1155
 msgid "Mark calls answered elsewhere"
-msgstr ""
+msgstr "Oznacz połączenia odbierane gdzie indziej"
 
 #: views/form.php:1614
 msgid "Max Callers"
-msgstr ""
+msgstr "Maksymalna liczba rozmówców"
 
 #: views/form.php:1279
 msgid "Max Wait Time"
-msgstr ""
+msgstr "Maksymalny czas oczekiwania"
 
 #: views/form.php:1305
 msgid "Max Wait Time Mode"
-msgstr ""
+msgstr "Tryb maksymalnego czasu oczekiwania"
 
 #: views/form.php:1627
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
-msgstr ""
+msgstr "Maksymalna liczba osób oczekujących w kolejce (0 dla nieograniczonej)"
 
 #: views/form.php:1442
 msgid "Member Delay"
-msgstr ""
+msgstr "Opóźnienie członka"
 
 #: views/form.php:651
 msgid "Member Status Event"
-msgstr ""
+msgstr "Member Status Event"
 
 #: queues.i18n.php:34
 msgid "Member Status Event Default"
-msgstr ""
+msgstr "Member Status Event Default"
 
 #: views/form.php:481 views/form.php:485
 msgid "Menu ID "
-msgstr ""
+msgstr "ID menu "
 
 #: views/form.php:1766
 msgid "Minimum Announcement Interval"
-msgstr ""
+msgstr "Minimalny odstęp między ogłoszeniami"
 
 #: views/form.php:312
 msgid "MoH Only"
-msgstr ""
+msgstr "Tylko MoH"
 
 #: views/cron.php:62
 msgid "Monthly"
-msgstr ""
+msgstr "Miesięczny"
 
 #: views/form.php:323
 msgid ""
@@ -601,19 +733,30 @@ msgid ""
 "any MoH Class selected as well as any configured periodic announcements. "
 "This music is defined in the \"Music on Hold\" Menu."
 msgstr ""
+"Muzyka (MoH) odtwarzana dzwoniącemu podczas oczekiwania w kolejce na "
+"dostępnego agenta. Wybierz opcję „dziedzicz”, jeśli chcesz, aby klasa MoH "
+"była aktualnie wybraną, np. trasą przychodzącą. MoH Only będzie odtwarzać "
+"muzykę, dopóki agent nie odbierze połączenia. Agent Ringing będzie odtwarzał "
+"MoH, dopóki telefon agenta nie otrzyma połączenia i nie zacznie dzwonić. "
+"Jeśli nie odbierze to MoH powróci. Funkcja „Tylko dzwonek” sprawia, że "
+"dzwoniący słyszą dźwięk dzwonka zamiast ignorowania przez MoH dowolnej "
+"wybranej klasy MoH, a także wszelkich skonfigurowanych komunikatów "
+"okresowych. Tę muzykę definiuje się w menu „Muzyka oczekująca”."
 
 #: views/form.php:291
 msgid "Music on Hold Class"
-msgstr ""
+msgstr "Klasa Music on Hold"
 
 #: views/form.php:19 views/form.php:1135
 msgid "Never"
-msgstr ""
+msgstr "Nigdy"
 
 #: views/form.php:404
 msgid ""
 "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr ""
+"Nigdy nie pozwól, aby osoba dzwoniąca opuściła kolejkę, dopóki nie upłynie "
+"maksymalny czas oczekiwania."
 
 #: views/cron.php:28 views/cron.php:57 views/form.php:19 views/form.php:118
 #: views/form.php:394 views/form.php:404 views/form.php:627 views/form.php:659
@@ -623,11 +766,11 @@ msgstr ""
 #: views/form.php:1538 views/form.php:1567 views/form.php:1651
 #: views/form.php:1685 views/form.php:1799 views/form.php:1828
 msgid "No"
-msgstr ""
+msgstr "Nie"
 
 #: views/form.php:988
 msgid "No Follow-Me or Call Forward"
-msgstr ""
+msgstr "Bez Follow-Me oraz przekazywania połączeń"
 
 #: views/form.php:369
 msgid "No Retry"
