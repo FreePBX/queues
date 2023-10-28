@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-26 06:29+0000\n"
-"PO-Revision-Date: 2023-10-25 12:00+0000\n"
+"PO-Revision-Date: 2023-10-29 09:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/queues/pl/"
 ">\n"
@@ -774,35 +774,35 @@ msgstr "Bez Follow-Me oraz przekazywania połączeń"
 
 #: views/form.php:369
 msgid "No Retry"
-msgstr ""
+msgstr "Bez ponawiania próby"
 
 #: views/form.php:190 views/form.php:218 views/form.php:512 views/form.php:553
 #: views/form.php:903
 msgid "None"
-msgstr ""
+msgstr "Żaden"
 
 #: views/form.php:1830
 msgid "Once"
-msgstr ""
+msgstr "Raz"
 
 #: views/form.php:730
 msgid "Other Options"
-msgstr ""
+msgstr "Inne opcje"
 
 #: views/form.php:915
 #, php-format
 msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
-msgstr ""
+msgstr "Zastąp głośność dzwonka. Uwaga: To obecnie dotyczy tylko telefonów %s"
 
 #: views/form.php:1707
 msgid "Penalty Members Limit"
-msgstr ""
+msgstr "Limit Ukaranych Członków"
 
 #: views/form.php:1846
 msgid "Periodic Announcements"
-msgstr ""
+msgstr "Komunikaty okresowe"
 
 #: queues.i18n.php:12
 msgid "Persistent Members"
