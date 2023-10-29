@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-26 06:29+0000\n"
-"PO-Revision-Date: 2023-10-29 09:00+0000\n"
+"PO-Revision-Date: 2023-10-31 14:01+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/queues/pl/"
 ">\n"
@@ -810,7 +810,7 @@ msgstr ""
 
 #: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
-msgstr ""
+msgstr "Odtwórz ilość dzwoniących w kolejce"
 
 #: views/form.php:1903
 msgid ""
@@ -824,101 +824,112 @@ msgid ""
 "key.<br />WARNING: make sure you understand what you are doing or otherwise "
 "leave this blank!"
 msgstr ""
+"Zawiera opcjonalne wyrażenie regularne, które zostanie zastosowane w numerze "
+"oddzwonienia callback do agenta. Jeśli numer callback nie przejdzie filtru "
+"wyrażenia regularnego, zostanie potraktowany jako nieprawidłowy. Może to "
+"służyć do ograniczania agentów do zakresu numerów wewnętrznych, aby nie "
+"zezwalać na callback w celu uwzglęnienia znaków jak *  albo w innym "
+"właściwym zastosowaniu. Przykładowe dane wejściowe mogą wyglądać "
+"następująco:<br />1^([2-4][0-9]{3})$<br /> To spowoduje ograniczenie agentów "
+"do wewnętrznych 2000-4999. Lub <br />^([0-9]+)$ dopuści dowolną liczbę o "
+"dowolnej długości, ale ograniczy znaki *.<br /> UWAGA: upewnij się, że "
+"rozumiesz, co robisz lub w przeciwnym razie pozostaw to puste!"
 
 #: Queues.class.php:194 views/bootnav.php:9 views/qgrid.php:14
 msgid "Queue"
-msgstr ""
+msgstr "Kolejka"
 
 #: functions.inc/destination_registry.php:36
 #, php-format
 msgid "Queue %s : %s"
-msgstr ""
+msgstr "Kolejka %s : %s"
 
 #: functions.inc/queue_conf.php:224
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
-msgstr ""
+msgstr "Kolejka - %s (%s): %s<br />"
 
 #: views/form.php:699
 msgid "Queue Agents"
-msgstr ""
+msgstr "Agenci kolejki"
 
 #: views/form.php:445 views/form.php:548
 msgid "Queue Callback"
-msgstr ""
+msgstr "Callback z kolejki"
 
 #: install.php:10
 msgid "Queue Callers"
-msgstr ""
+msgstr "Dzwoniący do kolejki"
 
 #: views/form.php:769
 msgid "Queue Name"
-msgstr ""
+msgstr "Nazwa kolejki"
 
 #: views/form.php:111
 msgid "Queue No Answer"
-msgstr ""
+msgstr "Brak odebrania z kolejki"
 
 #: views/form.php:745
 msgid "Queue Number"
-msgstr ""
+msgstr "Numer kolejki"
 
 #: assets/js/queues.js:40
 msgid "Queue Number must not be blank"
-msgstr ""
+msgstr "Numer kolejki nie może być pusty"
 
 #: views/form.php:82
 msgid "Queue Password"
-msgstr ""
+msgstr "Hasło kolejki"
 
 #: install.php:9 /dev/shm/freepbx/queues/install.php:22 queues.i18n.php:40
 msgid "Queue Pause Toggle"
-msgstr ""
+msgstr "Włącz pauzę kolejki"
 
 #: functions.inc/hook_core.php:64
 msgid "Queue State Detection"
-msgstr ""
+msgstr "Wykrywanie stanu kolejki"
 
 #: install.php:8
 msgid "Queue Toggle"
-msgstr ""
+msgstr "Przełącz kolejkę"
 
 #: views/form.php:1099
 msgid "Queue Weight"
-msgstr ""
+msgstr "Waga kolejki"
 
 #: views/form.php:1073
 msgid "Queue calls only (ringinuse=no)"
-msgstr ""
+msgstr "Tylko połączenia kolejki (ringinuse=no)"
 
 #: assets/js/queues.js:53
 msgid ""
 "Queue name must not be blank and must contain only alpha-numeric characters"
 msgstr ""
+"Nazwa kolejki nie może być pusta i musi zawierać tylko znaki alfanumeryczne"
 
 #: functions.inc/destination_registry.php:56
 #: functions.inc/destination_registry.php:73
 #: functions.inc/destination_registry.php:97
 #, php-format
 msgid "Queue: %s"
-msgstr ""
+msgstr "Kolejka: %s"
 
 #: functions.inc/destination_registry.php:126
 #, php-format
 msgid "Queue: %s (%s)"
-msgstr ""
+msgstr "Kolejka: %s (%s)"
 
 #: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
 msgid "Queues"
-msgstr ""
+msgstr "Kolejki"
 
 #: queues.i18n.php:14
 msgid "Queues Module"
-msgstr ""
+msgstr "Moduł Kolejki"
 
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
-msgstr ""
+msgstr "Nie znaleziono modułu kolejek lub jest on wyłączony. Przerywam!"
 
 #: queues.i18n.php:28
 msgid ""
@@ -926,6 +937,10 @@ msgid ""
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now goes away when this is enabled."
 msgstr ""
+"Kolejki: monitor-type = MixMonitor. Ustawienie na true spowoduje użycie "
+"aplikacji MixMonitor zamiast Monitor, więc koncepcja \"dołączania/"
+"miksowania\" plików wejściowych i wyjściowych zniknie kiedy ta opcja "
+"zostanie włączona."
 
 #: queues.i18n.php:16
 msgid ""
@@ -933,6 +948,10 @@ msgid ""
 "astdb so that when asterisk is restarted, each member will be automatically "
 "read into their recorded queues."
 msgstr ""
+"Kolejki: persistentmembers. Przechowuj każdego dynamicznego członka w każdej "
+"kolejce w bazie danych astdb, tak aby po ponownym uruchomieniu motoru "
+"Asterisk każdy członek był automatycznie wczytywany do swoich "
+"zarejestrowanych kolejek."
 
 #: queues.i18n.php:20
 msgid ""
@@ -941,6 +960,10 @@ msgid ""
 "queue. This is useful to make the queue respect the wrapuptime of another "
 "queue for a shared member."
 msgstr ""
+"Kolejki: shared_lastcall, ważne tylko z Asterisk 1.6+. Spowoduje to, że "
+"ostatnie połączenie i odebrane połączenia będą takie same dla członków "
+"zalogowanych w więcej niż jednej kolejce. Jest to przydatne, aby kolejka "
+"respektowała czas wrapup innej kolejki wspóldzielonym członkom."
 
 #: queues.i18n.php:24
 msgid ""
@@ -949,34 +972,38 @@ msgid ""
 "with an agent name, which is set if available at the login time with "
 "AddQueueMember membername parameter, or with static members."
 msgstr ""
+"Kolejki: updatecdr, tylko dla Asterisk 1.6+. Ta opcja jest implementowana do "
+"naśladowania zachowania chan_agents przy wypełnianiu pola CDR dstchannel "
+"nazwą agenta, która jest ustawiana, jeśli jest dostępny w czasie logowania "
+"za pomocą parametru membername  z AddQueueMember lub statycznymi członkami."
 
 #: views/cron.php:84
 msgid "RUN"
-msgstr ""
+msgstr "URUCHOM"
 
 #: views/cron.php:50
 msgid "Random"
-msgstr ""
+msgstr "Losowo"
 
 #: views/form.php:587
 msgid "Repeat Frequency"
-msgstr ""
+msgstr "Częstotliwość powtarzania"
 
 #: views/form.php:1469
 msgid "Report Hold Time"
-msgstr ""
+msgstr "Raportuj czas hold"
 
 #: Queues.class.php:216
 msgid "Reset"
-msgstr ""
+msgstr "Resetuj"
 
 #: views/form.php:724
 msgid "Reset Queue Stats"
-msgstr ""
+msgstr "Resetuj statystyki kolejki"
 
 #: views/form.php:951
 msgid "Restrict Dynamic Agents"
-msgstr ""
+msgstr "Ogranicz agentów dynamicznych"
 
 #: views/form.php:966
 msgid ""
@@ -984,18 +1011,21 @@ msgid ""
 "Members list above. When set to Yes, members not listed will be DENIED "
 "ACCESS to the queue."
 msgstr ""
+"Ogranicz logowanie dynamicznych członków kolejki tylko do tych wymienionych "
+"na powyższej liście dynamicznych członków. Po ustawieniu wartości na \"Tak\" "
+"członkowie spoza listy otrzymają odmowę dostępu do kolejki."
 
 #: views/form.php:1390
 msgid "Retry"
-msgstr ""
+msgstr "Ponów"
 
 #: views/form.php:314
 msgid "Ring Only"
-msgstr ""
+msgstr "Tylko dzwoń"
 
 #: views/form.php:1010
 msgid "Ring Strategy"
-msgstr ""
+msgstr "Strategia dzwonienia"
 
 #: views/form.php:898
 msgid "Ringer Volume Override"
