@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-26 06:29+0000\n"
-"PO-Revision-Date: 2023-10-31 14:01+0000\n"
+"PO-Revision-Date: 2023-11-01 14:30+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/queues/pl/"
 ">\n"
@@ -806,7 +806,7 @@ msgstr "Komunikaty okresowe"
 
 #: queues.i18n.php:12
 msgid "Persistent Members"
-msgstr ""
+msgstr "Trwali członkowie"
 
 #: install.php:29 queues.i18n.php:38
 msgid "Playback Queue Caller Count"
@@ -1029,17 +1029,19 @@ msgstr "Strategia dzwonienia"
 
 #: views/form.php:898
 msgid "Ringer Volume Override"
-msgstr ""
+msgstr "Nadpisanie głośności dzwonka"
 
 #: views/form.php:926
 msgid "Ringer Volume Override Mode"
-msgstr ""
+msgstr "Tryb obejścia głośności dzwonka"
 
 #: views/form.php:395
 msgid ""
 "Same as No except Callers will be admitted if there are paused agents who "
 "could become available."
 msgstr ""
+"Tak samo jak \"Nie\", z wyjątkiem, że dzwoniący będą wpuszczani, jeśli są "
+"zapauzowani agenci, którzy mogą stać się dostępni."
 
 #: views/form.php:393
 msgid ""
@@ -1048,6 +1050,10 @@ msgid ""
 "are currently on the phone or ringing on behalf of another caller will be "
 "considered unavailable."
 msgstr ""
+"Tak samo jak \"Strict\" dodatkowo członek kolejki musi być w stanie odebrać "
+"telefon \"teraz\" aby go wpuścić. W uproszczeniu wszyscy \"dostępni\" "
+"agenci, którzy mogliby odebrać, ale obecnie rozmawiają lub dzwonią do kogoś "
+"są uznawani za niedostępnych."
 
 #: views/form.php:402
 msgid ""
@@ -1056,6 +1062,10 @@ msgid ""
 "but are currently on the phone or ringing on behalf of another caller will "
 "be considered unavailable."
 msgstr ""
+"Tak samo jak \"Strict\", a dodatkowo członek kolejki musi mieć możliwość "
+"odebrania telefonu \"teraz\", aby mógł pozostać. W uproszczeniu wszyscy \""
+"dostępni\" agenci, którzy mogliby odebrać, ale obecnie rozmawiają lub "
+"dzwonią do kogoś są uznawani za niedostępnych."
 
 #: views/form.php:392
 msgid ""
@@ -1063,6 +1073,9 @@ msgid ""
 "phone then don't admit them. If agents are inuse or ringing someone else, "
 "caller will still be admitted."
 msgstr ""
+"Mówiąc najprościej, jeśli żaden agent nie może odebrać telefonu, nie "
+"wpuszczaj go. Jeśli agenci są w użyciu lub dzwonią do kogoś, dzwoniący nadal "
+"zostanie przyjęty."
 
 #: views/form.php:401
 msgid ""
@@ -1070,44 +1083,54 @@ msgid ""
 "phone then have them leave the queue. If agents are inuse or ringing someone "
 "else, caller will still be held."
 msgstr ""
+"Tak samo jak \"Tak\", ale bardziej rygorystycznie.  Mówiąc najprościej, "
+"jeśli żaden agent nie może odebrać telefonu, niech opuści kolejkę. Jeśli "
+"agenci są w użyciu lub dzwonią do kogoś, dzwoniący nadal będzie wstrzymywany."
 
 #: views/form.php:403
 msgid ""
 "Same as Yes except Callers will remain in the Queue if there are paused "
 "agents who could become available."
 msgstr ""
+"Tak samo jak \"Tak\", z tą różnicą, że dzwoniący pozostaną w kolejce, jeśli "
+"istnieją wstrzymani agenci, którzy mogą stać się dostępni."
 
 #: views/form.php:1865
 msgid "Service Level"
-msgstr ""
+msgstr "Poziom usług"
 
 #: queues.i18n.php:22
 msgid "Set Agent Name in CDR dstchannel"
-msgstr ""
+msgstr "Ustawianie nazwy agenta w CDR dstchannel"
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
-msgstr ""
+msgstr "Ustaw to zadanie aby było wykonywane losowo"
 
 #: views/form.php:1838
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
 "yes, no, or only once; hold time will not be announced if <1 minute"
 msgstr ""
+"Czy powinniśmy uwzględniać szacowany czas oczekiwania w zapowiedziach o "
+"stanowiskach?  Albo tak, albo nie, albo tylko raz; Czas wstrzymania nie "
+"zostanie zapowiedziany jeśli <1 minuta"
 
 #: views/form.php:1063
 msgid "Skip Busy Agents"
-msgstr ""
+msgstr "Pomiń zajętych agentów"
 
 #: views/form.php:274
 msgid ""
 "Some ring strategies (linear, round robin) require Asterisk to be restarted "
 "for changes to take effect."
 msgstr ""
+"Niektóre strategie dzwonienia (liniowe, round robin) wymagają ponownego "
+"uruchomienia Asterisk aby zmiany zaczęły obowiązywać."
 
 #: views/form.php:1210
 msgid "Static Agents"
-msgstr ""
+msgstr "Statyczni agenci"
 
 #: views/form.php:1231
 msgid ""
@@ -1126,31 +1149,50 @@ msgid ""
 "will have problems with subsequent transfers to voicemail and other issues "
 "may also exist."
 msgstr ""
+"Agenci statyczni to numery wewnętrzne, które zawsze znajdują się w kolejce. "
+"Agenci statyczni nie muszą \"logować się\" do kolejki i nie mogą się z niej "
+"wylogowywać. <br><br>Wyświetl listę numerów wewnętrznych, po jednym w "
+"wierszu.<br><br>Numer wewnętrzny można dodać jako wewnętrzny zdalny lub "
+"numer zewnętrzny (musi być zdefiniowana prawidłowa trasa wychodząca dla "
+"numerów zewnętrznych). Możesz umieścić \",\" po agencie, a następnie wartość "
+"kary, zapoznaj się z dokumentacją Asterisk dotycząca kar.<br /><br /> Dodano "
+"tryb zaawansowany, który pozwala na poprzedzenie numeru agenta znakiem S, P, "
+"X, Z, D lub A. Wymusi to wybranie numeru agenta jako urządzenia Asterisk "
+"odpowiednio typu SIP, PJSIP, IAX2, ZAP, DAHDi lub Agent. Ten tryb jest "
+"przeznaczony dla zaawansowanych użytkowników i może powodować znane problemy "
+"w FreePBX, ponieważ omija normalny dialplan. Jeśli \"Ograniczenia agenta\" "
+"nie są ustawione na \"Tylko numer wewnętrzny\", będziesz mieć problemy z "
+"kolejnymi transferami do poczty głosowej i mogą również wystąpić inne "
+"problemy."
 
 #: views/cron.php:20
 msgid "Stats Reset"
-msgstr ""
+msgstr "Reset statystyk"
 
 #: views/form.php:392 views/form.php:401 views/form.php:1312
 #: views/form.php:1647 views/form.php:1681
 msgid "Strict"
-msgstr ""
+msgstr "Dokładnie"
 
 #: Queues.class.php:211
 msgid "Submit"
-msgstr ""
+msgstr "Zatwierdź"
 
 #: views/form.php:1778
 msgid ""
 "The absolute minimum time between the start of each queue position and/or "
 "estimated holdtime announcement"
 msgstr ""
+"Absolutne minimum czasu między rozpoczęciem każdej pozycji w kolejce i/lub "
+"zapowiedzią szacowanego czasu wstrzymania"
 
 #: views/form.php:1293
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
 "pulled out.  (0 for unlimited)."
 msgstr ""
+"Maksymalna liczba sekund, przez jaką dzwoniący może czekać w kolejce, zanim "
+"zostanie wyciągnięty.  (0 dla nieograniczonego)."
 
 #: views/form.php:1348
 msgid ""
@@ -1158,6 +1200,10 @@ msgid ""
 "timeout. Unlimited or other timeout values may still be limited by system "
 "ringtime or individual extension defaults."
 msgstr ""
+"Liczba sekund, przez którą telefon agenta może zadzwonić, zanim uznamy to za "
+"przekroczenie limitu czasu. Nieograniczone lub inne wartości limitu czasu "
+"mogą być nadal ograniczone przez systemowy czas dzwonienia lub indywidualne "
+"ustawienia domyślne numeru wewnętrznego."
 
 #: views/form.php:1404
 msgid ""
@@ -1166,6 +1212,10 @@ msgid ""
 "as the first attempted agent times-out, additional agents will not be "
 "attempted."
 msgstr ""
+"Liczba sekund oczkeiwania przed ponowieniem dzwonienia na wszystkie "
+"telefony. Wybranie opcji \"Bez ponawiania\" spowoduje wykolejki i przejście "
+"do miejsca docelowego trybu failover, gdy tylko pierwszy agent przekroczy "
+"limit czasu,  kolejni agenci nie będą wywoływani."
 
 #: views/form.php:1599
 msgid ""
@@ -1177,57 +1227,71 @@ msgid ""
 "they will then be auto paused. If they have taken no calls, this will have "
 "no affect."
 msgstr ""
+"To ustawienie opóźni automatyczne wstrzymanie agenta przez opóźnienie "
+"automatycznego wstrzymania o sekundy od ostatniego nawiązania połączenia. "
+"Jeśli na przykład zostanie to ustawione na 120 sekund, a nowe połączenie "
+"zostanie przedstawione agentowi 90 sekund po ostatnim odebraniu połączenia, "
+"nie zostanie ono automatycznie wstrzymane, jeśli nie odbierze połączenia. "
+"Jeśli zostanie nawiązane połączenie 120 sekund lub później po odebraniu "
+"ostatniego połączenia, zostanie ono automatycznie wstrzymane. Jeśli nie "
+"odebrali telefonów, nie będzie to miało żadnego wpływu."
 
 #: views/form.php:1754
 msgid "This value is ignored if the caller's position changes"
-msgstr ""
+msgstr "Ta wartość jest ignorowana, jeśli zmieni się pozycja dzwoniącego"
 
 #: views/form.php:704
 msgid "Timing & Agent Options"
-msgstr ""
+msgstr "Opcje czasowe i agentów"
 
 #: views/form.php:393 views/form.php:402 views/form.php:1649
 #: views/form.php:1683
 msgid "Ultra Strict"
-msgstr ""
+msgstr "Ultra dokładnie"
 
 #: views/form.php:345 views/form.php:363
 msgid "Unlimited"
-msgstr ""
+msgstr "Nieograniczony"
 
 #: queues.i18n.php:26
 msgid "Use MixMonitor for Recordings"
-msgstr ""
+msgstr "Używanie aplikacji MixMonitor do nagrań"
 
 #: functions.inc/hook_core.php:36
 msgid "Use State"
-msgstr ""
+msgstr "Użyj stanu"
 
 #: views/form.php:757
 msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
 "to put them into the queue"
 msgstr ""
+"Użyj tego numeru, aby zadzwonić do kolejki, lub przekieruj dzwoniących na "
+"ten numer, aby umieścić ich w kolejce"
 
 #: views/form.php:1879
 msgid ""
 "Used for service level statistics (calls answered within service level time "
 "frame)"
 msgstr ""
+"Służy do statystyk poziomu usług (połączenia odebrane w ramach czasowych "
+"poziomu usługi)"
 
 #: assets/js/queues.js:29
 msgid ""
 "Using a Regex filter is fairly advanced, please confirm you know what you "
 "are doing or leave this blank"
 msgstr ""
+"Korzystanie z filtra wyrażeń regularnych jest dość zaawansowane, upewnij "
+"się, że wiesz, co robisz, lub pozostaw to pole puste"
 
 #: views/form.php:847
 msgid "Wait Time Prefix"
-msgstr ""
+msgstr "Prefiks czasu oczekiwania"
 
 #: Queues.class.php:145
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Ostrzeżenie! Numer wewnętrzny"
 
 #: functions.inc/queue_conf.php:219
 msgid ""
@@ -1235,18 +1299,22 @@ msgid ""
 "configurations. Queues can not play these so they have been truncated to the "
 "first sound file. You should correct this problem.<br />Details:<br /><br />"
 msgstr ""
+"Ostrzeżenie, istnieją nagrania złożone skonfigurowane w co najmniej jednej "
+"konfiguracji kolejki. Kolejki nie mogą ich odtwarzać, więc zostały "
+"ograniczone do pierwszego pliku dźwiękowego. Powinieneś rozwiązać ten "
+"problem.<br />Szczegóły:<br /><br />"
 
 #: views/cron.php:61
 msgid "Weekly"
-msgstr ""
+msgstr "Tygodniowy"
 
 #: views/form.php:199
 msgid "When No Free Agents"
-msgstr ""
+msgstr "Gdy nie ma wolnych agentów"
 
 #: views/form.php:200
 msgid "When No Ready Agents"
-msgstr ""
+msgstr "Gdy nie ma gotowych agentów"
 
 #: views/form.php:998
 msgid ""
@@ -1265,6 +1333,25 @@ msgid ""
 "the call will simply be blocked when the queue tries to call it. For dynamic "
 "agents, see the 'Agent Regex Filter' to provide some validation."
 msgstr ""
+"Po ustawieniu opcji \"Zadzwoń jako wybrane\" kolejka będzie dzwonić pod "
+"numer wewnętrzny, tak jakby kolejka była innym użytkownikiem. Wszystkie "
+"stany Follow-Me lub Call Forward aktywne w numerze wewnętrznym spowodują, że "
+"wywołanie kolejki będzie podążać za tymi ścieżkami wywołań. To zachowanie "
+"było standardowym zachowaniem kolejki w poprzednich wersjach FreePBX. <br/>"
+"Po ustawieniu opcji \"Bez śledzenia mnie lub przekazywania połączeń\" "
+"wszyscy agenci, którzy są numerami wewnętrznymi w systemie, będą ograniczeni "
+"tylko do dzwonienia na swoje numery wewnętrzne. Ustawienia Follow Me i Call "
+"Forward zostaną zignorowane. Każdy inny agent zostanie wywołany zgodnie z "
+"wydzwanianiem. To zachowanie jest podobne do sposobu wybierania numerów "
+"wewnętrznych w grupach kontaktowych. <br/> Po ustawieniu opcji \"Tylko "
+"numery wewnętrzne\" kolejka będzie wybierać numery wewnętrzne zgodnie z "
+"opisem w sekcji \"Brak śledzenia lub przekierowania połączeń\". Każdy inny "
+"numer wprowadzony dla agenta, który NIE jest prawidłowym numerem "
+"wewnętrznym, zostanie zignorowany. Nie są sprawdzane żadne błędy podczas "
+"wprowadzania agenta statycznego lub logowania jako agent dynamiczny, "
+"wywołanie zostanie po prostu zablokowane, gdy kolejka spróbuje je wywołać. W "
+"przypadku agentów dynamicznych zobacz \"Filtr wyrażeń regularnych agenta\" "
+"dla zapewnienie walidacji."
 
 #: views/form.php:1087
 msgid ""
@@ -1289,12 +1376,38 @@ msgid ""
 "until that call is terminated as the call still appears as 'inuse' to the "
 "queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
 msgstr ""
+"Po ustawieniu opcji \"Tak\" agenci, którzy korzystają z zajętego telefonu, "
+"zostaną pominięci tak, jakby linia wracała zajęta. Oznacza to, że połączenie "
+"oczekujące lub telefony wieloliniowe nie będą prezentowane z połączeniem, a "
+"w różnych strategiach dzwonienia w stylu polowania zostanie podjęta próba "
+"połączenia do następnego agenta. <br /> Po ustawieniu na \"Tak + "
+"(ringinuse=no)\" w konfiguracji kolejki \"ringinuse=no\" jest ustawiana dla "
+"tej kolejki, oprócz monitorowania stanu urządzenia (telefonu).  Powoduje to, "
+"że kolejka śledzi agentów zdalnych (agentów, którzy są zdalnym telefonem "
+"PSTN, wywoływanych za pośrednictwem funkcji Follow-Me i w inny sposób), a "
+"także agentów podłączonych do centrali PBX, więc kolejka nie będzie "
+"próbowała wysłać kolejnego połączenia, jeśli są już w trakcie połączenia z "
+"dowolnej kolejki. <br /> Po ustawieniu na 'Tylko wywołania kolejki "
+"(ringinuse=no)' flaga konfiguracji kolejki 'ringinuse=no' jest również "
+"ustawiona dla tej kolejki, ale stan urządzenia lokalnie podłączonych agentów "
+"nie jest monitorowany. Zachowanie polega na ograniczeniu agenta należącego "
+"do co najmniej jednej kolejki do jednego wywołania kolejki. Jeśli są one "
+"zajęte przez inne połączenia, takie jak zainicjowane połączenia wychodzące, "
+"kolejka uzna je za dostępne i zadzwoni, ponieważ stan urządzenia nie jest "
+"monitorowany za pomocą tej opcji.  <br /><br />UWAGA: Podczas korzystania z "
+"ustawień, które ustawiają flagę \"ringinuse=no\", występuje NEGATYWNY efekt "
+"uboczny. Agent, który przekaże wywołanie w kolejce, pozostanie niedostępny w "
+"żadnej kolejce, dopóki to połączenie nie zostanie zakończone, ponieważ "
+"połączenie nadal jest wyświetlane w kolejce jako \"nieużywane\", CHYBA że \""
+"Ograniczenia agenta\" są ustawione na \"Tylko numery wewnętrzne\"."
 
 #: views/form.php:667
 msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
 msgstr ""
+"Po ustawieniu wartości TAK zostanie wygenerowane następujące zdarzenie "
+"menedżera: QueueMemberStatus"
 
 #: views/form.php:1546
 msgid ""
@@ -1302,6 +1415,10 @@ msgid ""
 "considered as a missed call and auto paused immediately or after the auto "
 "pause delay if configured"
 msgstr ""
+"Po ustawieniu wartości TAK urządzenia agentów, które zgłaszają zajętość po "
+"próbie połączenia, będą traktowane jako nieodebrane połączenie i "
+"automatycznie wstrzymywane natychmiast lub po osiągnięciu opóźnienia "
+"automatycznego wstrzymania (jeśli tak to  zostało skonfigurowane)"
 
 #: views/form.php:1575
 msgid ""
@@ -1309,6 +1426,10 @@ msgid ""
 "will be considered as a missed call and auto paused immediately or after the "
 "auto pause delay if configured"
 msgstr ""
+"Po ustawieniu wartości TAK urządzenia agentów, które zgłaszają przeciążenie "
+"po próbie połączenia, będą traktowane jako nieodebrane połączenie i "
+"automatycznie wstrzymywane natychmiast lub po osiągnięciu opóźnienia "
+"automatycznego wstrzymania (jeśli tak to  zostało skonfigurowane)"
 
 #: views/form.php:863
 msgid ""
@@ -1317,21 +1438,29 @@ msgid ""
 "be rounded to the nearest minute, in the form of Mnn: where nn is the number "
 "of minutes."
 msgstr ""
+"Po ustawieniu wartości TAK nazwa identyfikatora CID będzie poprzedzona "
+"całkowitym czasem oczekiwania w kolejce, dzięki czemu odbierający połączenie "
+"agent będzie wiedział, jak długo dzwoniący czekał. Zostanie ona zaokrąglona "
+"do najbliższej minuty, w postaci Mnn: gdzie nn jest liczbą minut."
 
 #: views/form.php:635
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
+"Gdy ta opcja jest ustawiona na TAK, zostaną wygenerowane następujące "
+"zdarzenia menedżera: AgentCalled, AgentDump, AgentConnect i AgentComplete."
 
 #: views/cron.php:96
 msgid ""
 "When to schedule this job. Note enabling 'Random' overrides these settings"
 msgstr ""
+"Kiedy należy zaplanować to zadanie. Uwaga: włączenie opcji \"Losowo\" "
+"zastępuje to ustawienie"
 
 #: views/form.php:1195
 msgid "Where calls should fail to"
-msgstr ""
+msgstr "Gdzie połączenia powinny zakończyć się niepowodzeniem"
 
 #: views/form.php:454
 msgid ""
@@ -1339,6 +1468,9 @@ msgid ""
 "Callbacks can also be achieved through an IVR, but requires extra "
 "configuration."
 msgstr ""
+"Czy ta kolejka korzysta z menu przerwania IVR albo callback kolejki.  "
+"Callback kolejki można również osiągnąć przez IVR, ale wymaga to dodatkowej "
+"konfiguracji."
 
 #: views/form.php:939
 #, php-format
@@ -1347,10 +1479,13 @@ msgid ""
 "enabled, Ringer Volume value will set based on the 'Ringer Volume Override "
 "Mode(RVOM)'."
 msgstr ""
+"Podczas dystrybucji połączeń w kolejce każdy członek ma włączone FM/FM ("
+"Znajdź mnie/Podążaj za mną), wartość głośności dzwonka zostanie ustawiona na "
+"podstawie \"Trybu nadpisywania głośności dzwonka (RVOM)\"."
 
 #: views/form.php:1416
 msgid "Wrap-Up-Time"
-msgstr ""
+msgstr "Czas Wrap-Up"
 
 #: views/cron.php:26 views/cron.php:55 views/form.php:19 views/form.php:116
 #: views/form.php:391 views/form.php:400 views/form.php:625 views/form.php:657
@@ -1360,19 +1495,19 @@ msgstr ""
 #: views/form.php:1565 views/form.php:1645 views/form.php:1679
 #: views/form.php:1797 views/form.php:1826
 msgid "Yes"
-msgstr ""
+msgstr "Tak"
 
 #: views/form.php:1072
 msgid "Yes + (ringinuse=no)"
-msgstr ""
+msgstr "Tak + (ringinuse=no)"
 
 #: views/form.php:1504
 msgid "Yes in all queues"
-msgstr ""
+msgstr "Tak we wszystkich kolejkach"
 
 #: views/form.php:1504
 msgid "Yes in this queue only"
-msgstr ""
+msgstr "Tak tylko w tej kolejce"
 
 #: views/form.php:835
 msgid ""
@@ -1380,6 +1515,10 @@ msgid ""
 "you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
 "John Doe\" on the extensions that ring."
 msgstr ""
+"Opcjonalnie można poprzedzić prefiksem nazwę CallerID dzwoniącego do "
+"kolejki. Tj.: Jeśli poprzedzisz prefiksem \"Sprzedaż:\", wywołanie od Jana "
+"Kowalskiego będzie wyświetlane jako \"Sprzedaż:Jan Kowalski\" na dzwoniących "
+"numerach wewnętrznych."
 
 #: views/form.php:522
 msgid ""
@@ -1388,123 +1527,139 @@ msgid ""
 "Recording set for the IVR will be played at intervals specified in 'Repeat "
 "Frequency', below."
 msgstr ""
+"Opcjonalnie możesz zaprezentować istniejący IVR jako menu \"break-out\". "
+"<br><br>Ten IVR może zawierać tylko jednocyfrowe \"wybierane opcje\". Zestaw "
+"nagrywania dla IVR będzie odtwarzany w odstępach czasu określonych w \""
+"Częstotliwości powtarzania\" poniżej."
 
 #: views/form.php:94
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
 msgstr ""
+"Możesz wymagać od agentów wprowadzenia hasła, zanim będą mogli zalogować się "
+"do tej kolejki. <br><br>To ustawienie jest opcjonalne."
 
 #: functions.inc.php:31
 msgid "day"
-msgstr ""
+msgstr "dzień"
 
 #: views/form.php:306
 msgid "default"
-msgstr ""
+msgstr "domyślny"
 
 #: views/form.php:268
 msgid "fewestcalls"
-msgstr ""
+msgstr "najmniejsza liczba połączeń"
 
 #: functions.inc.php:32
 msgid "hour"
-msgstr ""
+msgstr "godzina"
 
 #: functions.inc.php:32
 msgid "hours"
-msgstr ""
+msgstr "godziny"
 
 #: views/form.php:304
 msgid "inherit"
-msgstr ""
+msgstr "odziedzicz"
 
 #: Queues.class.php:145
 msgid "is not allowed for your account."
-msgstr ""
+msgstr "nie jest dozwolona na Twoim koncie."
 
 #: views/form.php:267
 msgid "leastrecent"
-msgstr ""
+msgstr "najnowsze"
 
 #: views/form.php:272
 msgid "linear"
-msgstr ""
+msgstr "liniowy"
 
 #: functions.inc.php:33
 msgid "minute"
-msgstr ""
+msgstr "minuta"
 
 #: functions.inc.php:33
 msgid "minutes"
-msgstr ""
+msgstr "minuty"
 
 #: views/form.php:305
 msgid "none"
-msgstr ""
+msgstr "żaden"
 
 #: views/form.php:269
 msgid "random"
-msgstr ""
+msgstr "losowy"
 
 #: views/form.php:273
 msgid ""
 "random using the member's penalty as a weighting factor, see asterisk "
 "documentation for specifics"
 msgstr ""
+"losowo wykorzystujący karę członka jako współczynnik wagiowy, szczegółowe "
+"informacje można znaleźć w dokumentacji Asterisk"
 
 #: views/form.php:267
 msgid "ring agent which was least recently called by this queue"
-msgstr ""
+msgstr "agent dzwoniący, który został ostatnio wywołany przez tę kolejkę"
 
 #: views/form.php:266
 msgid "ring all available agents until one answers (default)"
 msgstr ""
+"Dzwoń do wszystkich dostępnych agentów, dopóki jeden z nich nie odbierze "
+"(domyślnie)"
 
 #: views/form.php:269
 msgid "ring random agent"
-msgstr ""
+msgstr "Dzwoń do losowego agenta"
 
 #: views/form.php:268
 msgid "ring the agent with fewest completed calls from this queue"
-msgstr ""
+msgstr "Dzwoń do agenta z najmniejszą liczbą ukończonych połączeń w tej kolejce"
 
 #: views/form.php:266
 msgid "ringall"
-msgstr ""
+msgstr "Dzwoń do wszystkich"
 
 #: views/form.php:272
 msgid ""
 "rings agents in the order specified, for dynamic agents in the order they "
 "logged in"
 msgstr ""
+"dzwoni do agentów w określonej kolejności, a do agentów dynamicznych według "
+"kolejności w jakiej się zalogowali"
 
 #: views/form.php:270
 msgid "round robin with memory, remember where we left off last ring pass"
 msgstr ""
+"Round robin z pamięcią, zapamiętuje miejsce zakończona ostatniej rozmowa w "
+"round robin"
 
 #: views/form.php:270
 msgid "rrmemory"
-msgstr ""
+msgstr "round robin z pamięcią"
 
 #: views/form.php:271
 msgid "rrordered"
-msgstr ""
+msgstr "Round robin w kolejności"
 
 #: views/form.php:271
 msgid ""
 "same as rrmemory, except the queue member order from config file is preserved"
 msgstr ""
+"tak samo jak round robin z pamięcią, z tą różnicą, że kolejność agentów "
+"kolejki z pliku konfiguracyjnego jest zachowana"
 
 #: functions.inc.php:34
 msgid "second"
-msgstr ""
+msgstr "sekunda"
 
 #: functions.inc.php:17 functions.inc.php:34 views/form.php:347
 #: views/form.php:350 views/form.php:371 views/form.php:377 views/form.php:386
 msgid "seconds"
-msgstr ""
+msgstr "sekundy"
 
 #: views/form.php:273
 msgid "wrandom"
-msgstr ""
+msgstr "z losowym"
