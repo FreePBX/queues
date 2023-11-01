@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-26 06:29+0000\n"
-"PO-Revision-Date: 2023-11-01 14:30+0000\n"
+"PO-Revision-Date: 2023-11-02 15:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/queues/pl/"
 ">\n"
@@ -672,7 +672,7 @@ msgstr "Lista kolejek"
 #: views/form.php:395 views/form.php:403 views/form.php:1314
 #: views/form.php:1653 views/form.php:1687
 msgid "Loose"
-msgstr "Loose"
+msgstr "Stracony"
 
 #: views/form.php:1155
 msgid "Mark calls answered elsewhere"
@@ -700,11 +700,11 @@ msgstr "Opóźnienie członka"
 
 #: views/form.php:651
 msgid "Member Status Event"
-msgstr "Member Status Event"
+msgstr "Status zdarzenia członka"
 
 #: queues.i18n.php:34
 msgid "Member Status Event Default"
-msgstr "Member Status Event Default"
+msgstr "Domyślny status zdarzenia członka"
 
 #: views/form.php:481 views/form.php:485
 msgid "Menu ID "
