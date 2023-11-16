@@ -224,9 +224,7 @@ function queues_add(
 		"userEvent" => "update-queue-contacts",
 		"reloadQueue" => $action == "add" ? '1' : '0',
 		"queueId" => $account,
-		"queueName" => $descr,
-		"staticMembers" => json_encode($members),
-		"dynamicMembers" => json_encode($dynmembers)
+		"queueName" => $descr
 	));
 	return true;
 }
