@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-26 06:29+0000\n"
-"PO-Revision-Date: 2023-11-02 15:00+0000\n"
+"PO-Revision-Date: 2023-11-18 16:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/queues/pl/"
 ">\n"
@@ -48,7 +48,7 @@ msgstr ""
 
 #: views/qgrid.php:16
 msgid "Actions"
-msgstr "Akcje"
+msgstr "Działania"
 
 #: views/bootnav.php:3 views/qgrid.php:9
 msgid "Add Queue"
