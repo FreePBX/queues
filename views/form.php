@@ -23,7 +23,7 @@ foreach ($options as $disp => $rname) {
         } else {
                 $checked = "";
         }
-        $rvolmode_opts = "<input type='radio' id='rvolmode_${rname}' name='rvol_mode' value='$rname' $checked><label for='rvolmode_${rname}'>$disp</label>";
+        $rvolmode_opts = "<input type='radio' id='rvolmode_{$rname}' name='rvol_mode' value='$rname' $checked><label for='rvolmode_{$rname}'>$disp</label>";
 }
 
 //Rvol mode ENDS here
