@@ -571,11 +571,11 @@ function queues_get_config($engine) {
 			// agent should be delivered to. All queue calls come here, this decides if the should go direct to from-internal
 			// or indirectly through from-queue-exten-only to trap extension calls and avoid their follow-me, etc.
 			//
-			$ext->add('from-queue', '_.', '', new ext_setvar('QAGENT','${EXTEN}'));
-			$ext->add('from-queue', '_.', '', new ext_setvar('__FROMQ','true')); //see below comments
-			$ext->add('from-queue', '_.', '', new ext_gotoif('$["${LEN(${NODEST})}" = "0"]', 'hangup')); //prevent infinite loop
-			$ext->add('from-queue', '_.', '', new ext_gotoif('$["${DIALPLAN_EXISTS(from-queue,${NODEST},1)}" = "1"]', '${NODEST},1', 'hangup'));
-			$ext->add('from-queue', '_.', 'hangup', new ext_macro('hangupcall'));
+			$ext->add('from-queue', '_X.', '', new ext_setvar('QAGENT','${EXTEN}'));
+			$ext->add('from-queue', '_X.', '', new ext_setvar('__FROMQ','true')); //see below comments
+			$ext->add('from-queue', '_X.', '', new ext_gotoif('$["${LEN(${NODEST})}" = "0"]', 'hangup')); //prevent infinite loop
+			$ext->add('from-queue', '_X.', '', new ext_gotoif('$["${DIALPLAN_EXISTS(from-queue,${NODEST},1)}" = "1"]', '${NODEST},1', 'hangup'));
+			$ext->add('from-queue', '_X.', 'hangup', new ext_macro('hangupcall'));
 			//catch all hangup
 			$ext->add('from-queue', 'h', '', new ext_macro('hangupcall'));
 
