@@ -531,7 +531,7 @@ if(function_exists('vqplus_callback_get')) {
 	$cbs = is_array($cbs)?$cbs:[];
 	$vqcbopts = '';
 	foreach ($cbs as $cb) {
-		$vqcbopts .= '<option value="'.$cb['id'].'" '.($callback == $cb['id'] ? 'SELECTED' : '').'>'.$cb['name']."</option>";
+		$vqcbopts .= '<option value="'.$cb['id'].'" '.((isset($callback) && $callback == $cb['id']) ? 'SELECTED' : '').'>'.$cb['name']."</option>";
 	}
 	$vqcbhtml ='
 	<!--Queue Callback-->
