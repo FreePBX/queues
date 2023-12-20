@@ -61,7 +61,7 @@ function queues_add(
      //if no, play no sound
      [$account, 'queue-thankyou', ($_REQUEST['announceposition']=='no')?'':'queue-thankyou', 0],
      //if no, play no sound
-     [$account, 'periodic-announce-frequency', $_REQUEST['pannouncefreq'] ?: '0', 0],
+     [$account, 'periodic-announce-frequency', $_REQUEST['pannouncefreq'] ?? '0', 0],
      [$account, 'recording', $_REQUEST['recording'] ?: 'dontcare', 0],
      [$account, 'monitor-join', 'yes', 0],
      [$account, 'weight', $_REQUEST['weight'] ?? '0', 0],
