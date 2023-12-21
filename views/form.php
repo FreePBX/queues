@@ -682,8 +682,8 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 <input type="hidden" name="extdisplay" value="<?php echo $extdisplay ?>">
 <input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
 <div class="nav-container">
-	<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
-	<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+	<div class="scroller scroller-left"><i class="fa fa-chevron-left"></i></div>
+	<div class="scroller scroller-right"><i class="fa fa-chevron-right"></i></div>
 	<div class="wrapper">
 		<ul class="nav nav-tabs list" role="tablist">
 			<li role="presentation" data-name="qgeneral" class="active">
