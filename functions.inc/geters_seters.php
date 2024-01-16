@@ -213,7 +213,7 @@ function queues_add(
 	}
 
 	$action = $_REQUEST['action'] ?? '';
-	$res =  $astman->send_request("UserEvent", ["userEvent" => "update-queue-contacts", "reloadQueue" => $action == "add" ? '1' : '0', "queueId" => $account, "queueName" => $descr, "staticMembers" => json_encode($members, JSON_THROW_ON_ERROR), "dynamicMembers" => json_encode($dynmembers, JSON_THROW_ON_ERROR)]);
+	$res =  $astman->send_request("UserEvent", ["userEvent" => "update-queue-contacts", "reloadQueue" => $action == "add" ? '1' : '0', "queueId" => $account, "queueName" => $descr]);
 	return true;
 }
 
