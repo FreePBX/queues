@@ -213,7 +213,12 @@ function queues_add(
 	}
 
 	$action = $_REQUEST['action'] ?? '';
-	$res =  $astman->send_request("UserEvent", ["userEvent" => "update-queue-contacts", "reloadQueue" => $action == "add" ? '1' : '0', "queueId" => $account, "queueName" => $descr]);
+	$res =  $astman->send_request("UserEvent", [
+		"userEvent" => "update-queue-contacts",
+		"reloadQueue" => $action == "add" ? '1' : '0',
+		"queueId" => $account,
+		"queueName" => $descr
+	]);
 	return true;
 }
 
