@@ -4,7 +4,9 @@ use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
 	public function runRestore(){
 		global $astman;
-		$astman->database_deltree("QPENALTY");
+		if($astman->connected()){
+			$astman->database_deltree("QPENALTY");
+		}
 		$configs = $this->getConfigs();
 		$this->importAll($configs);
 	}
@@ -20,7 +22,9 @@ class Restore Extends Base\RestoreBase{
 				];
 			}
 		}
-		$astman->database_deltree("QPENALTY");
+		if($astman->connected()){
+			$astman->database_deltree("QPENALTY");
+		}
 		$this->importAstDB($queuePenalty);
 	}
 }
