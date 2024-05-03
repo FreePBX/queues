@@ -25,6 +25,6 @@ class Restore Extends Base\RestoreBase{
 		if($astman->connected()){
 			$astman->database_deltree("QPENALTY");
 		}
-		$this->importAstDB($queuePenalty);
+		$this->importAstDB($queuePenalty ?? '');
 	}
 }
