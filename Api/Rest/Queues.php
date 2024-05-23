@@ -18,6 +18,7 @@ class Queues extends Base {
          * @returns - the queue list
          * @uri     /queues
          */
+        $freepbx = $this->freepbx;
         $app->get('/', function($request, $response, $args) {
             $list = [];
             $queues = queues_list();
@@ -29,7 +30,9 @@ class Queues extends Base {
                 $list[$queue[0]] = $entry;
             }
 
-            return $response->withJson(!empty($list) ? $list : false);
+            $list = !empty($list) ? $list : false;
+            $response->getBody()->write(json_encode($list));
+            return $response->withHeader('Content-Type', 'application/json');
         })->add($this->checkAllReadScopeMiddleware());
 
         /**
@@ -37,11 +40,11 @@ class Queues extends Base {
          * @returns - a list of queues with their members (static and dynamic)
          * @uri     /queues/members
          */
-        $app->get('/members', function($request, $response, $args) {
+        $app->get('/members', function($request, $response, $args) use($freepbx) {
             $list = [];
 
             // Get dynamic members priority from astdb
-            $get = $this->freepbx->astman->database_show('QPENALTY');
+            $get = $freepbx->astman->database_show('QPENALTY');
             if ($get) {
                 foreach ($get as $key => $value) {
                     $keys = explode('/', $key);
@@ -64,7 +67,9 @@ class Queues extends Base {
                 }
             }
 
-            return $response->withJson(!empty($list) ? $list : false);
+            $list = !empty($list) ? $list : false;
+            $response->getBody()->write(json_encode($list));
+            return $response->withHeader('Content-Type', 'application/json');
         })->add($this->checkAllReadScopeMiddleware());
 
         /**
@@ -75,7 +80,8 @@ class Queues extends Base {
         $app->get('/members/{id}', function($request, $response, $args) {
             $queue = queues_get($args['id']);
             if (!$queue) {
-                return $response->withJson(false);
+                $response->getBody()->write(json_encode(false));
+                return $response->withHeader('Content-Type', 'application/json');
             }
 
             $queue_members = ['dynmembers' => [],
@@ -97,7 +103,8 @@ class Queues extends Base {
                 }
             }
 
-            return $response->withJson($queue_members);
+            $response->getBody()->write(json_encode($queue_members));
+            return $response->withHeader('Content-Type', 'application/json');
         })->add($this->checkAllReadScopeMiddleware());
 
         /**
@@ -105,11 +112,12 @@ class Queues extends Base {
          * @returns - the result of setting queues members
          * @uri     /queues/members/:id
          */
-        $app->put('/members/{id}', function($request, $response, $args) {
+        $app->put('/members/{id}', function($request, $response, $args) use($freepbx) {
             // Get queue
             $queue = queues_get($args['id']);
             if (empty($queue)) {
-                return $response->withJson(false);
+                $response->getBody()->write(json_encode(false));
+                return $response->withHeader('Content-Type', 'application/json');
             }
 
             $params = $request->getParsedBody();
@@ -195,9 +203,9 @@ class Queues extends Base {
                 }
 
                 // Update to DB
-                $this->freepbx->Database->query(sprintf("DELETE FROM queues_details WHERE id = '%s' AND keyword='member'",
+                $freepbx->Database->query(sprintf("DELETE FROM queues_details WHERE id = '%s' AND keyword='member'",
                                                         $args['id']));
-                $compiled = $this->freepbx->Database->prepare('INSERT INTO queues_details (id, keyword, data, flags) values (?,?,?,?)');
+                $compiled = $freepbx->Database->prepare('INSERT INTO queues_details (id, keyword, data, flags) values (?,?,?,?)');
                 array_walk($fields, function($field) use ($compiled) {
                     $compiled->execute($field);
                 });
@@ -208,32 +216,33 @@ class Queues extends Base {
                 $params['dynmembers'] = array_unique($params['dynmembers']);
 
                 // Get running dynmemberonly
-                $dynmemberonly = $this->freepbx->astman->database_get(sprintf('QPENALTY/%d',
+                $dynmemberonly = $freepbx->astman->database_get(sprintf('QPENALTY/%d',
                                                                               $args['id']),
                                                                       'dynmemberonly');
 
                 // Restore dyn agents
-                $this->freepbx->astman->database_deltree(sprintf('QPENALTY/%d', $args['id']));
+                $freepbx->astman->database_deltree(sprintf('QPENALTY/%d', $args['id']));
 
                 // Set dyn agents
                 foreach ($params['dynmembers'] as $member) {
                     $mem = explode(',', $member);
                     if (isset($mem[0]) && trim($mem[0]) != '') {
                         $penalty = isset($mem[1]) && ctype_digit(trim($mem[1])) ? $mem[1] : 0;
-                        $this->freepbx->astman->database_put(sprintf('QPENALTY/%d/agents',
+                        $freepbx->astman->database_put(sprintf('QPENALTY/%d/agents',
                                                                      $args['id']), trim($mem[0]),
                                                              trim($penalty));
                     }
                 }
 
                 // Restore dynmemberonly
-                $this->freepbx->astman->database_put(sprintf('QPENALTY/%d', $args['id']),
+                $freepbx->astman->database_put(sprintf('QPENALTY/%d', $args['id']),
                                                      'dynmemberonly',
                                                      $dynmemberonly ? $dynmemberonly : 0);
             }
 
             needreload();
-            return $response->withJson(true);
+            $response->getBody()->write(json_encode(true));
+            return $response->withHeader('Content-Type', 'application/json');
         })->add($this->checkAllReadScopeMiddleware());
 
         /**
@@ -263,7 +272,8 @@ class Queues extends Base {
             }
 
             $queue = $queue ? $queue : false;
-            return $response->withJson($queue);
+            $response->getBody()->write(json_encode($queue));
+            return $response->withHeader('Content-Type', 'application/json');
         })->add($this->checkAllReadScopeMiddleware());
     }
 
