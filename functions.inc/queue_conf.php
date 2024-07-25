@@ -97,8 +97,6 @@ class queues_conf {
 			if($result[2] >0){
 				if(function_exists('vqplus_queue_announcement')){
 					$qannouncements = vqplus_queue_announcement($result[2]);
-				}else {
-					$qannouncements = 1;
 				}
 			}
 			$output .= "[".$result[0]."]\n";
