@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-13 04:42+0000\n"
+"POT-Creation-Date: 2024-07-25 09:15+0000\n"
 "PO-Revision-Date: 2015-11-12 12:43+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -75,10 +75,6 @@ msgstr "坐席公告消息"
 msgid "Agent Announcement"
 msgstr "坐席播报"
 
-#: queues.i18n.php:30
-msgid "Agent Called Events Default"
-msgstr ""
-
 #: views/form.php:1892
 msgid "Agent Regex Filter"
 msgstr "针对坐席的正则表达式过滤器"
@@ -103,7 +99,7 @@ msgstr "坐席超时重启"
 msgid "Alert Info"
 msgstr "警告信息"
 
-#: install.php:15 queues.i18n.php:42
+#: install.php:15
 msgid ""
 "Allow Dynamic Members of a Queue to login or logout. See the Queues Module "
 "for how to assign a Dynamic Member to a Queue."
@@ -162,10 +158,6 @@ msgstr ""
 #: views/cron.php:63
 msgid "Annually"
 msgstr "手动"
-
-#: queues.i18n.php:6
-msgid "Applications"
-msgstr ""
 
 #: views/form.php:1323
 msgid ""
@@ -272,16 +264,9 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "处理能力选项"
 
-#: functions.inc/queue_conf.php:226
+#: functions.inc/queue_conf.php:224
 msgid "Compound Recordings in Queues Detected"
 msgstr "在等待队列的配置中检测到了复合录音"
-
-#: queues.i18n.php:8
-msgid ""
-"Creates a queue where calls are placed on hold and answered on a first-in, "
-"first-out basis. Many options are available, including ring strategy for "
-"agents, caller announcements, max wait times, etc."
-msgstr ""
 
 #: views/cron.php:60
 msgid "Daily"
@@ -289,20 +274,6 @@ msgstr ""
 
 #: views/form.php:154
 msgid "Default"
-msgstr ""
-
-#: queues.i18n.php:32
-msgid ""
-"Default state for AMI emit events related to an agent's call. This setting "
-"will only affect the default for NEW queues, it won't change existing queues "
-"or enfore the option on in new ones."
-msgstr ""
-
-#: queues.i18n.php:36
-msgid ""
-"Default state for AMI to emit the QueueMemberStatus event. This setting will "
-"only affect the default for NEW queues, it won't change existing queues or "
-"enfore the option on in new ones."
 msgstr ""
 
 #: Queues.class.php:202
@@ -403,10 +374,6 @@ msgstr ""
 
 #: views/form.php:409
 msgid "Honor Penalties"
-msgstr ""
-
-#: queues.i18n.php:18
-msgid "Honor Wrapup Time Across Queues"
 msgstr ""
 
 #: views/cron.php:59
@@ -568,10 +535,6 @@ msgstr ""
 msgid "Member Status Event"
 msgstr "成员状态事件"
 
-#: queues.i18n.php:34
-msgid "Member Status Event Default"
-msgstr ""
-
 #: views/form.php:482 views/form.php:486
 msgid "Menu ID "
 msgstr "菜单ID.. "
@@ -659,11 +622,7 @@ msgstr ""
 msgid "Periodic Announcements"
 msgstr "循环语音播报"
 
-#: queues.i18n.php:12
-msgid "Persistent Members"
-msgstr ""
-
-#: install.php:29 queues.i18n.php:38
+#: install.php:29
 msgid "Playback Queue Caller Count"
 msgstr ""
 
@@ -694,7 +653,7 @@ msgstr "等待队列"
 msgid "Queue %s : %s"
 msgstr "等待队列 %s：%s"
 
-#: functions.inc/queue_conf.php:224
+#: functions.inc/queue_conf.php:222
 #, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "等待队列 - %s（%s）：%s<br />"
@@ -731,7 +690,7 @@ msgstr "等待队列号码不能为空"
 msgid "Queue Password"
 msgstr ""
 
-#: install.php:9 /usr/src/freepbx/queues/install.php:22 queues.i18n.php:40
+#: install.php:9 /usr/src/freepbx/queues/install.php:22
 msgid "Queue Pause Toggle"
 msgstr ""
 
@@ -768,46 +727,12 @@ msgstr "等待队列：%s"
 msgid "Queue: %s (%s)"
 msgstr "等待队列：%s（%s）"
 
-#: page.queues.php:7 queues.i18n.php:4 queues.i18n.php:10
+#: page.queues.php:7
 msgid "Queues"
 msgstr "等待队列"
 
-#: queues.i18n.php:14
-msgid "Queues Module"
-msgstr ""
-
 #: bin/queue_reset_stats.php:12
 msgid "Queues module not found or is disabled. Aborting!"
-msgstr ""
-
-#: queues.i18n.php:28
-msgid ""
-"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-"application instead of Monitor so the concept of 'joining/mixing' the in/out "
-"files now goes away when this is enabled."
-msgstr ""
-
-#: queues.i18n.php:16
-msgid ""
-"Queues: persistentmembers. Store each dynamic member in each queue in the "
-"astdb so that when asterisk is restarted, each member will be automatically "
-"read into their recorded queues."
-msgstr ""
-
-#: queues.i18n.php:20
-msgid ""
-"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
-"lastcall and calls received be the same in members logged in more than one "
-"queue. This is useful to make the queue respect the wrapuptime of another "
-"queue for a shared member."
-msgstr ""
-
-#: queues.i18n.php:24
-msgid ""
-"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
-"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
-"with an agent name, which is set if available at the login time with "
-"AddQueueMember membername parameter, or with static members."
 msgstr ""
 
 #: views/cron.php:84
@@ -909,10 +834,6 @@ msgstr ""
 
 #: views/form.php:1866
 msgid "Service Level"
-msgstr ""
-
-#: queues.i18n.php:22
-msgid "Set Agent Name in CDR dstchannel"
 msgstr ""
 
 #: views/cron.php:72
@@ -1031,10 +952,6 @@ msgstr ""
 msgid "Unlimited"
 msgstr "无限制"
 
-#: queues.i18n.php:26
-msgid "Use MixMonitor for Recordings"
-msgstr ""
-
 #: functions.inc/hook_core.php:36
 msgid "Use State"
 msgstr ""
@@ -1066,7 +983,7 @@ msgstr ""
 msgid "Warning! Extension"
 msgstr "警告！你的帐户无法使用分机"
 
-#: functions.inc/queue_conf.php:219
+#: functions.inc/queue_conf.php:217
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
 "configurations. Queues can not play these so they have been truncated to the "
