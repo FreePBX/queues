@@ -278,7 +278,12 @@ function queues_get_config($engine) {
 
 				// Queue(queuename[,options[,URL[,announceoverride[,timeout[,AGI[,macro[,gosub[,rule[,position]]]]]]]]])
 				//
-				$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, '', $agnc, $qmaxwait, $qagi, $qmacro, $qgosub, $qrule, $qposition));
+				if(version_compare($version,'21','ge')) {
+					$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, '', $agnc, $qmaxwait, $qagi, $qgosub, $qrule, $qposition));
+				} else {
+					$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, '', $agnc, $qmaxwait, $qagi, $qmacro, $qgosub, $qrule, $qposition));
+				}
+
 
 				if($q['use_queue_context'] != '2') {
 					$ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
