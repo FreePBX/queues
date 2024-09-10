@@ -303,7 +303,7 @@ function queues_get_config($engine) {
 					$ext->add($c, $exten, '', new ext_setvar('__ALT_CONFIRM_MSG', ''));
 				}
 
-				if($monitor_options != '') {
+				if(isset($monitor_options) && ($monitor_options != '')) {
 					$ext->add($c, $exten, '', new ext_setvar('MONITOR_OPTIONS', ''));
 				}
 				if ($q['cwignore'] == 1 || $q['cwignore'] == 2 ) {
