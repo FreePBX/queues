@@ -2,7 +2,7 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>17.0.1.12</version>
+	<version>17.0.1.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
@@ -10,7 +10,7 @@
 	<description>Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.</description>
   	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/24608891/Queues+Module</more-info>
 	<changelog>
-        	*17.0.1.12* bump 
+        	*17.0.1.13* bump 
         	*17.0.1.1* 17.0
 	</changelog>
 	<depends>
@@ -39,7 +39,7 @@
 		</table>
 		<table name="queues_config">
 			<field name="extension" type="string" length="20" default="" primaryKey="true"/>
-			<field name="descr" type="string" length="35" default=""/>
+			<field name="descr" type="string" length="254" default=""/>
 			<field name="grppre" type="string" length="100" default=""/>
 			<field name="alertinfo" type="string" length="254" default=""/>
 			<field name="ringing" type="boolean" default="0"/>
