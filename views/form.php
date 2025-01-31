@@ -12,18 +12,19 @@ if(isset($extdisplay) && $extdisplay != ''){
 	$accountInput = '<input type="text" name="account" id="account" class="form-control" value="" required>';
 }
 //Added for RVOL mode
-if (isset($rvol_mode) && $rvol_mode == "") {
+if (empty($rvol_mode)) {
         $rvol_mode = "dontcare";
 }
 
 $options = [_("Force") => "force", _("Yes") => "yes", _("Don't Care") => "dontcare", _("No") => "no", _("Never") => "never"];
+$rvolmode_opts = '';
 foreach ($options as $disp => $rname) {
         if (isset($rvol_mode) && $rvol_mode == $rname) {
                 $checked = "checked";
         } else {
                 $checked = "";
         }
-        $rvolmode_opts = "<input type='radio' id='rvolmode_{$rname}' name='rvol_mode' value='$rname' $checked><label for='rvolmode_{$rname}'>$disp</label>";
+        $rvolmode_opts .= "<input type='radio' id='rvolmode_{$rname}' name='rvol_mode' value='$rname' $checked><label for='rvolmode_{$rname}'>$disp</label>";
 }
 
 //Rvol mode ENDS here
