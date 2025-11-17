@@ -134,3 +134,18 @@ $set['name'] = 'Member Status Event Default';
 $set['description'] = 'Default state for AMI to emit the QueueMemberStatus event. This setting will only affect the default for NEW queues, it won\'t change existing queues or enfore the option on in new ones.';
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT', $set, true);
+
+// LOG_UNPAUSE_ON_REASON_CHANGE
+$set['value'] = false;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 120;
+$set['name'] = 'Log Unpause on Pause Reason Change';
+$set['description'] = "When enabled, an additional unpause event is recorded each time an agent's pause reason is changed, separating agent inactivity intervals for reporting.";
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('LOG_UNPAUSE_ON_REASON_CHANGE', $set, true);
