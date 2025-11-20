@@ -25,6 +25,9 @@ function queues_get_config($engine) {
 				if ($amp_conf['QUEUES_MIX_MONITOR']) {
 					$queues_conf->addQueuesGeneral('monitor-type', 'MixMonitor');
 				}
+				if(version_compare($version,'20.16','ge') && isset($amp_conf['LOG_UNPAUSE_ON_REASON_CHANGE'])) {
+					$queues_conf->addQueuesGeneral('log_unpause_on_reason_change',$amp_conf['LOG_UNPAUSE_ON_REASON_CHANGE'] ? 'yes' : 'no');
+				}
 			}
 
 			/* queue extensions */
