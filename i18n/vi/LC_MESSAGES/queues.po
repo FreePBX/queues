@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 22:18-0500\n"
+"POT-Creation-Date: 2025-11-20 02:13-0500\n"
 "PO-Revision-Date: 2017-08-08 15:22+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -87,6 +87,10 @@ msgstr "Tin nhắn thông báo cho Tổng đài viên"
 #: views/form.php:226
 msgid "Agent Announcement"
 msgstr "Thông báo tổng đài viên"
+
+#: install.php:117
+msgid "Agent Called Events Default"
+msgstr "Mặc định các sự kiện đã gọi Tổng đài viên"
 
 #: views/form.php:1884
 msgid "Agent Regex Filter"
@@ -348,6 +352,27 @@ msgstr "Hằng ngày"
 msgid "Default"
 msgstr "Mặc định"
 
+#: install.php:118
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr ""
+"Trạng thái mặc định cho các sự kiện AMI phát hành các sự kiện liên quan đến "
+"cuộc gọi của tổng đài viên. Cài đặt này sẽ chỉ ảnh hưởng đến mặc định của "
+"các hàng đợi mới, nó sẽ không thay đổi hàng đợi hiện tại hoặc thực thi các "
+"tùy chọn trên các hàng đợi mới."
+
+#: install.php:134
+msgid ""
+"Default state for AMI to emit the QueueMemberStatus event. This setting will "
+"only affect the default for NEW queues, it won't change existing queues or "
+"enfore the option on in new ones."
+msgstr ""
+"Trạng thái mặc định cho AMI để phát hành sự kiện QueueMemberStatus. Cài đặt "
+"này sẽ chỉ ảnh hưởng đến mặc định đối với các hàng đợi mới, nó sẽ không thay "
+"đổi các hàng đợi hiện có hoặc thực thi tùy chọn trên các hàng đợi mới."
+
 #: Queues.class.php:202
 msgid "Delete"
 msgstr "Xóa"
@@ -459,6 +484,10 @@ msgstr ""
 
 #: views/form.php:403
 msgid "Honor Penalties"
+msgstr ""
+
+#: install.php:64
+msgid "Honor Wrapup Time Across Queues"
 msgstr ""
 
 #: views/cron.php:59
@@ -634,6 +663,10 @@ msgstr "Rời khỏi Empty"
 msgid "List Queues"
 msgstr "Danh sách Hàng đợi"
 
+#: install.php:148
+msgid "Log Unpause on Pause Reason Change"
+msgstr ""
+
 #: views/form.php:390 views/form.php:398 views/form.php:1307
 #: views/form.php:1646 views/form.php:1680
 msgid "Loose"
@@ -667,6 +700,10 @@ msgstr "Hoãn thành viên"
 #: views/form.php:649
 msgid "Member Status Event"
 msgstr "Sự kiện trạng thái thành viên"
+
+#: install.php:133
+msgid "Member Status Event Default"
+msgstr "Mặc định sự kiện trạng thái thành viên"
 
 #: views/form.php:478 views/form.php:482
 msgid "Menu ID "
@@ -766,6 +803,10 @@ msgstr "Giowis hạn Thành viên Penalty"
 #: views/form.php:1839
 msgid "Periodic Announcements"
 msgstr "Các thông báo định kỳ"
+
+#: install.php:48
+msgid "Persistent Members"
+msgstr "Các thành viên không đổi"
 
 #: install.php:29
 msgid "Playback Queue Caller Count"
@@ -884,6 +925,51 @@ msgstr "Các hàng đợi"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "Mô đun hàng đợi không tìm thấy hoặc bị vô hiệu. Đang hủy!"
 
+#: install.php:95
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+"Hàng đợi: monitor-type = MixMonitor. Cài đặt True sẽ sử dụng ứng dụng  "
+"MixMonitor thay vì Monitor vì thế khái niệm 'joining/mixing' trong các tệp "
+"vào/ra hiện sẽ biến mất khi điều này được kích hoạt."
+
+#: install.php:49
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+"Hàng đợi: persistentmembers. Lưu trữ mỗi thành viên động trong mỗi hàng đợi "
+"tại astdb để khi dấu hoa thị được khởi động lại, mỗi thành viên sẽ được tự "
+"động đọc vào hàng đợi đã được ghi lại của chúng."
+
+#: install.php:65
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr ""
+"Hàng đợi: shared_lastcall,, chỉ hợp lệ với Asterisk 1.6 trở lên. Điều này sẽ "
+"khiến cuộc gọi cuối và các cuộc gọi đã nhận giống nhau trong các thanh viên "
+"đã đăng nhập vào nhiều hàng đợi. Điều này có ích cho việc tạo một hàng đợi "
+"liên quan tới wrapuptime của hàng đợi khác cho thành viên được chia sẻ."
+
+#: install.php:79
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
+msgstr ""
+"Hàng đợi: updatecdr, chỉ hợp lệ với Asterisk 1.6 trở lên. Tùy chọn này được "
+"thực hiện nhằm bắt chước hành vi  chan_agents  của trường CDR dstchannel  "
+"của một cuộc gọi với một tên tổng đài viên mà nó được cài đặt nếu nó sẵn có "
+"tại thời gian đăng nhập với tham số AddQueueMember membername hoặc với các "
+"thành viên động."
+
 #: views/cron.php:84
 msgid "RUN"
 msgstr "CHẠY"
@@ -990,6 +1076,10 @@ msgstr ""
 #: views/form.php:1858
 msgid "Service Level"
 msgstr "Mức dịch vụ"
+
+#: install.php:78
+msgid "Set Agent Name in CDR dstchannel"
+msgstr "Cài Tên Tổng đài viên trong CDR dstchannel"
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
@@ -1141,6 +1231,10 @@ msgstr "Cực nghiêm ngặt"
 msgid "Unlimited"
 msgstr "Không giới hạn"
 
+#: install.php:94
+msgid "Use MixMonitor for Recordings"
+msgstr "Sử dụng MixMonitor cho các bản ghi"
+
 #: functions.inc/hook_core.php:39
 msgid "Use State"
 msgstr "Sử dụng State ( Trạng thái)"
@@ -1197,6 +1291,12 @@ msgstr "Khi không có tổng đài viên nào rỗi"
 #: views/form.php:193
 msgid "When No Ready Agents"
 msgstr "Khi không có tổng đài viên nào sẵn sàng"
+
+#: install.php:149
+msgid ""
+"When enabled, an additional unpause event is recorded each time an agent's "
+"pause reason is changed, separating agent inactivity intervals for reporting."
+msgstr ""
 
 #: views/form.php:996
 msgid ""
@@ -1511,86 +1611,8 @@ msgstr "giây"
 msgid "wrandom"
 msgstr "wrandom ( ngẫu nhiên w)"
 
-#~ msgid "Agent Called Events Default"
-#~ msgstr "Mặc định các sự kiện đã gọi Tổng đài viên"
-
-#~ msgid ""
-#~ "Default state for AMI emit events related to an agent's call. This "
-#~ "setting will only affect the default for NEW queues, it won't change "
-#~ "existing queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "Trạng thái mặc định cho các sự kiện AMI phát hành các sự kiện liên quan "
-#~ "đến cuộc gọi của tổng đài viên. Cài đặt này sẽ chỉ ảnh hưởng đến mặc định "
-#~ "của các hàng đợi mới, nó sẽ không thay đổi hàng đợi hiện tại hoặc thực "
-#~ "thi các tùy chọn trên các hàng đợi mới."
-
-#~ msgid ""
-#~ "Default state for AMI to emit the QueueMemberStatus event. This setting "
-#~ "will only affect the default for NEW queues, it won't change existing "
-#~ "queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "Trạng thái mặc định cho AMI để phát hành sự kiện QueueMemberStatus. Cài "
-#~ "đặt này sẽ chỉ ảnh hưởng đến mặc định đối với các hàng đợi mới, nó sẽ "
-#~ "không thay đổi các hàng đợi hiện có hoặc thực thi tùy chọn trên các hàng "
-#~ "đợi mới."
-
-#~ msgid "Member Status Event Default"
-#~ msgstr "Mặc định sự kiện trạng thái thành viên"
-
-#~ msgid "Persistent Members"
-#~ msgstr "Các thành viên không đổi"
-
 #~ msgid "Queues Module"
 #~ msgstr "Mô đun Hàng đợi"
-
-#~ msgid ""
-#~ "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-#~ "application instead of Monitor so the concept of 'joining/mixing' the in/"
-#~ "out files now goes away when this is enabled."
-#~ msgstr ""
-#~ "Hàng đợi: monitor-type = MixMonitor. Cài đặt True sẽ sử dụng ứng dụng  "
-#~ "MixMonitor thay vì Monitor vì thế khái niệm 'joining/mixing' trong các "
-#~ "tệp vào/ra hiện sẽ biến mất khi điều này được kích hoạt."
-
-#~ msgid ""
-#~ "Queues: persistentmembers. Store each dynamic member in each queue in the "
-#~ "astdb so that when asterisk is restarted, each member will be "
-#~ "automatically read into their recorded queues."
-#~ msgstr ""
-#~ "Hàng đợi: persistentmembers. Lưu trữ mỗi thành viên động trong mỗi hàng "
-#~ "đợi tại astdb để khi dấu hoa thị được khởi động lại, mỗi thành viên sẽ "
-#~ "được tự động đọc vào hàng đợi đã được ghi lại của chúng."
-
-#~ msgid ""
-#~ "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make "
-#~ "the lastcall and calls received be the same in members logged in more "
-#~ "than one queue. This is useful to make the queue respect the wrapuptime "
-#~ "of another queue for a shared member."
-#~ msgstr ""
-#~ "Hàng đợi: shared_lastcall,, chỉ hợp lệ với Asterisk 1.6 trở lên. Điều này "
-#~ "sẽ khiến cuộc gọi cuối và các cuộc gọi đã nhận giống nhau trong các thanh "
-#~ "viên đã đăng nhập vào nhiều hàng đợi. Điều này có ích cho việc tạo một "
-#~ "hàng đợi liên quan tới wrapuptime của hàng đợi khác cho thành viên được "
-#~ "chia sẻ."
-
-#~ msgid ""
-#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
-#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
-#~ "field of a call with an agent name, which is set if available at the "
-#~ "login time with AddQueueMember membername parameter, or with static "
-#~ "members."
-#~ msgstr ""
-#~ "Hàng đợi: updatecdr, chỉ hợp lệ với Asterisk 1.6 trở lên. Tùy chọn này "
-#~ "được thực hiện nhằm bắt chước hành vi  chan_agents  của trường CDR "
-#~ "dstchannel  của một cuộc gọi với một tên tổng đài viên mà nó được cài đặt "
-#~ "nếu nó sẵn có tại thời gian đăng nhập với tham số AddQueueMember "
-#~ "membername hoặc với các thành viên động."
-
-#~ msgid "Set Agent Name in CDR dstchannel"
-#~ msgstr "Cài Tên Tổng đài viên trong CDR dstchannel"
-
-#~ msgid "Use MixMonitor for Recordings"
-#~ msgstr "Sử dụng MixMonitor cho các bản ghi"
 
 #, fuzzy
 #~ msgid ""

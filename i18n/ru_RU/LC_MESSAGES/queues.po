@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 22:18-0500\n"
+"POT-Creation-Date: 2025-11-20 02:13-0500\n"
 "PO-Revision-Date: 2016-07-07 11:27+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com.com>\n"
 "Language-Team: Russian <http://weblate.postmet.com/freepbx/trunkbalance/"
@@ -87,6 +87,10 @@ msgstr "Анонс агента"
 #: views/form.php:226
 msgid "Agent Announcement"
 msgstr "Агент оповещения"
+
+#: install.php:117
+msgid "Agent Called Events Default"
+msgstr "События Вызываемого Агента по умолчанию"
 
 #: views/form.php:1884
 msgid "Agent Regex Filter"
@@ -334,6 +338,26 @@ msgstr "Ежедневно"
 msgid "Default"
 msgstr "По умолчанию"
 
+#: install.php:118
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr ""
+"Состояние по умолчанию для сообщений, относящихся к агентскому вызову. Эта "
+"установка влияет только на установки по умолчанию для НОВОЙ очереди. Эта "
+"установка не меняет существующую очередь."
+
+#: install.php:134
+msgid ""
+"Default state for AMI to emit the QueueMemberStatus event. This setting will "
+"only affect the default for NEW queues, it won't change existing queues or "
+"enfore the option on in new ones."
+msgstr ""
+"Статус по умолчанию для AMI для генерации события QueueMemberStatus. Эта "
+"установка влияет только на настройки по умолчанию для СОЗДАВАЕМОЙ очереди,  "
+"существующие очереди  изменятся не будут."
+
 #: Queues.class.php:202
 msgid "Delete"
 msgstr "Удалить"
@@ -444,6 +468,10 @@ msgstr ""
 #: views/form.php:403
 msgid "Honor Penalties"
 msgstr "Соблюдать уровни доступности"
+
+#: install.php:64
+msgid "Honor Wrapup Time Across Queues"
+msgstr "Давать передышку оператору при работе в нескольких очередях"
 
 #: views/cron.php:59
 msgid "Hourly"
@@ -608,6 +636,10 @@ msgstr "Оставить пустым"
 msgid "List Queues"
 msgstr "Список очередей"
 
+#: install.php:148
+msgid "Log Unpause on Pause Reason Change"
+msgstr ""
+
 #: views/form.php:390 views/form.php:398 views/form.php:1307
 #: views/form.php:1646 views/form.php:1680
 msgid "Loose"
@@ -640,6 +672,10 @@ msgstr "Задержка участника"
 #: views/form.php:649
 msgid "Member Status Event"
 msgstr "Событие статуса участника"
+
+#: install.php:133
+msgid "Member Status Event Default"
+msgstr "Событие по умолчанию Статуса участника"
 
 #: views/form.php:478 views/form.php:482
 msgid "Menu ID "
@@ -737,6 +773,10 @@ msgstr "Максимальное количество отброшенных у�
 #: views/form.php:1839
 msgid "Periodic Announcements"
 msgstr "Периодичность сообщений"
+
+#: install.php:48
+msgid "Persistent Members"
+msgstr "Постоянные операторы"
 
 #: install.php:29
 msgid "Playback Queue Caller Count"
@@ -858,6 +898,43 @@ msgstr "Очереди"
 msgid "Queues module not found or is disabled. Aborting!"
 msgstr "Модуль очереди не найден или отключён. Завершено!"
 
+#: install.php:95
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+"Queues: monitor-type = MixMonitor. Если установлено для записи разговоров "
+"будет использование приложение MixMonitor вместо Monitor, таким образом, "
+"понятие 'присоединения/смешивания' в/из файлы(ов) теперь уйдет, когда это "
+"включено."
+
+#: install.php:49
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+"Queues: persistentmembers. Каждый динамический оператор каждой очереди "
+"сохраняется в базе данных asterisk что бы очереди были корректно "
+"восстановлены в случае перезапуска Asterisk."
+
+#: install.php:65
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr "Queues: shared_lastcall, действительны только с Астериск выше 1.6."
+
+#: install.php:79
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
+msgstr "Queues: updatecdr"
+
 #: views/cron.php:84
 msgid "RUN"
 msgstr "Запустить"
@@ -975,6 +1052,10 @@ msgstr ""
 #: views/form.php:1858
 msgid "Service Level"
 msgstr "Уровень сервиса"
+
+#: install.php:78
+msgid "Set Agent Name in CDR dstchannel"
+msgstr "Назначить имя оператора в поле dstchannel CDR"
 
 #: views/cron.php:72
 msgid "Set this task to happen at random"
@@ -1123,6 +1204,10 @@ msgstr "Строго ограниченный"
 msgid "Unlimited"
 msgstr "Неограничено"
 
+#: install.php:94
+msgid "Use MixMonitor for Recordings"
+msgstr "Использовать MixMonitor для записи разговоров"
+
 #: functions.inc/hook_core.php:39
 msgid "Use State"
 msgstr "Использовать статус"
@@ -1178,6 +1263,12 @@ msgstr "Когда нет свободных агентов"
 #: views/form.php:193
 msgid "When No Ready Agents"
 msgstr "Когда нет готовых агентов"
+
+#: install.php:149
+msgid ""
+"When enabled, an additional unpause event is recorded each time an agent's "
+"pause reason is changed, separating agent inactivity intervals for reporting."
+msgstr ""
 
 #: views/form.php:996
 msgid ""
@@ -1495,78 +1586,8 @@ msgstr "секунды"
 msgid "wrandom"
 msgstr "случайный-выбор"
 
-#~ msgid "Agent Called Events Default"
-#~ msgstr "События Вызываемого Агента по умолчанию"
-
-#~ msgid ""
-#~ "Default state for AMI emit events related to an agent's call. This "
-#~ "setting will only affect the default for NEW queues, it won't change "
-#~ "existing queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "Состояние по умолчанию для сообщений, относящихся к агентскому вызову. "
-#~ "Эта установка влияет только на установки по умолчанию для НОВОЙ очереди. "
-#~ "Эта установка не меняет существующую очередь."
-
-#~ msgid ""
-#~ "Default state for AMI to emit the QueueMemberStatus event. This setting "
-#~ "will only affect the default for NEW queues, it won't change existing "
-#~ "queues or enfore the option on in new ones."
-#~ msgstr ""
-#~ "Статус по умолчанию для AMI для генерации события QueueMemberStatus. Эта "
-#~ "установка влияет только на настройки по умолчанию для СОЗДАВАЕМОЙ "
-#~ "очереди,  существующие очереди  изменятся не будут."
-
-#~ msgid "Honor Wrapup Time Across Queues"
-#~ msgstr "Давать передышку оператору при работе в нескольких очередях"
-
-#~ msgid "Member Status Event Default"
-#~ msgstr "Событие по умолчанию Статуса участника"
-
-#~ msgid "Persistent Members"
-#~ msgstr "Постоянные операторы"
-
 #~ msgid "Queues Module"
 #~ msgstr "Модуль очередей"
-
-#~ msgid ""
-#~ "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
-#~ "application instead of Monitor so the concept of 'joining/mixing' the in/"
-#~ "out files now goes away when this is enabled."
-#~ msgstr ""
-#~ "Queues: monitor-type = MixMonitor. Если установлено для записи разговоров "
-#~ "будет использование приложение MixMonitor вместо Monitor, таким образом, "
-#~ "понятие 'присоединения/смешивания' в/из файлы(ов) теперь уйдет, когда это "
-#~ "включено."
-
-#~ msgid ""
-#~ "Queues: persistentmembers. Store each dynamic member in each queue in the "
-#~ "astdb so that when asterisk is restarted, each member will be "
-#~ "automatically read into their recorded queues."
-#~ msgstr ""
-#~ "Queues: persistentmembers. Каждый динамический оператор каждой очереди "
-#~ "сохраняется в базе данных asterisk что бы очереди были корректно "
-#~ "восстановлены в случае перезапуска Asterisk."
-
-#~ msgid ""
-#~ "Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make "
-#~ "the lastcall and calls received be the same in members logged in more "
-#~ "than one queue. This is useful to make the queue respect the wrapuptime "
-#~ "of another queue for a shared member."
-#~ msgstr "Queues: shared_lastcall, действительны только с Астериск выше 1.6."
-
-#~ msgid ""
-#~ "Queues: updatecdr, only valid with Asterisk 1.6+. This option is "
-#~ "implemented to mimic chan_agents behavior of populating CDR dstchannel "
-#~ "field of a call with an agent name, which is set if available at the "
-#~ "login time with AddQueueMember membername parameter, or with static "
-#~ "members."
-#~ msgstr "Queues: updatecdr"
-
-#~ msgid "Set Agent Name in CDR dstchannel"
-#~ msgstr "Назначить имя оператора в поле dstchannel CDR"
-
-#~ msgid "Use MixMonitor for Recordings"
-#~ msgstr "Использовать MixMonitor для записи разговоров"
 
 #~ msgid ""
 #~ "When set to 'Yes' agents who are on an occupied phone will be skipped as "
