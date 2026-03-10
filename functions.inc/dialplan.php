@@ -112,7 +112,7 @@ function queues_get_config($engine) {
 				// If extension_only don't do this and CFIGNORE
 				if($q['use_queue_context'] != '2') {
 					$ext->add($c, $exten, '', new ext_macro('blkvm-set', 'reset'));
-					$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}U(macro-auto-blkvm)'));
+					$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(U[(]macro-auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}U(macro-auto-blkvm)'));
 				}
 
 				// Inform all the children NOT to send calls to destinations or voicemail
