@@ -5,6 +5,8 @@ class Devstate {
 	private $action = null;
 	private $user = null;
 	private $astman = null;
+	private $queue = '';
+	private $queues = [];
 
 	private $staticAgents = array();
 	private $allAgents = array();
@@ -107,7 +109,7 @@ class Devstate {
 /* this function used for playback queue caller count */
 	private function getuserQueues() {
 		$user = $this->user;
-		if(is_numeric($this ->queue)){
+		if(is_numeric($this->queue)){
 		// need to check varify the caller is a member of this queue
 			if(in_array($user,$this->allAgents[$this->queue])) {
 				$this->agi->set_variable("QUEUES", $this->queue);
