@@ -618,7 +618,6 @@ if(!$ast_ge_120){
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="eventwhencalledw"></i>
 						</div>
 						<div class="col-md-9 radioset input-group">
-							&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="eventwhencalled" id="eventwhencalledyes" value="yes" '. ($default == "yes" ? 'checked' : '') .' >
 							<label for="eventwhencalledyes">'. _("Yes") .'</label>
 							<input type="radio" name="eventwhencalled" id="eventwhencalledno" value="no" '. ($default == "no" ? 'checked' : '') .' >
@@ -650,7 +649,6 @@ if(!$ast_ge_120){
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="eventmemberstatusw"></i>
 						</div>
 						<div class="col-md-9 radioset input-group">
-							&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="eventmemberstatus" id="eventmemberstatusyes" value="yes" '. ($default == "yes" ? 'checked' : '') .' >
 							<label for="eventmemberstatusyes">'. _("Yes") .'</label>
 							<input type="radio" name="eventmemberstatus" id="eventmemberstatusno" value="no" '. ($default == "no" ? 'checked' : '') .' >
@@ -1120,7 +1118,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="recording"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
-								&nbsp;&nbsp;&nbsp;<!--Align Span to other elements. Not sure why it shifts-->
 								<input type="radio" id="record_force" name="recording" value="force" <?php echo ($recording =='force'?'checked':'');?>><label for="record_force"><?php echo _('Force'); ?></label>
 								<input type="radio" id="record_yes" name="recording" value="yes" <?php echo ($recording =='yes'?'checked':'');?>><label for="record_yes"><?php echo _('Yes'); ?></label>
 								<input type="radio" id="record_dontcare" name="recording" value="dontcare" <?php echo ($recording =='dontcare'?'checked':'');?>><label for="record_dontcare"><?php echo _("Don't Care")?></label>
@@ -1299,7 +1296,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="timeoutpriorityw"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
-								&nbsp;&nbsp;&nbsp;
 								<?php $default = ($timeoutpriority ?? "app")?>
 								<input type="radio" name="timeoutpriority" id="timeoutpriorityapp" value="app" <?php echo ($default == "app" ? 'CHECKED' : '') ?> >
 								<label for="timeoutpriorityapp"><?php echo _("Strict") ?></label>
@@ -1354,7 +1350,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="timeoutrestartw"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
-								&nbsp;&nbsp;&nbsp;
 								<?php $default = ($timeoutrestart ?? "no");?>
 								<input type="radio" name="timeoutrestart" id="timeoutrestartyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '')?> >
 								<label for="timeoutrestartyes"><?php echo _("Yes") ?></label>
@@ -1463,7 +1458,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="reportholdtimew"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
-								&nbsp;&nbsp;&nbsp;
 								<?php $default = ($reportholdtime ?? "no");?>
 								<input type="radio" name="reportholdtime" id="reportholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="reportholdtimeyes"><?php echo _("Yes") ?></label>
@@ -1523,7 +1517,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autopausebusyw"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
-								&nbsp;&nbsp;&nbsp;
 								<?php $default = ($autopausebusy ?? "no");?>
 								<input type="radio" name="autopausebusy" id="autopausebusyyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="autopausebusyyes"><?php echo _("Yes") ?></label>
@@ -1552,7 +1545,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="autopauseunavailw"></i>
 							</div>
 							<div class="col-md-9 radioset input-group">
-								&nbsp;&nbsp;&nbsp;
 								<?php $default = ($autopauseunavail ?? "no");?>
 								<input type="radio" name="autopauseunavail" id="autopauseunavailyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="autopauseunavailyes"><?php echo _("Yes") ?></label>
@@ -1784,7 +1776,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
    									<i class="fa fa-question-circle fpbx-help-icon" data-for="announcepositionw"></i>
    								</div>
    								<div class="col-md-9 radioset input-group">
-   								&nbsp;&nbsp;&nbsp;
 								<?php $default = ($thisQ['announce-position'] ?? "no");?>
 								<input type="radio" name="announceposition" id="announcepositionyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="announcepositionyes"><?php echo _("Yes") ?></label>
@@ -1813,7 +1804,6 @@ $hookdata = \FreePBX::Queues()->hookTabs();
    									<i class="fa fa-question-circle fpbx-help-icon" data-for="announceholdtimew"></i>
    								</div>
    								<div class="col-md-9 radioset input-group">
-   								&nbsp;&nbsp;&nbsp;
 								<?php $default = ($thisQ['announce-holdtime'] ?? "no");?>
 								<input type="radio" name="announceholdtime" id="announceholdtimeyes" value="yes" <?php echo ($default == "yes" ? 'checked' : '') ?> >
 								<label for="announceholdtimeyes"><?php echo _("Yes") ?></label>

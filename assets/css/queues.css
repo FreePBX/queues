@@ -25,4 +25,16 @@
 .cronsetheight {
 	min-height: 150px;
 }
-
+.form-group > .col-md-9.radioset.input-group {
+	display: block;
+	flex: 0 0 auto;
+	width: 75%;
+	max-width: 75%;
+	white-space: normal;
+}
+.col-md-9 > span.radioset.input-group {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	white-space: normal;
+}
